@@ -734,7 +734,7 @@ test("week 9 RNA and protein practice loads and grades version-pinned content", 
     }),
   ).toBeVisible();
   await expect(
-    page.getByText(/8 questions · 14 practice points/),
+    page.getByText(/11 questions · 19 practice points/),
   ).toBeVisible();
 
   const isoform = page.locator(
@@ -1022,7 +1022,7 @@ test("week 10 inheritance and variant practice separates transmission and phenot
     }),
   ).toBeVisible();
   await expect(
-    page.getByText(/7 questions · 13 practice points/),
+    page.getByText(/10 questions · 18 practice points/),
   ).toBeVisible();
 
   const risk = page.locator(
@@ -1069,7 +1069,7 @@ test("week 11 signaling practice separates occupancy, response dynamics, and fee
     }),
   ).toBeVisible();
   await expect(
-    page.getByText(/7 questions · 13 practice points/),
+    page.getByText(/9 questions · 15 practice points/),
   ).toBeVisible();
 
   const occupancy = page.locator(
@@ -1131,7 +1131,7 @@ test("week 12 mechanics practice separates modulus, matrix controls, and cell ou
     }),
   ).toBeVisible();
   await expect(
-    page.getByText(/7 questions · 13 practice points/),
+    page.getByText(/9 questions · 15 practice points/),
   ).toBeVisible();
 
   const stress = page.locator(
@@ -1194,7 +1194,7 @@ test("week 13 cell-cycle and cell-fate practice separates arrest, senescence, an
     }),
   ).toBeVisible();
   await expect(
-    page.getByText(/7 questions · 13 practice points/),
+    page.getByText(/8 questions · 14 practice points/),
   ).toBeVisible();
 
   const phase = page.locator(
@@ -1254,7 +1254,7 @@ test("week 14 stem-cell potency and study-design practice checks function and in
     }),
   ).toBeVisible();
   await expect(
-    page.getByText(/7 questions · 13 practice points/),
+    page.getByText(/9 questions · 17 practice points/),
   ).toBeVisible();
 
   const fraction = page.locator(
@@ -1294,6 +1294,120 @@ test("week 14 stem-cell potency and study-design practice checks function and in
   await expect(
     design.getByRole("region", { name: "Submission feedback" }),
   ).toContainText("3 / 3 practice points");
+});
+
+test("the week-14 written-design studio is accessible and keyboard operable", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await page.getByRole("link", { name: "Course catalog", exact: true }).click();
+  await page.getByRole("link", { name: /Foundations of Cell/ }).click();
+  const syllabusStudioLink = page.getByRole("link", {
+    name: "ungraded written-design studio",
+    exact: true,
+  });
+  await expect(syllabusStudioLink).toHaveAttribute(
+    "href",
+    "#/course/cell-biology/lesson/cell-biology-review-design-studio",
+  );
+  await syllabusStudioLink.focus();
+  await page.keyboard.press("Enter");
+
+  const studioLink = page
+    .getByRole("navigation", { name: "Lessons" })
+    .getByRole("link", {
+      name: "Experimental-design studio: mechanisms, controls, and follow-up",
+    });
+
+  const studio = page.locator("article.lesson-reader");
+  await expect(
+    studio.getByRole("heading", {
+      name: "Experimental-design studio: mechanisms, controls, and follow-up",
+    }),
+  ).toBeVisible();
+  await expect(
+    studio.getByRole("heading", { name: "Design prompt" }),
+  ).toBeVisible();
+  await expect(studio).toContainText(
+    "The platform does not collect, score, or store a response.",
+  );
+  await expect(
+    studio.getByRole("list").first().getByRole("listitem"),
+  ).toHaveCount(5);
+  await expect(
+    studio.getByRole("button", { name: "Submit practice response" }),
+  ).toHaveCount(0);
+
+  const accessibility = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+    .analyze();
+  expect(accessibility.violations).toEqual([]);
+
+  const objectiveLink = studio.getByRole("link", {
+    name: "Variant mechanism and isogenic evidence",
+  });
+  await studioLink.focus();
+  await page.keyboard.press("Tab");
+  await expect(objectiveLink).toBeFocused();
+  await page.keyboard.press("Tab");
+  await expect(
+    studio.getByRole("link", {
+      name: "Signaling dynamics, feedback, and perturbation evidence",
+    }),
+  ).toBeFocused();
+  await page.keyboard.press("Shift+Tab");
+  await expect(objectiveLink).toBeFocused();
+  await expect(objectiveLink).toHaveAttribute(
+    "href",
+    "#/course/cell-biology/lesson/cell-biology-20",
+  );
+  await page.keyboard.press("Enter");
+  await expect(
+    page.locator("article.lesson-reader").getByRole("heading", {
+      name: "Variant mechanism and isogenic evidence",
+      level: 2,
+      exact: true,
+    }),
+  ).toBeVisible();
+});
+
+test("all Cell Biology lesson routes pass automated accessibility checks", async ({
+  page,
+  request,
+}) => {
+  test.setTimeout(120_000);
+  const response = await request.get("/api/v1/courses/cell-biology");
+  expect(response.ok()).toBeTruthy();
+  const course = await response.json();
+  const lessons = course.modules.flatMap(
+    (module: { lessons: { id: string; title: string }[] }) => module.lessons,
+  );
+  expect(lessons.length).toBeGreaterThan(0);
+
+  await page.goto("/#/course/cell-biology");
+  const navigation = page.getByRole("navigation", { name: "Lessons" });
+  await expect(navigation).toBeVisible();
+  for (const lesson of lessons) {
+    const href = `#/course/cell-biology/lesson/${encodeURIComponent(lesson.id)}`;
+    const lessonLink = navigation.locator(`a[href="${href}"]`);
+    await expect(lessonLink).toHaveCount(1);
+    await lessonLink.focus();
+    await page.keyboard.press("Enter");
+    await expect(
+      page
+        .locator("article.lesson-reader")
+        .getByRole("heading", { name: lesson.title, level: 2, exact: true }),
+    ).toBeVisible();
+    await expect(lessonLink).toHaveAttribute("aria-current", "page");
+
+    const accessibility = await new AxeBuilder({ page })
+      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .analyze();
+    expect(
+      accessibility.violations,
+      `${lesson.id} (${lesson.title}) has automated accessibility violations`,
+    ).toEqual([]);
+  }
 });
 
 test("week 5 virtual imaging lab delivers CSV, plot, and structured formative grading", async ({
@@ -1382,7 +1496,7 @@ test("week 5 virtual imaging lab delivers CSV, plot, and structured formative gr
     '[data-question-id="cell-biology-12:image-quantification-contrast"]',
   );
   await contrast.getByLabel("Numerical value").fill("9");
-  await contrast.getByLabel("Unit").fill("%");
+  await contrast.getByLabel("Unit").fill("pp");
   await contrast
     .getByRole("button", { name: "Submit practice response" })
     .click();

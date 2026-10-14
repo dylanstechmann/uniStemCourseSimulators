@@ -3,9 +3,12 @@ import json
 from fastapi.testclient import TestClient
 from sqlalchemy import select
 
+from courselab.audit_graded_archives import audit_graded_archives
+from courselab.audit_graded_archives import main as audit_graded_archives_main
 from courselab.db import (
     AssessmentInstance,
     AssessmentPlan,
+    AssessmentSourceArchive,
     GradedSubmission,
     GradedSubmissionAppeal,
     GradedSubmissionAppealReview,
@@ -448,7 +451,7 @@ def test_graded_submission_appeal_is_audited_and_changes_only_effective_grade(gu
         record = queue.json()[0]
         assert record["id"] == appeal["id"]
         assert record["learner"] == "Guest account"
-        assert record["content_is_current"] is True
+        assert record["specification_verified"] is True
         assert record["assessment_title"] == "Control analysis"
         assert record["questions"][0]["prompt"] == "Select a negative control."
         assert record["responses"]["choice"]["response"] == 1
@@ -502,7 +505,7 @@ def test_graded_submission_appeal_is_audited_and_changes_only_effective_grade(gu
         assert db.get(User, reviewer_id) is None
 
 
-def test_graded_submission_appeal_requires_verified_content_and_blocks_self_review(
+def test_graded_submission_appeal_uses_archived_source_after_content_changes(
     guest, app, content_root,
 ):
     _configure_graded_homework(content_root)
@@ -520,22 +523,124 @@ def test_graded_submission_appeal_requires_verified_content_and_blocks_self_revi
     package = json.loads(bank.read_text(encoding="utf-8"))
     package["questions"][0]["prompt"] = "A same-version edit must not replace the saved prompt."
     bank.write_text(json.dumps(package), encoding="utf-8")
+    manifest_path = content_root / "courses" / "test-course" / "course.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["version"] = "0.2.0"
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
     with TestClient(app, headers={"Origin": "http://localhost:8080"}) as reviewer:
         _provision_reviewer(app, reviewer)
         record = reviewer.get("/api/v1/instructor/graded-appeals").json()[0]
-        assert record["content_is_current"] is False
+        assert record["specification_verified"] is True
+        assert record["questions"][0]["prompt"] == "Select a negative control."
+        assert "A same-version edit" not in reviewer.get("/api/v1/instructor/graded-appeals").text
+        reviewed = reviewer.post(
+            f"/api/v1/instructor/graded-appeals/{appeal['id']}/review",
+            json={"decision": "upheld", "review_note": "The archived original assignment supports the automatic result."},
+        )
+        assert reviewed.status_code == 200
+        assert reviewed.json()["status"] == "upheld"
+
+    with app.state.sessions() as db:
+        archived = db.scalar(select(AssessmentSourceArchive))
+        assert archived is not None
+        assert b"Select a negative control." in archived.source_bytes
+        assert b"A same-version edit" not in archived.source_bytes
+
+
+def test_graded_submission_appeal_fails_closed_for_corrupt_archive(guest, app, content_root):
+    _configure_graded_homework(content_root)
+    assert guest.post("/api/v1/enrollments", json={"course_id": "test-course"}).status_code == 201
+    submission = guest.post(
+        "/api/v1/assessments/test-course/homework-1/submissions",
+        json={"responses": {"choice": {"response": 1}}},
+    ).json()
+    appeal = guest.post(
+        f"/api/v1/graded-submissions/{submission['id']}/appeals",
+        json={"reason": "Please compare my response to the preserved source."},
+    ).json()
+    with app.state.sessions() as db:
+        archived = db.scalar(select(AssessmentSourceArchive))
+        archived.source_bytes += b"tampered"
+        db.commit()
+
+    with TestClient(app, headers={"Origin": "http://localhost:8080"}) as reviewer:
+        _provision_reviewer(app, reviewer)
+        record = reviewer.get("/api/v1/instructor/graded-appeals").json()[0]
+        assert record["specification_verified"] is False
         assert record["questions"] is None and record["responses"] == {}
-        for decision, extra in (("adjusted", {"override_score": 0}), ("upheld", {})):
-            denied = reviewer.post(
-                f"/api/v1/instructor/graded-appeals/{appeal['id']}/review",
-                json={"decision": decision, **extra, "review_note": "The saved specification cannot be verified."},
-            )
-            assert denied.status_code == 409
+        denied = reviewer.post(
+            f"/api/v1/instructor/graded-appeals/{appeal['id']}/review",
+            json={"decision": "upheld", "review_note": "The archived digest failed verification."},
+        )
+        assert denied.status_code == 409
         declined = reviewer.post(
             f"/api/v1/instructor/graded-appeals/{appeal['id']}/review",
-            json={"decision": "declined", "review_note": "The original source version is unavailable."},
+            json={"decision": "declined", "review_note": "The archived source could not be verified."},
         )
         assert declined.status_code == 200
+
+
+def test_graded_archive_audit_is_aggregate_read_only_and_detects_corruption(
+    guest, app, content_root
+):
+    _configure_graded_homework(content_root)
+    assert guest.post("/api/v1/enrollments", json={"course_id": "test-course"}).status_code == 201
+    submission = guest.post(
+        "/api/v1/assessments/test-course/homework-1/submissions",
+        json={"responses": {"choice": {"response": 1}}},
+    ).json()
+
+    verified = audit_graded_archives(app.state.sessions)
+    assert verified["mode"] == "report_only"
+    assert verified["database_modified"] is False
+    assert verified["submission_count"] == 1
+    assert verified["counts"] == {"source_archive_verified": 1}
+    assert verified["groups"] == [{
+        "course_id": "test-course",
+        "content_version": "0.1.0",
+        "assessment_id": "homework-1",
+        "status": "source_archive_verified",
+        "submission_count": 1,
+    }]
+    assert submission["id"] not in json.dumps(verified)
+
+    with app.state.sessions() as db:
+        archived = db.scalar(select(AssessmentSourceArchive))
+        archived.source_bytes += b"tampered"
+        db.commit()
+
+    corrupt = audit_graded_archives(app.state.sessions)
+    assert corrupt["counts"] == {"archive_bytes_corrupt": 1}
+    assert corrupt["database_modified"] is False
+    with app.state.sessions() as db:
+        archived = db.scalar(select(AssessmentSourceArchive))
+        assert archived.source_bytes.endswith(b"tampered")
+
+
+def test_graded_archive_audit_distinguishes_missing_archive_and_cli_is_report_only(
+    guest, app, content_root, monkeypatch, capsys
+):
+    _configure_graded_homework(content_root)
+    assert guest.post("/api/v1/enrollments", json={"course_id": "test-course"}).status_code == 201
+    guest.post(
+        "/api/v1/assessments/test-course/homework-1/submissions",
+        json={"responses": {"choice": {"response": 1}}},
+    )
+    with app.state.sessions() as db:
+        archived = db.scalar(select(AssessmentSourceArchive))
+        db.delete(archived)
+        db.commit()
+
+    missing = audit_graded_archives(app.state.sessions)
+    assert missing["counts"] == {"archive_missing": 1}
+    monkeypatch.setenv("DATABASE_URL", app.state.settings.database_url)
+    monkeypatch.setenv("CONTENT_ROOT", str(content_root))
+    assert audit_graded_archives_main([]) == 0
+    cli_report = json.loads(capsys.readouterr().out)
+    assert cli_report["counts"] == {"archive_missing": 1}
+    assert cli_report["database_modified"] is False
+    assert "responses" not in json.dumps(cli_report)
+    assert "score" not in json.dumps(cli_report)
 
 
 def test_instructor_cannot_review_own_graded_submission(guest, app, content_root):
@@ -574,3 +679,47 @@ def test_graded_assignment_rejects_same_version_source_edits(guest, content_root
         "/api/v1/assessments/test-course/homework-1/submissions",
         json={"responses": {"choice": {"response": 0}}},
     ).status_code == 409
+
+
+def test_new_enrollment_cannot_pin_edited_graded_source_under_same_version(
+    guest, app, content_root,
+):
+    _configure_graded_homework(content_root)
+    assert guest.post("/api/v1/enrollments", json={"course_id": "test-course"}).status_code == 201
+    bank = content_root / "courses" / "test-course" / "question-banks" / "private-homework.json"
+    package = json.loads(bank.read_text(encoding="utf-8"))
+    package["questions"][0]["prompt"] = "Changed without a course-version update."
+    bank.write_text(json.dumps(package), encoding="utf-8")
+
+    with TestClient(app, headers={"Origin": "http://localhost:8080"}) as second_learner:
+        session = second_learner.post("/api/v1/auth/guest", json={}).json()
+        second_learner.headers["X-CSRF-Token"] = session["csrf_token"]
+        conflict = second_learner.post(
+            "/api/v1/enrollments", json={"course_id": "test-course"},
+        )
+        assert conflict.status_code == 409
+        assert "course-version update" in conflict.json()["detail"]
+
+    with app.state.sessions() as db:
+        archives = db.scalars(select(AssessmentSourceArchive)).all()
+        assert len(archives) == 1
+        assert b"Select a negative control." in archives[0].source_bytes
+
+
+def test_existing_pinned_plan_archives_verified_source_on_first_post_migration_request(
+    guest, app, content_root,
+):
+    _configure_graded_homework(content_root)
+    assert guest.post("/api/v1/enrollments", json={"course_id": "test-course"}).status_code == 201
+    # Model a plan created before migration 0010, which has no archive row yet.
+    with app.state.sessions() as db:
+        archive = db.scalar(select(AssessmentSourceArchive))
+        db.delete(archive)
+        db.commit()
+
+    delivered = guest.get("/api/v1/assessments/test-course/homework-1/questions")
+    assert delivered.status_code == 200
+    with app.state.sessions() as db:
+        archived = db.scalar(select(AssessmentSourceArchive))
+        assert archived is not None
+        assert b"Select a negative control." in archived.source_bytes

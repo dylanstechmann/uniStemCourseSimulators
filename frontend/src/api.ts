@@ -2,6 +2,7 @@ import type {
   Attempt,
   CardRating,
   CardReviewResult,
+  CaseDraft,
   Course,
   CurriculumMap,
   CourseSummary,
@@ -17,6 +18,7 @@ import type {
   GradedSubmission,
   Lesson,
   Note,
+  NotebookPage,
   Progress,
   PracticeAssessment,
   ReviewQueue,
@@ -91,8 +93,16 @@ export const api = {
   courses: () => request<CourseSummary[]>("/courses"),
   curriculum: () => request<CurriculumMap>("/curriculum"),
   course: (id: string) => request<Course>(`/courses/${encode(id)}`),
+  archivedCourseVersions: (id: string) =>
+    request<string[]>(`/courses/${encode(id)}/versions`),
+  archivedCourse: (id: string, version: string) =>
+    request<Course>(`/courses/${encode(id)}/versions/${encode(version)}`),
   lesson: (id: string, lesson: string) =>
     request<Lesson>(`/courses/${encode(id)}/lessons/${encode(lesson)}`),
+  archivedLesson: (id: string, version: string, lesson: string) =>
+    request<Lesson>(
+      `/courses/${encode(id)}/versions/${encode(version)}/lessons/${encode(lesson)}`,
+    ),
   sources: () => request<Source[]>("/sources"),
   enrollments: () => request<Enrollment[]>("/enrollments"),
   enroll: (course_id: string) =>
@@ -113,11 +123,15 @@ export const api = {
     id: string,
     assessmentId: string,
     responses: Record<string, AssessmentAnswer>,
+    assignmentToken?: string | null,
   ) =>
     request<GradedSubmission>(
       `/assessments/${encode(id)}/${encode(assessmentId)}/submissions`,
       "POST",
-      { responses },
+      {
+        responses,
+        ...(assignmentToken ? { assignment_token: assignmentToken } : {}),
+      },
     ),
   gradedSubmissions: (id: string) =>
     request<GradedSubmission[]>(`/assessments/${encode(id)}/submissions`),
@@ -153,8 +167,31 @@ export const api = {
       completed,
     }),
   notes: (id: string) => request<Note[]>(`/notes/${encode(id)}`),
+  notebook: (query: string, courseId?: string, offset = 0) => {
+    const params = new URLSearchParams({ q: query, offset: String(offset) });
+    if (courseId) params.set("course_id", courseId);
+    return request<NotebookPage>(`/notes?${params.toString()}`);
+  },
   saveNote: (id: string, lesson: string, body: string) =>
     request<Note>(`/notes/${encode(id)}/${encode(lesson)}`, "PUT", { body }),
+  caseDrafts: (id: string) =>
+    request<CaseDraft[]>(`/case-drafts/${encode(id)}`),
+  saveCaseDraft: (
+    id: string,
+    caseId: string,
+    body: {
+      content_version: string;
+      case_sha256: string;
+      response: string;
+      checked_criteria: string[];
+      expected_revision: number;
+    },
+  ) =>
+    request<CaseDraft>(
+      `/case-drafts/${encode(id)}/${encode(caseId)}`,
+      "PUT",
+      body,
+    ),
   bookmarks: () => request<string[]>("/bookmarks"),
   bookmark: (id: string, saved: boolean) =>
     request(`/bookmarks/${encode(id)}`, "PUT", { saved }),

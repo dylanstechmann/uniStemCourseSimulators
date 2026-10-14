@@ -29,26 +29,26 @@ LESSONS = [("geroscience", f"geroscience-{n}") for n in range(9, 15)] + [
     ("organic-chemistry", "organic-chemistry-6"), ("physics-em", "physics-em-6"), ("physics-mechanics", "physics-mechanics-6"), ("statics-materials", "statics-materials-6"),
     ("statistics", "statistics-7"), ("statistics", "statistics-8"), ("programming", "programming-6"), ("programming", "programming-7"),
     ("geroscience", "geroscience-15"), ("genetics", "genetics-9"), ("biochemistry", "biochemistry-7"), ("physiology", "physiology-7"),
-    ("signals-control", "signals-control-6"), ("robotics", "robotics-6"), ("geroscience", "geroscience-16"),
+    ("signals-control", "signals-control-6"), ("robotics", "robotics-6"), ("geroscience", "geroscience-16"), ("geroscience", "geroscience-17"),
 ] + [("genetics", f"genetics-{n}") for n in range(10, 16)] + [("physiology", f"physiology-{n}") for n in range(8, 15)] + [("biochemistry", f"biochemistry-{n}") for n in range(8, 14)] + [
-    ("statistics", f"statistics-{n}") for n in range(9, 16)] + [("biomaterials", f"biomaterials-{n}") for n in range(7, 14)] + [
-    ("bioreactors", f"bioreactors-{n}") for n in range(7, 14)] + [("transport", f"transport-{n}") for n in range(7, 14)] + [
-    ("cellular-biomechanics", f"cellular-biomechanics-{n}") for n in range(7, 14)] + [
-    ("statics-materials", f"statics-materials-{n}") for n in range(7, 14)] + [
+    ("statistics", f"statistics-{n}") for n in range(9, 16)] + [("biomaterials", f"biomaterials-{n}") for n in range(7, 14)] + [("biomaterials", "biomaterials-15")] + [
+    ("bioreactors", f"bioreactors-{n}") for n in range(7, 14)] + [("transport", f"transport-{n}") for n in range(7, 14)] + [("transport", "transport-16")] + [
+    ("cellular-biomechanics", f"cellular-biomechanics-{n}") for n in range(7, 14)] + [("cellular-biomechanics", "cellular-biomechanics-15")] + [
+    ("statics-materials", f"statics-materials-{n}") for n in range(7, 14)] + [("statics-materials", "statics-materials-15")] + [
     ("signals-control", f"signals-control-{n}") for n in range(7, 14)] + [
-    ("differential-equations", f"differential-equations-{n}") for n in range(7, 14)] + [
+    ("differential-equations", f"differential-equations-{n}") for n in range(7, 14)] + [("differential-equations", "differential-equations-15")] + [
     ("linear-algebra", f"linear-algebra-{n}") for n in range(7, 14)] + [
-    ("calculus-1", f"calculus-1-{n}") for n in range(7, 14)] + [
-    ("calculus-2", f"calculus-2-{n}") for n in range(7, 14)] + [
-    ("calculus-3", f"calculus-3-{n}") for n in range(7, 14)] + [
-    ("general-chemistry-1", f"general-chemistry-1-{n}") for n in range(7, 14)] + [
-    ("general-chemistry-2", f"general-chemistry-2-{n}") for n in range(8, 15)] + [
+    ("calculus-1", f"calculus-1-{n}") for n in range(7, 14)] + [("calculus-1", "calculus-1-15")] + [
+    ("calculus-2", f"calculus-2-{n}") for n in range(7, 14)] + [("calculus-2", "calculus-2-15")] + [
+    ("calculus-3", f"calculus-3-{n}") for n in range(7, 15)] + [
+    ("general-chemistry-1", f"general-chemistry-1-{n}") for n in range(7, 15)] + [
+    ("general-chemistry-2", f"general-chemistry-2-{n}") for n in range(8, 16)] + [
     ("organic-chemistry", f"organic-chemistry-{n}") for n in range(7, 14)] + [
-    ("physics-mechanics", f"physics-mechanics-{n}") for n in range(7, 14)] + [
-    ("physics-em", f"physics-em-{n}") for n in range(7, 14)] + [
-    ("circuits", f"circuits-{n}") for n in range(7, 14)] + [
+    ("physics-mechanics", f"physics-mechanics-{n}") for n in range(7, 14)] + [("physics-mechanics", "physics-mechanics-15")] + [
+    ("physics-em", f"physics-em-{n}") for n in range(7, 14)] + [("physics-em", "physics-em-16")] + [
+    ("circuits", f"circuits-{n}") for n in range(7, 14)] + [("circuits", "circuits-15")] + [
     ("programming", f"programming-{n}") for n in range(8, 14)] + [
-    ("robotics", f"robotics-{n}") for n in range(7, 14)]
+    ("robotics", f"robotics-{n}") for n in range(7, 15)]
 
 
 def load(course):
@@ -82,14 +82,15 @@ def test_objectives_are_linked_to_outcomes_and_assessed(course, lesson_id):
     manifest, _, lesson = lesson_record(course, lesson_id)
     objectives = {o["id"]: o for o in manifest["lesson_objectives"]}
     outcomes = {o["id"] for o in manifest["outcomes"]}
-    assert len(lesson["objectives"]) == 3
+    # Later bounded units may add an objective to an existing lesson.
+    assert len(lesson["objectives"]) >= 3
     for objective_id in lesson["objectives"]:
         assert objectives[objective_id]["course_outcome_ids"], objective_id
         assert set(objectives[objective_id]["course_outcome_ids"]) <= outcomes
     bank = {q["id"]: q for q in json.loads((COURSES / course / "question-banks/practice.json").read_text(encoding="utf-8"))["questions"]}
     covered = {o for q in lesson["question_ids"] for o in bank[q]["objective_ids"]}
     assert covered == set(lesson["objectives"])
-    assert len(lesson["card_ids"]) == 4
+    assert len(lesson["card_ids"]) >= 4
     assert len(lesson["question_ids"]) >= 5
 
 
@@ -180,16 +181,19 @@ def test_genetics_schedule_places_every_lesson_once_and_stays_partial():
     assert [w["week"] for w in weeks] == list(range(1, 15))
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
-    assert len(all_lessons) == 16
+    assert len(all_lessons) == 18
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])
     assert all(a["mode"] != "graded" for a in manifest["assessments"])
     assert manifest["maturity"] == "partial" and manifest["review"]["status"] == "unreviewed"
     assert manifest["grading_policy"]["mode"] == "formative-only"
-    assert "not evidence of semester equivalence" in manifest["duration"]["equivalent_structure"]
+    assert "does not establish equivalence to MIT 7.03 or a complete semester" in manifest["duration"]["equivalent_structure"]
+    # The association lab follows the week-12 association/heritability lessons it applies.
     lab_week = next(w for w in weeks if "genetics-lab-01" in w["lesson_ids"])
-    assert lab_week["week"] == 12 and "genetics-week12-association-lab" in lab_week["assessment_ids"]
+    assert lab_week["week"] == 13 and "genetics-week12-association-lab" in lab_week["assessment_ids"]
+    association_week = next(w for w in weeks if "genetics-4" in w["lesson_ids"])
+    assert association_week["week"] < lab_week["week"] and "genetics-6" in association_week["lesson_ids"]
     assert "genetics-case" in weeks[-1]["assessment_ids"]
 
 
@@ -253,7 +257,7 @@ def test_physiology_schedule_places_every_lesson_once_and_stays_partial():
     assert [w["week"] for w in weeks] == list(range(1, 15))
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
-    assert len(all_lessons) == 15
+    assert len(all_lessons) == 16
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])
@@ -311,14 +315,14 @@ def test_biochemistry_schedule_places_every_lesson_once_and_stays_partial():
     assert [w["week"] for w in weeks] == list(range(1, 15))
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
-    assert len(all_lessons) == 14
+    assert len(all_lessons) == 27
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])
     assert all(a["mode"] != "graded" for a in manifest["assessments"])
     assert manifest["maturity"] == "partial" and manifest["review"]["status"] == "unreviewed"
     assert manifest["grading_policy"]["mode"] == "formative-only"
-    assert "not evidence of semester equivalence" in manifest["duration"]["equivalent_structure"]
+    assert "not measured semester equivalence" in manifest["duration"]["equivalent_structure"]
     lab_week = next(w for w in weeks if "biochemistry-lab-01" in w["lesson_ids"])
     assert lab_week["week"] == 7 and "biochemistry-week7-kinetics-lab" in lab_week["assessment_ids"]
     assert "biochemistry-case" in weeks[-1]["assessment_ids"] and "biochemistry-13" in weeks[-1]["lesson_ids"]
@@ -360,7 +364,7 @@ def test_statistics_schedule_places_every_lesson_once_and_stays_partial():
     assert [w["week"] for w in weeks] == list(range(1, 15))
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
-    assert len(all_lessons) == 16
+    assert len(all_lessons) == 18
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])
@@ -381,8 +385,8 @@ def test_statistics_package_gives_no_protocols_or_advice():
     text = (COURSES / "statistics/modules/15-planning-a-confirmatory-study.md").read_text(encoding="utf-8")
     assert "not guidance for any real study or for any person or animal" in text
     syllabus = (COURSES / "statistics/syllabus.md").read_text(encoding="utf-8")
-    assert "Version: 0.4.0." in syllabus and "Proposed 14-week schedule" in syllabus
-    assert all(f"- {outcome['description']}" in syllabus for outcome in manifest["outcomes"]) and len(manifest["outcomes"]) == 5
+    assert f"Version: {manifest['version']}." in syllabus and "Proposed 14-week schedule" in syllabus
+    assert all(f"- {outcome['description']}" in syllabus for outcome in manifest["outcomes"]) and len(manifest["outcomes"]) == 8
 
 
 def test_statistics_lab_keys_match_the_dataset_and_the_lab_is_labelled_synthetic():
@@ -407,7 +411,7 @@ def test_biomaterials_schedule_places_every_lesson_once_and_stays_partial():
     assert [w["week"] for w in weeks] == list(range(1, 15))
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
-    assert len(all_lessons) == 14
+    assert len(all_lessons) == 16
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])
@@ -434,7 +438,7 @@ def test_biomaterials_package_gives_no_protocols_or_advice_and_no_efficacy_claim
         text = (COURSES / "biomaterials/modules" / name).read_text(encoding="utf-8")
         assert phrase in text, name
     syllabus = (COURSES / "biomaterials/syllabus.md").read_text(encoding="utf-8")
-    assert "Version: 0.3.0." in syllabus and "Proposed 14-week schedule" in syllabus
+    assert f"Version: {manifest['version']}." in syllabus and "Proposed 14-week schedule" in syllabus
     assert all(f"- {outcome['description']}" in syllabus for outcome in manifest["outcomes"])
 
 
@@ -453,7 +457,7 @@ def test_bioreactors_schedule_places_every_lesson_once_and_stays_partial():
     assert [w["week"] for w in weeks] == list(range(1, 15))
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
-    assert len(all_lessons) == 14
+    assert len(all_lessons) == 16
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])
@@ -476,12 +480,13 @@ def test_bioreactors_package_gives_no_protocols_recipes_or_advice():
         "08-continuous-culture-washout-and-perfusion.md": "Nothing here is a protocol or a statement about any real cell line",
         "10-shear-eddies-and-cell-damage.md": "Nothing here is a design or a statement about any real cell line",
         "13-designing-a-scale-down-experiment.md": "not a protocol, a validation plan or a statement about any real process",
+        "15-fed-batch-culture-volume-change-and-feeding.md": "Nothing here is a protocol, a feeding recipe or a statement about any real cell line or process",
     }
     for name, phrase in limits.items():
         text = (COURSES / "bioreactors/modules" / name).read_text(encoding="utf-8")
         assert phrase in text, name
     syllabus = (COURSES / "bioreactors/syllabus.md").read_text(encoding="utf-8")
-    assert "Version: 0.4.0." in syllabus and "Proposed 14-week schedule" in syllabus
+    assert f"Version: {manifest['version']}." in syllabus and "Proposed 14-week schedule" in syllabus
     assert all(f"- {outcome['description']}" in syllabus for outcome in manifest["outcomes"])
 
 
@@ -500,7 +505,7 @@ def test_transport_schedule_places_every_lesson_once_and_stays_partial():
     assert [w["week"] for w in weeks] == list(range(1, 15))
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
-    assert len(all_lessons) == 14
+    assert len(all_lessons) == 17
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])
@@ -529,7 +534,7 @@ def test_transport_package_gives_no_protocols_or_handling_procedures():
         text = (COURSES / "transport/modules" / name).read_text(encoding="utf-8")
         assert phrase in text, name
     syllabus = (COURSES / "transport/syllabus.md").read_text(encoding="utf-8")
-    assert "Version: 0.4.0." in syllabus and "Proposed 14-week schedule" in syllabus
+    assert f"Version: {manifest['version']}." in syllabus and "Proposed 14-week schedule" in syllabus
     assert all(f"- {outcome['description']}" in syllabus for outcome in manifest["outcomes"])
 
 
@@ -548,7 +553,7 @@ def test_cellular_biomechanics_schedule_places_every_lesson_once_and_stays_parti
     assert [w["week"] for w in weeks] == list(range(1, 15))
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
-    assert len(all_lessons) == 14
+    assert len(all_lessons) == 16
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])
@@ -579,7 +584,7 @@ def test_cellular_biomechanics_package_gives_no_protocols_or_handling_procedures
         text = (COURSES / "cellular-biomechanics/modules" / name).read_text(encoding="utf-8")
         assert phrase in text, name
     syllabus = (COURSES / "cellular-biomechanics/syllabus.md").read_text(encoding="utf-8")
-    assert "Version: 0.3.0." in syllabus and "Proposed 14-week schedule" in syllabus
+    assert f"Version: {manifest['version']}." in syllabus and "Proposed 14-week schedule" in syllabus
     assert all(f"- {outcome['description']}" in syllabus for outcome in manifest["outcomes"])
 
 
@@ -597,7 +602,7 @@ def test_statics_materials_schedule_places_every_lesson_once_and_stays_partial()
     assert [w["week"] for w in weeks] == list(range(1, 15))
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
-    assert len(all_lessons) == 14
+    assert len(all_lessons) == 16
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])
@@ -631,7 +636,7 @@ def test_statics_materials_package_gives_no_design_basis_or_test_protocol():
         text = (COURSES / "statics-materials/modules" / name).read_text(encoding="utf-8")
         assert phrase in text, name
     syllabus = (COURSES / "statics-materials/syllabus.md").read_text(encoding="utf-8")
-    assert "Version: 0.4.0." in syllabus and "Proposed 14-week schedule" in syllabus
+    assert f"Version: {manifest['version']}." in syllabus and "Proposed 14-week schedule" in syllabus
     assert all(f"- {outcome['description']}" in syllabus for outcome in manifest["outcomes"])
 
 
@@ -650,7 +655,7 @@ def test_signals_control_schedule_places_every_lesson_once_and_stays_partial():
     assert [w["week"] for w in weeks] == list(range(1, 15))
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
-    assert len(all_lessons) == 14
+    assert len(all_lessons) == 16
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])
@@ -684,7 +689,7 @@ def test_signals_control_package_gives_no_controller_settings_or_protocols():
         text = (COURSES / "signals-control/modules" / name).read_text(encoding="utf-8")
         assert phrase in text, name
     syllabus = (COURSES / "signals-control/syllabus.md").read_text(encoding="utf-8")
-    assert "Version: 0.4.0." in syllabus and "Proposed 14-week schedule" in syllabus
+    assert f"Version: {manifest['version']}." in syllabus and "Proposed 14-week schedule" in syllabus
     assert all(f"- {outcome['description']}" in syllabus for outcome in manifest["outcomes"])
 
 
@@ -703,7 +708,7 @@ def test_differential_equations_schedule_places_every_lesson_once_and_stays_part
     assert [w["week"] for w in weeks] == list(range(1, 15))
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
-    assert len(all_lessons) == 14
+    assert len(all_lessons) == 16
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])
@@ -712,7 +717,7 @@ def test_differential_equations_schedule_places_every_lesson_once_and_stays_part
     assert manifest["grading_policy"]["mode"] == "formative-only"
     assert "not evidence of semester equivalence" in manifest["duration"]["equivalent_structure"]
     prototype_weeks = {lesson: w["week"] for w in weeks for lesson in w["lesson_ids"] if lesson in {f"differential-equations-{n}" for n in range(1, 5)}}
-    assert prototype_weeks == {"differential-equations-1": 1, "differential-equations-2": 4, "differential-equations-3": 6, "differential-equations-4": 11}
+    assert prototype_weeks == {"differential-equations-1": 1, "differential-equations-2": 4, "differential-equations-3": 7, "differential-equations-4": 11}
     lab_week = next(w for w in weeks if "differential-equations-lab-01" in w["lesson_ids"])
     assert lab_week["week"] == 13 and "differential-equations-week13-fitting-lab" in lab_week["assessment_ids"]
     assert "differential-equations-case" in weeks[-1]["assessment_ids"] and "differential-equations-13" in weeks[-1]["lesson_ids"]

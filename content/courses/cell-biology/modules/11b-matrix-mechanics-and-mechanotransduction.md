@@ -16,13 +16,19 @@ For a simple uniform loading model, **engineering stress** is applied force divi
 
 `σ = F / A`
 
+**In words:** stress is applied force divided by the area over which that force acts.
+
 Stress has units of pascals (`Pa = N/m²`). **Engineering strain** is the change in length divided by the original length:
 
 `ε = ΔL / L₀`
 
+**In words:** engineering strain is the length change divided by the original length.
+
 Strain is dimensionless. For a homogeneous, isotropic material in a stated linear-elastic range, the **Young modulus** is the slope of the stress–strain relation:
 
 `E = Δσ / Δε`
+
+**In words:** within the stated linear-elastic range, Young’s modulus is the change in stress divided by the change in strain.
 
 The modulus has pressure units. It describes a specified material, geometry, loading direction, hydration state, temperature, and measurement range. Stress is not force alone; stiffness is not simply “how much force it takes” unless the geometry and test mode are defined.
 

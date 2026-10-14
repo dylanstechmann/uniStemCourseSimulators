@@ -7,7 +7,7 @@
   "domain": "Mathematics",
   "level": "Year 1",
   "maturity": "partial",
-  "version": "0.4.0",
+  "version": "0.4.8",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -15,7 +15,8 @@
     "source_sha256": "a77a7cb7f5be2ffa12068877042ac775c6d9b79b83ac2f316fe4f26a0d3d783b",
     "migration_version": "1.0",
     "modifications": [
-      "Corrected the geometric-series tail arithmetic; the original approximation and exact sum are preserved."
+      "Corrected the geometric-series tail arithmetic; the original approximation and exact sum are preserved.",
+      "Linked the first four lesson objectives to the matching outcomes, clarified the improper-integral outcome, and added direct checks for integration-method choice, Taylor-polynomial construction, and power-series convergence intervals."
     ]
   },
   "prerequisites": {
@@ -30,7 +31,7 @@
   "outcomes": [
     {
       "id": "calculus-2-outcome-1",
-      "description": "Select and justify an integration method.",
+      "description": "Select and justify integration methods and convergence of improper integrals.",
       "bloom": "evaluate"
     },
     {
@@ -47,6 +48,11 @@
       "id": "calculus-2-outcome-4",
       "description": "Use Taylor approximations with an error interpretation.",
       "bloom": "apply"
+    },
+    {
+      "id": "calculus-2-outcome-5",
+      "description": "Evaluate selected indeterminate limits and justify the method used.",
+      "bloom": "evaluate"
     }
   ],
   "lesson_objectives": [
@@ -54,49 +60,66 @@
       "id": "calculus-2-1-objective-1",
       "description": "Choose substitution, parts, or partial fractions from structure.",
       "bloom": "evaluate",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "calculus-2-outcome-1"
+      ]
     },
     {
       "id": "calculus-2-1-objective-2",
       "description": "Determine whether an improper integral converges.",
       "bloom": "understand",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "calculus-2-outcome-1"
+      ]
     },
     {
       "id": "calculus-2-2-objective-1",
       "description": "Select a convergence test for a series.",
       "bloom": "evaluate",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "calculus-2-outcome-3"
+      ]
     },
     {
       "id": "calculus-2-2-objective-2",
       "description": "Use Taylor polynomials with a remainder interpretation.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "calculus-2-outcome-4"
+      ]
     },
     {
       "id": "calculus-2-3-objective-1",
       "description": "Set bounds from the physical process before integrating.",
       "bloom": "understand",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "calculus-2-outcome-2"
+      ]
     },
     {
       "id": "calculus-2-3-objective-2",
       "description": "Interpret a variable-force integral and check units.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "calculus-2-outcome-2"
+      ]
     },
     {
       "id": "calculus-2-4-objective-1",
       "description": "Build a Taylor polynomial from derivatives at a center.",
       "bloom": "create",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "calculus-2-outcome-4"
+      ]
     },
     {
       "id": "calculus-2-4-objective-2",
       "description": "State where a series converges and how truncation error is controlled.",
       "bloom": "understand",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "calculus-2-outcome-3",
+        "calculus-2-outcome-4"
+      ]
     },
     {
       "id": "calculus-2-5-objective-1",
@@ -326,6 +349,30 @@
       ]
     },
     {
+      "id": "calculus-2-14-objective-1",
+      "description": "Classify quotient forms after substitution and state whether L’Hôpital’s rule is eligible.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-2-outcome-5"
+      ]
+    },
+    {
+      "id": "calculus-2-14-objective-2",
+      "description": "Evaluate selected 0/0 and ∞/∞ limits while checking the rule’s hypotheses at every step.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "calculus-2-outcome-5"
+      ]
+    },
+    {
+      "id": "calculus-2-14-objective-3",
+      "description": "Choose algebraic or transformed methods for other indeterminate forms and state domain conditions.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "calculus-2-outcome-5"
+      ]
+    },
+    {
       "id": "calculus-2-lab-01-objective-1",
       "description": "Summarize synthetic force observations and calculate numerical work.",
       "bloom": "apply",
@@ -351,11 +398,35 @@
         "calculus-2-outcome-2",
         "calculus-2-outcome-4"
       ]
+    },
+    {
+      "id": "calculus-2-15-objective-1",
+      "description": "Integrate products of powers of sine and cosine by the odd-power substitution or by half-angle reduction, and integrate tangent and secant forms.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "calculus-2-outcome-1"
+      ]
+    },
+    {
+      "id": "calculus-2-15-objective-2",
+      "description": "Choose and carry out a sine, tangent or secant substitution for the square root of a quadratic, convert the bounds, and return to x with a reference triangle and the correct branch.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "calculus-2-outcome-1"
+      ]
+    },
+    {
+      "id": "calculus-2-15-objective-3",
+      "description": "Complete the square to reduce a general quadratic to an arctangent or arcsine form, and check results by differentiation, geometry or numerical integration.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-2-outcome-1"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week scope, retaining compact prototype readings in weeks 1, 4, 7 and 10. Workload and human review are absent; this is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week local sequence with 15 readings; selected indeterminate limits are grouped with improper integrals. Workload and human review are absent; this is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
@@ -369,21 +440,25 @@
       },
       {
         "week": 2,
-        "title": "Integration methods and domain checks",
+        "title": "Integration methods, trigonometric integrals and substitution",
         "lesson_ids": [
-          "calculus-2-7"
+          "calculus-2-7",
+          "calculus-2-15"
         ],
         "assessment_ids": [
-          "calculus-2-7-practice"
+          "calculus-2-7-practice",
+          "calculus-2-15-practice"
         ]
       },
       {
         "week": 3,
-        "title": "Improper integrals, singularities and comparison",
+        "title": "Indeterminate limits and improper integrals",
         "lesson_ids": [
+          "calculus-2-14",
           "calculus-2-8"
         ],
         "assessment_ids": [
+          "calculus-2-14-practice",
           "calculus-2-8-practice"
         ]
       },
@@ -521,10 +596,11 @@
             "calculus-2-1-objective-1",
             "calculus-2-1-objective-2"
           ],
-          "worked_example": "For C(t)=C₀e^(−kt), k>0, the total exposure is ∫₀∞C₀e^(−kt)dt = C₀/k.",
+          "worked_example": "For the constructed rate C(t)=C₀ exp(−kt), with C₀>0 and k>0, integrate to a finite cutoff B to obtain C₀(1−exp(−kB))/k. Taking B to infinity gives total exposure C₀/k, with concentration-times-time units; if k is zero or negative, no finite total exists.",
           "question_ids": [
             "calculus-2-1:check",
-            "calculus-2-1:improper-integral"
+            "calculus-2-1:improper-integral",
+            "calculus-2-1:method-selection"
           ],
           "card_ids": [
             "calculus-2-0-0",
@@ -548,7 +624,7 @@
             "calculus-2-2-objective-1",
             "calculus-2-2-objective-2"
           ],
-          "worked_example": "For |x|<1, 1/(1−x)=Σxⁿ. At x=0.2, truncating after n=2 gives 1.24 versus 1.25; the tail is 0.2³/(1−0.2)=0.008/0.8=0.01.",
+          "worked_example": "For the geometric series with ratio 0.2, keeping terms n=0 through 2 gives 1.24 against the exact total 1.25, and the omitted tail is 0.01. This remainder is exact for a geometric tail. A separate Taylor example approximates e^0.5 by 1.625 with Lagrange error below 0.0344, illustrating why a different truncation needs its own theorem and hypotheses.",
           "question_ids": [
             "calculus-2-2:check",
             "calculus-2-2:taylor-remainder"
@@ -575,7 +651,7 @@
             "calculus-2-3-objective-1",
             "calculus-2-3-objective-2"
           ],
-          "worked_example": "If a spring-like actuator applies F(x)=4x N from x=0 to 3 m, W=∫₀³4x dx=18 J.",
+          "worked_example": "For the constructed force model F(x)=4x N over 0≤x≤3 m, small displacement contributions sum in the limit to W=∫₀³4x dx=18 J. Force times displacement has units N·m, equivalent to joules, and the positive sign means the force acts along the chosen displacement.",
           "question_ids": [
             "calculus-2-3:check",
             "calculus-2-3:variable-force-work"
@@ -602,10 +678,12 @@
             "calculus-2-4-objective-1",
             "calculus-2-4-objective-2"
           ],
-          "worked_example": "For eˣ near x=0, the quadratic approximation at x=0.2 is 1+0.2+0.2²/2=1.22; the cubic remainder is under about 0.0017 on that interval.",
+          "worked_example": "For f(x)=eˣ centered at zero, P₂(x)=1+x+x²/2 gives 1.22 at x=0.2. On [0,0.2], the third derivative is at most e^0.2, so the Lagrange error is less than e^0.2·0.2³/3!, about 0.00163. At x=0.5 the same polynomial gives 1.625 with a valid interval bound below 0.0344; actual error and guaranteed error bound are distinct quantities.",
           "question_ids": [
             "calculus-2-4:check",
-            "calculus-2-4:alternating-series-error"
+            "calculus-2-4:alternating-series-error",
+            "calculus-2-4:taylor-from-derivatives",
+            "calculus-2-4:power-series-interval"
           ],
           "card_ids": [
             "calculus-2-3-0",
@@ -949,6 +1027,81 @@
       ]
     },
     {
+      "id": "calculus-2-module-14",
+      "title": "Indeterminate limits and L’Hôpital’s rule",
+      "source_ids": [
+        "calculus-lhospital"
+      ],
+      "lessons": [
+        {
+          "id": "calculus-2-14",
+          "title": "Indeterminate limits and L’Hôpital’s rule",
+          "reading": "modules/14-indeterminate-limits-and-lhopitals-rule.md",
+          "objectives": [
+            "calculus-2-14-objective-1",
+            "calculus-2-14-objective-2",
+            "calculus-2-14-objective-3"
+          ],
+          "worked_example": "For lim_(x→0) (e^(2x)−1)/sin(3x), substitution gives 0/0. Differentiating numerator and denominator gives 2e^(2x)/(3cos(3x)), whose limit is 2/3; the original limit is therefore 2/3. The derivatives are not combined with the quotient rule.",
+          "question_ids": [
+            "calculus-2-14:form-classification",
+            "calculus-2-14:nonindeterminate-warning",
+            "calculus-2-14:lhopital-exp",
+            "calculus-2-14:lhopital-rational",
+            "calculus-2-14:lhopital-repeat",
+            "calculus-2-14:transform-product",
+            "calculus-2-14:transform-power",
+            "calculus-2-14:method-selection"
+          ],
+          "card_ids": [
+            "calculus-2-14-card-1",
+            "calculus-2-14-card-2",
+            "calculus-2-14-card-3",
+            "calculus-2-14-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "calculus-2-module-15",
+      "title": "Trigonometric integrals, trigonometric substitution and completing the square",
+      "source_ids": [
+        "calculus-trig-integration"
+      ],
+      "lessons": [
+        {
+          "id": "calculus-2-15",
+          "title": "Trigonometric integrals, trigonometric substitution and completing the square",
+          "reading": "modules/15-trigonometric-integrals-substitution-and-completing-the-square.md",
+          "objectives": [
+            "calculus-2-15-objective-1",
+            "calculus-2-15-objective-2",
+            "calculus-2-15-objective-3"
+          ],
+          "worked_example": "For ∫₀^1.5 x²/√(9 − x²) dx, set x = 3 sin θ so the radical becomes 3 cos θ and the bounds become 0 and π/6. The integrand reduces to 9 sin²θ, and the half-angle identity gives 9(π/12 − √3/8) ≈ 0.4076, which a 200,000-panel midpoint sum confirms.",
+          "question_ids": [
+            "calculus-2-15:odd-power",
+            "calculus-2-15:even-power",
+            "calculus-2-15:tangent-integral",
+            "calculus-2-15:sine-substitution",
+            "calculus-2-15:tangent-substitution",
+            "calculus-2-15:secant-substitution",
+            "calculus-2-15:completed-square-arctangent",
+            "calculus-2-15:completed-square-arcsine",
+            "calculus-2-15:substitution-choice",
+            "calculus-2-15:odd-even-strategy",
+            "calculus-2-15:branch-check"
+          ],
+          "card_ids": [
+            "calculus-2-15-card-1",
+            "calculus-2-15-card-2",
+            "calculus-2-15-card-3",
+            "calculus-2-15-card-4"
+          ]
+        }
+      ]
+    },
+    {
       "id": "calculus-2-module-lab-01",
       "title": "Virtual lab 1: force integration, geometric tails and sensor offset",
       "source_ids": [
@@ -994,13 +1147,15 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "calculus-2-1-objective-1",
-        "calculus-2-1-objective-2"
+        "calculus-2-1-objective-2",
+        "calculus-2-outcome-1"
       ],
       "question_ids": [
         "calculus-2-1:check",
-        "calculus-2-1:improper-integral"
+        "calculus-2-1:improper-integral",
+        "calculus-2-1:method-selection"
       ],
-      "points": 2
+      "points": 3
     },
     {
       "id": "calculus-2-2-practice",
@@ -1009,7 +1164,9 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "calculus-2-2-objective-1",
-        "calculus-2-2-objective-2"
+        "calculus-2-2-objective-2",
+        "calculus-2-outcome-3",
+        "calculus-2-outcome-4"
       ],
       "question_ids": [
         "calculus-2-2:check",
@@ -1024,7 +1181,8 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "calculus-2-3-objective-1",
-        "calculus-2-3-objective-2"
+        "calculus-2-3-objective-2",
+        "calculus-2-outcome-2"
       ],
       "question_ids": [
         "calculus-2-3:check",
@@ -1039,13 +1197,17 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "calculus-2-4-objective-1",
-        "calculus-2-4-objective-2"
+        "calculus-2-4-objective-2",
+        "calculus-2-outcome-3",
+        "calculus-2-outcome-4"
       ],
       "question_ids": [
         "calculus-2-4:check",
-        "calculus-2-4:alternating-series-error"
+        "calculus-2-4:alternating-series-error",
+        "calculus-2-4:taylor-from-derivatives",
+        "calculus-2-4:power-series-interval"
       ],
-      "points": 2
+      "points": 4
     },
     {
       "id": "calculus-2-5-practice",
@@ -1278,6 +1440,30 @@
       "points": 9
     },
     {
+      "id": "calculus-2-14-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Indeterminate limits and L’Hôpital’s rule practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "calculus-2-14-objective-1",
+        "calculus-2-14-objective-2",
+        "calculus-2-14-objective-3",
+        "calculus-2-outcome-5"
+      ],
+      "question_ids": [
+        "calculus-2-14:form-classification",
+        "calculus-2-14:nonindeterminate-warning",
+        "calculus-2-14:lhopital-exp",
+        "calculus-2-14:lhopital-rational",
+        "calculus-2-14:lhopital-repeat",
+        "calculus-2-14:transform-product",
+        "calculus-2-14:transform-power",
+        "calculus-2-14:method-selection"
+      ],
+      "points": 8
+    },
+    {
       "id": "calculus-2-week14-force-lab",
       "type": "lab",
       "mode": "practice",
@@ -1313,6 +1499,33 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "calculus-2-15-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Trigonometric integrals and substitution practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "calculus-2-15-objective-1",
+        "calculus-2-15-objective-2",
+        "calculus-2-15-objective-3",
+        "calculus-2-outcome-1"
+      ],
+      "question_ids": [
+        "calculus-2-15:odd-power",
+        "calculus-2-15:even-power",
+        "calculus-2-15:tangent-integral",
+        "calculus-2-15:sine-substitution",
+        "calculus-2-15:tangent-substitution",
+        "calculus-2-15:secant-substitution",
+        "calculus-2-15:completed-square-arctangent",
+        "calculus-2-15:completed-square-arcsine",
+        "calculus-2-15:substitution-choice",
+        "calculus-2-15:odd-even-strategy",
+        "calculus-2-15:branch-check"
+      ],
+      "points": 11
     }
   ],
   "grading_policy": {
@@ -1377,11 +1590,51 @@
       "version": "0.4.0",
       "date": "2026-10-09",
       "summary": "Added seven original lessons covering integration structure, improper-integral limits, positive and alternating series, power-series domains, Taylor and integrated error, and geometric/radial integrals; one synthetic force-work lab and a proposed 14-week schedule. Developed with Codex assistance, using existing scope references only. Still partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.1",
+      "date": "2026-10-10",
+      "summary": "Expanded the integration-method reading with substitution, parts and partial-fraction examples, and derived power tests for infinite intervals and endpoint singularities. Existing questions, keys and objectives are unchanged. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.2",
+      "date": "2026-10-10",
+      "summary": "Expanded the work-and-accumulation reading with a force-displacement sum, variable-force integration, unit checks and signed direction interpretation. Existing questions, keys and objectives are unchanged. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.3",
+      "date": "2026-10-10",
+      "summary": "Expanded the sequence-and-series reading with partial sums, exact geometric tails, a necessary-versus-sufficient convergence check, and a Taylor remainder bound. Existing questions, keys and objectives are unchanged. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.4",
+      "date": "2026-10-10",
+      "summary": "Expanded the Taylor reading with derivative-based polynomial construction, interval-specific Lagrange error bounds, and a distinction between finite polynomials and infinite series convergence. Existing questions, keys and objectives are unchanged. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.5",
+      "date": "2026-10-10",
+      "summary": "Linked the first four lesson objective pairs to outcomes 1–4, clarified outcome 1 to include improper-integral convergence, and added direct formative checks for method selection, Taylor-polynomial construction, and a power-series convergence interval. Existing numeric prompts and keys are unchanged. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.6",
+      "date": "2026-10-10",
+      "summary": "Added an inactive paper-only tail-and-error portfolio for a normalized exponential response, with an improper-integral limit, tolerance-based tail cutoff, degree-four Taylor integral and certified integrated remainder. The project is not scheduled or graded; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.7",
+      "date": "2026-10-11",
+      "summary": "Added an original lesson on selected indeterminate limits and L’Hôpital’s rule, including eligibility checks, repeated applications, transformed forms and failure cases. Eight formative questions and four retrieval cards are grouped with improper integrals in the existing schedule. The course remains partial and unreviewed."
+    },
+    {
+      "version": "0.4.8",
+      "date": "2026-10-13",
+      "summary": "Added an original reading on trigonometric powers, secant-family integrals, trigonometric substitution and completing the square, grouped with the week-2 integration-methods lesson as MIT OCW 18.01SC Fall 2010 Unit 4 Part A groups them (registered as a link-only comparator). It covers odd-power substitution and half-angle reduction, tangent and secant integrals with their domains, sine/tangent/secant substitutions with branch and bound conversion, and arctangent/arcsine forms from completed squares. Three objectives, eleven formative items and four cards; no week was added. The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "Four compact prototype units remain alongside ten original readings including one synthetic-data lab; this is not equivalent to a full university semester.",
-    "The proposed 14-week sequence is unmeasured and unreviewed. Graded homework, exams, a laboratory sequence and a cumulative project are absent.",
+    "All sixteen scheduled readings now have expanded or original instructional text, including one synthetic-data virtual lab; this is not equivalent to a full university semester.",
+    "The proposed 14-week sequence is unmeasured and unreviewed. Graded homework, exams and a laboratory sequence are absent. An inactive cumulative-project draft is not scheduled or graded.",
     "Formative item and objective links are provisional and do not establish comprehensive coverage or mastery.",
     "All examples and observations are synthetic. Mathematical force and radial concentration models establish no device behavior, experimental protocol or biological mechanism.",
     "New numeric prompts state their output scale and request a bare number; existing unit-entry requirements are retained. Significant figures and dimensions are not automatically assessed.",
@@ -1390,6 +1643,6 @@
     "Qualified human mathematical review, accessibility review and workload measurement remain outstanding."
   ],
   "intentionally_omitted": [
-    "Graded assessments, measured workload, a laboratory sequence, a cumulative graded project and named qualified review remain outstanding."
+    "Graded assessments, measured workload, a laboratory sequence, an activated cumulative project and named qualified review remain outstanding."
   ]
 }

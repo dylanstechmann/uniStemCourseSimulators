@@ -465,6 +465,86 @@
         "robotics-lab-01-objective-3"
       ],
       "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-4-card-1",
+      "lesson_id": "robotics-4",
+      "front": "Position control in contact",
+      "back": "For a fixed indentation δ, a position command yields modeled force F=kδ; changes in contact stiffness change force even when position tracks perfectly.",
+      "objective_ids": [
+        "robotics-4-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-4-card-2",
+      "lesson_id": "robotics-4",
+      "front": "Force regulation",
+      "back": "Use measured force error to adjust normal position; force feedback requires sensing and a controller, and does not alone guarantee stability or safe limits.",
+      "objective_ids": [
+        "robotics-4-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-4-card-3",
+      "lesson_id": "robotics-4",
+      "front": "Hybrid position-force control",
+      "back": "In a suitable contact frame, track position along a tangent and regulate force along the constrained normal.",
+      "objective_ids": [
+        "robotics-4-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-4-card-4",
+      "lesson_id": "robotics-4",
+      "front": "Spring-model boundary",
+      "back": "F=kδ is a quasistatic linear model; it omits contact transients, inertia, friction, latency, saturation and loop stability.",
+      "objective_ids": [
+        "robotics-4-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-14-card-1",
+      "lesson_id": "robotics-14",
+      "front": "PD under gravity",
+      "back": "At rest K_p e = G(q), so PD alone sags by about G/K_p; gravity compensation removes the sag except for the modeling error ΔG/K_p.",
+      "objective_ids": [
+        "robotics-14-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-14-card-2",
+      "lesson_id": "robotics-14",
+      "front": "Computed-torque law",
+      "back": "τ = M̂(q)[q̈_d + K_d ė + K_p e] + ĥ + Ĝ; with an exact model each joint obeys ë + K_d ė + K_p e = 0, so K_p = ω_n², K_d = 2ζω_n in every posture.",
+      "objective_ids": [
+        "robotics-14-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-14-card-3",
+      "lesson_id": "robotics-14",
+      "front": "Feedforward torque",
+      "back": "On a planned path with zero error the command is τ = M q̈_d + h + G; omitting the velocity-product term h misstates torque during fast motion.",
+      "objective_ids": [
+        "robotics-14-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-14-card-4",
+      "lesson_id": "robotics-14",
+      "front": "Where cancellation fails",
+      "back": "Payload errors give e = M̂⁻¹ΔG/K_p, coupled across joints; torque saturation, sampling delay and unmodeled friction break the linear error equation.",
+      "objective_ids": [
+        "robotics-14-objective-3"
+      ],
+      "license": "CC-BY-4.0"
     }
   ]
 }

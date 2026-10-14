@@ -87,6 +87,39 @@ def fit(x, y):
     return my - slope * mx, slope
 
 
+def inverting_node(inputs, feedback, gain=1e9):
+    """Output of a finite-gain amplifier whose inverting node joins (voltage, impedance) inputs and a feedback impedance."""
+    admittance = sum(1 / z for _, z in inputs) + 1 / feedback
+    return -sum(v / z for v, z in inputs) / (1 / feedback + admittance / gain)
+
+
+def capacitor(frequency, capacitance):
+    return 1 / (2j * math.pi * frequency * capacitance)
+
+
+def parallel(a, b):
+    return a * b / (a + b)
+
+
+def sallen_key(frequency, r1, r2, c1, c2):
+    """Unity-gain Sallen-Key low-pass solved by nodal analysis; c1 to the output, c2 to reference."""
+    s = 2j * math.pi * frequency
+    junction_per_output = 1 + s * r2 * c2
+    denominator = junction_per_output * (1 / r1 + 1 / r2 + s * c1) - (1 / r2 + s * c1)
+    return (1 / r1) / denominator
+
+
+def sallen_key_peak(r1, r2, c1, c2):
+    """Natural frequency where the phase reaches -90 degrees, and the magnitude there (Q at unity gain)."""
+    f0 = bisect(lambda f: sallen_key(f, r1, r2, c1, c2).real, 1, 1e6)
+    return f0, abs(sallen_key(f0, r1, r2, c1, c2))
+
+
+def half_power_frequency(response, low, high):
+    reference = abs(response(1e-6))
+    return bisect(lambda f: abs(response(f)) - reference / math.sqrt(2), low, high)
+
+
 def expected_answers():
     result = {}
 
@@ -98,7 +131,12 @@ def expected_answers():
             }
         )
 
-    add(1, check=12 / 6000 * 1000, thevenin_resistance=1 / (1 / 4 + 1 / 12))
+    add(
+        1,
+        check=12 / 6000 * 1000,
+        thevenin_resistance=1 / (1 / 4 + 1 / 12),
+        nodal_node=96 / 13,
+    )
     add(2, check=1 + 40000 / 10000)
     add(3, check=1 / (2 * math.pi * 1000 * 10e-6), nyquist_rate=2 * 150)
     add(
@@ -202,6 +240,55 @@ def expected_answers():
         clipped_output=min(1, max(-1, 0.1 + 100 * 0.015)),
         drift_half_second=0.1 + 0.3 * math.exp(-1),
     )
+    resistance, inductance, capacitance = 20, 10e-3, 10e-6
+    omega_0 = 1 / math.sqrt(inductance * capacitance)
+    alpha = resistance / (2 * inductance)
+    omega_d = math.sqrt(omega_0**2 - alpha**2)
+    add(
+        14,
+        natural_frequency=omega_0 / (2 * math.pi),
+        damping_ratio=(resistance / 2) * math.sqrt(capacitance / inductance),
+        transient_current=(
+            1000
+            * 1.0
+            / (inductance * omega_d)
+            * math.exp(-alpha * 0.50e-3)
+            * math.sin(omega_d * 0.50e-3)
+        ),
+        impedance_magnitude=math.hypot(
+            resistance,
+            2 * math.pi * 250 * inductance
+            - 1 / (2 * math.pi * 250 * capacitance),
+        ),
+        capacitor_energy=0.5 * capacitance * 1.0**2,
+        quality_factor=math.sqrt(inductance / capacitance) / resistance,
+    )
+    add(
+        15,
+        summing_output=inverting_node([(0.10, 10e3), (0.30, 25e3)], 50e3).real,
+        integrator_ramp=-quadrature(lambda t: 0.25 / 200e3, 0, 0.30) / 0.5e-6,
+        integrator_offset_drift=bisect(lambda t: 0.002 / 100e3 * t / 1e-6 - 10, 0, 1e4),
+        lossy_integrator_corner=half_power_frequency(
+            lambda f: inverting_node([(1, 10e3)], parallel(1e6, capacitor(f, 0.1e-6))),
+            0.01,
+            100,
+        ),
+        differentiator_output=-10e3 * 100e-9 * ((50 * 1.001) - (50 * 0.999)) / 0.002 * 1000,
+        differentiator_gain=abs(inverting_node([(1, capacitor(20e3, 100e-9))], 10e3)),
+        active_lowpass_magnitude=abs(
+            inverting_node([(1, 4.7e3)], parallel(47e3, capacitor(5e3, 2.2e-9)))
+        ),
+        sallen_key_frequency=sallen_key_peak(10e3, 10e3, 40e-9, 10e-9)[0],
+        sallen_key_q=sallen_key_peak(10e3, 10e3, 40e-9, 10e-9)[1],
+        gbw_bandwidth=half_power_frequency(
+            lambda f: inverting_node(
+                [(1, 10e3)], 40e3, gain=1e6 / (1 + 1j * f / (2e6 / 1e6))
+            ),
+            1e3,
+            1e7,
+        )
+        / 1000,
+    )
     _, _, means = lab_data()
     low = fit([-0.005, 0, 0.005], [means[k] for k in ["low_m5", "low_0", "low_p5"]])[1]
     high = fit(
@@ -233,7 +320,152 @@ def test_numeric_key_matches_separate_calculation(item_id, expected):
 
 def test_all_numeric_keys_are_recalculated():
     numeric = {q["id"] for q in BANK.values() if q["type"] == "numeric"}
-    assert set(EXPECTED) == numeric and len(numeric) == 63
+    assert set(EXPECTED) == numeric and len(numeric) == 80
+
+
+def test_dc_thevenin_equivalence_and_meter_loading():
+    manifest = load(COURSE / "course.json")
+    assert manifest["version"] == manifest["history"][-1]["version"]
+    lesson = next(
+        lesson
+        for module in manifest["modules"]
+        for lesson in module["lessons"]
+        if lesson["id"] == "circuits-1"
+    )
+    text = (COURSE / lesson["reading"]).read_text(encoding="utf-8")
+    assert "Keep dependent sources active" in text
+    assert "The two models agree at the port" in text
+
+    source_v, series_r, shunt_r, load_r = 12.0, 4.0, 12.0, 6.0
+    open_circuit_v = source_v * shunt_r / (series_r + shunt_r)
+    rth = 1 / (1 / series_r + 1 / shunt_r)
+    equivalent_loaded_v = open_circuit_v * load_r / (rth + load_r)
+    parallel_load = 1 / (1 / shunt_r + 1 / load_r)
+    original_loaded_v = source_v * parallel_load / (series_r + parallel_load)
+    assert open_circuit_v == pytest.approx(9)
+    assert rth == pytest.approx(3)
+    assert equivalent_loaded_v == pytest.approx(6)
+    assert original_loaded_v == pytest.approx(equivalent_loaded_v)
+
+    loaded_fraction = 1_000_000 / (10_000 + 1_000_000)
+    assert loaded_fraction == pytest.approx(0.9900990099)
+    assert BANK["circuits-1:check"]["solution_spec"]["answer"] == pytest.approx(2)
+    assert BANK["circuits-1:thevenin-resistance"]["solution_spec"][
+        "answer"
+    ] == pytest.approx(3)
+
+
+def test_op_amp_gain_bias_and_operating_range_example():
+    manifest = load(COURSE / "course.json")
+    assert manifest["version"] == manifest["history"][-1]["version"]
+    lesson = next(
+        lesson
+        for module in manifest["modules"]
+        for lesson in module["lessons"]
+        if lesson["id"] == "circuits-2"
+    )
+    text = (COURSE / lesson["reading"]).read_text(encoding="utf-8")
+    assert "If the output saturates" in text
+    assert "common-mode range" in text
+
+    rf_kohm, rg_kohm, input_v = 90.0, 10.0, 0.10
+    noninverting_gain = 1 + rf_kohm / rg_kohm
+    inverting_gain = -rf_kohm / rg_kohm
+    assert noninverting_gain == pytest.approx(10)
+    assert noninverting_gain * input_v == pytest.approx(1.0)
+    assert inverting_gain * input_v == pytest.approx(-0.9)
+
+    reference_v, differential_v, instrumentation_gain = 1.65, 0.002, 100
+    upper = reference_v + instrumentation_gain * differential_v
+    lower = reference_v - instrumentation_gain * differential_v
+    assert (lower, upper) == pytest.approx((1.45, 1.85))
+    assert 0.2 <= lower <= upper <= 3.1
+    assert BANK["circuits-2:check"]["solution_spec"]["answer"] == pytest.approx(5)
+    assert BANK["circuits-2:small-differential-signal"]["solution_spec"][
+        "answer"
+    ] == 2
+    syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8")
+    assert "Weeks 1, 4, 7 and 12 now have expanded" in syllabus
+    assert "No compact prototype readings remain" in syllabus
+
+
+def test_rc_response_alias_equivalence_and_nyquist_boundary():
+    manifest = load(COURSE / "course.json")
+    assert manifest["version"] == manifest["history"][-1]["version"]
+    lesson = next(
+        lesson
+        for module in manifest["modules"]
+        for lesson in module["lessons"]
+        if lesson["id"] == "circuits-3"
+    )
+    text = (COURSE / lesson["reading"]).read_text(encoding="utf-8")
+    assert "digital filter cannot distinguish it" in text
+    assert "phase can be ambiguous" in text
+
+    r_ohm, c_farad = 1000.0, 10e-6
+    cutoff = 1 / (2 * math.pi * r_ohm * c_farad)
+    at_cutoff = 1 / math.sqrt(1 + (cutoff / cutoff) ** 2)
+    at_20_hz = 1 / math.sqrt(1 + (20 / cutoff) ** 2)
+    assert cutoff == pytest.approx(15.9155, abs=0.001)
+    assert at_cutoff == pytest.approx(1 / math.sqrt(2))
+    assert at_20_hz == pytest.approx(0.622, abs=0.001)
+
+    sample_rate = 300.0
+    sample_indices = range(8)
+    high_frequency = [
+        math.cos(2 * math.pi * 250 * n / sample_rate) for n in sample_indices
+    ]
+    low_frequency = [
+        math.cos(2 * math.pi * 50 * n / sample_rate) for n in sample_indices
+    ]
+    assert high_frequency == pytest.approx(low_frequency)
+    boundary_zero_phase = [math.sin(math.pi * n) for n in sample_indices]
+    boundary_quadrature = [
+        math.sin(math.pi * n + math.pi / 2) for n in sample_indices
+    ]
+    assert boundary_zero_phase == pytest.approx([0] * 8, abs=1e-12)
+    assert boundary_quadrature == pytest.approx([(-1) ** n for n in sample_indices])
+
+    assert BANK["circuits-3:check"]["solution_spec"]["answer"] == pytest.approx(15.9)
+    assert BANK["circuits-3:nyquist-rate"]["solution_spec"]["answer"] == pytest.approx(300)
+    syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8")
+    assert "Weeks 1, 4, 7 and 12 now have expanded" in syllabus
+    assert "No compact prototype readings remain" in syllabus
+
+
+def test_sensor_calibration_and_first_order_uncertainty():
+    manifest = load(COURSE / "course.json")
+    assert manifest["version"] == manifest["history"][-1]["version"]
+    lesson = next(
+        lesson
+        for module in manifest["modules"]
+        for lesson in module["lessons"]
+        if lesson["id"] == "circuits-4"
+    )
+    text = (COURSE / lesson["reading"]).read_text(encoding="utf-8")
+    assert "validation asks whether the mapping remains useful" in text
+    assert "If inputs are correlated" in text
+
+    voltage, offset, gain, voltage_uncertainty = 2.10, 0.10, 0.50, 0.02
+    calibrated_value = (voltage - offset) / gain
+    value_uncertainty = voltage_uncertainty / abs(gain)
+    assert calibrated_value == pytest.approx(4)
+    assert value_uncertainty == pytest.approx(0.04)
+
+    current, current_u, resistance, resistance_u = 2.00, 0.02, 10.0, 0.1
+    product = current * resistance
+    product_u = math.hypot(resistance * current_u, current * resistance_u)
+    assert product == pytest.approx(20)
+    assert product_u == pytest.approx(math.sqrt(0.08))
+    assert product_u == pytest.approx(EXPECTED["circuits-4:uncertainty-propagation"])
+
+    assert BANK["circuits-4:check"]["solution_spec"]["answer"] == pytest.approx(4)
+    assert BANK["circuits-4:uncertainty-propagation"]["solution_spec"][
+        "answer"
+    ] == pytest.approx(0.283)
+    syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8")
+    assert "Weeks 1, 4, 7 and 12 now have expanded" in syllabus
+    assert "No compact prototype readings remain" in syllabus
 
 
 CHECKS = BANK["circuits-lab-01:summary"]["solution_spec"]["validation_spec"]["checks"]
@@ -435,3 +667,82 @@ def test_baseline_excess_time_estimates_allow_declared_rounding(key, time):
     assert inferred == pytest.approx(0.5, rel=3e-5)
     wrong = -time / math.log(means[key] / means["drift_0"])
     assert abs(wrong - 0.5) > 0.1
+
+
+def test_first_four_objectives_link_to_directly_assessed_outcomes():
+    manifest = load(COURSE / "course.json")
+    assert manifest["version"] == manifest["history"][-1]["version"]
+    expected = {
+        "circuits-1-objective-1": ["circuits-outcome-1"],
+        "circuits-1-objective-2": ["circuits-outcome-1"],
+        "circuits-2-objective-1": ["circuits-outcome-3"],
+        "circuits-2-objective-2": ["circuits-outcome-3"],
+        "circuits-3-objective-1": ["circuits-outcome-2"],
+        "circuits-3-objective-2": ["circuits-outcome-2"],
+        "circuits-4-objective-1": ["circuits-outcome-4"],
+        "circuits-4-objective-2": ["circuits-outcome-4"],
+    }
+    objectives = {item["id"]: item for item in manifest["lesson_objectives"]}
+    for objective_id, outcome_ids in expected.items():
+        assert objectives[objective_id]["course_outcome_ids"] == outcome_ids
+
+    bank = load(COURSE / "question-banks/practice.json")
+    items = {item["id"]: item for item in bank["questions"]}
+    nodal = items["circuits-1:nodal-node"]
+    antialias = items["circuits-3:anti-alias-filter"]
+    assert nodal["solution_spec"]["answer"] == pytest.approx(96 / 13)
+    assert nodal["solution_spec"]["unit"] == "V"
+    assert nodal["solution_spec"]["unit_required"] is True
+    assert antialias["solution_spec"]["answer"] == 0
+    for lesson_number, added_id, outcome_id in (
+        (1, nodal["id"], "circuits-outcome-1"),
+        (3, antialias["id"], "circuits-outcome-2"),
+    ):
+        lesson = next(
+            lesson
+            for module in manifest["modules"]
+            for lesson in module["lessons"]
+            if lesson["id"] == f"circuits-{lesson_number}"
+        )
+        assessment = next(
+            item for item in manifest["assessments"]
+            if item["id"] == f"circuits-{lesson_number}-practice"
+        )
+        assert added_id in lesson["question_ids"]
+        assert set(lesson["question_ids"]) == set(assessment["question_ids"])
+        assert outcome_id in assessment["objective_ids"]
+
+
+def test_op_amp_operations_lesson_statements_match_nodal_calculations():
+    text = (COURSE / "modules/15-op-amp-summing-integrators-differentiators-and-active-filters.md").read_text(
+        encoding="utf-8"
+    )
+    lowpass = abs(inverting_node([(1, 10e3)], parallel(100e3, capacitor(10e3, 1e-9))))
+    band = abs(inverting_node([(1, 10e3 + capacitor(15.915, 10e-6))], parallel(100e3, capacitor(15.915, 10e-9))))
+    design_corner = half_power_frequency(
+        lambda f: inverting_node([(1, 10e3)], parallel(200e3, capacitor(f, 8.2e-9))), 1, 1e4
+    )
+    design_1khz = abs(inverting_node([(1, 10e3)], parallel(200e3, capacitor(1e3, 8.2e-9))))
+    f0, q = sallen_key_peak(10e3, 10e3, 20e-9, 10e-9)
+    statements = {
+        "**−0.20 V**": inverting_node([(0.20, 10e3), (-0.40, 40e3)], 20e3).real,
+        "**1.57**": lowpass,
+        "10/1.01 = 9.90": band,
+        "**97.0 Hz**": design_corner,
+        "**1.93**": design_1khz,
+        "**1.13 kHz**": f0 / 1000,
+        "Q = **0.707**": q,
+        "**0.0159 Hz**": half_power_frequency(
+            lambda f: inverting_node([(1, 100e3)], parallel(10e6, capacitor(f, 1e-6))), 1e-4, 1
+        ),
+        "**62.8**": abs(inverting_node([(1, capacitor(10e3, 0.1e-6))], 10e3)),
+        "**91 kHz**": half_power_frequency(
+            lambda f: inverting_node([(1, 10e3)], 100e3, gain=1e6 / (1 + 1j * f)), 1e3, 1e7
+        )
+        / 1000,
+    }
+    for fragment, value in statements.items():
+        assert fragment in text, fragment
+        stated = float(fragment.replace("**", "").split("=")[-1].split()[0].replace("−", "-"))
+        assert math.isclose(stated, value, rel_tol=0.006, abs_tol=0.005), (fragment, value)
+    assert abs(sallen_key(10 * f0, 10e3, 10e3, 20e-9, 10e-9)) == pytest.approx(0.010, abs=0.0005)

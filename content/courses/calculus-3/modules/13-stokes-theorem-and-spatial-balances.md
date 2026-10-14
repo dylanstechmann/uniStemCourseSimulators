@@ -14,6 +14,18 @@ For the synthetic field F=(−y/2,x/2,z), curl is (0,0,1). On the upward unit di
 
 Stokes relates circulation to curl flux, while the divergence theorem relates a vector field's outward transfer across a closed boundary to its divergence inside a volume. An open surface can serve as a Stokes spanning surface; it cannot by itself be the full closed boundary needed for the divergence theorem. The integral's type and geometry determine which theorem applies.
 
+## A theorem-selection sequence: circulation and closed-surface flux
+
+Start by naming the quantity and its geometric domain. Circulation, ∮C F·dr, is a line integral over an oriented curve. If C bounds a planar region, Green’s theorem converts it to an area integral of planar curl. If the same curve bounds an oriented surface in three dimensions, Stokes’ theorem converts it to curl flux through that surface. Boundary direction and surface normal must agree by the right-hand rule. For F=(−y/2,x/2,0) and the radius-2 circle C viewed counterclockwise from +z, curl is 1 in the z direction and the disk area is 4π, so Green and Stokes both give 4π. Directly, r(t)=(2 cos t,2 sin t,0), 0≤t≤2π, gives F(r(t))·r′(t)=2 and the same integral, ∫₀²π 2 dt=4π. Clockwise traversal gives −4π.
+
+For flux, first ask whether the requested surface is the entire closed boundary of a volume. Let H=(x/3,y/3,z/3) on the cylinder V={0≤r≤2, 0≤θ≤2π, 0≤z≤3}. The boundary is closed and piecewise smooth, H is continuously differentiable throughout V, and the outward normal is specified. Since ∇·H=1,
+
+∬∂V H·n dS = ∭V 1 dV = ∫₀³∫₀²π∫₀² r dr dθ dz = 12π.
+
+A direct face calculation checks the sign and completeness: the outward side contributes 8π, the top cap contributes 4π and the bottom cap contributes zero, for 12π total. If only the top disk is requested, that disk is open and the divergence theorem does not apply to it alone; compute its surface integral directly or complete a closed boundary and account for every other face. The cylindrical bounds matter: omitting r in the volume element or omitting an end cap changes the answer.
+
+Use the recommended [Linear Algebra basis and coordinate-transformation refresher](../../linear-algebra/modules/02-vector-spaces-bases-and-coordinate-transforms.md) when component or orientation conventions are uncertain. Represent vectors and normals in one consistent frame before taking dot or cross products.
+
 ## A tilted triangle
 
 Let a triangle have vertices A=(0,0,0), B=(1,0,0), C=(0,1,1), traversed A to B to C to A. The oriented edge cross product (B−A)×(C−A) is (0,−1,1), with positive z component. Its oriented triangle area vector is half that, (0,−1/2,1/2). Dotting constant curl (0,0,1) into this vector gives circulation 1/2.

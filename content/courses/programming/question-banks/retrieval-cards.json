@@ -465,6 +465,87 @@
         "programming-lab-01-objective-3"
       ],
       "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-14-card-1",
+      "lesson_id": "programming-14",
+      "front": "What is a linear-system residual?",
+      "back": "r=b−Ax̂; it measures equation mismatch for the computed vector x̂.",
+      "objective_ids": [
+        "programming-14-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-14-card-2",
+      "lesson_id": "programming-14",
+      "front": "What does a condition number describe?",
+      "back": "Sensitivity of a mathematical problem to input perturbations, under a stated norm and scaling.",
+      "objective_ids": [
+        "programming-14-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-14-card-3",
+      "lesson_id": "programming-14",
+      "front": "Does a small residual guarantee a small solution error?",
+      "back": "No. An ill-conditioned system can amplify a small backward error into a large forward error.",
+      "objective_ids": [
+        "programming-14-objective-1",
+        "programming-14-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-14-card-4",
+      "lesson_id": "programming-14",
+      "front": "Conditioning versus stability?",
+      "back": "Conditioning is problem sensitivity; stability concerns the numerical algorithm’s behavior.",
+      "objective_ids": [
+        "programming-14-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-15-card-1",
+      "lesson_id": "programming-15",
+      "front": "Lagrange interpolation",
+      "back": "pₙ(x)=Σᵢ yᵢLᵢ(x); each Lᵢ is one at its node and zero at the other nodes.",
+      "objective_ids": [
+        "programming-15-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-15-card-2",
+      "lesson_id": "programming-15",
+      "front": "Interpolation error",
+      "back": "Exact values at nodes do not ensure small error between nodes; the remainder depends on a higher derivative and the node locations.",
+      "objective_ids": [
+        "programming-15-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-15-card-3",
+      "lesson_id": "programming-15",
+      "front": "Interpolation vs regression",
+      "back": "Interpolation reproduces supplied values; regression fits a trend under a model and loss, usually allowing residuals.",
+      "objective_ids": [
+        "programming-15-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-15-card-4",
+      "lesson_id": "programming-15",
+      "front": "Extrapolation limit",
+      "back": "Evaluating outside the node interval is extrapolation; exact fit inside the table gives little control there.",
+      "objective_ids": [
+        "programming-15-objective-2"
+      ],
+      "license": "CC-BY-4.0"
     }
   ]
 }

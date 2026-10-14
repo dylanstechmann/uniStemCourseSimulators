@@ -1,0 +1,7 @@
+# Thermodynamics & Transport in Bioengineering 0.4.1 — control volumes and conservation
+
+Week 1 now develops the species-balance equation, total-mass conservation, storage and reaction terms, the distinction between steady and transient state, wash-in/washout time scale, control-volume selection, and a signed open-system energy balance. The synthetic tank example uses V = 100 L, Q = 2 L/min, Cin = 5 g/L and k = 0.02 min⁻¹ to give a steady species concentration of 2.5 g/L. A separate steady-flow calculation has 1 kg/s entering at 100 kJ/kg and leaving at 110 kJ/kg; with no shaft work or kinetic/potential-energy change, heat into the control volume is +10 kW.
+
+Both objectives map to outcome 1. Existing concentration and mass-accumulation question prompts and keys are unchanged; added a required-unit energy-balance numeric item so mass and energy are directly practiced. MIT OpenCourseWare Unified Engineering thermodynamics notes are registered as a link-only reference; no lecture note, example, source text, figure, or dataset was copied or adapted.
+
+Checks: the focused regression passed 2 tests; Ruff passed; full content validation passed (25 courses, 384 lessons, 2,239 questions, 1,276 cards and 25 cases; 0 errors and 3 disclosed depth warnings); the assessment-candidate report drift check passed after regeneration. These same-AI checks are not independent thermodynamics, accessibility or domain review. Three compact prototype readings remain in weeks 3, 9 and 12; the course remains partial, unreviewed and formative-only.

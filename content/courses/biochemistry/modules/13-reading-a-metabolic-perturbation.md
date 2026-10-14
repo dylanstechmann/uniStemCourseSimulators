@@ -68,6 +68,40 @@ The case states that lactate rises, which already favors the first explanation. 
 
 **Step 4: check.** Whether the culture can reach 5.0 mmol/(L·h) depends on glucose transport; a smaller increase would leave ATP below demand.
 
+## Ungraded case studio: ATP demand, lactate and competing explanations
+
+Use the synthetic values in this lesson to prepare a short self-check. Nothing is submitted, collected or graded.
+
+1. **Account for carbon and ATP.** Calculate baseline glucose uptake and lactate output from the 6.4 mmol/(L·h) ATP demand and the stated 90% oxidative/10% glycolytic split. Then calculate the glucose uptake and lactate output if glycolysis alone must meet that demand after oxidative phosphorylation is blocked. Include units and the assumed ATP yields.
+2. **Interpret the signals.** Compare the baseline and post-inhibitor lactate/pyruvate ratios. Use the 50%-labeled medium and the 0.48 M+3 lactate fraction to estimate the share of lactate from medium glucose. Say why that fraction does not give a rate.
+3. **Separate the explanations.** Choose one primary measurement for respiratory-chain inhibition versus a primary glycolytic defect, predict the result under each explanation, and name one confound or reason to corroborate it with another measurement.
+
+**Self-check:** the baseline calculation gives 0.50 mmol/(L·h) glucose uptake and 0.64 mmol/(L·h) lactate output; glycolysis alone requires 3.2 mmol/(L·h) of each. The lactate/pyruvate ratio rises from 10 to 40, a fourfold shift toward a more reduced cytosol. The tracer result estimates 96% of lactate from medium glucose, but it is a source fraction rather than a flux. Oxygen consumption should fall sharply with respiratory-chain inhibition; it can remain closer to baseline with a primary glycolytic defect when other fuels support mitochondrial respiration. Hypoxia, fuel switching and transport changes can complicate either interpretation.
+
+## Ungraded case studio: fed-to-fasting hepatic integration
+
+This second synthetic case links the carbohydrate, fatty-acid, ketone-body and nitrogen pathways. The table gives arbitrary relative flux indices for two model states; the indices are not concentrations, are not calibrated rates, and do not form a mass-balanced dataset.
+
+| Synthetic flux indicator | Fed-like state | Mobilization-like state |
+|---|---:|---:|
+| Hepatic glycogen breakdown | 2 | 8 |
+| Hepatic gluconeogenic output | 2 | 8 |
+| Adipose TAG-derived substrate delivery to liver | 1 | 7 |
+| Hepatic fatty-acid oxidation | 2 | 9 |
+| Hepatic ketone-body export | 1 | 8 |
+| Hepatic malonyl-CoA signal | 8 | 2 |
+| Urea output index | 4 | 5 |
+
+Use the pattern to build a pathway explanation, not a quantitative balance. Address each point:
+
+1. Identify why glycerol, lactate and glucogenic amino-acid carbon can support glucose production, while even-chain fatty-acid beta-oxidation supplies energy and acetyl-CoA but no net glucose carbon in humans. Odd-chain fatty acids are an exception because they yield gluconeogenic propionyl-CoA.
+2. Explain how lower malonyl-CoA can relieve CPT1 inhibition and align fatty-acid entry/oxidation with lower fatty-acid synthesis. The index pattern is consistent with that control but does not prove causality.
+3. Connect acetyl-CoA from fatty-acid oxidation and competing oxaloacetate demand with hepatic ketone-body production. Explain why liver exports ketones for extrahepatic use rather than performing canonical ketolysis itself.
+4. Explain why a modestly higher urea-output index alone does not quantify amino-acid breakdown or nitrogen balance. Name one additional measurement that would help.
+5. State one limitation caused by the arbitrary indices, missing compartments or absent mass-balance constraints.
+
+**Self-check:** the mobilization-like pattern is compatible with higher glycogen breakdown, gluconeogenic output, adipose substrate delivery, fatty-acid oxidation and ketone export, alongside a lower malonyl-CoA signal. Glycerol can enter hepatic gluconeogenesis through glycerol-3-phosphate and DHAP; lactate and glucogenic amino acids supply other carbon. Oxidation of even-chain fatty acids provides reducing equivalents and acetyl-CoA but no net glucose carbon; odd-chain fatty acids can contribute propionyl-CoA. Lower malonyl-CoA can release CPT1 inhibition, while acetyl-CoA and oxaloacetate availability help shape ketogenesis. The urea index is not a direct nitrogen-flux measurement, and the arbitrary values cannot establish a quantitative balance or cause.
+
 ## Limits of this lesson
 
 All values are synthetic and idealized: complete inhibition, fixed ATP yields, no other fuels, and equilibrium of lactate dehydrogenase. Real cells use glutamine and fatty acids, differ in transporter capacity, and show partial inhibition. The lesson explains how to reason from measurements to a mechanism and gives no laboratory protocol.

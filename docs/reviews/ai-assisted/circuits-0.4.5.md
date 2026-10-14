@@ -1,0 +1,5 @@
+# Electrical Circuits & Instrumentation 0.4.5 — outcome mapping and direct checks
+
+The first four lesson pairs now map to the stated course outcomes for DC networks, amplifier use, frequency response, and sensor measurement. Week 1 adds a unit-required KCL calculation for a three-branch node, directly exercising its nodal-analysis objective. Week 7 adds a single-choice item distinguishing the Nyquist sampling condition from the analog anti-alias filter required before conversion when out-of-band content may be present. Existing prompts and answer keys remain unchanged. The course stays partial, unreviewed, and formative-only.
+
+Checks: the focused Circuits regression suite passed 124 tests, including independent recalculation of all 64 numeric answers; Ruff passed; full content validation passed (25 courses, 384 lessons, 2,247 questions, 1,276 cards, 25 cases, zero errors and zero depth warnings); assessment-candidate and course-gap report drift checks passed. These same-AI checks are not independent circuit, instrumentation, hardware-safety, or accessibility review.

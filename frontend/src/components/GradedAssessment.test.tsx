@@ -102,6 +102,7 @@ describe("graded assignment submission", () => {
         "fixture-course",
         "homework-1",
         { choice: { response: 0 } },
+        undefined,
       ),
     );
     expect(onSubmitted).toHaveBeenCalledWith(submission);
@@ -146,6 +147,101 @@ describe("graded assignment submission", () => {
     ).toBeInTheDocument();
     expect(
       screen.getByText("The configured attempt limit has been reached."),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole("button", { name: "Submit assignment" }),
+    ).not.toBeInTheDocument();
+  });
+
+  it("submits the assigned form token and requires loading the next form for a retake", async () => {
+    vi.mocked(api.gradedAssessment)
+      .mockResolvedValueOnce({
+        ...assessment,
+        assignment_token: "assignment-token-1",
+        questions: [{ ...assessment.questions[0], variant_id: "base" }],
+      })
+      .mockResolvedValueOnce({
+        ...assessment,
+        attempts_used: 1,
+        assignment_token: "assignment-token-2",
+        questions: [
+          {
+            ...assessment.questions[0],
+            prompt: "Select the alternate control.",
+            variant_id: "alternate",
+          },
+        ],
+      });
+    vi.mocked(api.submitGradedAssessment).mockResolvedValue(submission);
+    const user = userEvent.setup();
+    render(
+      <GradedAssessment
+        courseId="fixture-course"
+        assessmentId="homework-1"
+        enabled
+        history={[]}
+        onSubmitted={vi.fn(async () => undefined)}
+        onAppeal={vi.fn(async () => {
+          throw new Error("No appeal expected in this test");
+        })}
+      />,
+    );
+
+    await screen.findByText("Select the matched control.");
+    await user.click(screen.getByRole("radio", { name: "Vehicle" }));
+    await user.click(screen.getByRole("button", { name: "Submit assignment" }));
+    await waitFor(() =>
+      expect(api.submitGradedAssessment).toHaveBeenCalledWith(
+        "fixture-course",
+        "homework-1",
+        { choice: { response: 0 } },
+        "assignment-token-1",
+      ),
+    );
+    expect(
+      await screen.findByRole("button", { name: "Load next attempt" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole("button", { name: "Submit assignment" }),
+    ).not.toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: "Load next attempt" }));
+    expect(
+      await screen.findByText("Select the alternate control."),
+    ).toBeInTheDocument();
+    expect(api.gradedAssessment).toHaveBeenCalledTimes(2);
+    expect(
+      screen.getByRole("button", { name: "Submit assignment" }),
+    ).toBeInTheDocument();
+  });
+
+  it("shows the attempt-limit notice after the last assigned form is submitted", async () => {
+    vi.mocked(api.gradedAssessment).mockResolvedValue({
+      ...assessment,
+      attempt_limit: 1,
+      assignment_token: "last-assignment-token",
+      questions: [{ ...assessment.questions[0], variant_id: "base" }],
+    });
+    vi.mocked(api.submitGradedAssessment).mockResolvedValue(submission);
+    const user = userEvent.setup();
+    render(
+      <GradedAssessment
+        courseId="fixture-course"
+        assessmentId="homework-1"
+        enabled
+        history={[]}
+        onSubmitted={vi.fn(async () => undefined)}
+        onAppeal={vi.fn(async () => {
+          throw new Error("No appeal expected in this test");
+        })}
+      />,
+    );
+
+    await screen.findByText("Select the matched control.");
+    await user.click(screen.getByRole("radio", { name: "Vehicle" }));
+    await user.click(screen.getByRole("button", { name: "Submit assignment" }));
+    expect(
+      await screen.findByText("The configured attempt limit has been reached."),
     ).toBeInTheDocument();
     expect(
       screen.queryByRole("button", { name: "Submit assignment" }),

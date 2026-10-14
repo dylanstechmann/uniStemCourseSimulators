@@ -7,14 +7,17 @@
   "domain": "Computing",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.4.0",
+  "version": "0.4.9",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
     "source_path": "src/data/courses.js",
     "source_sha256": "a77a7cb7f5be2ffa12068877042ac775c6d9b79b83ac2f316fe4f26a0d3d783b",
     "migration_version": "1.0",
-    "modifications": []
+    "modifications": [
+      "Linked the four original lesson pairs to the course outcomes: data/provenance to outcome 4, testable functions to outcome 1, numerical integration and constraint checks to outcome 2, model fitting and validation to outcome 3, and visualization to outcome 4. Existing questions and answer keys remain unchanged; all four original prototype readings were already expanded. The package remains partial, unreviewed and formative-only.",
+      "Added an original interpolation lesson beside regression in week 10, contrasting exact node fit, between-node error, extrapolation and noisy-data regression. Added nine formative items and four retrieval cards. MIT OCW 2.086 Fall 2014 calendar and syllabus are link-only scope references; no source text, code, problem or asset was imported. The course remains partial, unreviewed and formative-only."
+    ]
   },
   "prerequisites": {
     "course_ids": [],
@@ -46,6 +49,11 @@
       "id": "programming-outcome-4",
       "description": "Make reproducible plots and document data provenance.",
       "bloom": "create"
+    },
+    {
+      "id": "programming-outcome-5",
+      "description": "Interpolate a value from tabulated data and assess the error and domain limits.",
+      "bloom": "analyze"
     }
   ],
   "lesson_objectives": [
@@ -53,49 +61,65 @@
       "id": "programming-1-objective-1",
       "description": "Represent observations with explicit units and metadata.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "programming-outcome-4"
+      ]
     },
     {
       "id": "programming-1-objective-2",
       "description": "Write small functions that can be checked independently.",
       "bloom": "create",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "programming-outcome-1"
+      ]
     },
     {
       "id": "programming-2-objective-1",
       "description": "Implement a time step and compare solver resolution.",
       "bloom": "understand",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "programming-outcome-2"
+      ]
     },
     {
       "id": "programming-2-objective-2",
       "description": "Track stability and conservation constraints.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "programming-outcome-2"
+      ]
     },
     {
       "id": "programming-3-objective-1",
       "description": "Separate model fitting from model validation.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "programming-outcome-3"
+      ]
     },
     {
       "id": "programming-3-objective-2",
       "description": "Inspect residuals and quantify parameter uncertainty.",
       "bloom": "understand",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "programming-outcome-3"
+      ]
     },
     {
       "id": "programming-4-objective-1",
       "description": "Choose a plot that matches variable type and comparison.",
       "bloom": "evaluate",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "programming-outcome-4"
+      ]
     },
     {
       "id": "programming-4-objective-2",
       "description": "Show distributions and uncertainty without obscuring individual observations.",
       "bloom": "understand",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "programming-outcome-4"
+      ]
     },
     {
       "id": "programming-5-objective-1",
@@ -341,11 +365,59 @@
       "course_outcome_ids": [
         "programming-outcome-4"
       ]
+    },
+    {
+      "id": "programming-14-objective-1",
+      "description": "Compute a linear-system residual and relative solution error against a reference solution.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "programming-outcome-2"
+      ]
+    },
+    {
+      "id": "programming-14-objective-2",
+      "description": "Calculate and interpret an infinity-norm condition number for a small matrix.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "programming-outcome-2"
+      ]
+    },
+    {
+      "id": "programming-14-objective-3",
+      "description": "Distinguish problem conditioning, backward error and algorithm stability.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "programming-outcome-2"
+      ]
+    },
+    {
+      "id": "programming-15-objective-1",
+      "description": "Construct and evaluate a low-degree Lagrange interpolant from tabulated values.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "programming-outcome-5"
+      ]
+    },
+    {
+      "id": "programming-15-objective-2",
+      "description": "Compare interpolated values with a known function and describe error and domain limits.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "programming-outcome-5"
+      ]
+    },
+    {
+      "id": "programming-15-objective-3",
+      "description": "Choose between interpolation and regression for exact tables and noisy measurements.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "programming-outcome-5"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week scope retaining compact prototype readings in weeks 1,7,10,12. Workload and qualified review are absent; not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week scope with expanded or original instructional text for every scheduled lesson. Workload and qualified review are absent; not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
@@ -439,21 +511,25 @@
       },
       {
         "week": 10,
-        "title": "Regression, uncertainty, and validation",
+        "title": "Interpolation, regression, uncertainty and validation",
         "lesson_ids": [
-          "programming-3"
+          "programming-3",
+          "programming-15"
         ],
         "assessment_ids": [
-          "programming-3-practice"
+          "programming-3-practice",
+          "programming-15-practice"
         ]
       },
       {
         "week": 11,
-        "title": "Least squares, rank and scaled coordinates",
+        "title": "Linear systems, conditioning, least squares and scaled coordinates",
         "lesson_ids": [
+          "programming-14",
           "programming-12"
         ],
         "assessment_ids": [
+          "programming-14-practice",
           "programming-12-practice"
         ]
       },
@@ -512,7 +588,7 @@
             "programming-1-objective-1",
             "programming-1-objective-2"
           ],
-          "worked_example": "Store each sample's treatment, donor, batch, and measurement unit together; keep the raw file unchanged and write cleaned outputs as a derived artifact.",
+          "worked_example": "A constructed sample has 1.5 mg material in 500 µL, or 0.5 mL. Dividing after conversion gives 3 mg/mL; dividing by the raw value 500 would be on the wrong scale. Keep sample, donor, batch and unit metadata with the record, preserve the raw input, and version the derived result.",
           "question_ids": [
             "programming-1:check",
             "programming-1:checkable-function"
@@ -540,7 +616,7 @@
             "programming-2-objective-1",
             "programming-2-objective-2"
           ],
-          "worked_example": "Integrating ẋ=−x from 0 to 1 with Euler step h=0.1 gives a different result than h=0.01; convergence toward e⁻¹ is the check.",
+          "worked_example": "For f(t)=t² on [0,2], the endpoint trapezoid estimate is 4, while Simpson's rule and the exact integral both give 8/3. For y′=−4y, Euler step h=0.6 multiplies each state by −1.4, so the numerical magnitude grows although the exact solution decays.",
           "question_ids": [
             "programming-2:check",
             "programming-2:euler-amplification"
@@ -568,7 +644,7 @@
             "programming-3-objective-1",
             "programming-3-objective-2"
           ],
-          "worked_example": "A model with lower training error but higher held-out error may be overfit; simplify it, regularize it, or collect independent data.",
+          "worked_example": "For residuals 0.1, −0.2, 0.1, 0 and 0 from a two-parameter fit to five points, residual sum of squares is 0.06 and residual standard error is sqrt(0.06/(5−2))≈0.1414. Keep preprocessing within each training fold, and group repeated donor measurements together when estimating new-donor performance.",
           "question_ids": [
             "programming-3:check",
             "programming-3:residual-standard-error"
@@ -596,7 +672,7 @@
             "programming-4-objective-1",
             "programming-4-objective-2"
           ],
-          "worked_example": "Plotting donor-level points with a paired line can make within-donor treatment effects clearer than two unpaired bars when donors are the randomized blocks.",
+          "worked_example": "For four constructed donor-level changes of 1, 0, 2 and 1 mg/mL, the mean is 1 and sample SD is 0.82 mg/mL. A paired-t 95% interval is about −0.30 to 2.30 mg/mL with three degrees of freedom. Plot the pairs and name the interval; eight measurements are still only four independent donors.",
           "question_ids": [
             "programming-4:check",
             "programming-4:show-observations"
@@ -984,6 +1060,83 @@
           ]
         }
       ]
+    },
+    {
+      "id": "programming-module-14",
+      "title": "Linear-system conditioning, residuals and solution error",
+      "source_ids": [
+        "numerical",
+        "engineeringMath",
+        "mit-2086-numerical-computation-syllabus"
+      ],
+      "lessons": [
+        {
+          "id": "programming-14",
+          "title": "Linear-system conditioning, residuals and solution error",
+          "reading": "modules/14-linear-system-conditioning-residuals-and-solution-error.md",
+          "objectives": [
+            "programming-14-objective-1",
+            "programming-14-objective-2",
+            "programming-14-objective-3"
+          ],
+          "worked_example": "For A=[[1,1],[1,1.0001]] and b=[2,2.0001], κ∞=40004.0001. The computed x̂=[0.5,1.5] has residual norm 0.00005 but relative forward error 0.5 under the declared infinity norm and exact synthetic arithmetic.",
+          "question_ids": [
+            "programming-14:matrix-norm",
+            "programming-14:inverse-norm",
+            "programming-14:condition-number",
+            "programming-14:residual-norm",
+            "programming-14:forward-error",
+            "programming-14:rhs-relative-perturbation",
+            "programming-14:residual-interpretation",
+            "programming-14:condition-v-stability",
+            "programming-14:identity-perturbation"
+          ],
+          "card_ids": [
+            "programming-14-card-1",
+            "programming-14-card-2",
+            "programming-14-card-3",
+            "programming-14-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "programming-module-15",
+      "title": "Interpolation, error and extrapolation",
+      "source_ids": [
+        "mit-2086-numerical-computation-syllabus",
+        "mit-2086-numerical-computation-calendar"
+      ],
+      "lessons": [
+        {
+          "id": "programming-15",
+          "title": "Interpolation: exact fit at nodes, error between them",
+          "reading": "modules/15-interpolation-error-and-extrapolation.md",
+          "objectives": [
+            "programming-15-objective-1",
+            "programming-15-objective-2",
+            "programming-15-objective-3"
+          ],
+          "worked_example": "For f(x)=1/(1+x²) at x=0,1,2, the quadratic interpolant is 1−0.6x+0.1x². At x=0.5 it gives 0.725 versus the known value 0.8; at x=4 outside the sampled interval it gives 0.2 versus 1/17≈0.0588.",
+          "question_ids": [
+            "programming-15:interpolated-value",
+            "programming-15:true-value",
+            "programming-15:signed-error",
+            "programming-15:extrapolated-value",
+            "programming-15:basis-value",
+            "programming-15:interpolation-vs-regression",
+            "programming-15:extrapolation-definition",
+            "programming-15:remainder-assumption",
+            "programming-15:interpolation-claims"
+          ],
+          "card_ids": [
+            "programming-15-card-1",
+            "programming-15-card-2",
+            "programming-15-card-3",
+            "programming-15-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -994,7 +1147,9 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "programming-1-objective-1",
-        "programming-1-objective-2"
+        "programming-1-objective-2",
+        "programming-outcome-1",
+        "programming-outcome-4"
       ],
       "question_ids": [
         "programming-1:check",
@@ -1009,7 +1164,8 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "programming-2-objective-1",
-        "programming-2-objective-2"
+        "programming-2-objective-2",
+        "programming-outcome-2"
       ],
       "question_ids": [
         "programming-2:check",
@@ -1024,7 +1180,8 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "programming-3-objective-1",
-        "programming-3-objective-2"
+        "programming-3-objective-2",
+        "programming-outcome-3"
       ],
       "question_ids": [
         "programming-3:check",
@@ -1039,7 +1196,8 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "programming-4-objective-1",
-        "programming-4-objective-2"
+        "programming-4-objective-2",
+        "programming-outcome-4"
       ],
       "question_ids": [
         "programming-4:check",
@@ -1309,6 +1467,56 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "programming-14-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Linear-system conditioning and residual practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "programming-14-objective-1",
+        "programming-14-objective-2",
+        "programming-14-objective-3",
+        "programming-outcome-2"
+      ],
+      "question_ids": [
+        "programming-14:matrix-norm",
+        "programming-14:inverse-norm",
+        "programming-14:condition-number",
+        "programming-14:residual-norm",
+        "programming-14:forward-error",
+        "programming-14:rhs-relative-perturbation",
+        "programming-14:residual-interpretation",
+        "programming-14:condition-v-stability",
+        "programming-14:identity-perturbation"
+      ],
+      "points": 9
+    },
+    {
+      "id": "programming-15-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Interpolation and domain-limit practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "programming-15-objective-1",
+        "programming-15-objective-2",
+        "programming-15-objective-3",
+        "programming-outcome-5"
+      ],
+      "question_ids": [
+        "programming-15:interpolated-value",
+        "programming-15:true-value",
+        "programming-15:signed-error",
+        "programming-15:extrapolated-value",
+        "programming-15:basis-value",
+        "programming-15:interpolation-vs-regression",
+        "programming-15:extrapolation-definition",
+        "programming-15:remainder-assumption",
+        "programming-15:interpolation-claims"
+      ],
+      "points": 9
     }
   ],
   "grading_policy": {
@@ -1368,17 +1576,64 @@
       "version": "0.4.0",
       "date": "2026-10-09",
       "summary": "Added six original lessons on contracts/parsing/pure functions, array axes/broadcasting/memory, roots/conditioning, quadrature/stability, least-squares rank/scaling and grouped validation; a synthetic pipeline lab and proposed 14-week schedule. Developed with Codex assistance. Still partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.1",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-1 data-structures reading with explicit data contracts, unit conversion, pure-function testing, metadata alignment and provenance practices. Existing questions, keys and objectives are unchanged. Three compact prototype readings remain; the course stays partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.2",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-7 numerical-model reading with a trapezoid/Simpson comparison, forward-Euler recurrence and step-size stability example. Existing questions, keys and objectives are unchanged. Two compact prototype readings remain; the course stays partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.3",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-10 regression reading with residual scatter, parameter/predictive uncertainty distinctions, training-fold preprocessing and group-aware validation. Existing questions, keys and objectives are unchanged. One compact prototype reading remains; the course stays partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.4",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-12 visualization reading with paired raw-data display, independent-unit counts, uncertainty-interval definitions, axis choices and a worked paired-t interval. Existing questions, keys and objectives are unchanged. All scheduled lessons now have expanded or original instructional text; the course stays partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.5",
+      "date": "2026-10-10",
+      "summary": "Linked the four original lesson pairs to outcomes 1–4 based on their explicit data/provenance, modular-code, numerical-method, model-validation and visualization objectives. Existing questions and answer keys remain unchanged. All four original prototype readings were already expanded; the course stays partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.6",
+      "date": "2026-10-10",
+      "summary": "Added an inactive, ungraded integrative sensor-calibration project draft with a deterministic 90-row synthetic dataset, staged code and validation deliverables, and an unweighted human rubric. The proposal is not in the course assessment schedule and cannot receive an automated or course grade. The package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.7",
+      "date": "2026-10-11",
+      "summary": "Added a week-11 linear-system conditioning lesson alongside least squares, using an exactly specified 2 × 2 example to contrast residual, backward error, forward error and problem sensitivity. Added nine formative items, four retrieval cards and three objectives; the proposed schedule remains 14 weeks. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.8",
+      "date": "2026-10-11",
+      "summary": "Added one original interpolation lesson alongside regression in week 10, with exact-node, between-node and extrapolation calculations plus a noisy-data method choice. Added nine formative items and four retrieval cards; the proposed 14-week schedule is preserved. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.9",
+      "date": "2026-10-13",
+      "summary": "The syllabus now links the inactive sensor-calibration project draft it already describes. No lesson, item, key or card changed. The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "Four compact prototype readings remain beside nine substantial original lessons and one synthetic pipeline lab; this is not a full university semester.",
+    "All scheduled lessons have expanded or original instructional text alongside one synthetic pipeline lab; this is not a full university semester.",
     "Proposed weekly structure is unmeasured and unreviewed; graded homework, exams, full labs and a cumulative graded project remain absent.",
     "Examples, functions, observations, labels and classifier scores are synthetic; no actual experimental or classifier utility evidence is established.",
     "Of 54 numeric items, two preserved items require units; none enforces significant figures or dimensions. New numeric items request bare numbers in explicit scales.",
     "Learner code execution remains disabled. Choices, numerical outputs and CSV cells do not grade implementations, exception handling, essays or plots.",
     "The preserved spacing key is the approximate |x| times epsilon scale; lesson 12 distinguishes exact binade spacing near 10⁸ without changing the preserved item.",
     "Qualified subject, code, accessibility and workload review remain absent. Public formative keys and practice points are not course grades.",
-    "Five official documentation pages were retrieved link-only; no teaching prose, code example, figure or dataset was imported."
+    "Five official documentation pages were retrieved link-only; no teaching prose, code example, figure or dataset was imported.",
+    "The added linear-system lesson is a single hand-solvable sensitivity example; direct, iterative and sparse solver comparisons and eigenvalue algorithms remain limited.",
+    "Interpolation coverage consists of one hand-worked quadratic comparison; implemented barycentric and piecewise interpolation algorithms and a systematic stability study remain outside the sequence."
   ],
   "intentionally_omitted": [
     "Graded assessments, a full laboratory sequence, a cumulative graded project, measured workload and qualified human review remain outstanding."

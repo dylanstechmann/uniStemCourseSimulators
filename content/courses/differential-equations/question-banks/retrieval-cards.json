@@ -187,6 +187,36 @@
       "license": "CC-BY-4.0"
     },
     {
+      "id": "differential-equations-7-card-5",
+      "lesson_id": "differential-equations-7",
+      "front": "Square-wave Fourier series",
+      "back": "A bipolar square wave has odd sine harmonics: 4A/π × [sin(ωt) + sin(3ωt)/3 + sin(5ωt)/5 + …].",
+      "objective_ids": [
+        "differential-equations-7-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-7-card-6",
+      "lesson_id": "differential-equations-7",
+      "front": "First-order response of harmonic n",
+      "back": "At frequency nω, gain = 1/√[1 + (nωτ)²] and phase lag = atan(nωτ); evaluate each harmonic separately, then sum by linearity.",
+      "objective_ids": [
+        "differential-equations-7-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-7-card-7",
+      "lesson_id": "differential-equations-7",
+      "front": "Fourier series at a jump",
+      "back": "For a piecewise-smooth periodic input, the series converges at a jump to the midpoint; finite sums can show oscillatory overshoot nearby.",
+      "objective_ids": [
+        "differential-equations-7-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
       "id": "differential-equations-8-card-1",
       "lesson_id": "differential-equations-8",
       "front": "Free response",
@@ -463,6 +493,87 @@
       "back": "Hold out later data; refine the step; test on independent longer data; flag invariants (non-negativity, balances) instead of clipping; state the domain of the fit.",
       "objective_ids": [
         "differential-equations-13-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-14-card-1",
+      "lesson_id": "differential-equations-14",
+      "front": "Laplace transform of a derivative",
+      "back": "L{y′}=sY−y(0); L{y″}=s²Y−s y(0)−y′(0). Initial values enter as algebraic terms.",
+      "objective_ids": [
+        "differential-equations-14-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-14-card-2",
+      "lesson_id": "differential-equations-14",
+      "front": "Delayed-step transform",
+      "back": "L{H(t−a)g(t−a)}=e^(−as)G(s). Keep the delayed response zero before t=a.",
+      "objective_ids": [
+        "differential-equations-14-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-14-card-3",
+      "lesson_id": "differential-equations-14",
+      "front": "Inverse transform by partial fractions",
+      "back": "Factor the denominator, resolve simple poles, then invert each term with the transform table.",
+      "objective_ids": [
+        "differential-equations-14-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-14-card-4",
+      "lesson_id": "differential-equations-14",
+      "front": "Checks for an IVP solution",
+      "back": "Check every initial value, substitute into the ODE on each forcing interval, and verify continuity at a delayed step.",
+      "objective_ids": [
+        "differential-equations-14-objective-2",
+        "differential-equations-14-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-15-card-1",
+      "lesson_id": "differential-equations-15",
+      "front": "Delta function",
+      "back": "δ(t − a) is defined by ∫ f(t)δ(t − a) dt = f(a); L{δ(t − a)} = e^(−as). An impulse J on mass m makes the velocity jump by J/m, not the position.",
+      "objective_ids": [
+        "differential-equations-15-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-15-card-2",
+      "lesson_id": "differential-equations-15",
+      "front": "Impulse response",
+      "back": "w solves p(D)w = δ from rest, and W(s) = 1/p(s). For y′ + ky: e^(−kt). For x″ + bx′ + kx: the inverse of 1/p(s), for example (1/3)e^(−2t) sin 3t for s² + 4s + 13.",
+      "objective_ids": [
+        "differential-equations-15-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-15-card-3",
+      "lesson_id": "differential-equations-15",
+      "front": "Convolution",
+      "back": "From rest, y(t) = ∫₀ᵗ w(t − u) f(u) du, and L{w ∗ f} = W(s)F(s). It requires linearity and time invariance; initial conditions add a free response.",
+      "objective_ids": [
+        "differential-equations-15-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-15-card-4",
+      "lesson_id": "differential-equations-15",
+      "front": "Poles, gain and phase",
+      "back": "Stable if every pole of W = 1/p has negative real part. Steady response to cos ωt: gain 1/|p(iω)|, lag arg p(iω); for x″ + bx′ + kx, the gain peaks at ω_r = √(k − b²/2) when b² < 2k.",
+      "objective_ids": [
+        "differential-equations-15-objective-3"
       ],
       "license": "CC-BY-4.0"
     }

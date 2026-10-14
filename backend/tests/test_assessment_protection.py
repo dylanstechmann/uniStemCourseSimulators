@@ -9,9 +9,9 @@ from sqlalchemy import func, select
 
 from courselab.assessment import effective_protection, validate_assessment_configuration
 from courselab.config import Settings
-from courselab.db import Base, GradedSubmission
+from courselab.db import Base, GradedAssessmentAssignment, GradedSubmission
 from courselab.main import create_app
-from tests.test_assessment_api import _configure_graded_homework
+from tests.test_assessment_api import _configure_graded_homework, _provision_reviewer
 
 ORIGIN = "http://localhost:8080"
 POLICY = {"mode": "graded-course", "categories": [{"id": "homework", "weight": 1}]}
@@ -20,12 +20,8 @@ PUBLIC = [{"id": "h", "mode": "graded", "path": "question-banks/h.json", "points
 
 
 @pytest.mark.parametrize("private", [False, True])
-@pytest.mark.parametrize("configuration", [{}, None, {
-    "seeded": True, "generator_id": "authored-variants-v1",
-    "variants": [{"id": "alternate", "prompt": "An alternate assigned case with a different correct response.",
-                  "solution_spec": {"answer": 1}}],
-}])
-def test_graded_variants_fail_closed_before_delivery_or_submission(tmp_path, content_root, private, configuration):
+@pytest.mark.parametrize("configuration", [{}, None])
+def test_invalid_graded_variant_configuration_fails_closed(tmp_path, content_root, private, configuration):
     private_root = tmp_path / "private-assessments" if private else None
     _configure_graded_homework(content_root, private_root=private_root)
     if private:
@@ -41,12 +37,105 @@ def test_graded_variants_fail_closed_before_delivery_or_submission(tmp_path, con
         route = "/api/v1/assessments/test-course/homework-1"
         served = client.get(route + "/questions")
         assert served.status_code == 409
-        assert "variants are not supported" in served.json()["detail"]
+        assert "authored-form configuration is invalid" in served.json()["detail"]
         submitted = client.post(route + "/submissions", json={"responses": {"choice": {"response": 0}}})
         assert submitted.status_code == 409
         with application.state.sessions() as db:
             assert db.scalar(select(func.count()).select_from(GradedSubmission)) == 0
     application.state.engine.dispose()
+
+
+@pytest.mark.parametrize("private", [False, True])
+def test_graded_authored_forms_are_assigned_replayed_cycled_and_appealable(tmp_path, content_root, private):
+    private_root = tmp_path / "private-assessments" if private else None
+    _configure_graded_homework(content_root, private_root=private_root)
+    source = (
+        private_root / "courses/test-course/assignments/homework-1.json"
+        if private else content_root / "courses/test-course/question-banks/private-homework.json"
+    )
+    bank = json.loads(source.read_text())
+    bank["questions"][0]["randomization"] = {
+        "seeded": True,
+        "generator_id": "authored-variants-v1",
+        "variants": [{
+            "id": "alternate",
+            "prompt": "Select the active-treatment control.",
+            "solution_spec": {"answer": 1},
+        }],
+    }
+    source.write_text(json.dumps(bank))
+    application = make_app(tmp_path, content_root, "protected" if private else "open")
+    try:
+        with guest_client(application) as client:
+            assert client.post("/api/v1/enrollments", json={"course_id": "test-course"}).status_code == 201
+            route = "/api/v1/assessments/test-course/homework-1"
+            first = client.get(route + "/questions")
+            assert first.status_code == 200
+            first_payload = first.json()
+            token = first_payload["assignment_token"]
+            selected_form = first_payload["questions"][0]["variant_id"]
+            assert token and selected_form in {"base", "alternate"}
+            assert first_payload["questions"][0]["prompt"] == (
+                "Select a negative control." if selected_form == "base"
+                else "Select the active-treatment control."
+            )
+            assert "solution_spec" not in first.text and "PRIVATE_TEST_SENTINEL" not in first.text
+            replayed = client.get(route + "/questions").json()
+            assert replayed["assignment_token"] == token
+            assert replayed["questions"][0]["variant_id"] == selected_form
+            assert replayed["questions"][0]["prompt"] == first_payload["questions"][0]["prompt"]
+
+            # A token from the wrong learner cannot be used for this attempt.
+            stranger = TestClient(application, headers={"Origin": ORIGIN})
+            stranger_session = stranger.post("/api/v1/auth/guest", json={}).json()
+            stranger.headers["X-CSRF-Token"] = stranger_session["csrf_token"]
+            assert stranger.post("/api/v1/enrollments", json={"course_id": "test-course"}).status_code == 201
+            denied = stranger.post(route + "/submissions", json={
+                "responses": {"choice": {"response": 0}}, "assignment_token": token,
+            })
+            assert denied.status_code == 409
+
+            assert client.post(route + "/submissions", json={
+                "responses": {"choice": {"response": 0}},
+            }).status_code == 409
+            answer = 0 if selected_form == "base" else 1
+            submission = client.post(route + "/submissions", json={
+                "responses": {"choice": {"response": answer}}, "assignment_token": token,
+            })
+            assert submission.status_code == 201
+            saved = submission.json()
+            assert saved["results"][0]["variant_id"] == selected_form
+            assert saved["score"] == 2
+            retry = client.post(route + "/submissions", json={
+                "responses": {"choice": {"response": 1 - answer}}, "assignment_token": token,
+            })
+            assert retry.status_code == 201 and retry.json()["id"] == saved["id"]
+
+            appeal = client.post(
+                f"/api/v1/graded-submissions/{saved['id']}/appeals",
+                json={"reason": "Please review this saved authored form."},
+            )
+            assert appeal.status_code == 201
+            with TestClient(application, headers={"Origin": ORIGIN}) as reviewer:
+                _provision_reviewer(application, reviewer)
+                queue = reviewer.get("/api/v1/instructor/graded-appeals")
+                assert queue.status_code == 200
+                assert queue.json()[0]["questions"][0]["prompt"] == first_payload["questions"][0]["prompt"]
+
+            second = client.get(route + "/questions").json()
+            assert second["assignment_token"] != token
+            second_form = second["questions"][0]["variant_id"]
+            assert second_form != selected_form
+            second_answer = 0 if second_form == "base" else 1
+            assert client.post(route + "/submissions", json={
+                "responses": {"choice": {"response": second_answer}},
+                "assignment_token": second["assignment_token"],
+            }).status_code == 201
+            with application.state.sessions() as db:
+                assert db.scalar(select(func.count()).select_from(GradedSubmission)) == 2
+                assert db.scalar(select(func.count()).select_from(GradedAssessmentAssignment)) == 2
+    finally:
+        application.state.engine.dispose()
 
 
 def test_effective_protection_resolution():

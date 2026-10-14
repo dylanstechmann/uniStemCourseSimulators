@@ -60,7 +60,7 @@ Same as the midterm, plus: every integration item names the layers it connects, 
 ## Protection and delivery requirements (for whoever builds it)
 
 - Learner-facing instructions, datasets and stems live in the public package; `solution_spec` and answer-bearing feedback live only in the protected store, referenced as `private://assignments/<file>.json` under `<private-root>/courses/cell-biology/assignments/`, mounted through `COURSELAB_PRIVATE_ASSESSMENTS_PATH` (see `docs/DEPLOYMENT.md`). The answer file is never committed, including on a temporary branch.
-- Use authored variants with fixed seeds (`authored-variants-v1`) so retakes and appeals can be reproduced; record the variant and digest per attempt.
+- Use authored variants with a shared set of form IDs (`authored-variants-v1`). The runtime persists the selected form for each learner attempt, cycles through unused forms before reuse, and records the variant ID with the exact grader digest so retries and appeal review can reproduce that attempt.
 - The strict-deadline policy is the only supported late-work rule. Release, due time and attempt limits are set in the assessment schedule, not in this document.
 - Content is archived by hash before use so an appeal can load the version the learner saw; until immutable archives exist, changed content can only be declined on appeal.
 - Every numeric key is independently recalculated by a second method before activation, and every grader has mutation tests (alternate correct forms, wrong units, near misses, malformed input, misleading keywords).
@@ -84,4 +84,4 @@ Same as the midterm, plus: every integration item names the layers it connects, 
 
 ## Current inactive implementation
 
-See the [final candidate](final-candidate.md). This draft uses bounded numeric/categorical fields and two fixed authored forms, with external keys and inspectable mappings. Planned written design, uncertainty and any broader item-type mix require human review and implementation; the candidate is not an accepted realization of every blueprint requirement. Independent and qualified reviews, workload and release policy remain absent.
+See the [final candidate v2](final-v2-candidate.md). This 0.35.0 revision supersedes the preserved 0.29.0 draft and tightens the form-A low-magnitude ratio tolerance to the stated three-significant-figure resolution. It uses bounded numeric/categorical fields and two fixed authored forms, with external keys and inspectable mappings. Planned written design, uncertainty and any broader item-type mix require human review and implementation; the candidate is not an accepted realization of every blueprint requirement. Independent and qualified reviews, workload and release policy remain absent.

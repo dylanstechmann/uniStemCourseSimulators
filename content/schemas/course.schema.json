@@ -47,7 +47,7 @@
         "equivalent_structure": {"type": ["string", "null"]},
         "weeks": {"type": "array", "items": {
           "type": "object", "additionalProperties": false, "required": ["week", "title", "lesson_ids", "assessment_ids"],
-          "properties": {"week": {"type": "integer", "minimum": 1}, "title": {"type": "string", "minLength": 3}, "lesson_ids": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/id"}}, "assessment_ids": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/id"}}}
+          "properties": {"week": {"type": "integer", "minimum": 1, "maximum": 52}, "title": {"type": "string", "minLength": 3}, "lesson_ids": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/id"}}, "assessment_ids": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/id"}}}
         }}
       }
     },
@@ -83,9 +83,11 @@
       }
     },
     "retrieval_cards": {"$ref": "#/$defs/path"},
+    "practice_question_bank": {"$ref": "#/$defs/path"},
     "case_rubrics": {"$ref": "#/$defs/path"},
     "source_map": {"$ref": "#/$defs/path"},
     "syllabus": {"$ref": "#/$defs/path"},
+    "learner_resources": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/path"}},
     "review": {
       "type": "object", "additionalProperties": false, "required": ["status", "reviewed_version", "reviewers"],
       "properties": {

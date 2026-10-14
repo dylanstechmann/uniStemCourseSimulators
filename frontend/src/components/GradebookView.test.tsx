@@ -79,6 +79,7 @@ describe("practice gradebook API contract", () => {
       ],
       lesson_objectives: [],
       modules: [],
+      weeks: [],
       syllabus_markdown: "Original partial syllabus.",
       license: "CC-BY-4.0",
       review_status: {},

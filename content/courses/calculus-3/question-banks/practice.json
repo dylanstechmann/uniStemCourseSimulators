@@ -9,7 +9,7 @@
       "prompt": "For f(x,y)=x²+3y², what is ∂f/∂y at (1,−1)?",
       "points": 1,
       "objective_ids": [
-        "calculus-3-1-objective-1"
+        "calculus-3-1-objective-2"
       ],
       "solution_spec": {
         "answer": -6,
@@ -40,7 +40,7 @@
       "prompt": "What is the maximum of f=x+y subject to x²+y²=1? Enter a decimal.",
       "points": 1,
       "objective_ids": [
-        "calculus-3-2-objective-1"
+        "calculus-3-2-objective-2"
       ],
       "solution_spec": {
         "answer": 1.4142,
@@ -108,7 +108,7 @@
       ],
       "points": 1,
       "objective_ids": [
-        "calculus-3-4-objective-1"
+        "calculus-3-4-objective-2"
       ],
       "solution_spec": {
         "answer": 1
@@ -3158,6 +3158,631 @@
         "solution": "The linear field is smooth everywhere and the six-face box satisfies the required boundary conditions; signs remain essential.",
         "lesson_ids": [
           "calculus-3-lab-01"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-3-1:vector-frame-components",
+      "type": "single_choice",
+      "prompt": "In a Cartesian frame with unit vectors eₓ and eᵧ, what are the components of v = 2eₓ − 3eᵧ?",
+      "options": [
+        "(2, −3)",
+        "(−3, 2)",
+        "(2, 3)",
+        "(−2, 3)"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-1-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Read each scalar coefficient in the order of its matching basis vector.",
+        "solution": "The eₓ coefficient is 2 and the eᵧ coefficient is −3, so the components are (2, −3).",
+        "lesson_ids": [
+          "calculus-3-1"
+        ],
+        "misconception_ids": [
+          "vector-component-order"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct formative practice for representing a vector in a coordinate frame."
+        ]
+      }
+    },
+    {
+      "id": "calculus-3-2:stationary-classification",
+      "type": "single_choice",
+      "prompt": "For f(x,y)=x²+4y², the origin is stationary and the Hessian is positive definite. How should the point be classified?",
+      "options": [
+        "Strict local minimum",
+        "Strict local maximum",
+        "Saddle point",
+        "The second-derivative test is inconclusive"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-2-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "A positive-definite Hessian has positive curvature in every direction.",
+        "solution": "The Hessian is diag(2,8), which is positive definite, so the stationary point is a strict local minimum.",
+        "lesson_ids": [
+          "calculus-3-2"
+        ],
+        "misconception_ids": [
+          "hessian-classification"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct formative practice classifying a stationary point from its Hessian."
+        ]
+      }
+    },
+    {
+      "id": "calculus-3-4:line-integral-work",
+      "type": "single_choice",
+      "prompt": "For a force field F acting along an oriented path C, what physical quantity does the line integral ∫C F·dr represent?",
+      "options": [
+        "Work done by the force along the path",
+        "Outward flux through a closed surface",
+        "The area enclosed by C",
+        "The divergence at one point"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-4-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "The dot product keeps the component of force along each displacement.",
+        "solution": "Summing F·dr along the path gives the work done by the force along that path.",
+        "lesson_ids": [
+          "calculus-3-4"
+        ],
+        "misconception_ids": [
+          "line-integral-work"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct formative practice interpreting a vector line integral as work."
+        ]
+      }
+    },
+    {
+      "id": "calculus-3-13:planar-circulation-theorem",
+      "type": "single_choice",
+      "prompt": "For the counterclockwise boundary of a planar disk, which theorem directly converts circulation into a double integral of planar curl?",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-13-objective-3"
+      ],
+      "options": [
+        "Green's theorem in circulation form.",
+        "The divergence theorem over a closed three-dimensional volume.",
+        "The one-dimensional fundamental theorem applied to any path."
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Identify the requested integral and the dimension of its region.",
+        "solution": "Green's theorem relates the oriented planar boundary circulation to the scalar curl integrated over the disk.",
+        "lesson_ids": [
+          "calculus-3-13"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-3-13:reverse-circulation",
+      "type": "numeric",
+      "prompt": "For F=(−y/2,x/2,0), reverse the radius-2 circle from counterclockwise to clockwise, as viewed from +z. What signed circulation results?",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-13-objective-1"
+      ],
+      "solution_spec": {
+        "answer": -12.566370614359172,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Reversing the boundary orientation reverses the sign of a line integral.",
+        "solution": "The counterclockwise value is 4π, so the clockwise value is −4π.",
+        "lesson_ids": [
+          "calculus-3-13"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-3-13:cylinder-theorem",
+      "type": "single_choice",
+      "prompt": "For H=(x/3,y/3,z/3), which target permits the divergence theorem to replace direct face-by-face flux integration?",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-13-objective-3"
+      ],
+      "options": [
+        "Outward flux across the entire closed cylinder, because H is smooth on the enclosed solid.",
+        "Outward flux across only the curved side, without adding or correcting for the end caps.",
+        "Flux through only the top disk, treated as if it were a closed surface."
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Check whether the requested boundary is the complete boundary of a volume.",
+        "solution": "The divergence theorem relates flux across the whole outward-oriented closed boundary to the volume integral of divergence.",
+        "lesson_ids": [
+          "calculus-3-13"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-3-13:cylinder-flux",
+      "type": "numeric",
+      "prompt": "For H=(x/3,y/3,z/3), compute outward flux over the closed cylinder 0≤r≤2, 0≤θ≤2π, 0≤z≤3 using the divergence theorem. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-13-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 37.69911184307752,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The divergence is 1; integrate it over the cylindrical volume.",
+        "solution": "The volume is π(2²)(3)=12π, and ∇·H=1, so the outward flux is 12π.",
+        "lesson_ids": [
+          "calculus-3-13"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-3-13:cylinder-face-fluxes",
+      "type": "multiple_select",
+      "prompt": "For H=(x/3,y/3,z/3) on that outward-oriented cylinder, which direct face-flux statements are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "calculus-3-13-objective-1",
+        "calculus-3-13-objective-3"
+      ],
+      "options": [
+        "The cylindrical side contributes 8π.",
+        "The top disk contributes 4π.",
+        "The bottom disk contributes 0.",
+        "The total outward flux is 4π because the cylinder side is the only nonzero face."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "feedback": {
+        "hint": "Use outward normals on the side, top and bottom separately, then add all three contributions.",
+        "solution": "The side contributes 8π, the top 4π and the bottom 0, totaling 12π and matching the divergence integral.",
+        "lesson_ids": [
+          "calculus-3-13"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-3-13:open-cap-method",
+      "type": "single_choice",
+      "prompt": "If only the top disk of the cylinder is the requested flux surface, which method is justified?",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-13-objective-3"
+      ],
+      "options": [
+        "Integrate H·n over that open disk directly; the divergence theorem would require completing a closed boundary and accounting for the other faces.",
+        "Apply the divergence theorem to the disk alone because it has an outward normal.",
+        "Set the disk flux equal to the volume integral of divergence without specifying a volume."
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "The divergence theorem covers a closed surface, not a surface patch by itself.",
+        "solution": "An open disk is not the full boundary of a solid; evaluate its surface integral directly or include it in a closed-boundary calculation with the remaining fluxes accounted for.",
+        "lesson_ids": [
+          "calculus-3-13"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-3-14:line-slope",
+      "type": "numeric",
+      "prompt": "Synthetic points (1, 3), (2, 4), (3, 4), (4, 6) and (5, 8) are fitted by a least-squares line y = ax + b with vertical residuals. What is the fitted slope a? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 1.2,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Form n, Σx, Σx², Σy and Σxy, then solve the two normal equations together.",
+        "solution": "n = 5, Σx = 15, Σx² = 55, Σy = 25, Σxy = 87. The equations 55a + 15b = 87 and 15a + 5b = 25 give a = 1.2.",
+        "lesson_ids": [
+          "calculus-3-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-3-14:line-intercept",
+      "type": "numeric",
+      "prompt": "Synthetic points (1, 3), (2, 4), (3, 4), (4, 6) and (5, 8) are fitted by a least-squares line y = ax + b with vertical residuals. What is the fitted intercept b? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 1.4,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The second normal equation says the line passes through the mean point (x̄, ȳ).",
+        "solution": "With a = 1.2, b = (Σy − aΣx)/n = (25 − 18)/5 = 1.4, so the line passes through (3, 5).",
+        "lesson_ids": [
+          "calculus-3-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-3-14:minimum-squared-error",
+      "type": "numeric",
+      "prompt": "Synthetic points (1, 3), (2, 4), (3, 4), (4, 6) and (5, 8) are fitted by a least-squares line y = ax + b with vertical residuals. What is the minimum total squared error D? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 1.6,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Compute the fitted values, then the residuals, then the sum of their squares.",
+        "solution": "Fitted values 2.6, 3.8, 5.0, 6.2 and 7.4 give residuals 0.4, 0.2, −1.0, −0.2 and 0.6, which sum to zero. Their squares sum to 1.6.",
+        "lesson_ids": [
+          "calculus-3-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-3-14:squared-error-hessian",
+      "type": "numeric",
+      "prompt": "Synthetic points (1, 3), (2, 4), (3, 4), (4, 6) and (5, 8) are fitted by a least-squares line y = ax + b with vertical residuals. What is the determinant of the Hessian of D(a, b) at its stationary point? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 200,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "D_aa = 2Σx², D_ab = 2Σx and D_bb = 2n are constants.",
+        "solution": "The Hessian is [[110, 30], [30, 10]], with determinant 1100 − 900 = 200 > 0 and D_aa > 0, so the stationary point is the minimum.",
+        "lesson_ids": [
+          "calculus-3-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-3-14:log-fit-rate",
+      "type": "numeric",
+      "prompt": "The synthetic points (0, 6), (1, 3) and (2, 1.8) are fitted by y = c e^{kx} using a least-squares line through (x, ln y). What is k, to three decimal places? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": -0.602,
+        "unit": "",
+        "tolerance": 0.003,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Take natural logarithms of y, then fit an ordinary least-squares line; k is its slope.",
+        "solution": "ln y = 1.792, 1.099 and 0.588. With x̄ = 1, the slope is [(−1)(1.792) + (1)(0.588)]/2 = −0.602. The intercept gives c = e^{1.761} ≈ 5.82.",
+        "lesson_ids": [
+          "calculus-3-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-3-14:held-y-derivative",
+      "type": "numeric",
+      "prompt": "Let w = x² + yz, where the variables satisfy z = 2x + y. At the point (x, y, z) = (1, 1, 3), what is (∂w/∂x) with y held fixed? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 4,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Write dw and the constraint differential, then set dy = 0.",
+        "solution": "dw = 2x dx + z dy + y dz = 2 dx + 3 dy + dz and dz = 2 dx + dy. With dy = 0, dz = 2 dx and dw = 4 dx.",
+        "lesson_ids": [
+          "calculus-3-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-3-14:held-z-derivative",
+      "type": "numeric",
+      "prompt": "Let w = x² + yz, where the variables satisfy z = 2x + y. At the point (x, y, z) = (1, 1, 3), what is (∂w/∂x) with z held fixed? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": -4,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Set dz = 0 in the constraint differential to find how y must change.",
+        "solution": "With dz = 0, dy = −2 dx, so dw = 2 dx + 3(−2 dx) = −4 dx. Holding a different variable fixed changes even the sign.",
+        "lesson_ids": [
+          "calculus-3-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-3-14:triple-product-factor",
+      "type": "numeric",
+      "prompt": "The synthetic relation PV = 10T holds at P = 4 and V = 5. What is (∂V/∂T) with P held fixed? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 2.5,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Solve for V as a function of T and P, then differentiate in T.",
+        "solution": "V = 10T/P, so (∂V/∂T)_P = 10/P = 2.5. With (∂P/∂V)_T = −0.8 and (∂T/∂P)_V = 0.5, the triple product is −1.",
+        "lesson_ids": [
+          "calculus-3-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-3-14:why-squared-residuals",
+      "type": "single_choice",
+      "prompt": "Why does least squares minimize the sum of squared residuals rather than the sum of residuals?",
+      "options": [
+        "Positive and negative residuals would cancel, so many poor lines would score zero; squaring makes every gap count and gives a smooth function to minimize",
+        "Squaring makes the fitted line pass through every point",
+        "The sum of residuals cannot be computed for real data",
+        "Squaring removes the need for an intercept"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Try a line through the mean point with a very wrong slope.",
+        "solution": "Every line through (x̄, ȳ) has residuals summing to zero. Squaring removes the cancellation and gives a differentiable quadratic in a and b with a unique minimum when the x values are not all equal.",
+        "lesson_ids": [
+          "calculus-3-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-3-14:log-fit-meaning",
+      "type": "single_choice",
+      "prompt": "An exponential model is fitted by a least-squares line through (x, ln y). What does this fit minimize?",
+      "options": [
+        "The squared errors in ln y, which weights relative errors equally at every point",
+        "The squared errors in y, exactly as a direct fit would",
+        "The largest single error in y",
+        "Nothing; logarithms make the problem exact"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Which variable are the residuals measured in?",
+        "solution": "The residuals are in ln y. A direct least-squares fit of y generally gives different parameters, and the choice should match whether measurement errors are roughly relative or absolute.",
+        "lesson_ids": [
+          "calculus-3-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-3-14:held-variable-notation",
+      "type": "single_choice",
+      "prompt": "Variables x, y and z satisfy one constraint. Why must a partial derivative of w with respect to x name the variable held fixed?",
+      "options": [
+        "Only two variables are free, so changing x moves either y or z, and the two choices give different rates",
+        "The subscript is a style convention with no effect on the value",
+        "Partial derivatives of constrained functions are always zero",
+        "Holding a variable fixed removes the constraint"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Compare (∂w/∂x)_y and (∂w/∂x)_z in an example.",
+        "solution": "With one constraint, fixing y forces z to change with x, while fixing z forces y to change. Each route gives its own rate; for w = xyz with z = x + y at (1, 2, 3), they are 8 and 3.",
+        "lesson_ids": [
+          "calculus-3-14"
         ],
         "misconception_ids": []
       },

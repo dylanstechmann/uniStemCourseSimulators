@@ -1,0 +1,408 @@
+{
+  "schema_version": "1.0",
+  "evidence_scope": "author-side-public-formative-numeric-key-recalculation",
+  "course_id": "cell-biology",
+  "course_version": "0.59.0",
+  "public_package_sha256": "78fbdce816d2f68c264a306ee2e9e20f8604a6190a42e4c9b07756e55c98341e",
+  "question_bank": {
+    "path": "content/courses/cell-biology/question-banks/practice.json",
+    "sha256": "e722517236d0e1263ee0cfb4509e96441311862c3b49e2ca06ba705c44788a47"
+  },
+  "scope_limits": {
+    "inactive_candidate_answer_sources_read": false,
+    "independent_review_established": false,
+    "qualified_reviewer_identity_verified": false,
+    "release_authorized": false
+  },
+  "numeric_item_count": 21,
+  "passed_check_count": 21,
+  "results": [
+    {
+      "question_id": "cell-biology-10:rate-prediction",
+      "formula": "Vmax × [S] / (Km + [S])",
+      "inputs": {
+        "vmax_nm_s": 120,
+        "km_um": 20,
+        "substrate_um": 40
+      },
+      "prompt_anchor": "Vmax = 120 nM/s and Km = 20 μM",
+      "calculated_value": 80.0,
+      "authored_answer": 80.0,
+      "unit": "nM/s",
+      "rounding": "none",
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.8,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.8,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-11:resolution-estimate",
+      "formula": "0.61 × wavelength / numerical aperture",
+      "inputs": {
+        "wavelength_nm": 520,
+        "numerical_aperture": 1.3
+      },
+      "prompt_anchor": "520 nm emission and a 1.30 numerical-aperture objective",
+      "calculated_value": 244.0,
+      "authored_answer": 244.0,
+      "unit": "nm",
+      "rounding": "nearest 0.01 nm",
+      "absolute_error": 0.0,
+      "absolute_tolerance": 1.0,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 1.0,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-12:er-marker-recovery",
+      "formula": "sum of the four recovered fractions",
+      "inputs": {
+        "input_pct": 4,
+        "fraction_1_pct": 18,
+        "fraction_2_pct": 68,
+        "fraction_3_pct": 5
+      },
+      "prompt_anchor": "4% + 18% + 68% + 5%",
+      "calculated_value": 95.0,
+      "authored_answer": 95.0,
+      "unit": "%",
+      "rounding": "none",
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.5,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.5,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-12:image-quantification-contrast",
+      "formula": "cue-associated difference = cue mean − vehicle mean",
+      "inputs": {
+        "vehicle_mean_pct": 13,
+        "cue_mean_pct": 22
+      },
+      "prompt_anchor": "means of 13% for vehicle and 22% for cue",
+      "calculated_value": 9.0,
+      "authored_answer": 9.0,
+      "unit": "pp",
+      "rounding": "none",
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.01,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.01,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-13:hybrid-fraction",
+      "formula": "100% × 1/2 after two semiconservative replication rounds",
+      "inputs": {
+        "initial_heavy_fraction": 1.0,
+        "replication_rounds": 2
+      },
+      "prompt_anchor": "exactly two DNA replication rounds",
+      "calculated_value": 50.0,
+      "authored_answer": 50.0,
+      "unit": "%",
+      "rounding": "none",
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.5,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.5,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-16:chip-percent-input",
+      "formula": "100 × input fraction × 2^(Cq_input − Cq_IP)",
+      "inputs": {
+        "input_percent": 1,
+        "cq_input": 25,
+        "cq_ip": 22
+      },
+      "prompt_anchor": "1% of starting chromatin as input",
+      "calculated_value": 8.0,
+      "authored_answer": 8.0,
+      "unit": "%",
+      "rounding": "none",
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.1,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.1,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-17:isoform-fraction",
+      "formula": "100 × skipped counts / (skipped + included counts)",
+      "inputs": {
+        "skipped_counts": 60,
+        "included_counts": 30
+      },
+      "prompt_anchor": "skipped isoform has 60 measured counts and the included isoform has 30",
+      "calculated_value": 66.7,
+      "authored_answer": 66.7,
+      "unit": "%",
+      "rounding": "nearest 0.1 percentage point",
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.2,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.2,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-18:protein-half-life",
+      "formula": "ln(2) / (−ln(signal_end / signal_start) / elapsed time)",
+      "inputs": {
+        "signal_start": 80,
+        "signal_end": 40,
+        "elapsed_hours": 4
+      },
+      "prompt_anchor": "80 units at the start of a chase and 40 units after 4 hours",
+      "calculated_value": 4.0,
+      "authored_answer": 4.0,
+      "unit": "h",
+      "rounding": "none",
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.05,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.05,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-19:affected-child-risk",
+      "formula": "100 × 1/2 carrier probability × penetrance",
+      "inputs": {
+        "carrier_probability": 0.5,
+        "penetrance": 0.8
+      },
+      "prompt_anchor": "A defined phenotype has 80% penetrance among A/a carriers",
+      "calculated_value": 40.0,
+      "authored_answer": 40.0,
+      "unit": "%",
+      "rounding": "none",
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.1,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.1,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-21:occupancy-model",
+      "formula": "free ligand / (Kd + free ligand)",
+      "inputs": {
+        "free_ligand_nm": 1,
+        "kd_nm": 4
+      },
+      "prompt_anchor": "free ligand is 1 nM and Kd is 4 nM",
+      "calculated_value": 0.2,
+      "authored_answer": 0.2,
+      "unit": "",
+      "rounding": "none",
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.005,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.005,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-21:relative-response",
+      "formula": "stimulated signal / matched vehicle signal",
+      "inputs": {
+        "stimulated_relative_units": 36,
+        "vehicle_relative_units": 4
+      },
+      "prompt_anchor": "pERK signal is 36 relative units in ligand-stimulated cells and 4 relative units in matched vehicle controls",
+      "calculated_value": 9.0,
+      "authored_answer": 9.0,
+      "unit": "",
+      "rounding": "none",
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.05,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.05,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-24:uniform-stress",
+      "formula": "force / original area, with SI unit conversion",
+      "inputs": {
+        "force_micronewtons": 12,
+        "area_m2": 3e-09
+      },
+      "prompt_anchor": "12 μN is applied across an original area of 3 × 10⁻⁹ m²",
+      "calculated_value": 4000.0,
+      "authored_answer": 4000.0,
+      "unit": "Pa",
+      "rounding": "none",
+      "absolute_error": 0.0,
+      "absolute_tolerance": 40.0,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 40.0,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-24:yap-relative-increase",
+      "formula": "100 × (stiff condition − soft condition) / soft condition",
+      "inputs": {
+        "soft_fraction": 0.28,
+        "stiff_fraction": 0.76
+      },
+      "prompt_anchor": "fraction is 0.28 at 2 kPa and 0.76 at 30 kPa",
+      "calculated_value": 171.42857142857142,
+      "authored_answer": 171.42857142857142,
+      "unit": "%",
+      "rounding": "none",
+      "absolute_error": 0.0,
+      "absolute_tolerance": 2.0,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 2.0,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-25:edu-relative-reduction",
+      "formula": "100 × (vehicle fraction − treated fraction) / vehicle fraction",
+      "inputs": {
+        "vehicle_fraction_pct": 27,
+        "treated_fraction_pct": 11
+      },
+      "prompt_anchor": "fraction is 27% in vehicle and 11% after 24 hours",
+      "calculated_value": 59.3,
+      "authored_answer": 59.3,
+      "unit": "%",
+      "rounding": "nearest 0.1 percentage point",
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.6,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.6,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-25:phase-snapshot",
+      "formula": "100 × labeled viable singlets / gated viable singlets",
+      "inputs": {
+        "edu_positive_singlets": 60,
+        "viable_singlets": 240
+      },
+      "prompt_anchor": "labels 60 of 240 viable singlets",
+      "calculated_value": 25.0,
+      "authored_answer": 25.0,
+      "unit": "%",
+      "rounding": "none",
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.25,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.25,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-27:functional-fraction",
+      "formula": "100 × constructs meeting threshold / recovered viable constructs",
+      "inputs": {
+        "functional_constructs": 18,
+        "recovered_viable_constructs": 80
+      },
+      "prompt_anchor": "18 of 80 recovered viable constructs",
+      "calculated_value": 22.5,
+      "authored_answer": 22.5,
+      "unit": "%",
+      "rounding": "none",
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.225,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.225,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-3:check",
+      "formula": "Vmax × [S] / (Km + [S])",
+      "inputs": {
+        "vmax_umol_min": 120,
+        "km_mM": 3,
+        "substrate_mM": 6
+      },
+      "prompt_anchor": "Vmax = 120 μmol·min⁻¹ and Km = 3 mM",
+      "calculated_value": 80.0,
+      "authored_answer": 80.0,
+      "unit": "μmol/min",
+      "rounding": "none",
+      "absolute_error": 0.0,
+      "absolute_tolerance": 1.2,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 1.2,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-3:delta-g-from-k",
+      "formula": "−R × T × ln(K) / 1000",
+      "inputs": {
+        "gas_constant_j_mol_k": 8.314,
+        "temperature_k": 298,
+        "equilibrium_constant": 10
+      },
+      "prompt_anchor": "at 298 K the equilibrium constant is K = 10",
+      "calculated_value": -5.7,
+      "authored_answer": -5.7,
+      "unit": "kJ/mol",
+      "rounding": "nearest 0.1 kJ/mol",
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.05,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.05,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-9:coupling-energy",
+      "formula": "ΔG₁ + ΔG₂",
+      "inputs": {
+        "first_reaction_kj_mol": 12.0,
+        "second_reaction_kj_mol": -21.0
+      },
+      "prompt_anchor": "+12.0 kJ/mol and a second reaction has ΔG =",
+      "calculated_value": -9.0,
+      "authored_answer": -9.0,
+      "unit": "kJ/mol",
+      "rounding": "none",
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.05,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.05,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-9:rate-at-km",
+      "formula": "kcat × [active enzyme] × 1/2",
+      "inputs": {
+        "active_sites_nm": 20,
+        "kcat_per_s": 4,
+        "substrate_over_km": 1
+      },
+      "prompt_anchor": "20 nM active sites and has kcat = 4 s^-1",
+      "calculated_value": 40.0,
+      "authored_answer": 40.0,
+      "unit": "nM/s",
+      "rounding": "none",
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.4,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.4,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-9:rate-at-twice-km",
+      "formula": "kcat × [active enzyme] × ([S]/Km) / (1 + [S]/Km)",
+      "inputs": {
+        "active_sites_nm": 20,
+        "kcat_per_s": 4,
+        "substrate_over_km": 2
+      },
+      "prompt_anchor": "20 nM active sites and has kcat = 4 s^-1",
+      "calculated_value": 53.333333333333336,
+      "authored_answer": 53.3333,
+      "unit": "nM/s",
+      "rounding": "none",
+      "absolute_error": 3.3333333334439885e-05,
+      "absolute_tolerance": 0.5,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.5,
+      "passed": true
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Human Physiology for Engineers
 
-**Maturity: partial. Version: 0.4.0.**
+**Maturity: partial. Version: 0.4.8.**
 
 Quantitative homeostasis across excitable, cardiovascular, respiratory, renal, and endocrine systems, with emphasis on feedback and transport.
 
@@ -17,16 +17,16 @@ Cell biology; Physics: Mechanics; calculus recommended. Structured required, rec
 
 ## Proposed 14-week schedule
 
-This is a proposed scope, not a measured or reviewed semester. Each week lists its readings; the four short prototype readings (about 60 to 80 words each) sit in weeks 1, 3, 5 and 11 beside the original lessons, and every lesson has public formative items and retrieval cards.
+This is a proposed scope, not a measured or reviewed semester. Each week lists its readings; weeks 1, 3, 5 and 11 now have expanded homeostasis/feedback, electrophysiology, transport and renal/endocrine primers. Week 4 adds passive membrane and cable properties (time constant, length constant, electrotonic decay and conduction-velocity scaling), the passive foundation of the 6.021J core-conductor sequence; Hodgkin–Huxley kinetics remain outside the developed sequence. Week 6 also adds a bounded cardiac pressure-volume and pump-work treatment to the hemodynamics reading. The four original prototype readings remain short primers despite this expansion. Every lesson has public formative items and retrieval cards.
 
 | Week | Theme | Readings |
 |---|---|---|
 | 1 | Homeostasis and feedback | Homeostasis and feedback |
 | 2 | Homeostasis as balance: mass balance, energy balance and feedback gain | Homeostasis as balance: mass balance, energy balance and the gain of negative feedback |
 | 3 | Excitable cells and electrophysiology | Excitable cells and electrophysiology |
-| 4 | Membrane potential: Nernst, Goldman–Hodgkin–Katz and extracellular potassium | Membrane potential: the Nernst potential, the Goldman–Hodgkin–Katz equation and why extracellular potassium matters |
+| 4 | Membrane potential and passive cable properties | Membrane potential: the Nernst potential, the Goldman–Hodgkin–Katz equation and why extracellular potassium matters; Passive membrane and cable properties: time constant, length constant and conduction |
 | 5 | Cardiovascular and respiratory transport | Cardiovascular and respiratory transport |
-| 6 | Hemodynamics: pressure, flow, resistance and compliance | Hemodynamics: pressure, flow, resistance and compliance |
+| 6 | Hemodynamics: pressure, flow, resistance, compliance and cardiac pump work | Hemodynamics: pressure, flow, resistance and compliance |
 | 7 | Respiratory mechanics and gas exchange | Respiratory mechanics and gas exchange: ventilation, dead space, compliance and the alveolar gas equation |
 | 8 | Oxygen delivery and the Fick principle | Oxygen delivery: arterial content, the Fick principle and extraction |
 | 9 | Fluid exchange across capillaries and edema | Fluid exchange across capillaries: Starling forces, filtration, absorption and why edema forms |
@@ -38,12 +38,12 @@ This is a proposed scope, not a measured or reviewed semester. Each week lists i
 
 ## Assessment and study policy
 
-Every lesson has public formative items (numeric, single-choice, multiple-select, data-interpretation, structured-response and CSV-upload) mapped to its objectives, plus retrieval cards for the review queue; each practice assessment also lists the course outcomes its items assess. Week 13 is a synthetic-data virtual lab and week 14 pairs a compensation-and-reserve lesson with the course case and its self-assessment checklist. These are practice activities with unlimited retries and no institutional grade, university credit or transferable credit. Workload has not been measured.
+Every lesson has public formative items (numeric, single-choice, multiple-select, data-interpretation, structured-response and CSV-upload) mapped to its objectives, plus retrieval cards for the review queue; each practice assessment also lists the course outcomes its items assess. Week 13 is a synthetic-data virtual lab and week 14 pairs a compensation-and-reserve lesson with the course case and its self-assessment checklist. These are practice activities with unlimited retries and no institutional grade, university credit or transferable credit. An [inactive, ungraded renal-clearance ledger draft](assessment-specs/renal-clearance-ledger-project-draft.md) is provided for instructor review and is not activated in the course platform. Workload has not been measured.
 
 ## Current limitations
 
-The schedule above is proposed, not measured, and has not been reviewed by a qualified instructor. There are no graded homework sets, midterm, final or graded project. The four prototype readings remain short. The package cites no papers: the lessons teach standard relations with synthetic data, and statements about average changes with age are general textbook-level statements without cited sources. All scenarios and people are synthetic; no lesson gives medical advice, and nothing here says anything about any person's health. Qualified human review is required before this course could meet the complete-course standard.
+The schedule above is proposed, not measured, and has not been reviewed by a qualified instructor. There are no graded homework sets, midterm, final or active graded project; the renal-clearance ledger is an inactive authoring draft. The cardiac pressure-volume example is a rectangular approximation using invented values and is not a clinical estimate. The package cites no papers: the lessons teach standard relations with synthetic data, and statements about average changes with age are general textbook-level statements without cited sources. All scenarios and people are synthetic; no lesson gives medical advice, and nothing here says anything about any person's health. Qualified human review is required before this course could meet the complete-course standard.
 
 ## Sources and licensing
 
-Read source-map.json for module provenance and content/SOURCES_AND_LICENSES.md for the software/content license boundary. Listed source courses are public curriculum comparators; no affiliation or equivalency is implied.
+MIT OCW [HST.542J Quantitative Physiology: Organ Transport Systems, Spring 2004 calendar](https://ocw.mit.edu/courses/hst-542j-quantitative-physiology-organ-transport-systems-spring-2004/pages/calendar/) is the direct undergraduate comparator for cardiovascular models and the heart as a pump. The local pressure-volume examples are original and synthetic, and do not reconstruct MIT materials. Read source-map.json for module provenance and content/SOURCES_AND_LICENSES.md for the software/content license boundary. Listed source courses are public curriculum comparators; no affiliation or equivalency is implied.

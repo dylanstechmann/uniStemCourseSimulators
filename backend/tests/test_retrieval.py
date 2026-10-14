@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 
 import pytest
 
-from courselab import main as main_module
+from courselab import retrieval_routes as retrieval_module
 from courselab.retrieval import (
     MAX_INTERVAL_DAYS,
     MIN_EASE,
@@ -110,8 +110,8 @@ def test_new_card_is_scheduled_and_queue_reports_it(enrolled, monkeypatch):
     queue = enrolled.get("/api/v1/reviews/test-course").json()
     assert queue["counts"] == {"due": 0, "new": 0, "upcoming": 1}
 
-    later = main_module.now() + timedelta(days=2)
-    monkeypatch.setattr(main_module, "now", lambda: later)
+    later = retrieval_module.now() + timedelta(days=2)
+    monkeypatch.setattr(retrieval_module, "now", lambda: later)
     queue = enrolled.get("/api/v1/reviews/test-course").json()
     assert queue["counts"] == {"due": 1, "new": 0, "upcoming": 0}
     assert queue["due"][0]["schedule"]["due"] is True

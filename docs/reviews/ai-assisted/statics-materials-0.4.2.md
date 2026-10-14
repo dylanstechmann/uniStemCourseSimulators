@@ -1,0 +1,7 @@
+# Statics & Mechanics of Materials 0.4.2 — axial load, stress, and strain
+
+Week 3 now develops average normal stress, engineering strain, the uniaxial linear-elastic relation, extension and axial stiffness of a uniform bar, and a segmented-bar estimate. It checks N/mm²-to-MPa and GPa conversions and makes the assumptions explicit: a centered axial load, suitable geometry and boundary conditions, small deformation, and a recoverable approximately linear material response. It distinguishes average stress from local concentrations and flags rate- or direction-dependent properties. The numerical examples are synthetic and are not design allowables.
+
+Both objectives now map to outcomes 2 and/or 3. The unchanged formative questions retain their IDs, prompts, keys (10 MPa and 40 MPa), tolerances, and feedback. The existing uniform-bar example is stated in the manifest with its unit conversion and independent stiffness check. MIT OpenCourseWare's 2.001 Mechanics & Materials I lecture-notes page is registered as a link-only technical reference; no notes, wording, diagrams, problems or data were copied or adapted.
+
+Checks: the focused Statics suite passed 4 tests; Ruff passed; full content validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors and 10 disclosed depth warnings); the assessment-candidate report drift check passed. These same-AI checks are not independent mechanics, accessibility or safety review. The package remains partial, unreviewed and formative-only, with compact readings remaining in weeks 4 and 8.

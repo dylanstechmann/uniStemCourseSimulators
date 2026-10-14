@@ -9,7 +9,7 @@
       "prompt": "A protein has Kd = 4 μM. In a simple 1:1 model, what fraction of sites is occupied at free ligand concentration 12 μM? Enter a fraction from 0 to 1.",
       "points": 1,
       "objective_ids": [
-        "biochemistry-1-objective-1"
+        "biochemistry-1-objective-2"
       ],
       "solution_spec": {
         "answer": 0.75,
@@ -109,7 +109,7 @@
       ],
       "points": 1,
       "objective_ids": [
-        "biochemistry-4-objective-1"
+        "biochemistry-4-objective-2"
       ],
       "solution_spec": {
         "answer": 2
@@ -2883,6 +2883,3706 @@
         "misconception_ids": [
           "tracer-fraction-as-rate",
           "single-measurement"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-1:structure-levels",
+      "type": "single_choice",
+      "prompt": "Which description correctly distinguishes primary, secondary, tertiary, and quaternary protein structure?",
+      "options": [
+        "Primary is amino-acid sequence; secondary is local backbone organization; tertiary is the three-dimensional fold of one polypeptide; quaternary is the arrangement of multiple subunits.",
+        "Primary is the arrangement of multiple subunits; secondary is the amino-acid sequence; tertiary is local backbone organization; quaternary is one-chain folding.",
+        "Primary is the three-dimensional fold; secondary is the arrangement of subunits; tertiary is amino-acid sequence; quaternary is local backbone organization.",
+        "Secondary and tertiary both mean amino-acid sequence, while quaternary means ligand affinity."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-1-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Separate the sequence, local backbone patterns, whole-chain fold, and multi-chain assembly.",
+        "solution": "The levels progress from sequence (primary), local recurring backbone patterns (secondary), the fold of one polypeptide (tertiary), to assembly of multiple subunits (quaternary).",
+        "lesson_ids": [
+          "biochemistry-1"
+        ],
+        "misconception_ids": [
+          "protein-structure-levels"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct formative practice distinguishing the four levels of protein structure."
+        ]
+      }
+    },
+    {
+      "id": "biochemistry-4:regulatory-layers",
+      "type": "single_choice",
+      "prompt": "Which set includes distinct regulatory layers that can change pathway flux?",
+      "options": [
+        "Substrate supply, allosteric effectors, covalent modification, and enzyme expression.",
+        "Only terminal-product concentration; substrate supply and enzyme activity cannot matter.",
+        "Only gene expression, because existing enzymes cannot be regulated after synthesis.",
+        "Only substrate supply; allostery and covalent modification do not change enzyme activity."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-4-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Think from immediate substrate availability through rapid enzyme-state changes to slower abundance changes.",
+        "solution": "Flux can respond to substrate supply, allosteric binding, covalent modification, and changes in enzyme expression. These layers act on different time scales and can interact.",
+        "lesson_ids": [
+          "biochemistry-4"
+        ],
+        "misconception_ids": [
+          "single-layer-pathway-control"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct formative practice for substrate, allosteric, covalent, and expression-level regulation."
+        ]
+      }
+    },
+    {
+      "id": "biochemistry-protein-purification:ion-exchange-by-pi",
+      "type": "single_choice",
+      "prompt": "A synthetic protein has pI 6.2 and remains stable at pH 7.5. Which ion-exchange medium can bind it under this simplified charge model?",
+      "options": [
+        "A cation exchanger, because above its pI the protein is net positive.",
+        "An anion exchanger, because above its pI the protein is net negative.",
+        "A cation exchanger, because anions are attracted to negative groups.",
+        "Neither exchanger can separate proteins by charge."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-protein-purification-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Compare buffer pH with the protein pI, then remember what charge the exchanger carries.",
+        "solution": "At pH above pI the protein is usually net negative, so a positively charged anion exchanger can bind it. Actual binding also depends on stability, salt and surface charge.",
+        "lesson_ids": [
+          "biochemistry-protein-purification"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-protein-purification:size-exclusion-order",
+      "type": "single_choice",
+      "prompt": "Two soluble proteins fall within a size-exclusion column’s fractionation range. Protein A has a larger hydrodynamic size than protein B. Which is expected to elute first?",
+      "options": [
+        "Protein A, because it enters fewer pores and samples less pore volume.",
+        "Protein B, because smaller proteins cannot enter the pores.",
+        "They must elute together because SEC separates by charge.",
+        "Protein B, because it diffuses more slowly through the buffer."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-protein-purification-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Ask which protein spends less time inside the porous beads.",
+        "solution": "The larger protein samples less pore volume and usually elutes earlier. The result depends on hydrodynamic size and the column’s fractionation range.",
+        "lesson_ids": [
+          "biochemistry-protein-purification"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-protein-purification:affinity-selectivity",
+      "type": "single_choice",
+      "prompt": "A target enzyme carries an accessible engineered tag that binds a chosen ligand; most contaminants do not. Which step most directly uses that difference?",
+      "options": [
+        "Size exclusion chromatography, because it separates by tag sequence.",
+        "Affinity chromatography, because the ligand selectively binds the tagged target.",
+        "Ion exchange at any pH, because the tag guarantees a net charge difference.",
+        "SDS-PAGE, because a denaturing gel preserves enzyme activity."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-protein-purification-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Choose the method whose separation property matches the stated interaction.",
+        "solution": "Affinity chromatography uses a selective ligand interaction. Tag accessibility, nonspecific binding and conditions that affect activity can still limit recovery.",
+        "lesson_ids": [
+          "biochemistry-protein-purification"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-protein-purification:ion-exchange-specific-activity",
+      "type": "numeric",
+      "prompt": "In the synthetic table, the ion-exchange pool is 20 mL at 0.80 mg/mL protein and 210 U/mL activity. What is its specific activity? Enter the value in μmol/(min·mg).",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-protein-purification-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 262.5,
+        "unit": "μmol/(min·mg)",
+        "tolerance": 2.625,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Calculate total protein and total activity, then divide activity by protein.",
+        "solution": "Total protein = 20 × 0.80 = 16 mg; total activity = 20 × 210 = 4,200 U; specific activity = 4,200/16 = 262.5 U/mg.",
+        "lesson_ids": [
+          "biochemistry-protein-purification"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-protein-purification:ion-exchange-recovery",
+      "type": "numeric",
+      "prompt": "The ion-exchange pool contains 4,200 U total activity, and the crude extract started with 6,000 U. What is activity recovery? Enter a percentage with units.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-protein-purification-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 70,
+        "unit": "%",
+        "tolerance": 0.7,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Divide the activity remaining by starting activity and multiply by 100.",
+        "solution": "4,200/6,000 × 100 = 70% activity recovery.",
+        "lesson_ids": [
+          "biochemistry-protein-purification"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-protein-purification:enrichment-not-homogeneity",
+      "type": "single_choice",
+      "prompt": "The synthetic affinity pool has 70-fold higher specific activity than crude extract and 56% activity recovery. Which conclusion is warranted?",
+      "options": [
+        "The preparation is 70% pure because enrichment and purity are the same.",
+        "All target molecules were recovered because activity per milligram increased.",
+        "Activity per measured protein increased while some measured activity was lost; purity still needs independent evidence.",
+        "The result proves the affinity ligand did not affect enzyme activity."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-protein-purification-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 2
+      },
+      "feedback": {
+        "hint": "Keep enrichment, activity yield and molecular homogeneity as separate claims.",
+        "solution": "A rise in specific activity supports enrichment only under comparable assays. It does not by itself establish homogeneity, and the 56% recovery is defined from measured activity.",
+        "lesson_ids": [
+          "biochemistry-protein-purification"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-tca-cycle:per-turn-output",
+      "type": "single_choice",
+      "prompt": "Which set gives the canonical outputs per acetyl-CoA entering one turn of the citric acid cycle?",
+      "options": [
+        "1 CO₂, 1 NADH, 3 FADH₂ and 2 GTP",
+        "2 CO₂, 3 NADH, 1 FADH₂ and 1 GTP",
+        "2 CO₂, 2 NADH, 2 FADH₂ and 3 GTP",
+        "1 CO₂, 3 NADH, 1 FADH₂ and 2 ATP made by oxidative phosphorylation"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-tca-cycle-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Count the two oxidative decarboxylations, three NAD⁺-reducing steps and one FAD-linked step.",
+        "solution": "One acetyl-CoA turn releases 2 CO₂ and produces 3 NADH, 1 FADH₂ and 1 GTP; oxaloacetate is regenerated.",
+        "lesson_ids": [
+          "biochemistry-tca-cycle"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-tca-cycle:nadh-two-turns",
+      "type": "numeric",
+      "prompt": "For 1.0 mol glucose, how many mol of NADH are produced by the two citric-acid-cycle turns only? Enter a value with units.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-tca-cycle-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 6,
+        "unit": "mol",
+        "tolerance": 0.06,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Each glucose supplies two acetyl-CoA, and each turn produces three NADH.",
+        "solution": "Two turns × 3 mol NADH per turn = 6 mol NADH per mol glucose from the cycle; pyruvate dehydrogenase and glycolysis are excluded.",
+        "lesson_ids": [
+          "biochemistry-tca-cycle"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-tca-cycle:pdh-boundary",
+      "type": "single_choice",
+      "prompt": "Which event is outside the citric acid cycle but immediately precedes it for glucose-derived carbon?",
+      "options": [
+        "Citrate is rearranged to isocitrate.",
+        "Succinate is oxidized to fumarate.",
+        "Pyruvate is converted to acetyl-CoA, releasing CO₂ and producing NADH.",
+        "Malate is oxidized to oxaloacetate."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-tca-cycle-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 2
+      },
+      "feedback": {
+        "hint": "Locate the reaction that makes the two-carbon acetyl-CoA input from three-carbon pyruvate.",
+        "solution": "Pyruvate dehydrogenase acts before the cycle and releases one CO₂ and one NADH per pyruvate.",
+        "lesson_ids": [
+          "biochemistry-tca-cycle"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-tca-cycle:gtp-two-turns",
+      "type": "numeric",
+      "prompt": "A synthetic cell processes 3.0 mmol glucose through two citric-acid-cycle turns per glucose. How many mmol GTP are made by the cycle? Enter a value with units.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-tca-cycle-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 6,
+        "unit": "mmol",
+        "tolerance": 0.06,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Each glucose gives two acetyl-CoA, and each cycle turn makes one GTP.",
+        "solution": "3.0 mmol glucose × 2 turns per glucose × 1 mmol GTP per turn = 6.0 mmol GTP.",
+        "lesson_ids": [
+          "biochemistry-tca-cycle"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-tca-cycle:anaplerosis",
+      "type": "single_choice",
+      "prompt": "A cell withdraws oxaloacetate-derived carbon for another pathway. Which response can help sustain cycle operation?",
+      "options": [
+        "An anaplerotic reaction replenishes a cycle intermediate, for example by making oxaloacetate from pyruvate.",
+        "The cycle automatically creates extra oxaloacetate without another carbon source.",
+        "Electron transport converts NADH directly into oxaloacetate.",
+        "The cell blocks all biosynthesis because cycle intermediates cannot leave."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-tca-cycle-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Anaplerosis means refilling a pool that has been drained by withdrawal.",
+        "solution": "Anaplerotic reactions replenish intermediates. Pyruvate carboxylase can form oxaloacetate from pyruvate, bicarbonate and ATP in many mammalian tissues.",
+        "lesson_ids": [
+          "biochemistry-tca-cycle"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-tca-cycle:pool-versus-flux",
+      "type": "single_choice",
+      "prompt": "A measured oxaloacetate pool is unchanged after a perturbation. What can be concluded about cycle flux from that pool measurement alone?",
+      "options": [
+        "Flux is unchanged because the pool stayed constant.",
+        "Flux is zero because oxaloacetate is not accumulating.",
+        "Production and consumption could both change while the pool stays stable, so flux is not determined.",
+        "All NADH production is unchanged."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-tca-cycle-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 2
+      },
+      "feedback": {
+        "hint": "A pool is an amount at a time; flux is a rate through the network.",
+        "solution": "A stable pool does not determine production or consumption rates. Independent time-course or flux evidence is needed.",
+        "lesson_ids": [
+          "biochemistry-tca-cycle"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-tca-cycle:label-fate",
+      "type": "single_choice",
+      "prompt": "A tracer labels the two incoming carbons of acetyl-CoA. Why might those labels not appear in CO₂ during that same cycle turn?",
+      "options": [
+        "The labels can mix among cycle intermediates before being released in later turns.",
+        "Acetyl-CoA carbon cannot ever become CO₂.",
+        "Each CO₂ molecule must come from the oxygen atoms in NADH.",
+        "The cycle uses no carbon dioxide."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-tca-cycle-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Distinguish the pathway’s total carbon balance from the identity of atoms lost on the first pass.",
+        "solution": "Carbon atoms mix in the cycle. A two-CO₂ output per turn does not mean the newly entering acetyl carbons are both released immediately.",
+        "lesson_ids": [
+          "biochemistry-tca-cycle"
+        ],
+        "misconception_ids": [
+          "acetyl-carbon-first-turn"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-gluconeogenesis:pyruvate-kinase-bypass",
+      "type": "single_choice",
+      "prompt": "Which pair of reactions bypasses the glycolytic pyruvate-kinase step during gluconeogenesis?",
+      "options": [
+        "Pyruvate carboxylase uses ATP to make oxaloacetate; PEPCK uses GTP to make phosphoenolpyruvate.",
+        "Pyruvate kinase runs backward using ATP; PEPCK hydrolyzes phosphoenolpyruvate.",
+        "Lactate dehydrogenase uses GTP to make glucose 6-phosphate.",
+        "Fructose 1,6-bisphosphatase converts pyruvate directly to phosphoenolpyruvate."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-gluconeogenesis-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Name the intermediate before PEP and track which nucleotide each bypass reaction uses.",
+        "solution": "Pyruvate carboxylase makes oxaloacetate at an ATP cost, and PEPCK converts it to PEP using GTP. Together they bypass pyruvate kinase.",
+        "lesson_ids": [
+          "biochemistry-gluconeogenesis"
+        ],
+        "misconception_ids": [
+          "reverse-pyruvate-kinase"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-gluconeogenesis:atp-cost",
+      "type": "numeric",
+      "prompt": "For synthesis of 1 mol glucose from pyruvate, how many mol ATP are consumed by gluconeogenesis? Enter a number and unit.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-gluconeogenesis-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 4,
+        "unit": "mol ATP",
+        "tolerance": 0.02,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Count ATP separately from the two GTP used by PEPCK.",
+        "solution": "Two pyruvate require two ATP at pyruvate carboxylase and two ATP at the phosphoglycerate-kinase step: 4 mol ATP per mol glucose.",
+        "lesson_ids": [
+          "biochemistry-gluconeogenesis"
+        ],
+        "misconception_ids": [
+          "gluconeogenesis-atp-gtp-confusion"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-gluconeogenesis:gtp-cost",
+      "type": "numeric",
+      "prompt": "For synthesis of 1 mol glucose from pyruvate, how many mol GTP are consumed? Enter a number and unit.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-gluconeogenesis-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 2,
+        "unit": "mol",
+        "tolerance": 0.02,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Two pyruvate molecules are converted through two oxaloacetate molecules.",
+        "solution": "Two PEPCK reactions each use one GTP, so the total is 2 mol GTP per mol glucose.",
+        "lesson_ids": [
+          "biochemistry-gluconeogenesis"
+        ],
+        "misconception_ids": [
+          "omit-pepck-gtp"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-gluconeogenesis:f26bp-control",
+      "type": "single_choice",
+      "prompt": "In liver, what is the paired effect of increased fructose 2,6-bisphosphate (F2,6BP)?",
+      "options": [
+        "It activates PFK-1 and inhibits fructose 1,6-bisphosphatase, favoring glycolysis.",
+        "It inhibits PFK-1 and activates fructose 1,6-bisphosphatase, favoring gluconeogenesis.",
+        "It activates both enzymes equally, so both pathways necessarily accelerate.",
+        "It has no effect on either enzyme; it only changes glucose transport."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-gluconeogenesis-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "The regulator has reciprocal effects on the opposing enzymes.",
+        "solution": "F2,6BP activates PFK-1 and inhibits FBPase-1, coordinating opposing steps toward glycolysis in this liver context.",
+        "lesson_ids": [
+          "biochemistry-gluconeogenesis"
+        ],
+        "misconception_ids": [
+          "f26bp-one-sided-control"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-gluconeogenesis:bypass-hydrolysis",
+      "type": "single_choice",
+      "prompt": "Why does the glucose 6-phosphatase bypass not generate ATP?",
+      "options": [
+        "It hydrolyzes glucose 6-phosphate to glucose and inorganic phosphate rather than transferring phosphate to ADP.",
+        "It transfers the phosphate directly to ADP but immediately consumes the ATP.",
+        "It oxidizes glucose 6-phosphate and captures the electrons in ATP.",
+        "It converts glucose 6-phosphate to fructose 6-phosphate."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-gluconeogenesis-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Distinguish hydrolysis from a kinase reaction that transfers phosphate to ADP.",
+        "solution": "Glucose 6-phosphatase hydrolyzes the phosphate ester; the released phosphate is not captured as ATP.",
+        "lesson_ids": [
+          "biochemistry-gluconeogenesis"
+        ],
+        "misconception_ids": [
+          "hydrolysis-makes-atp"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-gluconeogenesis:net-glucose-carbon",
+      "type": "single_choice",
+      "prompt": "Which statement about carbon sources for net glucose synthesis in mammals is correct?",
+      "options": [
+        "Glycerol can enter through triose phosphates, while even-chain fatty-acid acetyl-CoA cannot provide net glucose carbon.",
+        "Even-chain fatty-acid acetyl-CoA is converted directly to net glucose by reversing the citric acid cycle.",
+        "Neither glycerol nor amino-acid carbon can enter gluconeogenesis.",
+        "The fatty-acid chains and glycerol backbone have identical routes into glucose."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-gluconeogenesis-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Separate glycerol from fatty-acid chains, then ask whether acetyl-CoA has a net route back to oxaloacetate.",
+        "solution": "Glycerol can enter gluconeogenesis as a triose phosphate. Even-chain fatty acids yield acetyl-CoA, which provides no net glucose carbon in mammals; the glycerol backbone is distinct.",
+        "lesson_ids": [
+          "biochemistry-gluconeogenesis"
+        ],
+        "misconception_ids": [
+          "acetyl-coa-net-glucose"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-gluconeogenesis:energy-cost-scaling",
+      "type": "numeric",
+      "prompt": "Using the pyruvate starting boundary, how many mol ATP are consumed to synthesize 2.5 mol glucose? Enter a number and unit.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-gluconeogenesis-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 10,
+        "unit": "mol ATP",
+        "tolerance": 0.02,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Scale the per-glucose ATP input; do not convert GTP into ATP for this item.",
+        "solution": "At 4 mol ATP per mol glucose, 2.5 mol glucose requires 2.5 × 4 = 10 mol ATP. GTP and NADH are separate inputs.",
+        "lesson_ids": [
+          "biochemistry-gluconeogenesis"
+        ],
+        "misconception_ids": [
+          "gluconeogenesis-cost-scaling"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-glycogen-metabolism:glycogen-storage-cost",
+      "type": "numeric",
+      "prompt": "Starting with free glucose, how many mol of ATP equivalents are required to add 1 mol of glucose residues to glycogen? Enter a number in mol.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-glycogen-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 2,
+        "unit": "mol",
+        "tolerance": 0.02,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Count the ATP at glucose phosphorylation and the energy used to regenerate UTP from UDP.",
+        "solution": "One ATP phosphorylates glucose and one ATP equivalent regenerates the UTP used to activate glucose 1-phosphate, for 2 mol ATP equivalents per mol residue.",
+        "lesson_ids": [
+          "biochemistry-glycogen-metabolism"
+        ],
+        "misconception_ids": [
+          "glycogen-utp-cost"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-glycogen-metabolism:glycogen-phosphorylase",
+      "type": "single_choice",
+      "prompt": "What is the main immediate product when glycogen phosphorylase cleaves an alpha-1,4 linkage?",
+      "options": [
+        "Glucose 1-phosphate produced by phosphorolysis.",
+        "Free glucose produced by hydrolysis of every residue.",
+        "Glucose 6-phosphate produced directly without a mutase.",
+        "UDP-glucose released from the glycogen chain."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-glycogen-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Distinguish phosphorolysis by phosphorylase from hydrolysis at an alpha-1,6 branch point.",
+        "solution": "Glycogen phosphorylase uses inorganic phosphate to release glucose 1-phosphate from alpha-1,4-linked residues; phosphoglucomutase then forms glucose 6-phosphate.",
+        "lesson_ids": [
+          "biochemistry-glycogen-metabolism"
+        ],
+        "misconception_ids": [
+          "glycogen-releases-free-glucose"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-glycogen-metabolism:muscle-atp-yield",
+      "type": "numeric",
+      "prompt": "A synthetic unbranched muscle-glycogen segment yields 4 mol of glucosyl residues, all metabolized to lactate. How many mol ATP are produced net by glycolysis? Enter a number in mol.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-glycogen-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 12,
+        "unit": "mol",
+        "tolerance": 0.02,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The glycogen-derived glucose 6-phosphate bypasses the ATP-consuming hexokinase step.",
+        "solution": "Each glycogen-derived residue enters as glucose 6-phosphate and yields 3 mol ATP net to lactate; 4 × 3 = 12 mol ATP.",
+        "lesson_ids": [
+          "biochemistry-glycogen-metabolism"
+        ],
+        "misconception_ids": [
+          "glycogen-hexokinase-double-charge"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-glycogen-metabolism:tissue-roles",
+      "type": "single_choice",
+      "prompt": "Which statement correctly distinguishes liver and skeletal-muscle glycogen?",
+      "options": [
+        "Liver can release glucose to help maintain blood glucose; muscle glycogen mainly supplies glucose 6-phosphate for local use.",
+        "Muscle routinely releases free glucose to blood, while liver glycogen is used only in contraction.",
+        "Both tissues use glycogen only to synthesize glucose for export.",
+        "Neither tissue converts glycogen-derived glucose 1-phosphate to glucose 6-phosphate."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-glycogen-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Track what can happen to glucose 6-phosphate in each tissue.",
+        "solution": "Liver expresses glucose 6-phosphatase and can contribute glucose to blood; muscle glycogen primarily fuels the muscle itself.",
+        "lesson_ids": [
+          "biochemistry-glycogen-metabolism"
+        ],
+        "misconception_ids": [
+          "muscle-glycogen-blood-glucose"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-glycogen-metabolism:phosphorylation-switch",
+      "type": "single_choice",
+      "prompt": "In the simplified reciprocal switch, what is the effect of phosphorylation on glycogen phosphorylase and glycogen synthase?",
+      "options": [
+        "It activates glycogen phosphorylase and shifts glycogen synthase toward its less-active form.",
+        "It activates both enzymes and drives simultaneous storage and breakdown.",
+        "It inhibits glycogen phosphorylase and activates glycogen synthase.",
+        "It has no effect on either enzyme."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-glycogen-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "The control is reciprocal across breakdown and synthesis enzymes.",
+        "solution": "Phosphorylation in the signaling cascade activates glycogen phosphorylase while generally shifting glycogen synthase toward its less-active form.",
+        "lesson_ids": [
+          "biochemistry-glycogen-metabolism"
+        ],
+        "misconception_ids": [
+          "phosphorylation-universal-effect"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-glycogen-metabolism:muscle-signal",
+      "type": "single_choice",
+      "prompt": "Which combination can promote local glycogen breakdown in contracting skeletal muscle?",
+      "options": [
+        "Contraction-associated calcium activates phosphorylase kinase, while AMP can activate muscle glycogen phosphorylase.",
+        "Glucagon directly activates muscle glycogen phosphorylase in the same way as in liver.",
+        "High ATP and high glucose 6-phosphate are the universal signals for rapid glycogen breakdown.",
+        "Insulin activates phosphorylase kinase to mobilize glycogen."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-glycogen-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Separate local muscle signals from hepatic glucagon signaling.",
+        "solution": "Calcium-linked phosphorylase kinase activation and AMP allostery connect local muscle contraction and low energy to glycogen mobilization.",
+        "lesson_ids": [
+          "biochemistry-glycogen-metabolism"
+        ],
+        "misconception_ids": [
+          "hepatic-signal-in-muscle"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-glycogen-metabolism:g1p-and-branch-point",
+      "type": "single_choice",
+      "prompt": "How do the two principal glycogen-breakdown activities handle the chain and its branch points?",
+      "options": [
+        "Phosphorylase releases glucose 1-phosphate from alpha-1,4 links; debranching activity transfers residues and hydrolyzes alpha-1,6-linked glucose.",
+        "Phosphorylase hydrolyzes alpha-1,6 links to free glucose; debranching enzyme releases only UDP-glucose.",
+        "Both enzymes release only free glucose from every linkage.",
+        "The debranching enzyme converts glucose 1-phosphate directly to glucose 6-phosphate."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-glycogen-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Separate the phosphorylase limit near branches from debranching transferase and glucosidase actions.",
+        "solution": "Phosphorylase acts on alpha-1,4 chains; the bifunctional debranching enzyme transfers a short segment and hydrolyzes the alpha-1,6-linked residue, releasing some free glucose.",
+        "lesson_ids": [
+          "biochemistry-glycogen-metabolism"
+        ],
+        "misconception_ids": [
+          "debranching-enzyme-role"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-pentose-phosphate:oxidative-nadph",
+      "type": "numeric",
+      "prompt": "How many mol NADPH are produced when 1 mol glucose 6-phosphate passes once through the oxidative PPP? Enter a number in mol.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-ppp-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 2,
+        "unit": "mol",
+        "tolerance": 0.02,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Count the two dehydrogenase steps in the oxidative branch.",
+        "solution": "Each oxidative pass reduces two NADP+ molecules, producing 2 mol NADPH per mol glucose 6-phosphate.",
+        "lesson_ids": [
+          "biochemistry-pentose-phosphate"
+        ],
+        "misconception_ids": [
+          "nadph-vs-nadh"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-pentose-phosphate:oxidative-co2",
+      "type": "numeric",
+      "prompt": "How many mol CO2 are released per mol glucose 6-phosphate in one oxidative PPP pass? Enter a number in mol.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-ppp-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 1,
+        "unit": "mol",
+        "tolerance": 0.02,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Compare the six-carbon starting sugar with the five-carbon pentose product.",
+        "solution": "The 6-phosphogluconate dehydrogenase step releases one carbon as CO2, leaving a five-carbon ribulose phosphate.",
+        "lesson_ids": [
+          "biochemistry-pentose-phosphate"
+        ],
+        "misconception_ids": [
+          "ppp-carbon-loss"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-pentose-phosphate:no-direct-atp",
+      "type": "single_choice",
+      "prompt": "Which statement best describes the direct products of one oxidative PPP pass?",
+      "options": [
+        "It produces NADPH and ribulose 5-phosphate plus CO2; it does not directly produce ATP.",
+        "It produces NADH and ATP while conserving all six glucose carbons.",
+        "It converts glucose 6-phosphate directly to lactate and produces two ATP.",
+        "It produces only ribose 5-phosphate and no reducing equivalents."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-ppp-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Keep redox output, carbon output and ATP yield in separate ledgers.",
+        "solution": "The oxidative branch generates NADPH, releases one CO2, and forms ribulose 5-phosphate; it is not a direct ATP-producing pathway.",
+        "lesson_ids": [
+          "biochemistry-pentose-phosphate"
+        ],
+        "misconception_ids": [
+          "ppp-makes-atp"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-pentose-phosphate:nonoxidative-carbon-balance",
+      "type": "single_choice",
+      "prompt": "Which nonoxidative carbon balance preserves all carbon atoms?",
+      "options": [
+        "Three pentose phosphates can be rearranged to two fructose 6-phosphate plus one glyceraldehyde 3-phosphate.",
+        "One pentose phosphate is converted to two glucose molecules.",
+        "Three pentoses are converted to three CO2 without other products.",
+        "Two fructose 6-phosphate become four ribose 5-phosphate with carbon loss."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-ppp-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Add the carbon atoms on both sides of the proposed rearrangement.",
+        "solution": "Three five-carbon sugars contain 15 carbons; two six-carbon fructose 6-phosphates plus one three-carbon glyceraldehyde 3-phosphate also contain 15.",
+        "lesson_ids": [
+          "biochemistry-pentose-phosphate"
+        ],
+        "misconception_ids": [
+          "nonoxidative-carbon-count"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-pentose-phosphate:ribose-demand",
+      "type": "single_choice",
+      "prompt": "A synthetic cell needs ribose 5-phosphate for nucleotide synthesis but has relatively low NADPH demand. Which route can supply ribose without requiring every pentose to pass through oxidative decarboxylation?",
+      "options": [
+        "Run reversible nonoxidative reactions from glycolytic intermediates toward ribose 5-phosphate.",
+        "Force all glucose 6-phosphate through oxidative decarboxylation because the nonoxidative branch is irreversible.",
+        "Use glycogen phosphorylase to synthesize ribose directly.",
+        "Convert NADPH into ribose 5-phosphate without carbon substrates."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-ppp-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "The nonoxidative reactions rearrange carbon and are reversible.",
+        "solution": "Reversible transketolase/transaldolase reactions can use glycolytic carbon to form pentose phosphates when ribose demand is high relative to NADPH demand.",
+        "lesson_ids": [
+          "biochemistry-pentose-phosphate"
+        ],
+        "misconception_ids": [
+          "ribose-requires-oxidative-branch"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-pentose-phosphate:nadp-availability",
+      "type": "single_choice",
+      "prompt": "Which condition most directly supports increased G6PD reaction rate, assuming glucose 6-phosphate and active enzyme are available?",
+      "options": [
+        "More NADP+ relative to NADPH provides substrate for the first oxidative reaction.",
+        "More NADPH and no NADP+ drives the reaction forward.",
+        "More ATP directly substitutes for NADP+ as the electron acceptor.",
+        "Less glucose 6-phosphate always increases flux by removing feedback."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-ppp-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Identify the cofactor consumed by G6PD and keep this as one part of a larger flux model.",
+        "solution": "G6PD uses NADP+ as substrate; NADP+ availability can support the oxidative reaction, while NADPH balance, enzyme amount and network state also matter.",
+        "lesson_ids": [
+          "biochemistry-pentose-phosphate"
+        ],
+        "misconception_ids": [
+          "nadph-is-substrate"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-pentose-phosphate:scale-nadph",
+      "type": "numeric",
+      "prompt": "Six mol of glucose 6-phosphate each pass once through the oxidative PPP. How many mol NADPH are produced? Enter a number in mol.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-ppp-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 12,
+        "unit": "mol",
+        "tolerance": 0.12,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Scale the per-molecule reducing-equivalent output by six.",
+        "solution": "Six moles multiplied by 2 mol NADPH per mole glucose 6-phosphate yield 12 mol NADPH.",
+        "lesson_ids": [
+          "biochemistry-pentose-phosphate"
+        ],
+        "misconception_ids": [
+          "ppp-output-scaling"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-fatty-acid-oxidation:palmitate-cycles",
+      "type": "numeric",
+      "prompt": "How many beta-oxidation turns are required to completely process 1 mol palmitoyl-CoA (C16:0)? Enter a number in mol.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-fatty-acid-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 7,
+        "unit": "mol",
+        "tolerance": 0.07,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Subtract one from the number of two-carbon acetyl-CoA units.",
+        "solution": "For an even-chain C16 acyl-CoA, turns = 16/2 − 1 = 7 mol turns per mol palmitoyl-CoA.",
+        "lesson_ids": [
+          "biochemistry-fatty-acid-oxidation"
+        ],
+        "misconception_ids": [
+          "beta-oxidation-cycle-count"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-fatty-acid-oxidation:palmitate-acetyl-coa",
+      "type": "numeric",
+      "prompt": "How many mol acetyl-CoA are produced from 1 mol palmitoyl-CoA (C16:0)? Enter a number in mol.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-fatty-acid-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 8,
+        "unit": "mol",
+        "tolerance": 0.08,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Divide the carbon count by two; this total is one greater than the number of turns.",
+        "solution": "An even-chain C16 fatty acyl-CoA yields 16/2 = 8 mol acetyl-CoA per mol substrate.",
+        "lesson_ids": [
+          "biochemistry-fatty-acid-oxidation"
+        ],
+        "misconception_ids": [
+          "beta-oxidation-acetyl-count"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-fatty-acid-oxidation:cycle-carriers",
+      "type": "single_choice",
+      "prompt": "For complete mitochondrial beta-oxidation of 1 mol palmitoyl-CoA (C16:0), which beta-oxidation carrier totals are produced before adding citric-acid-cycle outputs?",
+      "options": [
+        "7 mol NADH and 7 mol FADH2.",
+        "8 mol NADH and 8 mol FADH2.",
+        "7 mol NADPH and 7 mol GTP.",
+        "31 mol NADH and 15 mol FADH2."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-fatty-acid-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Separate beta-oxidation outputs from the citric acid cycle.",
+        "solution": "Seven beta-oxidation turns produce 7 mol NADH and 7 mol FADH2; the larger totals include carriers from later acetyl-CoA oxidation in the citric acid cycle.",
+        "lesson_ids": [
+          "biochemistry-fatty-acid-oxidation"
+        ],
+        "misconception_ids": [
+          "mix-beta-ox-and-tca-carriers"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-fatty-acid-oxidation:reaction-order",
+      "type": "single_choice",
+      "prompt": "Which sequence gives the four recurring reaction types in mitochondrial beta-oxidation?",
+      "options": [
+        "Oxidation, hydration, oxidation, thiolysis.",
+        "Hydration, phosphorylation, decarboxylation, reduction.",
+        "Oxidation, carboxylation, hydration, substrate-level phosphorylation.",
+        "Isomerization, oxidation, transamination, thiolysis."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-fatty-acid-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Recall the reaction types that create a beta-ketoacyl-CoA for cleavage.",
+        "solution": "The spiral performs an FAD-linked oxidation, hydration, an NAD+-linked oxidation and thiolysis.",
+        "lesson_ids": [
+          "biochemistry-fatty-acid-oxidation"
+        ],
+        "misconception_ids": [
+          "beta-oxidation-reaction-order"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-fatty-acid-oxidation:malonyl-cpt1",
+      "type": "single_choice",
+      "prompt": "In the simplified fed-state control model, what does malonyl-CoA do to long-chain fatty-acid entry into mitochondria?",
+      "options": [
+        "It inhibits CPT1, reducing transfer of long-chain acyl groups into the carnitine shuttle.",
+        "It activates CPT1 and forces all fatty acids into the matrix.",
+        "It substitutes for carnitine and transports acyl-CoA across the membrane.",
+        "It directly makes acetyl-CoA in the mitochondrial matrix."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-fatty-acid-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Locate CPT1 at the entry gate and distinguish regulation from the shuttle reaction.",
+        "solution": "Malonyl-CoA inhibits CPT1, a regulatory gate for long-chain acyl-group entry; it does not itself perform transport or oxidation.",
+        "lesson_ids": [
+          "biochemistry-fatty-acid-oxidation"
+        ],
+        "misconception_ids": [
+          "malonyl-carnitine-role"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-fatty-acid-oxidation:activation-cost",
+      "type": "numeric",
+      "prompt": "Starting with free palmitate, how many mol ATP equivalents are consumed to activate 1 mol palmitate to palmitoyl-CoA? Enter a number in mol.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-fatty-acid-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 2,
+        "unit": "mol",
+        "tolerance": 0.02,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "ATP-to-AMP uses two high-energy phosphate equivalents, not one ATP equivalent.",
+        "solution": "Fatty-acid activation cleaves ATP to AMP plus pyrophosphate and costs 2 mol ATP equivalents per mol fatty acid.",
+        "lesson_ids": [
+          "biochemistry-fatty-acid-oxidation"
+        ],
+        "misconception_ids": [
+          "fatty-acid-activation-cost"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-fatty-acid-oxidation:palmitate-atp-yield",
+      "type": "numeric",
+      "prompt": "Using P/O 2.5 ATP/NADH and 1.5 ATP/FADH2, TCA output of 3 NADH, 1 FADH2 and 1 GTP per acetyl-CoA, and a 2 ATP-equivalent activation cost, what is the idealized net ATP-equivalent yield from 1 mol palmitate? Enter a number in mol.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-fatty-acid-objective-1",
+        "biochemistry-fatty-acid-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 106,
+        "unit": "mol",
+        "tolerance": 0.5,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Add beta-oxidation and TCA carriers, include GTP, then subtract activation cost.",
+        "solution": "Palmitate yields 31 NADH, 15 FADH2 and 8 GTP equivalents: 31×2.5 + 15×1.5 + 8 − 2 = 106 mol ATP equivalents.",
+        "lesson_ids": [
+          "biochemistry-fatty-acid-oxidation"
+        ],
+        "misconception_ids": [
+          "palmitate-atp-yield-boundary"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-urea-cycle:nitrogen-donors",
+      "type": "single_choice",
+      "prompt": "What are the two immediate nitrogen donors to one urea molecule in the cycle?",
+      "options": [
+        "Ammonium incorporated through carbamoyl phosphate, and the amino group of aspartate.",
+        "Two ammonium ions; aspartate only provides carbon.",
+        "One nitrogen from bicarbonate and one from ornithine.",
+        "One nitrogen from glutamate and one from fumarate."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-urea-cycle-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Follow the nitrogen atoms entering carbamoyl phosphate and argininosuccinate.",
+        "solution": "One urea nitrogen enters as ammonium through CPS1 and carbamoyl phosphate; the other is donated by aspartate.",
+        "lesson_ids": [
+          "biochemistry-urea-cycle"
+        ],
+        "misconception_ids": [
+          "urea-two-ammonia"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-urea-cycle:urea-carbon",
+      "type": "single_choice",
+      "prompt": "Which substrate supplies the carbon atom of urea in the standard cycle accounting?",
+      "options": [
+        "Bicarbonate (HCO3−), incorporated into carbamoyl phosphate.",
+        "Aspartate, whose carbon skeleton is released as urea.",
+        "Ornithine, which is consumed to make the urea carbon.",
+        "Fumarate, which donates its carbon directly to arginine."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-urea-cycle-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Track the carbon in the first mitochondrial reaction.",
+        "solution": "CPS1 combines ammonium and bicarbonate to make carbamoyl phosphate; bicarbonate provides the urea carbon.",
+        "lesson_ids": [
+          "biochemistry-urea-cycle"
+        ],
+        "misconception_ids": [
+          "urea-carbon-from-amino-acid"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-urea-cycle:atp-molecules",
+      "type": "numeric",
+      "prompt": "How many mol ATP molecules are consumed to form 1 mol urea in the cycle? Enter a number in mol.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-urea-cycle-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 3,
+        "unit": "mol",
+        "tolerance": 0.02,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Count ATP molecules at both ATP-consuming steps.",
+        "solution": "CPS1 uses 2 ATP molecules and argininosuccinate synthesis uses 1 ATP molecule, for 3 mol ATP per mol urea.",
+        "lesson_ids": [
+          "biochemistry-urea-cycle"
+        ],
+        "misconception_ids": [
+          "urea-four-atp-molecules"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-urea-cycle:phosphate-equivalents",
+      "type": "numeric",
+      "prompt": "How many mol high-energy phosphate equivalents are consumed to form 1 mol urea? Enter a number in mol.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-urea-cycle-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 4,
+        "unit": "mol",
+        "tolerance": 0.02,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "ATP cleaved to AMP plus pyrophosphate costs two high-energy phosphate bonds.",
+        "solution": "Two ATP-to-ADP steps spend two equivalents, and the ATP-to-AMP step spends two more, totaling 4 mol high-energy phosphate equivalents.",
+        "lesson_ids": [
+          "biochemistry-urea-cycle"
+        ],
+        "misconception_ids": [
+          "urea-energy-cost"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-urea-cycle:cps1-activator",
+      "type": "single_choice",
+      "prompt": "Which molecule is an essential allosteric activator of hepatic carbamoyl-phosphate synthetase I (CPS1)?",
+      "options": [
+        "N-acetylglutamate.",
+        "Fumarate.",
+        "Glucose 6-phosphate.",
+        "Carnitine."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-urea-cycle-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Distinguish the CPS1 regulator from the cycle intermediate that leaves as fumarate.",
+        "solution": "N-acetylglutamate activates CPS1, connecting nitrogen disposal to amino-acid and acetyl-CoA status.",
+        "lesson_ids": [
+          "biochemistry-urea-cycle"
+        ],
+        "misconception_ids": [
+          "cps1-activator-confusion"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-urea-cycle:compartments",
+      "type": "single_choice",
+      "prompt": "Which statement correctly locates the urea-cycle reactions?",
+      "options": [
+        "CPS1 and ornithine transcarbamylase act in the mitochondrial matrix; the later reactions occur in the cytosol.",
+        "All five reactions occur in the mitochondrial matrix.",
+        "CPS1 is cytosolic, while every later enzyme is mitochondrial.",
+        "The cycle occurs entirely in the nucleus."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-urea-cycle-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Follow citrulline transport out of the mitochondrion.",
+        "solution": "The first two reactions are mitochondrial; citrulline moves to the cytosol for the remaining cycle reactions.",
+        "lesson_ids": [
+          "biochemistry-urea-cycle"
+        ],
+        "misconception_ids": [
+          "urea-cycle-single-compartment"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-urea-cycle:fumarate-link",
+      "type": "single_choice",
+      "prompt": "How does fumarate connect the urea cycle to central carbon metabolism?",
+      "options": [
+        "Argininosuccinate lyase releases fumarate; it can form malate and oxaloacetate, and oxaloacetate can be transaminated to aspartate.",
+        "Fumarate directly donates the second nitrogen atom to urea.",
+        "Fumarate is converted directly to carbamoyl phosphate without energy input.",
+        "Fumarate is the carbon source of urea and leaves the cycle as ammonia."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-urea-cycle-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Trace fumarate through central carbon intermediates to oxaloacetate and aspartate.",
+        "solution": "Fumarate from argininosuccinate cleavage can feed malate and oxaloacetate; transamination of oxaloacetate can regenerate aspartate.",
+        "lesson_ids": [
+          "biochemistry-urea-cycle"
+        ],
+        "misconception_ids": [
+          "fumarate-nitrogen-donor"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-amino-acid-carbon-skeletons:gluconeogenic-entry-points",
+      "type": "multiple_select",
+      "prompt": "Which carbon-skeleton entry points can support net glucose production in mammals? Select all that apply.",
+      "options": [
+        "Pyruvate",
+        "Oxaloacetate",
+        "Succinyl-CoA",
+        "Fumarate",
+        "Alpha-ketoglutarate",
+        "Acetyl-CoA",
+        "Acetoacetate"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-amino-carbon-objective-1"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "feedback": {
+        "hint": "Classify each product by whether its carbon can enter gluconeogenesis without relying on acetyl-CoA alone.",
+        "solution": "Pyruvate and the citric-acid-cycle intermediates can contribute carbon to gluconeogenesis. Acetyl-CoA and acetoacetate alone do not provide net glucose carbon in mammals.",
+        "lesson_ids": [
+          "biochemistry-amino-acid-carbon-skeletons"
+        ],
+        "misconception_ids": [
+          "acetylcoa-glucogenic"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-amino-acid-carbon-skeletons:leucine-lysine",
+      "type": "single_choice",
+      "prompt": "Which amino acids are exclusively ketogenic in the standard human classification?",
+      "options": [
+        "Leucine and lysine.",
+        "Alanine and aspartate.",
+        "Valine and glutamate.",
+        "Glycine and serine."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-amino-carbon-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Look for amino acids whose carbon products do not include a glucogenic entry point.",
+        "solution": "Leucine and lysine yield ketogenic carbon and are the two exclusively ketogenic amino acids in the standard classification.",
+        "lesson_ids": [
+          "biochemistry-amino-acid-carbon-skeletons"
+        ],
+        "misconception_ids": [
+          "all-amino-acids-glucogenic"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-amino-acid-carbon-skeletons:alanine-entry",
+      "type": "single_choice",
+      "prompt": "What are the immediate products of alanine aminotransferase when alanine transfers its amino group to alpha-ketoglutarate?",
+      "options": [
+        "Pyruvate and glutamate.",
+        "Acetyl-CoA and urea.",
+        "Oxaloacetate and fumarate.",
+        "Acetoacetate and aspartate."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-amino-carbon-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Track the carbon skeleton of alanine and its amino-group acceptor separately.",
+        "solution": "Alanine transfers its amino group to alpha-ketoglutarate, forming pyruvate and glutamate. Carbon and nitrogen then follow separate routes.",
+        "lesson_ids": [
+          "biochemistry-amino-acid-carbon-skeletons"
+        ],
+        "misconception_ids": [
+          "alanine-carbon-nitrogen-same-fate"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-amino-acid-carbon-skeletons:valine-entry",
+      "type": "single_choice",
+      "prompt": "Which citric-acid-cycle entry point is a common destination for valine carbon?",
+      "options": [
+        "Succinyl-CoA.",
+        "Acetyl-CoA only.",
+        "Acetoacetate only.",
+        "Glucose 6-phosphate directly."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-amino-carbon-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Connect valine carbon to an intermediate that can be converted toward oxaloacetate.",
+        "solution": "Valine carbon can enter as succinyl-CoA, which supports glucogenic metabolism.",
+        "lesson_ids": [
+          "biochemistry-amino-acid-carbon-skeletons"
+        ],
+        "misconception_ids": [
+          "valine-ketogenic-only"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-amino-acid-carbon-skeletons:both-classification",
+      "type": "single_choice",
+      "prompt": "Which example is both glucogenic and ketogenic because its carbon products include fumarate and acetoacetate?",
+      "options": [
+        "Phenylalanine.",
+        "Leucine.",
+        "Lysine.",
+        "Alanine."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-amino-carbon-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Look for an amino acid with both a TCA-linked and a ketogenic carbon product.",
+        "solution": "Phenylalanine can yield both fumarate and acetoacetate; fumarate is glucogenic and acetoacetate is ketogenic.",
+        "lesson_ids": [
+          "biochemistry-amino-acid-carbon-skeletons"
+        ],
+        "misconception_ids": [
+          "mixed-fate-exclusive"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-amino-acid-carbon-skeletons:acetylcoa-net-glucose",
+      "type": "single_choice",
+      "prompt": "Why can acetyl-CoA not supply net glucose carbon in mammals through the citric acid cycle alone?",
+      "options": [
+        "Its entry does not create a net oxaloacetate gain; the cycle releases carbon as CO2 over complete turns.",
+        "Acetyl-CoA cannot enter the citric acid cycle.",
+        "Every acetyl carbon is released as CO2 during the first turn.",
+        "The cycle converts acetyl-CoA only to amino nitrogen."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-amino-carbon-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Think in terms of net carbon balance and do not assume which exact atoms are lost on turn one.",
+        "solution": "Acetyl-CoA can enter the cycle, but the cycle has no net increase in oxaloacetate and releases carbon as CO2 over complete turns. Newly entering acetyl atoms need not be lost on the first pass.",
+        "lesson_ids": [
+          "biochemistry-amino-acid-carbon-skeletons"
+        ],
+        "misconception_ids": [
+          "first-turn-acetyl-carbon-loss"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-amino-acid-carbon-skeletons:separate-nitrogen-carbon",
+      "type": "single_choice",
+      "prompt": "After a typical transamination, which statement best captures the distinction between nitrogen and carbon fate?",
+      "options": [
+        "The amino group can be transferred to glutamate while the carbon skeleton enters a separate metabolic pathway.",
+        "The amino group and carbon skeleton must remain in the same molecule until urea is formed.",
+        "Transamination removes every carbon atom from the amino acid.",
+        "The carbon skeleton always becomes glucose if nitrogen reaches the urea cycle."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-amino-carbon-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Track the amino group and the remaining carbon skeleton in separate ledgers.",
+        "solution": "Transamination moves nitrogen to an acceptor such as alpha-ketoglutarate; the resulting carbon skeleton can enter central metabolism independently.",
+        "lesson_ids": [
+          "biochemistry-amino-acid-carbon-skeletons"
+        ],
+        "misconception_ids": [
+          "nitrogen-carbon-coupled"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-ketone-body-metabolism:ketone-bodies",
+      "type": "single_choice",
+      "prompt": "Which set lists the three commonly named ketone bodies?",
+      "options": [
+        "Acetoacetate, D-beta-hydroxybutyrate and acetone.",
+        "Acetyl-CoA, citrate and oxaloacetate.",
+        "Acetoacetyl-CoA, succinyl-CoA and lactate.",
+        "Beta-hydroxybutyrate, pyruvate and fumarate."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-ketone-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Recall the three liver-derived carbon compounds grouped in ketone-body metabolism.",
+        "solution": "The three grouped ketone bodies are acetoacetate, D-beta-hydroxybutyrate and acetone; beta-hydroxybutyrate is not chemically a ketone.",
+        "lesson_ids": [
+          "biochemistry-ketone-body-metabolism"
+        ],
+        "misconception_ids": [
+          "ketone-body-set"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-ketone-body-metabolism:hepatic-synthesis",
+      "type": "single_choice",
+      "prompt": "Where does the main ketone-body synthesis pathway operate in human liver cells?",
+      "options": [
+        "In the mitochondrial matrix, using acetyl-CoA supplied in part by fatty-acid oxidation.",
+        "In the cytosol, using glucose 6-phosphate directly.",
+        "In the mitochondrial intermembrane space, using lactate.",
+        "In red blood cells, using glycogen."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-ketone-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Identify the site and carbon precursor for ketogenesis.",
+        "solution": "Hepatic ketogenesis occurs in mitochondria and can use acetyl-CoA generated by fatty-acid beta-oxidation.",
+        "lesson_ids": [
+          "biochemistry-ketone-body-metabolism"
+        ],
+        "misconception_ids": [
+          "ketogenesis-location-substrate"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-ketone-body-metabolism:redox-ratio",
+      "type": "single_choice",
+      "prompt": "If mitochondrial NADH/NAD+ rises while other conditions permit the reaction, which direction does beta-hydroxybutyrate dehydrogenase tend to favor?",
+      "options": [
+        "Reduction of acetoacetate to D-beta-hydroxybutyrate.",
+        "Oxidation of D-beta-hydroxybutyrate to acetoacetate.",
+        "Conversion of acetoacetate directly to glucose.",
+        "Conversion of NADH to NADPH without a substrate."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-ketone-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Write the cofactor direction for acetoacetate + NADH ⇌ beta-hydroxybutyrate + NAD+.",
+        "solution": "The dehydrogenase reduces acetoacetate with NADH; a more reduced matrix state tends to favor beta-hydroxybutyrate.",
+        "lesson_ids": [
+          "biochemistry-ketone-body-metabolism"
+        ],
+        "misconception_ids": [
+          "ketone-ratio-not-redox"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-ketone-body-metabolism:liver-scot",
+      "type": "single_choice",
+      "prompt": "Why can liver synthesize and export ketone bodies yet not use them through the standard ketolysis route?",
+      "options": [
+        "Hepatocytes lack SCOT/OXCT1 activity needed to activate acetoacetate for ketolysis.",
+        "The liver has no mitochondria.",
+        "The liver cannot make acetyl-CoA.",
+        "The liver lacks beta-hydroxybutyrate dehydrogenase."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-ketone-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Distinguish the liver synthesis route from SCOT-dependent utilization.",
+        "solution": "Liver lacks the SCOT/OXCT1 CoA-transfer step that activates acetoacetate for the canonical extrahepatic ketolysis pathway.",
+        "lesson_ids": [
+          "biochemistry-ketone-body-metabolism"
+        ],
+        "misconception_ids": [
+          "liver-ketolysis-scot"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-ketone-body-metabolism:ketolysis-sequence",
+      "type": "single_choice",
+      "prompt": "What is the sequence for canonical extrahepatic acetoacetate use?",
+      "options": [
+        "SCOT transfers CoA from succinyl-CoA to acetoacetate; thiolase then yields two acetyl-CoA.",
+        "Acetoacetate is phosphorylated by ATP to glucose 6-phosphate.",
+        "CPS1 converts acetoacetate to carbamoyl phosphate.",
+        "Acetoacetate is reduced directly to two molecules of pyruvate."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-ketone-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Identify the CoA transfer step before thiolysis.",
+        "solution": "SCOT makes acetoacetyl-CoA using succinyl-CoA; thiolase cleaves that four-carbon molecule into two acetyl-CoA.",
+        "lesson_ids": [
+          "biochemistry-ketone-body-metabolism"
+        ],
+        "misconception_ids": [
+          "ketolysis-route"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-ketone-body-metabolism:acetyl-coa-yield",
+      "type": "numeric",
+      "prompt": "Three mol acetoacetate are processed by SCOT and thiolase in an extrahepatic tissue. How many mol acetyl-CoA are produced? Enter a number in mol.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-ketone-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 6,
+        "unit": "mol",
+        "tolerance": 0.06,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Scale the two-acetyl-CoA cleavage product by three.",
+        "solution": "Each mole of acetoacetate forms one mole acetoacetyl-CoA, which yields two moles acetyl-CoA; 3 × 2 = 6 mol.",
+        "lesson_ids": [
+          "biochemistry-ketone-body-metabolism"
+        ],
+        "misconception_ids": [
+          "ketolysis-acetyl-count"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-ketone-body-metabolism:fasting-integration",
+      "type": "single_choice",
+      "prompt": "Which combination can favor increased hepatic ketone-body production during fasting?",
+      "options": [
+        "Fatty-acid oxidation supplies acetyl-CoA while gluconeogenic demand draws on oxaloacetate and related intermediates.",
+        "The liver has no acetyl-CoA and no fatty-acid oxidation.",
+        "The citric acid cycle must stop completely before any ketone body can form.",
+        "Red blood cells convert ketones into acetyl-CoA and return them to liver."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-ketone-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Combine the supply from beta-oxidation with competing demand on central-carbon intermediates.",
+        "solution": "Higher acetyl-CoA supply plus network demand for gluconeogenic intermediates can favor ketogenesis; it does not require complete shutdown of the citric acid cycle.",
+        "lesson_ids": [
+          "biochemistry-ketone-body-metabolism"
+        ],
+        "misconception_ids": [
+          "ketogenesis-requires-tca-stop"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-fatty-acid-synthesis:acetyl-coa-count",
+      "type": "numeric",
+      "prompt": "For synthesis of 1 mol palmitate from cytosolic acetyl-CoA, how many mol acetyl-CoA are consumed in total? Include the acetyl starter and the acetyl-CoA converted to malonyl-CoA.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-fatty-synthesis-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 8,
+        "unit": "mol",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "One two-carbon acetyl starter plus seven two-carbon malonyl precursors are used.",
+        "solution": "One mol palmitate requires eight mol acetyl-CoA in total: one starter plus seven acetyl-CoA that are carboxylated to malonyl-CoA.",
+        "lesson_ids": [
+          "biochemistry-fatty-acid-synthesis"
+        ],
+        "misconception_ids": [
+          "palmitate-acetyl-count"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-fatty-acid-synthesis:malonyl-coa-count",
+      "type": "numeric",
+      "prompt": "How many mol malonyl-CoA are formed by acetyl-CoA carboxylase for synthesis of 1 mol palmitate?",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-fatty-synthesis-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 7,
+        "unit": "mol",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The fatty-acid synthase cycle adds seven net two-carbon units after loading the starter.",
+        "solution": "Seven mol malonyl-CoA are used per mol palmitate. Their added carboxyl carbons are released during condensation.",
+        "lesson_ids": [
+          "biochemistry-fatty-acid-synthesis"
+        ],
+        "misconception_ids": [
+          "malonyl-carboxyl-carbon-retained"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-fatty-acid-synthesis:acc-atp-cost",
+      "type": "numeric",
+      "prompt": "How many mol ATP are consumed at acetyl-CoA carboxylase to make the seven mol malonyl-CoA required for 1 mol palmitate?",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-fatty-synthesis-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 7,
+        "unit": "mol",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Each acetyl-CoA carboxylation to malonyl-CoA uses one ATP.",
+        "solution": "Seven mol malonyl-CoA require seven mol ATP at acetyl-CoA carboxylase. This excludes ATP used to supply cytosolic acetyl-CoA.",
+        "lesson_ids": [
+          "biochemistry-fatty-acid-synthesis"
+        ],
+        "misconception_ids": [
+          "acc-atp-cost-omitted"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-fatty-acid-synthesis:nadph-cost",
+      "type": "numeric",
+      "prompt": "How many mol NADPH are consumed by fatty-acid synthase to synthesize 1 mol palmitate?",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-fatty-synthesis-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 14,
+        "unit": "mol",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Seven elongation cycles each use two NADPH for their reduction steps.",
+        "solution": "Fatty-acid synthase consumes fourteen mol NADPH per mol palmitate. NADPH is a reducing equivalent, not an ATP yield.",
+        "lesson_ids": [
+          "biochemistry-fatty-acid-synthesis"
+        ],
+        "misconception_ids": [
+          "nadph-confused-with-nadh"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-fatty-acid-synthesis:citrate-shuttle",
+      "type": "single_choice",
+      "prompt": "Why does mitochondrial acetyl-CoA commonly leave the matrix carbon supply as citrate before cytosolic fatty-acid synthesis?",
+      "options": [
+        "Acetyl-CoA does not cross the inner mitochondrial membrane directly, whereas citrate can be exported and cleaved in the cytosol.",
+        "Acetyl-CoA is converted to NADPH only inside the nucleus.",
+        "Citrate is the final 16-carbon product of fatty-acid synthase.",
+        "The inner mitochondrial membrane transports acetyl-CoA only during fasting."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-fatty-synthesis-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Identify which molecule carries acetyl units across the mitochondrial boundary.",
+        "solution": "Acetyl units are commonly exported as citrate; cytosolic ATP-citrate lyase regenerates acetyl-CoA. The shuttle has its own ATP and redox accounting.",
+        "lesson_ids": [
+          "biochemistry-fatty-acid-synthesis"
+        ],
+        "misconception_ids": [
+          "mitochondrial-acetyl-coa-crosses-membrane"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-fatty-acid-synthesis:malonyl-control",
+      "type": "single_choice",
+      "prompt": "Which statement best describes the role of malonyl-CoA in coordinating synthesis and long-chain fatty-acid oxidation?",
+      "options": [
+        "It supplies two-carbon units to fatty-acid synthase and inhibits CPT1, limiting long-chain acyl-group entry into mitochondria.",
+        "It activates CPT1 and supplies NADPH directly to beta-oxidation.",
+        "It is a mitochondrial carrier that imports acetyl-CoA into the matrix.",
+        "It inhibits fatty-acid synthase and activates glycogen breakdown."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-fatty-synthesis-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Consider malonyl-CoA both as a synthesis substrate and a reciprocal control signal.",
+        "solution": "Malonyl-CoA is used by fatty-acid synthase and inhibits CPT1, reducing long-chain fatty-acid entry into mitochondria.",
+        "lesson_ids": [
+          "biochemistry-fatty-acid-synthesis"
+        ],
+        "misconception_ids": [
+          "malonyl-activates-cpt1"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-fatty-acid-synthesis:nadph-source",
+      "type": "single_choice",
+      "prompt": "Which statement about reducing power for cytosolic fatty-acid synthesis is correct?",
+      "options": [
+        "The oxidative pentose phosphate pathway can supply NADPH; NADPH and NADH are distinct carriers and neither is itself an ATP count.",
+        "The oxidative pentose phosphate pathway supplies NADH that fatty-acid synthase converts directly to ATP.",
+        "Citrate cleavage produces 14 ATP for each palmitate.",
+        "NADPH is generated only by mitochondrial beta-oxidation."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-fatty-synthesis-objective-1",
+        "biochemistry-fatty-synthesis-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Separate the identity of the reducing carrier from the energy ledger.",
+        "solution": "The oxidative pentose phosphate pathway is one cytosolic NADPH source. NADPH supports reductive biosynthesis and should not be counted as NADH or ATP.",
+        "lesson_ids": [
+          "biochemistry-fatty-acid-synthesis"
+        ],
+        "misconception_ids": [
+          "nadph-source-and-energy-confusion"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-cholesterol-lipoproteins:hmgcr-reaction",
+      "type": "single_choice",
+      "prompt": "Which reaction is directly catalyzed by HMG-CoA reductase in cholesterol synthesis?",
+      "options": [
+        "Reduction of HMG-CoA to mevalonate using NADPH.",
+        "Conversion of mevalonate to lanosterol using ATP only.",
+        "Hydrolysis of LDL triacylglycerol by ApoC-II.",
+        "Oxidation of cholesterol to a ketone body in the mitochondrial matrix."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-cholesterol-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Locate HMGCR in the pathway from acetyl units toward sterols.",
+        "solution": "HMG-CoA reductase reduces HMG-CoA to mevalonate. It is an ER membrane enzyme and a major regulated step in sterol synthesis.",
+        "lesson_ids": [
+          "biochemistry-cholesterol-lipoproteins"
+        ],
+        "misconception_ids": [
+          "hmgcr-reaction-confusion"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-cholesterol-lipoproteins:low-sterol-response",
+      "type": "single_choice",
+      "prompt": "In a simplified hepatocyte model, what is expected when endoplasmic-reticulum cholesterol falls?",
+      "options": [
+        "More SREBP2 processing and increased transcription of HMG-CoA reductase and LDL receptor.",
+        "Less SREBP2 processing and lower transcription of both genes.",
+        "Immediate conversion of LDL into VLDL in the nucleus.",
+        "ApoC-II is degraded and LPL is permanently inhibited."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-cholesterol-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Consider how the cell responds when sterol availability is low.",
+        "solution": "Low ER cholesterol permits SREBP2 processing; active SREBP2 increases expression of cholesterol-synthesis enzymes, including HMGCR, and LDL receptor.",
+        "lesson_ids": [
+          "biochemistry-cholesterol-lipoproteins"
+        ],
+        "misconception_ids": [
+          "low-sterol-feedback-direction"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-cholesterol-lipoproteins:chylomicron-origin",
+      "type": "single_choice",
+      "prompt": "Which particle begins the major dietary (exogenous) lipoprotein route?",
+      "options": [
+        "An intestinal chylomicron containing ApoB-48.",
+        "A liver-derived VLDL containing ApoB-100.",
+        "An LDL particle assembled in skeletal muscle.",
+        "An HDL particle containing ApoB-48."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-cholesterol-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Identify the particle assembled by enterocytes after dietary lipid absorption.",
+        "solution": "Chylomicrons are assembled in the intestine and contain ApoB-48; they carry dietary lipids into circulation.",
+        "lesson_ids": [
+          "biochemistry-cholesterol-lipoproteins"
+        ],
+        "misconception_ids": [
+          "lipoprotein-origin-confusion"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-cholesterol-lipoproteins:lpl-activation",
+      "type": "single_choice",
+      "prompt": "What is the key role of ApoC-II on circulating chylomicrons and VLDL?",
+      "options": [
+        "It activates lipoprotein lipase, which hydrolyzes particle triacylglycerol.",
+        "It binds LDL receptor to trigger LDL endocytosis.",
+        "It is the main structural apoprotein made by enterocytes.",
+        "It esterifies cholesterol in HDL."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-cholesterol-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Separate the enzyme cofactor from particle-assembly and receptor-recognition roles.",
+        "solution": "ApoC-II activates LPL; LPL hydrolyzes core triacylglycerol and releases fatty acids.",
+        "lesson_ids": [
+          "biochemistry-cholesterol-lipoproteins"
+        ],
+        "misconception_ids": [
+          "apoc2-role-confusion"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-cholesterol-lipoproteins:ldl-receptor-ligand",
+      "type": "single_choice",
+      "prompt": "Which particle ligand is recognized by the LDL receptor during uptake of LDL?",
+      "options": [
+        "ApoB-100.",
+        "ApoC-II.",
+        "ApoA-I.",
+        "Albumin."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-cholesterol-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "The principal apolipoprotein on LDL is also its receptor-recognition signal.",
+        "solution": "ApoB-100 on LDL binds LDLR and supports receptor-mediated endocytosis.",
+        "lesson_ids": [
+          "biochemistry-cholesterol-lipoproteins"
+        ],
+        "misconception_ids": [
+          "ldl-receptor-ligand-confusion"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-cholesterol-lipoproteins:endogenous-route",
+      "type": "single_choice",
+      "prompt": "Which sequence best describes the liver-derived route from VLDL toward LDL?",
+      "options": [
+        "VLDL loses triacylglycerol through LPL, forms IDL, then can lose more triacylglycerol and become LDL.",
+        "VLDL gains dietary triacylglycerol to become a chylomicron remnant and then ApoB-48 LDL.",
+        "LDL is secreted first by the intestine and converted directly to VLDL by HDL.",
+        "VLDL is converted to HDL only by ApoE-mediated lysosomal uptake."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-cholesterol-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Follow the stepwise loss of triacylglycerol from liver-derived particles.",
+        "solution": "LPL-mediated triacylglycerol removal converts VLDL toward IDL; some IDL is cleared by liver and some becomes LDL after further remodeling.",
+        "lesson_ids": [
+          "biochemistry-cholesterol-lipoproteins"
+        ],
+        "misconception_ids": [
+          "endogenous-lipoprotein-sequence"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-cholesterol-lipoproteins:hdl-transport",
+      "type": "single_choice",
+      "prompt": "Which statement best summarizes HDL participation in reverse cholesterol transport?",
+      "options": [
+        "ApoA-I-containing HDL can accept cholesterol from cells; LCAT esterifies it, and the cholesterol can return to liver through selective uptake or particle exchange.",
+        "HDL carries dietary triacylglycerol from intestine to tissues and uses ApoB-48 to bind LDLR.",
+        "HDL activates HMG-CoA reductase directly in the mitochondrial matrix.",
+        "HDL prevents all cholesterol movement between tissues and liver."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-cholesterol-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Think of HDL as an acceptor and carrier in a simplified return route.",
+        "solution": "ApoA-I-containing HDL accepts cellular cholesterol; LCAT esterifies it for carriage, and the cholesterol can reach liver through SR-BI-mediated selective uptake or exchange.",
+        "lesson_ids": [
+          "biochemistry-cholesterol-lipoproteins"
+        ],
+        "misconception_ids": [
+          "hdl-reverse-transport-confusion"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-nucleotide-biosynthesis:gmp-branch-atp",
+      "type": "numeric",
+      "prompt": "If 2 mol IMP are directed to GMP, how many mol ATP are consumed at the XMP-to-GMP branch step?",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-nucleotide-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 2,
+        "unit": "mol",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Count one ATP molecule used for each mol GMP formed from XMP.",
+        "solution": "The XMP-to-GMP step consumes one ATP per GMP. Two mol GMP therefore consume two mol ATP at this branch step; upstream costs are excluded.",
+        "lesson_ids": [
+          "biochemistry-nucleotide-biosynthesis"
+        ],
+        "misconception_ids": [
+          "nucleotide-branch-energy-boundary"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-nucleotide-biosynthesis:amp-branch-gtp",
+      "type": "numeric",
+      "prompt": "If 4 mol IMP are directed to AMP, how many mol GTP are consumed at the IMP-to-AMP branch step?",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-nucleotide-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 4,
+        "unit": "mol",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The adenylosuccinate-forming branch uses GTP.",
+        "solution": "The IMP-to-AMP branch uses one GTP per AMP formed. Four mol AMP therefore consume four mol GTP at this branch step; upstream costs are excluded.",
+        "lesson_ids": [
+          "biochemistry-nucleotide-biosynthesis"
+        ],
+        "misconception_ids": [
+          "nucleotide-branch-energy-boundary"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-nucleotide-biosynthesis:purine-ring-order",
+      "type": "single_choice",
+      "prompt": "How is the purine ring assembled during de novo purine synthesis?",
+      "options": [
+        "The ring is built stepwise directly on PRPP, producing IMP as the first complete purine nucleotide.",
+        "The entire purine ring is completed as a free base before PRPP is attached.",
+        "The purine ring is made from orotate before it is attached to ribose.",
+        "The ring is assembled only during DNA polymerization."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-nucleotide-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Compare whether the base ring is built on ribose or before it.",
+        "solution": "Purine atoms are added stepwise to PRPP; IMP is the first complete purine nucleotide.",
+        "lesson_ids": [
+          "biochemistry-nucleotide-biosynthesis"
+        ],
+        "misconception_ids": [
+          "purine-pyrimidine-construction-order"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-nucleotide-biosynthesis:pyrimidine-ring-order",
+      "type": "single_choice",
+      "prompt": "Which statement describes de novo pyrimidine synthesis?",
+      "options": [
+        "The ring is assembled before orotate receives a phosphoribosyl group from PRPP to form OMP and then UMP.",
+        "The ring is built directly on PRPP one atom at a time, producing IMP.",
+        "The first complete pyrimidine is IMP, which is converted to orotate.",
+        "The pyrimidine ring is attached only after conversion to CTP."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-nucleotide-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Locate the PRPP-attachment reaction relative to orotate formation.",
+        "solution": "Pyrimidine ring construction precedes its attachment to PRPP; orotate is converted to OMP and then UMP.",
+        "lesson_ids": [
+          "biochemistry-nucleotide-biosynthesis"
+        ],
+        "misconception_ids": [
+          "pyrimidine-prpp-order"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-nucleotide-biosynthesis:purine-salvage",
+      "type": "single_choice",
+      "prompt": "Which salvage-enzyme pairing is correct?",
+      "options": [
+        "HGPRT uses PRPP to form IMP from hypoxanthine or GMP from guanine; APRT forms AMP from adenine.",
+        "HGPRT converts orotate to UMP; APRT forms CTP from UTP.",
+        "HGPRT reduces NDP to dNDP; APRT converts dUMP to dTMP.",
+        "Both enzymes create the purine ring de novo from amino acids."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-nucleotide-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Salvage reuses free bases; identify the bases handled by the two phosphoribosyltransferases.",
+        "solution": "HGPRT salvages hypoxanthine and guanine; APRT salvages adenine. Both use PRPP.",
+        "lesson_ids": [
+          "biochemistry-nucleotide-biosynthesis"
+        ],
+        "misconception_ids": [
+          "purine-salvage-enzyme-pairing"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-nucleotide-biosynthesis:ribonucleotide-reduction",
+      "type": "single_choice",
+      "prompt": "What is the direct substrate/product transformation catalyzed by ribonucleotide reductase?",
+      "options": [
+        "Ribonucleoside diphosphate (NDP) is reduced to the corresponding deoxyribonucleoside diphosphate (dNDP).",
+        "dUMP is converted to dTMP using N10-formyl-THF.",
+        "PRPP is converted to ribose 5-phosphate.",
+        "IMP is converted to AMP using GTP."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-nucleotide-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "The enzyme name indicates which sugar chemistry it changes.",
+        "solution": "Ribonucleotide reductase reduces NDPs to dNDPs; reducing equivalents are supplied through thioredoxin or glutaredoxin systems.",
+        "lesson_ids": [
+          "biochemistry-nucleotide-biosynthesis"
+        ],
+        "misconception_ids": [
+          "rnr-and-thymidylate-confusion"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-nucleotide-biosynthesis:thymidylate-folate",
+      "type": "single_choice",
+      "prompt": "Which reaction uses 5,10-methylene-tetrahydrofolate as a one-carbon donor?",
+      "options": [
+        "Thymidylate synthase converts dUMP to dTMP and produces dihydrofolate.",
+        "Ribonucleotide reductase converts UDP to dUDP using PRPP.",
+        "HGPRT converts hypoxanthine to IMP without a ribose donor.",
+        "The IMP-to-AMP branch converts GTP to ATP."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-nucleotide-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Distinguish the one-carbon-dependent thymidylate reaction from ribose reduction.",
+        "solution": "Thymidylate synthase transfers a one-carbon unit from 5,10-methylene-THF to dUMP to make dTMP; dihydrofolate must then be recycled.",
+        "lesson_ids": [
+          "biochemistry-nucleotide-biosynthesis"
+        ],
+        "misconception_ids": [
+          "thymidylate-folate-source"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-fatty-acid-synthesis:triacylglycerol-fatty-acid-count",
+      "type": "numeric",
+      "prompt": "If 4 mol triacylglycerol are completely hydrolyzed, how many mol fatty acids are released?",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-neutral-lipid-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 12,
+        "unit": "mol",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Each TAG molecule contains three fatty-acyl chains.",
+        "solution": "Complete hydrolysis releases three mol fatty acids per mol TAG. Four mol TAG therefore yield twelve mol fatty acids, plus four mol glycerol.",
+        "lesson_ids": [
+          "biochemistry-fatty-acid-synthesis"
+        ],
+        "misconception_ids": [
+          "tag-acylation-or-lipolysis-ledger"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-fatty-acid-synthesis:tag-acyl-coa",
+      "type": "numeric",
+      "prompt": "How many mol fatty acyl-CoA are required to esterify the three acyl positions in 3 mol newly synthesized TAG?",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-neutral-lipid-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 9,
+        "unit": "mol",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Each TAG contains three fatty-acyl chains; count esterification equivalents only.",
+        "solution": "Three mol TAG contain nine mol fatty-acyl chains, requiring nine mol fatty acyl-CoA for esterification. Fatty-acid activation costs are outside this count.",
+        "lesson_ids": [
+          "biochemistry-fatty-acid-synthesis"
+        ],
+        "misconception_ids": [
+          "tag-acylation-or-lipolysis-ledger"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-fatty-acid-synthesis:stored-lipolysis-sequence",
+      "type": "single_choice",
+      "prompt": "Which enzyme sequence describes canonical adipocyte triacylglycerol lipolysis?",
+      "options": [
+        "ATGL: TAG to DAG; HSL: DAG to MAG; MGL: MAG to glycerol.",
+        "LPL: TAG to DAG; CPT1: DAG to MAG; ACC: MAG to glycerol.",
+        "HSL: TAG to glycerol in one step; MGL: glycerol to fatty acids.",
+        "FAS: TAG to DAG; ACC: DAG to MAG; ATGL: MAG to glycerol."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-neutral-lipid-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Follow the successive removal of one fatty acid at each intracellular hydrolysis step.",
+        "solution": "ATGL first hydrolyzes TAG, HSL acts mainly on DAG, and MGL hydrolyzes MAG to glycerol. Each step releases a fatty acid.",
+        "lesson_ids": [
+          "biochemistry-fatty-acid-synthesis"
+        ],
+        "misconception_ids": [
+          "lipolysis-enzyme-order"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-fatty-acid-synthesis:lipolysis-hormone-control",
+      "type": "single_choice",
+      "prompt": "In a simplified fed-versus-fasting model, which statement about adipose TAG mobilization is most accurate?",
+      "options": [
+        "Insulin generally suppresses adipose lipolysis in the fed state, while catecholamine-cAMP/PKA signaling can promote droplet access and lipolysis.",
+        "Insulin always activates ATGL and HSL during feeding.",
+        "Catecholamines convert glycerol directly into fatty acyl-CoA without lipases.",
+        "Fasting inhibits all intracellular lipases and prevents fatty-acid release."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-neutral-lipid-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Compare the storage-favoring fed signal with a mobilization signal.",
+        "solution": "Insulin generally suppresses adipose lipolysis, whereas catecholamine signaling can promote PKA-dependent lipid-droplet access and lipase action. Regulation is tissue- and state-dependent.",
+        "lesson_ids": [
+          "biochemistry-fatty-acid-synthesis"
+        ],
+        "misconception_ids": [
+          "adipose-fed-fasting-control"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-fatty-acid-synthesis:capillary-vs-adipose-lipases",
+      "type": "single_choice",
+      "prompt": "How does capillary lipoprotein lipase differ from the ATGL-HSL-MGL sequence?",
+      "options": [
+        "Lipoprotein lipase acts on circulating chylomicron/VLDL TAG at capillaries; ATGL, HSL and MGL mobilize intracellular stored TAG.",
+        "Lipoprotein lipase is the final intracellular adipose lipase that releases glycerol from MAG.",
+        "ATGL acts only on circulating LDL, whereas lipoprotein lipase acts on lipid droplets.",
+        "They are the same enzyme with different names."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-neutral-lipid-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Distinguish a circulating lipoprotein particle from an intracellular lipid droplet.",
+        "solution": "Capillary LPL hydrolyzes TAG carried by circulating chylomicrons and VLDL; ATGL, HSL and MGL act sequentially on stored cellular TAG.",
+        "lesson_ids": [
+          "biochemistry-fatty-acid-synthesis"
+        ],
+        "misconception_ids": [
+          "lpl-versus-intracellular-lipases"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-fatty-acid-synthesis:glycerol-fate",
+      "type": "single_choice",
+      "prompt": "What is a common metabolic fate of glycerol released from adipose TAG?",
+      "options": [
+        "It can travel to liver, be phosphorylated by glycerol kinase to glycerol-3-phosphate and enter metabolism through DHAP.",
+        "It is converted directly to acetyl-CoA inside the adipocyte without carbon rearrangement.",
+        "It is the substrate that CPT1 imports into mitochondria.",
+        "It is converted to NADPH by fatty-acid synthase."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-neutral-lipid-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Trace the three-carbon backbone toward a hepatic gluconeogenic intermediate.",
+        "solution": "Glycerol can be carried to liver, phosphorylated to glycerol-3-phosphate and oxidized to DHAP, which can enter gluconeogenesis or glycolysis.",
+        "lesson_ids": [
+          "biochemistry-fatty-acid-synthesis"
+        ],
+        "misconception_ids": [
+          "glycerol-fate"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-fatty-acid-synthesis:hepatic-tag-route",
+      "type": "single_choice",
+      "prompt": "How does hepatic TAG connect with the lipoprotein route?",
+      "options": [
+        "Hepatocytes can package TAG into VLDL for export; capillary LPL later removes TAG from circulating VLDL.",
+        "Hepatocytes package TAG only into intestinal chylomicrons containing ApoB-48.",
+        "VLDL is synthesized in adipose lipid droplets and hydrolyzed by mitochondrial ATGL.",
+        "TAG cannot leave the liver because it is water soluble."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-neutral-lipid-objective-1",
+        "biochemistry-neutral-lipid-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Connect the intracellular hepatic storage-lipid pool to the liver-derived circulating particle.",
+        "solution": "Liver-derived TAG is packaged into VLDL. In circulation, capillary LPL hydrolyzes VLDL TAG and releases fatty acids to tissues.",
+        "lesson_ids": [
+          "biochemistry-fatty-acid-synthesis"
+        ],
+        "misconception_ids": [
+          "hepatic-tag-vldl-export"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-lab2:ion-exchange-protein-mass",
+      "type": "numeric",
+      "prompt": "Using the synthetic CSV, calculate total protein in the ion-exchange pool. Enter a value with units.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-lab-02-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 8,
+        "unit": "mg",
+        "tolerance": 0.08,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Multiply fraction volume by protein concentration.",
+        "solution": "10 mL × 0.80 mg/mL = 8.0 mg.",
+        "lesson_ids": [
+          "biochemistry-lab-02"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-lab2:ion-exchange-total-activity",
+      "type": "numeric",
+      "prompt": "Using the synthetic CSV, calculate total activity in the ion-exchange pool. Enter a value with units.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-lab-02-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 3000,
+        "unit": "U",
+        "tolerance": 30,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Multiply fraction volume by activity concentration.",
+        "solution": "10 mL × 300 U/mL = 3,000 U.",
+        "lesson_ids": [
+          "biochemistry-lab-02"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-lab2:ion-exchange-specific-activity",
+      "type": "numeric",
+      "prompt": "Using the synthetic CSV, calculate the ion-exchange pool specific activity. Enter U/mg.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-lab-02-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 375,
+        "unit": "U/mg",
+        "tolerance": 3.75,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Divide total activity by total protein.",
+        "solution": "3,000 U ÷ 8.0 mg = 375 U/mg.",
+        "lesson_ids": [
+          "biochemistry-lab-02"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-lab2:ion-exchange-recovery",
+      "type": "numeric",
+      "prompt": "Calculate activity recovery in the ion-exchange pool relative to the crude extract. Enter a percentage.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-lab-02-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 50,
+        "unit": "%",
+        "tolerance": 0.5,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Divide ion-exchange total activity by crude total activity and multiply by 100.",
+        "solution": "3,000 U ÷ 6,000 U × 100 = 50%.",
+        "lesson_ids": [
+          "biochemistry-lab-02"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-lab2:sec-enrichment",
+      "type": "numeric",
+      "prompt": "Calculate fold enrichment in specific activity for the size-exclusion pool relative to crude extract.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-lab-02-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 22.2,
+        "unit": "fold",
+        "tolerance": 0.22,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Calculate each specific activity from total activity divided by total protein, then form a ratio.",
+        "solution": "(2,000 U ÷ 1.5 mg) ÷ (6,000 U ÷ 100 mg) = 22.2-fold.",
+        "lesson_ids": [
+          "biochemistry-lab-02"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-lab2:orthogonal-step",
+      "type": "single_choice",
+      "prompt": "Which separation property makes size-exclusion chromatography a plausible orthogonal step after charge-based ion exchange?",
+      "options": [
+        "Hydrodynamic size.",
+        "Peptide-bond sequence.",
+        "Net charge only, under an identical condition."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-lab-02-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Identify the property used by each separation method.",
+        "solution": "Size-exclusion chromatography separates by hydrodynamic size, which differs from the charge property used in ion exchange.",
+        "lesson_ids": [
+          "biochemistry-lab-02"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-lab2:enrichment-limit",
+      "type": "single_choice",
+      "prompt": "What does a higher specific activity support, by itself?",
+      "options": [
+        "Evidence of enrichment under comparable assay conditions, but not proof of homogeneity.",
+        "Proof that every protein contaminant has been removed.",
+        "Proof that all target molecules remain active."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-lab-02-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Separate a useful activity-per-mass ratio from a direct purity measurement.",
+        "solution": "Specific activity can support enrichment but cannot establish that the fraction is homogeneous.",
+        "lesson_ids": [
+          "biochemistry-lab-02"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-tca-cycle:isotope-enrichment-vs-flux",
+      "type": "single_choice",
+      "prompt": "A synthetic tracer study reports citrate fractions after a [U-¹³C₆]glucose pulse: at 2 min, M+2 = 20% and M+3 = 10%; at 12 min, M+2 = 45% and M+3 = 15%. Which conclusion is supported?",
+      "options": [
+        "The measured labeled fraction rose from 30% to 60% (+30 percentage points), but this alone does not show that TCA-cycle flux doubled.",
+        "TCA-cycle flux doubled because the fraction with any label doubled.",
+        "The citrate pool doubled in size because M+3 increased by five percentage points.",
+        "Pyruvate dehydrogenase stopped because the M+0 fraction fell."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-tca-cycle-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Add the M+2 and M+3 fractions at each time point, then separate labeling from amount-per-time flux.",
+        "solution": "The labeled fraction is 20% + 10% = 30% at 2 min and 45% + 15% = 60% at 12 min, a rise of 30 percentage points. Enrichment reports isotope incorporation under this pulse; estimating flux requires a tracer model and constraints on precursor labeling, pool behavior and competing routes.",
+        "lesson_ids": [
+          "biochemistry-tca-cycle"
+        ],
+        "misconception_ids": [
+          "label-enrichment-equals-flux"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-ketone-body-metabolism:conditional-atp-yield",
+      "type": "single_choice",
+      "prompt": "Under P/O values of 2.5 ATP per NADH and 1.5 per FADH2, one GTP-equivalent per TCA turn, and one GTP-forming step bypassed by SCOT, what is the conditional yield per mole of acetoacetate fully oxidized?",
+      "options": [
+        "19 ATP-equivalents: 6 NADH, 2 FADH2 and 1 net GTP-equivalent.",
+        "20 ATP-equivalents because SCOT makes an extra ATP.",
+        "21.5 ATP-equivalents because acetoacetate oxidation produces the extra NADH.",
+        "16 ATP-equivalents because ketone-derived acetyl-CoA makes no GTP."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-ketone-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Count two acetyl-CoA through two cycle turns, then account for the succinyl-CoA used by SCOT.",
+        "solution": "Two acetyl-CoA yield 6 NADH, 2 FADH2 and 2 GTP; SCOT bypasses one GTP-forming step, leaving one. At the stated P/O values: 6(2.5)+2(1.5)+1 = 19 ATP-equivalents.",
+        "lesson_ids": [
+          "biochemistry-ketone-body-metabolism"
+        ],
+        "misconception_ids": [
+          "ketone-atp-no-scot-cost"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-ketone-body-metabolism:hepatic-fate-nuance",
+      "type": "single_choice",
+      "prompt": "Which statement best distinguishes canonical hepatic ketolysis from a reported alternative ketone-carbon fate?",
+      "options": [
+        "Because hepatocytes lack SCOT, they cannot take up or use any ketone-derived carbon for any purpose.",
+        "Canonical oxidative ketolysis uses SCOT; a mouse hepatocyte study reported SCOT-independent ketone-carbon incorporation into lipids, which is a different anabolic fate and does not establish ATP-producing ketolysis.",
+        "Human liver tissue studies show that every liver cell expresses SCOT and uses ketones as its preferred respiratory fuel.",
+        "SCOT-independent lipid labeling proves that ketones sustain hepatic ATP production through the TCA cycle."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-ketone-objective-4"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Keep the enzyme, cell type, species and metabolic fate attached to the claim.",
+        "solution": "Mature hepatocytes generally lack SCOT-mediated oxidative ketolysis. A mouse study reported SCOT-independent incorporation of ketone carbon into lipids; that anabolic result does not demonstrate canonical ATP-producing ketolysis.",
+        "lesson_ids": [
+          "biochemistry-ketone-body-metabolism"
+        ],
+        "misconception_ids": [
+          "liver-ketone-fate-absolute"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-amino-acid-carbon-skeletons:bcaas-share-change",
+      "type": "single_choice",
+      "prompt": "A synthetic tracer model assigns 8.0% of lipogenic acetyl-CoA in preadipocytes and 26.0% in differentiated adipocytes to branched-chain amino-acid carbon. What is the absolute change?",
+      "options": [
+        "18.0 percentage points.",
+        "18.0% relative change.",
+        "3.25 percentage points.",
+        "No change can be calculated."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-amino-carbon-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Subtract the two percentages to report a percentage-point difference; a relative percent change would use a different denominator.",
+        "solution": "26.0% minus 8.0% is an increase of 18.0 percentage points.",
+        "lesson_ids": [
+          "biochemistry-amino-acid-carbon-skeletons"
+        ],
+        "misconception_ids": [
+          "percent-vs-percentage-points"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-amino-acid-carbon-skeletons:tracer-scope",
+      "type": "single_choice",
+      "prompt": "A primary study detects substantial leucine/isoleucine contribution to lipogenic acetyl-CoA in differentiated adipocyte cultures. Which inference stays within that evidence?",
+      "options": [
+        "BCAA carbon can contribute to lipid synthesis in the tested cell model; this does not make leucine glucogenic or establish a whole-body human fraction.",
+        "Leucine is glucogenic whenever any of its carbon enters acetyl-CoA.",
+        "The result proves that leucine carbon supplies net glucose in all mammalian tissues.",
+        "The measured share is a universal rate of BCAA oxidation in humans."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-amino-carbon-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Keep the cell type, measured acetyl-CoA pool and carbon destination attached to the conclusion.",
+        "solution": "The tracing supports a cell-model-specific contribution to lipogenic acetyl-CoA. It neither changes leucine’s standard ketogenic classification nor establishes human whole-body flux or net glucose production.",
+        "lesson_ids": [
+          "biochemistry-amino-acid-carbon-skeletons"
+        ],
+        "misconception_ids": [
+          "tracer-scope-overreach",
+          "acetylcoa-glucogenic"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-pentose-phosphate:tracer-labeled-ribose",
+      "type": "numeric",
+      "prompt": "A synthetic ribose 5-phosphate dataset from a [1,2-13C2]glucose teaching condition reports M+0 = 40%, M+1 = 45% and M+2 = 15%. What percentage of molecules contain at least one 13C label? Enter a percentage.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-ppp-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 60.0,
+        "unit": "%",
+        "tolerance": 0.1,
+        "unit_required": true,
+        "significant_figures": 3,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Add the M+1 and M+2 fractions; M+0 has no tracer-derived heavy-carbon increment.",
+        "solution": "45% + 15% = 60.0% of the synthetic ribose 5-phosphate molecules contain at least one 13C label.",
+        "lesson_ids": [
+          "biochemistry-pentose-phosphate"
+        ],
+        "misconception_ids": [
+          "isotopomer-vs-flux"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-pentose-phosphate:tracer-flux-limit",
+      "type": "single_choice",
+      "prompt": "What can the synthetic M+0/M+1/M+2 ribose distribution establish by itself?",
+      "options": [
+        "It proves that exactly 60% of total glucose flux passed through the oxidative PPP.",
+        "It supports labeled-glucose carbon reaching ribose, but branch-specific flux requires an atom-mapping model and additional measurements.",
+        "It proves that every ribose carbon came from glucose and excludes unlabeled inputs."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-ppp-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "A mass isotopomer count records how many heavy carbons are present, not a rate or unique pathway route.",
+        "solution": "The distribution supports incorporation of labeled glucose carbon into ribose. Quantitative flux inference requires an atom-transition/network model, additional measurements and uncertainty analysis.",
+        "lesson_ids": [
+          "biochemistry-pentose-phosphate"
+        ],
+        "misconception_ids": [
+          "isotopomer-vs-flux"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-urea-cycle:nitrogen-to-urea",
+      "type": "numeric",
+      "prompt": "A closed synthetic balance provides 5 mol nitrogen atoms for urea formation. How many mol urea can form when each urea molecule contains two nitrogen atoms? Enter mol to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-urea-cycle-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 2.5,
+        "unit": "mol",
+        "tolerance": 0.005,
+        "unit_required": true,
+        "significant_figures": 3,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Each urea molecule contains two nitrogen atoms. Apply the stated closed-balance assumption.",
+        "solution": "5 mol nitrogen atoms ÷ 2 nitrogen atoms per urea = 2.50 mol urea under the stated assumption.",
+        "lesson_ids": [
+          "biochemistry-urea-cycle"
+        ],
+        "misconception_ids": [
+          "urea-nitrogen-stoichiometry"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-urea-cycle:urea-energy-scale",
+      "type": "single_choice",
+      "prompt": "For the 2.50 mol urea output in the synthetic example, which pair gives the cycle energy demand?",
+      "options": [
+        "7.50 mol ATP molecules and 10.0 mol high-energy phosphate equivalents.",
+        "10.0 mol ATP molecules and 7.50 mol high-energy phosphate equivalents.",
+        "2.50 mol ATP molecules and 4.00 mol high-energy phosphate equivalents."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-urea-cycle-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Per urea, count ATP molecules separately from ATP-to-AMP high-energy phosphate equivalents.",
+        "solution": "Each mole urea uses 3 mol ATP molecules and 4 mol high-energy phosphate equivalents; 2.50 mol urea therefore requires 7.50 mol ATP and 10.0 mol equivalents.",
+        "lesson_ids": [
+          "biochemistry-urea-cycle"
+        ],
+        "misconception_ids": [
+          "atp-molecule-vs-phosphate-equivalent"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-cholesterol-lipoproteins:hepatocyte-pool-change",
+      "type": "numeric",
+      "prompt": "In the synthetic hepatocyte model, calculate net cellular cholesterol-pool change (synthesis + LDLR uptake − bile-acid conversion − VLDL export). Report mg/h to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-cholesterol-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 30.0,
+        "unit": "mg/h",
+        "tolerance": 0.05,
+        "unit_required": true,
+        "significant_figures": 3,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Add the two stated inputs, then subtract the two stated outputs.",
+        "solution": "36 + 24 − 18 − 12 = +30.0 mg/h; the modelled hepatocyte pool is increasing at this instant.",
+        "lesson_ids": [
+          "biochemistry-cholesterol-lipoproteins"
+        ],
+        "misconception_ids": [
+          "cellular-vs-plasma-cholesterol-pool"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-cholesterol-lipoproteins:pool-vs-plasma",
+      "type": "single_choice",
+      "prompt": "What does the synthetic hepatocyte pool balance establish by itself?",
+      "options": [
+        "The modelled cellular cholesterol pool rises at the calculated rate; the balance alone does not determine circulating LDL concentration.",
+        "Plasma LDL must fall at exactly the same rate as hepatocyte cholesterol uptake.",
+        "The whole-body cholesterol pool is balanced because the four stated rates are nonzero."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-cholesterol-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Keep the cellular pool boundary separate from the plasma LDL particle pool.",
+        "solution": "The inputs and outputs determine the modelled hepatocyte balance for the stated interval, not the full plasma or whole-body balance.",
+        "lesson_ids": [
+          "biochemistry-cholesterol-lipoproteins"
+        ],
+        "misconception_ids": [
+          "cellular-vs-plasma-cholesterol-pool"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-nucleotide-biosynthesis:prpp-route-accounting",
+      "type": "numeric",
+      "prompt": "In a synthetic preparation, 4 mol IMP are made de novo and 3 mol hypoxanthine are salvaged to IMP. If each stated route uses 1 mol PRPP per mol IMP, how many mol PRPP are consumed in total?",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-nucleotide-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 7,
+        "unit": "mol",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Count the PRPP used for each de novo IMP and each salvaged hypoxanthine.",
+        "solution": "The de novo route uses 4 mol PRPP and salvage uses 3 mol, for 7 mol total. This is only the PRPP ledger.",
+        "lesson_ids": [
+          "biochemistry-nucleotide-biosynthesis"
+        ],
+        "misconception_ids": [
+          "salvage-is-prpp-free"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-nucleotide-biosynthesis:branch-energy-ledger",
+      "type": "single_choice",
+      "prompt": "From a synthetic IMP pool, 2 mol are converted to AMP and 1 mol to GMP. Which pair gives the nucleotide consumed at each branch step, excluding all other pathway costs?",
+      "options": [
+        "2 mol GTP and 1 mol ATP",
+        "2 mol ATP and 1 mol GTP",
+        "3 mol ATP and no GTP",
+        "No nucleotide triphosphate is used at either branch."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-nucleotide-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "The AMP branch uses GTP, while the GMP branch uses ATP.",
+        "solution": "The IMP-to-AMP branch uses 1 GTP per AMP and the IMP-to-GMP branch uses 1 ATP per GMP, so the stated conversions use 2 mol GTP and 1 mol ATP.",
+        "lesson_ids": [
+          "biochemistry-nucleotide-biosynthesis"
+        ],
+        "misconception_ids": [
+          "nucleotide-branch-energy-reversed"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-3:pool-change",
+      "type": "numeric",
+      "prompt": "In a synthetic compartment, ATP synthesis is 146 µmol/min and ATP utilization is 134 µmol/min. What is the net ATP-pool amount change? Report the signed rate in µmol/min.",
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-3-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 12,
+        "unit": "µmol/min",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Subtract the utilization rate from the synthesis rate.",
+        "solution": "146 − 134 = +12 µmol/min. This amount-rate balance does not specify concentration change or identify a pathway flux.",
+        "lesson_ids": [
+          "biochemistry-3"
+        ],
+        "misconception_ids": [
+          "atp-pool-vs-turnover"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biochemistry-3:pool-vs-turnover",
+      "type": "single_choice",
+      "prompt": "A synthetic preparation synthesizes ATP at 120 µmol/min and consumes ATP at 120 µmol/min. Which interpretation follows from these two rates?",
+      "options": [
+        "The ATP amount is steady under the stated balance, while ATP synthesis and use continue.",
+        "No ATP is being synthesized or consumed.",
+        "Oxygen consumption and every pathway flux must be zero.",
+        "The ATP concentration is known without the compartment volume."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biochemistry-3-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Compare the difference between the rates with the individual rates.",
+        "solution": "Equal nonzero synthesis and use produce zero net pool change while ATP turnover continues. These rates do not specify oxygen use, individual pathway fluxes or concentration.",
+        "lesson_ids": [
+          "biochemistry-3"
+        ],
+        "misconception_ids": [
+          "steady-pool-means-no-turnover"
         ]
       },
       "visibility": "public-practice-authoring",

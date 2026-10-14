@@ -9,7 +9,7 @@
       "prompt": "For f(x) = x², what is f′(3)?",
       "points": 1,
       "objective_ids": [
-        "calculus-1-1-objective-1"
+        "calculus-1-1-objective-2"
       ],
       "solution_spec": {
         "answer": 6,
@@ -75,21 +75,31 @@
       ],
       "solution_spec": {
         "expression": "(x^2 + 2*x - 1)/(x + 1)^2",
-        "variables": ["x"],
+        "variables": [
+          "x"
+        ],
         "assumptions": {
-          "x": {"real": true}
+          "x": {
+            "real": true
+          }
         }
       },
       "feedback": {
         "hint": "Apply the quotient rule to the full numerator and denominator, then combine like terms.",
         "solution": "f′(x) = [2x(x + 1) − (x² + 1)]/(x + 1)² = (x² + 2x − 1)/(x + 1)² for x ≠ −1.",
-        "lesson_ids": ["calculus-1-2"],
-        "misconception_ids": ["quotient-rule-order"]
+        "lesson_ids": [
+          "calculus-1-2"
+        ],
+        "misconception_ids": [
+          "quotient-rule-order"
+        ]
       },
       "visibility": "public-practice-authoring",
       "provenance": {
         "kind": "original",
-        "modifications": ["New formative item authored to exercise rational-expression equivalence grading."]
+        "modifications": [
+          "New formative item authored to exercise rational-expression equivalence grading."
+        ]
       }
     },
     {
@@ -3234,6 +3244,662 @@
         "solution": "A fixed positive background contributes increasingly to the signal as C decays, reducing the apparent log slope.",
         "lesson_ids": [
           "calculus-1-lab-01"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-1-1:limit-factor-cancel",
+      "type": "single_choice",
+      "prompt": "For x ≠ 2, let q(x) = (x² − 4)/(x − 2). What is lim as x approaches 2 of q(x)?",
+      "options": [
+        "0",
+        "2",
+        "4",
+        "The limit does not exist"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-1-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 2
+      },
+      "feedback": {
+        "hint": "Factor the numerator, then simplify only for inputs in the punctured domain.",
+        "solution": "For x ≠ 2, q(x) = (x − 2)(x + 2)/(x − 2) = x + 2, so the nearby values approach 4.",
+        "lesson_ids": [
+          "calculus-1-1"
+        ],
+        "misconception_ids": [
+          "point-value-limit-confusion"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added a direct limit item after the preserved derivative check was aligned to the local-linearization objective."
+        ]
+      }
+    },
+    {
+      "id": "calculus-1-14:hypotheses",
+      "type": "single_choice",
+      "prompt": "Which pair of hypotheses is required by the Mean Value Theorem on [a,b]?",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-14-objective-1"
+      ],
+      "options": [
+        "f is differentiable at both endpoints and f'' is nonzero",
+        "f is continuous on [a,b] and differentiable on (a,b)",
+        "f' is continuous on [a,b] and f(a)=f(b)",
+        "f is strictly monotone on [a,b]"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Check separately what is required at the endpoints and inside the interval.",
+        "solution": "Continuity is required on the closed interval and differentiability at every interior point. The theorem then guarantees at least one c in (a,b) with f'(c) equal to the secant slope.",
+        "lesson_ids": [
+          "calculus-1-14"
+        ],
+        "misconception_ids": [
+          "mvt-hypotheses-confused"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-1-14:continuity-failure",
+      "type": "single_choice",
+      "prompt": "Let f(0)=0 and f(x)=1 for 0<x≤1. On (0,1), f'(x)=0, but the secant slope on [0,1] is 1. Why is this not a counterexample to the Mean Value Theorem?",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-14-objective-1"
+      ],
+      "options": [
+        "The derivative at x=0 is 1",
+        "f is not continuous at 0, so the theorem's hypotheses fail",
+        "f is not defined at interior points",
+        "The interval has no secant line"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Compare f(0) with the right-hand limit.",
+        "solution": "The right-hand limit at zero is 1 while f(0)=0. The function is discontinuous on [0,1], so the theorem does not apply.",
+        "lesson_ids": [
+          "calculus-1-14"
+        ],
+        "misconception_ids": [
+          "mvt-endpoint-continuity"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-1-14:differentiability-failure",
+      "type": "single_choice",
+      "prompt": "For f(x)=|x| on [-1,1], the secant slope is zero. Why can Rolle's Theorem not be used to find an interior point where f'(c)=0?",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-14-objective-1"
+      ],
+      "options": [
+        "The endpoint values are unequal",
+        "The function is not continuous at the endpoints",
+        "f is not differentiable at the interior point 0; elsewhere its derivative is -1 or 1",
+        "The interval is not closed"
+      ],
+      "solution_spec": {
+        "answer": 2
+      },
+      "feedback": {
+        "hint": "Check differentiability at every point of the open interval.",
+        "solution": "The endpoint values agree and f is continuous, but the interior corner at zero violates differentiability. At all other interior points the derivative is either -1 or 1.",
+        "lesson_ids": [
+          "calculus-1-14"
+        ],
+        "misconception_ids": [
+          "rolle-corner"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-1-14:monotonicity",
+      "type": "single_choice",
+      "prompt": "If f is continuous on [a,b], differentiable on (a,b), and f'(x)>0 throughout (a,b), what follows?",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-14-objective-2"
+      ],
+      "options": [
+        "f has exactly one zero",
+        "f has a local maximum inside (a,b)",
+        "f is strictly increasing on [a,b]",
+        "f(b)-f(a) equals f'(a)(b-a)"
+      ],
+      "solution_spec": {
+        "answer": 2
+      },
+      "feedback": {
+        "hint": "Apply the theorem on an arbitrary subinterval [x,y].",
+        "solution": "For any x<y, MVT gives f(y)-f(x)=f'(c)(y-x)>0 for some c between them. Thus f(y)>f(x).",
+        "lesson_ids": [
+          "calculus-1-14"
+        ],
+        "misconception_ids": [
+          "derivative-sign-without-proof"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-1-14:unique-root",
+      "type": "single_choice",
+      "prompt": "Let p(x)=x^3+x-1 on [0,1]. Which argument proves that p has exactly one root in (0,1)?",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-14-objective-2"
+      ],
+      "options": [
+        "The Intermediate Value Theorem gives existence from the sign change; p'(x)=3x^2+1>0 and the MVT give strict increase, hence at most one root",
+        "A positive derivative alone proves a root exists",
+        "p'(x)>0 means p has a local maximum",
+        "The MVT guarantees exactly one point c for every interval"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Separate the existence argument from the uniqueness argument.",
+        "solution": "The sign change proves at least one root by the Intermediate Value Theorem. The derivative is positive everywhere, so the MVT proves strict increase and at most one root.",
+        "lesson_ids": [
+          "calculus-1-14"
+        ],
+        "misconception_ids": [
+          "monotonicity-implies-existence"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-1-14:nonunique-c",
+      "type": "single_choice",
+      "prompt": "For f(x)=x^3 on [-1,1], the secant slope is 1. What does the Mean Value Theorem guarantee?",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-14-objective-2"
+      ],
+      "options": [
+        "Exactly one point c, because derivatives are unique",
+        "At least one point; here c=1/√3 and c=-1/√3 both work",
+        "Every point in (-1,1) works",
+        "No point works because the endpoints are symmetric"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Solve 3c²=1 and check both values lie inside the interval.",
+        "solution": "f'(c)=3c²=1 has two interior solutions, ±1/√3. The MVT guarantees at least one point, not a unique point.",
+        "lesson_ids": [
+          "calculus-1-14"
+        ],
+        "misconception_ids": [
+          "mvt-point-uniqueness"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-1-14:mvt-c",
+      "type": "numeric",
+      "prompt": "For f(x)=x² on [1,3], enter an interior c for which f'(c) equals the secant slope.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 2,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "First compute the endpoint secant slope, then solve 2c=4.",
+        "solution": "The secant slope is (9-1)/(3-1)=4. Since f'(x)=2x, c=2 gives f'(2)=4.",
+        "lesson_ids": [
+          "calculus-1-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-1-14:rolle-c",
+      "type": "numeric",
+      "prompt": "For f(x)=x²-1 on [-1,1], enter the Rolle point c in (-1,1) where f'(c)=0.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Set 2c=0 and verify it lies in the open interval.",
+        "solution": "The endpoint values are both zero and f'(x)=2x, so c=0.",
+        "lesson_ids": [
+          "calculus-1-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-1-14:rate-bound",
+      "type": "numeric",
+      "prompt": "If |f'(x)|≤1 throughout [0,0.1], what is the greatest change |f(0.1)-f(0)| that the Mean Value Theorem guarantees? Enter the bound.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0.1,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Multiply the derivative bound by the interval length.",
+        "solution": "The theorem gives |f(0.1)-f(0)|≤1×0.1=0.1.",
+        "lesson_ids": [
+          "calculus-1-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-1-15:inverse-slope",
+      "type": "numeric",
+      "prompt": "The synthetic function f(x) = x⁵ + x is strictly increasing and has inverse g. What is g′(2)? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.16667,
+        "unit": "",
+        "tolerance": 0.0005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Find a with f(a) = 2, then use g′(2) = 1/f′(a).",
+        "solution": "f(1) = 2 and f′(1) = 5 + 1 = 6, so g′(2) = 1/6 ≈ 0.167.",
+        "lesson_ids": [
+          "calculus-1-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-1-15:arcsine-slope",
+      "type": "numeric",
+      "prompt": "What is the derivative of arcsin x at x = 0.8? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 1.6667,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "d/dx arcsin x = 1/√(1 − x²).",
+        "solution": "1/√(1 − 0.64) = 1/0.6 = 1.667.",
+        "lesson_ids": [
+          "calculus-1-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-1-15:general-exponential",
+      "type": "numeric",
+      "prompt": "What is the derivative of 3ˣ at x = 2? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 9.8875,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "d/dx aˣ = aˣ ln a.",
+        "solution": "9 ln 3 = 9.888.",
+        "lesson_ids": [
+          "calculus-1-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-1-15:log-chain",
+      "type": "numeric",
+      "prompt": "What is the derivative of ln(x³ + 1) at x = 1? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 1.5,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "d/dx ln u = u′/u.",
+        "solution": "3x²/(x³ + 1) = 3/2 = 1.5 at x = 1.",
+        "lesson_ids": [
+          "calculus-1-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-1-15:variable-power",
+      "type": "numeric",
+      "prompt": "For y = x^(sin x) with x > 0, what is y′ at x = π/2? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 1.0,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Take ln y = sin x · ln x, differentiate, then multiply by y.",
+        "solution": "y′ = y(cos x ln x + sin x/x). At π/2, cos x = 0, sin x = 1 and y = π/2, so y′ = (π/2)(2/π) = 1.",
+        "lesson_ids": [
+          "calculus-1-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-1-15:log-product-quotient",
+      "type": "numeric",
+      "prompt": "For y = x²(x + 1)³/√(x + 8), what is y′ at x = 1? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 9.1852,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use y′/y = 2/x + 3/(x + 1) − 1/[2(x + 8)].",
+        "solution": "y(1) = 8/3 and y′/y = 2 + 1.5 − 0.0556 = 3.444, so y′ = 9.185.",
+        "lesson_ids": [
+          "calculus-1-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-1-15:e-limit-fifty",
+      "type": "numeric",
+      "prompt": "What is (1 + 1/n)ⁿ for n = 50, to four decimal places? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 2.6916,
+        "unit": "",
+        "tolerance": 0.0002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Evaluate directly, or use exp(n ln(1 + 1/n)).",
+        "solution": "(1.02)⁵⁰ = 2.6916, still about 0.027 below e, close to the estimate e/(2n) = 0.027.",
+        "lesson_ids": [
+          "calculus-1-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-1-15:ph-sensitivity",
+      "type": "numeric",
+      "prompt": "For pH = −log₁₀ c, use the derivative to estimate the pH change for a synthetic 5% increase in c. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": -0.02171,
+        "unit": "",
+        "tolerance": 0.0002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "d pH/dc = −1/(c ln 10), so ΔpH ≈ −(Δc/c)/ln 10.",
+        "solution": "−0.05/2.3026 = −0.0217. The exact value, −log₁₀ 1.05 = −0.0212, is close because 5% is small.",
+        "lesson_ids": [
+          "calculus-1-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-1-15:log-chain-constant",
+      "type": "single_choice",
+      "prompt": "What is d/dx ln(3x) for x > 0?",
+      "options": [
+        "1/x, because ln(3x) = ln 3 + ln x",
+        "1/(3x)",
+        "3/x",
+        "ln 3/x"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Apply d/dx ln u = u′/u, or split the logarithm.",
+        "solution": "u′/u = 3/(3x) = 1/x; equivalently ln 3 is a constant with zero derivative.",
+        "lesson_ids": [
+          "calculus-1-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-1-15:exponential-not-power",
+      "type": "single_choice",
+      "prompt": "Which expression is the derivative of 5ˣ?",
+      "options": [
+        "5ˣ ln 5",
+        "x · 5^(x − 1)",
+        "5ˣ",
+        "5ˣ/ln 5"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Here the base is constant and the exponent varies.",
+        "solution": "5ˣ = e^(x ln 5), so its derivative is 5ˣ ln 5. The power rule applies only when the exponent is constant.",
+        "lesson_ids": [
+          "calculus-1-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-1-15:arcsine-branch",
+      "type": "single_choice",
+      "prompt": "Why is arcsine defined with range −π/2 ≤ y ≤ π/2 before it is differentiated?",
+      "options": [
+        "Sine is not one-to-one; on that interval it is strictly increasing, so the inverse is a function and cos y ≥ 0 fixes the sign of its derivative",
+        "Because sine is undefined outside that interval",
+        "Because the derivative of sine is zero there",
+        "The range does not matter for the derivative"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "An inverse needs a one-to-one function; which square-root sign appears in the derivative?",
+        "solution": "Restricting to [−π/2, π/2] makes sine invertible. On that range cos y = +√(1 − x²), giving d/dx arcsin x = 1/√(1 − x²).",
+        "lesson_ids": [
+          "calculus-1-15"
         ],
         "misconception_ids": []
       },

@@ -7,14 +7,16 @@
   "domain": "Bioengineering",
   "level": "Year 3",
   "maturity": "partial",
-  "version": "0.3.0",
+  "version": "0.3.9",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
     "source_path": "src/data/courses.js",
     "source_sha256": "a77a7cb7f5be2ffa12068877042ac775c6d9b79b83ac2f316fe4f26a0d3d783b",
     "migration_version": "1.0",
-    "modifications": []
+    "modifications": [
+      "Linked the first four lesson objective pairs to outcomes 1–4, corrected stress-relaxation and perturbation-item associations, and added direct practice distinguishing mechanical quantities, force paths, and mechanical inputs from molecular readouts."
+    ]
   },
   "prerequisites": {
     "course_ids": [
@@ -55,49 +57,65 @@
       "id": "cellular-biomechanics-1-objective-1",
       "description": "Distinguish force, stress, displacement, and strain.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-1"
+      ]
     },
     {
       "id": "cellular-biomechanics-1-objective-2",
       "description": "Select a constitutive model appropriate to the time and strain regime.",
       "bloom": "evaluate",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-2"
+      ]
     },
     {
       "id": "cellular-biomechanics-2-objective-1",
       "description": "Trace a force path from extracellular matrix to nucleus.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-3"
+      ]
     },
     {
       "id": "cellular-biomechanics-2-objective-2",
       "description": "Predict how adhesion geometry changes local signaling.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-3"
+      ]
     },
     {
       "id": "cellular-biomechanics-3-objective-1",
       "description": "Distinguish a mechanical input from a molecular readout.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-3"
+      ]
     },
     {
       "id": "cellular-biomechanics-3-objective-2",
       "description": "Use perturbation and rescue to support a pathway mechanism.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-3"
+      ]
     },
     {
       "id": "cellular-biomechanics-4-objective-1",
       "description": "Separate matrix mechanics from ligand presentation and geometry.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-4"
+      ]
     },
     {
       "id": "cellular-biomechanics-4-objective-2",
       "description": "Choose analysis that respects nested replicates and batch structure.",
       "bloom": "evaluate",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-4"
+      ]
     },
     {
       "id": "cellular-biomechanics-5-objective-1",
@@ -355,11 +373,61 @@
       "course_outcome_ids": [
         "cellular-biomechanics-outcome-4"
       ]
+    },
+    {
+      "id": "cellular-biomechanics-14-objective-1",
+      "description": "Estimate an effective diffusivity from a characteristic relaxation time and drainage length with consistent units, and predict a time at a new length.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-1"
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-14-objective-2",
+      "description": "Compare a length-independent viscoelastic time with an approximate poroelastic L-squared time scaling using fitted relaxation data.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-2"
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-14-objective-3",
+      "description": "Design a specimen-size relaxation comparison that controls drainage boundary conditions, identifies independent experimental units, and limits causal claims.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-4"
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-15-objective-1",
+      "description": "Relate bending stiffness to persistence length, calculate tangent-correlation decay, and classify a filament by comparing persistence and contour lengths.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-2",
+        "cellular-biomechanics-outcome-3"
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-15-objective-2",
+      "description": "Calculate a worm-like chain's mean-square end-to-end distance, small-extension entropic spring constant and force at a given fractional extension.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-2"
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-15-objective-3",
+      "description": "Calculate Euler buckling forces and lengths for filaments and bundles, and state the assumptions behind each estimate.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-1",
+        "cellular-biomechanics-outcome-3"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week undergraduate scope only. The four compact prototype units sit in weeks 1, 5, 8 and 10 beside original lessons on applying strain, indentation and relaxation, oscillatory rheology, micropillar traction forces, bonds under force, cortical tension, stiffness dose-response and factorial design; week 13 is a synthetic-data lab on stiffness, ligand density and the unit of analysis and week 14 a lesson on redesigning the stiffness experiment, which prepares the course case. All activities are open, ungraded practice. There are no graded homework sets, exams or project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week undergraduate scope only. Weeks 1, 5, 8 and 10 have expanded primers on mechanics, adhesion/force transmission, mechanotransduction, and experimental design; week 3 pairs the indentation/viscoelasticity lesson with an original size-dependent poroelastic comparison; week 5 pairs adhesion and force transmission with cytoskeletal filament mechanics; all four former compact prototype units have expanded instructional readings beside the original lessons on applying strain, indentation and relaxation, oscillatory rheology, micropillar traction forces, bonds under force, cortical tension, stiffness dose-response and factorial design. Week 13 is a synthetic-data lab on stiffness, ligand density and the unit of analysis and week 14 is a lesson on redesigning the stiffness experiment, which prepares the course case. All activities are open, ungraded practice. There are no graded homework sets, exams or project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
@@ -383,12 +451,14 @@
       },
       {
         "week": 3,
-        "title": "Measuring how stiff a cell is: Hertz indentation and viscoelastic relaxation",
+        "title": "Indentation, viscoelasticity and size-dependent poroelastic relaxation",
         "lesson_ids": [
-          "cellular-biomechanics-5"
+          "cellular-biomechanics-5",
+          "cellular-biomechanics-14"
         ],
         "assessment_ids": [
-          "cellular-biomechanics-5-practice"
+          "cellular-biomechanics-5-practice",
+          "cellular-biomechanics-14-practice"
         ]
       },
       {
@@ -403,12 +473,14 @@
       },
       {
         "week": 5,
-        "title": "Adhesion, cytoskeleton and force transmission",
+        "title": "Adhesion, cytoskeleton and force transmission, with cytoskeletal filament mechanics",
         "lesson_ids": [
-          "cellular-biomechanics-2"
+          "cellular-biomechanics-2",
+          "cellular-biomechanics-15"
         ],
         "assessment_ids": [
-          "cellular-biomechanics-2-practice"
+          "cellular-biomechanics-2-practice",
+          "cellular-biomechanics-15-practice"
         ]
       },
       {
@@ -526,10 +598,11 @@
             "cellular-biomechanics-1-objective-1",
             "cellular-biomechanics-1-objective-2"
           ],
-          "worked_example": "A standard linear solid can relax toward a nonzero long-time modulus, unlike a Maxwell element that relaxes fully under an ideal step strain.",
+          "worked_example": "For a synthetic Maxwell element with E=1 kPa and viscosity 2 kPa·s, the relaxation time is 2 s and the ideal stress falls to about 0.082 of its initial value after 5 s. A standard linear solid can instead relax toward a nonzero long-time modulus, so the model should match the observed hold duration.",
           "question_ids": [
             "cellular-biomechanics-1:check",
-            "cellular-biomechanics-1:constitutive-regime"
+            "cellular-biomechanics-1:constitutive-regime",
+            "cellular-biomechanics-1:mechanical-quantity-definitions"
           ],
           "card_ids": [
             "cellular-biomechanics-0-0",
@@ -554,14 +627,54 @@
             "cellular-biomechanics-2-objective-1",
             "cellular-biomechanics-2-objective-2"
           ],
-          "worked_example": "A stiffer substrate can increase traction only under conditions where cells can engage and remodel adhesions; stiffness alone does not specify cell fate.",
+          "worked_example": "One 10-by-10 µm adhesive patch and sixteen 2.5-by-2.5 µm patches each provide 100 µm² total area, but they differ in contact size and spacing. Without measuring adhesion organization or force, equal area alone cannot establish equal local signaling or predict cell fate.",
           "question_ids": [
             "cellular-biomechanics-2:check",
-            "cellular-biomechanics-2:adhesion-geometry"
+            "cellular-biomechanics-2:adhesion-geometry",
+            "cellular-biomechanics-2:force-path"
           ],
           "card_ids": [
             "cellular-biomechanics-1-0",
             "cellular-biomechanics-1-1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-module-15",
+      "title": "Cytoskeletal filament mechanics: persistence length, entropic elasticity and buckling",
+      "source_ids": [
+        "biomechanics"
+      ],
+      "lessons": [
+        {
+          "id": "cellular-biomechanics-15",
+          "title": "Cytoskeletal filament mechanics: persistence length, entropic elasticity and buckling",
+          "reading": "modules/15-cytoskeletal-filament-mechanics-persistence-entropy-and-buckling.md",
+          "objectives": [
+            "cellular-biomechanics-15-objective-1",
+            "cellular-biomechanics-15-objective-2",
+            "cellular-biomechanics-15-objective-3"
+          ],
+          "worked_example": "A synthetic microtubule-like filament with κ = 2.0 × 10⁻²³ N·m² has L_p ≈ 4.9 mm. A 10 μm pinned segment buckles at π²κ/L² = 1.97 pN, the longest segment bearing 5 pN is π√(κ/F) = 6.28 μm, and a tightly coupled bundle of ten buckles near 197 pN (about 19.7 pN with free sliding).",
+          "question_ids": [
+            "cellular-biomechanics-15:persistence-length",
+            "cellular-biomechanics-15:tangent-correlation",
+            "cellular-biomechanics-15:semiflexible-rms-ratio",
+            "cellular-biomechanics-15:entropic-spring",
+            "cellular-biomechanics-15:wlc-force",
+            "cellular-biomechanics-15:filament-buckling",
+            "cellular-biomechanics-15:buckling-length",
+            "cellular-biomechanics-15:bundle-factor",
+            "cellular-biomechanics-15:entropic-temperature",
+            "cellular-biomechanics-15:filament-classification",
+            "cellular-biomechanics-15:buckling-length-dependence"
+          ],
+          "card_ids": [
+            "cellular-biomechanics-15-card-1",
+            "cellular-biomechanics-15-card-2",
+            "cellular-biomechanics-15-card-3",
+            "cellular-biomechanics-15-card-4"
           ]
         }
       ]
@@ -582,10 +695,11 @@
             "cellular-biomechanics-3-objective-1",
             "cellular-biomechanics-3-objective-2"
           ],
-          "worked_example": "If inhibiting a mechanosensitive channel blocks calcium entry and a downstream transcriptional response, channel-specific rescue or an orthogonal perturbation strengthens the causal chain.",
+          "worked_example": "If a mechanical condition is followed by calcium entry and a transcriptional response, and inhibiting a candidate channel reduces both, a wild-type rescue that restores them while a domain mutant does not supports the channel and domain's involvement in this system. It does not prove direct binding or a complete pathway.",
           "question_ids": [
             "cellular-biomechanics-3:check",
-            "cellular-biomechanics-3:perturbation-and-rescue"
+            "cellular-biomechanics-3:perturbation-and-rescue",
+            "cellular-biomechanics-3:input-versus-readout"
           ],
           "card_ids": [
             "cellular-biomechanics-2-0",
@@ -610,7 +724,7 @@
             "cellular-biomechanics-4-objective-1",
             "cellular-biomechanics-4-objective-2"
           ],
-          "worked_example": "A 2×2 stiffness-by-ligand-density design estimates both main effects and interaction, provided each combination is independently fabricated and randomized across runs.",
+          "worked_example": "In a synthetic 2×2 design, responses of 10, 14, 16 and 28 units across soft/stiff and low/high ligand conditions give average stiffness and ligand contrasts of 10 and 8 units, and a difference-of-differences interaction of 8. With three independent gels and twenty cells per gel, the independent n is three gels, not sixty cells.",
           "question_ids": [
             "cellular-biomechanics-4:check",
             "cellular-biomechanics-4:nested-replicates"
@@ -987,6 +1101,42 @@
           ]
         }
       ]
+    },
+    {
+      "id": "cellular-biomechanics-module-14",
+      "title": "Poroelastic relaxation and specimen-size scaling",
+      "source_ids": [
+        "biomechanics"
+      ],
+      "lessons": [
+        {
+          "id": "cellular-biomechanics-14",
+          "title": "Poroelastic relaxation and specimen-size scaling",
+          "reading": "modules/14-size-dependent-poroelastic-relaxation.md",
+          "objectives": [
+            "cellular-biomechanics-14-objective-1",
+            "cellular-biomechanics-14-objective-2",
+            "cellular-biomechanics-14-objective-3"
+          ],
+          "worked_example": "Synthetic means of 5, 20 and 80 s at drainage lengths 0.5, 1 and 2 mm follow tau proportional to L squared; D_eff = 5.0×10⁻⁸ m^2/s and the model predicts 45 s at 1.5 mm.",
+          "question_ids": [
+            "cellular-biomechanics-14:effective-diffusivity",
+            "cellular-biomechanics-14:predict-at-1_5mm",
+            "cellular-biomechanics-14:scaling-exponent",
+            "cellular-biomechanics-14:model-comparison",
+            "cellular-biomechanics-14:design-controls",
+            "cellular-biomechanics-14:experimental-unit",
+            "cellular-biomechanics-14:model-limits",
+            "cellular-biomechanics-14:ambiguous-fit"
+          ],
+          "card_ids": [
+            "cellular-biomechanics-14-card-1",
+            "cellular-biomechanics-14-card-2",
+            "cellular-biomechanics-14-card-3",
+            "cellular-biomechanics-14-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -997,13 +1147,16 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "cellular-biomechanics-1-objective-1",
-        "cellular-biomechanics-1-objective-2"
+        "cellular-biomechanics-1-objective-2",
+        "cellular-biomechanics-outcome-1",
+        "cellular-biomechanics-outcome-2"
       ],
       "question_ids": [
         "cellular-biomechanics-1:check",
-        "cellular-biomechanics-1:constitutive-regime"
+        "cellular-biomechanics-1:constitutive-regime",
+        "cellular-biomechanics-1:mechanical-quantity-definitions"
       ],
-      "points": 2
+      "points": 3
     },
     {
       "id": "cellular-biomechanics-2-practice",
@@ -1012,13 +1165,15 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "cellular-biomechanics-2-objective-1",
-        "cellular-biomechanics-2-objective-2"
+        "cellular-biomechanics-2-objective-2",
+        "cellular-biomechanics-outcome-3"
       ],
       "question_ids": [
         "cellular-biomechanics-2:check",
-        "cellular-biomechanics-2:adhesion-geometry"
+        "cellular-biomechanics-2:adhesion-geometry",
+        "cellular-biomechanics-2:force-path"
       ],
-      "points": 2
+      "points": 3
     },
     {
       "id": "cellular-biomechanics-3-practice",
@@ -1027,13 +1182,15 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "cellular-biomechanics-3-objective-1",
-        "cellular-biomechanics-3-objective-2"
+        "cellular-biomechanics-3-objective-2",
+        "cellular-biomechanics-outcome-3"
       ],
       "question_ids": [
         "cellular-biomechanics-3:check",
-        "cellular-biomechanics-3:perturbation-and-rescue"
+        "cellular-biomechanics-3:perturbation-and-rescue",
+        "cellular-biomechanics-3:input-versus-readout"
       ],
-      "points": 2
+      "points": 3
     },
     {
       "id": "cellular-biomechanics-4-practice",
@@ -1042,7 +1199,8 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "cellular-biomechanics-4-objective-1",
-        "cellular-biomechanics-4-objective-2"
+        "cellular-biomechanics-4-objective-2",
+        "cellular-biomechanics-outcome-4"
       ],
       "question_ids": [
         "cellular-biomechanics-4:check",
@@ -1313,6 +1471,62 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "cellular-biomechanics-14-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Poroelastic relaxation and size-scaling practice",
+      "path": "question-banks/practice.json",
+      "week": 3,
+      "objective_ids": [
+        "cellular-biomechanics-14-objective-1",
+        "cellular-biomechanics-14-objective-2",
+        "cellular-biomechanics-14-objective-3",
+        "cellular-biomechanics-outcome-1",
+        "cellular-biomechanics-outcome-2",
+        "cellular-biomechanics-outcome-4"
+      ],
+      "question_ids": [
+        "cellular-biomechanics-14:effective-diffusivity",
+        "cellular-biomechanics-14:predict-at-1_5mm",
+        "cellular-biomechanics-14:scaling-exponent",
+        "cellular-biomechanics-14:model-comparison",
+        "cellular-biomechanics-14:design-controls",
+        "cellular-biomechanics-14:experimental-unit",
+        "cellular-biomechanics-14:model-limits",
+        "cellular-biomechanics-14:ambiguous-fit"
+      ],
+      "points": 10
+    },
+    {
+      "id": "cellular-biomechanics-15-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Cytoskeletal filament mechanics practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "cellular-biomechanics-15-objective-1",
+        "cellular-biomechanics-15-objective-2",
+        "cellular-biomechanics-15-objective-3",
+        "cellular-biomechanics-outcome-1",
+        "cellular-biomechanics-outcome-2",
+        "cellular-biomechanics-outcome-3"
+      ],
+      "question_ids": [
+        "cellular-biomechanics-15:persistence-length",
+        "cellular-biomechanics-15:tangent-correlation",
+        "cellular-biomechanics-15:semiflexible-rms-ratio",
+        "cellular-biomechanics-15:entropic-spring",
+        "cellular-biomechanics-15:wlc-force",
+        "cellular-biomechanics-15:filament-buckling",
+        "cellular-biomechanics-15:buckling-length",
+        "cellular-biomechanics-15:bundle-factor",
+        "cellular-biomechanics-15:entropic-temperature",
+        "cellular-biomechanics-15:filament-classification",
+        "cellular-biomechanics-15:buckling-length-dependence"
+      ],
+      "points": 11
     }
   ],
   "grading_policy": {
@@ -1362,19 +1576,64 @@
       "version": "0.3.0",
       "date": "2026-10-08",
       "summary": "Added a proposed 14-week schedule; seven original lessons (oscillatory rheology and the storage and loss moduli; micropillar traction forces; bonds under force and the molecular clutch; cortical tension and micropipette aspiration; the Hill function and stiffness dose-response; applying strain to cells; and decoupling stiffness from ligand density, which prepares the course case); and a synthetic-data lab on stiffness, ligand density and the unit of analysis. No new references were added. All activities remain ungraded practice; the package remains partial and unreviewed, gives no laboratory protocol or handling procedure, and makes no claim about any cell, gel or measurement."
+    },
+    {
+      "version": "0.3.1",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-1 mechanics reading with unit-aware engineering stress and strain, geometry-dependent stiffness, loading-protocol distinctions, Maxwell and standard-linear-solid relaxation, and regime-specific model selection. Existing questions, keys and objectives are unchanged. Three compact prototype readings remain in weeks 5, 8 and 10; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.3.2",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-5 adhesion reading with an ECM–integrin–cytoskeleton load path, distinctions among ligand amount and local geometry, and the calibrated inverse-mechanics assumptions of traction-force microscopy. Existing questions, keys and objectives are unchanged. Two compact prototype readings remain in weeks 8 and 10; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.3.3",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-8 mechanotransduction reading with the stimulus-to-response chain, necessity/sufficiency and rescue logic, orthogonal perturbations, and explicit claim limits. Existing questions, keys and objectives are unchanged. One compact prototype reading remains in week 10; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.3.4",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-10 experimental-design reading with a worked stiffness-by-ligand factorial comparison, interaction interpretation, experimental-unit and nested-replicate distinctions, material verification, and randomization/blocking principles. Existing questions, keys and objectives are unchanged. All four original compact prototype readings now have expanded primers; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.3.5",
+      "date": "2026-10-10",
+      "summary": "Linked the first four lesson objective pairs to outcomes 1–4, corrected stress-relaxation and perturbation-item associations, and added direct formative checks for mechanical quantities, matrix-to-nucleus force transmission, and mechanical inputs versus molecular readouts. Existing numeric prompts and keys are unchanged. The package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.3.6",
+      "date": "2026-10-10",
+      "summary": "Added an inactive viscoelastic material-selection portfolio using synthetic standard-linear-solid candidates to connect stress relaxation, storage and loss moduli, and load-time-scale trade-offs. The models are fictional and make no prediction about cells or real materials; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.3.7",
+      "date": "2026-10-11",
+      "summary": "Added an original Week 3 specimen-size relaxation comparison with clearly synthetic data, a unit-checked effective-diffusivity and L-squared scaling model, eight formative items, and four retrieval cards. The lesson distinguishes model support from proof, specifies fixed-geometry/boundary-condition controls and independent specimens, and states the limits of a single-time approximation. The proposed schedule remains 14 weeks; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.3.8",
+      "date": "2026-10-13",
+      "summary": "Replaced a raw floating-point exponent (5.0e-8) in the specimen-size worked example and the matching item feedback with typeset scientific notation; values and keys are unchanged. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.3.9",
+      "date": "2026-10-13",
+      "summary": "Grouped an original cytoskeletal filament-mechanics reading with the week-5 adhesion and force-transmission lesson: bending stiffness and persistence length, tangent correlations, worm-like-chain size, entropic elasticity and the Marko–Siggia force interpolation, and Euler buckling of filaments and bundles. Added three objectives, eleven formative items and four cards, with no week added, and corrected stale limitation counts (65 rather than 62 numerical answers before this release, fourteen rather than twelve requiring units, and up to three items per prototype unit). The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "Four compact legacy units are preserved beside ten original readings, including one synthetic-data virtual lab; this package is not equivalent to a full university semester.",
-    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm, cumulative final, or graded integrative project.",
-    "Practice items are short formative checks (two per prototype unit and six to nine per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
+    "All four former compact prototype units now have expanded primers beside the other readings; the package also includes one synthetic-data virtual lab and is not equivalent to a full university semester.",
+    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm, cumulative final, or graded integrative project; the new paper-only project draft is inactive.",
+    "Practice items are short formative checks (two to three per prototype unit and six to eleven per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
-    "Of the 62 numerical answers in this package, twelve require a unit, one checks significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
+    "Of the 73 numerical answers in this package, fourteen require a unit, one checks significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
     "Total workload and weekly duration are unknown; former nominal credit values and hardcoded reading times do not establish workload.",
-    "All gels, cells, forces and numbers are synthetic teaching examples; this package gives no laboratory protocols, handling procedures or medical advice and says nothing about any real cell type, material or measurement. The models are simplified textbook descriptions, not analysis methods for real data."
+    "All gels, cells, forces, material candidates and numbers are synthetic teaching examples; this package gives no laboratory protocols, handling procedures or medical advice and says nothing about any real cell type, material or measurement. The models are simplified textbook descriptions, not analysis methods for real data."
   ],
   "intentionally_omitted": [
-    "Graded assessments and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package."
+    "Graded assessments and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the inactive material-selection draft is not an assigned or graded project."
   ]
 }

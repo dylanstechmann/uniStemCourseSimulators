@@ -1,0 +1,39 @@
+case_id,variable,value,unit,notes
+case-01,control_coefficient,0.40,none,fictional local coefficient for a small perturbation
+case-01,enzyme_fractional_change,10,percent,small-change approximation input
+case-01,pool_before,5,mM,fictional metabolite pool
+case-01,input_before,2,mmol/min,input balances output before the perturbation
+case-01,output_before,2,mmol/min,input balances output before the perturbation
+case-01,input_after,1,mmol/min,input balances output after the perturbation
+case-01,output_after,1,mmol/min,input balances output after the perturbation
+case-01,pool_after,5,mM,fictional steady pool
+case-01,flux_before,2,mmol/min,fictional throughput
+case-01,flux_after,1,mmol/min,fictional throughput
+case-02,enzyme_amount_half_time,4,hours,fictional first-order time constant label
+case-02,fractional_response_target,0.75,none,target fraction for a first-order response
+case-03,glucose6phosphate_input,12,mmol,fictional oxidative-branch input
+case-03,nadph_per_g6p,2,mol/mol,standard oxidative-branch accounting
+case-03,co2_per_g6p,1,mol/mol,standard oxidative-branch accounting
+case-03,pentose_demand,5,mmol,fictional biosynthetic demand
+case-04,palmitate_target,2,mmol,fictional target amount
+case-04,malonyl_per_palmitate,7,mol/mol,explicit synthesis accounting
+case-04,nadph_per_palmitate,14,mol/mol,explicit synthesis accounting
+case-04,atp_per_malonyl,1,mol/mol,carboxylation accounting
+case-05,citrate_export,increased,none,fictional precursor-supply state
+case-05,acc_activity,increased,none,fictional regulatory state
+case-05,malonyl_coa,elevated,none,fictional inhibitory signal
+case-06,glycerolipid_intermediate,phosphatidic acid to diacylglycerol,none,fictional pathway sequence label
+case-06,adipose_lipase_sequence,ATGL-HSL-MGL,none,intracellular storage mobilization label
+case-06,capillary_lipase,LPL,none,circulating lipoprotein processing label
+case-07,atp_demand,30,mmol ATP,fictional cell demand
+case-07,net_atp_per_glucose,2,mol/mol,explicit glycolytic-only boundary
+case-07,lactate_per_glucose,2,mol/mol,explicit carbon balance
+case-08,lactate_pyruvate_ratio,increased,none,fictional redox-associated signal
+case-08,tracer_source,[U-13C]glucose,none,fictional source label
+case-09,oxygen_consumption,decreased,none,fictional respiratory measurement
+case-09,glucose_uptake,increased,none,fictional uptake measurement
+case-09,lactate,increased,none,fictional output measurement
+case-10,tracer,[1,2-13C2]glucose,none,synthetic teaching condition
+case-10,ribose_m0,40,% of ribose 5-phosphate molecules,synthetic isotopomer distribution
+case-10,ribose_m1,45,% of ribose 5-phosphate molecules,synthetic isotopomer distribution
+case-10,ribose_m2,15,% of ribose 5-phosphate molecules,synthetic isotopomer distribution

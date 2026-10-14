@@ -1,0 +1,31 @@
+case_id,variable,value,unit,notes
+case-01,delta_g_standard,8.0,kJ/mol,fictional reaction input
+case-01,reaction_quotient,0.10,none,stipulated concentration ratio
+case-01,temperature,298.15,K,model temperature
+case-01,gas_constant,0.008314,kJ/(mol K),model constant
+case-02,delta_g1_standard,-18.0,kJ/mol,fictional coupled reaction term
+case-02,delta_g2_atp_hydrolysis,-30.5,kJ/mol,stipulated ATP-hydrolysis term
+case-02,temperature,298.15,K,model temperature
+case-03,donor_potential,-0.32,V,fictional standard reduction potential
+case-03,acceptor_potential,0.82,V,fictional standard reduction potential
+case-03,electrons,2,mol electrons/mol reaction,stipulated electron count
+case-03,faraday_constant,96.485,kJ/(V mol),conversion constant
+case-04,purine_intermediate,IMP,none,fictionalized pathway label
+case-04,pyrimidine_intermediate,UMP,none,fictionalized pathway label
+case-05,salvage_substrate,free purine base plus PRPP,none,pathway substrate labels
+case-05,dna_precursor,dTMP,none,pathway product label
+case-06,acetyl_coa_per_turn,1,mol,standard cycle accounting basis
+case-06,cycle_intermediate_withdrawal,0.25,mol,fictional perturbation scale per model interval
+case-06,cycle_intermediate_replenishment,0.10,mol,fictional replenishment scale per model interval
+case-07,early_M0,70,percent,2 min after labeled-glucose pulse; synthetic mass-isotopologue profile
+case-07,early_M2,20,percent,2 min after labeled-glucose pulse
+case-07,early_M3,10,percent,2 min after labeled-glucose pulse
+case-07,late_M0,40,percent,12 min after labeled-glucose pulse
+case-07,late_M2,45,percent,12 min after labeled-glucose pulse
+case-07,late_M3,15,percent,12 min after labeled-glucose pulse
+case-08,de_novo_imp,4,mol,Synthetic input; stipulated one mol PRPP per mol de novo IMP for this accounting case.
+case-08,hypoxanthine_salvaged_to_imp,3,mol,Synthetic input; stipulated one mol PRPP per mol salvaged IMP.
+case-08,imp_to_amp,2,mol,Synthetic branch conversion; one mol GTP per mol AMP.
+case-08,imp_to_gmp,1,mol,Synthetic branch conversion; one mol ATP per mol GMP.
+case-09,atp_synthesis_rate,146,µmol/min,Synthetic compartment rate stipulated for this pool balance.
+case-09,atp_utilization_rate,134,µmol/min,Synthetic compartment rate stipulated for this pool balance.

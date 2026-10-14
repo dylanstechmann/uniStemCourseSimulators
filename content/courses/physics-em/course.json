@@ -7,14 +7,20 @@
   "domain": "Physics",
   "level": "Year 1",
   "maturity": "partial",
-  "version": "0.4.0",
+  "version": "0.4.8",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
     "source_path": "src/data/courses.js",
     "source_sha256": "a77a7cb7f5be2ffa12068877042ac775c6d9b79b83ac2f316fe4f26a0d3d783b",
     "migration_version": "1.0",
-    "modifications": []
+    "modifications": [
+      "Expanded the week-1 electrostatics reading with potential-versus-energy distinctions, uniform-field sign reasoning, conductor equilibrium, parallel-plate capacitance and capacitor energy calculations; clarified both objectives and mapped them to outcome 1.",
+      "Expanded the week-5 current and RC reading with current and ohmic-resistance definitions, unit-checked time constants, charging/discharging step responses, and instrument-loading limits; clarified both objectives and mapped them to outcome 2.",
+      "Expanded the week-8 magnetic-forces and induction reading with cross-product force direction, magnetic flux, Faraday emf magnitude, Lenz-law direction and circuit limits; clarified objectives and mapped them to outcome 3.",
+      "Expanded the week-12 electrode and impedance reading with bounded interface models, resistance-divider loading, differential measurement, and careful interpretation of baseline drift; clarified objectives and mapped them to outcome 4.",
+      "Added original two-source electromagnetic-wave interference instruction and formative practice in the existing week-11 wave block. MIT OCW 8.02 Spring 2007 class topics and interference problem-solving note are link-only scope references; antenna radiation generation and diffraction remain outside this bounded addition."
+    ]
   },
   "prerequisites": {
     "course_ids": [
@@ -47,56 +53,82 @@
       "id": "physics-em-outcome-4",
       "description": "Relate circuit measurements to sensor loading and safety limits.",
       "bloom": "analyze"
+    },
+    {
+      "id": "physics-em-outcome-5",
+      "description": "Apply the Ampère–Maxwell law and Poynting energy flux to ideal time-varying fields and plane waves.",
+      "bloom": "apply"
+    },
+    {
+      "id": "physics-em-outcome-6",
+      "description": "Analyze coherent electromagnetic-wave interference using path difference, phase and the stated geometric assumptions.",
+      "bloom": "analyze"
     }
   ],
   "lesson_objectives": [
     {
       "id": "physics-em-1-objective-1",
-      "description": "Connect electric field to force and potential difference.",
-      "bloom": "analyze",
-      "course_outcome_ids": []
+      "description": "Interpret potential difference as energy per charge and calculate energy stored by an ideal capacitor.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "physics-em-outcome-1"
+      ]
     },
     {
       "id": "physics-em-1-objective-2",
-      "description": "Use capacitor geometry and energy relations.",
+      "description": "Relate parallel-plate geometry and electric field to capacitance and stored energy, checking units and assumptions.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "physics-em-outcome-1"
+      ]
     },
     {
       "id": "physics-em-2-objective-1",
-      "description": "Apply Kirchhoff's laws to lumped circuits.",
+      "description": "Calculate the time constant of a series resistor-capacitor circuit from R and C, using consistent units.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "physics-em-outcome-2"
+      ]
     },
     {
       "id": "physics-em-2-objective-2",
-      "description": "Predict exponential charging or discharging behavior.",
+      "description": "Predict ideal capacitor charging and discharging voltages from an initial value and the circuit time constant.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "physics-em-outcome-2"
+      ]
     },
     {
       "id": "physics-em-3-objective-1",
-      "description": "Use the right-hand rule for magnetic forces.",
+      "description": "Calculate induced-emf magnitude from a changing magnetic flux and account for the number of coil turns.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "physics-em-outcome-3"
+      ]
     },
     {
       "id": "physics-em-3-objective-2",
-      "description": "Apply Faraday's law to changing magnetic flux.",
+      "description": "Apply Faraday's and Lenz's laws to relate changing flux to induced-emf magnitude and direction.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "physics-em-outcome-3"
+      ]
     },
     {
       "id": "physics-em-4-objective-1",
-      "description": "Interpret impedance as frequency-dependent opposition to current.",
+      "description": "Calculate voltage-divider loading from a sensor's source resistance and a measurement input resistance in a stated model.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "physics-em-outcome-4"
+      ]
     },
     {
       "id": "physics-em-4-objective-2",
-      "description": "Distinguish electrode polarization from tissue signal.",
+      "description": "Explain how electrode-interface potentials and impedance can alter a recorded trace, and qualify what a trace alone can establish.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "physics-em-outcome-4"
+      ]
     },
     {
       "id": "physics-em-5-objective-1",
@@ -339,34 +371,91 @@
       "course_outcome_ids": [
         "physics-em-outcome-4"
       ]
+    },
+    {
+      "id": "physics-em-14-objective-1",
+      "description": "Explain how changing electric flux makes the Ampère–Maxwell circulation consistent across surfaces spanning a charging capacitor.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-em-outcome-5"
+      ]
+    },
+    {
+      "id": "physics-em-14-objective-2",
+      "description": "Calculate the magnetic field of an ideal circular charging capacitor from its enclosed displacement current, with scale and unit checks.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "physics-em-outcome-3",
+        "physics-em-outcome-5"
+      ]
+    },
+    {
+      "id": "physics-em-14-objective-3",
+      "description": "Determine the field relation, direction and peak or average energy flux of an ideal sinusoidal plane wave under stated assumptions.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "physics-em-outcome-5"
+      ]
+    },
+    {
+      "id": "physics-em-15-objective-1",
+      "description": "Relate path difference and phase difference to constructive/destructive interference and the resulting intensity for coherent waves.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-em-outcome-6"
+      ]
+    },
+    {
+      "id": "physics-em-15-objective-2",
+      "description": "Calculate two-source fringe positions and spacing under stated far-field, small-angle assumptions.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "physics-em-outcome-6"
+      ]
+    },
+    {
+      "id": "physics-em-16-objective-1",
+      "description": "Use the Biot–Savart law to find the field of a circular loop on its axis and of a finite straight segment, and compare them with idealized infinite models.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "physics-em-outcome-3"
+      ]
+    },
+    {
+      "id": "physics-em-16-objective-2",
+      "description": "Apply Ampère's law to symmetric current distributions, including inside a thick wire and in a toroid, and calculate the force per length between parallel wires.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "physics-em-outcome-3"
+      ]
+    },
+    {
+      "id": "physics-em-16-objective-3",
+      "description": "Calculate a current loop's magnetic dipole moment, its torque and potential energy in a uniform field, and the far-field approximation, and state when each model fails.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-em-outcome-3"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week scope retaining compact prototype readings in weeks 1,5,8,12. Workload and qualified review are absent; no semester equivalence is established.",
+    "equivalent_structure": "Proposed 14-week undergraduate scope only. Week 1 groups the two related electrostatics readings; week 8 pairs magnetic vectors with field sources and dipoles; week 11 combines original displacement-current, Ampere-Maxwell, ideal plane-wave energy and two-source interference instruction after magnetic induction. The 16 instructional readings and synthetic-data lab use public ungraded practice. Antenna radiation generation and diffraction remain outside this package; the RLC portfolio remains inactive, there are no graded homework sets or exams, and workload is unmeasured. This schedule is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
-        "title": "Electric fields, potential, and capacitance",
+        "title": "Electrostatics: fields, potential, superposition and Gauss law",
         "lesson_ids": [
-          "physics-em-1"
-        ],
-        "assessment_ids": [
-          "physics-em-1-practice"
-        ]
-      },
-      {
-        "week": 2,
-        "title": "Superposition, potential and Gauss-law boundaries",
-        "lesson_ids": [
+          "physics-em-1",
           "physics-em-7"
         ],
         "assessment_ids": [
+          "physics-em-1-practice",
           "physics-em-7-practice"
         ]
       },
       {
-        "week": 3,
+        "week": 2,
         "title": "Capacitance, dielectrics and energy boundaries",
         "lesson_ids": [
           "physics-em-8"
@@ -376,7 +465,7 @@
         ]
       },
       {
-        "week": 4,
+        "week": 3,
         "title": "The cell membrane as a capacitor: charge, ions, fields and the membrane time constant",
         "lesson_ids": [
           "physics-em-5"
@@ -386,7 +475,7 @@
         ]
       },
       {
-        "week": 5,
+        "week": 4,
         "title": "Current, resistance, and RC transients",
         "lesson_ids": [
           "physics-em-2"
@@ -396,7 +485,7 @@
         ]
       },
       {
-        "week": 6,
+        "week": 5,
         "title": "Kirchhoff balances, Thevenin models and source loading",
         "lesson_ids": [
           "physics-em-9"
@@ -406,7 +495,7 @@
         ]
       },
       {
-        "week": 7,
+        "week": 6,
         "title": "RC switching, initial conditions and energy",
         "lesson_ids": [
           "physics-em-10"
@@ -416,7 +505,7 @@
         ]
       },
       {
-        "week": 8,
+        "week": 7,
         "title": "Magnetic forces and induction",
         "lesson_ids": [
           "physics-em-3"
@@ -426,17 +515,19 @@
         ]
       },
       {
-        "week": 9,
-        "title": "Magnetic vectors, fields and force-work distinctions",
+        "week": 8,
+        "title": "Magnetic vectors, field sources and dipoles",
         "lesson_ids": [
-          "physics-em-11"
+          "physics-em-11",
+          "physics-em-16"
         ],
         "assessment_ids": [
-          "physics-em-11-practice"
+          "physics-em-11-practice",
+          "physics-em-16-practice"
         ]
       },
       {
-        "week": 10,
+        "week": 9,
         "title": "Induction, Lenz signs and inductor energy",
         "lesson_ids": [
           "physics-em-12"
@@ -446,13 +537,25 @@
         ]
       },
       {
-        "week": 11,
+        "week": 10,
         "title": "Magnetic forces and induction at the bench: flow meters, induced voltages and keeping currents within limits",
         "lesson_ids": [
           "physics-em-6"
         ],
         "assessment_ids": [
           "physics-em-6-practice"
+        ]
+      },
+      {
+        "week": 11,
+        "title": "Displacement current, plane-wave energy and two-source interference",
+        "lesson_ids": [
+          "physics-em-14",
+          "physics-em-15"
+        ],
+        "assessment_ids": [
+          "physics-em-14-practice",
+          "physics-em-15-practice"
         ]
       },
       {
@@ -499,7 +602,10 @@
       "title": "Electric fields, potential, and capacitance",
       "source_ids": [
         "physicsEM",
-        "circuits"
+        "circuits",
+        "openstax-em-potential",
+        "openstax-em-capacitance",
+        "openstax-em-capacitor-energy"
       ],
       "lessons": [
         {
@@ -510,7 +616,7 @@
             "physics-em-1-objective-1",
             "physics-em-1-objective-2"
           ],
-          "worked_example": "A 2 μF capacitor at 5 V stores U=½CV²=25 μJ.",
+          "worked_example": "A 10 μF capacitor at 3 V stores U=½C(ΔV)²=45 μJ; μF·V² gives μJ. For 2.0×10⁻⁶ F at 10 V, U=1.0×10⁻⁴ J=100 μJ. Potential difference is energy per charge, while stored energy scales with the square of voltage for fixed capacitance.",
           "question_ids": [
             "physics-em-1:check",
             "physics-em-1:capacitor-energy"
@@ -527,7 +633,10 @@
       "title": "Current, resistance, and RC transients",
       "source_ids": [
         "physicsEM",
-        "circuits"
+        "circuits",
+        "openstax-em-resistivity",
+        "openstax-em-ohms-law",
+        "openstax-em-rc-circuits"
       ],
       "lessons": [
         {
@@ -538,7 +647,7 @@
             "physics-em-2-objective-1",
             "physics-em-2-objective-2"
           ],
-          "worked_example": "For R=100 kΩ and C=10 μF, τ=RC=1 s; after one time constant a charging capacitor reaches about 63% of its final value.",
+          "worked_example": "For R=1.0 kΩ and C=1.0 μF, τ=1.0 ms. Charging toward 5.0 V from zero, after 2.0 ms (2τ), V꜀=5.0(1−e⁻²)=4.323 V. For a separate R=2 kΩ and C=5 μF, τ=10 ms. Prefixes cancel consistently, and the 63% rule describes the fraction of the full voltage change after one τ, not always 63% of final voltage.",
           "question_ids": [
             "physics-em-2:check",
             "physics-em-2:rc-charging"
@@ -555,7 +664,10 @@
       "title": "Magnetic forces and induction",
       "source_ids": [
         "physicsEM",
-        "circuits"
+        "circuits",
+        "openstax-em-particle-magnetic-force",
+        "openstax-em-wire-magnetic-force",
+        "openstax-em-faraday-law"
       ],
       "lessons": [
         {
@@ -566,7 +678,7 @@
             "physics-em-3-objective-1",
             "physics-em-3-objective-2"
           ],
-          "worked_example": "A coil's flux changes from 0 to 0.02 Wb in 0.01 s. One turn has induced emf magnitude |ΔΦ/Δt|=2 V.",
+          "worked_example": "For 50 turns with a flux change of 0.004 Wb per turn in 0.02 s, |ε|=N|ΔΦ|/Δt=10 V. For a second 50-turn coil with 2.0×10⁻³ Wb change in 0.10 s, |ε|=1.0 V. The minus sign specifies Lenz's direction relative to a chosen loop normal; the requested magnitudes use absolute values. A current additionally requires a closed path.",
           "question_ids": [
             "physics-em-3:check",
             "physics-em-3:faraday-emf"
@@ -583,7 +695,9 @@
       "title": "Electrodes, impedance, and measurement",
       "source_ids": [
         "physicsEM",
-        "circuits"
+        "circuits",
+        "openstax-em-simple-ac",
+        "pubmed-electrode-interface-models"
       ],
       "lessons": [
         {
@@ -594,7 +708,7 @@
             "physics-em-4-objective-1",
             "physics-em-4-objective-2"
           ],
-          "worked_example": "A 1 MΩ sensor source connected to a 1 MΩ input forms a divider and loses half its voltage; a 100 MΩ input reduces this loading substantially.",
+          "worked_example": "For a 1 MΩ source and 9 MΩ input, the resistance-divider fraction is 9/(1+9)=0.90. For equal 1 MΩ resistances it is 0.50; for a 1 MΩ source and 100 MΩ input it is 100/101≈0.9901. These results apply only to the stated resistance-dominated model.",
           "question_ids": [
             "physics-em-4:check",
             "physics-em-4:electrode-polarization"
@@ -869,6 +983,45 @@
       ]
     },
     {
+      "id": "physics-em-module-16",
+      "title": "Sources of magnetic fields: Biot–Savart, Ampère's law and magnetic dipoles",
+      "source_ids": [
+        "physicsEM"
+      ],
+      "lessons": [
+        {
+          "id": "physics-em-16",
+          "title": "Sources of magnetic fields: Biot–Savart, Ampère's law and magnetic dipoles",
+          "reading": "modules/16-sources-of-magnetic-fields-biot-savart-ampere-and-dipoles.md",
+          "objectives": [
+            "physics-em-16-objective-1",
+            "physics-em-16-objective-2",
+            "physics-em-16-objective-3"
+          ],
+          "worked_example": "A 100-turn square coil of side 2.0 cm carrying 0.05 A has μ = 2.0 × 10⁻³ A·m²; in a perpendicular 0.10 T field the torque is 2.0 × 10⁻⁴ N·m and turning it from aligned to anti-aligned takes 4.0 × 10⁻⁴ J. Biot–Savart over four finite sides gives 2.83 μT at the centre of one turn, about 283 μT for all turns.",
+          "question_ids": [
+            "physics-em-16:loop-centre-field",
+            "physics-em-16:loop-axis-field",
+            "physics-em-16:finite-segment-field",
+            "physics-em-16:inside-thick-wire",
+            "physics-em-16:toroid-field",
+            "physics-em-16:parallel-wire-force",
+            "physics-em-16:coil-torque",
+            "physics-em-16:coil-turning-work",
+            "physics-em-16:ampere-law-usefulness",
+            "physics-em-16:uniform-field-loop",
+            "physics-em-16:field-model-choice"
+          ],
+          "card_ids": [
+            "physics-em-16-card-1",
+            "physics-em-16-card-2",
+            "physics-em-16-card-3",
+            "physics-em-16-card-4"
+          ]
+        }
+      ]
+    },
+    {
       "id": "physics-em-module-12",
       "title": "Induction, Lenz signs and inductor energy",
       "source_ids": [
@@ -903,6 +1056,77 @@
             "physics-em-12-card-2",
             "physics-em-12-card-3",
             "physics-em-12-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "physics-em-module-14",
+      "title": "Displacement current, Ampère–Maxwell law and wave energy",
+      "source_ids": [
+        "physicsEM"
+      ],
+      "lessons": [
+        {
+          "id": "physics-em-14",
+          "title": "Displacement current, Ampère–Maxwell law and wave energy",
+          "reading": "modules/14-displacement-current-maxwell-and-wave-energy.md",
+          "objectives": [
+            "physics-em-14-objective-1",
+            "physics-em-14-objective-2",
+            "physics-em-14-objective-3"
+          ],
+          "worked_example": "For circular plates of radius 40 mm charging at 0.50 mA, the ideal magnetic field at r=20 mm is 1.25 nT and at r=50 mm is 2.00 nT. A vacuum wave with E0=120 V/m has B0=0.400 μT, peak Poynting flux 38.2 W/m² and cycle-average flux 19.1 W/m².",
+          "question_ids": [
+            "physics-em-14:displacement-current",
+            "physics-em-14:magnetic-field-inside",
+            "physics-em-14:magnetic-field-outside",
+            "physics-em-14:wave-magnetic-field",
+            "physics-em-14:wave-peak-intensity",
+            "physics-em-14:wave-average-intensity",
+            "physics-em-14:ampere-maxwell-concepts",
+            "physics-em-14:poynting-concepts"
+          ],
+          "card_ids": [
+            "physics-em-14-card-1",
+            "physics-em-14-card-2",
+            "physics-em-14-card-3",
+            "physics-em-14-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "physics-em-module-15",
+      "title": "Wave superposition and two-source interference",
+      "source_ids": [
+        "physicsEM"
+      ],
+      "lessons": [
+        {
+          "id": "physics-em-15",
+          "title": "Wave superposition and two-source interference",
+          "reading": "modules/15-wave-superposition-and-interference.md",
+          "objectives": [
+            "physics-em-15-objective-1",
+            "physics-em-15-objective-2"
+          ],
+          "worked_example": "For λ=600 nm, slit separation d=0.30 mm and screen distance L=2.0 m, adjacent bright fringes are 4.0 mm apart; the third bright fringe is at 12 mm and the first dark fringe at 2.0 mm.",
+          "question_ids": [
+            "physics-em-15:fringe-spacing",
+            "physics-em-15:fifth-bright",
+            "physics-em-15:first-dark",
+            "physics-em-15:path-phase",
+            "physics-em-15:equal-source-intensity",
+            "physics-em-15:third-dark-path",
+            "physics-em-15:interference-conditions",
+            "physics-em-15:pattern-assumptions"
+          ],
+          "card_ids": [
+            "physics-em-15-card-1",
+            "physics-em-15-card-2",
+            "physics-em-15-card-3",
+            "physics-em-15-card-4"
           ]
         }
       ]
@@ -992,7 +1216,8 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "physics-em-1-objective-1",
-        "physics-em-1-objective-2"
+        "physics-em-1-objective-2",
+        "physics-em-outcome-1"
       ],
       "question_ids": [
         "physics-em-1:check",
@@ -1007,7 +1232,8 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "physics-em-2-objective-1",
-        "physics-em-2-objective-2"
+        "physics-em-2-objective-2",
+        "physics-em-outcome-2"
       ],
       "question_ids": [
         "physics-em-2:check",
@@ -1022,7 +1248,8 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "physics-em-3-objective-1",
-        "physics-em-3-objective-2"
+        "physics-em-3-objective-2",
+        "physics-em-outcome-3"
       ],
       "question_ids": [
         "physics-em-3:check",
@@ -1037,7 +1264,8 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "physics-em-4-objective-1",
-        "physics-em-4-objective-2"
+        "physics-em-4-objective-2",
+        "physics-em-outcome-4"
       ],
       "question_ids": [
         "physics-em-4:check",
@@ -1244,6 +1472,31 @@
       "points": 9
     },
     {
+      "id": "physics-em-14-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Displacement current, Ampère–Maxwell law and wave energy practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "physics-em-14-objective-1",
+        "physics-em-14-objective-2",
+        "physics-em-14-objective-3",
+        "physics-em-outcome-3",
+        "physics-em-outcome-5"
+      ],
+      "question_ids": [
+        "physics-em-14:displacement-current",
+        "physics-em-14:magnetic-field-inside",
+        "physics-em-14:magnetic-field-outside",
+        "physics-em-14:wave-magnetic-field",
+        "physics-em-14:wave-peak-intensity",
+        "physics-em-14:wave-average-intensity",
+        "physics-em-14:ampere-maxwell-concepts",
+        "physics-em-14:poynting-concepts"
+      ],
+      "points": 10
+    },
+    {
       "id": "physics-em-13-practice",
       "type": "practice",
       "mode": "practice",
@@ -1302,6 +1555,56 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "physics-em-15-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Wave superposition and two-source interference practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "physics-em-15-objective-1",
+        "physics-em-15-objective-2",
+        "physics-em-outcome-6"
+      ],
+      "question_ids": [
+        "physics-em-15:fringe-spacing",
+        "physics-em-15:fifth-bright",
+        "physics-em-15:first-dark",
+        "physics-em-15:path-phase",
+        "physics-em-15:equal-source-intensity",
+        "physics-em-15:third-dark-path",
+        "physics-em-15:interference-conditions",
+        "physics-em-15:pattern-assumptions"
+      ],
+      "points": 10
+    },
+    {
+      "id": "physics-em-16-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Sources of magnetic fields practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "physics-em-16-objective-1",
+        "physics-em-16-objective-2",
+        "physics-em-16-objective-3",
+        "physics-em-outcome-3"
+      ],
+      "question_ids": [
+        "physics-em-16:loop-centre-field",
+        "physics-em-16:loop-axis-field",
+        "physics-em-16:finite-segment-field",
+        "physics-em-16:inside-thick-wire",
+        "physics-em-16:toroid-field",
+        "physics-em-16:parallel-wire-force",
+        "physics-em-16:coil-torque",
+        "physics-em-16:coil-turning-work",
+        "physics-em-16:ampere-law-usefulness",
+        "physics-em-16:uniform-field-loop",
+        "physics-em-16:field-model-choice"
+      ],
+      "points": 11
     }
   ],
   "grading_policy": {
@@ -1361,19 +1664,59 @@
       "version": "0.4.0",
       "date": "2026-10-09",
       "summary": "Added seven original lessons on field/potential superposition and Gauss boundaries, dielectric energy conditions, Kirchhoff/Thevenin loading, RC state/energy, magnetic vectors/field models, induction/RL energy and phasor measurement inference; one synthetic reporting/loading/transient lab and a proposed weekly schedule. Developed with Codex assistance. Still partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.1",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-1 electric-fields, potential and capacitance reading with potential/energy distinctions, field-direction signs, conductor equilibrium, parallel-plate capacitance, capacitor energy and limits of the membrane analogy. Clarified both objectives and linked them and the unchanged practice assessment to outcome 1. Existing question IDs, prompts, answer keys and cards are unchanged. Compact prototype readings remain in weeks 5, 8 and 12; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.2",
+      "date": "2026-10-10",
+      "summary": "Expanded week 5 with current and resistance definitions, the operating limits of Ohm’s relation, RC time-constant units, ideal charging/discharging responses, the correct meaning of the one-time-constant fraction and measurement-loading limits. Clarified both objectives and linked them and the unchanged practice assessment to outcome 2. Existing question IDs, prompts, answer keys and cards are unchanged. Compact prototype readings remain in weeks 8 and 12; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.3",
+      "date": "2026-10-10",
+      "summary": "Expanded week 8 with Lorentz-force direction and work limits, current-segment force, magnetic flux and orientation, Faraday emf magnitudes, Lenz-law direction, and the distinction between emf and closed-path current. Clarified both objectives and linked them and the unchanged practice assessment to outcome 3. Existing question IDs, prompts, answer keys and cards are unchanged. One compact prototype reading remains in week 12; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.4",
+      "date": "2026-10-10",
+      "summary": "Expanded week 12 with a bounded electrode-interface model, resistance-divider loading, differential measurement, and limits on baseline-drift inference. Clarified both objectives and linked them and the unchanged practice assessment to outcome 4. Existing question IDs, prompts, answer keys and cards are unchanged. All 13 readings now have substantive instruction; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.5",
+      "date": "2026-10-11",
+      "summary": "Added an inactive series-resonance portfolio with fictional RLC candidates, half-power bandwidth, peak/RMS current and average-power checks, and an ideal energy comparison. The model is a paper exercise, not a device design; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.6",
+      "date": "2026-10-11",
+      "summary": "Added original instruction on displacement current, charging-capacitor current continuity, Ampère–Maxwell circulation, magnetic field between circular plates, plane-wave Poynting flux and cycle-average energy flow. MIT OCW 8.02 class topics is a scope comparator only. Grouped two related electrostatics readings in week 1 to fit the new unit into the proposed 14-week sequence. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.7",
+      "date": "2026-10-11",
+      "summary": "Added an original two-source electromagnetic-wave interference reading to the existing week-11 wave block, with six numeric checks, two multiple-select items and four retrieval cards. The unit covers path/phase conditions, equal-source intensity and far-field fringe geometry; antenna radiation generation and diffraction remain deferred. MIT OCW 8.02 Spring 2007 was used as a link-only scope comparator. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.8",
+      "date": "2026-10-13",
+      "summary": "Grouped an original magnetic-field-sources reading with the week-8 magnetic-vectors lesson: Biot–Savart fields of a loop on its axis, finite segments and a square loop; Ampère's law inside a thick wire, in a toroid and between parallel wires; and magnetic dipole moment, torque, energy and the axial far field. Added three objectives, eleven formative items and four cards, with no week added. The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "Four compact prototype readings remain beside nine substantive original lessons and one synthetic data lab; this is not a full university semester.",
-    "The proposed 14-week sequence is unmeasured and unreviewed. Graded homework, exams, a full laboratory sequence and a cumulative graded project remain absent.",
+    "All 16 instructional readings now have substantive original instruction alongside one synthetic data lab; this is not a full university semester.",
+    "The proposed 14-week sequence is unmeasured and unreviewed; its opening electrostatics block combines two related readings, and week 8 pairs magnetic vectors with field sources and dipoles. Graded homework, exams and a full laboratory sequence remain absent; the new RLC portfolio is inactive and ungraded.",
     "New sources, parameters and reports are synthetic; selected electrostatic, lumped-element and prescribed-field models provide no real apparatus or human-subject procedure.",
-    "Of 62 numeric items, eight preserved items require units; none checks significant figures or dimensions. New numeric items ask for bare numbers in stated scales; choices assess selected field/circuit/evidence decisions, not diagrams or proof quality.",
+    "Of 82 numeric items, fifteen require units: eight preserved items, three displacement-current/energy-flux checks, and four fringe/path calculations. Other numeric items request bare numbers in stated scales; none checks significant figures or dimensions. Choices assess selected field/circuit/evidence decisions, not diagrams or proof quality.",
     "Public keys and feedback remain formative authoring specifications; practice points are not course grades.",
     "Subject-matter, accessibility and workload review remain outstanding; the original text circuit map has a verbal description but no assistive-technology review.",
-    "Four primary OpenStax sections were retrieved as link-only references; no teaching text, problem, figure or dataset was imported.",
-    "Preserved nominal current-limit calculations are not device-safety validation; the old series-resistance key is the equality boundary V/I, with grading tolerance."
+    "The initial four OpenStax sections remain link-only references; no teaching text, problem, figure or dataset was imported.",
+    "Fourteen primary OpenStax University Physics Volume 2 section pages are registered as link-only references; no prose, problem, figure or dataset was imported."
   ],
   "intentionally_omitted": [
-    "Graded assessments, complete laboratory sequence, cumulative graded project, measured workload and qualified human review remain outstanding."
+    "Graded assessments, a complete laboratory sequence, an active graded project, measured workload and qualified human review remain outstanding."
   ]
 }

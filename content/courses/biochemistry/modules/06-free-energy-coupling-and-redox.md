@@ -16,13 +16,13 @@ For a reaction A + B ⇌ C + D,
 
 **ΔG = ΔG°′ + RT ln Q,** with Q = [C][D] / ([A][B]).
 
-ΔG°′ refers to 1 M of each species (except water, and with pH 7 for the biochemical standard state). R = 8.314 J/(mol·K), and at 37 °C (310 K) RT = 2.577 kJ/mol. A reaction proceeds net forward when ΔG < 0, is at equilibrium when ΔG = 0, and ΔG°′ = −RT ln K′eq.
+Strictly, Q is dimensionless: for each dissolved species use its activity, approximated in a dilute solution by **aᵢ = [i]/c°**, where c° = 1 M. Thus the displayed concentration quotient means ([C]/1 M)([D]/1 M) / {([A]/1 M)([B]/1 M)}. ΔG°′ refers to this biochemical standard state (1 M solutes, with water omitted and pH fixed at 7). R = 8.314 J/(mol·K), and at 37 °C (310 K) RT = 2.577 kJ/mol. A reaction proceeds net forward when ΔG < 0, is at equilibrium when ΔG = 0, and ΔG°′ = −RT ln K′eq.
 
 ΔG°′ says nothing by itself about whether a reaction runs in a cell. A reaction with a positive ΔG°′ runs forward when products are removed fast enough to keep Q small, and a reaction with a negative ΔG°′ stops when products accumulate.
 
 ## ATP hydrolysis in a cell
 
-ATP + H₂O → ADP + Pᵢ has ΔG°′ ≈ -30.5 kJ/mol (the exact value depends on Mg²⁺ and ionic strength). **Synthetic cell concentrations:** ATP 3.0 mM, ADP 0.3 mM, Pᵢ 3.0 mM. Then Q = (3.0×10⁻⁴)(3.0×10⁻³) / (3.0×10⁻³) = 3.0×10⁻⁴, ln Q = -8.11, and
+ATP + H₂O → ADP + Pᵢ has ΔG°′ ≈ -30.5 kJ/mol (the exact value depends on Mg²⁺ and ionic strength). **Synthetic cell concentrations:** ATP 3.0 mM, ADP 0.3 mM, Pᵢ 3.0 mM. Relative to c° = 1 M, the dimensionless activities are approximated as a_ATP = 3.0×10⁻³, a_ADP = 3.0×10⁻⁴, and a_Pᵢ = 3.0×10⁻³, so Q = a_ADP a_Pᵢ/a_ATP = 3.0×10⁻⁴ and ln Q = -8.11. Therefore
 
 ΔG = -30.5 + 2.577 × (-8.11) = -51.4 kJ/mol.
 

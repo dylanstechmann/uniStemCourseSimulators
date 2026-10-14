@@ -40,6 +40,8 @@ GENETICS_NUMERIC = {
     "genetics-2:check": 72 / 400 * 100,
     "genetics-1:genotype-vs-phenotype-frequency": 2 * 0.8 * 0.2,
     "genetics-2:map-distance": 12 / 200 * 100,
+    "genetics-7:tetrad-recombination": (4 + 36 / 2) / (60 + 4 + 36) * 100,
+    "genetics-16:hfr-interval": 10 - 4,
     "genetics-5:allele-frequency": (2 * 420 + 360) / 2000,
     "genetics-5:expected-heterozygotes": 2 * 0.6 * 0.4 * 1000,
     "genetics-5:chi-square": (420 - 360) ** 2 / 360 + (360 - 480) ** 2 / 480 + (220 - 160) ** 2 / 160,
@@ -107,6 +109,37 @@ _HILL_B, _HILL_A, _HILL_F0 = 0.1, 0.25 * 500, 500.0          # m/s, N, N
 _F_STAR = (math.sqrt(0.25 * 1.25) - 0.25) * _HILL_F0
 _P_STAR = _F_STAR * _HILL_B * (_HILL_F0 - _F_STAR) / (_F_STAR + _HILL_A)
 
+def _ladder_decay(radius_cm, rm, ri, distance_cm, length_cm=2.0, dx=1e-4):
+    """Steady state of a discretized passive cable (resistor ladder) clamped at one end,
+    solved by the Thomas algorithm; independent of the closed-form length constant."""
+    n = int(round(length_cm / dx))
+    g_axial = math.pi * radius_cm**2 / (ri * dx)  # conductance between neighbouring nodes
+    g_leak = 2 * math.pi * radius_cm * dx / rm  # membrane conductance of one node
+    # Unknowns v1..vn with v0 = 1 clamped; sealed far end.
+    a = [-g_axial] * n
+    b = [2 * g_axial + g_leak] * (n - 1) + [g_axial + g_leak]
+    c = [-g_axial] * n
+    d = [g_axial] + [0.0] * (n - 1)
+    for i in range(1, n):
+        w = a[i] / b[i - 1]
+        b[i] -= w * c[i - 1]
+        d[i] -= w * d[i - 1]
+    v = [0.0] * n
+    v[-1] = d[-1] / b[-1]
+    for i in range(n - 2, -1, -1):
+        v[i] = (d[i] - c[i] * v[i + 1]) / b[i]
+    return v[int(round(distance_cm / dx)) - 1]
+
+
+def _rc_time_to(fraction, rm, cm, dt=1e-6):
+    """Step dV/dt = (1 - V)/(rm cm) until V reaches fraction; returns seconds."""
+    v, t = 0.0, 0.0
+    while v < fraction:
+        v += dt * (1 - v) / (rm * cm)
+        t += dt
+    return t
+
+
 PHYSIOLOGY_NUMERIC = {
     # items written before 2026-10-08, recomputed from the numbers in their prompts
     "physiology-1:check": 12 / (0.3 * 2),
@@ -143,6 +176,10 @@ PHYSIOLOGY_NUMERIC = {
     "physiology-10:bed-flow": (100 - 4) / 60,
     "physiology-10:radius-halved": 2**4,
     "physiology-10:pulse-pressure": 60 / 1.2,
+    "physiology-10:pv-loop-stroke-volume": 120 - 50,
+    "physiology-10:pv-loop-work-baseline": 100 * (120 - 50) * 1.33322e-4,
+    "physiology-10:pv-loop-work-perturbed": 120 * (120 - 70) * 1.33322e-4,
+    "physiology-10:pv-loop-cardiac-output": 75 * (120 - 70) / 1000,
     "physiology-11:alveolar-ventilation": (250 - 150) * 24 / 1000,
     "physiology-11:halved-va": 0.863 * 200 / (4.2 / 2),
     "physiology-11:pao2-room-air": 0.21 * (760 - 47) - 40 / 0.8,
@@ -169,6 +206,14 @@ PHYSIOLOGY_NUMERIC = {
     "physiology-lab1:relative-closure": (100 - 74) / (100 - 47),
     "physiology-lab1:edge-speed": (100 - 47) / 100 * 400 / 2 / 12,
     "physiology-lab1:division-block": (100 - 7) / (100 - 4),
+    # Lesson 15: passive membrane and cable, by numerical RC stepping and a discretized ladder cable
+    "physiology-15:time-constant": _rc_time_to(1 - math.exp(-1), 10e3, 1e-6) * 1000,
+    "physiology-15:fraction-at-two-tau": 100 * (1 - math.exp(-2)),
+    "physiology-15:input-resistance": 10e3 / (4 * math.pi * (5e-4) ** 2) / 1e9,
+    "physiology-15:length-constant": -0.01 / math.log(_ladder_decay(2e-4, 10e3, 50, 0.01)) * 10,
+    "physiology-15:electrotonic-decay": 5 * _ladder_decay(2e-4, 10e3, 50, 0.1),
+    "physiology-15:radius-scaling": math.sqrt(9),
+    "physiology-15:unmyelinated-velocity": 0.8 * math.sqrt(4),
 }
 
 
@@ -200,6 +245,7 @@ BIOCHEMISTRY_NUMERIC = {
     # items written before 2026-10-08, recomputed from the numbers in their prompts
     "biochemistry-1:check": 12 / (4 + 12),
     "biochemistry-3:check": 5 * 2,
+    "biochemistry-3:pool-change": 146 - 134,
     "biochemistry-2:catalytic-efficiency": 500 / 25e-6,
     "biochemistry-5:rate-at-20": 100 * 20 / (5 + 20),
     "biochemistry-5:kcat": 100 / 0.01 / 60,
@@ -248,6 +294,45 @@ BIOCHEMISTRY_NUMERIC = {
     "biochemistry-lab1:km-control": _KM_CTRL,
     "biochemistry-lab1:km-apparent": _KM_INH,
     "biochemistry-lab1:inhibition-constant": 4 / (_KM_INH / _KM_CTRL - 1),
+    # Biochemistry 0.4.9–0.4.31: newer pathway and data-analysis items, independently recomputed.
+    "biochemistry-protein-purification:ion-exchange-specific-activity": 210 / 0.80,
+    "biochemistry-protein-purification:ion-exchange-recovery": 4200 / 6000 * 100,
+    "biochemistry-tca-cycle:nadh-two-turns": 2 * 3,
+    "biochemistry-tca-cycle:gtp-two-turns": 3 * 2,
+    "biochemistry-gluconeogenesis:atp-cost": 2 * 2,
+    "biochemistry-gluconeogenesis:gtp-cost": 2 * 1,
+    "biochemistry-gluconeogenesis:energy-cost-scaling": 2.5 * 4,
+    "biochemistry-glycogen-metabolism:glycogen-storage-cost": 1 + 1,
+    "biochemistry-glycogen-metabolism:muscle-atp-yield": 4 * (3 - 0),
+    "biochemistry-pentose-phosphate:oxidative-nadph": 2 * 1,
+    "biochemistry-pentose-phosphate:oxidative-co2": 1 * 1,
+    "biochemistry-pentose-phosphate:scale-nadph": 6 * 2,
+    "biochemistry-pentose-phosphate:tracer-labeled-ribose": 45 + 15,
+    "biochemistry-fatty-acid-oxidation:palmitate-cycles": 16 / 2 - 1,
+    "biochemistry-fatty-acid-oxidation:palmitate-acetyl-coa": 16 / 2,
+    "biochemistry-fatty-acid-oxidation:activation-cost": 2,
+    "biochemistry-fatty-acid-oxidation:palmitate-atp-yield": (
+        7 * (2.5 + 1.5) + 8 * (3 * 2.5 + 1.5 + 1) - 2
+    ),
+    "biochemistry-urea-cycle:atp-molecules": 3,
+    "biochemistry-urea-cycle:phosphate-equivalents": 2 + 1 + 1,
+    "biochemistry-urea-cycle:nitrogen-to-urea": 5 / 2,
+    "biochemistry-ketone-body-metabolism:acetyl-coa-yield": 3 * 2,
+    "biochemistry-fatty-acid-synthesis:acetyl-coa-count": 1 + 7,
+    "biochemistry-fatty-acid-synthesis:malonyl-coa-count": 7,
+    "biochemistry-fatty-acid-synthesis:acc-atp-cost": 7 * 1,
+    "biochemistry-fatty-acid-synthesis:nadph-cost": 7 * 2,
+    "biochemistry-nucleotide-biosynthesis:gmp-branch-atp": 2 * 1,
+    "biochemistry-nucleotide-biosynthesis:amp-branch-gtp": 4 * 1,
+    "biochemistry-nucleotide-biosynthesis:prpp-route-accounting": 4 + 3,
+    "biochemistry-cholesterol-lipoproteins:hepatocyte-pool-change": 36 + 24 - 18 - 12,
+    "biochemistry-fatty-acid-synthesis:triacylglycerol-fatty-acid-count": 4 * 3,
+    "biochemistry-fatty-acid-synthesis:tag-acyl-coa": 3 * 3,
+    "biochemistry-lab2:ion-exchange-protein-mass": 10 * 0.80,
+    "biochemistry-lab2:ion-exchange-total-activity": 10 * 300,
+    "biochemistry-lab2:ion-exchange-specific-activity": (10 * 300) / (10 * 0.80),
+    "biochemistry-lab2:ion-exchange-recovery": (10 * 300) / (50 * 120) * 100,
+    "biochemistry-lab2:sec-enrichment": (5 * 400 / (5 * 0.30)) / (50 * 120 / (50 * 2.00)),
 }
 
 
@@ -497,6 +582,7 @@ STATISTICS_NUMERIC = {
     # items written before 2026-10-08, recomputed from the numbers in their prompts
     "statistics-1:check": 10 / math.sqrt(25),
     "statistics-1:standard-error": 12 / math.sqrt(36),
+    "statistics-1:bayes-positive": (0.10 * 0.90) / (0.10 * 0.90 + 0.90 * 0.05),
     "statistics-3:check": 100 * (1 - 0.95 ** 10),
     "statistics-3:bonferroni": 0.05 / 20,
     "statistics-6:km-at-5": _km_survival(5),
@@ -560,6 +646,22 @@ STATISTICS_NUMERIC = {
     # virtual lab 1, recomputed from the CSV
     "statistics-lab1:technical-sd": _LAB["sd_t"],
     "statistics-lab1:intraclass-correlation": _LAB["icc"],
+    # Lesson 16: three-hypothesis Bernoulli update on S,S
+    "statistics-16:likelihood": 0.8 * 0.8,
+    "statistics-16:evidence": sum(p * t * t for p, t in zip((0.5, 0.3, 0.2), (0.2, 0.5, 0.8))),
+    "statistics-16:posterior-high": 0.2 * 0.8 ** 2 / sum(p * t * t for p, t in zip((0.5, 0.3, 0.2), (0.2, 0.5, 0.8))),
+    "statistics-16:posterior-odds": (0.2 * 0.8 ** 2) / (0.5 * 0.2 ** 2),
+    "statistics-16:predictive-one-of-two": sum(
+        p * t * t * 2 * t * (1 - t) for p, t in zip((0.5, 0.3, 0.2), (0.2, 0.5, 0.8))
+    ) / sum(p * t * t for p, t in zip((0.5, 0.3, 0.2), (0.2, 0.5, 0.8))),
+    # Lesson 17: Beta-binomial conjugate update, 8 successes and 2 failures
+    "statistics-17:posterior-alpha": 2 + 8,
+    "statistics-17:posterior-beta": 2 + 2,
+    "statistics-17:posterior-mean": (2 + 8) / (2 + 8 + 2 + 2),
+    "statistics-17:predictive-two-of-three": math.comb(3, 2) * math.exp(
+        math.lgamma(12) + math.lgamma(5) - math.lgamma(17) - (math.lgamma(10) + math.lgamma(4) - math.lgamma(14))
+    ),
+    "statistics-17:prior-sensitivity-mean": (1 + 8) / (1 + 8 + 1 + 2),
 }
 
 
@@ -830,6 +932,16 @@ BIOMATERIALS_NUMERIC = {
     "biomaterials-lab1:first-mass-loss": next(
         d for d in sorted({int(r["day"]) for r in _BM_ROWS}) if _lab_mean(_BM_ROWS, d, "mass_pct") < 0.95 * _lab_mean(_BM_ROWS, 0, "mass_pct")
     ),
+    "biomaterials-14:fibrinogen-change": 100 * (0.61 - 0.44) / 0.44,
+    # 2026-10-13 controlled-release unit, from closed forms (a numerical-model file checks them separately)
+    "biomaterials-15:reservoir-rate": 1.5 * 2.0e-7 * 0.30 * 6.0 / 0.015 * 3600,
+    "biomaterials-15:reservoir-duration": 20 / (1.5 * 2.0e-7 * 0.30 * 6.0 / 0.015 * 3600),
+    "biomaterials-15:higuchi-amount": math.sqrt(2.0e-6 * (2 * 40 - 1.0) * 1.0 * 2 * 86400),
+    "biomaterials-15:higuchi-time-factor": 3**2,
+    "biomaterials-15:slab-diffusivity": math.pi * 0.20**2 * (0.30 / 4) ** 2 / 7200 * 1e8,
+    "biomaterials-15:first-order-percent": (1 - math.exp(-0.05 * 24)) * 100,
+    "biomaterials-15:first-order-half-time": math.log(2) / 0.05,
+    "biomaterials-15:release-exponent": math.log(0.30 / 0.10) / math.log(4.0),
 }
 
 
@@ -1009,10 +1121,43 @@ _YIELD = 1.5e5                                                 # cells/mL per mM
 _N2_CONST_PV = 200 / 60 * 10 ** (-2 / 3)
 _EPS = 21.6 / 1000
 
+def _fed_batch(hours, steps=6000):
+    """RK4 on amount balances (V, N, glucose amount, product amount) with the exponential feed;
+    independent of the lesson's closed forms. Returns V, N, glucose concentration, product amount."""
+    n0, mu, qg, sf, s0, qp = 1.0e9, 0.025, 1.5e-10, 400.0, 4.0, 0.8e-12
+
+    def feed(t):
+        return qg * n0 * math.exp(mu * t) / (sf - s0)  # L/h
+
+    def rates(t, y):
+        return [feed(t), mu * y[1], feed(t) * sf - qg * y[1], qp * y[1]]
+
+    y, t, dt = [2.0, n0, 2.0 * s0, 0.0], 0.0, hours / steps
+    for _ in range(steps):
+        k1 = rates(t, y)
+        k2 = rates(t + dt / 2, [a + dt / 2 * b for a, b in zip(y, k1)])
+        k3 = rates(t + dt / 2, [a + dt / 2 * b for a, b in zip(y, k2)])
+        k4 = rates(t + dt, [a + dt * b for a, b in zip(y, k3)])
+        y = [a + dt / 6 * (b + 2 * c + 2 * d + e) for a, b, c, d, e in zip(y, k1, k2, k3, k4)]
+        t += dt
+    return y[0], y[1], y[2] / y[0], y[3]
+
+
+_FB_V60, _FB_N60, _FB_S60, _FB_P60 = _fed_batch(60)
+assert abs(_FB_S60 - 4.0) < 1e-6  # the exponential feed really holds glucose at its set point
+# Bisect the time at which integrated volume reaches the 2.6 L working volume.
+_lo, _hi = 0.0, 300.0
+for _ in range(40):
+    _mid = (_lo + _hi) / 2
+    _lo, _hi = (_mid, _hi) if _fed_batch(_mid, steps=400)[0] < 2.6 else (_lo, _mid)
+_FB_FILL = (_lo + _hi) / 2
+
+
 BIOREACTORS_NUMERIC = {
     # items written before 2026-10-08, recomputed from the numbers in their prompts
     "bioreactors-1:check": math.log(2) / 30,
     "bioreactors-2:check": 2e9 * 1e-16 * 3600 * 1000,
+    "bioreactors-3:reynolds-number": 1000 * 0.80 * 0.10 ** 2 / 0.001,
     "bioreactors-1:doubling-time": 24 / math.log2(1.28e6 / 2.0e5),
     "bioreactors-2:oxygen-supply-vs-demand": 10 * (0.20 - 0.10) - 1.5e10 * 1.0e-10,
     "bioreactors-5:max-otr": 5.0 * (0.2 - 0.05),
@@ -1084,6 +1229,23 @@ BIOREACTORS_NUMERIC = {
     "bioreactors-lab1:kla-400": _BR_K400,
     "bioreactors-lab1:supportable-density": 5.66 * (0.20 - 0.05) / 2.0e-10 / 1e3 / 1e6,
     "bioreactors-lab1:probe-lag": 5.66 * 20 / 3600,
+    "bioreactors-4:modeled-survivors": 1.2e6 * 10 ** -4,
+    # Lesson 14: atom balances for C6H12O6 + a NH3 + b O2 -> 2 CH1.8O0.5N0.2 + C2H6O + c CO2 + d H2O
+    "bioreactors-14:nitrogen-balance": 2 * 0.2,
+    "bioreactors-14:oxygen-balance": (2 * 0.5 + 1 + 2 * 2 + 1.8 - 6) / 2,
+    "bioreactors-14:carbon-dioxide-balance": 6 - 2 * 1 - 2,
+    "bioreactors-14:water-balance": (12 + 3 * 0.4 - 2 * 1.8 - 6) / 2,
+    "bioreactors-14:carbon-recovery": (2 * 1 + 2 + 2) / 6,
+    "bioreactors-14:biomass-yield": 2 * 1 / 1,
+    "bioreactors-14:product-yield": 1 / 1,
+    # Lesson 15: fed-batch, from the integrated amount balances
+    "bioreactors-15:initial-feed": 1.5e-10 * 1.0e9 / (400 - 4) * 1000,
+    "bioreactors-15:feed-at-60h": 1.5e-10 * _FB_N60 / (400 - 4) * 1000,
+    "bioreactors-15:cumulative-feed": (_FB_V60 - 2.0) * 1000,
+    "bioreactors-15:time-to-working-volume": _FB_FILL,
+    "bioreactors-15:concentration-at-60h": _FB_N60 / (_FB_V60 * 1000) / 1e6,
+    "bioreactors-15:dilution-rate-at-60h": 1.5e-10 * _FB_N60 / (400 - 4) / _FB_V60 * 1000,
+    "bioreactors-15:titer-at-60h": _FB_P60 / _FB_V60,
 }
 
 
@@ -1299,6 +1461,7 @@ TRANSPORT_NUMERIC = {
     "transport-3:check": 1000 * 0.02 * 0.5e-3 / 0.001,
     "transport-4:check": 0.02 / (0.5 * 0.10),
     "transport-1:accumulation-rate": 2.0 - 1.5,
+    "transport-1:energy-balance": 1.0 * (110 - 100),
     "transport-2:diffusion-time": (100e-6) ** 2 / 1.0e-9,
     "transport-3:poiseuille-flow": math.pi * (0.5e-3) ** 4 * 100 / (8 * 1.0e-3 * 0.10),
     "transport-4:series-thermal-resistance": 50 / (0.20 + 0.30),
@@ -1369,6 +1532,24 @@ TRANSPORT_NUMERIC = {
     "transport-lab1:critical-thickness": _TR_LC,
     "transport-lab1:zero-depth": _TR_ZERO,
     "transport-lab1:anoxic-thickness": 300 - round(_TR_LC),
+    # Lessons 14-15: entropy balances and reaction free energy (R = 8.314 J/(mol K), T = 298 K)
+    "transport-14:closed-entropy": 600 / 300 + 0.2,
+    "transport-14:reservoir-generation": -1200 / 400 + 1200 / 300,
+    "transport-14:steady-flow-generation": 0.10 * (2.3 - 2.0),
+    "transport-15:standard-free-energy": -8.314 * 298 * math.log(4.00) / 1000,
+    "transport-15:current-reaction-free-energy": 8.314 * 298 * math.log(0.20 / 4.00) / 1000,
+    "transport-15:equilibrium-a": 1.20 / (1 + 4.00),
+    "transport-15:quotient": 0.10 / 0.40,
+    "transport-15:activity-change": 8.314 * 298 * (math.log(0.10) - math.log(1.00)) / 1000,
+    # 2026-10-13 steady-flow energy-balance unit, from closed forms (a numerical-model file checks them separately)
+    "transport-16:stream-heating": 1000 * 15e-6 / 60 * 4180 * 12,
+    "transport-16:feed-height": 50 * 133.322 / (1000 * 9.81),
+    "transport-16:efflux-speed": math.sqrt(2 * 9.81 * 0.80),
+    "transport-16:constriction-drop": 0.5 * 1000 * ((2e-6 / (math.pi * 1.5e-3**2 / 4)) ** 2 - (2e-6 / (math.pi * 3.0e-3**2 / 4)) ** 2),
+    "transport-16:poiseuille-loss": 128 * 0.90e-3 * 0.50 * (5e-6 / 60) / (math.pi * 1.0e-3**4),
+    "transport-16:tubing-reynolds": 1000 * (5e-6 / 60) / (math.pi * 1.0e-3**2 / 4) * 1.0e-3 / 0.90e-3,
+    "transport-16:pump-hydraulic-power": (128 * 0.90e-3 * 0.50 * (5e-6 / 60) / (math.pi * 1.0e-3**4) + 1000 * 9.81 * 0.20) * (5e-6 / 60) * 1e3,
+    "transport-16:viscous-heating": 2000 / (1000 * 4180) * 1e3,
 }
 
 
@@ -1628,6 +1809,19 @@ CELLULAR_BIOMECHANICS_NUMERIC = {
     "cellular-biomechanics-lab1:ligand-effect-100": _CB_LIG_100,
     "cellular-biomechanics-lab1:interaction": (_CB_LIG_100 - _CB_LIG_1) / 2,
     "cellular-biomechanics-lab1:naive-se": _CB_SD_CELL * math.sqrt(2 / 30),
+    # Lesson 14: diffusive time scaling tau = L^2 / D_eff
+    "cellular-biomechanics-14:effective-diffusivity": 1.0 ** 2 / 20,
+    "cellular-biomechanics-14:predict-at-1_5mm": 1.5 ** 2 / (1.0 ** 2 / 20),
+    "cellular-biomechanics-14:scaling-exponent": (math.log(80) - math.log(5)) / (math.log(2.0) - math.log(0.5)),
+    # 2026-10-13 filament-mechanics unit, from closed forms (a numerical-model file checks them separately)
+    "cellular-biomechanics-15:persistence-length": 2.0e-26 / 4.1e-21 * 1e6,
+    "cellular-biomechanics-15:tangent-correlation": math.exp(-3.0 / 10.0),
+    "cellular-biomechanics-15:semiflexible-rms-ratio": math.sqrt(2 * 1 * 2 * (1 - 0.5 * (1 - math.exp(-2))) / 4),
+    "cellular-biomechanics-15:entropic-spring": 3 * 4.1 / (2 * 0.40 * 100 * (1 - 0.004 * (1 - math.exp(-250)))),
+    "cellular-biomechanics-15:wlc-force": 4.1 / 50 * (1 / (4 * 0.2**2) - 0.25 + 0.8),
+    "cellular-biomechanics-15:filament-buckling": math.pi**2 * 3.0e-23 / (8.0e-6) ** 2 * 1e12,
+    "cellular-biomechanics-15:buckling-length": math.pi * math.sqrt(4.0e-26 / 1.0e-12) * 1e6,
+    "cellular-biomechanics-15:bundle-factor": 6**2,
 }
 
 
@@ -1787,7 +1981,10 @@ STATICS_MATERIALS_NUMERIC = {
     "statics-materials-4:check": 120 / 40,
     "statics-materials-1:reaction-force": 200 * 1.0 / 4.0,
     "statics-materials-2:stress-units": 1200 / 30,
+    "statics-materials-2:parallel-load-share": 50 / (50 + 25) * 30,
+    "statics-materials-2:parallel-extension": 30 / (50 + 25),
     "statics-materials-3:bending-stress": 500 * 0.05 / (0.05 * 0.1 ** 3 / 12) / 1e6,
+    "statics-materials-3:torsion-stress": 16 * (10 * 1000) / (math.pi * 20 ** 3),
     "statics-materials-4:factor-of-safety": 250 / 100,
     "statics-materials-5:second-moment": math.pi / 4 * (13 ** 4 - 7 ** 4),
     "statics-materials-5:bending-stress": 100e3 * 13 / 20546,
@@ -1864,6 +2061,22 @@ STATICS_MATERIALS_NUMERIC = {
     "statics-materials-lab1:fitted-slope": _SM_SLOPE,
     "statics-materials-lab1:basquin-exponent": 1 / _SM_SLOPE,
     "statics-materials-lab1:extrapolated-life": _SM_MY + _SM_SLOPE * (math.log10(160) - _SM_MX),
+    # statics-materials-14: distributed-load shear and moment diagrams
+    "statics-materials-14:reactions": 12 * 3 / 6,
+    "statics-materials-14:shear-at-two": 6 - 2 * 2,
+    "statics-materials-14:maximum-moment": 6 * 3 - 3 ** 2,
+    "statics-materials-14:point-load-shear": 4 * (6 - 2) / 6 - 4,
+    "statics-materials-14:point-load-moment": (4 - 4 * 2 / 6) * 2,
+    "statics-materials-14:bending-stress": 9000 * 0.10 / (0.10 * 0.20 ** 3 / 12) / 1e6,
+    # 2026-10-13 multiaxial/thermal/vessel unit, from closed forms (a stiffness-solve file checks them separately)
+    "statics-materials-15:biaxial-strain": (60 - 0.25 * (-40)) / 100_000 * 1e4,
+    "statics-materials-15:lateral-diameter-change": -0.30 * 150 / 200_000 * 10e3,
+    "statics-materials-15:constrained-thermal-stress": -70_000 * 23e-6 * 40,
+    "statics-materials-15:gap-thermal-stress": -200_000 * (2000 * 12e-6 * 60 - 0.80) / 2000,
+    "statics-materials-15:lateral-constraint-stress": 0.30 * 80,
+    "statics-materials-15:hoop-stress": 1.2 * 0.40 / 0.008,
+    "statics-materials-15:sphere-stress": 1.2 * 0.40 / (2 * 0.008),
+    "statics-materials-15:vessel-radius-growth": (1.2 * 0.40 / 0.008 - 0.30 * 1.2 * 0.40 / 0.016) / 200_000 * 400,
 }
 
 
@@ -2147,6 +2360,40 @@ _SC_PM1, _SC_W1 = _sc_pm(_sc_pi_loop(40 / 3, 10.0, tf=1.0))
 _SC_PM_FAST, _ = _sc_pm(_sc_pi_loop(40 / 3, 10.0, tf=0.25))
 _SC_KP45 = _sc_kp_for_pm(45.0, 1.0)
 
+def _cubic_roots(a2, a1, a0):
+    """Durand-Kerner roots of s^3 + a2 s^2 + a1 s + a0, independent of Routh closed forms."""
+    roots = [complex(0.4, 0.9) ** k for k in range(3)]
+    for _ in range(400):
+        roots = [
+            r - (r**3 + a2 * r**2 + a1 * r + a0) / math.prod(r - q for q in roots if q is not r)
+            for r in roots
+        ]
+    return roots
+
+
+def _stable(k):
+    return all(r.real < 0 for r in _cubic_roots(12, 44, 48 + k))
+
+
+def _bisect_gain(predicate, low, high):
+    for _ in range(80):
+        mid = (low + high) / 2
+        low, high = (mid, high) if predicate(mid) else (low, mid)
+    return (low + high) / 2
+
+
+_SC_KLIM = _bisect_gain(_stable, 1.0, 2000.0)
+_SC_WLIM = max(abs(r.imag) for r in _cubic_roots(12, 44, 48 + _SC_KLIM))
+# Breakaway: the largest gain on (-4, -2) for which all three roots stay real.
+_SC_KB = _bisect_gain(lambda k: all(abs(r.imag) < 1e-7 for r in _cubic_roots(12, 44, 48 + k)), 0.0, 10.0)
+_SC_SB = min((r for r in _cubic_roots(12, 44, 48 + _SC_KB) if -4 < r.real < -2), key=lambda r: abs(r.imag)).real
+
+
+def _dominant_zeta(k):
+    pair = max(_cubic_roots(12, 44, 48 + k), key=lambda r: r.real)
+    return -pair.real / abs(pair)
+
+
 SIGNALS_CONTROL_NUMERIC = {
     # items written before 2026-10-08, recomputed from the numbers in their prompts
     "signals-control-2:check": 1 / (2 * math.pi * 0.05),
@@ -2230,6 +2477,21 @@ SIGNALS_CONTROL_NUMERIC = {
     "signals-control-lab1:t63": _SC_T63,
     "signals-control-lab1:time-constant": _SC_T63 - _SC_DELAY,
     "signals-control-lab1:pi-gain": 10 / (0.49 * (2 + 1)),
+    # Lesson 14: first-order recurrences iterated from rest
+    "signals-control-14:step-sample-3": functools.reduce(lambda y, _: 0.75 * y + 0.25, range(4), 0.0),
+    "signals-control-14:impulse-sample-4": functools.reduce(lambda y, x: 0.8 * y + 0.2 * x, (1, 0, 0, 0, 0), 0.0),
+    "signals-control-14:step-sample-9": functools.reduce(lambda y, _: 0.8 * y + 0.2, range(10), 0.0),
+    # closed loop 2*0.2 / (1 - 0.8 z^-1 + 2*0.2): pole where the denominator vanishes
+    "signals-control-14:closed-loop-pole": 0.8 / (1 + 2 * 0.2),
+    # Lesson 15: Routh-Hurwitz and root locus, from numerically computed closed-loop roots
+    "signals-control-15:routh-gain-limit": _SC_KLIM,
+    "signals-control-15:crossing-frequency": _SC_WLIM,
+    "signals-control-15:rhp-pole-count": sum(r.real > 0 for r in _cubic_roots(12, 44, 48 + 600)),
+    "signals-control-15:asymptote-centroid": sum((-2, -4, -6)) / 3,
+    "signals-control-15:breakaway-point": _SC_SB,
+    "signals-control-15:breakaway-gain": _SC_KB,
+    "signals-control-15:damping-gain": _bisect_gain(lambda k: _dominant_zeta(k) > 0.5, _SC_KB + 1e-3, _SC_KLIM),
+    "signals-control-15:gain-margin": _SC_KLIM / 80,
 }
 
 
@@ -2627,6 +2889,24 @@ DIFFERENTIAL_EQUATIONS_NUMERIC = {
     "differential-equations-lab1:line-zero": _DE_LAB_IC / -_DE_LAB_SL,
     "differential-equations-lab1:line-at-48": _DE_LAB_IC + _DE_LAB_SL * 48,
     "differential-equations-lab1:exponential-at-48": _DE_LAB_EXP48,
+    # Lesson 7: square-wave harmonic through a first-order lag
+    "differential-equations-7:third-harmonic-coefficient": 4 * 1 / (3 * math.pi),
+    "differential-equations-7:third-harmonic-gain": 1 / abs(complex(1, 3 * 2 * 0.5)),
+    # Lesson 14: closed-form solutions checked against initial data
+    "differential-equations-14:nonzero-initial-data": 2 * math.exp(-math.log(2)) - math.exp(-2 * math.log(2)),
+    "differential-equations-14:first-order-step": 3 * (1 - math.exp(-2 * math.log(2))),
+    "differential-equations-14:delayed-step": 0.5 - math.exp(-(5 - 2)) + 0.5 * math.exp(-2 * (5 - 2)),
+    "differential-equations-14:constant-force": 2 * (1 - math.cos(2 * math.pi / 4)),
+    "differential-equations-14:partial-fractions": 10 / 3 - 5 * math.exp(-math.log(3)) + 5 / 3 * math.exp(-3 * math.log(3)),
+    # 2026-10-13 impulse/convolution/transfer-function unit, from closed forms (an RK4/quadrature file checks them separately)
+    "differential-equations-15:first-order-impulse-response": math.exp(-3 * 0.5),
+    "differential-equations-15:velocity-jump": 2 / 4,
+    "differential-equations-15:second-order-impulse-response": math.exp(-3 * 0.25) * math.sin(4 * 0.25) / 4,
+    "differential-equations-15:ramp-convolution": 2 - 1 + math.exp(-2),
+    "differential-equations-15:pulse-convolution": (math.exp(-2 * (2 - 1)) - math.exp(-2 * 2)) / 2,
+    "differential-equations-15:gain-at-four": 1 / abs(complex(25 - 16, 6 * 4)),
+    "differential-equations-15:phase-lag-at-four": math.degrees(math.atan2(6 * 4, 25 - 16)),
+    "differential-equations-15:peak-gain-frequency": math.sqrt(25 - 6**2 / 2),
 }
 
 

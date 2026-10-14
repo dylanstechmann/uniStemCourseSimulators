@@ -7,14 +7,20 @@
   "domain": "Bioengineering",
   "level": "Year 3",
   "maturity": "partial",
-  "version": "0.4.0",
+  "version": "0.4.9",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
     "source_path": "src/data/courses.js",
     "source_sha256": "a77a7cb7f5be2ffa12068877042ac775c6d9b79b83ac2f316fe4f26a0d3d783b",
     "migration_version": "1.0",
-    "modifications": []
+    "modifications": [
+      "Expanded week 1 with control-volume selection, species and total-mass balances, transient and steady-state distinctions, residence time, reaction terms, and a signed open-system energy balance. Mapped both objectives and the practice assessment to outcome 1. Added a steady-flow energy-balance calculation so the mass-and-energy outcome has direct evidence; existing concentration and accumulation question prompts and keys remain unchanged. Added MIT OpenCourseWare Unified Engineering control-volume notes as a link-only reference.",
+      "Expanded week 3 with Fickian flux direction and units, transient diffusion, boundary conditions, diffusion and reaction time scales, the Damköhler comparison, reaction-diffusion length, and geometry and kinetic limits. Mapped both objectives to outcomes 2 and 4. Reassociated the preserved diffusion-time check with the time-scale objective and added direct flux-direction and diffusion-versus-reaction checks. Added MIT OpenCourseWare 10.37 Lecture 20 as a link-only technical reference.",
+      "Expanded week 9 with Reynolds scaling, characteristic-length conventions, the fully developed Poiseuille relation, radius sensitivity, resistance networks, entrance effects, and limits for microvascular suspensions. Mapped both objectives to outcomes 3 and 4. Added a Reynolds-number interpretation item so the stated limits are practiced directly; existing numeric prompts and keys remain unchanged. Added MIT OpenCourseWare microfluidics and fluid-mechanics resources as link-only references.",
+      "Expanded week 12 with conduction, convection and radiation rate laws; steady thermal-resistance networks; transient energy storage; lumped-capacitance assumptions; Biot and Fourier numbers; and model limits. Mapped the heat-transfer-mode objective to outcome 4 and the resistance-network objective to outcomes 1 and 4. Corrected the preserved slab-resistance item association and added direct practice comparing transfer modes; existing numeric prompts and keys remain unchanged. MIT OpenCourseWare 2.51 readings are a link-only reference.",
+      "Added an original chemical-potential and reaction-equilibrium lesson to week 1, connecting ideal-mixture activities, reaction Gibbs energy, K and an A⇌B equilibrium composition. Added nine formative items and four retrieval cards. MIT OCW 20.110J Fall 2005 calendar and Lecture 9 are link-only scope and technical references; no source text, figure or assessment was imported. The course remains partial, unreviewed and formative-only."
+    ]
   },
   "prerequisites": {
     "course_ids": [
@@ -47,6 +53,16 @@
       "id": "transport-outcome-4",
       "description": "Use dimensional analysis to select dominant mechanisms.",
       "bloom": "apply"
+    },
+    {
+      "id": "transport-outcome-5",
+      "description": "Write entropy balances for closed and steady-flow systems and assess consistency with the second law.",
+      "bloom": "evaluate"
+    },
+    {
+      "id": "transport-outcome-6",
+      "description": "Relate chemical-potential differences to reaction Gibbs energy and equilibrium, and calculate composition for a stated ideal mixture.",
+      "bloom": "analyze"
     }
   ],
   "lesson_objectives": [
@@ -54,49 +70,68 @@
       "id": "transport-1-objective-1",
       "description": "Write accumulation = in − out + generation − consumption.",
       "bloom": "create",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "transport-outcome-1"
+      ]
     },
     {
       "id": "transport-1-objective-2",
       "description": "Choose a control volume and distinguish steady from transient state.",
       "bloom": "evaluate",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "transport-outcome-1"
+      ]
     },
     {
       "id": "transport-2-objective-1",
       "description": "Use Fick's law to determine flux direction and scale.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "transport-outcome-2"
+      ]
     },
     {
       "id": "transport-2-objective-2",
       "description": "Compare diffusion and reaction timescales.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "transport-outcome-2",
+        "transport-outcome-4"
+      ]
     },
     {
       "id": "transport-3-objective-1",
       "description": "Compute Reynolds number and state its limits.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "transport-outcome-3",
+        "transport-outcome-4"
+      ]
     },
     {
       "id": "transport-3-objective-2",
       "description": "Apply pressure-flow relations for idealized laminar conduits.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "transport-outcome-3"
+      ]
     },
     {
       "id": "transport-4-objective-1",
       "description": "Compare conduction, convection, and radiation.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "transport-outcome-4"
+      ]
     },
     {
       "id": "transport-4-objective-2",
       "description": "Use a resistance network for heat or mass transfer.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "transport-outcome-1",
+        "transport-outcome-4"
+      ]
     },
     {
       "id": "transport-5-objective-1",
@@ -359,20 +394,98 @@
         "transport-outcome-2",
         "transport-outcome-4"
       ]
+    },
+    {
+      "id": "transport-14-objective-1",
+      "description": "Separate entropy transfer with heat and mass from entropy generation within the modeled system.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "transport-outcome-5"
+      ]
+    },
+    {
+      "id": "transport-14-objective-2",
+      "description": "Write closed-system and steady-flow entropy balances with consistent signs, stream terms and absolute temperatures.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "transport-outcome-5"
+      ]
+    },
+    {
+      "id": "transport-14-objective-3",
+      "description": "Check whether a stated process is compatible with nonnegative entropy generation and distinguish entropy from energy accounting.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "transport-outcome-5"
+      ]
+    },
+    {
+      "id": "transport-15-objective-1",
+      "description": "Calculate a reaction quotient and reaction Gibbs energy from stated activities.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "transport-outcome-6"
+      ]
+    },
+    {
+      "id": "transport-15-objective-2",
+      "description": "Relate standard reaction Gibbs energy to an equilibrium constant and solve a one-reaction equilibrium composition.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "transport-outcome-6"
+      ]
+    },
+    {
+      "id": "transport-15-objective-3",
+      "description": "Distinguish equilibrium conditions from reaction rates and identify assumptions in an ideal-mixture calculation.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "transport-outcome-6"
+      ]
+    },
+    {
+      "id": "transport-16-objective-1",
+      "description": "Write and simplify the steady-flow first law for a liquid and calculate the heating power for a flowing stream.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "transport-outcome-1"
+      ]
+    },
+    {
+      "id": "transport-16-objective-2",
+      "description": "Apply Bernoulli's equation to hydrostatic feed pressure, efflux speed and a constriction, and state when it is valid.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "transport-outcome-3"
+      ]
+    },
+    {
+      "id": "transport-16-objective-3",
+      "description": "Use the mechanical energy balance with a Poiseuille friction loss to calculate pump work and power, and judge which terms are negligible.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "transport-outcome-1",
+        "transport-outcome-3",
+        "transport-outcome-4"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week undergraduate scope only. The four compact prototype units sit in weeks 1, 3, 9 and 12 beside original lessons on residence time, transient diffusion, oxygen limits in slabs and spheroids, saturable uptake, tubing and pressure drop, advection and diffusion together, and lumped heat transfer; week 8 is a synthetic-data lab on oxygen depth profiles and week 14 a lesson on a perfused construct with a hypoxic center, which prepares the course case. All activities are open, ungraded practice. There are no graded homework sets, exams or project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week undergraduate scope only. Week 1 now links control-volume, entropy-balance, and chemical-potential/reaction-equilibrium readings in one thermodynamic foundation; the four former compact prototype readings in weeks 1, 3, 9 and 12 also have expanded instruction alongside original lessons on residence time, transient diffusion, oxygen limits in slabs and spheroids, saturable uptake, tubing and pressure drop, advection and diffusion together, and lumped heat transfer. Week 10 pairs the tubing balances with steady-flow energy balances, Bernoulli and friction losses. Week 8 is a synthetic-data lab on oxygen depth profiles and week 14 is a lesson on a perfused construct with a hypoxic center that prepares the course case. All activities are open, ungraded practice. There are no graded homework sets, exams or project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
-        "title": "Control volumes and conservation",
+        "title": "Thermodynamic foundations: control volumes, entropy and chemical equilibrium",
         "lesson_ids": [
-          "transport-1"
+          "transport-1",
+          "transport-14",
+          "transport-15"
         ],
         "assessment_ids": [
-          "transport-1-practice"
+          "transport-1-practice",
+          "transport-14-practice",
+          "transport-15-practice"
         ]
       },
       {
@@ -457,12 +570,14 @@
       },
       {
         "week": 10,
-        "title": "Perfusing a culture through tubing: control-volume balances, Reynolds number and pressure drop",
+        "title": "Perfusing a culture through tubing: control-volume balances, pressure drop and energy balances",
         "lesson_ids": [
-          "transport-6"
+          "transport-6",
+          "transport-16"
         ],
         "assessment_ids": [
-          "transport-6-practice"
+          "transport-6-practice",
+          "transport-16-practice"
         ]
       },
       {
@@ -519,7 +634,8 @@
       "title": "Control volumes and conservation",
       "source_ids": [
         "transport",
-        "engineeringMath"
+        "engineeringMath",
+        "mit-ocw-transport-control-volume"
       ],
       "lessons": [
         {
@@ -530,10 +646,11 @@
             "transport-1-objective-1",
             "transport-1-objective-2"
           ],
-          "worked_example": "A well-mixed vessel of volume V with inflow Q and concentration Cin and equal outflow has V dC/dt=Q(Cin−C)−kVC for first-order consumption.",
+          "worked_example": "A rigid 100 L well-mixed tank receives and discharges 2 L/min, has inlet concentration 5 g/L, and consumes the species at k=0.02 min⁻¹. Its balance is V dC/dt=Q(Cin−C)−kVC; the steady concentration is 2.5 g/L. The liquid volume is constant, but species concentration is transient until it reaches that balance.",
           "question_ids": [
             "transport-1:check",
-            "transport-1:accumulation-rate"
+            "transport-1:accumulation-rate",
+            "transport-1:energy-balance"
           ],
           "card_ids": [
             "transport-0-0",
@@ -547,7 +664,8 @@
       "title": "Diffusion, reaction, and characteristic length",
       "source_ids": [
         "transport",
-        "engineeringMath"
+        "engineeringMath",
+        "mit-ocw-transport-reaction-diffusion"
       ],
       "lessons": [
         {
@@ -558,10 +676,12 @@
             "transport-2-objective-1",
             "transport-2-objective-2"
           ],
-          "worked_example": "If D=2×10⁻⁹ m²/s and L=200 μm, td≈L²/D=20 s, before reaction or geometry corrections.",
+          "worked_example": "For D=2×10⁻⁹ m²/s, L=200 μm and first-order k=0.05 s⁻¹, tD≈L²/D=20 s and tR≈1/k=20 s, so Da≈1. The reaction-diffusion length √(D/k)=200 μm matches the modeled distance. Diffusion and reaction are comparable here; this scale check does not replace a geometry-specific profile.",
           "question_ids": [
             "transport-2:check",
-            "transport-2:diffusion-time"
+            "transport-2:diffusion-time",
+            "transport-2:flux-direction",
+            "transport-2:regime"
           ],
           "card_ids": [
             "transport-1-0",
@@ -575,7 +695,9 @@
       "title": "Fluid mechanics and microvascular flow",
       "source_ids": [
         "transport",
-        "engineeringMath"
+        "engineeringMath",
+        "mit-ocw-transport-microfluidics",
+        "mit-ocw-transport-reynolds"
       ],
       "lessons": [
         {
@@ -586,10 +708,11 @@
             "transport-3-objective-1",
             "transport-3-objective-2"
           ],
-          "worked_example": "For water-like fluid with ρ=1000 kg/m³, U=1 mm/s, L=100 μm, and μ=10⁻³ Pa·s, Re=0.1.",
+          "worked_example": "For water-like fluid with ρ=1000 kg/m³, mean U=1 mm/s, specified L=100 μm, and μ=10⁻³ Pa·s, Re=0.1. In a separate rigid tube with R=0.50 mm, ℓ=0.10 m, μ=10⁻³ Pa·s and ΔP=100 Pa, Poiseuille flow gives Q≈2.45×10⁻⁸ m³/s. Halving the radius at the same pressure drop reduces the ideal Q sixteenfold; neither calculation validates the idealization for a compliant, branching microvascular bed.",
           "question_ids": [
             "transport-3:check",
-            "transport-3:poiseuille-flow"
+            "transport-3:poiseuille-flow",
+            "transport-3:reynolds-limits"
           ],
           "card_ids": [
             "transport-2-0",
@@ -603,7 +726,8 @@
       "title": "Heat transfer and coupled transport",
       "source_ids": [
         "transport",
-        "engineeringMath"
+        "engineeringMath",
+        "mit-ocw-transport-heat-transfer"
       ],
       "lessons": [
         {
@@ -614,10 +738,11 @@
             "transport-4-objective-1",
             "transport-4-objective-2"
           ],
-          "worked_example": "For a slab, conductive resistance is Rth=L/(kA); doubling thickness doubles resistance while doubling area halves it.",
+          "worked_example": "For a 0.020 m slab with k=0.50 W/(m·K) and A=0.10 m², Rcond=L/(kA)=0.40 K/W. With h=100 W/(m²·K) over the same area, Rconv=1/(hA)=0.10 K/W. At steady state the series resistance is 0.50 K/W, so a 50 K driving difference gives 100 W; the slab and fluid-film drops are 40 K and 10 K.",
           "question_ids": [
             "transport-4:check",
-            "transport-4:series-thermal-resistance"
+            "transport-4:series-thermal-resistance",
+            "transport-4:heat-transfer-modes"
           ],
           "card_ids": [
             "transport-3-0",
@@ -691,6 +816,46 @@
             "transport-6-card-2",
             "transport-6-card-3",
             "transport-6-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transport-module-16",
+      "title": "Energy balances on flowing systems: the steady-flow first law, Bernoulli and friction losses",
+      "source_ids": [
+        "transport",
+        "mit-ocw-transport-control-volume"
+      ],
+      "lessons": [
+        {
+          "id": "transport-16",
+          "title": "Energy balances on flowing systems: the steady-flow first law, Bernoulli and friction losses",
+          "reading": "modules/16-steady-flow-energy-balances-bernoulli-and-friction-losses.md",
+          "objectives": [
+            "transport-16-objective-1",
+            "transport-16-objective-2",
+            "transport-16-objective-3"
+          ],
+          "worked_example": "A synthetic circuit carries medium at 20 mL/min through 1.5 m of 2.0 mm tubing (Re ≈ 212) with a 0.50 m lift. Warming it from 20 °C to 37 °C needs 23.7 W; the Poiseuille loss is 1.27 kPa, the total 6.18 kPa needs 2.06 mW of hydraulic power and 8.24 mW of pump input at 25% efficiency, about three thousand times less than the heater.",
+          "question_ids": [
+            "transport-16:stream-heating",
+            "transport-16:feed-height",
+            "transport-16:efflux-speed",
+            "transport-16:constriction-drop",
+            "transport-16:poiseuille-loss",
+            "transport-16:tubing-reynolds",
+            "transport-16:pump-hydraulic-power",
+            "transport-16:viscous-heating",
+            "transport-16:bernoulli-validity",
+            "transport-16:dominant-term",
+            "transport-16:pump-work-sign"
+          ],
+          "card_ids": [
+            "transport-16-card-1",
+            "transport-16-card-2",
+            "transport-16-card-3",
+            "transport-16-card-4"
           ]
         }
       ]
@@ -988,6 +1153,79 @@
           ]
         }
       ]
+    },
+    {
+      "id": "transport-module-14",
+      "title": "Entropy balances and irreversibility",
+      "source_ids": [
+        "transport-entropy-thermo"
+      ],
+      "lessons": [
+        {
+          "id": "transport-14",
+          "title": "Entropy balances and irreversibility",
+          "reading": "modules/14-entropy-balances-and-irreversibility.md",
+          "objectives": [
+            "transport-14-objective-1",
+            "transport-14-objective-2",
+            "transport-14-objective-3"
+          ],
+          "worked_example": "For an adiabatic steady-flow device with one inlet and outlet at 0.10 kg/s and specific entropies 2.0 and 2.3 kJ/(kg·K), the stream balance requires entropy generation of 0.10(2.3−2.0)=0.03 kW/K. The positive value satisfies the second law for the stipulated example; no real device or fluid is represented.",
+          "question_ids": [
+            "transport-14:closed-entropy",
+            "transport-14:transfer-vs-generation",
+            "transport-14:reservoir-generation",
+            "transport-14:steady-flow-generation",
+            "transport-14:negative-generation",
+            "transport-14:absolute-temperature",
+            "transport-14:adiabatic-closed",
+            "transport-14:energy-vs-entropy"
+          ],
+          "card_ids": [
+            "transport-14-card-1",
+            "transport-14-card-2",
+            "transport-14-card-3",
+            "transport-14-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transport-module-15",
+      "title": "Chemical potential and reaction equilibrium",
+      "source_ids": [
+        "mit-ocw-transport-chemical-potential"
+      ],
+      "lessons": [
+        {
+          "id": "transport-15",
+          "title": "Chemical potential and reaction equilibrium",
+          "reading": "modules/15-chemical-potential-and-reaction-equilibrium.md",
+          "objectives": [
+            "transport-15-objective-1",
+            "transport-15-objective-2",
+            "transport-15-objective-3"
+          ],
+          "worked_example": "At 298 K, K=4 for ideal A⇌B gives ΔrG°=−3.43 kJ/mol. At activities aA=1 and aB=0.20, ΔrG=−7.43 kJ/mol; a closed 1.20 mM batch reaches [A]=0.24 mM and [B]=0.96 mM at equilibrium.",
+          "question_ids": [
+            "transport-15:standard-free-energy",
+            "transport-15:current-reaction-free-energy",
+            "transport-15:equilibrium-a",
+            "transport-15:quotient",
+            "transport-15:activity-change",
+            "transport-15:equilibrium-condition",
+            "transport-15:equilibrium-vs-rate",
+            "transport-15:direction",
+            "transport-15:assumptions"
+          ],
+          "card_ids": [
+            "transport-15-card-1",
+            "transport-15-card-2",
+            "transport-15-card-3",
+            "transport-15-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -998,13 +1236,38 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "transport-1-objective-1",
-        "transport-1-objective-2"
+        "transport-1-objective-2",
+        "transport-outcome-1"
       ],
       "question_ids": [
         "transport-1:check",
-        "transport-1:accumulation-rate"
+        "transport-1:accumulation-rate",
+        "transport-1:energy-balance"
       ],
-      "points": 2
+      "points": 3
+    },
+    {
+      "id": "transport-14-practice",
+      "type": "practice",
+      "mode": "practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "transport-14-objective-1",
+        "transport-14-objective-2",
+        "transport-14-objective-3",
+        "transport-outcome-5"
+      ],
+      "question_ids": [
+        "transport-14:closed-entropy",
+        "transport-14:transfer-vs-generation",
+        "transport-14:reservoir-generation",
+        "transport-14:steady-flow-generation",
+        "transport-14:negative-generation",
+        "transport-14:absolute-temperature",
+        "transport-14:adiabatic-closed",
+        "transport-14:energy-vs-entropy"
+      ],
+      "points": 8
     },
     {
       "id": "transport-2-practice",
@@ -1013,13 +1276,17 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "transport-2-objective-1",
-        "transport-2-objective-2"
+        "transport-2-objective-2",
+        "transport-outcome-2",
+        "transport-outcome-4"
       ],
       "question_ids": [
         "transport-2:check",
-        "transport-2:diffusion-time"
+        "transport-2:diffusion-time",
+        "transport-2:flux-direction",
+        "transport-2:regime"
       ],
-      "points": 2
+      "points": 4
     },
     {
       "id": "transport-3-practice",
@@ -1028,13 +1295,16 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "transport-3-objective-1",
-        "transport-3-objective-2"
+        "transport-3-objective-2",
+        "transport-outcome-3",
+        "transport-outcome-4"
       ],
       "question_ids": [
         "transport-3:check",
-        "transport-3:poiseuille-flow"
+        "transport-3:poiseuille-flow",
+        "transport-3:reynolds-limits"
       ],
-      "points": 2
+      "points": 3
     },
     {
       "id": "transport-4-practice",
@@ -1043,13 +1313,16 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "transport-4-objective-1",
-        "transport-4-objective-2"
+        "transport-4-objective-2",
+        "transport-outcome-1",
+        "transport-outcome-4"
       ],
       "question_ids": [
         "transport-4:check",
-        "transport-4:series-thermal-resistance"
+        "transport-4:series-thermal-resistance",
+        "transport-4:heat-transfer-modes"
       ],
-      "points": 2
+      "points": 3
     },
     {
       "id": "transport-5-practice",
@@ -1308,6 +1581,60 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "transport-15-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Chemical potential and reaction equilibrium practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "transport-15-objective-1",
+        "transport-15-objective-2",
+        "transport-15-objective-3",
+        "transport-outcome-6"
+      ],
+      "question_ids": [
+        "transport-15:standard-free-energy",
+        "transport-15:current-reaction-free-energy",
+        "transport-15:equilibrium-a",
+        "transport-15:quotient",
+        "transport-15:activity-change",
+        "transport-15:equilibrium-condition",
+        "transport-15:equilibrium-vs-rate",
+        "transport-15:direction",
+        "transport-15:assumptions"
+      ],
+      "points": 9
+    },
+    {
+      "id": "transport-16-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Steady-flow energy balances practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "transport-16-objective-1",
+        "transport-16-objective-2",
+        "transport-16-objective-3",
+        "transport-outcome-1",
+        "transport-outcome-3",
+        "transport-outcome-4"
+      ],
+      "question_ids": [
+        "transport-16:stream-heating",
+        "transport-16:feed-height",
+        "transport-16:efflux-speed",
+        "transport-16:constriction-drop",
+        "transport-16:poiseuille-loss",
+        "transport-16:tubing-reynolds",
+        "transport-16:pump-hydraulic-power",
+        "transport-16:viscous-heating",
+        "transport-16:bernoulli-validity",
+        "transport-16:dominant-term",
+        "transport-16:pump-work-sign"
+      ],
+      "points": 11
     }
   ],
   "grading_policy": {
@@ -1367,19 +1694,65 @@
       "version": "0.4.0",
       "date": "2026-10-08",
       "summary": "Added a proposed 14-week schedule; seven original lessons (residence time, wash-in and washout; transient diffusion and the error function; advection, diffusion and the Péclet number; oxygen in a spheroid with an anoxic core; Michaelis–Menten uptake and the limits of zero order; lumped heat transfer and the Biot number; and a perfused construct with a hypoxic center, which prepares the course case); and a synthetic-data lab on oxygen depth profiles in slabs. No new references were added. All activities remain ungraded practice; the package remains partial and unreviewed, gives no laboratory protocol or handling procedure, and makes no claim about any tissue, device or process."
+    },
+    {
+      "version": "0.4.1",
+      "date": "2026-10-10",
+      "summary": "Expanded week 1 with control-volume selection, species and total-mass balances, transient versus steady state, residence time, reaction terms, and an open-system energy balance. Mapped both objectives and the assessment to outcome 1; added a signed steady-flow energy calculation while preserving the existing concentration and mass-accumulation questions. MIT OpenCourseWare Unified Engineering control-volume notes are a link-only reference. Three compact readings remain in weeks 3, 9 and 12; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.2",
+      "date": "2026-10-10",
+      "summary": "Expanded week 3 with Fickian flux, transient diffusion, boundary conditions, diffusion and reaction clocks, the Damköhler number, reaction-diffusion length, and model limits. Mapped the objectives to outcomes 2 and 4, corrected the preserved diffusion-time objective association, and added direct practice for flux direction and regime comparison. Existing numeric prompts and keys remain unchanged. MIT OpenCourseWare 10.37 Lecture 20 is a link-only reference. Two compact readings remain in weeks 9 and 12; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.3",
+      "date": "2026-10-10",
+      "summary": "Expanded week 9 with Reynolds scaling, characteristic lengths, fully developed Poiseuille flow, radius sensitivity, network resistance, entrance effects and microvascular model limits. Mapped the objectives to outcomes 3 and 4, and added direct practice interpreting Reynolds-number limits while preserving the existing numeric prompts and keys. MIT OpenCourseWare microfluidics and fluid-mechanics materials are link-only references. One compact reading remains in week 12; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.4",
+      "date": "2026-10-10",
+      "summary": "Expanded week 12 with heat-transfer modes and rate laws, steady thermal-resistance networks, transient energy storage, lumped-capacitance assumptions, Biot and Fourier numbers, and model limits. Mapped the objectives to outcomes 1 and 4, reassociated the preserved slab-resistance check with its resistance objective, and added direct practice comparing mechanisms; existing numeric prompts and keys remain unchanged. MIT OpenCourseWare 2.51 readings are link-only. All four former compact readings now have expanded instruction. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.5",
+      "date": "2026-10-10",
+      "summary": "Added an inactive steady heat-generation slab project with a symmetric boundary-value derivation, convection energy balance, Biot-number check and Simpson-rule average-temperature cross-check. The paper exercise uses synthetic values and is not real process guidance; the course remains partial and formative-only."
+    },
+    {
+      "version": "0.4.6",
+      "date": "2026-10-11",
+      "summary": "Added original instruction on closed-system and steady-flow entropy balances, entropy transfer and nonnegative entropy generation, with synthetic heat-transfer examples and explicit limits. Eight formative items and four retrieval cards are grouped with the existing week-1 control-volume lesson. The package remains partial, unreviewed and ungraded."
+    },
+    {
+      "version": "0.4.7",
+      "date": "2026-10-11",
+      "summary": "Added one original chemical-potential and reaction-equilibrium lesson to the week-1 thermodynamic foundation, with nine formative items and four retrieval cards. The lesson addresses a scope gap against MIT OCW 20.110J while preserving the proposed 14-week schedule. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.8",
+      "date": "2026-10-13",
+      "summary": "The syllabus outcome list now quotes the manifest's course outcomes exactly; the newest outcome had been paraphrased. The syllabus also links the existing inactive heat-generation slab project draft, which it had omitted. No lesson, item, key or card changed. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.9",
+      "date": "2026-10-13",
+      "summary": "Grouped an original steady-flow energy-balance reading with the week-10 perfusion-tubing lesson: the open-system first law and stream heating, Bernoulli's equation for hydrostatic feed, efflux and constrictions, and the mechanical energy balance with Poiseuille friction losses, pump power and viscous heating. Added three objectives, eleven formative items and four cards, with no week added, and corrected a stale limitation count (76 rather than 71 numerical answers before this release). The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "Four compact legacy units are preserved beside ten original readings, including one synthetic-data virtual lab; this package is not equivalent to a full university semester.",
-    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm, cumulative final, or graded integrative project.",
-    "Practice items are short formative checks (two per prototype unit and five to eight per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
+    "All four former compact legacy readings now have expanded instruction beside original lessons, including one synthetic-data virtual lab; this package is not equivalent to a full university semester.",
+    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm or cumulative final. An inactive integrative project draft is not scheduled or graded.",
+    "Practice items are short formative checks (two to four per expanded prototype unit and five to eleven per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
-    "Of the 67 numerical answers in this package, 27 require a unit, none checks significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
+    "Of the 84 numerical answers in this package, 28 require a unit, none checks significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
     "Total workload and weekly duration are unknown; former nominal credit values and hardcoded reading times do not establish workload.",
-    "All constructs, solutes, cells and numbers are synthetic teaching examples; this package gives no laboratory protocols, handling procedures or medical advice and says nothing about any real tissue, device or process. The formulas are first-order textbook estimates, not design methods."
+    "All constructs, solutes, cells and numbers are synthetic teaching examples; this package gives no laboratory protocols, handling procedures or medical advice and says nothing about any real tissue, device or process. The formulas are first-order textbook estimates, not design methods.",
+    "Chemical-potential coverage is restricted to one ideal dilute A⇌B reaction at fixed temperature; ionic electrochemical potentials, coupled reactions, nonideal solutions and phase equilibrium remain outside the authored sequence."
   ],
   "intentionally_omitted": [
-    "Graded assessments and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package."
+    "Graded assessments, an activated integrative project and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package."
   ]
 }

@@ -3704,6 +3704,787 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "circuits-1:nodal-node",
+      "type": "numeric",
+      "prompt": "A node v connects to 12 V through 2 kΩ, to ground through 4 kΩ, and to 6 V through 3 kΩ. Use KCL to solve for v. Enter a value and unit.",
+      "points": 1,
+      "objective_ids": [
+        "circuits-1-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 7.384615384615385,
+        "unit": "V",
+        "tolerance": 0.01,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Set the sum of currents leaving the node to zero: (v−12)/2 kΩ + v/4 kΩ + (v−6)/3 kΩ = 0.",
+        "solution": "The total conductance is 1/2+1/4+1/3=13/12 mS and the source-current sum is 12/2+6/3=8 mA, so v=8/(13/12)=96/13≈7.385 V.",
+        "lesson_ids": [
+          "circuits-1"
+        ],
+        "misconception_ids": [
+          "kcl-sign-error"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct formative practice applying nodal analysis to a three-branch network."
+        ]
+      }
+    },
+    {
+      "id": "circuits-3:anti-alias-filter",
+      "type": "single_choice",
+      "prompt": "A sensor signal of interest extends to 150 Hz, but the analog input may also contain higher-frequency components. What additional step is needed before sampling at 300 samples/s?",
+      "options": [
+        "Use an analog low-pass anti-alias filter before the converter to attenuate content above the measurement band.",
+        "Rely on the Nyquist condition to remove any analog content above 150 Hz after sampling.",
+        "Apply a digital low-pass filter after sampling; it can separate aliased components from in-band signal.",
+        "Increase the converter bit depth, which prevents frequency aliasing."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "circuits-3-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Nyquist assumes the input is band-limited; it does not filter the analog signal.",
+        "solution": "An analog anti-alias filter must attenuate components above the desired band before sampling. A component that has already aliased during conversion cannot generally be identified and removed by a later digital filter.",
+        "lesson_ids": [
+          "circuits-3"
+        ],
+        "misconception_ids": [
+          "aliasing-after-sampling"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct formative practice distinguishing the Nyquist condition from analog anti-alias filtering."
+        ]
+      }
+    },
+    {
+      "id": "circuits-14:natural-frequency",
+      "type": "numeric",
+      "prompt": "A series RLC circuit has L=10 mH and C=10 μF. What is its undamped natural frequency in Hz? Enter the value and unit.",
+      "points": 1,
+      "objective_ids": [
+        "circuits-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 503.3,
+        "unit": "Hz",
+        "tolerance": 0.6,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Compute ω₀=1/√(LC), then divide by 2π to obtain cycles per second.",
+        "solution": "ω₀=1/√((0.010 H)(10×10⁻⁶ F))=3162.3 rad/s, so f₀=ω₀/(2π)=503.3 Hz.",
+        "lesson_ids": [
+          "circuits-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice on the natural frequency of a series RLC circuit."
+        ]
+      }
+    },
+    {
+      "id": "circuits-14:damping-ratio",
+      "type": "numeric",
+      "prompt": "For a series RLC circuit with R=20 Ω, L=10 mH and C=10 μF, what is the damping ratio ζ? Enter a dimensionless value.",
+      "points": 1,
+      "objective_ids": [
+        "circuits-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.3162,
+        "unit": "",
+        "tolerance": 0.0032,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use ζ=(R/2)√(C/L) with L and C in SI units.",
+        "solution": "ζ=(20/2)√((10×10⁻⁶)/(0.010))=0.3162, which is less than 1 and therefore underdamped in this model.",
+        "lesson_ids": [
+          "circuits-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice on second-order damping."
+        ]
+      }
+    },
+    {
+      "id": "circuits-14:transient-current",
+      "type": "numeric",
+      "prompt": "A positive 1.0 V step is applied to an initially uncharged series RLC circuit with R=20 Ω, L=10 mH and C=10 μF; initial current is zero. Using ωd=3000 rad/s and α=1000 s⁻¹, what is the current at t=0.50 ms in mA? Enter the value and unit.",
+      "points": 1,
+      "objective_ids": [
+        "circuits-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 20.17,
+        "unit": "mA",
+        "tolerance": 0.2,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Substitute into i(t)=Vs/(Lωd)e⁻ᵅᵗsin(ωdt), keeping the positive current reference from source through the series elements.",
+        "solution": "i=(1.0/((0.010)(3000)))e⁻⁰·⁵sin(1.5)=0.020167 A=20.17 mA. The positive result is consistent with the chosen current reference and positive step.",
+        "lesson_ids": [
+          "circuits-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice on a damped series-RLC step response with a stated sign convention."
+        ]
+      }
+    },
+    {
+      "id": "circuits-14:impedance-magnitude",
+      "type": "numeric",
+      "prompt": "At 250 Hz, a series circuit has R=20 Ω, L=10 mH and C=10 μF. What is the impedance magnitude in Ω? Enter the value and unit.",
+      "points": 1,
+      "objective_ids": [
+        "circuits-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 51.96,
+        "unit": "Ω",
+        "tolerance": 0.52,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Find X=2πfL−1/(2πfC), then calculate |Z|=√(R²+X²).",
+        "solution": "At 250 Hz, X≈15.71−63.66=−47.95 Ω. Thus |Z|=√(20²+(−47.95)²)≈51.96 Ω.",
+        "lesson_ids": [
+          "circuits-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice on the magnitude of series-RLC impedance below resonance."
+        ]
+      }
+    },
+    {
+      "id": "circuits-14:capacitor-energy",
+      "type": "numeric",
+      "prompt": "A 10 μF capacitor has 1.0 V across it. What energy is stored, in joules? Enter the value and unit.",
+      "points": 1,
+      "objective_ids": [
+        "circuits-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 5e-06,
+        "unit": "J",
+        "tolerance": 5e-08,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use E_C=½CV² and express capacitance in farads.",
+        "solution": "E_C=½(10×10⁻⁶ F)(1.0 V)²=5.0×10⁻⁶ J.",
+        "lesson_ids": [
+          "circuits-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice on energy stored in an RLC capacitor state."
+        ]
+      }
+    },
+    {
+      "id": "circuits-14:quality-factor",
+      "type": "numeric",
+      "prompt": "For the series RLC values R=20 Ω, L=10 mH and C=10 μF, what is the series quality factor Q at resonance? Enter a dimensionless value.",
+      "points": 1,
+      "objective_ids": [
+        "circuits-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 1.581,
+        "unit": "",
+        "tolerance": 0.016,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use Q=ω₀L/R or Q=1/(2ζ).",
+        "solution": "Q=(3162.3 rad/s)(0.010 H)/(20 Ω)=1.581, equal to 1/(2×0.3162) within rounding.",
+        "lesson_ids": [
+          "circuits-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice on series quality factor and damping."
+        ]
+      }
+    },
+    {
+      "id": "circuits-14:phase-sign",
+      "type": "single_choice",
+      "prompt": "In the constructed series circuit, 250 Hz is below resonance. With X=ωL−1/(ωC), which phase statement is correct?",
+      "options": [
+        "X is negative, impedance phase is negative, and source current leads the source voltage.",
+        "X is negative, impedance phase is positive, and source current lags the source voltage.",
+        "X is positive, impedance phase is negative, and source current leads the source voltage.",
+        "X is zero, so current and voltage are in phase at every frequency."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "circuits-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Below resonance, compare inductive reactance ωL with capacitive reactance 1/(ωC); current phase is the negative of impedance phase.",
+        "solution": "At 250 Hz the net reactance is capacitive, so X<0 and impedance phase is negative. Since I=V/Z, current leads the voltage source.",
+        "lesson_ids": [
+          "circuits-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added original conceptual practice checking reactance and phase signs."
+        ]
+      }
+    },
+    {
+      "id": "circuits-14:resonance-steady-state",
+      "type": "single_choice",
+      "prompt": "For an ideal series RLC circuit driven by a fixed-amplitude sinusoidal source at resonance, which statement is correct when R>0?",
+      "options": [
+        "XL and XC cancel, impedance is R, and current is in phase with the source and finite.",
+        "XL and XC add, impedance is infinite, and current is zero.",
+        "Current is 90° ahead of the source and grows without bound for any nonzero R.",
+        "The capacitor becomes an open circuit at all AC frequencies, so resonance cannot occur."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "circuits-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "At resonance, ωL=1/(ωC); evaluate the remaining series impedance.",
+        "solution": "The reactive terms cancel, leaving Z=R. It is real, so current is in phase with voltage; for R>0 the current is finite and maximal for the stated fixed source amplitude.",
+        "lesson_ids": [
+          "circuits-14"
+        ],
+        "misconception_ids": [
+          "ideal-resonance-is-infinite-for-nonzero-resistance"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added original conceptual practice on series-resonance steady state."
+        ]
+      }
+    },
+    {
+      "id": "circuits-14:step-steady-state",
+      "type": "single_choice",
+      "prompt": "After a DC voltage step has settled in an ideal series RLC circuit with an initially uncharged capacitor, what is the long-time state?",
+      "options": [
+        "The capacitor holds approximately the source voltage, the inductor has zero voltage, and series current is zero.",
+        "The capacitor voltage is zero and a constant current continues through the series circuit.",
+        "The inductor voltage equals the source and the resistor dissipates constant power indefinitely.",
+        "The sinusoidal steady-state resonance condition forces a perpetual AC current."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "circuits-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "At DC after settling, consider the inductor and capacitor limits and the series path.",
+        "solution": "The ideal inductor has zero steady voltage and the capacitor is fully charged to the source, so the series current is zero. The preceding underdamped transient decays because R dissipates stored energy.",
+        "lesson_ids": [
+          "circuits-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added original conceptual practice on DC long-time behavior after an RLC step."
+        ]
+      }
+    },
+    {
+      "id": "circuits-15:summing-output",
+      "type": "numeric",
+      "prompt": "An ideal inverting summing amplifier has R_f = 50 kΩ, R₁ = 10 kΩ and R₂ = 25 kΩ. The inputs are V₁ = +0.10 V and V₂ = +0.30 V. What is the output in volts? Enter the value and unit.",
+      "points": 1,
+      "objective_ids": [
+        "circuits-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": -1.1,
+        "unit": "V",
+        "tolerance": 0.01,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Add the input currents V_k/R_k at the virtual ground, then multiply by −R_f.",
+        "solution": "I₁ = 0.10/10 kΩ = 10 μA and I₂ = 0.30/25 kΩ = 12 μA. V_out = −50 kΩ × 22 μA = −1.10 V.",
+        "lesson_ids": [
+          "circuits-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice on op-amp summing, integrating, differentiating and active filtering."
+        ]
+      }
+    },
+    {
+      "id": "circuits-15:summing-isolation",
+      "type": "single_choice",
+      "prompt": "In an ideal inverting summing amplifier, why does changing V₁ leave the current drawn from the V₂ source unchanged?",
+      "options": [
+        "The inverting input is held at virtual ground, so each input current depends only on its own voltage and resistor",
+        "The feedback resistor blocks current from the other inputs",
+        "Each input resistor is connected to a separate op amp",
+        "The output voltage is fixed by the supply rails"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "circuits-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Find the voltage at the node every input resistor connects to.",
+        "solution": "Feedback holds the shared node at reference, so the current through R₂ is V₂/R₂ whatever V₁ does. The currents simply add in R_f, which is why the summer obeys superposition.",
+        "lesson_ids": [
+          "circuits-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice on op-amp summing, integrating, differentiating and active filtering."
+        ]
+      }
+    },
+    {
+      "id": "circuits-15:integrator-ramp",
+      "type": "numeric",
+      "prompt": "An ideal inverting integrator has R = 200 kΩ and C = 0.5 μF, and its output starts at 0 V. A constant +0.25 V is applied. What is the output after 0.30 s, in volts? Enter the value and unit.",
+      "points": 1,
+      "objective_ids": [
+        "circuits-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": -0.75,
+        "unit": "V",
+        "tolerance": 0.01,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The output slope is −V_in/(RC).",
+        "solution": "RC = 0.10 s, so the slope is −0.25/0.10 = −2.5 V/s and the output after 0.30 s is −0.75 V, assuming it stays within range.",
+        "lesson_ids": [
+          "circuits-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice on op-amp summing, integrating, differentiating and active filtering."
+        ]
+      }
+    },
+    {
+      "id": "circuits-15:integrator-offset-drift",
+      "type": "numeric",
+      "prompt": "An ideal integrator with RC = 0.10 s and no DC feedback path sees a constant 2 mV input offset and no signal. Its output starts at 0 V and saturates at a magnitude of 10 V. After how many seconds does it saturate? Enter the value and unit.",
+      "points": 1,
+      "objective_ids": [
+        "circuits-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 500,
+        "unit": "s",
+        "tolerance": 2,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The offset is integrated like a signal: ramp rate = offset/RC.",
+        "solution": "The ramp rate is 0.002/0.10 = 0.02 V/s, so reaching 10 V takes 10/0.02 = 500 s.",
+        "lesson_ids": [
+          "circuits-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice on op-amp summing, integrating, differentiating and active filtering."
+        ]
+      }
+    },
+    {
+      "id": "circuits-15:lossy-integrator-corner",
+      "type": "numeric",
+      "prompt": "A lossy integrator adds R_f = 1 MΩ in parallel with its 0.1 μF feedback capacitor. Above what corner frequency does it behave as an integrator? Enter the value in Hz.",
+      "points": 1,
+      "objective_ids": [
+        "circuits-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 1.5915,
+        "unit": "Hz",
+        "tolerance": 0.02,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The corner is where R_f and the capacitor's reactance are equal: 1/(2πR_fC).",
+        "solution": "f = 1/(2π × 10⁶ Ω × 10⁻⁷ F) = 1/(0.2π) = 1.59 Hz.",
+        "lesson_ids": [
+          "circuits-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice on op-amp summing, integrating, differentiating and active filtering."
+        ]
+      }
+    },
+    {
+      "id": "circuits-15:differentiator-output",
+      "type": "numeric",
+      "prompt": "An ideal differentiator has R = 10 kΩ and C = 100 nF. Its input rises steadily at +50 V/s. What is the output in millivolts? Enter the value and unit.",
+      "points": 1,
+      "objective_ids": [
+        "circuits-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": -50,
+        "unit": "mV",
+        "tolerance": 0.5,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "V_out = −RC dV_in/dt.",
+        "solution": "RC = 10⁴ × 10⁻⁷ = 1 ms, so V_out = −0.001 s × 50 V/s = −0.050 V = −50 mV.",
+        "lesson_ids": [
+          "circuits-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice on op-amp summing, integrating, differentiating and active filtering."
+        ]
+      }
+    },
+    {
+      "id": "circuits-15:differentiator-gain",
+      "type": "numeric",
+      "prompt": "For the same ideal differentiator (RC = 1 ms), what is the gain magnitude at 20 kHz? Enter the dimensionless value.",
+      "points": 1,
+      "objective_ids": [
+        "circuits-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 125.66,
+        "unit": "",
+        "tolerance": 0.5,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The gain magnitude is 2πfRC.",
+        "solution": "2π × 20,000 × 0.001 = 125.7. Noise at that frequency is amplified more than a hundredfold.",
+        "lesson_ids": [
+          "circuits-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice on op-amp summing, integrating, differentiating and active filtering."
+        ]
+      }
+    },
+    {
+      "id": "circuits-15:differentiator-noise",
+      "type": "single_choice",
+      "prompt": "Why does a practical op-amp differentiator add a resistor in series with its input capacitor?",
+      "options": [
+        "To cap the gain at high frequency, where the ideal differentiator would amplify noise without limit and tend to ring",
+        "To make the output non-inverting",
+        "To provide a DC path for the input offset so it integrates",
+        "To raise the gain at low frequency"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "circuits-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Look at how the ideal differentiator's gain changes with frequency.",
+        "solution": "The ideal gain 2πfRC rises without bound, so wideband noise dominates and the loop can ring. A series R_s limits the high-frequency gain to R/R_s above 1/(2πR_sC).",
+        "lesson_ids": [
+          "circuits-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice on op-amp summing, integrating, differentiating and active filtering."
+        ]
+      }
+    },
+    {
+      "id": "circuits-15:active-lowpass-magnitude",
+      "type": "numeric",
+      "prompt": "An inverting active low-pass has R_in = 4.7 kΩ, R_f = 47 kΩ and C_f = 2.2 nF across R_f. What is its gain magnitude at 5 kHz? Enter the dimensionless value.",
+      "points": 1,
+      "objective_ids": [
+        "circuits-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 2.942,
+        "unit": "",
+        "tolerance": 0.02,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Find f_c = 1/(2πR_fC_f), then |H| = (R_f/R_in)/√(1 + (f/f_c)²).",
+        "solution": "f_c = 1/(2π × 47 kΩ × 2.2 nF) = 1539 Hz. |H| = 10/√(1 + (5000/1539)²) = 10/3.40 = 2.94.",
+        "lesson_ids": [
+          "circuits-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice on op-amp summing, integrating, differentiating and active filtering."
+        ]
+      }
+    },
+    {
+      "id": "circuits-15:sallen-key-frequency",
+      "type": "numeric",
+      "prompt": "A unity-gain Sallen–Key low-pass has R₁ = R₂ = 10 kΩ, C₁ = 40 nF (to the output) and C₂ = 10 nF (to reference). What is its natural frequency f₀ in Hz? Enter the value and unit.",
+      "points": 1,
+      "objective_ids": [
+        "circuits-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 795.77,
+        "unit": "Hz",
+        "tolerance": 1,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "f₀ = 1/(2πR√(C₁C₂)) when the resistors are equal.",
+        "solution": "√(40 nF × 10 nF) = 20 nF, so f₀ = 1/(2π × 10 kΩ × 20 nF) = 796 Hz.",
+        "lesson_ids": [
+          "circuits-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice on op-amp summing, integrating, differentiating and active filtering."
+        ]
+      }
+    },
+    {
+      "id": "circuits-15:sallen-key-q",
+      "type": "numeric",
+      "prompt": "For the same Sallen–Key stage (C₁ = 40 nF, C₂ = 10 nF, equal resistors), what is its quality factor Q? Enter the dimensionless value.",
+      "points": 1,
+      "objective_ids": [
+        "circuits-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 1.0,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Q = ½√(C₁/C₂) for equal resistors at unity gain.",
+        "solution": "Q = ½√4 = 1.0, above the Butterworth value of 0.707, so the response peaks slightly near f₀.",
+        "lesson_ids": [
+          "circuits-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice on op-amp summing, integrating, differentiating and active filtering."
+        ]
+      }
+    },
+    {
+      "id": "circuits-15:gbw-bandwidth",
+      "type": "numeric",
+      "prompt": "An inverting amplifier has R_in = 10 kΩ and R_f = 40 kΩ. The op amp follows a single-pole model with a gain-bandwidth product of 2 MHz. What is the approximate closed-loop bandwidth in kHz? Enter the value and unit.",
+      "points": 1,
+      "objective_ids": [
+        "circuits-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 400,
+        "unit": "kHz",
+        "tolerance": 5,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Divide the gain-bandwidth product by the noise gain 1 + R_f/R_in, not by the signal gain.",
+        "solution": "The noise gain is 1 + 40/10 = 5, so the bandwidth is about 2 MHz/5 = 400 kHz.",
+        "lesson_ids": [
+          "circuits-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice on op-amp summing, integrating, differentiating and active filtering."
+        ]
+      }
+    },
+    {
+      "id": "circuits-15:active-filter-loading",
+      "type": "single_choice",
+      "prompt": "A passive RC low-pass shifts its corner when a 1 kΩ load is attached, but an ideal inverting active low-pass with the same load does not. Why?",
+      "options": [
+        "The op amp's output impedance is ideally near zero, so the load draws current without changing the network that sets the transfer function",
+        "The active filter's capacitor is larger",
+        "The load is connected to the virtual ground",
+        "The active filter has no corner frequency"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "circuits-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Ask which components set H in each circuit and whether the load is one of them.",
+        "solution": "In the active stage H depends only on R_in, R_f and C_f around the virtual ground; the output drives the load. In the passive network the load parallels the capacitor and changes H, within the op amp's output-current and swing limits.",
+        "lesson_ids": [
+          "circuits-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice on op-amp summing, integrating, differentiating and active filtering."
+        ]
+      }
     }
   ]
 }

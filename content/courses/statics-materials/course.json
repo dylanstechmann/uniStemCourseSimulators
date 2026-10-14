@@ -7,14 +7,20 @@
   "domain": "Mechanical engineering",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.4.0",
+  "version": "0.4.8",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
     "source_path": "src/data/courses.js",
     "source_sha256": "a77a7cb7f5be2ffa12068877042ac775c6d9b79b83ac2f316fe4f26a0d3d783b",
     "migration_version": "1.0",
-    "modifications": []
+    "modifications": [
+      "Expanded week 1 with free-body diagram boundaries, pin/roller/fixed support models, planar force and moment equations, simply supported beam reactions, distributed-load resultants, and determinacy and unit checks. Clarified both objectives and linked them and the unchanged practice assessment to outcome 1.",
+      "Expanded week 3 with average axial stress, engineering strain, uniaxial Hooke's law, elastic extension and stiffness, segmented-bar reasoning, unit checks, and explicit geometry, boundary-condition, material-response and small-strain limits. Clarified both objectives and linked them and the unchanged practice assessment to outcomes 2 and 3. Added an MIT OpenCourseWare Mechanics & Materials I lecture-notes page as a link-only technical reference.",
+      "Expanded week 4 with elastic torsional shear in circular shafts, polar second moments for solid and hollow sections, elementary beam-bending stress and rectangular section moments, worked unit checks, geometry sensitivity, and explicit model boundaries. Clarified both objectives and linked them to outcomes 2 and 3. Corrected the preserved beam-bending check's objective association and added one formative torsion-stress calculation, giving both objectives direct practice evidence. Added an MIT OpenCourseWare Mechanics & Materials I lecture-notes page as a link-only technical reference.",
+      "Expanded week 8 with distinct yield, ultimate-strength, fracture, fatigue and functional-failure definitions; capacity-to-demand margin calculations; distinctions between strength and pre-factored allowables; and limitations of deterministic factors under uncertainty and cyclic service. Clarified both objectives and linked them and the unchanged-formative arithmetic checks to outcome 4. Corrected the existing factor-of-safety check's objective association and added a formative failure-criteria discrimination item. Added an MIT OpenCourseWare Mechanics & Materials I lecture-notes page as a link-only technical reference.",
+      "Extended week 3 with a synthetic parallel-bar compatibility example that combines equilibrium, shared displacement and elastic member stiffness; added a directly mapped objective, three formative checks and three retrieval cards. The schedule remains 14 weeks and examples remain synthetic, with no real-component design guidance."
+    ]
   },
   "prerequisites": {
     "course_ids": [
@@ -51,51 +57,80 @@
   "lesson_objectives": [
     {
       "id": "statics-materials-1-objective-1",
-      "description": "Isolate a body and include all external reactions.",
+      "description": "Draw a free-body diagram for a stated planar beam with external loads and reactions consistent with ideal support models.",
       "bloom": "understand",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "statics-materials-outcome-1"
+      ]
     },
     {
       "id": "statics-materials-1-objective-2",
-      "description": "Solve force and moment balance in 2D.",
+      "description": "Solve a determinate two-dimensional beam reaction problem using signed force and moment balance.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "statics-materials-outcome-1"
+      ]
     },
     {
       "id": "statics-materials-2-objective-1",
-      "description": "Compute normal stress and elastic extension.",
+      "description": "Compute average axial stress and estimate elastic extension for a stated uniform bar.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "statics-materials-outcome-2",
+        "statics-materials-outcome-3"
+      ]
     },
     {
       "id": "statics-materials-2-objective-2",
-      "description": "Check units and identify when a linear model applies.",
+      "description": "Check units and evaluate whether the stated geometry, boundary conditions, and material response support a linear-elastic axial estimate.",
       "bloom": "evaluate",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "statics-materials-outcome-3"
+      ]
+    },
+    {
+      "id": "statics-materials-2-objective-3",
+      "description": "Resolve load sharing in a redundant axial assembly using equilibrium, displacement compatibility, and elastic force–deformation relations.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statics-materials-outcome-1",
+        "statics-materials-outcome-2",
+        "statics-materials-outcome-3"
+      ]
     },
     {
       "id": "statics-materials-3-objective-1",
-      "description": "Relate torque to shear stress in a circular shaft.",
+      "description": "Calculate nominal elastic shear stress in a solid or hollow circular shaft from torque and section geometry.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "statics-materials-outcome-2",
+        "statics-materials-outcome-3"
+      ]
     },
     {
       "id": "statics-materials-3-objective-2",
-      "description": "Use bending moment to predict normal stress in a beam.",
+      "description": "Use bending moment and the correct area second moment to estimate extreme-fiber normal stress in a slender beam.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "statics-materials-outcome-2",
+        "statics-materials-outcome-3"
+      ]
     },
     {
       "id": "statics-materials-4-objective-1",
-      "description": "Distinguish yield, ultimate, fatigue, and functional failure.",
+      "description": "Distinguish yield, ultimate strength, fracture, fatigue, and functional failure as criteria under a stated load history and requirement.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "statics-materials-outcome-4"
+      ]
     },
     {
       "id": "statics-materials-4-objective-2",
-      "description": "Calculate and interpret a factor of safety.",
+      "description": "Calculate and interpret a capacity-to-demand factor for an explicitly stated failure criterion, distinguishing strength from pre-factored allowable.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "statics-materials-outcome-4"
+      ]
     },
     {
       "id": "statics-materials-5-objective-1",
@@ -358,35 +393,86 @@
         "statics-materials-outcome-3",
         "statics-materials-outcome-4"
       ]
+    },
+    {
+      "id": "statics-materials-14-objective-1",
+      "description": "Solve support reactions and section-resultant balance for a simply supported beam under distributed or concentrated transverse loading.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "statics-materials-outcome-1"
+      ]
+    },
+    {
+      "id": "statics-materials-14-objective-2",
+      "description": "Construct piecewise shear-force and bending-moment functions from cut-section equilibrium and load–shear–moment relationships; verify jumps and support conditions.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "statics-materials-outcome-1"
+      ]
+    },
+    {
+      "id": "statics-materials-14-objective-3",
+      "description": "Locate a candidate maximum bending moment and use a stated cross-section to estimate nominal elastic bending stress with consistent units and assumptions.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statics-materials-outcome-2",
+        "statics-materials-outcome-3"
+      ]
+    },
+    {
+      "id": "statics-materials-15-objective-1",
+      "description": "Use Poisson's ratio and the generalized Hooke's law to calculate normal strains from a multiaxial stress state, including lateral contraction and volume change.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "statics-materials-outcome-3"
+      ]
+    },
+    {
+      "id": "statics-materials-15-objective-2",
+      "description": "Calculate thermal strain, the stress in a fully or partly constrained member, and the stress induced by a lateral constraint.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "statics-materials-outcome-3"
+      ]
+    },
+    {
+      "id": "statics-materials-15-objective-3",
+      "description": "Derive and apply hoop and axial stresses in thin-walled cylinders and spheres, calculate the change in radius, and state when the thin-wall model applies.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statics-materials-outcome-2"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week undergraduate scope only. The four compact prototype units sit in weeks 1, 3, 4 and 8 beside original lessons on equilibrium in the body, a long bone in bending, beam deflection, combined stress, stress concentrations, buckling, fatigue and brittle strength; week 12 is a synthetic-data lab on fatigue lives and week 14 pairs a failure-analysis lesson with the course case. All activities are open, ungraded practice. There are no graded homework sets, exams or project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week undergraduate scope only. The opening week groups free-body diagrams with a short body-equilibrium application; week 2 develops beam load, shear, and moment diagrams before stress. The four compact prototype readings in weeks 1, 3, 4 and 8 now have expanded instruction beside original lessons on body equilibrium, beam loading, bone bending, beam deflection, combined stress, multiaxial strain and pressure vessels, stress concentrations, buckling, fatigue and brittle strength. Week 12 is a synthetic-data fatigue-life lab, and week 14 pairs failure analysis with the course case. All activities are open, ungraded practice. No graded homework sets, exams or project is present, and workload is unmeasured; this is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
-        "title": "Free-body diagrams and equilibrium",
+        "title": "Equilibrium: free-body diagrams and force/moment balance",
         "lesson_ids": [
-          "statics-materials-1"
-        ],
-        "assessment_ids": [
-          "statics-materials-1-practice"
-        ]
-      },
-      {
-        "week": 2,
-        "title": "Force and moment equilibrium in the body",
-        "lesson_ids": [
+          "statics-materials-1",
           "statics-materials-6"
         ],
         "assessment_ids": [
+          "statics-materials-1-practice",
           "statics-materials-6-practice"
         ]
       },
       {
+        "week": 2,
+        "title": "Distributed loads, shear force, and bending moment",
+        "lesson_ids": [
+          "statics-materials-14"
+        ],
+        "assessment_ids": [
+          "statics-materials-14-practice"
+        ]
+      },
+      {
         "week": 3,
-        "title": "Axial load, stress and strain",
+        "title": "Axial load, stress, strain, and compatibility",
         "lesson_ids": [
           "statics-materials-2"
         ],
@@ -426,12 +512,14 @@
       },
       {
         "week": 7,
-        "title": "Combined stress: principal stresses, Mohr's circle and yield criteria",
+        "title": "Combined stress and strain: principal stresses, Mohr's circle, yield, multiaxial Hooke's law and pressure vessels",
         "lesson_ids": [
-          "statics-materials-10"
+          "statics-materials-10",
+          "statics-materials-15"
         ],
         "assessment_ids": [
-          "statics-materials-10-practice"
+          "statics-materials-10-practice",
+          "statics-materials-15-practice"
         ]
       },
       {
@@ -518,7 +606,8 @@
       "title": "Free-body diagrams and equilibrium",
       "source_ids": [
         "solidMechanics",
-        "mechanics"
+        "mechanics",
+        "mit-ocw-statics-equilibrium"
       ],
       "lessons": [
         {
@@ -529,7 +618,7 @@
             "statics-materials-1-objective-1",
             "statics-materials-1-objective-2"
           ],
-          "worked_example": "A simply supported beam with a centered point load P has reactions P/2 at each support by symmetry and moment equilibrium.",
+          "worked_example": "A simply supported 4.0 m beam has a 200 N downward load 1.0 m from the left support. Taking moments there gives the right reaction as 200×1.0/4.0=50 N; vertical force balance then gives 150 N at the left support.",
           "question_ids": [
             "statics-materials-1:check",
             "statics-materials-1:reaction-force"
@@ -543,28 +632,36 @@
     },
     {
       "id": "statics-materials-module-2",
-      "title": "Axial load, stress, and strain",
+      "title": "Axial load, stress, strain, and compatibility",
       "source_ids": [
         "solidMechanics",
-        "mechanics"
+        "mechanics",
+        "mit-ocw-axial-materials"
       ],
       "lessons": [
         {
           "id": "statics-materials-2",
-          "title": "Axial load, stress, and strain",
+          "title": "Axial load, stress, strain, and compatibility",
           "reading": "modules/02-axial-load-stress-and-strain.md",
           "objectives": [
             "statics-materials-2-objective-1",
-            "statics-materials-2-objective-2"
+            "statics-materials-2-objective-2",
+            "statics-materials-2-objective-3"
           ],
-          "worked_example": "A 100 mm-long bar with A=10 mm², E=2 GPa, and F=20 N extends ΔL=0.1 mm under the simple axial model.",
+          "worked_example": "For a 100 mm uniform bar with A=10 mm², E=2 GPa=2,000 N/mm², and F=20 N, σ=F/A=2 MPa, ε=σ/E=0.001, and ΔL=εL=0.1 mm; equivalently, k=AE/L=200 N/mm and F/k=0.1 mm. In a separate synthetic parallel-bar assembly with equal 400 mm lengths and 100 mm² areas, moduli 200 and 100 GPa, and 30 kN total load, compatibility gives 0.4 mm common extension and a 20/10 kN force split. Both examples assume uniform linear-elastic axial behavior.",
           "question_ids": [
             "statics-materials-2:check",
-            "statics-materials-2:stress-units"
+            "statics-materials-2:stress-units",
+            "statics-materials-2:parallel-load-share",
+            "statics-materials-2:parallel-extension",
+            "statics-materials-2:compatibility-equation"
           ],
           "card_ids": [
             "statics-materials-1-0",
-            "statics-materials-1-1"
+            "statics-materials-1-1",
+            "statics-materials-2-card-1",
+            "statics-materials-2-card-2",
+            "statics-materials-2-card-3"
           ]
         }
       ]
@@ -585,10 +682,11 @@
             "statics-materials-3-objective-1",
             "statics-materials-3-objective-2"
           ],
-          "worked_example": "A circular shaft's maximum torsional shear occurs at its outer radius; doubling radius also changes J strongly, so geometry cannot be ignored.",
+          "worked_example": "For a 20 mm solid circular shaft under 12 N·m, J=πd⁴/32=1.571×10⁻⁸ m⁴ and τmax=Tc/J=7.64 MPa. For the preserved rectangular-beam example, b=0.050 m, h=0.100 m, M=500 N·m, I=bh³/12=4.167×10⁻⁶ m⁴, and σmax=Mc/I=6.00 MPa at the extreme fibers. Both results assume the stated ideal elastic models and consistent SI units.",
           "question_ids": [
             "statics-materials-3:check",
-            "statics-materials-3:bending-stress"
+            "statics-materials-3:bending-stress",
+            "statics-materials-3:torsion-stress"
           ],
           "card_ids": [
             "statics-materials-2-0",
@@ -613,10 +711,11 @@
             "statics-materials-4-objective-1",
             "statics-materials-4-objective-2"
           ],
-          "worked_example": "If a component's allowable load is 900 N and design load is 300 N under the stated model, the load factor is 3; the reliability meaning still depends on uncertainty and failure mode.",
+          "worked_example": "A synthetic member with stated capacity 900 N and modeled design demand 300 N has n=900/300=3 under the chosen failure criterion. The units cancel. This deterministic ratio is not a probability and does not account for omitted load, strength, or model uncertainty.",
           "question_ids": [
             "statics-materials-4:check",
-            "statics-materials-4:factor-of-safety"
+            "statics-materials-4:factor-of-safety",
+            "statics-materials-4:failure-criteria"
           ],
           "card_ids": [
             "statics-materials-3-0",
@@ -691,6 +790,44 @@
             "statics-materials-6-card-2",
             "statics-materials-6-card-3",
             "statics-materials-6-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "statics-materials-module-14",
+      "title": "Distributed loads, shear force, and bending moment",
+      "source_ids": [
+        "solidMechanics",
+        "mechanics"
+      ],
+      "lessons": [
+        {
+          "id": "statics-materials-14",
+          "title": "Distributed loads, shear force, and bending moment",
+          "reading": "modules/14-distributed-loads-shear-and-moment.md",
+          "objectives": [
+            "statics-materials-14-objective-1",
+            "statics-materials-14-objective-2",
+            "statics-materials-14-objective-3"
+          ],
+          "worked_example": "For a simply supported 6 m beam with a full-span 2 kN/m load, reactions are 6 kN each, V(x)=6−2x kN, M(x)=6x−x² kN·m, and Mmax=9 kN·m at x=3 m. A 0.10 m × 0.20 m rectangular section has I=6.667×10⁻⁵ m⁴ and nominal extreme-fiber stress 13.5 MPa.",
+          "question_ids": [
+            "statics-materials-14:reactions",
+            "statics-materials-14:shear-at-two",
+            "statics-materials-14:maximum-moment",
+            "statics-materials-14:point-load-shear",
+            "statics-materials-14:point-load-moment",
+            "statics-materials-14:bending-stress",
+            "statics-materials-14:diagram-rules",
+            "statics-materials-14:consistency-checks"
+          ],
+          "card_ids": [
+            "statics-materials-14-card-1",
+            "statics-materials-14-card-2",
+            "statics-materials-14-card-3",
+            "statics-materials-14-card-4",
+            "statics-materials-14-card-5"
           ]
         }
       ]
@@ -841,6 +978,45 @@
             "statics-materials-10-card-2",
             "statics-materials-10-card-3",
             "statics-materials-10-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "statics-materials-module-15",
+      "title": "Multiaxial Hooke's law, thermal strain and thin-walled pressure vessels",
+      "source_ids": [
+        "solidMechanics"
+      ],
+      "lessons": [
+        {
+          "id": "statics-materials-15",
+          "title": "Multiaxial Hooke's law, thermal strain and thin-walled pressure vessels",
+          "reading": "modules/15-multiaxial-hookes-law-thermal-strain-and-pressure-vessels.md",
+          "objectives": [
+            "statics-materials-15-objective-1",
+            "statics-materials-15-objective-2",
+            "statics-materials-15-objective-3"
+          ],
+          "worked_example": "A tank of radius 0.30 m at 1.5 MPa with a 120 MPa allowable hoop stress needs t ≥ 3.75 mm (r/t = 80). Then σ_θ = 120 MPa, σ_z = 60 MPa and the absolute maximum shear is 60 MPa; with E = 200 GPa and ν = 0.30, ε_θ = 5.1 × 10⁻⁴, ε_z = 1.2 × 10⁻⁴ and the enclosed volume grows by 1.14 × 10⁻³.",
+          "question_ids": [
+            "statics-materials-15:biaxial-strain",
+            "statics-materials-15:lateral-diameter-change",
+            "statics-materials-15:constrained-thermal-stress",
+            "statics-materials-15:gap-thermal-stress",
+            "statics-materials-15:lateral-constraint-stress",
+            "statics-materials-15:hoop-stress",
+            "statics-materials-15:sphere-stress",
+            "statics-materials-15:vessel-radius-growth",
+            "statics-materials-15:free-thermal-expansion",
+            "statics-materials-15:cylinder-crack-direction",
+            "statics-materials-15:thin-wall-validity"
+          ],
+          "card_ids": [
+            "statics-materials-15-card-1",
+            "statics-materials-15-card-2",
+            "statics-materials-15-card-3",
+            "statics-materials-15-card-4"
           ]
         }
       ]
@@ -1004,7 +1180,8 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "statics-materials-1-objective-1",
-        "statics-materials-1-objective-2"
+        "statics-materials-1-objective-2",
+        "statics-materials-outcome-1"
       ],
       "question_ids": [
         "statics-materials-1:check",
@@ -1013,19 +1190,52 @@
       "points": 2
     },
     {
+      "id": "statics-materials-14-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Distributed loads, shear force, and bending moment practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "statics-materials-14-objective-1",
+        "statics-materials-14-objective-2",
+        "statics-materials-14-objective-3",
+        "statics-materials-outcome-1",
+        "statics-materials-outcome-2",
+        "statics-materials-outcome-3"
+      ],
+      "question_ids": [
+        "statics-materials-14:reactions",
+        "statics-materials-14:shear-at-two",
+        "statics-materials-14:maximum-moment",
+        "statics-materials-14:point-load-shear",
+        "statics-materials-14:point-load-moment",
+        "statics-materials-14:bending-stress",
+        "statics-materials-14:diagram-rules",
+        "statics-materials-14:consistency-checks"
+      ],
+      "points": 10
+    },
+    {
       "id": "statics-materials-2-practice",
       "type": "practice",
       "mode": "practice",
       "path": "question-banks/practice.json",
       "objective_ids": [
         "statics-materials-2-objective-1",
-        "statics-materials-2-objective-2"
+        "statics-materials-2-objective-2",
+        "statics-materials-2-objective-3",
+        "statics-materials-outcome-1",
+        "statics-materials-outcome-2",
+        "statics-materials-outcome-3"
       ],
       "question_ids": [
         "statics-materials-2:check",
-        "statics-materials-2:stress-units"
+        "statics-materials-2:stress-units",
+        "statics-materials-2:parallel-load-share",
+        "statics-materials-2:parallel-extension",
+        "statics-materials-2:compatibility-equation"
       ],
-      "points": 2
+      "points": 5
     },
     {
       "id": "statics-materials-3-practice",
@@ -1034,13 +1244,16 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "statics-materials-3-objective-1",
-        "statics-materials-3-objective-2"
+        "statics-materials-3-objective-2",
+        "statics-materials-outcome-2",
+        "statics-materials-outcome-3"
       ],
       "question_ids": [
         "statics-materials-3:check",
-        "statics-materials-3:bending-stress"
+        "statics-materials-3:bending-stress",
+        "statics-materials-3:torsion-stress"
       ],
-      "points": 2
+      "points": 3
     },
     {
       "id": "statics-materials-4-practice",
@@ -1049,13 +1262,15 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "statics-materials-4-objective-1",
-        "statics-materials-4-objective-2"
+        "statics-materials-4-objective-2",
+        "statics-materials-outcome-4"
       ],
       "question_ids": [
         "statics-materials-4:check",
-        "statics-materials-4:factor-of-safety"
+        "statics-materials-4:factor-of-safety",
+        "statics-materials-4:failure-criteria"
       ],
-      "points": 2
+      "points": 4
     },
     {
       "id": "statics-materials-5-practice",
@@ -1325,6 +1540,34 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "statics-materials-15-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Multiaxial strain, thermal stress and pressure vessels practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "statics-materials-15-objective-1",
+        "statics-materials-15-objective-2",
+        "statics-materials-15-objective-3",
+        "statics-materials-outcome-2",
+        "statics-materials-outcome-3"
+      ],
+      "question_ids": [
+        "statics-materials-15:biaxial-strain",
+        "statics-materials-15:lateral-diameter-change",
+        "statics-materials-15:constrained-thermal-stress",
+        "statics-materials-15:gap-thermal-stress",
+        "statics-materials-15:lateral-constraint-stress",
+        "statics-materials-15:hoop-stress",
+        "statics-materials-15:sphere-stress",
+        "statics-materials-15:vessel-radius-growth",
+        "statics-materials-15:free-thermal-expansion",
+        "statics-materials-15:cylinder-crack-direction",
+        "statics-materials-15:thin-wall-validity"
+      ],
+      "points": 11
     }
   ],
   "grading_policy": {
@@ -1384,19 +1627,59 @@
       "version": "0.4.0",
       "date": "2026-10-08",
       "summary": "Added a proposed 14-week schedule; seven original lessons (stress concentrations; fatigue, S-N curves and cumulative damage; buckling of slender struts; principal stresses, Mohr's circle and yield criteria; beam deflection and the flexural modulus; brittle strength and the Weibull distribution; and a failure analysis and accelerated test plan, which prepares the course case on a scaffold that collapses under cyclic perfusion); and a synthetic-data lab on fatigue lives, scatter and run-outs. No new references were added. All activities remain ungraded practice; the package remains partial and unreviewed, gives no design basis, test protocol or safety advice, and makes no claim about any device, material or person."
+    },
+    {
+      "version": "0.4.1",
+      "date": "2026-10-10",
+      "summary": "Expanded week 1 with free-body diagrams, ideal support reactions, force and moment balance, beam reaction examples, load resultants, and determinate-model and unit checks. Clarified both objectives and mapped them and the unchanged practice assessment to outcome 1. Added a MIT OpenCourseWare static-equilibrium notes page as a link-only reference. Existing question IDs, prompts and answer keys are unchanged; compact readings remain in weeks 3, 4 and 8. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.2",
+      "date": "2026-10-10",
+      "summary": "Expanded week 3 with average axial stress, engineering strain, linear-elastic modulus, uniform-bar extension and stiffness, segmented-bar reasoning, unit conversions, and explicit boundary-condition and model limits. Clarified both objectives and mapped them and the unchanged practice assessment to outcomes 2 and 3. Added an MIT OpenCourseWare Mechanics & Materials I lecture-notes page as a link-only reference. Existing question IDs, prompts and answer keys are unchanged; compact readings remain in weeks 4 and 8. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.3",
+      "date": "2026-10-10",
+      "summary": "Expanded week 4 with circular-shaft torsional shear, solid and hollow polar moments, elementary bending stress and section moments, unit-checked examples, geometry sensitivity, and model boundaries. Clarified both objectives and mapped them to outcomes 2 and 3. Corrected the preserved beam-bending check's objective association and added one formative torsion-stress calculation so both objectives have direct practice evidence. Added an MIT OpenCourseWare Mechanics & Materials I lecture-notes page as a link-only reference. Other existing question prompts and keys are unchanged; one compact reading remains in week 8. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.4",
+      "date": "2026-10-10",
+      "summary": "Expanded week 8 with yield, ultimate strength, fracture, fatigue and functional-failure criteria; capacity-to-demand ratios; explicit allowable terminology and uncertainty limits. Clarified both objectives and linked them to outcome 4. Corrected the existing factor-of-safety check's objective association and added one formative criterion-discrimination item. Existing numerical practice questions, prompts and answer keys are unchanged. Added an MIT OpenCourseWare Mechanics & Materials I lecture-notes page as a link-only reference. All four original prototype readings now have expanded instruction; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.5",
+      "date": "2026-10-10",
+      "summary": "Added an inactive simply supported beam comparison using synthetic material properties, with equilibrium, bending stress, elastic deflection and separate strength/stiffness load limits. The paper project is not a real component design or safety basis; the course remains partial and formative-only."
+    },
+    {
+      "version": "0.4.6",
+      "date": "2026-10-11",
+      "summary": "Added an original beam load/shear/moment sequence with cut-section equilibrium, distributed-load slopes, point-force jumps, piecewise diagrams, support checks and a nominal stress bridge. MIT 2.001 syllabus and lecture notes are scope comparators only. To keep the proposed sequence at 14 weeks, grouped the short forearm-equilibrium application with the free-body-diagram opening and placed beam diagrams before stress. The package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.7",
+      "date": "2026-10-11",
+      "summary": "Added a bounded parallel-bar compatibility example within the existing axial-load week. A 30 kN synthetic load splits 20/10 kN across 200/100 GPa members, with equal 0.4 mm extension; three practice items and three cards distinguish geometry, equilibrium, compatibility and constitutive response. The schedule remains 14 weeks and the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.8",
+      "date": "2026-10-13",
+      "summary": "Grouped an original multiaxial Hooke's law, thermal-strain and thin-walled pressure-vessel reading with the week-7 combined-stress lesson: Poisson contraction, generalized Hooke's law and volume change, constrained and partly constrained thermal stress, lateral-constraint stress, and hoop, axial and spherical membrane stresses with radius growth. Added three objectives, eleven formative items and four cards, with no week added, and corrected stale counts in the limitations (84 rather than 78 numerical answers before this release, 46 rather than 40 requiring units, and up to five items per prototype unit). The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "Four compact legacy units are preserved beside ten original readings, including one synthetic-data virtual lab; this package is not equivalent to a full university semester.",
-    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm, cumulative final, or graded integrative project.",
-    "Practice items are short formative checks (two per prototype unit and six to nine per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
+    "All four legacy prototype readings now have expanded instruction beside the original lessons and one synthetic-data virtual lab; the package still is not equivalent to a full university semester.",
+    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm or cumulative final. An inactive integrative project draft is not scheduled or graded.",
+    "Practice items are short formative checks (two to five per prototype unit and six to eleven per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
-    "Of the 75 numerical answers in this package, 37 require a unit, one checks significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
+    "Of the 92 numerical answers in this package, 46 require a unit, one checks significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
     "Total workload and weekly duration are unknown; former nominal credit values and hardcoded reading times do not establish workload.",
-    "All loads, materials, specimens and numbers are synthetic teaching examples; this package gives no design basis, test protocol or safety advice and says nothing about any real device, implant or person. The models are simplified textbook descriptions, not analysis methods for real components."
+    "All loads, materials, specimens and numbers are synthetic teaching examples; this package gives no design basis, test protocol or safety advice and says nothing about any real device, implant or person. The models are simplified textbook descriptions, not analysis methods for real components. The compatibility example does not resolve truss, beam or real assembly design."
   ],
   "intentionally_omitted": [
-    "Graded assessments and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package."
+    "Graded assessments, an activated integrative project and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package."
   ]
 }

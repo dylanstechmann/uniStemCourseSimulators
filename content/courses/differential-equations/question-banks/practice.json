@@ -77,7 +77,7 @@
       ],
       "points": 1,
       "objective_ids": [
-        "differential-equations-3-objective-1"
+        "differential-equations-3-objective-2"
       ],
       "solution_spec": {
         "answer": 1
@@ -137,7 +137,7 @@
         "differential-equations-1-objective-2"
       ],
       "solution_spec": {
-        "answer": 2.0,
+        "answer": 2,
         "unit": "s",
         "tolerance": 0.01,
         "unit_required": true,
@@ -223,7 +223,7 @@
     {
       "id": "differential-equations-4:euler-stability-limit",
       "type": "numeric",
-      "prompt": "Explicit Euler is applied to y′ = −50 y. What is the largest time step h for which the numerical solution is stable (decays)? Enter a value and unit.",
+      "prompt": "Explicit Euler is applied to y′ = −50 y. What is the upper stability boundary (the supremum of the strict decay interval) for the time step h? Enter the boundary value and unit.",
       "points": 1,
       "objective_ids": [
         "differential-equations-4-objective-2"
@@ -384,7 +384,7 @@
         "differential-equations-5-objective-3"
       ],
       "solution_spec": {
-        "answer": 5.0,
+        "answer": 5,
         "unit": "mM",
         "tolerance": 0.02,
         "unit_required": true,
@@ -508,7 +508,7 @@
         "differential-equations-6-objective-2"
       ],
       "solution_spec": {
-        "answer": 50.0,
+        "answer": 50,
         "unit": "h",
         "tolerance": 0.5,
         "unit_required": true,
@@ -538,7 +538,7 @@
         "differential-equations-6-objective-2"
       ],
       "solution_spec": {
-        "answer": 7500.0,
+        "answer": 7500,
         "unit": "",
         "tolerance": 5,
         "unit_required": false,
@@ -662,7 +662,7 @@
         "differential-equations-7-objective-1"
       ],
       "solution_spec": {
-        "answer": 40.0,
+        "answer": 40,
         "unit": "min",
         "tolerance": 0.2,
         "unit_required": true,
@@ -938,6 +938,128 @@
       }
     },
     {
+      "id": "differential-equations-7:third-harmonic-coefficient",
+      "type": "numeric",
+      "prompt": "A synthetic square-wave input alternates between +1 mM and −1 mM. Its third-harmonic sine coefficient is 4A/(3π). What is its amplitude in mM? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-7-objective-4"
+      ],
+      "solution_spec": {
+        "answer": 0.4244,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use A = 1 mM in 4A/(3π).",
+        "solution": "4/(3π) = 0.4244 mM. This is a Fourier coefficient of the synthetic input waveform.",
+        "lesson_ids": [
+          "differential-equations-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-7:third-harmonic-gain",
+      "type": "numeric",
+      "prompt": "A first-order system has τ = 0.5 s and the input fundamental has ω = 2 rad/s. What amplitude ratio applies to its third harmonic? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-7-objective-4"
+      ],
+      "solution_spec": {
+        "answer": 0.3162,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Evaluate the gain at 3ω, so that (3ω)τ = 3.",
+        "solution": "The third-harmonic gain is 1/√(1 + (3ωτ)²) = 1/√10 ≈ 0.3162.",
+        "lesson_ids": [
+          "differential-equations-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-7:harmonic-superposition",
+      "type": "single_choice",
+      "prompt": "A periodic feed is represented by a Fourier series and enters a linear first-order chamber. How should its steady-state response be constructed?",
+      "options": [
+        "Apply the gain and phase at each harmonic frequency, then add the resulting sinusoidal responses.",
+        "Apply the fundamental-frequency gain and phase to every harmonic, then add their original amplitudes.",
+        "Keep only the fundamental because a first-order equation cannot respond to other frequencies.",
+        "Add the feed harmonics before applying the chamber equation; superposition does not apply to outputs."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-7-objective-4"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Linearity permits addition, while the gain and phase depend on frequency.",
+        "solution": "The system filters each harmonic at its own frequency nω. Sum those individual steady-state responses after applying their respective gains and phase lags.",
+        "lesson_ids": [
+          "differential-equations-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-7:fourier-jump-limit",
+      "type": "single_choice",
+      "prompt": "At a jump in an ideal square wave, what does its Fourier series converge to, and what can a finite partial sum show nearby?",
+      "options": [
+        "It converges to the midpoint of the one-sided values; finite sums can oscillate and overshoot near the jump.",
+        "It converges to the right-hand value exactly, with no oscillation in any finite sum.",
+        "It diverges everywhere, so the series cannot represent a periodic square wave.",
+        "It converges to the left-hand value and finite sums remove the discontinuity without error."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-7-objective-4"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Distinguish the limiting series at a discontinuity from a finite approximation nearby.",
+        "solution": "For this piecewise-smooth periodic input, the series converges to the jump midpoint; finite sums retain oscillatory overshoot near the discontinuity.",
+        "lesson_ids": [
+          "differential-equations-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
       "id": "differential-equations-8:natural-frequency",
       "type": "numeric",
       "prompt": "A synthetic balance pan is a spring–mass–damper with m = 0.2 kg, k = 80 N/m and c = 1.2 N·s/m. What is its natural frequency ωn = √(k/m) in rad/s? Enter the number only.",
@@ -946,7 +1068,7 @@
         "differential-equations-8-objective-1"
       ],
       "solution_spec": {
-        "answer": 20.0,
+        "answer": 20,
         "unit": "",
         "tolerance": 0.05,
         "unit_required": false,
@@ -1162,7 +1284,7 @@
         "differential-equations-8-objective-3"
       ],
       "solution_spec": {
-        "answer": 6.0,
+        "answer": 6,
         "unit": "",
         "tolerance": 0.05,
         "unit_required": false,
@@ -1231,7 +1353,7 @@
         "differential-equations-9-objective-1"
       ],
       "solution_spec": {
-        "answer": 3.0,
+        "answer": 3,
         "unit": "",
         "tolerance": 0.01,
         "unit_required": false,
@@ -1261,7 +1383,7 @@
         "differential-equations-9-objective-1"
       ],
       "solution_spec": {
-        "answer": -1.0,
+        "answer": -1,
         "unit": "",
         "tolerance": 0.01,
         "unit_required": false,
@@ -1291,7 +1413,7 @@
         "differential-equations-9-objective-2"
       ],
       "solution_spec": {
-        "answer": 2.0,
+        "answer": 2,
         "unit": "",
         "tolerance": 0.01,
         "unit_required": false,
@@ -1413,7 +1535,7 @@
         "differential-equations-9-objective-3"
       ],
       "solution_spec": {
-        "answer": 3.0,
+        "answer": 3,
         "unit": "",
         "tolerance": 0.01,
         "unit_required": false,
@@ -1950,7 +2072,7 @@
         "differential-equations-11-objective-3"
       ],
       "solution_spec": {
-        "answer": 3.0,
+        "answer": 3,
         "unit": "",
         "tolerance": 0.02,
         "unit_required": false,
@@ -1980,7 +2102,7 @@
         "differential-equations-11-objective-3"
       ],
       "solution_spec": {
-        "answer": 2.0,
+        "answer": 2,
         "unit": "",
         "tolerance": 0.02,
         "unit_required": false,
@@ -2205,7 +2327,7 @@
       "solution_spec": {
         "answer": 1002.003,
         "unit": "",
-        "tolerance": 2.0,
+        "tolerance": 2,
         "unit_required": false,
         "significant_figures": null,
         "dimensions": null
@@ -2381,7 +2503,7 @@
               "row_id": "t00h",
               "column": "wells",
               "type": "numeric",
-              "answer": 3.0,
+              "answer": 3,
               "unit": "",
               "tolerance": 0,
               "relative_tolerance": 0,
@@ -2389,9 +2511,9 @@
               "calculation": {
                 "operation": "count",
                 "values": [
-                  96.0,
-                  100.0,
-                  104.0
+                  96,
+                  100,
+                  104
                 ]
               }
             },
@@ -2400,7 +2522,7 @@
               "row_id": "t00h",
               "column": "mean_count",
               "type": "numeric",
-              "answer": 100.0,
+              "answer": 100,
               "unit": "",
               "tolerance": 0.005,
               "relative_tolerance": 0,
@@ -2408,9 +2530,9 @@
               "calculation": {
                 "operation": "mean",
                 "values": [
-                  96.0,
-                  100.0,
-                  104.0
+                  96,
+                  100,
+                  104
                 ]
               }
             },
@@ -2419,7 +2541,7 @@
               "row_id": "t06h",
               "column": "wells",
               "type": "numeric",
-              "answer": 3.0,
+              "answer": 3,
               "unit": "",
               "tolerance": 0,
               "relative_tolerance": 0,
@@ -2457,7 +2579,7 @@
               "row_id": "t12h",
               "column": "wells",
               "type": "numeric",
-              "answer": 3.0,
+              "answer": 3,
               "unit": "",
               "tolerance": 0,
               "relative_tolerance": 0,
@@ -2467,7 +2589,7 @@
                 "values": [
                   43.7,
                   40.3,
-                  42.0
+                  42
                 ]
               }
             },
@@ -2476,7 +2598,7 @@
               "row_id": "t12h",
               "column": "mean_count",
               "type": "numeric",
-              "answer": 42.0,
+              "answer": 42,
               "unit": "",
               "tolerance": 0.005,
               "relative_tolerance": 0,
@@ -2486,7 +2608,7 @@
                 "values": [
                   43.7,
                   40.3,
-                  42.0
+                  42
                 ]
               }
             },
@@ -2495,7 +2617,7 @@
               "row_id": "t18h",
               "column": "wells",
               "type": "numeric",
-              "answer": 3.0,
+              "answer": 3,
               "unit": "",
               "tolerance": 0,
               "relative_tolerance": 0,
@@ -2533,7 +2655,7 @@
               "row_id": "t24h",
               "column": "wells",
               "type": "numeric",
-              "answer": 3.0,
+              "answer": 3,
               "unit": "",
               "tolerance": 0,
               "relative_tolerance": 0,
@@ -2543,7 +2665,7 @@
                 "values": [
                   19.8,
                   20.6,
-                  19.0
+                  19
                 ]
               }
             },
@@ -2562,7 +2684,7 @@
                 "values": [
                   19.8,
                   20.6,
-                  19.0
+                  19
                 ]
               }
             },
@@ -2571,7 +2693,7 @@
               "row_id": "t36h",
               "column": "wells",
               "type": "numeric",
-              "answer": 3.0,
+              "answer": 3,
               "unit": "",
               "tolerance": 0,
               "relative_tolerance": 0,
@@ -2609,7 +2731,7 @@
               "row_id": "t48h",
               "column": "wells",
               "type": "numeric",
-              "answer": 3.0,
+              "answer": 3,
               "unit": "",
               "tolerance": 0,
               "relative_tolerance": 0,
@@ -2618,7 +2740,7 @@
                 "operation": "count",
                 "values": [
                   7.7,
-                  8.0,
+                  8,
                   8.3
                 ]
               }
@@ -2628,7 +2750,7 @@
               "row_id": "t48h",
               "column": "mean_count",
               "type": "numeric",
-              "answer": 8.0,
+              "answer": 8,
               "unit": "",
               "tolerance": 0.005,
               "relative_tolerance": 0,
@@ -2637,7 +2759,7 @@
                 "operation": "mean",
                 "values": [
                   7.7,
-                  8.0,
+                  8,
                   8.3
                 ]
               }
@@ -3257,7 +3379,7 @@
         "differential-equations-13-objective-2"
       ],
       "solution_spec": {
-        "answer": 25.0,
+        "answer": 25,
         "unit": "h",
         "tolerance": 0.2,
         "unit_required": true,
@@ -3402,6 +3524,590 @@
         "misconception_ids": [
           "fit-quality-means-valid"
         ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-2:damping-regime",
+      "type": "single_choice",
+      "prompt": "A free mass–spring–damper has m=2 kg, k=8 N/m, and c=8 N·s/m. Using ζ=c/[2√(km)], what ideal transient behavior is expected?",
+      "options": [
+        "Underdamped oscillation with a decaying envelope.",
+        "Critically damped, nonoscillatory return to equilibrium.",
+        "Overdamped, nonoscillatory return to equilibrium.",
+        "Undamped oscillation with constant amplitude."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-2-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Compare c with the critical value 2√(km), then interpret ζ.",
+        "solution": "Here 2√(km)=2√(2×8)=8 N·s/m, so ζ=1. The ideal system is critically damped and returns without oscillating.",
+        "lesson_ids": [
+          "differential-equations-2"
+        ],
+        "misconception_ids": [
+          "damping-regime-confusion"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct formative practice connecting the damping ratio to transient behavior."
+        ]
+      }
+    },
+    {
+      "id": "differential-equations-3:linearization",
+      "type": "single_choice",
+      "prompt": "For ẋ=f(x)=x(1−x), expand near the equilibrium x*=1 using δ=x−1. Which first-order model describes δ̇?",
+      "options": [
+        "δ̇≈δ",
+        "δ̇≈−δ",
+        "δ̇≈−δ² only",
+        "δ̇≈−1"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-3-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Substitute x=1+δ and retain only the constant and first-order terms in δ.",
+        "solution": "f(1+δ)=(1+δ)(−δ)=−δ−δ². Dropping the second-order term gives δ̇≈−δ, the local linearization.",
+        "lesson_ids": [
+          "differential-equations-3"
+        ],
+        "misconception_ids": [
+          "linearization-order-confusion"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct formative practice deriving a local first-order model around a nonlinear equilibrium."
+        ]
+      }
+    },
+    {
+      "id": "differential-equations-14:derivative-transform",
+      "type": "single_choice",
+      "prompt": "If Y(s) = L{y(t)}, y(0)=1 and y′(0)=−2, which expression is L{y″(t)}?",
+      "options": [
+        "s²Y(s) − s + 2",
+        "s²Y(s) + s − 2",
+        "sY(s) − 1",
+        "s²Y(s)"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Use L{y″}=s²Y−s y(0)−y′(0).",
+        "solution": "Substituting y(0)=1 and y′(0)=−2 gives s²Y−s+2.",
+        "lesson_ids": [
+          "differential-equations-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-14:nonzero-initial-data",
+      "type": "numeric",
+      "prompt": "Solve y″+3y′+2y=0 with y(0)=1 and y′(0)=0. What is y(ln 2)? Enter a decimal.",
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.75,
+        "unit": "",
+        "tolerance": 0.0075,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Transform both derivatives, keeping both initial-value terms, then use partial fractions.",
+        "solution": "(s²+3s+2)Y=s+3, so Y=2/(s+1)−1/(s+2) and y=2e^(−t)−e^(−2t). At t=ln 2, y=1−1/4=0.75; direct substitution verifies the ODE and initial values.",
+        "lesson_ids": [
+          "differential-equations-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-14:first-order-step",
+      "type": "numeric",
+      "prompt": "Solve y′+2y=6H(t) from y(0)=0. What is y(ln 2)? Enter a decimal.",
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 2.25,
+        "unit": "",
+        "tolerance": 0.0225,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The transform gives (s+2)Y=6/s.",
+        "solution": "Y=6/[s(s+2)]=3/s−3/(s+2), so y=3(1−e^(−2t)). At t=ln 2 this is 3(1−1/4)=2.25, matching the direct first-order solution.",
+        "lesson_ids": [
+          "differential-equations-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-14:delayed-step",
+      "type": "numeric",
+      "prompt": "For x″+3x′+2x=H(t−2), x(0)=x′(0)=0, find x(5). Enter a decimal.",
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0.45145,
+        "unit": "",
+        "tolerance": 0.0046,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Invert 1/[s(s+1)(s+2)] before applying the two-unit time shift.",
+        "solution": "The unshifted response is g(τ)=1/2−e^(−τ)+e^(−2τ)/2. At t=5, τ=3, giving 1/2−e^(−3)+e^(−6)/2≈0.45145.",
+        "lesson_ids": [
+          "differential-equations-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-14:constant-force",
+      "type": "numeric",
+      "prompt": "For x″+4x=8 with x(0)=x′(0)=0, what is x(π/4)? Enter a decimal.",
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 2,
+        "unit": "",
+        "tolerance": 0.02,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The transformed solution is X=8/[s(s²+4)].",
+        "solution": "Partial fractions give x(t)=2(1−cos 2t), also obtained by direct solution. At t=π/4, cos(π/2)=0, so x=2.",
+        "lesson_ids": [
+          "differential-equations-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-14:partial-fractions",
+      "type": "numeric",
+      "prompt": "For x″+4x′+3x=10 from x(0)=x′(0)=0, use partial fractions to find x(ln 3). Enter a decimal.",
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 1.728395061728395,
+        "unit": "",
+        "tolerance": 0.018,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "X=10/[s(s+1)(s+3)]. Resolve the three simple poles before evaluating.",
+        "solution": "X=10/(3s)−5/(s+1)+5/[3(s+3)], so x=10/3−5e^(−t)+(5/3)e^(−3t). At ln 3, this is 5/3+5/81=140/81≈1.7284.",
+        "lesson_ids": [
+          "differential-equations-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-15:first-order-impulse-response",
+      "type": "numeric",
+      "prompt": "What is the unit impulse response of y′ + 3y = δ(t), from rest, evaluated at t = 0.5? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.2231,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Transform: (s + 3)W = 1, so W(s) = 1/(s + 3).",
+        "solution": "w(t) = e^(−3t), so w(0.5) = e^(−1.5) = 0.223. The impulse sets y(0⁺) = 1 and the response then decays freely.",
+        "lesson_ids": [
+          "differential-equations-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-15:velocity-jump",
+      "type": "numeric",
+      "prompt": "A synthetic mass of 4 kg at rest on a spring and damper receives an impulse of 2 N·s. What is its velocity just after the blow, in m/s? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.5,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "An impulse changes momentum instantly; position stays continuous.",
+        "solution": "Δ(mv) = J, so v(0⁺) = 2/4 = 0.5 m/s, while x(0⁺) = 0.",
+        "lesson_ids": [
+          "differential-equations-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-15:second-order-impulse-response",
+      "type": "numeric",
+      "prompt": "The synthetic system x″ + 6x′ + 25x = f(t) starts at rest. What is its unit impulse response at t = 0.25? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.09937,
+        "unit": "",
+        "tolerance": 0.0005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Complete the square in s² + 6s + 25 and use the shifted sine transform.",
+        "solution": "W(s) = 1/((s + 3)² + 16), so w(t) = (1/4)e^(−3t) sin 4t and w(0.25) = 0.25 × 0.4724 × 0.8415 = 0.0994.",
+        "lesson_ids": [
+          "differential-equations-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-15:ramp-convolution",
+      "type": "numeric",
+      "prompt": "Using convolution with the impulse response e^(−t), what is the response of y′ + y = t from rest at t = 2? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 1.1353,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Evaluate ∫₀ᵗ e^(−(t − u)) u du, or use partial fractions on 1/(s²(s + 1)).",
+        "solution": "y(t) = t − 1 + e^(−t), so y(2) = 1 + e^(−2) = 1.135. Check: y′ + y = (1 − e^(−t)) + (t − 1 + e^(−t)) = t.",
+        "lesson_ids": [
+          "differential-equations-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-15:pulse-convolution",
+      "type": "numeric",
+      "prompt": "The system y′ + 2y = f(t) starts at rest. The input is f = 1 for 0 ≤ t < 1 and f = 0 afterwards. Using convolution, what is y(2)? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.05851,
+        "unit": "",
+        "tolerance": 0.0003,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Only inputs during 0 ≤ u < 1 contribute: y(2) = ∫₀¹ e^(−2(2 − u)) du.",
+        "solution": "The integral is e^(−4)(e² − 1)/2 = e^(−2)(1 − e^(−2))/2 = 0.0585: the value 0.432 reached at t = 1 decays by e^(−2) over the next second.",
+        "lesson_ids": [
+          "differential-equations-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-15:gain-at-four",
+      "type": "numeric",
+      "prompt": "The synthetic system x″ + 6x′ + 25x = f(t) starts at rest. What is the gain of its steady response to cos 4t? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0.03901,
+        "unit": "",
+        "tolerance": 0.0002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The gain is 1/|p(iω)| with p(s) = s² + 6s + 25.",
+        "solution": "p(4i) = 25 − 16 + 24i = 9 + 24i, with magnitude √657 = 25.63, so the gain is 0.0390.",
+        "lesson_ids": [
+          "differential-equations-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-15:phase-lag-at-four",
+      "type": "numeric",
+      "prompt": "The synthetic system x″ + 6x′ + 25x = f(t) starts at rest. By how many degrees does its steady response lag the input cos 4t? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 69.44,
+        "unit": "",
+        "tolerance": 0.2,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The lag is the argument of p(iω).",
+        "solution": "arg(9 + 24i) = arctan(24/9) = 69.4°.",
+        "lesson_ids": [
+          "differential-equations-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-15:peak-gain-frequency",
+      "type": "numeric",
+      "prompt": "The synthetic system x″ + 6x′ + 25x = f(t) starts at rest. At what input frequency ω does the steady-state gain peak? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 2.6458,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Minimize |p(iω)|² = (25 − ω²)² + 36ω², or use ω_r = √(k − b²/2).",
+        "solution": "Setting the derivative to zero gives 25 − ω² = 18, so ω_r = √7 = 2.646, below the undamped √25 = 5 and the impulse-response frequency 4.",
+        "lesson_ids": [
+          "differential-equations-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-15:pole-stability",
+      "type": "single_choice",
+      "prompt": "A transfer function has poles at −0.5 ± 2i and +0.1. What can be concluded?",
+      "options": [
+        "The system is unstable, because the pole at +0.1 gives a growing exponential",
+        "The system is stable, because two of the three poles have negative real parts",
+        "The system is stable, because the imaginary parts are small",
+        "Nothing can be concluded from the poles"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Every pole contributes a term e^(pt) to the impulse response.",
+        "solution": "The pole at +0.1 contributes e^(0.1t), which grows without bound. Stability requires every pole to have a negative real part.",
+        "lesson_ids": [
+          "differential-equations-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-15:convolution-conditions",
+      "type": "single_choice",
+      "prompt": "Which condition is required for y = w ∗ f to give the complete response of p(D)y = f?",
+      "options": [
+        "The system is linear and time-invariant and starts at rest; otherwise a free response must be added",
+        "The input f must be a sinusoid",
+        "The input must have a Laplace transform in a table",
+        "The impulse response must be oscillatory"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Convolution superposes impulse responses to slices of the input.",
+        "solution": "Superposing slices needs linearity and time invariance, and the formula gives the zero-state response. Nonzero initial conditions add a free response; any reasonable input, including sampled data, can be convolved.",
+        "lesson_ids": [
+          "differential-equations-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-15:impulse-position-or-velocity",
+      "type": "single_choice",
+      "prompt": "A unit-mass spring–mass–damper at rest receives an impulse J at t = 0. What happens at that instant?",
+      "options": [
+        "The velocity jumps to J while the position stays continuous",
+        "The position jumps to J while the velocity stays zero",
+        "Both position and velocity jump to J",
+        "Nothing changes until the spring responds"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Integrate x″ = J δ(t) once across t = 0.",
+        "solution": "Integrating once gives a jump of J in x′. Integrating again gives a continuous x, because a finite velocity over zero time moves the mass zero distance.",
+        "lesson_ids": [
+          "differential-equations-15"
+        ],
+        "misconception_ids": []
       },
       "visibility": "public-practice-authoring",
       "provenance": {

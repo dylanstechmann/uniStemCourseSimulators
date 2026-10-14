@@ -56,6 +56,71 @@ def inventory_ph(acid, base, pka=4.8):
     return -math.log10(10 ** (-pka) * acid / base)
 
 
+def unit(vector):
+    norm = math.sqrt(sum(c * c for c in vector))
+    return [c / norm for c in vector]
+
+
+def hybrid_pair(angle_degrees):
+    """Two equivalent s + p hybrids whose p parts lie at the given angle; returns (s weight, hybrids).
+
+    Coefficients are found by bisection on orthogonality in the (s, px, py, pz) basis.
+    """
+    half = math.radians(angle_degrees) / 2
+    p1 = [math.cos(half), math.sin(half), 0.0]
+    p2 = [math.cos(half), -math.sin(half), 0.0]
+
+    def overlap(a):
+        b = math.sqrt(1 - a * a)
+        return a * a + b * b * sum(x * y for x, y in zip(p1, p2))
+
+    a = bisect(lambda c: overlap(c), 1e-9, 0.999999) if overlap(1e-9) < 0 else 0.0
+    b = math.sqrt(1 - a * a)
+    return a * a, [[a] + [b * c for c in p1], [a] + [b * c for c in p2]]
+
+
+def lone_pair_s_weights(angle_degrees):
+    """Complete the four-orbital set by Gram-Schmidt and split the rest symmetrically."""
+    _, (h1, h2) = hybrid_pair(angle_degrees)
+    basis = [h1, h2]
+    for trial in ([1.0, 0, 0, 0], [0, 0, 0, 1.0], [0, 1.0, 0, 0], [0, 0, 1.0, 0]):
+        v = trial[:]
+        for b in basis:
+            dot = sum(x * y for x, y in zip(v, b))
+            v = [x - dot * y for x, y in zip(v, b)]
+        if sum(c * c for c in v) > 1e-10:
+            basis.append(unit(v))
+        if len(basis) == 4:
+            break
+    third, fourth = basis[2], basis[3]
+    # Mix the two remaining orbitals 50:50 so both lone pairs are equivalent.
+    lone_a = [(x + y) / math.sqrt(2) for x, y in zip(third, fourth)]
+    lone_b = [(x - y) / math.sqrt(2) for x, y in zip(third, fourth)]
+    return lone_a[0] ** 2, lone_b[0] ** 2
+
+
+def equivalent_hybrid_angle(n):
+    """Construct n + 1 equivalent sp^n hybrids explicitly and measure the angle between two p parts."""
+    directions = {
+        1: [[1, 0, 0], [-1, 0, 0]],
+        2: [[1, 0, 0], [-0.5, math.sqrt(3) / 2, 0], [-0.5, -math.sqrt(3) / 2, 0]],
+        3: [[1, 1, 1], [1, -1, -1], [-1, 1, -1], [-1, -1, 1]],
+    }[n]
+    a, b = 1 / math.sqrt(n + 1), math.sqrt(n / (n + 1))
+    hybrids = [[a] + [b * c for c in unit(d)] for d in directions]
+    for i in range(len(hybrids)):
+        for j in range(len(hybrids)):
+            dot = sum(x * y for x, y in zip(hybrids[i], hybrids[j]))
+            assert abs(dot - (1.0 if i == j else 0.0)) < 1e-12
+    p1, p2 = unit(directions[0]), unit(directions[1])
+    return math.degrees(math.acos(sum(x * y for x, y in zip(p1, p2)))), a * a
+
+
+def bond_counts(bonds):
+    """Bonds as (atom, atom, order); every bond has one sigma, the rest are pi."""
+    return len(bonds), sum(order - 1 for _, _, order in bonds)
+
+
 def lab_data():
     with (COURSE / "labs/buffer-reports.csv").open(
         encoding="utf-8", newline=""
@@ -200,6 +265,32 @@ def expected_answers():
         base_inventory=0.03,
         exhausted_ph=-math.log10(hydrogen_root(0.16, 0, kw=0)),
     )
+    # Valence and MO electron bookkeeping from shell counts, not stated totals.
+    add(1, oxygen_valence=2 + 4)
+    n2_valence = 2 * (2 + 3)
+    add(
+        8,
+        mo_n2_electron_count=n2_valence,
+        mo_n2_bond_order=(8 - (n2_valence - 8)) / 2,
+        mo_o2_bond_order=(8 - (2 * (2 + 4) - 8)) / 2,
+        # Two electrons, two degenerate pi* orbitals, Hund's rule: one in each.
+        mo_o2_unpaired=min(2 * (2 + 4) - 8 - 2, 2),
+    )
+    bend100, _ = hybrid_pair(100)
+    lone100 = lone_pair_s_weights(100)
+    acrylonitrile = [("C1", "H", 1), ("C1", "H", 1), ("C1", "C2", 2), ("C2", "H", 1), ("C2", "C3", 1), ("C3", "N", 3)]
+    propynal = [("H", "C1", 1), ("C1", "C2", 3), ("C2", "C3", 1), ("C3", "H", 1), ("C3", "O", 2)]
+    add(
+        14,
+        sp2_angle=equivalent_hybrid_angle(2)[0],
+        sp3_s_character=equivalent_hybrid_angle(3)[1] * 100,
+        bent_lambda_squared=(1 - bend100) / bend100,
+        bent_bond_s_character=bend100 * 100,
+        bent_lone_pair_s_character=lone100[0] * 100,
+        acrylonitrile_sigma=bond_counts(acrylonitrile)[0],
+        propynal_pi=bond_counts(propynal)[1],
+        pi_bond_estimate=614 - 348,
+    )
     _, _, means = lab_data()
     offset = means["reference"] - 4
     add(
@@ -223,9 +314,37 @@ def test_numeric_keys_with_separate_calculations(question_id):
     )
 
 
+def test_hybridization_lesson_statements_match_explicit_orbital_construction():
+    text = (COURSE / "modules/14-valence-bond-theory-and-hybridization.md").read_text(encoding="utf-8")
+    angles = {n: equivalent_hybrid_angle(n) for n in (1, 2, 3)}
+    assert [round(angles[n][0], 2) for n in (1, 2, 3)] == [180.0, 120.0, 109.47]
+    assert [round(angles[n][1] * 100, 1) for n in (1, 2, 3)] == [50.0, 33.3, 25.0]
+    s1045, _ = hybrid_pair(104.5)
+    assert round((1 - s1045) / s1045, 2) == 3.99 and round(s1045 * 100, 1) == 20.0
+    lone = lone_pair_s_weights(104.5)
+    assert lone[0] == pytest.approx(lone[1]) and round(lone[0] * 100, 1) == 30.0
+    assert 2 * s1045 + sum(lone) == pytest.approx(1.0)
+    s100, _ = hybrid_pair(100)
+    assert round((1 - s100) / s100, 2) == 5.76 and round(s100 * 100, 1) == 14.8
+    assert bond_counts([("C1", "H", 1), ("C1", "H", 1), ("C1", "C2", 2), ("C2", "H", 1), ("C2", "C3", 1), ("C3", "N", 3)]) == (6, 3)
+    assert (614 - 348, 839 - 614) == (266, 225)
+    for phrase in (
+        "**6 σ bonds**",
+        "**3 π bonds**",
+        "614 − 348 = **266 kJ/mol**",
+        "adds about 225 kJ/mol",
+        "λ² = −1/cos 104.5° = **3.99**",
+        "1/(1 + 3.99) = **20.0%**",
+        "(1 − 2 × 0.200)/2 = **30.0%**",
+        "λ² = 5.76 and s-character 14.8%",
+        "θ = 109.47°",
+    ):
+        assert phrase in text, phrase
+
+
 def test_numeric_inventory_is_exhaustive():
     assert set(EXPECTED) == {key for key, q in BANK.items() if q["type"] == "numeric"}
-    assert len(EXPECTED) == 59
+    assert len(EXPECTED) == 72
 
 
 CHECKS = BANK["general-chemistry-1-lab-01:summary"]["solution_spec"]["validation_spec"][
@@ -406,7 +525,8 @@ def test_link_only_references_and_disclosed_access():
 
 def test_schedule_and_conservative_labels():
     manifest = load(COURSE / "course.json")
-    assert manifest["version"] == "0.4.0" and manifest["maturity"] == "partial"
+    syllabus = (COURSE / manifest["syllabus"]).read_text(encoding="utf-8")
+    assert f"Version: {manifest['version']}." in syllabus and manifest["maturity"] == "partial"
     assert (
         manifest["review"]["status"] == "unreviewed"
         and manifest["grading_policy"]["mode"] == "formative-only"
@@ -415,13 +535,18 @@ def test_schedule_and_conservative_labels():
         lesson["id"] for module in manifest["modules"] for lesson in module["lessons"]
     }
     weeks = manifest["duration"]["weeks"]
-    assert [week["week"] for week in weeks] == list(range(1, 15))
+    # Ten teaching weeks after the compact/expanded regrouping.
+    assert [week["week"] for week in weeks] == list(range(1, 11))
     assert {lid for week in weeks for lid in week["lesson_ids"]} == lessons
     assert weeks[-1]["assessment_ids"] == [
         "general-chemistry-1-week14-buffer-lab",
         "general-chemistry-1-case",
     ]
-    assert len(lessons) == 14 and len(BANK) == 91
+    assert len(lessons) == 15 and len(BANK) == 113
+    cards = len(load(COURSE / "question-banks/retrieval-cards.json")["cards"])
     text = (COURSE / "syllabus.md").read_text(encoding="utf-8")
-    assert "14 readings, 91 public practice items and 48 retrieval cards" in text
-    assert "Weeks 1, 4, 8 and 11 retain compact prototype readings" in text
+    assert (
+        f"There are {len(lessons)} scheduled activities (14 readings and one synthetic lab), "
+        f"{len(BANK)} public practice items and {cards} retrieval cards" in text
+    )
+    assert "Four compact foundations are paired with expanded instruction inside the same week" in text

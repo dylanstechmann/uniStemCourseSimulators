@@ -91,6 +91,15 @@ def lab_data():
     return rows, groups, means
 
 
+def snar_charge_positions(ipso):
+    """Ring carbons that carry the anion in Meisenheimer contributors.
+
+    Walk the charge along alternating ring bonds from the ipso carbon: it can
+    sit only an odd number of bonds away (ortho, para, ortho'), never meta.
+    """
+    return {(ipso - 1 + step) % 6 + 1 for step in range(1, 6) if step % 2 == 1}
+
+
 def calibrated(means, sample):
     gains = [
         (means["std_a"][0] - means["blank"][0]) / 10,
@@ -193,6 +202,31 @@ def expected_answers():
         intermediate_twenty=intermediate,
         target_twenty=target,
     )
+    # Hückel counts: two electrons per ring pi bond, plus a ring lone pair or minus an empty p orbital.
+    add(
+        14,
+        pi_benzene=2 * 3,
+        pi_cyclobutadiene=2 * 2,
+        pi_cyclopentadienyl=2 * 2 + 2,
+        pi_tropylium=2 * 3 + 0,
+        meisenheimer_charged_carbons=len(snar_charge_positions(1)),
+        meta_nitro_count=len(snar_charge_positions(1) & {3, 5}),
+        meisenheimer_net_charge=0 + -1,
+    )
+    add(
+        15,
+        propene_unsaturation=dbe(3, 6),
+        bromopropane_unsaturation=dbe(3, 7, halogen=1),
+        hx_stoichiometry=0.35 * 1 / 1,
+        limiting_product=min(1.20, 0.90),
+    )
+    add(
+        16,
+        propyne_unsaturation=dbe(3, 4),
+        one_equivalent_pi=2 - 1,
+        complete_hydrogenation=0.42 * 2,
+        butane_formula=6 + 2 * 2,
+    )
     _, _, means = lab_data()
     mix_two = calibrated(means, "mix_2")
     mix_four = calibrated(means, "mix_4")
@@ -218,7 +252,7 @@ def test_numeric_key_matches_separate_calculation(item_id, expected):
 
 def test_every_numeric_item_is_covered_and_enforcement_is_disclosed():
     numeric = {key for key, q in BANK.items() if q["type"] == "numeric"}
-    assert set(EXPECTED) == numeric and len(numeric) == 40
+    assert set(EXPECTED) == numeric and len(numeric) == 55
     assert (
         sum(q["solution_spec"].get("unit_required", False) for q in BANK.values()) == 4
     )
@@ -275,7 +309,7 @@ def test_fischer_orientation_swap_rotation_and_priority_order():
     ].startswith("S,")
     text = (
         COURSE / "modules/08-conformations-fischer-maps-and-stereochemical-labels.md"
-    ).read_text()
+    ).read_text(encoding="utf-8")
     assert "Description: COOH is above" in text and "CH3" in text
 
 
@@ -384,7 +418,9 @@ def test_blank_only_area_ratio_is_biased_and_optical_labels_do_not_assign_rs():
     racemic = calibrated(means, "mix_3")
     assert racemic[0] == pytest.approx(racemic[1])
     assert means["mix_3"][0] != means["mix_3"][1]
-    text = (COURSE / "labs/01-calibrated-peak-amounts-and-excess.md").read_text()
+    text = (COURSE / "labs/01-calibrated-peak-amounts-and-excess.md").read_text(
+        encoding="utf-8"
+    )
     assert "not claimed intrinsic UV absorptivity differences" in text
     assert "No R/S descriptors" in text
 
@@ -421,15 +457,15 @@ def test_schedule_partial_labels_and_preserved_case():
         lesson["id"] for module in manifest["modules"] for lesson in module["lessons"]
     }
     weeks = manifest["duration"]["weeks"]
-    assert len(weeks) == 14 and len(lessons) == 14
+    assert len(weeks) == 12 and len(lessons) == 17
     assert sorted(lid for week in weeks for lid in week["lesson_ids"]) == sorted(
         lessons
     )
-    assert manifest["version"] == "0.4.0" and manifest["maturity"] == "partial"
+    assert manifest["version"] and manifest["maturity"] == "partial"
     assert manifest["review"]["status"] == "unreviewed"
     assert (
-        len(BANK) == 91
-        and len(load(COURSE / "question-banks/retrieval-cards.json")["cards"]) == 48
+        len(BANK) == 125
+        and len(load(COURSE / "question-banks/retrieval-cards.json")["cards"]) == 63
     )
     assert all(
         a["mode"] in ("practice", "self-assessment") for a in manifest["assessments"]
@@ -437,3 +473,36 @@ def test_schedule_partial_labels_and_preserved_case():
     assert len([q for q in BANK.values() if q["type"] == "single_choice"]) >= 35
     case = next(a for a in manifest["assessments"] if a["type"] == "case")
     assert case["points"] == 0 and case["question_ids"] == []
+
+
+def test_snar_strand_is_mapped_practised_and_link_only():
+    manifest = load(COURSE / "course.json")
+    lesson = next(
+        lesson
+        for module in manifest["modules"]
+        for lesson in module["lessons"]
+        if lesson["id"] == "organic-chemistry-14"
+    )
+    objective = "organic-chemistry-14-objective-4"
+    assert objective in lesson["objectives"]
+    snar = [q for q in lesson["question_ids"] if objective in BANK[q]["objective_ids"]]
+    assert len(snar) == 7
+    practice = next(
+        a for a in manifest["assessments"] if a["id"] == "organic-chemistry-14-practice"
+    )
+    assert set(lesson["question_ids"]) <= set(practice["question_ids"])
+    assert practice["points"] == sum(BANK[q]["points"] for q in practice["question_ids"])
+    # Charge sits ortho/para to the ipso carbon, so only 2,4-nitro groups can share it.
+    assert snar_charge_positions(1) == {2, 4, 6}
+    assert snar_charge_positions(1) & {2, 4} == {2, 4}
+    source = next(
+        s
+        for s in load(ROOT / "content/sources/registry.json")["sources"]
+        if s["id"] == "openstax-organic-nucleophilic-aromatic-substitution-16-6"
+    )
+    assert source["permissions"] == dict(
+        linking=True, quotation=False, adaptation=False, redistribution=False
+    )
+    assert source["imported_assets"] == [] and source["accessed_at"] == "2026-10-13"
+    reading = (COURSE / lesson["reading"]).read_text(encoding="utf-8")
+    assert "Meisenheimer complex" in reading and "not a labeling procedure" in reading

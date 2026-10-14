@@ -7,14 +7,19 @@
   "domain": "Chemistry",
   "level": "Year 1",
   "maturity": "partial",
-  "version": "0.4.0",
+  "version": "0.4.8",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
     "source_path": "src/data/courses.js",
     "source_sha256": "a77a7cb7f5be2ffa12068877042ac775c6d9b79b83ac2f316fe4f26a0d3d783b",
     "migration_version": "1.0",
-    "modifications": []
+    "modifications": [
+      "Expanded the week-5 kinetics and mechanism reading with experimental rate-law comparisons, unit-aware Arrhenius ratios, elementary-step constraints, catalysts, and a limited first-order half-life example; linked both objectives to outcome 2.",
+      "Expanded the week-9 redox reading with galvanic-cell components, electrode and cell-potential conventions, unit-aware free-energy calculations, and standard versus nonstandard conditions; clarified both objectives and mapped the lesson to outcome 3.",
+      "Expanded the week-12 coordination primer with coordination-sphere and donor counting, formal oxidation-state bookkeeping, geometry limits, a bounded crystal-field model, and protein-environment effects; clarified both objectives and mapped them to outcome 4.",
+      "Linked both week-1 weak-acid/buffer objectives to outcome 1. Reassociated the preserved pKa-and-ratio pH calculation with the Henderson–Hasselbalch objective and added direct practice selecting the Ka expression using the weak-acid mass balance; the existing prompts and answer keys are unchanged. The course remains partial, unreviewed and formative-only."
+    ]
   },
   "prerequisites": {
     "course_ids": [
@@ -52,49 +57,65 @@
       "id": "general-chemistry-2-1-objective-1",
       "description": "Use Ka, pKa, and mass balance to reason about weak acids.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "general-chemistry-2-outcome-1"
+      ]
     },
     {
       "id": "general-chemistry-2-1-objective-2",
       "description": "Estimate buffer pH with Henderson-Hasselbalch when assumptions hold.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "general-chemistry-2-outcome-1"
+      ]
     },
     {
       "id": "general-chemistry-2-2-objective-1",
-      "description": "Infer reaction order from rate data.",
-      "bloom": "understand",
-      "course_outcome_ids": []
+      "description": "Infer empirical reaction order from controlled rate data and interpret a first-order half-life.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "general-chemistry-2-outcome-2"
+      ]
     },
     {
       "id": "general-chemistry-2-2-objective-2",
       "description": "Relate temperature to rate constants through Arrhenius behavior.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "general-chemistry-2-outcome-2"
+      ]
     },
     {
       "id": "general-chemistry-2-3-objective-1",
-      "description": "Balance oxidation-reduction reactions by electron accounting.",
+      "description": "Relate a standard cell potential and electron count to a redox reaction's standard free-energy change.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "general-chemistry-2-outcome-3"
+      ]
     },
     {
       "id": "general-chemistry-2-3-objective-2",
-      "description": "Use cell potential to predict spontaneity under specified conditions.",
+      "description": "Calculate a standard cell potential from reduction potentials and infer the direction favored under standard conditions.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "general-chemistry-2-outcome-3"
+      ]
     },
     {
       "id": "general-chemistry-2-4-objective-1",
-      "description": "Identify the metal center, donor atoms, and coordination number.",
+      "description": "Identify a metal center and its donor atoms, and explain how its protein environment can alter redox behavior.",
       "bloom": "understand",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "general-chemistry-2-outcome-4"
+      ]
     },
     {
       "id": "general-chemistry-2-4-objective-2",
-      "description": "Explain how ligands tune geometry and redox behavior.",
+      "description": "Explain how ligand-field strength changes d-orbital splitting and can affect spin, color, and redox behavior.",
       "bloom": "understand",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "general-chemistry-2-outcome-4"
+      ]
     },
     {
       "id": "general-chemistry-2-5-objective-1",
@@ -359,20 +380,46 @@
       "course_outcome_ids": [
         "general-chemistry-2-outcome-2"
       ]
+    },
+    {
+      "id": "general-chemistry-2-15-objective-1",
+      "description": "Use the equivalence volume to find an unknown concentration, and identify the stoichiometric regions of a titration curve.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "general-chemistry-2-outcome-1"
+      ]
+    },
+    {
+      "id": "general-chemistry-2-15-objective-2",
+      "description": "Calculate pH at the start, in the buffer region, at equivalence and beyond equivalence for strong-acid and weak-acid titrations with a strong base, and check the shortcuts against an exact charge balance.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "general-chemistry-2-outcome-1"
+      ]
+    },
+    {
+      "id": "general-chemistry-2-15-objective-3",
+      "description": "Explain why the equivalence pH of a weak-acid titration lies above 7, read pKa from the half-equivalence point, choose an indicator whose transition brackets the equivalence pH, and locate the equivalence points of a diprotic acid.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "general-chemistry-2-outcome-1"
+      ]
     }
   ],
   "duration": {
-    "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week scope with two readings in week 12; compact prototype readings remain in weeks 1,5,9,12. Workload and qualified review are absent; no semester equivalence is established.",
+    "instructional_weeks": 11,
+    "equivalent_structure": "Proposed 11-week local sequence groups each compact buffer, kinetics, redox and coordination primer with its expanded treatment; all 14 lessons and the synthetic lab remain scheduled. Workload and qualified review are absent; no semester equivalence is established.",
     "weeks": [
       {
         "week": 1,
-        "title": "Acid-base equilibria and buffers",
+        "title": "Acid-base buffers and capacity",
         "lesson_ids": [
-          "general-chemistry-2-1"
+          "general-chemistry-2-1",
+          "general-chemistry-2-5"
         ],
         "assessment_ids": [
-          "general-chemistry-2-1-practice"
+          "general-chemistry-2-1-practice",
+          "general-chemistry-2-5-practice"
         ]
       },
       {
@@ -387,46 +434,30 @@
       },
       {
         "week": 3,
-        "title": "Buffers by design: Henderson–Hasselbalch, capacity and the ionization of weak acids and bases",
+        "title": "Coupled acid speciation, charge balance and titration curves",
         "lesson_ids": [
-          "general-chemistry-2-5"
+          "general-chemistry-2-9",
+          "general-chemistry-2-15"
         ],
         "assessment_ids": [
-          "general-chemistry-2-5-practice"
+          "general-chemistry-2-9-practice",
+          "general-chemistry-2-15-practice"
         ]
       },
       {
         "week": 4,
-        "title": "Coupled acid speciation and charge balance",
-        "lesson_ids": [
-          "general-chemistry-2-9"
-        ],
-        "assessment_ids": [
-          "general-chemistry-2-9-practice"
-        ]
-      },
-      {
-        "week": 5,
         "title": "Kinetics and reaction mechanisms",
         "lesson_ids": [
-          "general-chemistry-2-2"
-        ],
-        "assessment_ids": [
-          "general-chemistry-2-2-practice"
-        ]
-      },
-      {
-        "week": 6,
-        "title": "Rate laws in practice: integrated forms, half-lives, Arrhenius temperature dependence and how to tell the order",
-        "lesson_ids": [
+          "general-chemistry-2-2",
           "general-chemistry-2-6"
         ],
         "assessment_ids": [
+          "general-chemistry-2-2-practice",
           "general-chemistry-2-6-practice"
         ]
       },
       {
-        "week": 7,
+        "week": 5,
         "title": "Rate laws and mechanism inference",
         "lesson_ids": [
           "general-chemistry-2-10"
@@ -436,7 +467,7 @@
         ]
       },
       {
-        "week": 8,
+        "week": 6,
         "title": "Reversible and sequential kinetics",
         "lesson_ids": [
           "general-chemistry-2-11"
@@ -446,17 +477,19 @@
         ]
       },
       {
-        "week": 9,
-        "title": "Redox and electrochemical cells",
+        "week": 7,
+        "title": "Redox, the Nernst equation and metal centers",
         "lesson_ids": [
-          "general-chemistry-2-3"
+          "general-chemistry-2-3",
+          "general-chemistry-2-7"
         ],
         "assessment_ids": [
-          "general-chemistry-2-3-practice"
+          "general-chemistry-2-3-practice",
+          "general-chemistry-2-7-practice"
         ]
       },
       {
-        "week": 10,
+        "week": 8,
         "title": "Electrochemical stoichiometry, composition and work",
         "lesson_ids": [
           "general-chemistry-2-12"
@@ -466,18 +499,8 @@
         ]
       },
       {
-        "week": 11,
-        "title": "Redox direction and metal centers: the Nernst equation, electron flow and why ligands matter",
-        "lesson_ids": [
-          "general-chemistry-2-7"
-        ],
-        "assessment_ids": [
-          "general-chemistry-2-7-practice"
-        ]
-      },
-      {
-        "week": 12,
-        "title": "Coordination chemistry and biologically relevant metals / Ligand balance and coordination models",
+        "week": 9,
+        "title": "Coordination chemistry and ligand balance",
         "lesson_ids": [
           "general-chemistry-2-4",
           "general-chemistry-2-13"
@@ -488,7 +511,7 @@
         ]
       },
       {
-        "week": 13,
+        "week": 10,
         "title": "Solubility, complexation and competing equilibria",
         "lesson_ids": [
           "general-chemistry-2-14"
@@ -498,7 +521,7 @@
         ]
       },
       {
-        "week": 14,
+        "week": 11,
         "title": "Virtual lab 1: reporting background and reversible relaxation",
         "lesson_ids": [
           "general-chemistry-2-lab-01"
@@ -532,10 +555,11 @@
             "general-chemistry-2-1-objective-1",
             "general-chemistry-2-1-objective-2"
           ],
-          "worked_example": "At pH = pKa, [A⁻]/[HA] = 1. Adding 1 mmol HCl to a buffer consumes approximately 1 mmol A⁻ and forms 1 mmol HA before recalculating pH.",
+          "worked_example": "At pH=pKa the buffer ratio [A⁻]/[HA] is approximately one. Adding 1 mmol of strong acid to a synthetic buffer with 10 mmol of each form first changes the amounts to 9 mmol A⁻ and 11 mmol HA; recalculate pH from the new ratio, not the starting amounts.",
           "question_ids": [
             "general-chemistry-2-1:check",
-            "general-chemistry-2-1:henderson-hasselbalch"
+            "general-chemistry-2-1:henderson-hasselbalch",
+            "general-chemistry-2-1:weak-acid-mass-balance"
           ],
           "card_ids": [
             "general-chemistry-2-0-0",
@@ -549,7 +573,12 @@
       "title": "Kinetics and reaction mechanisms",
       "source_ids": [
         "chemistry",
-        "biochemistry"
+        "biochemistry",
+        "openstax-chem2-reaction-rates",
+        "openstax-chem2-rate-laws",
+        "openstax-chem2-integrated-rate-laws",
+        "openstax-chem2-collision-theory",
+        "openstax-chem2-mechanisms"
       ],
       "lessons": [
         {
@@ -560,7 +589,7 @@
             "general-chemistry-2-2-objective-1",
             "general-chemistry-2-2-objective-2"
           ],
-          "worked_example": "A first-order process with k = 0.20 min⁻¹ has half-life 0.693/0.20 = 3.47 min.",
+          "worked_example": "A first-order reaction with k = 0.35 min⁻¹ has t½ = ln 2/k = 1.98 min; the inverse-time units cancel. For a separate Arrhenius comparison with Ea = 50.0 kJ/mol, convert to 50,000 J/mol before using R = 8.314 J/(mol·K). From 298 K to 308 K, ln(k₂/k₁) = (Ea/R)(1/298 − 1/308) = 0.655, giving a rate-constant factor of e⁰·⁶⁵⁵ = 1.93. This is a model-based ratio, not an absolute reaction rate.",
           "question_ids": [
             "general-chemistry-2-2:check",
             "general-chemistry-2-2:arrhenius-ratio"
@@ -577,7 +606,10 @@
       "title": "Redox and electrochemical cells",
       "source_ids": [
         "chemistry",
-        "biochemistry"
+        "biochemistry",
+        "openstax-chem2-galvanic-cells",
+        "openstax-chem2-electrode-cell-potentials",
+        "openstax-chem2-potential-free-energy-equilibrium"
       ],
       "lessons": [
         {
@@ -588,7 +620,7 @@
             "general-chemistry-2-3-objective-1",
             "general-chemistry-2-3-objective-2"
           ],
-          "worked_example": "If E°cathode = +0.80 V and E°anode = −0.20 V, E°cell = +1.00 V; for n > 0, ΔG° is negative.",
+          "worked_example": "For the Zn/Cu cell, E°cell = 0.34 − (−0.76) = +1.10 V. With n = 2, ΔG° = −nFE°cell = −212 kJ/mol. For a separate cell with n = 2 and E°cell = +0.30 V, ΔG° = −57.9 kJ/mol. Keep reduction potentials as tabulated, subtract the anode value, and convert joules to kilojoules. The potential remains unchanged if the balanced equation is scaled.",
           "question_ids": [
             "general-chemistry-2-3:check",
             "general-chemistry-2-3:cell-potential"
@@ -605,7 +637,9 @@
       "title": "Coordination chemistry and biologically relevant metals",
       "source_ids": [
         "chemistry",
-        "biochemistry"
+        "biochemistry",
+        "openstax-chem2-coordination-chemistry",
+        "openstax-chem2-coordination-properties"
       ],
       "lessons": [
         {
@@ -616,7 +650,7 @@
             "general-chemistry-2-4-objective-1",
             "general-chemistry-2-4-objective-2"
           ],
-          "worked_example": "A heme iron can bind axial ligands and reversibly coordinate O₂; protein residues tune oxygen affinity and protect the metal center.",
+          "worked_example": "For [Co(NH₃)₅Cl]Cl₂, the bracketed ion has charge +2; neutral NH₃ and one inner-sphere Cl⁻ give cobalt oxidation state +3. Five ammonia donors plus one chloride donor give coordination number six. In a separate octahedral model, strong-field ligands increase Δₒ and may favor low spin for suitable d counts, but do not by themselves specify a redox-potential shift.",
           "question_ids": [
             "general-chemistry-2-4:check",
             "general-chemistry-2-4:ligand-field"
@@ -1003,6 +1037,45 @@
       ]
     },
     {
+      "id": "general-chemistry-2-module-15",
+      "title": "Acid–base titration curves: equivalence, buffer regions and indicators",
+      "source_ids": [
+        "gchem-titration-5111sc"
+      ],
+      "lessons": [
+        {
+          "id": "general-chemistry-2-15",
+          "title": "Acid–base titration curves: equivalence, buffer regions and indicators",
+          "reading": "modules/15-acid-base-titration-curves-and-equivalence.md",
+          "objectives": [
+            "general-chemistry-2-15-objective-1",
+            "general-chemistry-2-15-objective-2",
+            "general-chemistry-2-15-objective-3"
+          ],
+          "worked_example": "Titrating 25.00 mL of 0.100 M weak acid (pK_a 4.76) with 0.100 M NaOH gives pH 2.88 at the start, 4.76 at 12.50 mL, 5.36 at 20.00 mL, 8.73 at the 25.00 mL equivalence point and 11.29 at 26.00 mL; an exact charge balance agrees within 0.001 pH. An indicator changing near 8.2–10.0 brackets the equivalence pH; one changing near 3.8–5.4 would change in the buffer region.",
+          "question_ids": [
+            "general-chemistry-2-15:equivalence-concentration",
+            "general-chemistry-2-15:initial-weak-acid-ph",
+            "general-chemistry-2-15:buffer-region-ph",
+            "general-chemistry-2-15:half-equivalence-pka",
+            "general-chemistry-2-15:equivalence-ph",
+            "general-chemistry-2-15:past-equivalence-ph",
+            "general-chemistry-2-15:strong-acid-before-equivalence",
+            "general-chemistry-2-15:diprotic-second-equivalence",
+            "general-chemistry-2-15:weak-acid-equivalence-basic",
+            "general-chemistry-2-15:indicator-choice",
+            "general-chemistry-2-15:endpoint-versus-equivalence"
+          ],
+          "card_ids": [
+            "general-chemistry-2-15-card-1",
+            "general-chemistry-2-15-card-2",
+            "general-chemistry-2-15-card-3",
+            "general-chemistry-2-15-card-4"
+          ]
+        }
+      ]
+    },
+    {
       "id": "general-chemistry-2-module-lab-01",
       "title": "Virtual lab 1: reporting background and reversible relaxation",
       "source_ids": [
@@ -1048,13 +1121,15 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "general-chemistry-2-1-objective-1",
-        "general-chemistry-2-1-objective-2"
+        "general-chemistry-2-1-objective-2",
+        "general-chemistry-2-outcome-1"
       ],
       "question_ids": [
         "general-chemistry-2-1:check",
-        "general-chemistry-2-1:henderson-hasselbalch"
+        "general-chemistry-2-1:henderson-hasselbalch",
+        "general-chemistry-2-1:weak-acid-mass-balance"
       ],
-      "points": 2
+      "points": 3
     },
     {
       "id": "general-chemistry-2-2-practice",
@@ -1063,7 +1138,8 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "general-chemistry-2-2-objective-1",
-        "general-chemistry-2-2-objective-2"
+        "general-chemistry-2-2-objective-2",
+        "general-chemistry-2-outcome-2"
       ],
       "question_ids": [
         "general-chemistry-2-2:check",
@@ -1078,7 +1154,8 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "general-chemistry-2-3-objective-1",
-        "general-chemistry-2-3-objective-2"
+        "general-chemistry-2-3-objective-2",
+        "general-chemistry-2-outcome-3"
       ],
       "question_ids": [
         "general-chemistry-2-3:check",
@@ -1093,7 +1170,8 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "general-chemistry-2-4-objective-1",
-        "general-chemistry-2-4-objective-2"
+        "general-chemistry-2-4-objective-2",
+        "general-chemistry-2-outcome-4"
       ],
       "question_ids": [
         "general-chemistry-2-4:check",
@@ -1351,7 +1429,7 @@
       "mode": "practice",
       "title": "Virtual lab 1: reporting background and reversible relaxation (ungraded practice)",
       "path": "question-banks/practice.json",
-      "week": 14,
+      "week": 11,
       "objective_ids": [
         "general-chemistry-2-lab-01-objective-1",
         "general-chemistry-2-lab-01-objective-2",
@@ -1378,6 +1456,33 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "general-chemistry-2-15-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Acid–base titration practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "general-chemistry-2-15-objective-1",
+        "general-chemistry-2-15-objective-2",
+        "general-chemistry-2-15-objective-3",
+        "general-chemistry-2-outcome-1"
+      ],
+      "question_ids": [
+        "general-chemistry-2-15:equivalence-concentration",
+        "general-chemistry-2-15:initial-weak-acid-ph",
+        "general-chemistry-2-15:buffer-region-ph",
+        "general-chemistry-2-15:half-equivalence-pka",
+        "general-chemistry-2-15:equivalence-ph",
+        "general-chemistry-2-15:past-equivalence-ph",
+        "general-chemistry-2-15:strong-acid-before-equivalence",
+        "general-chemistry-2-15:diprotic-second-equivalence",
+        "general-chemistry-2-15:weak-acid-equivalence-basic",
+        "general-chemistry-2-15:indicator-choice",
+        "general-chemistry-2-15:endpoint-versus-equivalence"
+      ],
+      "points": 11
     }
   ],
   "grading_policy": {
@@ -1432,18 +1537,59 @@
       "version": "0.4.0",
       "date": "2026-10-09",
       "summary": "Added seven original lessons on free energy, coupled acid speciation, empirical/mechanistic rate laws, reversible/sequential kinetics, electrochemical accounting, ligand balance and solubility/complexation; one synthetic reference-and-plateau relaxation lab and a proposed weekly schedule. Developed with Codex assistance. Still partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.1",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-1 acid/base reading with Ka and mass-balance reasoning, a qualified Henderson–Hasselbalch derivation, stoichiometric neutralization before re-equilibration, and total-concentration/buffer-capacity distinctions. Existing questions, keys and objectives are unchanged. Three compact prototype readings remain in weeks 5, 9 and 12; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.2",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-5 kinetics reading with controlled initial-rate comparisons, empirical rate-law units, Arrhenius temperature ratios, mechanism constraints, catalysis and a limited first-order half-life check. Clarified the first objective to cover the preserved half-life item and linked both objectives and the assessment to outcome 2. Existing question IDs, prompts, answer keys and cards are unchanged. Two compact prototype readings remain in weeks 9 and 12; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.3",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-9 redox and electrochemical-cells reading with oxidation/reduction conventions, galvanic-cell components, standard reduction potentials, electron-flow and voltage signs, ΔG° from nFE°, and the limits of standard-state predictions. Clarified both objectives and linked them and the practice assessment to outcome 3. Existing question IDs, prompts, answer keys and cards are unchanged. One compact prototype reading remains in week 12; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.4",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-12 coordination reading with coordination spheres, donor-atom counting, formal oxidation-state bookkeeping, geometry limits, ligand-field splitting, spin/color qualifications and protein-environment effects. Clarified both objectives and linked them and the practice assessment to outcome 4. Existing question IDs, prompts, answer keys and cards are unchanged. All four original compact prototype readings now have expanded instruction; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.5",
+      "date": "2026-10-10",
+      "summary": "Linked both week-1 weak-acid/buffer objectives to outcome 1. Reassociated the preserved pKa-and-ratio check with the Henderson–Hasselbalch objective and added direct practice using the weak-acid mass balance to form Ka; existing prompts and keys are unchanged. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.6",
+      "date": "2026-10-10",
+      "summary": "Added an inactive fictional-redox portfolio combining balanced half-reactions, standard cell potential, Gibbs energy, equilibrium, a Nernst correction and Faraday amount accounting. The abstract species and values are not a real chemical cell; the package remains partial and formative-only."
+    },
+    {
+      "version": "0.4.7",
+      "date": "2026-10-11",
+      "summary": "Regrouped compact buffer, kinetics, redox and coordination readings with their expanded treatments, preserving every lesson, assessment and question ID. The resulting proposed sequence has 11 active weeks including the existing lab, not 14 calendar blocks for repeated introductions. Clarified that Chemistry I/II are local segments of one MIT 5.111SC comparator. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.8",
+      "date": "2026-10-13",
+      "summary": "Grouped an original acid–base titration-curve reading with the week-3 coupled-speciation lesson: equivalence and endpoint, the four regions of weak- and strong-acid curves checked against an exact charge balance, indicator choice and diprotic equivalence volumes. Added three objectives, eleven formative items and four cards, with no week added. The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "Four compact prototype readings remain beside ten substantive original lessons and one synthetic lab; this is not a full university semester.",
-    "The proposed 14-week scope is unmeasured and unreviewed; no graded homework sequence, exams, full laboratory sequence or cumulative graded project exists.",
+    "All four compact prototype readings now share topic weeks with their expanded treatments in the proposed 11-week sequence; the course remains partial and is not a full university semester.",
+    "The proposed 14-week scope is unmeasured and unreviewed; no graded homework sequence, exams or full laboratory sequence exists. An inactive cumulative-project draft is not scheduled or graded.",
     "Public practice points are study feedback, not course grades. All keys/feedback remain public formative authoring specifications.",
     "All new parameters and observations are synthetic, with explicitly restricted ideal, concentration-form or kinetic assumptions; no handling protocol or biological recommendation is supplied.",
-    "Of 64 numeric items, ten preserved items require units, none checks significant figures or dimensions; new items explicitly ask for a bare number in a stated scale.",
+    "Of 72 numeric items, ten preserved items require units, none checks significant figures or dimensions; new items explicitly ask for a bare number in a stated scale.",
     "Subject-matter, accessibility and workload review remain outstanding; objective associations are provisional.",
-    "Three primary OpenStax section pages were retrieved as link-only references; no prose, problem, figure or dataset was imported."
+    "Eleven primary OpenStax Chemistry 2e section pages are registered as link-only references; no prose, problem, figure or dataset was imported.",
+    "General Chemistry I/II is a local division of topics compared against one integrated MIT 5.111SC course. General Chemistry I introduces buffer and calibration ideas; this package develops coupled speciation and continues kinetics, redox, coordination and complexation. The pair does not claim two MIT-equivalent courses."
   ],
   "intentionally_omitted": [
-    "Graded assessments, complete laboratory sequence, cumulative graded project, measured workload and qualified human review remain outstanding."
+    "Graded assessments, complete laboratory sequence, activated cumulative project, measured workload and qualified human review remain outstanding."
   ]
 }

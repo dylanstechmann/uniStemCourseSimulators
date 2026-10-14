@@ -1,0 +1,7 @@
+# Thermodynamics & Transport in Bioengineering 0.4.3 — fluid mechanics and microvascular flow
+
+Week 9 now defines Reynolds scaling and characteristic-length conventions, distinguishes the dimensionless regime estimate from a universal transition criterion, derives the fully developed circular-tube Poiseuille relation, and explains radius sensitivity and ideal network resistance. It states the assumptions and limits for entrance regions, branches, compliant walls, and cell-containing or non-Newtonian flows. The worked tube calculation gives Q=2.45×10⁻⁸ m³/s; the Re scale example gives 0.1.
+
+The preserved Reynolds and Poiseuille numeric prompts and keys remain unchanged. Added a single-choice interpretation item so the Reynolds objective includes its model limits. Both objectives and the assessment map to outcomes 3 and 4. MIT OpenCourseWare's 2.674 microfluidic hydrodynamics notes and 8.09 fluid-mechanics chapter are link-only references; no source material was copied or adapted.
+
+Checks: the focused Transport regression passed 6 tests; Ruff passed; full validation passed (25 courses, 384 lessons, 2,242 questions, 1,276 cards and 25 cases; 0 errors and 1 disclosed depth warning); the assessment-candidate report drift check passed after regeneration. These same-AI checks are not independent fluid-mechanics, accessibility or domain review. One compact reading remains in week 12; the course remains partial, unreviewed and formative-only.

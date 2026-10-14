@@ -38,13 +38,21 @@ For one substrate, the common starting model is:
 
 `E + S ⇌ ES → E + P`
 
+**In words:** enzyme and substrate reversibly form an enzyme–substrate complex; the complex can release enzyme and product.
+
 The enzyme–substrate complex forms and can dissociate; productive chemistry releases product and regenerates enzyme. In a steady-state treatment, the amount of ES is approximately stable during the initial-rate interval. With total active enzyme `Eₜ = [E] + [ES]`, the model gives:
 
 `v₀ = Vmax[S] / (Km + [S])`
 
+**In words:** initial rate equals the limiting rate multiplied by substrate concentration, divided by Km plus substrate concentration.
+
 `Vmax = kcat Eₜ`
 
+**In words:** the limiting rate equals turnover per active site multiplied by total active-enzyme concentration.
+
 `Km = (k₋₁ + kcat) / k₁`
+
+**In words:** in this simple kinetic scheme, Km is the sum of substrate dissociation and product-formation rate constants divided by the substrate-association rate constant.
 
 The equation uses the initial rate `v₀`, substrate concentration `[S]`, and the model parameters `Vmax` and `Km`. At `[S] = Km`, `v₀ = Vmax/2`; at substrate concentrations far below `Km`, rate is approximately proportional to `[S]`; at concentrations far above `Km`, rate approaches `Vmax`.
 

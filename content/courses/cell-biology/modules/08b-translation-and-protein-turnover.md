@@ -32,6 +32,8 @@ Let `P` be the abundance of a particular protein, `s` its synthesis rate, and `k
 
 `dP/dt = s − k_deg P`.
 
+**In words:** the rate of change of protein abundance equals its synthesis rate minus the degradation constant multiplied by current protein abundance.
+
 If the rates and conditions are constant long enough to approach steady state, then `P_ss = s / k_deg`. A protein can become less abundant because synthesis falls, degradation rises, the fraction of cells expressing it falls, or the assay recovers less protein. If synthesis suddenly stops and degradation remains first-order, the labeled protein follows `P(t) = P(0) e^(−k_deg t)` and the half-life is `t_1/2 = ln(2) / k_deg`.
 
 For a first-order process, a corrected signal that reaches one half of its initial value at five hours implies an estimated half-life of five hours. This conclusion depends on a suitable chase, background correction, stable normalization, and a decay regime that is close enough to first-order over the measured interval. A two-point estimate is a teaching calculation, not a robust kinetic fit; real analysis should use multiple time points, replicate-level data, uncertainty, and a validated model.

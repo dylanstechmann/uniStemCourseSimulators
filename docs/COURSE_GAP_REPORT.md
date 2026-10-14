@@ -6,128 +6,36 @@ comprehensive coverage. Every package is still `partial` and unreviewed.
 
 | Package | Maturity | Lessons | Objectives | Practice items | Cards | Objectives with no assessment mapping | Objectives with no practice item | Objectives linked to no outcome | Course outcomes | Outcomes no lesson objective links to | Outcomes no assessment lists |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| biochemistry | partial | 14 | 38 | 75 | 48 | 0 | 0 | 8 | 4 | 0 | 0 |
-| biomaterials | partial | 14 | 38 | 83 | 48 | 0 | 0 | 8 | 4 | 0 | 0 |
-| bioreactors | partial | 14 | 38 | 85 | 48 | 0 | 0 | 8 | 4 | 0 | 0 |
-| calculus-1 | partial | 14 | 38 | 92 | 48 | 0 | 0 | 8 | 4 | 0 | 0 |
-| calculus-2 | partial | 14 | 38 | 91 | 48 | 0 | 0 | 8 | 4 | 0 | 0 |
-| calculus-3 | partial | 14 | 38 | 91 | 48 | 0 | 0 | 8 | 4 | 0 | 0 |
-| cell-biology | partial | 39 | 69 | 137 | 89 | 0 | 0 | 0 | 4 | 0 | 0 |
-| cellular-biomechanics | partial | 14 | 38 | 84 | 48 | 0 | 0 | 8 | 4 | 0 | 0 |
-| circuits | partial | 14 | 38 | 91 | 48 | 0 | 0 | 8 | 4 | 0 | 0 |
-| differential-equations | partial | 14 | 38 | 92 | 48 | 0 | 0 | 8 | 4 | 0 | 0 |
-| general-chemistry-1 | partial | 14 | 38 | 91 | 48 | 0 | 0 | 8 | 4 | 0 | 0 |
-| general-chemistry-2 | partial | 15 | 41 | 97 | 52 | 0 | 0 | 8 | 4 | 0 | 0 |
-| genetics | partial | 16 | 44 | 82 | 56 | 0 | 0 | 8 | 4 | 0 | 0 |
-| geroscience | partial | 17 | 47 | 71 | 60 | 0 | 0 | 0 | 4 | 0 | 0 |
-| linear-algebra | partial | 14 | 38 | 91 | 48 | 0 | 0 | 8 | 4 | 0 | 0 |
-| organic-chemistry | partial | 14 | 38 | 91 | 48 | 0 | 0 | 8 | 4 | 0 | 0 |
-| physics-em | partial | 14 | 38 | 91 | 48 | 0 | 0 | 8 | 4 | 0 | 0 |
-| physics-mechanics | partial | 14 | 38 | 91 | 48 | 0 | 0 | 8 | 4 | 0 | 0 |
-| physiology | partial | 15 | 41 | 83 | 52 | 0 | 0 | 8 | 4 | 0 | 0 |
-| programming | partial | 14 | 38 | 88 | 48 | 0 | 0 | 8 | 4 | 0 | 0 |
-| robotics | partial | 14 | 38 | 91 | 48 | 0 | 0 | 8 | 4 | 0 | 0 |
-| signals-control | partial | 14 | 38 | 91 | 48 | 0 | 0 | 8 | 4 | 0 | 0 |
-| statics-materials | partial | 14 | 38 | 88 | 48 | 0 | 0 | 8 | 4 | 0 | 0 |
-| statistics | partial | 16 | 43 | 85 | 55 | 0 | 0 | 8 | 5 | 0 | 0 |
-| transport | partial | 14 | 38 | 81 | 48 | 0 | 0 | 8 | 4 | 0 | 0 |
+| biochemistry | partial | 27 | 75 | 189 | 113 | 0 | 0 | 0 | 5 | 0 | 0 |
+| biomaterials | partial | 16 | 44 | 104 | 56 | 0 | 0 | 0 | 4 | 0 | 0 |
+| bioreactors | partial | 16 | 45 | 108 | 59 | 0 | 0 | 0 | 4 | 0 | 0 |
+| calculus-1 | partial | 16 | 44 | 113 | 56 | 0 | 0 | 0 | 5 | 0 | 0 |
+| calculus-2 | partial | 16 | 44 | 113 | 56 | 0 | 0 | 0 | 5 | 0 | 0 |
+| calculus-3 | partial | 15 | 41 | 111 | 55 | 0 | 0 | 0 | 4 | 0 | 0 |
+| cell-biology | partial | 43 | 69 | 166 | 89 | 0 | 0 | 0 | 4 | 0 | 0 |
+| cellular-biomechanics | partial | 16 | 44 | 106 | 56 | 0 | 0 | 0 | 4 | 0 | 0 |
+| circuits | partial | 16 | 42 | 115 | 56 | 0 | 0 | 0 | 4 | 0 | 0 |
+| differential-equations | partial | 16 | 45 | 115 | 59 | 0 | 0 | 0 | 4 | 0 | 0 |
+| general-chemistry-1 | partial | 15 | 42 | 113 | 58 | 0 | 0 | 0 | 4 | 0 | 0 |
+| general-chemistry-2 | partial | 16 | 44 | 109 | 56 | 0 | 0 | 0 | 4 | 0 | 0 |
+| genetics | partial | 18 | 51 | 96 | 66 | 0 | 0 | 0 | 6 | 0 | 0 |
+| geroscience | partial | 18 | 51 | 90 | 68 | 0 | 0 | 0 | 4 | 0 | 0 |
+| linear-algebra | partial | 15 | 42 | 108 | 56 | 0 | 0 | 0 | 4 | 0 | 0 |
+| organic-chemistry | partial | 17 | 48 | 125 | 63 | 0 | 0 | 0 | 4 | 0 | 0 |
+| physics-em | partial | 17 | 46 | 118 | 60 | 0 | 0 | 0 | 6 | 0 | 0 |
+| physics-mechanics | partial | 16 | 44 | 110 | 56 | 0 | 0 | 0 | 4 | 0 | 0 |
+| physiology | partial | 16 | 45 | 102 | 60 | 0 | 0 | 0 | 4 | 0 | 0 |
+| programming | partial | 16 | 44 | 106 | 56 | 0 | 0 | 0 | 5 | 0 | 0 |
+| robotics | partial | 15 | 41 | 111 | 56 | 0 | 0 | 0 | 4 | 0 | 0 |
+| signals-control | partial | 16 | 44 | 110 | 56 | 0 | 0 | 0 | 4 | 0 | 0 |
+| statics-materials | partial | 16 | 45 | 112 | 60 | 0 | 0 | 0 | 4 | 0 | 0 |
+| statistics | partial | 18 | 49 | 106 | 63 | 0 | 0 | 0 | 8 | 0 | 0 |
+| transport | partial | 17 | 47 | 114 | 60 | 0 | 0 | 0 | 6 | 0 | 0 |
 
-Totals: 25 packages, 384 lessons, 1007 objectives, 2233 practice items, 0 lesson objectives with no assessment mapping, 0 with no practice item, 184 linked to no course outcome; 0 of 101 course outcomes that no lesson objective links to, 0 that no assessment lists.
+Totals: 25 packages, 443 lessons, 1176 objectives, 2870 practice items, 0 lesson objectives with no assessment mapping, 0 with no practice item, 0 linked to no course outcome; 0 of 114 course outcomes that no lesson objective links to, 0 that no assessment lists.
 
 Each assessment with items lists the course outcomes its own items assess (item, then its tagged lesson objective,
 then that objective's outcome links), and `tools/validate_content.py` rejects an outcome that none of the
 assessment's items assesses. A listed outcome means at least one item touches it, not that it is assessed in depth.
 Objectives linked to no outcome are mostly those of the short prototype units; linking them is a judgement for a
 subject-matter reviewer, so this report lists them rather than doing it.
-
-## biochemistry
-
-Objectives linked to no outcome: `biochemistry-1-objective-1`, `biochemistry-1-objective-2`, `biochemistry-2-objective-1`, `biochemistry-2-objective-2`, `biochemistry-3-objective-1`, `biochemistry-3-objective-2`, `biochemistry-4-objective-1`, `biochemistry-4-objective-2`
-
-## biomaterials
-
-Objectives linked to no outcome: `biomaterials-1-objective-1`, `biomaterials-1-objective-2`, `biomaterials-2-objective-1`, `biomaterials-2-objective-2`, `biomaterials-3-objective-1`, `biomaterials-3-objective-2`, `biomaterials-4-objective-1`, `biomaterials-4-objective-2`
-
-## bioreactors
-
-Objectives linked to no outcome: `bioreactors-1-objective-1`, `bioreactors-1-objective-2`, `bioreactors-2-objective-1`, `bioreactors-2-objective-2`, `bioreactors-3-objective-1`, `bioreactors-3-objective-2`, `bioreactors-4-objective-1`, `bioreactors-4-objective-2`
-
-## calculus-1
-
-Objectives linked to no outcome: `calculus-1-1-objective-1`, `calculus-1-1-objective-2`, `calculus-1-2-objective-1`, `calculus-1-2-objective-2`, `calculus-1-3-objective-1`, `calculus-1-3-objective-2`, `calculus-1-4-objective-1`, `calculus-1-4-objective-2`
-
-## calculus-2
-
-Objectives linked to no outcome: `calculus-2-1-objective-1`, `calculus-2-1-objective-2`, `calculus-2-2-objective-1`, `calculus-2-2-objective-2`, `calculus-2-3-objective-1`, `calculus-2-3-objective-2`, `calculus-2-4-objective-1`, `calculus-2-4-objective-2`
-
-## calculus-3
-
-Objectives linked to no outcome: `calculus-3-1-objective-1`, `calculus-3-1-objective-2`, `calculus-3-2-objective-1`, `calculus-3-2-objective-2`, `calculus-3-3-objective-1`, `calculus-3-3-objective-2`, `calculus-3-4-objective-1`, `calculus-3-4-objective-2`
-
-## cellular-biomechanics
-
-Objectives linked to no outcome: `cellular-biomechanics-1-objective-1`, `cellular-biomechanics-1-objective-2`, `cellular-biomechanics-2-objective-1`, `cellular-biomechanics-2-objective-2`, `cellular-biomechanics-3-objective-1`, `cellular-biomechanics-3-objective-2`, `cellular-biomechanics-4-objective-1`, `cellular-biomechanics-4-objective-2`
-
-## circuits
-
-Objectives linked to no outcome: `circuits-1-objective-1`, `circuits-1-objective-2`, `circuits-2-objective-1`, `circuits-2-objective-2`, `circuits-3-objective-1`, `circuits-3-objective-2`, `circuits-4-objective-1`, `circuits-4-objective-2`
-
-## differential-equations
-
-Objectives linked to no outcome: `differential-equations-1-objective-1`, `differential-equations-1-objective-2`, `differential-equations-2-objective-1`, `differential-equations-2-objective-2`, `differential-equations-3-objective-1`, `differential-equations-3-objective-2`, `differential-equations-4-objective-1`, `differential-equations-4-objective-2`
-
-## general-chemistry-1
-
-Objectives linked to no outcome: `general-chemistry-1-1-objective-1`, `general-chemistry-1-1-objective-2`, `general-chemistry-1-2-objective-1`, `general-chemistry-1-2-objective-2`, `general-chemistry-1-3-objective-1`, `general-chemistry-1-3-objective-2`, `general-chemistry-1-4-objective-1`, `general-chemistry-1-4-objective-2`
-
-## general-chemistry-2
-
-Objectives linked to no outcome: `general-chemistry-2-1-objective-1`, `general-chemistry-2-1-objective-2`, `general-chemistry-2-2-objective-1`, `general-chemistry-2-2-objective-2`, `general-chemistry-2-3-objective-1`, `general-chemistry-2-3-objective-2`, `general-chemistry-2-4-objective-1`, `general-chemistry-2-4-objective-2`
-
-## genetics
-
-Objectives linked to no outcome: `genetics-1-objective-1`, `genetics-1-objective-2`, `genetics-2-objective-1`, `genetics-2-objective-2`, `genetics-3-objective-1`, `genetics-3-objective-2`, `genetics-4-objective-1`, `genetics-4-objective-2`
-
-## linear-algebra
-
-Objectives linked to no outcome: `linear-algebra-1-objective-1`, `linear-algebra-1-objective-2`, `linear-algebra-2-objective-1`, `linear-algebra-2-objective-2`, `linear-algebra-3-objective-1`, `linear-algebra-3-objective-2`, `linear-algebra-4-objective-1`, `linear-algebra-4-objective-2`
-
-## organic-chemistry
-
-Objectives linked to no outcome: `organic-chemistry-1-objective-1`, `organic-chemistry-1-objective-2`, `organic-chemistry-2-objective-1`, `organic-chemistry-2-objective-2`, `organic-chemistry-3-objective-1`, `organic-chemistry-3-objective-2`, `organic-chemistry-4-objective-1`, `organic-chemistry-4-objective-2`
-
-## physics-em
-
-Objectives linked to no outcome: `physics-em-1-objective-1`, `physics-em-1-objective-2`, `physics-em-2-objective-1`, `physics-em-2-objective-2`, `physics-em-3-objective-1`, `physics-em-3-objective-2`, `physics-em-4-objective-1`, `physics-em-4-objective-2`
-
-## physics-mechanics
-
-Objectives linked to no outcome: `physics-mechanics-1-objective-1`, `physics-mechanics-1-objective-2`, `physics-mechanics-2-objective-1`, `physics-mechanics-2-objective-2`, `physics-mechanics-3-objective-1`, `physics-mechanics-3-objective-2`, `physics-mechanics-4-objective-1`, `physics-mechanics-4-objective-2`
-
-## physiology
-
-Objectives linked to no outcome: `physiology-1-objective-1`, `physiology-1-objective-2`, `physiology-2-objective-1`, `physiology-2-objective-2`, `physiology-3-objective-1`, `physiology-3-objective-2`, `physiology-4-objective-1`, `physiology-4-objective-2`
-
-## programming
-
-Objectives linked to no outcome: `programming-1-objective-1`, `programming-1-objective-2`, `programming-2-objective-1`, `programming-2-objective-2`, `programming-3-objective-1`, `programming-3-objective-2`, `programming-4-objective-1`, `programming-4-objective-2`
-
-## robotics
-
-Objectives linked to no outcome: `robotics-1-objective-1`, `robotics-1-objective-2`, `robotics-2-objective-1`, `robotics-2-objective-2`, `robotics-3-objective-1`, `robotics-3-objective-2`, `robotics-4-objective-1`, `robotics-4-objective-2`
-
-## signals-control
-
-Objectives linked to no outcome: `signals-control-1-objective-1`, `signals-control-1-objective-2`, `signals-control-2-objective-1`, `signals-control-2-objective-2`, `signals-control-3-objective-1`, `signals-control-3-objective-2`, `signals-control-4-objective-1`, `signals-control-4-objective-2`
-
-## statics-materials
-
-Objectives linked to no outcome: `statics-materials-1-objective-1`, `statics-materials-1-objective-2`, `statics-materials-2-objective-1`, `statics-materials-2-objective-2`, `statics-materials-3-objective-1`, `statics-materials-3-objective-2`, `statics-materials-4-objective-1`, `statics-materials-4-objective-2`
-
-## statistics
-
-Objectives linked to no outcome: `statistics-1-objective-1`, `statistics-1-objective-2`, `statistics-2-objective-1`, `statistics-2-objective-2`, `statistics-3-objective-1`, `statistics-3-objective-2`, `statistics-4-objective-1`, `statistics-4-objective-2`
-
-## transport
-
-Objectives linked to no outcome: `transport-1-objective-1`, `transport-1-objective-2`, `transport-2-objective-1`, `transport-2-objective-2`, `transport-3-objective-1`, `transport-3-objective-2`, `transport-4-objective-1`, `transport-4-objective-2`

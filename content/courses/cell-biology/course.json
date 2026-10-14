@@ -3,11 +3,11 @@
   "id": "cell-biology",
   "legacy_code": "BIO 110",
   "title": "Foundations of Cell and Molecular Biology",
-  "description": "From molecular structure to cell behavior: build a mechanistic model of how living systems store information, capture energy, and maintain boundaries.",
+  "description": "From molecular structure to cell behavior: build a mechanistic model of how living systems store information, capture energy, and maintain boundaries. Core cell and molecular foundations are paired with optional mechanobiology and regenerative-biology applications.",
   "domain": "Life sciences",
   "level": "Year 1",
   "maturity": "partial",
-  "version": "0.34.0",
+  "version": "0.61.1",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -15,7 +15,8 @@
     "source_sha256": "a77a7cb7f5be2ffa12068877042ac775c6d9b79b83ac2f316fe4f26a0d3d783b",
     "migration_version": "1.0",
     "modifications": [
-      "Normalized the course title to Foundations of Cell and Molecular Biology; the stable ID is unchanged."
+      "Normalized the course title to Foundations of Cell and Molecular Biology; the stable ID is unchanged.",
+      "Clarified the 14-week course boundary as a required cell/molecular foundation with optional mechanobiology and regenerative-biology applications. Reworked the week-8 evidence synthesis to apply, rather than repeat, the week-4 control framework across imaging, repair and reporter examples. MIT OCW 7.016 Fall 2018 calendar was checked as a link-only breadth comparator; no material was copied or adapted."
     ]
   },
   "prerequisites": {
@@ -643,7 +644,7 @@
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week undergraduate scope only. Every week has original lessons except week 8, which has an ungraded cumulative practice set and is not a midterm. Weeks 3, 4, 6, 7, 9, 10, 12 and 13 carry an open formative homework companion, and weeks 5, 11 and 14 carry a synthetic data-analysis lab. Planned workload is not measured, so this schedule is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week undergraduate scope only, organized as a cell/molecular foundation plus selected application extensions. Weeks 1–11 and cell-cycle/mitosis in week 13 form the core; mechanobiology in week 12, senescence/apoptosis in week 13, and development/regenerative design in week 14 are optional extensions. Week 2 includes an optional ungraded written-response rehearsal; week 8 has two synthesis readings and an ungraded cumulative practice set, not a midterm; week 14 includes an optional self-assessed design studio. Weeks 3, 4, 6, 7, 9, 10, 12 and 13 carry open formative homework companions, and weeks 5, 11 and 14 carry synthetic data-analysis labs. Workload is unmeasured, so this schedule is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
@@ -661,7 +662,8 @@
         "title": "Protein sequence and structure; membranes and transport",
         "lesson_ids": [
           "cell-biology-6",
-          "cell-biology-2"
+          "cell-biology-2",
+          "cell-biology-review-early-written"
         ],
         "assessment_ids": [
           "cell-biology-2-practice"
@@ -738,8 +740,11 @@
       },
       {
         "week": 8,
-        "title": "Cumulative weeks 1–7 review (ungraded practice; no midterm)",
-        "lesson_ids": [],
+        "title": "Weeks 1–7 synthesis and cumulative review (ungraded practice; no midterm)",
+        "lesson_ids": [
+          "cell-biology-review-8-quantitative",
+          "cell-biology-review-8-experimental-evidence"
+        ],
         "assessment_ids": [
           "cell-biology-week8-cumulative-practice"
         ]
@@ -785,7 +790,7 @@
       },
       {
         "week": 12,
-        "title": "Cytoskeleton, adhesion, extracellular matrix, and mechanobiology",
+        "title": "Optional application extension: cytoskeleton, adhesion, extracellular matrix, and mechanobiology",
         "lesson_ids": [
           "cell-biology-23",
           "cell-biology-24",
@@ -798,7 +803,7 @@
       },
       {
         "week": 13,
-        "title": "Cell-cycle control, mitosis, senescence, and cell death",
+        "title": "Cell-cycle control and mitosis (core); senescence and cell death (optional extension)",
         "lesson_ids": [
           "cell-biology-25",
           "cell-biology-26",
@@ -811,11 +816,12 @@
       },
       {
         "week": 14,
-        "title": "Development, stem-cell potency, regenerative biology, and integration",
+        "title": "Optional application extension: development, stem-cell potency, regenerative biology, and integration",
         "lesson_ids": [
           "cell-biology-27",
           "cell-biology-28",
-          "cell-biology-lab-03"
+          "cell-biology-lab-03",
+          "cell-biology-review-design-studio"
         ],
         "assessment_ids": [
           "cell-biology-week14-practice",
@@ -851,7 +857,8 @@
           "question_ids": [
             "cell-biology-1:check",
             "cell-biology-1:check-all",
-            "cell-biology-1:functional-group"
+            "cell-biology-1:functional-group",
+            "cell-biology-1:surface-hydrophobic-assembly"
           ],
           "card_ids": [
             "cell-biology-0-0",
@@ -878,7 +885,8 @@
           ],
           "worked_example": "At pH 7.4 with pKa 6.0, the two-state acid model gives [A-]/[HA] about 25 and a protonated fraction about 0.038. Calculate the population from the ratio, then state why this solution estimate may not transfer unchanged to a folded protein whose local environment shifts pKa.",
           "question_ids": [
-            "cell-biology-5:protonation-state"
+            "cell-biology-5:protonation-state",
+            "cell-biology-5:protonation-direction"
           ],
           "card_ids": [
             "cell-biology-4-0",
@@ -905,7 +913,9 @@
           ],
           "worked_example": "With a buried leucine-to-aspartate variant, destabilization is plausible, not inevitable. Compare soluble abundance, folding, and specific activity at matched protein concentration to distinguish altered stability from catalytic effects and avoid inferring a phenotype from sequence alone.",
           "question_ids": [
-            "cell-biology-6:variant-inference"
+            "cell-biology-6:variant-inference",
+            "cell-biology-6:matched-variant-measurements",
+            "cell-biology-6:surface-variant-context"
           ],
           "card_ids": [
             "cell-biology-5-0",
@@ -933,7 +943,8 @@
           "worked_example": "For 5 mM K+ outside and 140 mM inside at 25 C, the ideal monovalent-ion Nernst potential is about -89 mV. At that voltage, the single-ion electrochemical terms balance even though concentrations differ; this value does not predict the whole-cell voltage or flux rate.",
           "question_ids": [
             "cell-biology-2:check",
-            "cell-biology-2:transport-classification"
+            "cell-biology-2:transport-classification",
+            "cell-biology-2:carrier-mediated-passive-transport"
           ],
           "card_ids": [
             "cell-biology-1-0",
@@ -991,6 +1002,8 @@
           "worked_example": "Three independent reference cultures have reporter/input ratios 2, 3 and 2; three perturbed cultures have ratios 3, 3 and 4. Their equally weighted means are 7/3 and 10/3, with descriptive difference 1.00 ratio unit. Technical wells were averaged within cultures. Distinguish positive, negative and input controls, and explain why this endpoint difference alone cannot identify transcription as the changed step.",
           "question_ids": [
             "cell-biology-4:check",
+            "cell-biology-4:template-transcription-translation",
+            "cell-biology-4:premature-stop-consequence",
             "cell-biology-4:experimental-logic-structured",
             "cell-biology-4:csv-summary-table"
           ],
@@ -1020,7 +1033,8 @@
           "worked_example": "In synthetic protease-protection data, wild-type cargo remains protected in intact ER-derived microsomes and becomes sensitive after detergent, while a signal-deletion construct is already sensitive. Lumenal and cytosolic marker controls support the interpretation that the wild-type protein entered a membrane-enclosed compartment, without identifying which import step failed in the mutant.",
           "question_ids": [
             "cell-biology-7:secretory-route",
-            "cell-biology-7:protease-protection"
+            "cell-biology-7:protease-protection",
+            "cell-biology-7:marker-panel-localization"
           ],
           "card_ids": [
             "cell-biology-6-0",
@@ -1097,7 +1111,8 @@
           "question_ids": [
             "cell-biology-9:equilibrium",
             "cell-biology-9:coupling-energy",
-            "cell-biology-9:rate-at-km"
+            "cell-biology-9:rate-at-km",
+            "cell-biology-9:rate-at-twice-km"
           ],
           "card_ids": [
             "cell-biology-8-0",
@@ -1232,7 +1247,8 @@
             "cell-biology-13:strand-complement",
             "cell-biology-13:fork-asymmetry",
             "cell-biology-13:density-evidence",
-            "cell-biology-13:hybrid-fraction"
+            "cell-biology-13:hybrid-fraction",
+            "cell-biology-13:fork-explanation-structured"
           ],
           "card_ids": [
             "cell-biology-12-0",
@@ -1308,7 +1324,9 @@
           "question_ids": [
             "cell-biology-15:chromatin-mark-inference",
             "cell-biology-15:cell-state-data",
-            "cell-biology-15:accessibility-measurement"
+            "cell-biology-15:accessibility-measurement",
+            "cell-biology-15:replication-unit",
+            "cell-biology-15:chromatin-organization-structured"
           ],
           "card_ids": [
             "cell-biology-14-0",
@@ -1389,7 +1407,10 @@
             "cell-biology-17:processing-vs-transcription",
             "cell-biology-17:isoform-evidence-controls",
             "cell-biology-17:isoform-fraction",
-            "cell-biology-17:spliceosome-mechanism"
+            "cell-biology-17:spliceosome-mechanism",
+            "cell-biology-17:splice-perturbation-controls",
+            "cell-biology-17:processing-role-map",
+            "cell-biology-17:processing-roles-structured"
           ],
           "card_ids": [
             "cell-biology-17-0",
@@ -1469,7 +1490,10 @@
             "cell-biology-19:transmission-vs-phenotype",
             "cell-biology-19:affected-child-risk",
             "cell-biology-19:pedigree-penetrance",
-            "cell-biology-19:population-stratification"
+            "cell-biology-19:population-stratification",
+            "cell-biology-19:age-specific-penetrance-design",
+            "cell-biology-19:linked-variant-inference",
+            "cell-biology-19:association-evidence-structured"
           ],
           "card_ids": [
             "cell-biology-19-0",
@@ -1546,7 +1570,9 @@
           "worked_example": "At free ligand 1 nM and Kd 4 nM, idealized single-site occupancy is 1/(4+1) = 0.20. This binding estimate does not predict a 20% cell response because the equation describes binding only and omits intracellular amplification, receptor reserve, feedback, and assay-specific nonlinearities.",
           "question_ids": [
             "cell-biology-21:occupancy-model",
+            "cell-biology-21:occupancy-response-distinction",
             "cell-biology-21:rtk-relay",
+            "cell-biology-21:gpcr-rtk-relay-comparison",
             "cell-biology-21:relative-response"
           ],
           "card_ids": [
@@ -1612,7 +1638,9 @@
           "worked_example": "A spreading change on fibronectin makes an integrin-linked route plausible, but an image alone cannot establish mechanism. Measure attachment, viability, accessible coating, target engagement, and the named downstream variable; then bound the claim to the tested cells and surface.",
           "question_ids": [
             "cell-biology-23:filament-roles",
-            "cell-biology-23:matrix-versus-cell-cell"
+            "cell-biology-23:matrix-versus-cell-cell",
+            "cell-biology-23:desmosome-versus-focal-adhesion",
+            "cell-biology-23:filament-perturbation-pattern"
           ],
           "card_ids": [
             "cell-biology-23-0",
@@ -1696,7 +1724,8 @@
             "cell-biology-25:phase-snapshot",
             "cell-biology-25:spindle-checkpoint",
             "cell-biology-25:damage-time-course",
-            "cell-biology-25:edu-relative-reduction"
+            "cell-biology-25:edu-relative-reduction",
+            "cell-biology-25:cdk-model-versus-measurement"
           ],
           "card_ids": [
             "cell-biology-25-0",
@@ -1809,12 +1838,85 @@
             "cell-biology-28:factorial-pattern",
             "cell-biology-28:interaction-contrast",
             "cell-biology-28:follow-up-design",
-            "cell-biology-28:translation-boundary"
+            "cell-biology-28:translation-boundary",
+            "cell-biology-28:marker-function-boundary",
+            "cell-biology-28:regenerative-evidence-structured"
           ],
           "card_ids": [
             "cell-biology-28-0",
             "cell-biology-28-1"
           ]
+        }
+      ]
+    },
+    {
+      "id": "cell-biology-module-review-8-quantitative",
+      "title": "Quantitative models and assumptions: week-8 synthesis",
+      "source_ids": [
+        "biology",
+        "molecular"
+      ],
+      "lessons": [
+        {
+          "id": "cell-biology-review-8-quantitative",
+          "title": "Quantitative models and their assumptions",
+          "reading": "modules/07c-quantitative-models-and-assumptions.md",
+          "objectives": [
+            "cell-biology-5-objective-1",
+            "cell-biology-2-objective-1",
+            "cell-biology-3-objective-2",
+            "cell-biology-9-objective-2"
+          ],
+          "worked_example": "For a cumulative item, identify the requested quantity, choose the relation that estimates it, state the conditions it assumes, and check units and precision. Report only what the result supports; a model prediction is not itself an observation and should retain its stated uncertainty.",
+          "question_ids": [],
+          "card_ids": []
+        }
+      ]
+    },
+    {
+      "id": "cell-biology-module-review-8-experimental-evidence",
+      "title": "Controls, replicates, and bounded claims: week-8 synthesis",
+      "source_ids": [
+        "biology",
+        "molecular"
+      ],
+      "lessons": [
+        {
+          "id": "cell-biology-review-8-experimental-evidence",
+          "title": "Controls, replicates, and bounded claims",
+          "reading": "modules/07d-controls-replicates-and-bounded-claims.md",
+          "objectives": [
+            "cell-biology-4-objective-2",
+            "cell-biology-4-objective-3",
+            "cell-biology-11-objective-2",
+            "cell-biology-16-objective-2"
+          ],
+          "worked_example": "Trace a claim through perturbation, measured signal, controls, independent biological unit, uncertainty, and an alternative explanation. State which link is supported, what remains uncertain, and what follow-up would distinguish the remaining alternatives under the same conditions.",
+          "question_ids": [],
+          "card_ids": []
+        }
+      ]
+    },
+    {
+      "id": "cell-biology-module-review-early-written",
+      "title": "Early chemistry and transport: written-response rehearsal",
+      "source_ids": [
+        "biology",
+        "molecular"
+      ],
+      "lessons": [
+        {
+          "id": "cell-biology-review-early-written",
+          "title": "Weeks 1–2 written-response rehearsal: chemistry and transport",
+          "reading": "modules/02c-early-chemistry-and-transport-written-practice.md",
+          "objectives": [
+            "cell-biology-5-objective-1",
+            "cell-biology-2-objective-1",
+            "cell-biology-2-objective-2"
+          ],
+          "worked_example": "Compare the stated protonation ratio and potassium equilibrium estimate with their assumptions, then distinguish a passive transport interpretation from what would require more evidence about route, energy coupling, and indirect treatment effects. State which result is calculated, what is measured, and one alternative mechanism that remains plausible.",
+          "question_ids": [],
+          "card_ids": []
         }
       ]
     },
@@ -1913,6 +2015,31 @@
           ]
         }
       ]
+    },
+    {
+      "id": "cell-biology-module-review-design-studio",
+      "title": "Experimental design: written-response studio",
+      "source_ids": [
+        "biology",
+        "molecular"
+      ],
+      "lessons": [
+        {
+          "id": "cell-biology-review-design-studio",
+          "title": "Experimental-design studio: mechanisms, controls, and follow-up",
+          "reading": "modules/13c-lineage-to-function-design-practice.md",
+          "objectives": [
+            "cell-biology-20-objective-3",
+            "cell-biology-22-objective-3",
+            "cell-biology-24-objective-3",
+            "cell-biology-26-objective-3",
+            "cell-biology-28-objective-2"
+          ],
+          "worked_example": "A useful experimental plan names the biological unit, controls competing explanations, measures the mechanism and outcome separately, and limits its claim to what those measurements distinguish. The five self-assessed scenarios are prompts for that reasoning, not scored demonstrations of design ability.",
+          "question_ids": [],
+          "card_ids": []
+        }
+      ]
     }
   ],
   "assessments": [
@@ -1925,7 +2052,10 @@
         "cell-biology-1:check",
         "cell-biology-1:check-all",
         "cell-biology-1:functional-group",
-        "cell-biology-5:protonation-state"
+        "cell-biology-5:protonation-state",
+        "cell-biology-5:protonation-direction",
+        "cell-biology-1:mutation-contrast",
+        "cell-biology-1:surface-hydrophobic-assembly"
       ],
       "objective_ids": [
         "cell-biology-1-objective-1",
@@ -1934,7 +2064,7 @@
         "cell-biology-5-objective-1",
         "cell-biology-outcome-1"
       ],
-      "points": 6
+      "points": 9
     },
     {
       "id": "cell-biology-2-practice",
@@ -1944,7 +2074,11 @@
       "question_ids": [
         "cell-biology-2:check",
         "cell-biology-2:transport-classification",
-        "cell-biology-6:variant-inference"
+        "cell-biology-6:variant-inference",
+        "cell-biology-6:matched-variant-measurements",
+        "cell-biology-2:driving-force",
+        "cell-biology-2:carrier-mediated-passive-transport",
+        "cell-biology-6:surface-variant-context"
       ],
       "objective_ids": [
         "cell-biology-2-objective-1",
@@ -1955,7 +2089,7 @@
         "cell-biology-outcome-2",
         "cell-biology-outcome-4"
       ],
-      "points": 5
+      "points": 9
     },
     {
       "id": "cell-biology-3-practice",
@@ -1977,13 +2111,15 @@
         "cell-biology-9:equilibrium",
         "cell-biology-9:coupling-energy",
         "cell-biology-9:rate-at-km",
+        "cell-biology-9:rate-at-twice-km",
         "cell-biology-10:rate-prediction",
         "cell-biology-10:kinetic-inference",
         "cell-biology-10:km-vs-binding",
         "cell-biology-3:delta-g-from-k",
-        "cell-biology-3:catalyst-and-equilibrium"
+        "cell-biology-3:catalyst-and-equilibrium",
+        "cell-biology-3:kinetic-parameters"
       ],
-      "points": 11
+      "points": 13
     },
     {
       "id": "cell-biology-4-practice",
@@ -1999,10 +2135,13 @@
       ],
       "question_ids": [
         "cell-biology-4:check",
+        "cell-biology-4:template-transcription-translation",
+        "cell-biology-4:premature-stop-consequence",
         "cell-biology-4:experimental-logic-structured",
-        "cell-biology-4:csv-summary-table"
+        "cell-biology-4:csv-summary-table",
+        "cell-biology-4:replicate-inference"
       ],
-      "points": 9
+      "points": 12
     },
     {
       "id": "cell-biology-case",
@@ -2027,9 +2166,10 @@
       ],
       "question_ids": [
         "cell-biology-7:secretory-route",
-        "cell-biology-7:protease-protection"
+        "cell-biology-7:protease-protection",
+        "cell-biology-7:marker-panel-localization"
       ],
-      "points": 4
+      "points": 5
     },
     {
       "id": "cell-biology-8-practice",
@@ -2118,9 +2258,10 @@
         "cell-biology-13:hybrid-fraction",
         "cell-biology-14:repair-pathway-match",
         "cell-biology-14:lesion-removal-data",
-        "cell-biology-14:dsb-repair"
+        "cell-biology-14:dsb-repair",
+        "cell-biology-13:fork-explanation-structured"
       ],
-      "points": 11
+      "points": 14
     },
     {
       "id": "cell-biology-week7-practice",
@@ -2145,9 +2286,11 @@
         "cell-biology-16:chip-percent-input",
         "cell-biology-16:chip-controls",
         "cell-biology-16:reporter-interpretation",
-        "cell-biology-16:endogenous-enhancer-test"
+        "cell-biology-16:endogenous-enhancer-test",
+        "cell-biology-15:replication-unit",
+        "cell-biology-15:chromatin-organization-structured"
       ],
-      "points": 13
+      "points": 17
     },
     {
       "id": "cell-biology-week8-cumulative-practice",
@@ -2162,6 +2305,7 @@
         "cell-biology-2-objective-2",
         "cell-biology-3-objective-1",
         "cell-biology-4-objective-2",
+        "cell-biology-4-objective-1",
         "cell-biology-7-objective-1",
         "cell-biology-7-objective-2",
         "cell-biology-10-objective-1",
@@ -2176,7 +2320,13 @@
         "cell-biology-outcome-1",
         "cell-biology-outcome-2",
         "cell-biology-outcome-3",
-        "cell-biology-outcome-4"
+        "cell-biology-outcome-4",
+        "cell-biology-1-objective-3",
+        "cell-biology-2-objective-1",
+        "cell-biology-4-objective-3",
+        "cell-biology-5-objective-1",
+        "cell-biology-6-objective-2",
+        "cell-biology-9-objective-2"
       ],
       "question_ids": [
         "cell-biology-1:check-all",
@@ -2190,9 +2340,22 @@
         "cell-biology-14:lesion-removal-data",
         "cell-biology-15:cell-state-data",
         "cell-biology-16:chip-controls",
-        "cell-biology-16:reporter-interpretation"
+        "cell-biology-16:reporter-interpretation",
+        "cell-biology-1:mutation-contrast",
+        "cell-biology-2:driving-force",
+        "cell-biology-3:kinetic-parameters",
+        "cell-biology-4:replicate-inference",
+        "cell-biology-4:template-transcription-translation",
+        "cell-biology-4:premature-stop-consequence",
+        "cell-biology-5:protonation-direction",
+        "cell-biology-6:matched-variant-measurements",
+        "cell-biology-9:rate-at-twice-km",
+        "cell-biology-1:surface-hydrophobic-assembly",
+        "cell-biology-2:carrier-mediated-passive-transport",
+        "cell-biology-6:surface-variant-context",
+        "cell-biology-15:replication-unit"
       ],
-      "points": 31
+      "points": 44
     },
     {
       "id": "cell-biology-week9-practice",
@@ -2220,9 +2383,12 @@
         "cell-biology-18:protein-half-life",
         "cell-biology-18:synthesis-vs-turnover-data",
         "cell-biology-18:turnover-assay-controls",
-        "cell-biology-17:spliceosome-mechanism"
+        "cell-biology-17:spliceosome-mechanism",
+        "cell-biology-17:splice-perturbation-controls",
+        "cell-biology-17:processing-role-map",
+        "cell-biology-17:processing-roles-structured"
       ],
-      "points": 14
+      "points": 19
     },
     {
       "id": "cell-biology-week10-practice",
@@ -2250,9 +2416,12 @@
         "cell-biology-19:population-stratification",
         "cell-biology-20:variant-evidence-level",
         "cell-biology-20:isogenic-data",
-        "cell-biology-20:follow-up-controls"
+        "cell-biology-20:follow-up-controls",
+        "cell-biology-19:age-specific-penetrance-design",
+        "cell-biology-19:linked-variant-inference",
+        "cell-biology-19:association-evidence-structured"
       ],
-      "points": 13
+      "points": 18
     },
     {
       "id": "cell-biology-week11-practice",
@@ -2275,14 +2444,16 @@
       ],
       "question_ids": [
         "cell-biology-21:occupancy-model",
+        "cell-biology-21:occupancy-response-distinction",
         "cell-biology-21:rtk-relay",
+        "cell-biology-21:gpcr-rtk-relay-comparison",
         "cell-biology-21:relative-response",
         "cell-biology-22:dynamic-trajectory",
         "cell-biology-22:pathway-bypass",
         "cell-biology-22:feedback-alternatives",
         "cell-biology-22:orthogonal-specificity"
       ],
-      "points": 13
+      "points": 15
     },
     {
       "id": "cell-biology-week12-practice",
@@ -2307,12 +2478,14 @@
         "cell-biology-24:uniform-stress",
         "cell-biology-23:filament-roles",
         "cell-biology-23:matrix-versus-cell-cell",
+        "cell-biology-23:desmosome-versus-focal-adhesion",
         "cell-biology-24:synthetic-stiffness-data",
         "cell-biology-24:yap-relative-increase",
         "cell-biology-24:matrix-mechanics-controls",
-        "cell-biology-24:stress-relaxation"
+        "cell-biology-24:stress-relaxation",
+        "cell-biology-23:filament-perturbation-pattern"
       ],
-      "points": 13
+      "points": 15
     },
     {
       "id": "cell-biology-week13-practice",
@@ -2339,9 +2512,10 @@
         "cell-biology-25:edu-relative-reduction",
         "cell-biology-26:apoptosis-pathway",
         "cell-biology-26:senescence-marker-panel",
-        "cell-biology-26:cell-fate-time-course-controls"
+        "cell-biology-26:cell-fate-time-course-controls",
+        "cell-biology-25:cdk-model-versus-measurement"
       ],
-      "points": 13
+      "points": 14
     },
     {
       "id": "cell-biology-week14-practice",
@@ -2369,9 +2543,11 @@
         "cell-biology-28:factorial-pattern",
         "cell-biology-28:interaction-contrast",
         "cell-biology-28:follow-up-design",
-        "cell-biology-28:translation-boundary"
+        "cell-biology-28:translation-boundary",
+        "cell-biology-28:marker-function-boundary",
+        "cell-biology-28:regenerative-evidence-structured"
       ],
-      "points": 13
+      "points": 17
     },
     {
       "id": "cell-biology-hw1-practice",
@@ -2611,6 +2787,17 @@
   "case_rubrics": "rubrics/case-studio.json",
   "source_map": "source-map.json",
   "syllabus": "syllabus.md",
+  "learner_resources": [
+    "labs/image-counts.csv",
+    "assignments/homework-01-m6p-sorting.csv",
+    "assignments/homework-02-inhibition-rates.csv",
+    "assignments/homework-03-lesion-removal.csv",
+    "assignments/homework-04-chip-reporter.csv",
+    "assignments/homework-05-rna-protein.csv",
+    "assignments/homework-06-isogenic-clones.csv",
+    "assignments/homework-07-matrix-spreading.csv",
+    "assignments/homework-08-cell-state.csv"
+  ],
   "review": {
     "status": "unreviewed",
     "reviewed_version": null,
@@ -2622,7 +2809,8 @@
     "math_format": "unicode-text",
     "diagram_policy": "The package uses text-described route sequences and tables; no source figures are imported. Future original diagrams require concise descriptions and individual license tracking.",
     "known_issues": [
-      "Unicode equations require structured mathematical alternatives and assistive-technology review."
+      "Sixteen central standalone equations across eleven readings now have adjacent plain-language equivalents. Inline multi-step calculations and table notation still need a comprehensive notation audit.",
+      "No assistive-technology review has occurred; screen-reader pronunciation, structural navigation, and learner usability of the mathematical content remain unknown."
     ],
     "review_status": "unreviewed"
   },
@@ -2821,15 +3009,155 @@
       "version": "0.34.0",
       "date": "2026-10-09",
       "summary": "Assembled all eight inactive homework candidates, three limited lab check candidates, two cumulative exam forms and an integrative-project portfolio with separate machine checks. Extended compact kinetics/expression readings while preserving prototypes. Substantial Codex assistance; no independent review, measured workload, human project grade or activation."
+    },
+    {
+      "version": "0.35.0",
+      "date": "2026-10-10",
+      "summary": "Added an inactive, versioned final candidate revision and private key. Tightened the low-magnitude form-A ionization-ratio tolerance to match three-significant-figure resolution while preserving the 0.29.0 candidate and binding. No independent review, measured workload, human grading or activation. Developed with Codex assistance."
+    },
+    {
+      "version": "0.36.0",
+      "date": "2026-10-10",
+      "summary": "Added four original formative questions for mutation chemistry, electrochemical driving force, Michaelis–Menten parameter interpretation, and replicate-level inference. Added them to topic practice and expanded the ungraded week-8 cumulative review from 12 to 16 questions (35 points); no exam or grading policy was activated. The course remains partial and unreviewed."
+    },
+    {
+      "version": "0.37.0",
+      "date": "2026-10-10",
+      "summary": "Added a topic-level, week-by-week scope crosswalk against public MIT OpenCourseWare comparators, with explicit omissions and limits. The map records topic presence only and makes no equivalency, credit, workload, or review claim. The course remains partial, unreviewed, and formative-only."
+    },
+    {
+      "version": "0.38.0",
+      "date": "2026-10-10",
+      "summary": "Corrected a misaligned objective mapping: the PCR positive-control item now maps to the controls objective, while two original sequence-based items practice DNA-template transcription, codon translation, and an early-stop consequence. Added them to the week-7 topical set and week-8 ungraded review (18 items, 37 points). No graded policy changed; the course remains partial and unreviewed."
+    },
+    {
+      "version": "0.39.0",
+      "date": "2026-10-10",
+      "summary": "Added complementary formative items for pH/pKa state, matched protein abundance/folding/activity interpretation, and a Michaelis–Menten prediction at twice Km. Each expands an existing topical set and the ungraded week-8 review (21 items, 40 points). No grading policy changed; the course remains partial and unreviewed."
+    },
+    {
+      "version": "0.40.0",
+      "date": "2026-10-10",
+      "summary": "Added complementary practice on receptor occupancy versus cellular response, GPCR/RTK relay logic, and desmosome versus focal-adhesion linkage. The items expand the week-11 and week-12 formative sets only; week-8 remains scoped to weeks 1–7. No grading policy changed; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.41.0",
+      "date": "2026-10-10",
+      "summary": "Added three original formative questions for compartment-marker controls, splice-perturbation evidence, and age-specific penetrance study design. They appear only in the week-3, week-9 and week-10 topical assessments; the week-8 weeks-1–7 review is unchanged. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.42.0",
+      "date": "2026-10-10",
+      "summary": "Added complementary practice for hydrophobic assembly, carrier-mediated facilitated diffusion, and a solvent-exposed protein substitution. The three items appear in topical assessments and the weeks-1–7 cumulative practice, now 24 questions and 43 points. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.43.0",
+      "date": "2026-10-10",
+      "summary": "Added complementary practice on chromatin-state replicate units, common RNA-processing roles, and linkage versus causal-variant evidence. The questions appear in weeks 7, 9 and 10; the week-7 item also joins the weeks-1–7 review, now 25 questions and 44 points. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.44.0",
+      "date": "2026-10-10",
+      "summary": "Added complementary formative practice on distinct cytoskeletal contributions, measured cell-cycle state versus model-predicted kinase activity, and the evidence boundary between in-vitro markers and regenerative claims. These items stay in weeks 12–14. Every lesson objective now has at least two distinct public practice items; this is a coverage floor, not evidence of mastery. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.45.0",
+      "date": "2026-10-10",
+      "summary": "Added structured, three-criterion practice for genotype–phenotype association alternatives and regenerative evidence boundaries. Both questions distinguish measured evidence, alternative explanations or follow-up, and scope limits; they remain in weeks 10 and 14. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.46.0",
+      "date": "2026-10-10",
+      "summary": "Prepared an independent-review handoff with package evidence links, review-disposition fields, and scientific, assessment, accessibility, workload, and release gates. No independent review or release occurred; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.47.0",
+      "date": "2026-10-10",
+      "summary": "Added three structured formative items that directly practice explanation of DNA replication direction, chromatin organization and RNA processing. Each item is mapped to its existing lesson objective and week-level practice; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.48.0",
+      "date": "2026-10-10",
+      "summary": "Added an ungraded, self-assessed written-design exercise in a supplementary reading linked from the week-12 syllabus row. The exercise asks learners to distinguish accessible ligand, time-dependent matrix mechanics, and force-transmission alternatives; no learner response is collected or scored. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.49.0",
+      "date": "2026-10-10",
+      "summary": "Added an ungraded, self-assessed week-14 design brief that asks learners to plan a blocked matrix-by-cue follow-up and distinguish marker, lineage-identity, and function evidence. The response is not collected or scored; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.50.0",
+      "date": "2026-10-10",
+      "summary": "Added two original week-8 synthesis readings on quantitative model assumptions and experimental controls, independent replicates, and bounded claims. Week 8 remains an ungraded review with no midterm; the existing 25-question, 44-point practice set is unchanged. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.51.0",
+      "date": "2026-10-10",
+      "summary": "Added an optional, self-assessed week-1/2 written-response rehearsal on acid-base state, electrochemical equilibrium, and transport-route evidence. Responses are not collected or scored; no question-bank items or grading policy changed. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.52.0",
+      "date": "2026-10-10",
+      "summary": "Added adjacent plain-language equivalents for 16 central standalone equations across 11 quantitative readings. Refreshed the source prerequisite hashes on affected inactive public candidates; their prompts, datasets, points, and protected answer stores remain unchanged. The mathematical content still requires comprehensive notation and assistive-technology review; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.53.0",
+      "date": "2026-10-10",
+      "summary": "Bound the independent-review handoff to the reproducible SHA-256 of the current deterministic public-course archive and added a read-only digest command. The digest records a package snapshot, not reviewer approval; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.54.0",
+      "date": "2026-10-11",
+      "summary": "Expanded the optional ungraded week-14 design brief into a self-assessed studio linked to all five create-labeled lesson objectives. Responses remain uncollected and unscored; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.55.0",
+      "date": "2026-10-11",
+      "summary": "Refreshed the in-package independent-review handoff and package inventory. No learner-facing lesson, question, card, assessment, or policy changed; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.56.0",
+      "date": "2026-10-11",
+      "summary": "Clarified that the week-14 synthetic dataset contains 40 independent culture-level records and 160 constructed outcome measurements. The data and lab activity are unchanged; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.57.0",
+      "date": "2026-10-11",
+      "summary": "Replaced the mutable week-5 GitHub CSV link with a package-pinned learner resource and added current and enrollment-gated archived CSV delivery. The dataset is unchanged; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.58.0",
+      "date": "2026-10-11",
+      "summary": "Pinned all eight optional homework datasets in the public course package and replaced mutable upstream CSV URLs with current and enrollment-gated archived resource routes. The existing lesson records and weekly packet links remain in place; no grading, maturity, or review status changed."
+    },
+    {
+      "version": "0.59.0",
+      "date": "2026-10-11",
+      "summary": "Corrected the embedded course-package version labels in all eight homework packets and all three lab packets, and refreshed the matching public prerequisite hashes on three inactive lab candidates. Candidate questions, protected answer sources, packet data, lesson routes, grading, maturity, and review status are unchanged."
+    },
+    {
+      "version": "0.60.0",
+      "date": "2026-10-11",
+      "summary": "Marked the 2–3 hour labels in all eight homework and three lab packets as unvalidated author estimates. No learner time was measured, no workload target was approved, and no question, dataset, assessment, or course policy changed."
+    },
+    {
+      "version": "0.61.0",
+      "date": "2026-10-11",
+      "summary": "Marked the week-5 and week-11 syllabus lab-duration descriptions as unvalidated author estimates, matching their packet headers. The two hour ranges remain unmeasured; no learner time data or approved workload targets exist. No activity, question, dataset, assessment, grading rule, or review status changed."
+    },
+    {
+      "version": "0.61.1",
+      "date": "2026-10-11",
+      "summary": "Declared core cell/molecular outcomes and optional mechanobiology/regenerative applications, using MIT OCW 7.016 Fall 2018 as a breadth comparator. Replaced repeated Week 8 control/replicate explanations with a compact cross-week application table. Lesson IDs, questions, candidate artifacts and counts are preserved; the course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "Weeks 1-7 each have two original topic lessons; weeks 4 and 7 have expanded reader entries with compact prototype files preserved. Weeks 3, 4, 6, 7, 9, 10, 12 and 13 each have an open formative homework companion (Homework 1 to 8) with a synthetic dataset; none is a graded homework set. Weeks 9-14 add twelve original lessons. Weeks 5, 11 and 14 each include one synthetic data-analysis lab with deterministic formative components; workload evidence, summative exams, operator-approved protected assessment deployment, and instructor review remain unfinished.",
-    "Week 8 is an ungraded cumulative practice set, not an exam or midterm. The midterm, final and project have specifications and inactive authoring drafts with external machine keys; none is accepted, activated or reviewed. Week 8 remains practice-only with no lesson pair. Workload evidence and independent review are still missing.",
+    "The proposed 14-week plan now identifies a required cell/molecular foundation and selected application extensions in weeks 12–14. Weeks 1–7 each have two original topic lessons; week 2 has an optional written-response rehearsal; week 8 has two synthesis readings and cumulative practice; weeks 3, 4, 6, 7, 9, 10, 12 and 13 have open homework companions. Weeks 5, 11 and 14 have synthetic data-analysis labs. None is graded; workload, instructor review and protected-assessment release remain open.",
+    "Week 8 is an ungraded cumulative practice set with two synthesis readings, not an exam or midterm. The midterm, final and project have specifications and inactive authoring drafts with external machine keys; none is accepted, activated or reviewed. Workload evidence and independent review remain missing.",
     "Current formative checks across the developed lessons do not demonstrate comprehensive outcome coverage or mastery; every lesson objective now has at least one practice item, but one item is not depth.",
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
-    "Week-4 numeric examples require units and include dimensional checks, but legacy numerical specifications elsewhere still need unit, tolerance, and significant-figure review.",
+    "The 0.36.0 and 0.39.0 author-side audits together recompute all 21 public numeric-type answer keys, and source-reconciliation checks cover 114 summary cells across 12 public table-upload items. A distinct-question mapping audit found no lesson objective remains with only one mapped public practice item; this is coverage bookkeeping, not a depth or mastery finding. These checks are not independent review; embedded datasets beyond those cells and all inactive candidate keys still need independent scientific and numerical review.",
     "Total workload and weekly study hours are unknown; former nominal credit values and hardcoded reading times do not establish workload.",
     "CSV upload checks fixed numeric summary cells only; the virtual lab does not grade arbitrary data analysis, uncertainty estimation, free-response reasoning, or causal inference.",
     "Homework 1 to 8 are openly licensed formative practice with publicly inspectable solution specifications; they are not suitable as protected exams, do not contribute to a course grade, and are not graded homework sets. The datasets are synthetic and every software check scores deterministic numeric, coordinate or choice cells only.",
@@ -2849,7 +3177,16 @@
     "The lab-02 has an inactive multi-field candidate with external keys and fixed authored variants. Field coverage is not independent review or full evidence for written explanation/design; workload, accessibility, source-archive and operator gates remain missing.",
     "The lab-03 has an inactive multi-field candidate with external keys and fixed authored variants. Field coverage is not independent review or full evidence for written explanation/design; workload, accessibility, source-archive and operator gates remain missing.",
     "The integrative-project has an inactive multi-field candidate with external keys and fixed authored variants. Field coverage is not independent review or full evidence for written explanation/design; workload, accessibility, source-archive and operator gates remain missing.",
-    "All proposed components now have authoring drafts. Candidate machine checks assess limited calculation/choice evidence; no full written-design mastery, human project grading or accepted summative forms are established. The course remains partial, unreviewed and formative-only."
+    "All proposed components now have authoring drafts. Candidate machine checks assess limited calculation/choice evidence; no full written-design mastery, human project grading or accepted summative forms are established. The course remains partial, unreviewed and formative-only.",
+    "Version 0.46.0 prepares a review handoff and disposition template; it is not evidence that any independent scientific, assessment, accessibility, workload, institutional or operator review has occurred.",
+    "Version 0.48.0 adds an ungraded written matrix-design prompt in a supplementary reading linked from the week-12 syllabus; it is not a question-bank item, collected learner work or a graded course component.",
+    "Version 0.49.0 adds an ungraded written week-14 design brief linked from the syllabus and assessment crosswalk; it provides self-check guidance but collects no learner work and is not a graded course component.",
+    "Version 0.50.0 adds two original week-8 synthesis readings that link quantitative model assumptions with experimental controls, biological replicate units, uncertainty, and claim boundaries. They add no graded work; the 25-question, 44-point cumulative practice set is unchanged.",
+    "Version 0.51.0 adds an optional, ungraded written-response rehearsal for early chemistry and transport objectives. It includes model self-checks but does not collect or score learner responses, and it is not represented as response-format evidence in the public question-bank audit.",
+    "Version 0.52.0 pairs 16 central standalone equations across 11 readings with nearby plain-language equivalents. This author check does not validate every inline calculation or table, screen-reader pronunciation, structural navigation, or learner usability; qualified assistive-technology review remains outstanding.",
+    "Version 0.53.0 records a reproducible digest of the deterministic public-course archive for review targeting. This hash identifies files only and does not indicate independent review, approval, workload evidence, or release readiness.",
+    "Version 0.54.0 adds optional written design prompts and self-checks for five create-labeled lesson objectives. The responses are not collected, scored, or graded, so the studio does not demonstrate learner performance or replace review of the inactive summative project.",
+    "The local course focuses on cell and molecular mechanisms. Mechanobiology and regenerative applications are optional extensions; broader introductory-biology areas such as immunology, infectious disease, cancer and organismal systems are outside this package."
   ],
   "intentionally_omitted": [
     "Accepted summative assessments, human portfolio grading, measured workload and the complete enrolled semester workflow are intentionally not represented as finished content."

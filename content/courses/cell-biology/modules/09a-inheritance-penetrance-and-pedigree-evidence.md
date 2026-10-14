@@ -24,6 +24,8 @@ Suppose a parent is heterozygous `A/a` and the other parent is `a/a`. Under ordi
 
 `P(phenotype) = P(inherit A) × P(phenotype | inherit A) = 0.50 × 0.80 = 0.40`.
 
+**In words:** under the stated model, phenotype probability is the chance of inheriting allele A multiplied by the phenotype probability among carriers.
+
 This is a 40% model-based probability for the phenotype, not 40% probability of inheriting the allele. It assumes the noncarrier phenotype rate is zero, the penetrance estimate applies to the child, the phenotype is assessed by the stated age, and the genotype has no interaction with another relevant locus or exposure. A real clinical risk estimate requires evidence and may differ substantially.
 
 For two heterozygous parents at a single autosomal locus, the simple genotype probabilities are `1/4 A/A`, `1/2 A/a`, and `1/4 a/a`. These are probabilities for each conception, not a promise that four siblings will contain exactly one, two, and one of those genotypes. Outcomes among siblings are not forced to match a Punnett-square ratio in a small family. For linked loci, inheritance is not the product of independent allele probabilities; recombination and phase matter.

@@ -2,6 +2,7 @@ import pytest
 
 from courselab.variants import (
     VariantTokenError,
+    assignment_form_ids,
     issue_variant_token,
     resolve_variant,
     verify_variant_token,
@@ -73,3 +74,27 @@ def test_variant_resolution_does_not_mutate_the_authored_bank():
     assert resolved["solution_spec"] == {"answer": 0}
     assert resolved["prompt"] != QUESTION["prompt"]
     assert QUESTION["solution_spec"] == before
+
+
+def test_graded_assignment_forms_require_one_shared_set_across_variant_questions():
+    fixed = {"id": "fixed", "prompt": "A fixed form question."}
+    same_forms = {
+        "id": "second",
+        "randomization": {
+            "seeded": True,
+            "generator_id": "authored-variants-v1",
+            "variants": [{"id": "condition-b"}],
+        },
+    }
+    different_forms = {
+        **same_forms,
+        "randomization": {
+            **same_forms["randomization"],
+            "variants": [{"id": "condition-c"}],
+        },
+    }
+    assert assignment_form_ids([QUESTION, fixed, same_forms]) == ["base", "condition-b"]
+    with pytest.raises(VariantTokenError, match="share the same authored form IDs"):
+        assignment_form_ids([QUESTION, different_forms])
+    with pytest.raises(VariantTokenError, match="configuration is unsupported"):
+        assignment_form_ids([{**fixed, "randomization": None}])

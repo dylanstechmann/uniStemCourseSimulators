@@ -6,6 +6,7 @@ balances are checked using committed data and separate numerical methods.
 
 from __future__ import annotations
 
+import cmath
 import csv
 import json
 import math
@@ -58,6 +59,68 @@ def quadrature(function, lower, upper, steps=2000):
         (function(lower) + function(upper)) / 2
         + math.fsum(function(lower + i * dt) for i in range(1, steps))
     )
+
+
+MU0 = 4e-7 * math.pi
+
+
+def biot_savart(path, current, point, pieces=4000):
+    """Sum mu0 I dl x r / (4 pi r^3) over a parametrized path p(s), 0 <= s <= 1."""
+    total = [0.0, 0.0, 0.0]
+    for i in range(pieces):
+        a, b = path(i / pieces), path((i + 1) / pieces)
+        mid = [(x + y) / 2 for x, y in zip(a, b)]
+        dl = [y - x for x, y in zip(a, b)]
+        r = [p - m for p, m in zip(point, mid)]
+        dist = math.sqrt(sum(c * c for c in r))
+        cross = (
+            dl[1] * r[2] - dl[2] * r[1],
+            dl[2] * r[0] - dl[0] * r[2],
+            dl[0] * r[1] - dl[1] * r[0],
+        )
+        for k in range(3):
+            total[k] += MU0 * current * cross[k] / (4 * math.pi * dist**3)
+    return math.sqrt(sum(c * c for c in total))
+
+
+def circle(radius):
+    return lambda s: (
+        radius * math.cos(2 * math.pi * s),
+        radius * math.sin(2 * math.pi * s),
+        0.0,
+    )
+
+
+def segment(half_length, distance):
+    return lambda s: (distance, -half_length + 2 * half_length * s, 0.0)
+
+
+def enclosed_field(current, radius, r, rings=2000):
+    """Ampere's law with the enclosed current found by integrating J over the disc."""
+    density = current / (math.pi * radius**2)
+    enclosed = quadrature(lambda rho: density * 2 * math.pi * rho, 0, min(r, radius), rings)
+    return MU0 * enclosed / (2 * math.pi * r)
+
+
+def loop_torque(turns, current, radius, field, angle, pieces=4000):
+    """Sum r x (I dl x B) around a tilted circular loop in a uniform field along z."""
+    tz = 0.0
+    torque = [0.0, 0.0, 0.0]
+    for i in range(pieces):
+        s0, s1 = i / pieces, (i + 1) / pieces
+
+        def at(s):
+            x, y = radius * math.cos(2 * math.pi * s), radius * math.sin(2 * math.pi * s)
+            return (x * math.cos(angle), y, -x * math.sin(angle))
+
+        a, b = at(s0), at(s1)
+        mid = [(p + q) / 2 for p, q in zip(a, b)]
+        dl = [q - p for p, q in zip(a, b)]
+        force = (dl[1] * field, -dl[0] * field, 0.0)
+        torque[0] += turns * current * (mid[1] * force[2] - mid[2] * force[1])
+        torque[1] += turns * current * (mid[2] * force[0] - mid[0] * force[2])
+        tz += turns * current * (mid[0] * force[1] - mid[1] * force[0])
+    return math.sqrt(torque[0] ** 2 + torque[1] ** 2 + tz**2)
 
 
 def lab_data():
@@ -185,6 +248,40 @@ def expected_answers():
         pole_frequency=1 / (2 * math.pi * tau),
         input_real_power=abs(transfer) ** 2 / 2,
     )
+    add(
+        14,
+        displacement_current=0.50,
+        magnetic_field_inside=1.25,
+        magnetic_field_outside=2.00,
+        wave_magnetic_field=0.400,
+        wave_peak_intensity=(120 * (120 / 3e8)) / (4 * math.pi * 1e-7),
+        wave_average_intensity=(120 * (120 / 3e8)) / (2 * 4 * math.pi * 1e-7),
+    )
+    # Lesson 15: phasor sums for intensity and small-angle fringe geometry.
+    spacing = 600e-9 * 2.0 / 0.30e-3
+    add(
+        15,
+        equal_source_intensity=abs(1 + cmath.exp(1j * math.pi / 2)) ** 2,
+        fringe_spacing=spacing * 1e3,
+        first_dark=0.5 * spacing * 1e3,
+        fifth_bright=5 * spacing * 1e3,
+        path_phase=2 * math.pi * (1 / 3),
+        third_dark_path=(2 + 0.5) * 0.500,
+    )
+    add(
+        16,
+        loop_centre_field=biot_savart(circle(0.05), 0.80, (0, 0, 0)) * 1e6,
+        loop_axis_field=biot_savart(circle(0.05), 0.80, (0, 0, 0.05)) * 1e6,
+        finite_segment_field=biot_savart(segment(0.02, 0.02), 3.0, (0, 0, 0)) * 1e6,
+        inside_thick_wire=enclosed_field(8.0, 0.004, 0.001) * 1e6,
+        toroid_field=enclosed_field(500 * 0.20, 0.001, 0.05) * 1e6,
+        parallel_wire_force=5.0 * enclosed_field(5.0, 0.001, 0.01) * 1e3,
+        coil_torque=loop_torque(40, 0.20, 0.015, 0.050, math.pi / 3) * 1e3,
+        coil_turning_work=quadrature(
+            lambda a: loop_torque(40, 0.20, 0.015, 0.050, a, 400), 0, math.pi, 200
+        )
+        * 1e3,
+    )
     _, _, means = lab_data()
     source = 1e6 * (1 / calibrated(means, "ass") - 1)
     time = -0.05 / math.log(1 - calibrated(means, "b05") / calibrated(means, "bss"))
@@ -213,7 +310,58 @@ def test_numeric_key_matches_separate_calculation(item_id, expected):
 
 def test_all_numeric_keys_are_recalculated():
     numeric = {q["id"] for q in BANK.values() if q["type"] == "numeric"}
-    assert set(EXPECTED) == numeric and len(numeric) == 62
+    assert set(EXPECTED) == numeric and len(numeric) == 82
+
+
+def test_field_source_lesson_statements_match_numerical_biot_savart():
+    text = (
+        COURSE / "modules/16-sources-of-magnetic-fields-biot-savart-ampere-and-dipoles.md"
+    ).read_text(encoding="utf-8")
+    loop = circle(0.020)
+    assert round(biot_savart(loop, 0.5, (0, 0, 0)) * 1e6, 1) == 15.7
+    assert round(biot_savart(loop, 0.5, (0, 0, 0.020)) * 1e6, 2) == 5.55
+    finite = biot_savart(segment(0.010, 0.010), 2.0, (0, 0, 0)) * 1e6
+    assert round(finite, 1) == 28.3 and round(finite / 40.0, 2) == 0.71
+
+    def square(side):
+        corners = [(-side / 2, -side / 2), (side / 2, -side / 2), (side / 2, side / 2), (-side / 2, side / 2)]
+
+        def path(s):
+            k, f = min(int(s * 4), 3), s * 4 - min(int(s * 4), 3)
+            (x0, y0), (x1, y1) = corners[k], corners[(k + 1) % 4]
+            return (x0 + f * (x1 - x0), y0 + f * (y1 - y0), 0.0)
+
+        return path
+
+    assert round(biot_savart(square(0.040), 0.5, (0, 0, 0), 8000) * 1e6, 1) == 14.1
+    assert round(biot_savart(square(0.020), 0.05, (0, 0, 0), 8000) * 1e6, 2) == 2.83
+    assert round(enclosed_field(10, 0.002, 0.001) * 1e6) == 500
+    assert round(enclosed_field(10, 0.002, 0.002) * 1e6) == 1000
+    assert round(enclosed_field(10, 0.002, 0.004) * 1e6) == 500
+    assert round(enclosed_field(200, 0.001, 0.04) * 1e3, 2) == 1.0
+    assert round(enclosed_field(200, 0.001, 0.06) * 1e3, 3) == 0.667
+    assert round(3 * enclosed_field(2, 0.001, 0.005) * 1e6) == 240
+    moment = 50 * 0.10 * math.pi * 0.010**2
+    assert round(loop_torque(50, 0.10, 0.010, 0.20, math.pi / 6) * 1e4, 2) == 1.57
+    exact = biot_savart(loop, 0.5, (0, 0, 0.20))
+    dipole = MU0 * (0.5 * math.pi * 0.020**2) / (2 * math.pi * 0.20**3)
+    assert round(dipole / exact - 1, 3) == 0.015
+    assert round(loop_torque(100, 0.05, 0.02 / math.sqrt(math.pi), 0.10, math.pi / 2) * 1e4, 2) == 2.0
+    assert round(2 * moment * 0.20 * 1e4, 2) == 6.28
+    for phrase in (
+        "that is **15.7 μT**",
+        "to **5.55 μT**",
+        "B = **28.3 μT**",
+        "= **14.1 μT**",
+        "**500 μT** at r = 1.0 mm and 1000 μT at the surface",
+        "**1.00 mT** at r = 0.040 m and 0.667 mT at r = 0.060 m",
+        "this is **240 μN/m**",
+        "**1.57 × 10⁻³ A·m²**",
+        "**1.57 × 10⁻⁴ N·m**",
+        "about 1.5%",
+        "= 2.83 μT",
+    ):
+        assert phrase in text, phrase
 
 
 CHECKS = BANK["physics-em-lab-01:summary"]["solution_spec"]["validation_spec"]["checks"]

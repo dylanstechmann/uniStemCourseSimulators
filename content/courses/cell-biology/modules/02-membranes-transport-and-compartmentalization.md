@@ -12,6 +12,8 @@ For an ion, the chemical contribution favors movement from higher concentration 
 
 `E = 61.5 mV × log10([ion]outside / [ion]inside)`
 
+**In words:** for the stated monovalent-cation model at 37 °C, equilibrium potential is 61.5 millivolts times the base-10 logarithm of outside concentration divided by inside concentration.
+
 The general ideal expression is `E = (RT/zF) ln([ion]outside/[ion]inside)`, with temperature T in kelvin and signed ion charge z. The base-10 coefficient for a monovalent cation is `1000 ln(10) RT/F` in millivolts: approximately 59.16 mV at 25 °C and 61.54 mV at 37 °C. Here the latter is rounded to 61.5 mV. R=N_A k and F=N_A e can be derived from the SI defining constants; changing temperature changes the coefficient. This expression uses the ideal-solution approximation, a specified temperature, and a single ion. Real cellular membranes can be permeable to several ions at once; the membrane potential then depends on their relative permeabilities and concentrations, not one Nernst value alone.
 
 ### Worked calculation: potassium at equilibrium

@@ -34,6 +34,11 @@ The app supports guest/account sessions, enrollment, safe lesson reading,
 single-choice and numerical formative submissions, layered result feedback,
 reading marks, notes, course bookmarks, practice evidence/history, learner-data
 export, account deletion with typed confirmation, and text/contrast controls.
+The **My notes** notebook searches private saved note text across current
+enrollments, filters by course, paginates results, and links each note back to
+its lesson. Searches are literal, case-insensitive matches; note bodies render
+as text, and course-version reviews temporarily hide notes from stale
+enrollments.
 Session cookies are HttpOnly. Mutations use the API-issued CSRF token;
 authentication and account ownership are enforced by the backend.
 
@@ -43,9 +48,11 @@ aggregates practice results and does not claim a weighted semester grade.
 Exams, deadlines, objective mastery models, appeals, and advanced graders are
 future milestones. Content maturity and omissions remain visible.
 
-Vitest exercises the Markdown boundary, numerical value/unit validation,
-disabled non-enrolled submission, result-versus-reasoning feedback, maturity
-labels/filtering, and CSRF request behavior. Playwright exercises real saved
-enrollment/submission/feedback/notes/progress, guest-to-account preservation,
-export/deletion, public DTO answer exclusion, and axe WCAG checks on catalog
-and lesson views. Automated accessibility checks supplement manual review.
+Vitest exercises the Markdown boundary, keyboard-focusable code blocks,
+numerical value/unit validation, disabled non-enrolled submission,
+result-versus-reasoning feedback, maturity labels/filtering, and CSRF request
+behavior. Playwright exercises real saved enrollment/submission/feedback/notes/
+progress, guest-to-account preservation, export/deletion, public DTO answer
+exclusion, working package-local lesson links, and axe WCAG checks on the
+catalog plus every Cell Biology lesson route. Automated accessibility checks
+supplement manual review.

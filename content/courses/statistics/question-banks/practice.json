@@ -9,7 +9,7 @@
       "prompt": "An experiment has sample SD 10 and n=25 independent biological replicates. What is the standard error?",
       "points": 1,
       "objective_ids": [
-        "statistics-1-objective-1"
+        "statistics-1-objective-2"
       ],
       "solution_spec": {
         "answer": 2,
@@ -72,7 +72,7 @@
       "prompt": "For 10 independent null tests each at α=0.05, what is the probability of at least one false positive? Enter percent, rounded to a whole number.",
       "points": 1,
       "objective_ids": [
-        "statistics-3-objective-1"
+        "statistics-3-objective-2"
       ],
       "solution_spec": {
         "answer": 40,
@@ -109,7 +109,7 @@
       ],
       "points": 1,
       "objective_ids": [
-        "statistics-4-objective-1"
+        "statistics-4-objective-2"
       ],
       "solution_spec": {
         "answer": 2
@@ -212,43 +212,142 @@
           "maximum": 20
         },
         "points": [
-          { "id": "vehicle", "label": "Vehicle" },
-          { "id": "low_dose", "label": "2 μM" },
-          { "id": "high_dose", "label": "4 μM" }
+          {
+            "id": "vehicle",
+            "label": "Vehicle"
+          },
+          {
+            "id": "low_dose",
+            "label": "2 μM"
+          },
+          {
+            "id": "high_dose",
+            "label": "4 μM"
+          }
         ],
         "observations": [
-          { "id": "vehicle", "x": 0, "values": [4.8, 5.0, 5.2] },
-          { "id": "low_dose", "x": 2, "values": [9.8, 10.0, 10.2] },
-          { "id": "high_dose", "x": 4, "values": [14.8, 15.0, 15.2] }
+          {
+            "id": "vehicle",
+            "x": 0,
+            "values": [
+              4.8,
+              5.0,
+              5.2
+            ]
+          },
+          {
+            "id": "low_dose",
+            "x": 2,
+            "values": [
+              9.8,
+              10.0,
+              10.2
+            ]
+          },
+          {
+            "id": "high_dose",
+            "x": 4,
+            "values": [
+              14.8,
+              15.0,
+              15.2
+            ]
+          }
         ]
       },
       "points": 3,
-      "objective_ids": ["statistics-5-objective-2"],
+      "objective_ids": [
+        "statistics-5-objective-2"
+      ],
       "solution_spec": {
         "points": [
-          { "id": "vehicle", "x": 0, "y": 5, "x_tolerance": 0, "y_tolerance": 0.01 },
-          { "id": "low_dose", "x": 2, "y": 10, "x_tolerance": 0, "y_tolerance": 0.01 },
-          { "id": "high_dose", "x": 4, "y": 15, "x_tolerance": 0, "y_tolerance": 0.01 }
+          {
+            "id": "vehicle",
+            "x": 0,
+            "y": 5,
+            "x_tolerance": 0,
+            "y_tolerance": 0.01
+          },
+          {
+            "id": "low_dose",
+            "x": 2,
+            "y": 10,
+            "x_tolerance": 0,
+            "y_tolerance": 0.01
+          },
+          {
+            "id": "high_dose",
+            "x": 4,
+            "y": 15,
+            "x_tolerance": 0,
+            "y_tolerance": 0.01
+          }
         ],
         "rubric": [
-          { "id": "vehicle_x", "criterion": "Vehicle concentration coordinate", "points": 0.5, "evidence": ["The vehicle observation is placed at zero concentration."] },
-          { "id": "vehicle_y", "criterion": "Vehicle sample mean coordinate", "points": 0.5, "evidence": ["The three vehicle readings average to a mean signal of five units."] },
-          { "id": "low_dose_x", "criterion": "Low-dose concentration coordinate", "points": 0.5, "evidence": ["The low-dose observation is placed at two micromolar."] },
-          { "id": "low_dose_y", "criterion": "Low-dose sample mean coordinate", "points": 0.5, "evidence": ["The three low-dose readings average to a mean signal of ten units."] },
-          { "id": "high_dose_x", "criterion": "High-dose concentration coordinate", "points": 0.5, "evidence": ["The high-dose observation is placed at four micromolar."] },
-          { "id": "high_dose_y", "criterion": "High-dose sample mean coordinate", "points": 0.5, "evidence": ["The three high-dose readings average to a mean signal of fifteen units."] }
+          {
+            "id": "vehicle_x",
+            "criterion": "Vehicle concentration coordinate",
+            "points": 0.5,
+            "evidence": [
+              "The vehicle observation is placed at zero concentration."
+            ]
+          },
+          {
+            "id": "vehicle_y",
+            "criterion": "Vehicle sample mean coordinate",
+            "points": 0.5,
+            "evidence": [
+              "The three vehicle readings average to a mean signal of five units."
+            ]
+          },
+          {
+            "id": "low_dose_x",
+            "criterion": "Low-dose concentration coordinate",
+            "points": 0.5,
+            "evidence": [
+              "The low-dose observation is placed at two micromolar."
+            ]
+          },
+          {
+            "id": "low_dose_y",
+            "criterion": "Low-dose sample mean coordinate",
+            "points": 0.5,
+            "evidence": [
+              "The three low-dose readings average to a mean signal of ten units."
+            ]
+          },
+          {
+            "id": "high_dose_x",
+            "criterion": "High-dose concentration coordinate",
+            "points": 0.5,
+            "evidence": [
+              "The high-dose observation is placed at four micromolar."
+            ]
+          },
+          {
+            "id": "high_dose_y",
+            "criterion": "High-dose sample mean coordinate",
+            "points": 0.5,
+            "evidence": [
+              "The three high-dose readings average to a mean signal of fifteen units."
+            ]
+          }
         ]
       },
       "feedback": {
         "hint": "Average the replicates within each group before assigning the y coordinate; use the displayed axis units.",
         "solution": "The means are 5, 10, and 15 signal units at concentrations 0, 2, and 4 μM, respectively. These coordinates describe this small sample; they do not quantify uncertainty or establish a causal effect.",
-        "lesson_ids": ["statistics-5"],
+        "lesson_ids": [
+          "statistics-5"
+        ],
         "misconception_ids": []
       },
       "visibility": "public-practice-authoring",
       "provenance": {
         "kind": "original",
-        "modifications": ["Original coordinate-plot assessment built from an authored replicate dataset; no source question or answer was adapted."]
+        "modifications": [
+          "Original coordinate-plot assessment built from an authored replicate dataset; no source question or answer was adapted."
+        ]
       }
     },
     {
@@ -270,6 +369,36 @@
       "feedback": {
         "hint": "SE = σ/√n.",
         "solution": "SE = 12/√36 = 2.0. Sample means vary from sample to sample, and the spread of that variation shrinks with √n.",
+        "lesson_ids": [
+          "statistics-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statistics-1:bayes-positive",
+      "type": "numeric",
+      "prompt": "A condition affects 10% of a population. A test is positive for 90% of people with the condition and for 5% of people without it. Among positive results, what is the probability that a person has the condition? Enter a decimal between 0 and 1.",
+      "points": 1,
+      "objective_ids": [
+        "statistics-1-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.667,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use the prior prevalence, sensitivity, and false-positive rate in Bayes' rule. Include every positive result in the denominator.",
+        "solution": "In 1,000 people, 100 have the condition and 90 test positive; 900 do not have it and 45 test positive. P(condition|positive)=90/(90+45)=2/3≈0.667.",
         "lesson_ids": [
           "statistics-1"
         ],
@@ -343,6 +472,41 @@
       }
     },
     {
+      "id": "statistics-3:p-value-meaning",
+      "type": "single_choice",
+      "prompt": "A prespecified two-sided test gives p = 0.03 under the null model and its assumptions. Which interpretation is justified?",
+      "points": 1,
+      "objective_ids": [
+        "statistics-3-objective-1"
+      ],
+      "options": [
+        "The null hypothesis has a 3% probability of being true.",
+        "If the null model and assumptions hold, results at least this incompatible would occur in about 3% of repetitions.",
+        "The effect has a 97% probability of being biologically important.",
+        "There is a 3% chance the result will fail to replicate."
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Keep the null model fixed and ask what probability the test calculated.",
+        "solution": "A p-value is a tail probability conditional on the null model, analysis and assumptions. It is not a probability assigned to the null or a prediction of replication.",
+        "lesson_ids": [
+          "statistics-3"
+        ],
+        "misconception_ids": [
+          "p-value-is-probability-null"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added one direct check of the conditional p-value interpretation objective."
+        ]
+      }
+    },
+    {
       "id": "statistics-4:pseudoreplication",
       "type": "single_choice",
       "prompt": "Five culture dishes per condition each contribute 100 cell measurements. An analysis treats the 500 cells per condition as independent. What is the problem?",
@@ -371,6 +535,42 @@
       "provenance": {
         "kind": "original",
         "modifications": []
+      }
+    },
+    {
+      "id": "statistics-4:randomization-blocking",
+      "type": "single_choice",
+      "prompt": "A two-condition assay spans four processing days, and day may shift the measurement. Which plan best uses blocking?",
+      "options": [
+        "Run every control on the first two days and every treated sample on the last two, then adjust for day afterward.",
+        "Place independent units from both conditions in every day block and randomize condition and measurement order within each day.",
+        "Treat each cell measured from one dish as an independently randomized replicate.",
+        "Choose the block definition after looking for the largest treatment difference."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "statistics-4-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Blocking creates comparable groups; randomize the treatment allocation within each block.",
+        "solution": "Putting both conditions in every day and randomizing within days prevents treatment from being perfectly confounded with day. Randomizing processing order also helps avoid systematic drift.",
+        "lesson_ids": [
+          "statistics-4"
+        ],
+        "misconception_ids": [
+          "confounding",
+          "pseudoreplication"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct practice evidence for randomization and blocking."
+        ]
       }
     },
     {
@@ -3464,6 +3664,572 @@
           "multiplicity-ignored",
           "pseudoreplication"
         ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statistics-16:likelihood",
+      "type": "numeric",
+      "prompt": "For H₃ with Bernoulli success probability θ=0.8, what is the likelihood of the ordered training sequence S,S?",
+      "points": 1,
+      "objective_ids": [
+        "statistics-16-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.64,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Condition on H₃ and multiply the independent trial probabilities.",
+        "solution": "P(S,S|H₃)=0.8²=0.64.",
+        "lesson_ids": [
+          "statistics-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statistics-16:evidence",
+      "type": "numeric",
+      "prompt": "Using priors (0.5, 0.3, 0.2) for θ=(0.2, 0.5, 0.8), what is the model evidence P(S,S)?",
+      "points": 1,
+      "objective_ids": [
+        "statistics-16-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.223,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Weight each likelihood by its prior and sum.",
+        "solution": "0.5(0.2²)+0.3(0.5²)+0.2(0.8²)=0.020+0.075+0.128=0.223.",
+        "lesson_ids": [
+          "statistics-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statistics-16:posterior-high",
+      "type": "numeric",
+      "prompt": "Under that prior and data S,S, what is P(H₃|S,S)? Enter a decimal to three digits.",
+      "points": 1,
+      "objective_ids": [
+        "statistics-16-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.5739910313901345,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Normalize the H₃ prior-likelihood weight by the total evidence.",
+        "solution": "The H₃ weight is 0.2(0.64)=0.128; divide by evidence 0.223 to obtain 128/223≈0.574.",
+        "lesson_ids": [
+          "statistics-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statistics-16:posterior-odds",
+      "type": "numeric",
+      "prompt": "After observing S,S, what are the posterior odds P(H₃|D)/P(H₁|D)?",
+      "points": 1,
+      "objective_ids": [
+        "statistics-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 6.4,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Take the ratio of the two prior-weighted likelihoods.",
+        "solution": "The common evidence denominator cancels: [0.2(0.64)]/[0.5(0.04)]=0.128/0.020=6.4.",
+        "lesson_ids": [
+          "statistics-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statistics-16:predictive-one-of-two",
+      "type": "numeric",
+      "prompt": "After training data S,S, what is the posterior predictive probability of exactly one success in a separate two-trial holdout? Enter a decimal to three digits.",
+      "points": 1,
+      "objective_ids": [
+        "statistics-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.38053811659192827,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "For each θ state, calculate the chance of one success in two trials, then average using posterior weights.",
+        "solution": "Average 2θ(1−θ) over the posterior: 0.32(20/223)+0.50(75/223)+0.32(128/223)=0.381.",
+        "lesson_ids": [
+          "statistics-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statistics-16:likelihood-vs-posterior",
+      "type": "single_choice",
+      "prompt": "Which expression is a likelihood for the observed ordered data S,S, conditional on H₃?",
+      "points": 1,
+      "objective_ids": [
+        "statistics-16-objective-1"
+      ],
+      "options": [
+        "P(H₃|S,S)",
+        "P(S,S|H₃)=0.8²",
+        "P(S next|S,S)",
+        "P(H₃)"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Read the conditioning direction carefully.",
+        "solution": "The likelihood is the probability of the data conditional on a candidate state: P(S,S|H₃)=0.64.",
+        "lesson_ids": [
+          "statistics-16"
+        ],
+        "misconception_ids": [
+          "likelihood-posterior-reversal"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statistics-16:mle-vs-posterior",
+      "type": "single_choice",
+      "prompt": "H₃ has the largest likelihood for S,S. Which statement about its posterior is correct?",
+      "points": 1,
+      "objective_ids": [
+        "statistics-16-objective-3"
+      ],
+      "options": [
+        "Its posterior is 128/223≈0.574, not 1; the prior and competing states still contribute.",
+        "Its posterior is 0.64 because likelihood equals posterior.",
+        "Its posterior is 1 because it is the maximum-likelihood state.",
+        "The posterior ignores the prior once data are observed."
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Compute prior × likelihood, then divide by total evidence.",
+        "solution": "The normalized posterior is 0.128/0.223=128/223≈0.574. A maximum-likelihood state need not have posterior probability one.",
+        "lesson_ids": [
+          "statistics-16"
+        ],
+        "misconception_ids": [
+          "mle-posterior-confusion"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statistics-16:pvalue-meaning",
+      "type": "single_choice",
+      "prompt": "With θ=0.5 fixed under a null and two Bernoulli trials, an observed K=2 gives a two-sided exact p-value 0.50. What does 0.50 mean?",
+      "points": 1,
+      "objective_ids": [
+        "statistics-16-objective-3"
+      ],
+      "options": [
+        "There is a 50% probability that the null is true.",
+        "There is a 50% probability the alternative is true.",
+        "Under the fixed null, K=0 or K=2 has total probability 0.50; it is not the posterior probability of the null.",
+        "The posterior probability of H₃ is 0.50."
+      ],
+      "solution_spec": {
+        "answer": 2
+      },
+      "feedback": {
+        "hint": "Keep the conditioning event in the p-value definition.",
+        "solution": "Under θ=0.5, P(K=0)=0.25 and P(K=2)=0.25, so the specified two-sided tail probability is 0.50. It conditions on the null and does not assign a probability to the null.",
+        "lesson_ids": [
+          "statistics-16"
+        ],
+        "misconception_ids": [
+          "pvalue-as-null-probability"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statistics-16:predictive-check",
+      "type": "single_choice",
+      "prompt": "After fitting the three-state prior to S,S, a separate two-trial holdout contains exactly one success. The posterior predictive probability of that event is about 0.381. Which interpretation is justified?",
+      "points": 1,
+      "objective_ids": [
+        "statistics-16-objective-2"
+      ],
+      "options": [
+        "The data prove that the Bernoulli model is correct.",
+        "The event had probability about 0.381 under the stated posterior predictive model; one pair is a limited check, not proof.",
+        "The posterior probability of the null hypothesis is 0.381.",
+        "The 0.381 is the likelihood of the original S,S data."
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Distinguish a predictive probability from proof or a posterior state probability.",
+        "solution": "The forecast averages the future count probability over the posterior. The separate pair can be compared with that forecast, but one pair cannot validate the assumptions.",
+        "lesson_ids": [
+          "statistics-16"
+        ],
+        "misconception_ids": [
+          "predictive-check-overclaim"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statistics-17:posterior-alpha",
+      "type": "numeric",
+      "prompt": "A Beta(2,2) prior is updated by 8 successes and 2 failures. What is the posterior α parameter?",
+      "points": 1,
+      "objective_ids": [
+        "statistics-17-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 10,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Add the observed successes to the prior α.",
+        "solution": "α_post = 2 + 8 = 10.",
+        "lesson_ids": [
+          "statistics-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statistics-17:posterior-beta",
+      "type": "numeric",
+      "prompt": "For the same data and prior, what is the posterior β parameter?",
+      "points": 1,
+      "objective_ids": [
+        "statistics-17-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 4,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Add observed failures to prior β.",
+        "solution": "β_post = 2 + 2 = 4.",
+        "lesson_ids": [
+          "statistics-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statistics-17:posterior-mean",
+      "type": "numeric",
+      "prompt": "For the resulting Beta(10,4) posterior, what is the posterior mean?",
+      "points": 1,
+      "objective_ids": [
+        "statistics-17-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.7142857142857143,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "For Beta(a,b), the mean is a/(a+b).",
+        "solution": "10/(10+4) = 5/7 ≈ 0.714.",
+        "lesson_ids": [
+          "statistics-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statistics-17:predictive-two-of-three",
+      "type": "numeric",
+      "prompt": "Under the Beta(10,4) posterior, what is the probability of exactly 2 successes in 3 future trials? Enter a decimal to three digits.",
+      "points": 1,
+      "objective_ids": [
+        "statistics-17-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.39285714285714285,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Integrate the binomial likelihood over the Beta posterior, or use the Beta–Binomial formula.",
+        "solution": "P(K=2|D) = C(3,2) B(12,5)/B(10,4) = 11/28 ≈ 0.393.",
+        "lesson_ids": [
+          "statistics-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statistics-17:prior-sensitivity-mean",
+      "type": "numeric",
+      "prompt": "With a uniform Beta(1,1) prior and the same 8 successes and 2 failures, what is the posterior mean?",
+      "points": 1,
+      "objective_ids": [
+        "statistics-17-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0.75,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The posterior becomes Beta(9,3).",
+        "solution": "The posterior mean is 9/(9+3) = 0.75.",
+        "lesson_ids": [
+          "statistics-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statistics-17:conjugacy",
+      "type": "single_choice",
+      "prompt": "Which is the posterior after a Beta(2,2) prior and 8 successes plus 2 failures?",
+      "points": 1,
+      "objective_ids": [
+        "statistics-17-objective-1"
+      ],
+      "options": [
+        "Beta(2,2)",
+        "Beta(10,4)",
+        "Beta(8,2)",
+        "Beta(4,10)"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Add successes to α and failures to β.",
+        "solution": "Beta(α+s,β+f) = Beta(10,4).",
+        "lesson_ids": [
+          "statistics-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statistics-17:predictive-integration",
+      "type": "single_choice",
+      "prompt": "Why is the Beta–Binomial probability of exactly 2 successes in 3 future trials about 0.393, rather than the plug-in binomial value about 0.437?",
+      "points": 1,
+      "objective_ids": [
+        "statistics-17-objective-2"
+      ],
+      "options": [
+        "The posterior predictive calculation averages the future count probability across uncertainty in θ.",
+        "The posterior mean is a p-value, so it must be squared.",
+        "The binomial coefficient is omitted from the posterior predictive calculation.",
+        "Future outcomes are assumed to have different known success rates."
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Compare integrating over the posterior with fixing θ at its mean.",
+        "solution": "The integrated Beta–Binomial predictive distribution accounts for uncertainty in a shared θ; a plug-in binomial treats the estimated mean as known.",
+        "lesson_ids": [
+          "statistics-17"
+        ],
+        "misconception_ids": [
+          "plug-in-ignores-parameter-uncertainty"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statistics-17:assumptions",
+      "type": "multiple_select",
+      "prompt": "Which assumptions are part of this one-rate Beta–Binomial model? Select all that apply.",
+      "points": 1,
+      "objective_ids": [
+        "statistics-17-objective-3"
+      ],
+      "options": [
+        "The prior is specified before these observations are used for updating.",
+        "Trials are conditionally independent Bernoulli outcomes with a common θ.",
+        "The model contains no covariate or subgroup-specific rate.",
+        "The observed fraction is automatically the true success probability.",
+        "A positive result proves that the prior was well calibrated."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "feedback": {
+        "hint": "Select statements that describe the model structure, not conclusions that exceed it.",
+        "solution": "The lesson stipulates a prior and conditionally independent outcomes with one shared rate. It includes neither covariates nor a guarantee that the prior or model fits reality.",
+        "lesson_ids": [
+          "statistics-17"
+        ],
+        "misconception_ids": [
+          "exchangeability-overclaim"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statistics-17:mode-vs-mean",
+      "type": "single_choice",
+      "prompt": "For a Beta(10,4) posterior, which set of summaries is correct?",
+      "points": 1,
+      "objective_ids": [
+        "statistics-17-objective-3"
+      ],
+      "options": [
+        "Mean 0.714; mode 0.75; observed fraction 0.80.",
+        "Mean 0.75; mode 0.714; observed fraction 0.80.",
+        "Mean 0.80; mode 0.80; observed fraction 0.714.",
+        "Mean 0.714; mode 0.714; observed fraction 0.75."
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Use distinct formulas for the mean, interior mode, and sample fraction.",
+        "solution": "Mean = 10/14 ≈ 0.714; mode = 9/12 = 0.75; observed fraction = 8/10 = 0.80.",
+        "lesson_ids": [
+          "statistics-17"
+        ],
+        "misconception_ids": []
       },
       "visibility": "public-practice-authoring",
       "provenance": {

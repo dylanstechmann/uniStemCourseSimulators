@@ -1,0 +1,578 @@
+{
+  "candidate_id": "biochemistry-homework-01-candidate-v1",
+  "course_id": "biochemistry",
+  "content_version": "0.4.85",
+  "state": "inactive-review-candidate",
+  "title": "Homework 1 review candidate: protein structure, charge and amino-acid fate",
+  "points": 80,
+  "lesson_ids": [
+    "biochemistry-1",
+    "biochemistry-8",
+    "biochemistry-urea-cycle",
+    "biochemistry-amino-acid-carbon-skeletons"
+  ],
+  "objective_ids": [
+    "biochemistry-1-objective-1",
+    "biochemistry-1-objective-2",
+    "biochemistry-8-objective-1",
+    "biochemistry-8-objective-2",
+    "biochemistry-8-objective-3",
+    "biochemistry-urea-cycle-objective-1",
+    "biochemistry-urea-cycle-objective-2",
+    "biochemistry-amino-carbon-objective-1",
+    "biochemistry-amino-carbon-objective-2",
+    "biochemistry-amino-carbon-objective-3",
+    "biochemistry-urea-cycle-objective-3"
+  ],
+  "course_outcome_ids": [
+    "biochemistry-outcome-1",
+    "biochemistry-outcome-4",
+    "biochemistry-outcome-3"
+  ],
+  "objective_link_occurrences": 16,
+  "objective_evidence": [
+    {
+      "question_id": "biochemistry-homework-01-candidate-v1:case-01",
+      "field_id": "structure-level",
+      "objective_ids": [
+        "biochemistry-1-objective-1"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    },
+    {
+      "question_id": "biochemistry-homework-01-candidate-v1:case-01",
+      "field_id": "binding-readout",
+      "objective_ids": [
+        "biochemistry-1-objective-2"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    },
+    {
+      "question_id": "biochemistry-homework-01-candidate-v1:case-02",
+      "field_id": "protonation-state",
+      "objective_ids": [
+        "biochemistry-8-objective-1"
+      ],
+      "points": 5,
+      "evidence_type": "numeric"
+    },
+    {
+      "question_id": "biochemistry-homework-01-candidate-v1:case-02",
+      "field_id": "pka-context",
+      "objective_ids": [
+        "biochemistry-8-objective-1"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    },
+    {
+      "question_id": "biochemistry-homework-01-candidate-v1:case-03",
+      "field_id": "isoelectric-point",
+      "objective_ids": [
+        "biochemistry-8-objective-2"
+      ],
+      "points": 5,
+      "evidence_type": "numeric"
+    },
+    {
+      "question_id": "biochemistry-homework-01-candidate-v1:case-03",
+      "field_id": "pi-bracketing",
+      "objective_ids": [
+        "biochemistry-8-objective-2"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    },
+    {
+      "question_id": "biochemistry-homework-01-candidate-v1:case-04",
+      "field_id": "protein-charge",
+      "objective_ids": [
+        "biochemistry-8-objective-3"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    },
+    {
+      "question_id": "biochemistry-homework-01-candidate-v1:case-04",
+      "field_id": "ion-exchange",
+      "objective_ids": [
+        "biochemistry-8-objective-3"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    },
+    {
+      "question_id": "biochemistry-homework-01-candidate-v1:case-05",
+      "field_id": "urea-donors",
+      "objective_ids": [
+        "biochemistry-urea-cycle-objective-1"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    },
+    {
+      "question_id": "biochemistry-homework-01-candidate-v1:case-05",
+      "field_id": "urea-compartments",
+      "objective_ids": [
+        "biochemistry-urea-cycle-objective-2"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    },
+    {
+      "question_id": "biochemistry-homework-01-candidate-v1:case-06",
+      "field_id": "carbon-classification",
+      "objective_ids": [
+        "biochemistry-amino-carbon-objective-1"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    },
+    {
+      "question_id": "biochemistry-homework-01-candidate-v1:case-06",
+      "field_id": "acetylcoa-boundary",
+      "objective_ids": [
+        "biochemistry-amino-carbon-objective-2"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    },
+    {
+      "question_id": "biochemistry-homework-01-candidate-v1:case-07",
+      "field_id": "bcaas-share-change",
+      "objective_ids": [
+        "biochemistry-amino-carbon-objective-3"
+      ],
+      "points": 5,
+      "evidence_type": "numeric"
+    },
+    {
+      "question_id": "biochemistry-homework-01-candidate-v1:case-07",
+      "field_id": "tracer-inference",
+      "objective_ids": [
+        "biochemistry-amino-carbon-objective-3"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    },
+    {
+      "question_id": "biochemistry-homework-01-candidate-v1:case-08",
+      "field_id": "urea-amount",
+      "objective_ids": [
+        "biochemistry-urea-cycle-objective-3"
+      ],
+      "points": 5,
+      "evidence_type": "numeric"
+    },
+    {
+      "question_id": "biochemistry-homework-01-candidate-v1:case-08",
+      "field_id": "high-energy-phosphate-demand",
+      "objective_ids": [
+        "biochemistry-urea-cycle-objective-3"
+      ],
+      "points": 5,
+      "evidence_type": "numeric"
+    }
+  ],
+  "instruction_path": "assessment-specs/homework-01-candidate.md",
+  "dataset_path": "assessment-specs/homework-01-candidate-data.csv",
+  "prerequisite_sha256": {
+    "modules/01-protein-structure-and-molecular-recognition.md": "b7488720b5d7ed0c1fd68faebbbcdc3c5cd782ec90cd9b0e2c3d00c20a53579f",
+    "modules/08-amino-acids-charge-and-isoelectric-points.md": "060246405ab0eecd1d0ef075ee09ae5e5ce75ad3a8d90d9eeff23dfa3f179291",
+    "modules/20-amino-nitrogen-and-urea-cycle.md": "0952aa98effc614676579026502d8e5025bc065f3fba223e1f816ba88a761a46",
+    "modules/21-amino-acid-carbon-skeletons.md": "a46aec8418dd7f194ed98a1f291f7fda8ffe8971ef667cac92c0891eecf42d8a"
+  },
+  "questions": [
+    {
+      "id": "biochemistry-homework-01-candidate-v1:case-01",
+      "type": "structured",
+      "prompt": "A fictional buried-site substitution and a matched binding comparison are described in the dataset.",
+      "options": [],
+      "unit": null,
+      "significant_figures": null,
+      "points": 10,
+      "selection": "single",
+      "partial_credit_policy": null,
+      "response_fields": [
+        {
+          "id": "structure-level",
+          "type": "single_choice",
+          "prompt": "Which structural level most directly describes the packing change around the substituted residue?",
+          "options": [
+            "Primary sequence context and tertiary packing within one chain.",
+            "A new peptide bond between separate chains.",
+            "A change in quaternary structure by definition."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        },
+        {
+          "id": "binding-readout",
+          "type": "single_choice",
+          "prompt": "Which conclusion is supported by two Kd measurements made under the same stated conditions?",
+          "options": [
+            "The higher Kd proves stronger affinity and a unique physiological role.",
+            "The lower Kd corresponds to higher affinity in this model; it alone does not establish biological specificity.",
+            "Kd is a rate constant and directly measures catalytic turnover."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        }
+      ],
+      "graph_spec": null,
+      "accepted_media_types": [],
+      "max_upload_bytes": null,
+      "variant_id": null,
+      "variant_token": null,
+      "learning_objective_ids": [
+        "biochemistry-1-objective-1",
+        "biochemistry-1-objective-2"
+      ],
+      "assessment_role": "graded"
+    },
+    {
+      "id": "biochemistry-homework-01-candidate-v1:case-02",
+      "type": "structured",
+      "prompt": "Use the stipulated pKa inputs and assay pH for the ionizable group specified in the CSV.",
+      "options": [],
+      "unit": null,
+      "significant_figures": null,
+      "points": 10,
+      "selection": "single",
+      "partial_credit_policy": null,
+      "response_fields": [
+        {
+          "id": "protonation-state",
+          "type": "numeric",
+          "prompt": "Calculate the fraction deprotonated for the side-chain carboxyl group using the Henderson–Hasselbalch relation; enter a unitless decimal from 0 to 1.",
+          "options": [],
+          "unit": "",
+          "points": 5,
+          "significant_figures": 3
+        },
+        {
+          "id": "pka-context",
+          "type": "single_choice",
+          "prompt": "Which input is needed to calculate the net charge of the short-chain model at the assay pH?",
+          "options": [
+            "The protein concentration alone.",
+            "The ligand Kd from case 01.",
+            "The protonation state of every listed ionizable group."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        }
+      ],
+      "graph_spec": null,
+      "accepted_media_types": [],
+      "max_upload_bytes": null,
+      "variant_id": null,
+      "variant_token": null,
+      "learning_objective_ids": [
+        "biochemistry-8-objective-1"
+      ],
+      "assessment_role": "graded"
+    },
+    {
+      "id": "biochemistry-homework-01-candidate-v1:case-03",
+      "type": "structured",
+      "prompt": "Use the supplied pKa values for the amino-acid model and state the pH scale for your result.",
+      "options": [],
+      "unit": null,
+      "significant_figures": null,
+      "points": 10,
+      "selection": "single",
+      "partial_credit_policy": null,
+      "response_fields": [
+        {
+          "id": "isoelectric-point",
+          "type": "numeric",
+          "prompt": "Estimate the isoelectric point for the amino-acid model with an ionizable side chain.",
+          "options": [],
+          "unit": "pH",
+          "points": 5,
+          "significant_figures": 3
+        },
+        {
+          "id": "pi-bracketing",
+          "type": "single_choice",
+          "prompt": "Which pair of pKa values brackets the neutral net-charge form for this acidic side-chain model?",
+          "options": [
+            "The smallest pKa and the largest pKa in every case.",
+            "The two pKa values around the zwitterionic form.",
+            "Only the alpha-carboxyl pKa."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        }
+      ],
+      "graph_spec": null,
+      "accepted_media_types": [],
+      "max_upload_bytes": null,
+      "variant_id": null,
+      "variant_token": null,
+      "learning_objective_ids": [
+        "biochemistry-8-objective-2"
+      ],
+      "assessment_role": "graded"
+    },
+    {
+      "id": "biochemistry-homework-01-candidate-v1:case-04",
+      "type": "structured",
+      "prompt": "The fictional protein pI and assay pH are stipulated in the dataset.",
+      "options": [],
+      "unit": null,
+      "significant_figures": null,
+      "points": 10,
+      "selection": "single",
+      "partial_credit_policy": null,
+      "response_fields": [
+        {
+          "id": "protein-charge",
+          "type": "single_choice",
+          "prompt": "Relative to its pI, what is the expected sign of the protein’s net charge at the listed assay pH?",
+          "options": [
+            "Net positive because pH is above pI.",
+            "Net negative under the usual pH-versus-pI rule.",
+            "Exactly zero charge at every pH."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        },
+        {
+          "id": "ion-exchange",
+          "type": "single_choice",
+          "prompt": "Which resin is the more direct candidate to retain this protein under the listed condition?",
+          "options": [
+            "The cation exchanger because it is negatively charged.",
+            "Neither; pI determines molecular size rather than charge.",
+            "The anion exchanger, subject to buffer and binding validation."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        }
+      ],
+      "graph_spec": null,
+      "accepted_media_types": [],
+      "max_upload_bytes": null,
+      "variant_id": null,
+      "variant_token": null,
+      "learning_objective_ids": [
+        "biochemistry-8-objective-3"
+      ],
+      "assessment_role": "graded"
+    },
+    {
+      "id": "biochemistry-homework-01-candidate-v1:case-05",
+      "type": "structured",
+      "prompt": "Use the standard urea-cycle atom accounting and energy convention described in the course lesson.",
+      "options": [],
+      "unit": null,
+      "significant_figures": null,
+      "points": 10,
+      "selection": "single",
+      "partial_credit_policy": null,
+      "response_fields": [
+        {
+          "id": "urea-donors",
+          "type": "single_choice",
+          "prompt": "Which pair gives the immediate nitrogen donors to urea in the standard pathway model?",
+          "options": [
+            "Ammonia and aspartate.",
+            "Glutamate and bicarbonate.",
+            "Fumarate and ornithine."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        },
+        {
+          "id": "urea-compartments",
+          "type": "single_choice",
+          "prompt": "Which statement best connects the cycle to central metabolism and its compartmentation?",
+          "options": [
+            "All nitrogen is transferred directly into urea in one cytosolic step with no regulation.",
+            "Fumarate is a urea-cycle nitrogen donor and is irreversibly excreted.",
+            "Transamination transfers amino nitrogen into glutamate/aspartate; mitochondrial CPS1 is activated by N-acetylglutamate; fumarate can return carbon to central metabolism."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        }
+      ],
+      "graph_spec": null,
+      "accepted_media_types": [],
+      "max_upload_bytes": null,
+      "variant_id": null,
+      "variant_token": null,
+      "learning_objective_ids": [
+        "biochemistry-urea-cycle-objective-1",
+        "biochemistry-urea-cycle-objective-2"
+      ],
+      "assessment_role": "graded"
+    },
+    {
+      "id": "biochemistry-homework-01-candidate-v1:case-06",
+      "type": "structured",
+      "prompt": "Use the listed amino-acid examples and the stated mammalian carbon-fate boundary.",
+      "options": [],
+      "unit": null,
+      "significant_figures": null,
+      "points": 10,
+      "selection": "single",
+      "partial_credit_policy": null,
+      "response_fields": [
+        {
+          "id": "carbon-classification",
+          "type": "single_choice",
+          "prompt": "Which listed amino-acid example is conventionally both glucogenic and ketogenic?",
+          "options": [
+            "Leucine only.",
+            "Isoleucine.",
+            "Aspartate only."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        },
+        {
+          "id": "acetylcoa-boundary",
+          "type": "single_choice",
+          "prompt": "Which statement is consistent with the stated mammalian carbon-fate model?",
+          "options": [
+            "Acetyl-CoA oxidation does not provide net glucose carbon by itself; a net-glucose precursor can enter at an appropriate intermediate.",
+            "Acetyl-CoA is converted directly into net glucose through the TCA cycle.",
+            "Removing amino nitrogen forces every carbon skeleton to become glucose."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        }
+      ],
+      "graph_spec": null,
+      "accepted_media_types": [],
+      "max_upload_bytes": null,
+      "variant_id": null,
+      "variant_token": null,
+      "learning_objective_ids": [
+        "biochemistry-amino-carbon-objective-1",
+        "biochemistry-amino-carbon-objective-2"
+      ],
+      "assessment_role": "graded"
+    },
+    {
+      "id": "biochemistry-homework-01-candidate-v1:case-07",
+      "type": "structured",
+      "prompt": "A synthetic tracer comparison assigns 8.0% of lipogenic acetyl-CoA in preadipocytes and 26.0% in differentiated 3T3-L1 cells to BCAA carbon. These are teaching values, not measurements from the cited study.",
+      "options": [],
+      "unit": null,
+      "significant_figures": null,
+      "points": 10,
+      "selection": "single",
+      "partial_credit_policy": null,
+      "response_fields": [
+        {
+          "id": "bcaas-share-change",
+          "type": "numeric",
+          "prompt": "Calculate the absolute increase in the assigned BCAA contribution and report three significant figures.",
+          "options": [],
+          "unit": "pp",
+          "points": 5,
+          "significant_figures": 3
+        },
+        {
+          "id": "tracer-inference",
+          "type": "single_choice",
+          "prompt": "Which interpretation stays within the scope of the synthetic tracer comparison?",
+          "options": [
+            "The larger share supports a larger assigned BCAA contribution in this differentiated-cell model under the stated conditions; it does not establish human whole-body contribution or net glucose production.",
+            "The difference proves that leucine becomes glucogenic in every mammalian tissue.",
+            "The data measure total BCAA oxidation and apply to all humans.",
+            "The comparison cannot describe a percentage-point change."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        }
+      ],
+      "graph_spec": null,
+      "accepted_media_types": [],
+      "max_upload_bytes": null,
+      "variant_id": null,
+      "variant_token": null,
+      "learning_objective_ids": [
+        "biochemistry-amino-carbon-objective-3"
+      ],
+      "assessment_role": "graded"
+    },
+    {
+      "id": "biochemistry-homework-01-candidate-v1:case-08",
+      "type": "structured",
+      "prompt": "Use the synthetic closed nitrogen-balance input and standard urea-cycle stoichiometry.",
+      "options": [],
+      "unit": null,
+      "significant_figures": null,
+      "points": 10,
+      "selection": "single",
+      "partial_credit_policy": null,
+      "response_fields": [
+        {
+          "id": "urea-amount",
+          "type": "numeric",
+          "prompt": "Calculate the amount of urea that can form from the listed nitrogen-atom input under the stated closed balance. Report mol to three significant figures.",
+          "options": [],
+          "unit": "mol",
+          "points": 5,
+          "significant_figures": 3
+        },
+        {
+          "id": "high-energy-phosphate-demand",
+          "type": "numeric",
+          "prompt": "Calculate the high-energy phosphate equivalents required for that amount of urea. Report mol equivalents to three significant figures.",
+          "options": [],
+          "unit": "mol",
+          "points": 5,
+          "significant_figures": 3
+        }
+      ],
+      "graph_spec": null,
+      "accepted_media_types": [],
+      "max_upload_bytes": null,
+      "variant_id": null,
+      "variant_token": null,
+      "learning_objective_ids": [
+        "biochemistry-urea-cycle-objective-3"
+      ],
+      "assessment_role": "graded"
+    }
+  ],
+  "review": {
+    "status": "unreviewed",
+    "reviewers": []
+  },
+  "activation_gates": [
+    "independent-recalculation",
+    "grader-mutation-review",
+    "qualified-biochemical-review",
+    "assessment-blueprint-review",
+    "accessibility-and-fairness-review",
+    "measured-workload",
+    "candidate-specific-protected-delivery-verification",
+    "operator-release-and-retake-policy"
+  ],
+  "key_status": "An unreviewed private key/grader draft exists outside the public package. No independent recalculation, mutation review, approval, or activation is implied.",
+  "provenance": {
+    "kind": "original",
+    "license": "CC-BY-4.0",
+    "ai_assistance": "Codex authored an answer-free draft; no independent or qualified review occurred.",
+    "source_scope": "Existing course lessons and synthetic observations authored for this candidate; no external assessment or dataset was copied."
+  }
+}

@@ -5,6 +5,10 @@ content. They do not establish prerequisite equivalency, admission eligibility,
 transferable credit, affiliation, endorsement, or a university's review of a
 uniStemCourseSimulators course. All pages below were accessed on 2026-10-05.
 
+## Live-link probe follow-up (2026-10-10)
+
+Python's repository link probe still receives HTTP 403 for the JHU AAP degree-details and admissions URLs and the IUPAC Gold Book entry. The two JHU URLs were independently opened through Johns Hopkins Advanced Academic Programs' official pages on 2026-10-10; both present the current program information, including the program-specific one-semester prerequisites. This verifies that the JHU destinations exist and contain the cited information, but does not show that the validator's HTTP client can retrieve them. The content validator now reports 401/403 responses as `link-access-denied` warnings and keeps missing destinations such as 404 errors. A denied automated request is not treated as proof that a source page is broken.
+
 ## Johns Hopkins regenerative/stem-cell knowledge map
 
 The supplied catalogue URL ending in

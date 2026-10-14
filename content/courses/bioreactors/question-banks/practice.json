@@ -40,7 +40,7 @@
       "prompt": "A culture has 2×10⁶ cells/mL consuming 1×10⁻¹⁶ mol O₂/(cell·s). What is volumetric demand in mmol/(L·h)?",
       "points": 1,
       "objective_ids": [
-        "bioreactors-2-objective-1"
+        "bioreactors-2-objective-2"
       ],
       "solution_spec": {
         "answer": 0.72,
@@ -77,7 +77,7 @@
       ],
       "points": 1,
       "objective_ids": [
-        "bioreactors-3-objective-1"
+        "bioreactors-3-objective-2"
       ],
       "solution_spec": {
         "answer": 0
@@ -165,6 +165,7 @@
       "prompt": "A bioreactor has kLa = 10 h⁻¹, saturation dissolved oxygen 0.20 mmol/L and bulk dissolved oxygen 0.10 mmol/L. The culture has 1.5×10¹⁰ cells/L, each consuming 1.0×10⁻¹⁰ mmol/h. Calculate the oxygen transfer rate minus the oxygen uptake rate in mmol/(L·h). A negative value means demand exceeds supply. Enter the number only.",
       "points": 1,
       "objective_ids": [
+        "bioreactors-2-objective-1",
         "bioreactors-2-objective-2"
       ],
       "solution_spec": {
@@ -240,6 +241,98 @@
       "feedback": {
         "hint": "Compare the size of assay scatter with the size of the trend.",
         "solution": "A stable control bounds assay variation near ±2%, far smaller than the 20% change in titres, which points to a process change; the cause (raw materials, cells, operation) still has to be found. A single control does not cover every assay failure mode.",
+        "lesson_ids": [
+          "bioreactors-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "bioreactors-4:modeled-survivors",
+      "type": "numeric",
+      "prompt": "In a deliberately simplified model, an abstract population starts at 1.2×10⁶ and is assigned a 4-log₁₀ reduction. How many modeled survivors remain? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "bioreactors-4-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 120,
+        "unit": "",
+        "tolerance": 0.1,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "A 4-log₁₀ reduction leaves a modeled fraction of 10⁻⁴.",
+        "solution": "1.2×10⁶ × 10⁻⁴ = 120 modeled survivors. This synthetic arithmetic is not a measured or validated process result.",
+        "lesson_ids": [
+          "bioreactors-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "bioreactors-4:contamination-pathways",
+      "type": "single_choice",
+      "prompt": "Which set best identifies distinct interfaces to consider when mapping possible contamination entry routes in a tissue-culture process?",
+      "options": [
+        "Media and feed inputs, the gas path, vessel connections, and sampling or harvest interfaces",
+        "Agitation speed, impeller tip speed, dissolved-oxygen probe calibration, and power per volume",
+        "Product titre, acceptance limits, viability, and tissue mechanical properties",
+        "Cell identity, growth rate, oxygen uptake, and mixing time"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "bioreactors-4-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Map materials and interfaces that cross or connect to the defined process boundary.",
+        "solution": "Inputs, gas paths, connections, and sampling or harvest interfaces are distinct boundary routes to consider. This is a conceptual map, not operating or sterilization instructions.",
+        "lesson_ids": [
+          "bioreactors-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "bioreactors-4:sterility-evidence-limits",
+      "type": "single_choice",
+      "prompt": "A simplified model assigns a log reduction, and one tested sample reports no detection. Which interpretation is supported?",
+      "options": [
+        "The model and sample result have limited scopes; neither alone proves whole-batch sterility or validates a process.",
+        "The log reduction proves the entire vessel is sterile, regardless of the sample result.",
+        "No detection in the tested sample proves that every part of the batch is free of contamination.",
+        "A favorable product-quality attribute independently verifies every process-boundary interface."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "bioreactors-4-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Keep modeled reduction, a tested aliquot, process-boundary evidence, and product attributes distinct.",
+        "solution": "A calculation describes its assumptions, while a no-detection result applies to the sample and method used. Neither alone establishes sterility for a whole batch or validates a real process.",
         "lesson_ids": [
           "bioreactors-4"
         ],
@@ -3164,6 +3257,622 @@
           "average-cell-only",
           "normal-approximation-exact"
         ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "bioreactors-3:reynolds-number",
+      "type": "numeric",
+      "prompt": "A stirred bioreactor has fluid density 1000 kg/m³, viscosity 0.001 Pa·s, impeller diameter 0.10 m, and rotation rate N=0.80 s⁻¹. Using Reᵢ=ρND²/μ, calculate the impeller Reynolds number. Enter a value.",
+      "points": 1,
+      "objective_ids": [
+        "bioreactors-3-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 8000,
+        "unit": "",
+        "tolerance": 8,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use N in reciprocal seconds and D in metres; the result is dimensionless.",
+        "solution": "Reᵢ=(1000)(0.80)(0.10²)/(0.001)=8000. Reynolds number compares inertial and viscous effects; it does not alone determine mixing time or establish full scale similarity.",
+        "lesson_ids": [
+          "bioreactors-3"
+        ],
+        "misconception_ids": [
+          "impeller-reynolds-units"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct formative practice calculating a dimensionless impeller Reynolds number."
+        ]
+      }
+    },
+    {
+      "id": "bioreactors-14:nitrogen-balance",
+      "type": "numeric",
+      "prompt": "For 1 mol glucose + a NH3 + b O2 → 2 X + P + c CO2 + d H2O, with X=CH1.8O0.5N0.2 and P=C2H6O, what a balances nitrogen? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "bioreactors-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.4,
+        "unit": "",
+        "tolerance": 4e-05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Match the nitrogen atoms in 2 X to the ammonia input.",
+        "solution": "Two X units contain 0.4 mol N atoms, so a=0.4 mol NH3.",
+        "lesson_ids": [
+          "bioreactors-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "bioreactors-14:oxygen-balance",
+      "type": "numeric",
+      "prompt": "For C6H12O6 + 0.4 NH3 + b O2 → 2 X + P + 2 CO2 + 1.8 H2O, with X=CH1.8O0.5N0.2 and P=C2H6O, what b balances oxygen? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "bioreactors-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.9,
+        "unit": "",
+        "tolerance": 9e-05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Count oxygen atoms on both sides, including two atoms per O2.",
+        "solution": "Products contain 7.8 mol O atoms; glucose supplies 6, leaving 1.8 mol O atoms or b=0.9 mol O2.",
+        "lesson_ids": [
+          "bioreactors-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "bioreactors-14:carbon-dioxide-balance",
+      "type": "numeric",
+      "prompt": "In the synthetic reaction 1 C6H12O6 → 2 X + 1 P + c CO2, X contains 1 C atom per unit and P=C2H6O. What c closes carbon? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "bioreactors-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 2,
+        "unit": "",
+        "tolerance": 0.0002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Subtract the biomass and product carbon from the six carbon atoms in glucose.",
+        "solution": "Six C atoms enter; two go to X and two to P, so c=2.",
+        "lesson_ids": [
+          "bioreactors-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "bioreactors-14:water-balance",
+      "type": "numeric",
+      "prompt": "For C6H12O6 + 0.4 NH3 → 2 X + P + 2 CO2 + d H2O, with X=CH1.8O0.5N0.2 and P=C2H6O, what d balances hydrogen? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "bioreactors-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 1.8,
+        "unit": "",
+        "tolerance": 0.00018,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Include hydrogen from ammonia as well as glucose.",
+        "solution": "Inputs contain 13.2 mol H atoms; X and P contain 9.6, leaving 3.6 for d=1.8 mol H2O.",
+        "lesson_ids": [
+          "bioreactors-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "bioreactors-14:carbon-recovery",
+      "type": "numeric",
+      "prompt": "The balanced model places 2 C-mol in X, 2 mol C in P, and 2 mol C in CO2 per mole of glucose. What fraction of input carbon is recovered in these products? Enter the fraction from 0 to 1.",
+      "points": 1,
+      "objective_ids": [
+        "bioreactors-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 1,
+        "unit": "",
+        "tolerance": 0.0001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Divide the total modeled product carbon by the six carbon-moles in glucose.",
+        "solution": "(2+2+2)/6=1.00, so the stipulated carbon balance recovers all input carbon.",
+        "lesson_ids": [
+          "bioreactors-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "bioreactors-14:biomass-yield",
+      "type": "numeric",
+      "prompt": "The synthetic balanced equation forms 2 C-mol of X per mole of glucose consumed. What biomass yield follows in C-mol X per mol glucose? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "bioreactors-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 2,
+        "unit": "",
+        "tolerance": 0.0002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Read the normalized coefficients on biomass and substrate.",
+        "solution": "The equation produces 2 C-mol X for each 1 mol glucose, so the yield is 2.",
+        "lesson_ids": [
+          "bioreactors-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "bioreactors-14:product-yield",
+      "type": "numeric",
+      "prompt": "The synthetic balanced equation forms 1 mol P per mole of glucose consumed. What product yield follows in mol P per mol glucose? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "bioreactors-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 1,
+        "unit": "",
+        "tolerance": 0.0001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Read the normalized product and substrate coefficients.",
+        "solution": "The P coefficient is 1 for a glucose coefficient of 1, giving yield 1 mol/mol.",
+        "lesson_ids": [
+          "bioreactors-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "bioreactors-14:kinetics-v-stoichiometry",
+      "type": "single_choice",
+      "prompt": "Which statement best separates Monod kinetics from the synthetic balanced reaction?",
+      "points": 1,
+      "objective_ids": [
+        "bioreactors-14-objective-3"
+      ],
+      "options": [
+        "Monod specifies a substrate-dependent growth rate; the balanced reaction specifies an assumed atom allocation and yield.",
+        "Monod guarantees the final product yield, so no elemental balance is needed.",
+        "The balanced reaction predicts growth rate but not atom conservation.",
+        "Both equations establish that a particular real cell line will produce P."
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "One model describes rate dependence; the other is stoichiometric bookkeeping.",
+        "solution": "Monod relates specific growth rate to substrate concentration. The stoichiometric equation encodes a separate, stipulated atom allocation and yield.",
+        "lesson_ids": [
+          "bioreactors-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "bioreactors-14:balance-limit",
+      "type": "single_choice",
+      "prompt": "What does closure of C, H, O, and N balances establish for this example?",
+      "points": 1,
+      "objective_ids": [
+        "bioreactors-14-objective-3"
+      ],
+      "options": [
+        "That a real cell follows this pathway and reaches the computed yield.",
+        "That the listed atom totals are conserved under the stipulated equation, without identifying a pathway or validating a real culture.",
+        "That Monod parameters can be inferred from the stoichiometric coefficients.",
+        "That gas transfer and maintenance can be ignored in every reactor."
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "A conservation check is necessary accounting, not experimental evidence.",
+        "solution": "Elemental closure checks the declared reaction only; it does not establish pathway, product formation, or a real-cell yield.",
+        "lesson_ids": [
+          "bioreactors-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "bioreactors-15:dilution-term",
+      "type": "single_choice",
+      "prompt": "In a fed-batch culture nothing leaves the vessel, yet the cell-concentration balance is dX/dt = (μ − D)X with D = F/V. Why does the D term appear?",
+      "options": [
+        "The feed adds liquid, so the same cells occupy a growing volume",
+        "Cells are removed with an outflow at rate F",
+        "Cells die faster when fed",
+        "The feed contains an inhibitor proportional to F"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "bioreactors-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Expand d(XV)/dt with the product rule.",
+        "solution": "d(XV)/dt = μXV with dV/dt = F gives dX/dt = μX − (F/V)X. The term records dilution by added volume; no cells are removed, so total cell number still grows at μ.",
+        "lesson_ids": [
+          "bioreactors-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "bioreactors-15:initial-feed",
+      "type": "numeric",
+      "prompt": "A synthetic fed-batch culture starts at 2.0 L with 1.0×10⁹ cells, μ = 0.025 h⁻¹ and glucose uptake q_G = 1.5×10⁻¹⁰ mmol per cell per hour. A 400 mM glucose feed holds glucose at 4 mM with an exponential schedule. What feed rate is required at t = 0? Enter mL/h.",
+      "points": 1,
+      "objective_ids": [
+        "bioreactors-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.3788,
+        "unit": "",
+        "tolerance": 0.004,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Set F(S_F − S) equal to the cells' glucose uptake q_G N.",
+        "solution": "Uptake is 1.5×10⁻¹⁰ × 1.0×10⁹ = 0.150 mmol/h, so F = 0.150/396 L/h = 0.379 mL/h.",
+        "lesson_ids": [
+          "bioreactors-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "bioreactors-15:feed-at-60h",
+      "type": "numeric",
+      "prompt": "A synthetic fed-batch culture starts at 2.0 L with 1.0×10⁹ cells, μ = 0.025 h⁻¹ and glucose uptake q_G = 1.5×10⁻¹⁰ mmol per cell per hour. A 400 mM glucose feed holds glucose at 4 mM with an exponential schedule. What feed rate does the schedule require at 60 h? Enter mL/h.",
+      "points": 1,
+      "objective_ids": [
+        "bioreactors-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 1.6976,
+        "unit": "",
+        "tolerance": 0.02,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The required feed grows as e^(μt).",
+        "solution": "F(60 h) = 0.379 mL/h × e^(1.5) = 1.70 mL/h.",
+        "lesson_ids": [
+          "bioreactors-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "bioreactors-15:cumulative-feed",
+      "type": "numeric",
+      "prompt": "A synthetic fed-batch culture starts at 2.0 L with 1.0×10⁹ cells, μ = 0.025 h⁻¹ and glucose uptake q_G = 1.5×10⁻¹⁰ mmol per cell per hour. A 400 mM glucose feed holds glucose at 4 mM with an exponential schedule. How much feed has been added by 60 h? Enter mL.",
+      "points": 1,
+      "objective_ids": [
+        "bioreactors-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 52.75,
+        "unit": "",
+        "tolerance": 0.3,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Integrate F(t) = q_G N₀e^(μt)/(S_F − S) from 0 to 60 h.",
+        "solution": "V_feed = 0.150 × (e^(1.5) − 1)/(0.025 × 396) L = 52.8 mL.",
+        "lesson_ids": [
+          "bioreactors-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "bioreactors-15:time-to-working-volume",
+      "type": "numeric",
+      "prompt": "A synthetic fed-batch culture starts at 2.0 L with 1.0×10⁹ cells, μ = 0.025 h⁻¹ and glucose uptake q_G = 1.5×10⁻¹⁰ mmol per cell per hour. A 400 mM glucose feed holds glucose at 4 mM with an exponential schedule. The vessel's working volume is 2.6 L. At what time does the exponential feed fill it? Enter hours.",
+      "points": 1,
+      "objective_ids": [
+        "bioreactors-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 148.15,
+        "unit": "",
+        "tolerance": 0.5,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Solve q_G N₀(e^(μt) − 1)/(μ(S_F − S)) = 0.6 L for t.",
+        "solution": "e^(μt) = 1 + 0.6 × 0.025 × 396/0.150 = 40.6, so t = ln(40.6)/0.025 = 148 h. Oxygen supply or by-products may limit the culture earlier.",
+        "lesson_ids": [
+          "bioreactors-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "bioreactors-15:concentration-at-60h",
+      "type": "numeric",
+      "prompt": "A synthetic fed-batch culture starts at 2.0 L with 1.0×10⁹ cells, μ = 0.025 h⁻¹ and glucose uptake q_G = 1.5×10⁻¹⁰ mmol per cell per hour. A 400 mM glucose feed holds glucose at 4 mM with an exponential schedule. What is the cell concentration at 60 h? Enter it in units of 10⁶ cells/mL.",
+      "points": 1,
+      "objective_ids": [
+        "bioreactors-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 2.1833,
+        "unit": "",
+        "tolerance": 0.03,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Divide the cell number by the volume, including the added feed.",
+        "solution": "N = 1.0×10⁹ × e^(1.5) = 4.48×10⁹ cells in 2.053 L, which is 2.18×10⁶ cells/mL (constant volume would give 2.24×10⁶).",
+        "lesson_ids": [
+          "bioreactors-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "bioreactors-15:dilution-rate-at-60h",
+      "type": "numeric",
+      "prompt": "A synthetic fed-batch culture starts at 2.0 L with 1.0×10⁹ cells, μ = 0.025 h⁻¹ and glucose uptake q_G = 1.5×10⁻¹⁰ mmol per cell per hour. A 400 mM glucose feed holds glucose at 4 mM with an exponential schedule. What is the dilution rate D = F/V at 60 h? Enter it in units of 10⁻³ h⁻¹.",
+      "points": 1,
+      "objective_ids": [
+        "bioreactors-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.827,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use the feed rate and the volume at the same time.",
+        "solution": "D = 1.698 mL/h ÷ 2053 mL = 0.827×10⁻³ h⁻¹, so the concentration grows at μ − D ≈ 0.0242 h⁻¹.",
+        "lesson_ids": [
+          "bioreactors-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "bioreactors-15:titer-at-60h",
+      "type": "numeric",
+      "prompt": "A synthetic fed-batch culture starts at 2.0 L with 1.0×10⁹ cells, μ = 0.025 h⁻¹ and glucose uptake q_G = 1.5×10⁻¹⁰ mmol per cell per hour. A 400 mM glucose feed holds glucose at 4 mM with an exponential schedule. A product is made at q_P = 0.8×10⁻¹² g per cell per hour and nothing is removed. What is the titer at 60 h? Enter g/L.",
+      "points": 1,
+      "objective_ids": [
+        "bioreactors-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0.05428,
+        "unit": "",
+        "tolerance": 0.0006,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Product mass is q_P times the integral of cell number; divide by the final volume.",
+        "solution": "∫N dt = 1.0×10⁹ × (e^(1.5) − 1)/0.025 = 1.393×10¹¹ cell·h, so product = 0.111 g and titer = 0.111/2.053 = 0.0543 g/L.",
+        "lesson_ids": [
+          "bioreactors-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "bioreactors-15:constant-feed",
+      "type": "single_choice",
+      "prompt": "A constant feed is set equal to the culture's glucose demand at t = 0, and the cells keep growing exponentially. What happens to glucose?",
+      "options": [
+        "It falls, because demand grows exponentially while supply stays fixed",
+        "It stays at the set point, because supply matched demand",
+        "It rises, because the feed is concentrated",
+        "It is unchanged, because volume growth cancels uptake"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "bioreactors-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Compare q_G N(t) with the fixed supply F S_F.",
+        "solution": "Supply is fixed but demand grows as e^(μt); after one doubling time the cells consume roughly twice what arrives, so glucose is drawn down and growth becomes limited.",
+        "lesson_ids": [
+          "bioreactors-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "bioreactors-15:model-limits",
+      "type": "multiple_select",
+      "prompt": "Which statements about the single-substrate fed-batch model are appropriate? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "bioreactors-15-objective-3"
+      ],
+      "options": [
+        "Holding glucose constant does not prevent lactate, ammonium or osmolality from rising.",
+        "Because D = F/V appears, a fed-batch culture washes out when D exceeds μ.",
+        "Oxygen transfer can limit the culture before the working volume is reached.",
+        "Real feeds supply many nutrients and may be added as boluses rather than continuously.",
+        "Total product mass is retained in the vessel until harvest, so titer depends on the final volume."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "feedback": {
+        "hint": "Separate what the model tracks from what it omits, and remember that fed-batch removes no cells.",
+        "solution": "By-products, oxygen transfer and multi-component or bolus feeding lie outside the model, and titer is product mass over final volume. Fed-batch has no outflow, so there is no washout: total cell number keeps rising even when D exceeds μ.",
+        "lesson_ids": [
+          "bioreactors-15"
+        ],
+        "misconception_ids": []
       },
       "visibility": "public-practice-authoring",
       "provenance": {

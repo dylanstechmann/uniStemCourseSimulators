@@ -1,0 +1,7 @@
+# Probability, Biostatistics & Experimental Design 0.4.3 — hypothesis testing and multiplicity
+
+Week 6 now explains null and alternative hypotheses, test statistics and reference distributions, conditional p-values, threshold decisions, Type I and II errors, power, family-wise error, Bonferroni adjustment, and confirmatory versus exploratory analysis. It gives the independence-based calculation 1 − 0.95^10 = 0.401 and the twenty-test Bonferroni threshold 0.05/20 = 0.0025, while stating where each calculation applies.
+
+The two preserved numeric items retain their prompts and keys; the ten-test FWER item is now mapped to the multiplicity objective. Added a single-choice item directly tests p-value interpretation. Both objectives and the practice assessment map to outcomes 2 and 3. MIT OpenCourseWare 18.05 Reading 18 and Problem Set 9 Solutions are registered as link-only technical references. No source problem, reading, solution, figure or dataset was copied or adapted.
+
+Checks: the focused regression passed; Ruff passed; full content validation passed with zero errors; the assessment-candidate report drift check passed after regeneration. The course now has 2,237 questions and 5 disclosed legacy-depth warnings. These same-AI checks are not independent statistical, accessibility or domain review. One compact prototype reading remains in week 8; the course remains partial, unreviewed and formative-only.

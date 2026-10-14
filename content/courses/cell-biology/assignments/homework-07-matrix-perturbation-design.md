@@ -1,10 +1,10 @@
 # Homework 7 practice: matrix stiffness, controls and perturbation design
 
 **Status:** open formative practice; this packet and its answer specifications are public and are not suitable for a protected or summative exam. It does not contribute to a course grade.  
-**Course package:** Foundations of Cell and Molecular Biology, version 0.19.0
-**Suggested time:** 2–3 hours  
+**Course package:** Foundations of Cell and Molecular Biology, version 0.61.0
+**Suggested time (unvalidated author estimate):** 2–3 hours
 **Prerequisite lessons:** [Cytoskeletal systems, adhesion, and extracellular matrix](../modules/11a-cytoskeleton-adhesion-and-extracellular-matrix.md) and [Matrix mechanics and mechanotransduction](../modules/11b-matrix-mechanics-and-mechanotransduction.md).  
-**Dataset:** [synthetic measurements](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/cell-biology/assignments/homework-07-matrix-spreading.csv).
+**Dataset:** [synthetic measurements](homework-07-matrix-spreading.csv).
 
 ## Purpose
 

@@ -1,0 +1,174 @@
+{
+  "candidate_id": "biochemistry-protein-state-project-candidate-v1",
+  "course_id": "biochemistry",
+  "content_version": "0.4.85",
+  "state": "inactive-review-candidate",
+  "assessment_kind": "human-portfolio",
+  "title": "Protein state and ligand binding: integrative human-scored project candidate",
+  "points": 100,
+  "lesson_ids": [
+    "biochemistry-1",
+    "biochemistry-7",
+    "biochemistry-8",
+    "biochemistry-9"
+  ],
+  "objective_ids": [
+    "biochemistry-8-objective-1",
+    "biochemistry-8-objective-3",
+    "biochemistry-9-objective-1",
+    "biochemistry-9-objective-2",
+    "biochemistry-1-objective-2",
+    "biochemistry-7-objective-1",
+    "biochemistry-7-objective-2",
+    "biochemistry-9-objective-3"
+  ],
+  "course_outcome_ids": [
+    "biochemistry-outcome-1",
+    "biochemistry-outcome-4",
+    "biochemistry-outcome-3"
+  ],
+  "objective_link_occurrences": 12,
+  "objective_evidence": [
+    {
+      "question_id": "biochemistry-protein-state-project-candidate-v1:charge-analysis",
+      "deliverable_id": "charge-analysis",
+      "objective_ids": [
+        "biochemistry-8-objective-1",
+        "biochemistry-8-objective-3"
+      ],
+      "points": 15,
+      "evidence_type": "human_portfolio"
+    },
+    {
+      "question_id": "biochemistry-protein-state-project-candidate-v1:folding-analysis",
+      "deliverable_id": "folding-analysis",
+      "objective_ids": [
+        "biochemistry-9-objective-1",
+        "biochemistry-9-objective-2"
+      ],
+      "points": 20,
+      "evidence_type": "human_portfolio"
+    },
+    {
+      "question_id": "biochemistry-protein-state-project-candidate-v1:binding-analysis",
+      "deliverable_id": "binding-analysis",
+      "objective_ids": [
+        "biochemistry-1-objective-2",
+        "biochemistry-7-objective-1",
+        "biochemistry-7-objective-2"
+      ],
+      "points": 25,
+      "evidence_type": "human_portfolio"
+    },
+    {
+      "question_id": "biochemistry-protein-state-project-candidate-v1:decision-analysis",
+      "deliverable_id": "decision-analysis",
+      "objective_ids": [
+        "biochemistry-1-objective-2",
+        "biochemistry-7-objective-2",
+        "biochemistry-9-objective-1"
+      ],
+      "points": 20,
+      "evidence_type": "human_portfolio"
+    },
+    {
+      "question_id": "biochemistry-protein-state-project-candidate-v1:model-limitations",
+      "deliverable_id": "model-limitations",
+      "objective_ids": [
+        "biochemistry-7-objective-2",
+        "biochemistry-9-objective-3"
+      ],
+      "points": 20,
+      "evidence_type": "human_portfolio"
+    }
+  ],
+  "instruction_path": "assessment-specs/protein-state-binding-project-draft.md",
+  "dataset_path": "assessment-specs/protein-state-binding-conditions.csv",
+  "human_portfolio_path": "assessment-specs/protein-state-binding-project-rubric.md",
+  "prerequisite_sha256": {
+    "modules/01-protein-structure-and-molecular-recognition.md": "b7488720b5d7ed0c1fd68faebbbcdc3c5cd782ec90cd9b0e2c3d00c20a53579f",
+    "modules/07-binding-equilibria-and-cooperativity.md": "ee28bdc64b4a34cfc7835d33fa8e7ceef62f00ae86adbc1f77c63fe401ab66ef",
+    "modules/08-amino-acids-charge-and-isoelectric-points.md": "060246405ab0eecd1d0ef075ee09ae5e5ce75ad3a8d90d9eeff23dfa3f179291",
+    "modules/09-protein-folding-and-stability.md": "a3f271810295bf73812651dafe1d8540a4c5c6dec4ca585d9e555e48f21cdf09"
+  },
+  "questions": [
+    {
+      "id": "biochemistry-protein-state-project-candidate-v1:charge-analysis",
+      "type": "human-portfolio-deliverable",
+      "prompt": "Calculate charge at both pH values and explain what its sign does and does not predict.",
+      "points": 15,
+      "learning_objective_ids": [
+        "biochemistry-8-objective-1",
+        "biochemistry-8-objective-3"
+      ],
+      "assessment_method": "human-reviewed draft rubric; no automatic prose grading"
+    },
+    {
+      "id": "biochemistry-protein-state-project-candidate-v1:folding-analysis",
+      "type": "human-portfolio-deliverable",
+      "prompt": "Calculate denaturant-dependent stability, folded fraction and active folded-protein total for conditions A and B.",
+      "points": 20,
+      "learning_objective_ids": [
+        "biochemistry-9-objective-1",
+        "biochemistry-9-objective-2"
+      ],
+      "assessment_method": "human-reviewed draft rubric; no automatic prose grading"
+    },
+    {
+      "id": "biochemistry-protein-state-project-candidate-v1:binding-analysis",
+      "type": "human-portfolio-deliverable",
+      "prompt": "Apply the ligand-depletion quadratic to the active folded-protein total and report both occupancy denominators.",
+      "points": 25,
+      "learning_objective_ids": [
+        "biochemistry-1-objective-2",
+        "biochemistry-7-objective-1",
+        "biochemistry-7-objective-2"
+      ],
+      "assessment_method": "human-reviewed draft rubric; no automatic prose grading"
+    },
+    {
+      "id": "biochemistry-protein-state-project-candidate-v1:decision-analysis",
+      "type": "human-portfolio-deliverable",
+      "prompt": "Compare the exact result with the free-ligand approximation and apply the stated total-protein threshold.",
+      "points": 20,
+      "learning_objective_ids": [
+        "biochemistry-1-objective-2",
+        "biochemistry-7-objective-2",
+        "biochemistry-9-objective-1"
+      ],
+      "assessment_method": "human-reviewed draft rubric; no automatic prose grading"
+    },
+    {
+      "id": "biochemistry-protein-state-project-candidate-v1:model-limitations",
+      "type": "human-portfolio-deliverable",
+      "prompt": "Identify assumptions whose failure would require a coupled or more detailed model.",
+      "points": 20,
+      "learning_objective_ids": [
+        "biochemistry-7-objective-2",
+        "biochemistry-9-objective-3"
+      ],
+      "assessment_method": "human-reviewed draft rubric; no automatic prose grading"
+    }
+  ],
+  "review": {
+    "status": "unreviewed",
+    "reviewers": []
+  },
+  "activation_gates": [
+    "independent-recalculation",
+    "human-rubric-mutation-and-calibration-review",
+    "qualified-biochemical-review",
+    "assessment-blueprint-review",
+    "accessibility-and-fairness-review",
+    "measured-workload",
+    "candidate-specific-protected-delivery-verification",
+    "operator-release-and-retake-policy"
+  ],
+  "key_status": "An unreviewed private worked-solution and scoring guide is stored outside the public package. It is not approved and does not automate human scoring.",
+  "provenance": {
+    "kind": "original",
+    "license": "CC-BY-4.0",
+    "ai_assistance": "Codex authored an inactive project draft and private worked-solution draft; no independent or qualified review occurred.",
+    "source_scope": "Existing course lessons and fictional condition data; no external assessment or real protein data was copied."
+  }
+}

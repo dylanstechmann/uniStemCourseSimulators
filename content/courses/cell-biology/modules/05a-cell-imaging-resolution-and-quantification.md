@@ -23,6 +23,8 @@ Diffraction spreads a point source into a finite point-spread function (PSF). Un
 
 `d ≈ 0.61 λ / NA`
 
+**In words:** the ideal conventional lateral-resolution estimate is about 0.61 times the emitted wavelength divided by the objective’s numerical aperture.
+
 Here `λ` is the emitted wavelength in vacuum and `NA = n sin θ` is the objective's numerical aperture, including the immersion-medium refractive index `n`. This is an ideal estimate, not a guarantee for every biological specimen. Aberrations, refractive-index mismatch, background, photon counts, label density, probe size, and motion can make effective resolution worse. Specialized super-resolution methods use different measurement models and controls; the simple estimate should not be applied as their universal limit.
 
 **Worked estimate.** For emission near 520 nm collected with an objective of NA 1.30, the estimate is `0.61 × 520 / 1.30 ≈ 244 nm`. Two nearby objects separated by 180 nm would not reliably appear as two distinct peaks under this idealized conventional-light criterion. A pair separated by 360 nm is more likely to be resolved, but image contrast and signal-to-noise still matter.

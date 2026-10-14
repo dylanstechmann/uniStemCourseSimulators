@@ -7,14 +7,21 @@
   "domain": "Electrical engineering",
   "level": "Year 3",
   "maturity": "partial",
-  "version": "0.4.0",
+  "version": "0.4.8",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
     "source_path": "src/data/courses.js",
     "source_sha256": "a77a7cb7f5be2ffa12068877042ac775c6d9b79b83ac2f316fe4f26a0d3d783b",
     "migration_version": "1.0",
-    "modifications": []
+    "modifications": [
+      "Expanded week 1 with linearity and time invariance, impulse-response interpretation, zero-state transfer functions, pole and DC-gain calculations, units, and initial-condition and model limits. Clarified both objectives and linked them and the unchanged practice assessment to outcomes 1 and 2.",
+      "Expanded week 4 with sinusoidal magnitude and phase response, the first-order low-pass cutoff and decibel level, pre-sampling anti-alias filtering, and a worked alias calculation. Clarified both objectives and linked them and the unchanged practice assessment to outcomes 2 and 4.",
+      "Expanded week 8 with negative-unity-feedback algebra, closed-loop characteristic roots, sensitivity and disturbance paths, nominal stability versus performance, robustness limits, and the preserved gain-margin factor. Clarified both objectives and linked them and the unchanged practice assessment to outcomes 1, 3 and 4.",
+      "Expanded week 12 with proportional, integral and derivative action, conditional integral behavior under actuator saturation, anti-windup concepts, derivative noise, sample-and-hold implementation, quantization, and timing limits. Clarified both objectives and linked them and the unchanged practice assessment to outcomes 3 and 4.",
+      "Added an original discrete-time sequence linking a first-order difference equation to its impulse response, zero-initial-condition Z-transform, pole stability and proportional closed-loop pole; added eight formative items and four cards with synthetic values. The package remains partial, unreviewed and formative-only.",
+      "Added a topic-level scope crosswalk comparing the combined course with MIT OCW 6.003 Fall 2011 and 2.004 Dynamics and Control II Spring 2008. It identifies their integration point and the Fourier, physical-system modeling, formal design and lab scope not developed locally; no lessons, questions or cards were added."
+    ]
   },
   "prerequisites": {
     "course_ids": [
@@ -53,51 +60,74 @@
   "lesson_objectives": [
     {
       "id": "signals-control-1-objective-1",
-      "description": "Use impulse response to characterize an LTI system.",
+      "description": "Interpret the pole and impulse-response description of a simple LTI system.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "signals-control-outcome-1",
+        "signals-control-outcome-2"
+      ]
     },
     {
       "id": "signals-control-1-objective-2",
-      "description": "Connect differential equations to transfer functions.",
+      "description": "Derive a first-order zero-state transfer function from a differential equation and calculate its DC gain.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "signals-control-outcome-1",
+        "signals-control-outcome-2"
+      ]
     },
     {
       "id": "signals-control-2-objective-1",
-      "description": "Evaluate gain and phase at a sinusoidal frequency.",
+      "description": "Calculate the magnitude, phase and cutoff frequency of a first-order low-pass response at a stated sinusoidal frequency.",
       "bloom": "evaluate",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "signals-control-outcome-2"
+      ]
     },
     {
       "id": "signals-control-2-objective-2",
-      "description": "Choose sampling and filtering parameters for a measured signal.",
+      "description": "Explain why anti-alias filtering must precede sampling and calculate a simple alias frequency.",
       "bloom": "evaluate",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "signals-control-outcome-2",
+        "signals-control-outcome-4"
+      ]
     },
     {
       "id": "signals-control-3-objective-1",
-      "description": "Derive a closed-loop transfer function for unity feedback.",
+      "description": "Derive the closed-loop transfer function for a single-input, single-output negative unity-feedback model.",
       "bloom": "create",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "signals-control-outcome-1",
+        "signals-control-outcome-3"
+      ]
     },
     {
       "id": "signals-control-3-objective-2",
-      "description": "Explain stability margins and model uncertainty.",
+      "description": "Explain nominal stability, gain margin and robustness to model uncertainty without treating them as interchangeable guarantees.",
       "bloom": "understand",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "signals-control-outcome-3",
+        "signals-control-outcome-4"
+      ]
     },
     {
       "id": "signals-control-4-objective-1",
-      "description": "Compare proportional, integral, and derivative actions.",
+      "description": "Compare proportional, integral and derivative action, including conditions for integral removal of steady-state offset.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "signals-control-outcome-3",
+        "signals-control-outcome-4"
+      ]
     },
     {
       "id": "signals-control-4-objective-2",
-      "description": "Account for discretization, sensor noise, and actuator saturation.",
+      "description": "Explain how actuator saturation, sensor noise and digital sampling constrain an ideal controller model.",
       "bloom": "understand",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "signals-control-outcome-3",
+        "signals-control-outcome-4"
+      ]
     },
     {
       "id": "signals-control-5-objective-1",
@@ -361,11 +391,63 @@
         "signals-control-outcome-3",
         "signals-control-outcome-4"
       ]
+    },
+    {
+      "id": "signals-control-14-objective-1",
+      "description": "Compute a first-order recurrence, impulse response and finite-time step response for a synthetic sampled system.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "signals-control-outcome-1"
+      ]
+    },
+    {
+      "id": "signals-control-14-objective-2",
+      "description": "Derive a causal transfer function from a difference equation under zero initial conditions and identify its pole.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "signals-control-outcome-1",
+        "signals-control-outcome-2"
+      ]
+    },
+    {
+      "id": "signals-control-14-objective-3",
+      "description": "Classify discrete-time stability from first-order or proportional-feedback pole locations and interpret the natural response.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-2",
+        "signals-control-outcome-3"
+      ]
+    },
+    {
+      "id": "signals-control-15-objective-1",
+      "description": "Build a Routh array for a closed-loop characteristic polynomial, find the proportional-gain range that keeps the loop stable, and count right-half-plane poles from sign changes.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "signals-control-outcome-3"
+      ]
+    },
+    {
+      "id": "signals-control-15-objective-2",
+      "description": "Sketch a root locus from its construction rules and read design gains, breakaway points and imaginary-axis crossings from it.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "signals-control-outcome-2",
+        "signals-control-outcome-3"
+      ]
+    },
+    {
+      "id": "signals-control-15-objective-3",
+      "description": "Connect the stability limit to the gain margin and state what polynomial stability methods cannot handle, including time delay.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-3",
+        "signals-control-outcome-4"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week undergraduate scope only. The four compact prototype units sit in weeks 1, 4, 8 and 12 beside original lessons on poles and zeros, second-order systems, Bode plots, stability margins, PI control, sampling and a sensor filter that makes a loop oscillate; week 11 is a synthetic-data lab on identifying an incubator from step tests and week 14 pairs a retuning lesson with the course case. All activities are open, ungraded practice. There are no graded homework sets, exams or project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week undergraduate scope only. Week 13 now combines an original recurrence-to-Z-transform stability sequence with the existing sampling and discrete-PI lesson; week 11 remains a synthetic-data identification lab and week 14 a filter-retuning case. All activities are open, ungraded practice. There are no graded homework sets, exams or project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
@@ -439,12 +521,14 @@
       },
       {
         "week": 8,
-        "title": "Feedback, stability and robustness",
+        "title": "Feedback, stability and robustness; Routh–Hurwitz and the root locus",
         "lesson_ids": [
-          "signals-control-3"
+          "signals-control-3",
+          "signals-control-15"
         ],
         "assessment_ids": [
-          "signals-control-3-practice"
+          "signals-control-3-practice",
+          "signals-control-15-practice"
         ]
       },
       {
@@ -489,11 +573,13 @@
       },
       {
         "week": 13,
-        "title": "Sampling, aliasing and a discrete-time PI controller",
+        "title": "Discrete-time dynamics, Z-transform, and sampled PI control",
         "lesson_ids": [
+          "signals-control-14",
           "signals-control-12"
         ],
         "assessment_ids": [
+          "signals-control-14-practice",
           "signals-control-12-practice"
         ]
       },
@@ -521,7 +607,9 @@
       "title": "LTI systems, convolution, and transfer functions",
       "source_ids": [
         "signals",
-        "control"
+        "control",
+        "mit-ocw-signals-convolution",
+        "mit-ocw-signals-laplace-transform"
       ],
       "lessons": [
         {
@@ -532,7 +620,7 @@
             "signals-control-1-objective-1",
             "signals-control-1-objective-2"
           ],
-          "worked_example": "For τẏ+y=u, G(s)=1/(τs+1), a first-order low-pass with DC gain 1 and time constant τ.",
+          "worked_example": "For dy/dt + 2y = 6u with zero initial condition, Laplace transformation gives G(s)=6/(s+2). The pole is s=−2 and the stable constant-input gain is G(0)=3, matching 2y=6u at steady state.",
           "question_ids": [
             "signals-control-1:check",
             "signals-control-1:dc-gain"
@@ -549,7 +637,9 @@
       "title": "Frequency response and filtering",
       "source_ids": [
         "signals",
-        "control"
+        "control",
+        "mit-ocw-signals-frequency-response",
+        "mit-ocw-signals-sampling"
       ],
       "lessons": [
         {
@@ -560,7 +650,7 @@
             "signals-control-2-objective-1",
             "signals-control-2-objective-2"
           ],
-          "worked_example": "A first-order low-pass with τ=0.1 s has cutoff fc=1/(2πτ)≈1.59 Hz; signals far above this are attenuated.",
+          "worked_example": "A first-order low-pass with τ=0.05 s has cutoff fc=1/(2πτ)≈3.18 Hz. A 120 Hz tone sampled at 200 Hz folds to an apparent 80 Hz, so an analog anti-alias filter must act before sampling.",
           "question_ids": [
             "signals-control-2:check",
             "signals-control-2:aliased-frequency"
@@ -577,7 +667,9 @@
       "title": "Feedback, stability, and robustness",
       "source_ids": [
         "signals",
-        "control"
+        "control",
+        "mit-ocw-feedback-analysis",
+        "mit-ocw-gain-phase-margins"
       ],
       "lessons": [
         {
@@ -588,7 +680,7 @@
             "signals-control-3-objective-1",
             "signals-control-3-objective-2"
           ],
-          "worked_example": "For proportional control of a unit-gain first-order plant, raising controller gain speeds tracking but also raises sensitivity to noise and unmodeled delay.",
+          "worked_example": "For negative unity feedback, y=G(r−y) gives T=G/(1+G). At a stated phase-crossover frequency where |L|=0.4, the simple nominal gain-margin factor is 1/0.4=2.5, subject to the model and crossover assumptions.",
           "question_ids": [
             "signals-control-3:check",
             "signals-control-3:gain-margin"
@@ -605,7 +697,9 @@
       "title": "Controller design and sampled implementation",
       "source_ids": [
         "signals",
-        "control"
+        "control",
+        "mit-ocw-pid-windup",
+        "mit-ocw-digital-control"
       ],
       "lessons": [
         {
@@ -616,7 +710,7 @@
             "signals-control-4-objective-1",
             "signals-control-4-objective-2"
           ],
-          "worked_example": "For a first-order thermal process, integral action can eliminate a persistent offset from heat loss, but too much integral gain can produce slow oscillation after saturation.",
+          "worked_example": "For u(t)=Kp e(t)+Ki∫e(t)dt+Kd de/dt, a persistent error accumulates in the integral state. If the actuator is saturated, that state can keep growing without changing the applied output, then drive overshoot after the actuator leaves its limit.",
           "question_ids": [
             "signals-control-4:check",
             "signals-control-4:integrator-windup"
@@ -926,6 +1020,47 @@
       ]
     },
     {
+      "id": "signals-control-module-15",
+      "title": "Routh–Hurwitz and the root locus",
+      "source_ids": [
+        "signals",
+        "control",
+        "control-spring-2008"
+      ],
+      "lessons": [
+        {
+          "id": "signals-control-15",
+          "title": "Closed-loop poles as the gain changes: Routh–Hurwitz and the root locus",
+          "reading": "modules/15-routh-hurwitz-and-the-root-locus.md",
+          "objectives": [
+            "signals-control-15-objective-1",
+            "signals-control-15-objective-2",
+            "signals-control-15-objective-3"
+          ],
+          "worked_example": "For G(s) = 1/((s + 1)(s + 2)(s + 3)) with proportional gain K, the Routh first column 1, 6, (60 − K)/6, 6 + K gives stability for 0 < K < 60 and an oscillation at √11 ≈ 3.32 rad/s at the limit; K = 100 gives two right-half-plane poles. The locus has centroid −2, asymptotes at ±60° and 180°, and a breakaway at −1.423 (K = 0.385); ζ = 0.5 dominant poles −0.917 ± j1.588 occur at K ≈ 8.00. At K₀ = 20 the gain margin is 3, matching |G(j√11)| = 1/60.",
+          "question_ids": [
+            "signals-control-15:coefficient-test",
+            "signals-control-15:routh-gain-limit",
+            "signals-control-15:crossing-frequency",
+            "signals-control-15:rhp-pole-count",
+            "signals-control-15:locus-start-end",
+            "signals-control-15:asymptote-centroid",
+            "signals-control-15:breakaway-point",
+            "signals-control-15:breakaway-gain",
+            "signals-control-15:damping-gain",
+            "signals-control-15:gain-margin",
+            "signals-control-15:delay-limit"
+          ],
+          "card_ids": [
+            "signals-control-15-card-1",
+            "signals-control-15-card-2",
+            "signals-control-15-card-3",
+            "signals-control-15-card-4"
+          ]
+        }
+      ]
+    },
+    {
       "id": "signals-control-module-lab-01",
       "title": "Virtual laboratory: step tests",
       "source_ids": [
@@ -1000,6 +1135,43 @@
           ]
         }
       ]
+    },
+    {
+      "id": "signals-control-module-14",
+      "title": "Difference equations, Z-transform, and discrete pole stability",
+      "source_ids": [
+        "signals",
+        "signals-discrete-time-z-transform"
+      ],
+      "lessons": [
+        {
+          "id": "signals-control-14",
+          "title": "Difference equations, the Z-transform, and discrete pole stability",
+          "reading": "modules/14-difference-equations-z-transform-and-pole-stability.md",
+          "objectives": [
+            "signals-control-14-objective-1",
+            "signals-control-14-objective-2",
+            "signals-control-14-objective-3"
+          ],
+          "worked_example": "For y[k]=0.75y[k−1]+0.25x[k] from rest, a unit step gives y[0:3]=0.25, 0.4375, 0.578125, 0.683594; the impulse response is 0.25(0.75)^k, H(z)=0.25/(1−0.75z⁻¹), and pole 0.75 is inside the unit circle.",
+          "question_ids": [
+            "signals-control-14:step-sample-3",
+            "signals-control-14:impulse-sample-4",
+            "signals-control-14:transfer-function",
+            "signals-control-14:negative-pole",
+            "signals-control-14:step-sample-9",
+            "signals-control-14:closed-loop-pole",
+            "signals-control-14:transform-interpretation",
+            "signals-control-14:near-unit-pole"
+          ],
+          "card_ids": [
+            "signals-control-14-card-1",
+            "signals-control-14-card-2",
+            "signals-control-14-card-3",
+            "signals-control-14-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -1010,7 +1182,9 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "signals-control-1-objective-1",
-        "signals-control-1-objective-2"
+        "signals-control-1-objective-2",
+        "signals-control-outcome-1",
+        "signals-control-outcome-2"
       ],
       "question_ids": [
         "signals-control-1:check",
@@ -1025,7 +1199,9 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "signals-control-2-objective-1",
-        "signals-control-2-objective-2"
+        "signals-control-2-objective-2",
+        "signals-control-outcome-2",
+        "signals-control-outcome-4"
       ],
       "question_ids": [
         "signals-control-2:check",
@@ -1040,7 +1216,10 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "signals-control-3-objective-1",
-        "signals-control-3-objective-2"
+        "signals-control-3-objective-2",
+        "signals-control-outcome-1",
+        "signals-control-outcome-3",
+        "signals-control-outcome-4"
       ],
       "question_ids": [
         "signals-control-3:check",
@@ -1055,7 +1234,9 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "signals-control-4-objective-1",
-        "signals-control-4-objective-2"
+        "signals-control-4-objective-2",
+        "signals-control-outcome-3",
+        "signals-control-outcome-4"
       ],
       "question_ids": [
         "signals-control-4:check",
@@ -1337,6 +1518,61 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "signals-control-14-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Difference equations, Z-transform, and discrete pole stability practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "signals-control-14-objective-1",
+        "signals-control-14-objective-2",
+        "signals-control-14-objective-3",
+        "signals-control-outcome-1",
+        "signals-control-outcome-2",
+        "signals-control-outcome-3"
+      ],
+      "question_ids": [
+        "signals-control-14:step-sample-3",
+        "signals-control-14:impulse-sample-4",
+        "signals-control-14:transfer-function",
+        "signals-control-14:negative-pole",
+        "signals-control-14:step-sample-9",
+        "signals-control-14:closed-loop-pole",
+        "signals-control-14:transform-interpretation",
+        "signals-control-14:near-unit-pole"
+      ],
+      "points": 9
+    },
+    {
+      "id": "signals-control-15-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Routh–Hurwitz and root-locus practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "signals-control-15-objective-1",
+        "signals-control-15-objective-2",
+        "signals-control-15-objective-3",
+        "signals-control-outcome-2",
+        "signals-control-outcome-3",
+        "signals-control-outcome-4"
+      ],
+      "question_ids": [
+        "signals-control-15:coefficient-test",
+        "signals-control-15:routh-gain-limit",
+        "signals-control-15:crossing-frequency",
+        "signals-control-15:rhp-pole-count",
+        "signals-control-15:locus-start-end",
+        "signals-control-15:asymptote-centroid",
+        "signals-control-15:breakaway-point",
+        "signals-control-15:breakaway-gain",
+        "signals-control-15:damping-gain",
+        "signals-control-15:gain-margin",
+        "signals-control-15:delay-limit"
+      ],
+      "points": 11
     }
   ],
   "grading_policy": {
@@ -1391,19 +1627,62 @@
       "version": "0.4.0",
       "date": "2026-10-08",
       "summary": "Added a proposed 14-week schedule; seven original lessons (Laplace transforms, poles, zeros and the final value; second-order systems and damping; Bode plots, decibels and delay; stability margins; PI control, tuning and integrator windup; sampling, aliasing and a discrete PI controller; and a sensor filter that makes a loop oscillate, which prepares the course case on phase lag and a safe retuning sequence); and a synthetic-data lab on identifying an incubator from step tests. No new references were added. All activities remain ungraded practice; the package remains partial and unreviewed, gives no controller settings, safety procedure or test protocol for any real device, and makes no claim about any incubator, instrument or process."
+    },
+    {
+      "version": "0.4.1",
+      "date": "2026-10-10",
+      "summary": "Expanded week 1 with LTI properties, impulse-response interpretation, zero-state transfer functions, first-order pole and DC-gain calculations, units, and model boundaries. Clarified both objectives and mapped them and the unchanged practice assessment to outcomes 1 and 2. Added two MIT OpenCourseWare lecture pages as link-only references. Existing question IDs, prompts, answer keys and cards remain unchanged; compact readings remain in weeks 4, 8 and 12. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.2",
+      "date": "2026-10-10",
+      "summary": "Expanded week 4 with sinusoidal magnitude and phase, the first-order low-pass cutoff and decibel level, anti-alias filtering before sampling, and an alias calculation. Clarified both objectives and mapped them and the unchanged practice assessment to outcomes 2 and 4. Added two MIT OpenCourseWare lecture pages as link-only references. Existing question IDs, prompts and answer keys are unchanged; compact readings remain in weeks 8 and 12. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.3",
+      "date": "2026-10-10",
+      "summary": "Expanded week 8 with negative-unity-feedback algebra, closed-loop roots, sensitivity and disturbance paths, nominal stability versus performance, model uncertainty, and the preserved simple gain-margin calculation. Clarified both objectives and mapped them and the unchanged practice assessment to outcomes 1, 3 and 4. Added two MIT OpenCourseWare lecture pages as link-only references. Existing question IDs, prompts and answers are unchanged; one compact reading remains in week 12. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.4",
+      "date": "2026-10-10",
+      "summary": "Expanded week 12 with P/I/D action, integral windup under saturation, anti-windup, derivative noise, sampled implementation, quantization and timing constraints. Clarified both objectives and mapped them and the unchanged practice assessment to outcomes 3 and 4. Added MIT OpenCourseWare PID/windup and digital-control pages as link-only references. Existing question IDs, prompts, options and keys are unchanged; all four preserved prototype readings now have expanded instruction. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.5",
+      "date": "2026-10-10",
+      "summary": "Added an inactive digital-loop project draft combining aliasing, anti-alias attenuation, zero-order-hold phase cost, a sample-period constraint, a saturated discrete PI update and the exact sampled plant recurrence. The project is paper-only and ungraded; the package remains partial and formative-only."
+    },
+    {
+      "version": "0.4.6",
+      "date": "2026-10-11",
+      "summary": "Added an original week-13 sequence from a first-order difference equation through impulse response, the zero-initial-condition Z-transform, pole location and simple proportional-feedback stability. Eight formative items and four cards use synthetic values. The comparison follows MIT OCW 6.003 Fall 2011 discrete-time, feedback/poles and Z-transform sequence; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.7",
+      "date": "2026-10-11",
+      "summary": "Added a topic-level crosswalk for the combined signals/systems and feedback-control scope against MIT OCW 6.003 Fall 2011 and 2.004 Dynamics and Control II Spring 2008. It clarifies the local integration point and limits in Fourier analysis, physical-system modeling, formal controller design and laboratory work. No lessons, assessments or stable IDs changed; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.8",
+      "date": "2026-10-13",
+      "summary": "Added an original Routh–Hurwitz and root-locus reading grouped with the week-8 feedback lesson, following MIT OCW 2.004 Spring 2008 lectures 25–29: the coefficient test as necessary only, Routh arrays and sign changes, proportional-gain limits and the auxiliary polynomial, root-locus construction rules, reading a damping-ratio gain, and the equivalence of the Routh limit with the gain margin, with delay stated as a limit. Three objectives, eleven formative items and four cards; the crosswalk and syllabus record the new coverage. No week was added. The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "Four compact legacy units are preserved beside ten original readings, including one synthetic-data virtual lab; this package is not equivalent to a full university semester.",
-    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm, cumulative final, or graded integrative project.",
+    "All four preserved prototype readings now have expanded instruction beside original lessons and one synthetic-data virtual lab; this package is not equivalent to a full university semester.",
+    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm or cumulative final. An inactive integrative project draft is not scheduled or graded.",
     "Practice items are short formative checks (two per prototype unit and six to nine per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
     "Of the 74 numerical answers in this package, 18 require a unit, one checks significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
     "Total workload and weekly duration are unknown; former nominal credit values and hardcoded reading times do not establish workload.",
-    "All plants, signals, controllers and numbers are synthetic teaching examples; this package gives no controller settings, safety procedures or test protocols for any real device and says nothing about any real incubator, instrument or process. The models are simplified textbook descriptions, not design methods for real equipment."
+    "All plants, signals, controllers and numbers are synthetic teaching examples; this package gives no controller settings, safety procedures or test protocols for any real device and says nothing about any real incubator, instrument or process. The models are simplified textbook descriptions, not design methods for real equipment.",
+    "The new discrete-time unit is a first-order foundation with one proportional-feedback example; it does not add the Fourier, discrete-frequency-response, broad transform-property, controller-synthesis or nonlinear-system depth of MIT 6.003.",
+    "The local single-input/single-output sequence combines selected 6.003 signals-and-systems and 2.004 physical modeling/control topics. It does not cover the complete Fourier sequence, electrical/mechanical component modeling, root-locus design, hands-on implementation or lab depth of those comparators."
   ],
   "intentionally_omitted": [
-    "Graded assessments and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package."
+    "Graded assessments, an activated integrative project and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package.",
+    "A full discrete-time signals-and-systems sequence, including Fourier representations, discrete-time frequency response and broad Z-transform techniques, remains outside this bounded addition."
   ]
 }

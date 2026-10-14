@@ -465,6 +465,86 @@
         "circuits-lab-01-objective-3"
       ],
       "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-14-card-1",
+      "lesson_id": "circuits-14",
+      "front": "Series RLC natural frequency and damping",
+      "back": "ω₀=1/√(LC), α=R/(2L), ζ=α/ω₀. ζ<1 is underdamped; ζ=1 is critically damped; ζ>1 is overdamped.",
+      "objective_ids": [
+        "circuits-14-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-14-card-2",
+      "lesson_id": "circuits-14",
+      "front": "RLC energy and transient decay",
+      "back": "E_C=½CV² and E_L=½LI² exchange in the reactive elements; a positive R dissipates energy and damps the unforced transient.",
+      "objective_ids": [
+        "circuits-14-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-14-card-3",
+      "lesson_id": "circuits-14",
+      "front": "Series resonance and Q",
+      "back": "At ω₀, XL=XC and Z=R; for a series RLC, Q=ω₀L/R=1/(2ζ). Positive resistance keeps resonant current finite.",
+      "objective_ids": [
+        "circuits-14-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-14-card-4",
+      "lesson_id": "circuits-14",
+      "front": "RLC phase sign",
+      "back": "Below resonance XL−XC<0 and current leads; above resonance XL−XC>0 and current lags. Check phase using the chosen source and current references.",
+      "objective_ids": [
+        "circuits-14-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-15-card-1",
+      "lesson_id": "circuits-15",
+      "front": "Summing amplifier",
+      "back": "V_out = −R_f Σ V_k/R_k; the virtual ground isolates the inputs, so each contributes independently (superposition).",
+      "objective_ids": [
+        "circuits-15-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-15-card-2",
+      "lesson_id": "circuits-15",
+      "front": "Op-amp integrator",
+      "back": "V_out = −(1/RC)∫V_in dt; with no DC path an offset ramps it to saturation, so a parallel R_f bounds the DC gain to −R_f/R above a corner 1/(2πR_fC).",
+      "objective_ids": [
+        "circuits-15-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-15-card-3",
+      "lesson_id": "circuits-15",
+      "front": "Op-amp differentiator",
+      "back": "V_out = −RC dV_in/dt; gain 2πfRC rises with frequency and amplifies noise, so a series input resistor caps it.",
+      "objective_ids": [
+        "circuits-15-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-15-card-4",
+      "lesson_id": "circuits-15",
+      "front": "Active filters and GBW",
+      "back": "Inverting low-pass: DC gain −R_f/R_in, corner 1/(2πR_fC_f). Unity-gain Sallen–Key (equal R): f₀ = 1/(2πR√(C₁C₂)), Q = ½√(C₁/C₂). Bandwidth ≈ GBW/noise gain.",
+      "objective_ids": [
+        "circuits-15-objective-3"
+      ],
+      "license": "CC-BY-4.0"
     }
   ]
 }

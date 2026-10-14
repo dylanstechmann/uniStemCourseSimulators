@@ -1,0 +1,5 @@
+# Differential Equations for Living & Engineered Systems 0.3.6 — outcome alignment and direct checks
+
+The first four lesson pairs now link to the course outcomes they directly support: solution methods to outcome 1, equilibria and transient behavior to outcome 2, and Euler stability and accuracy to outcome 4. The damping-ratio objective now includes natural frequency and damping ratio, matching its existing natural-frequency check. The preserved eigenvalue item is associated with the local-stability objective. New public practice items directly test critical damping and the first-order linearization of f(x)=x(1−x) around x*=1. Existing numeric prompts and answer keys remain unchanged.
+
+The course remains partial, unreviewed and formative-only. Checks: the focused regression suite passed 5 tests; Ruff passed; full content validation passed (25 courses, 384 lessons, 2,245 questions, 1,276 cards, 25 cases, zero errors and zero depth warnings); assessment-candidate and course-gap report drift checks passed. These same-AI checks are not independent math, engineering, or accessibility review.

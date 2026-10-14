@@ -15,7 +15,7 @@
       ],
       "points": 1,
       "objective_ids": [
-        "general-chemistry-1-1-objective-1"
+        "general-chemistry-1-1-objective-2"
       ],
       "solution_spec": {
         "answer": 2
@@ -24,7 +24,7 @@
         "hint": "Count bonding domains and lone pairs around the central atom.",
         "solution": "BF₃ has three bonding domains and no lone pairs on boron, giving a trigonal planar geometry. CH₄ is tetrahedral; NH₃ is trigonal pyramidal; H₂O is bent.",
         "lesson_ids": [
-          "general-chemistry-1-1"
+          "general-chemistry-1-8"
         ],
         "misconception_ids": []
       },
@@ -41,7 +41,7 @@
       "prompt": "What volume of 1.5 M stock is needed to prepare 300 mL of 0.10 M solution? Enter mL.",
       "points": 1,
       "objective_ids": [
-        "general-chemistry-1-2-objective-1"
+        "general-chemistry-1-2-objective-2"
       ],
       "solution_spec": {
         "answer": 20,
@@ -63,7 +63,9 @@
       "provenance": {
         "kind": "legacy-prototype",
         "legacy_id": "general-chemistry-1-2:check",
-        "modifications": []
+        "modifications": [
+          "Corrected the objective mapping to the dilution objective; the prompt, identifier and keyed answer are unchanged."
+        ]
       }
     },
     {
@@ -72,7 +74,8 @@
       "prompt": "For a reaction, ΣνΔH°f(products) = −620 kJ/mol and ΣνΔH°f(reactants) = −410 kJ/mol. Find ΔH°rxn in kJ/mol.",
       "points": 1,
       "objective_ids": [
-        "general-chemistry-1-3-objective-1"
+        "general-chemistry-1-3-objective-1",
+        "general-chemistry-1-3-objective-2"
       ],
       "solution_spec": {
         "answer": -210,
@@ -94,7 +97,9 @@
       "provenance": {
         "kind": "legacy-prototype",
         "legacy_id": "general-chemistry-1-3:check",
-        "modifications": []
+        "modifications": [
+          "Linked the unchanged reaction-enthalpy result to both enthalpy calculation and sign interpretation objectives."
+        ]
       }
     },
     {
@@ -109,7 +114,8 @@
       ],
       "points": 1,
       "objective_ids": [
-        "general-chemistry-1-4-objective-1"
+        "general-chemistry-1-4-objective-1",
+        "general-chemistry-1-4-objective-2"
       ],
       "solution_spec": {
         "answer": 1
@@ -126,7 +132,9 @@
       "provenance": {
         "kind": "legacy-prototype",
         "legacy_id": "general-chemistry-1-4:check",
-        "modifications": []
+        "modifications": [
+          "Linked the unchanged Q/K comparison item to both interpretation and direction objectives."
+        ]
       }
     },
     {
@@ -150,7 +158,7 @@
         "hint": "Count electron domains first, then name the shape of the atoms.",
         "solution": "Oxygen has four electron domains, so the electron geometry is tetrahedral, but only two are bonds, so the molecular geometry is bent. Lone pairs repel more than bonding pairs, giving an angle below 109.5°. VSEPR is a qualitative model and does not predict exact angles or energetics.",
         "lesson_ids": [
-          "general-chemistry-1-1"
+          "general-chemistry-1-8"
         ],
         "misconception_ids": []
       },
@@ -166,6 +174,7 @@
       "prompt": "For 2 H₂ + O₂ → 2 H₂O, 4.0 g of H₂ (2.016 g/mol) reacts with 32.0 g of O₂ (32.00 g/mol). What mass of water (18.02 g/mol) can form? Enter a value and unit.",
       "points": 1,
       "objective_ids": [
+        "general-chemistry-1-2-objective-1",
         "general-chemistry-1-2-objective-2"
       ],
       "solution_spec": {
@@ -187,7 +196,9 @@
       "visibility": "public-practice-authoring",
       "provenance": {
         "kind": "original",
-        "modifications": []
+        "modifications": [
+          "Linked the unchanged limiting-reagent item to both stoichiometric equation use and limiting-reagent objectives."
+        ]
       }
     },
     {
@@ -3214,6 +3225,683 @@
         "solution": "The lower base inventory is known from the synthetic construction. A real discrepancy could also involve acid load, temperature, activities or measurement response.",
         "lesson_ids": [
           "general-chemistry-1-lab-01"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-1-1:periodic-trend",
+      "type": "single_choice",
+      "prompt": "Using the ground-state configurations Na: [Ne]3s¹ and Cl: [Ne]3s²3p⁵, which statement best describes the overall atomic-radius trend from Na to Cl across Period 3?",
+      "options": [
+        "Atomic radius decreases overall because effective nuclear charge increases while added electrons occupy the same principal shell.",
+        "Atomic radius increases because each added electron enters a new principal shell.",
+        "Atomic radius stays constant because proton and electron counts increase together.",
+        "Atomic radius decreases because the number of occupied principal shells falls from three to two."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-1-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Compare the occupied shell in both configurations and track the increasing nuclear charge across the period.",
+        "solution": "Both configurations occupy the n=3 valence shell, while nuclear charge increases across Period 3. The effective attraction on the valence electrons generally increases, so atomic radius decreases overall.",
+        "lesson_ids": [
+          "general-chemistry-1-1"
+        ],
+        "misconception_ids": [
+          "periodic-trend-shell-confusion"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct formative practice connecting electron configurations, effective nuclear charge, and an across-period atomic-radius trend."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-1-1:oxygen-valence",
+      "type": "numeric",
+      "prompt": "Neutral oxygen has ground-state configuration 1s² 2s² 2p⁴. How many valence electrons does it have? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-1-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 6,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Count only electrons in the highest occupied principal shell.",
+        "solution": "The outer n=2 shell contains 2+4=6 electrons.",
+        "lesson_ids": [
+          "general-chemistry-1-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-1-1:effective-charge",
+      "type": "single_choice",
+      "prompt": "Across a period, why does atomic radius generally decrease in the introductory model?",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-1-objective-1"
+      ],
+      "options": [
+        "Proton number increases while added electrons enter the same main shell, so effective nuclear charge generally rises.",
+        "The number of protons stays fixed while every added electron enters a new outer shell.",
+        "Electron shielding always increases more than nuclear charge across a row."
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Compare proton number, shell occupancy and shielding across one row.",
+        "solution": "Across a row, nuclear charge increases while same-shell shielding rises less, so outer electrons are generally pulled closer.",
+        "lesson_ids": [
+          "general-chemistry-1-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-1-8:mo-n2-electron-count",
+      "type": "numeric",
+      "prompt": "In the stated valence-only MO model, how many valence electrons are in N₂? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-8-objective-4"
+      ],
+      "solution_spec": {
+        "answer": 10,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Each nitrogen atom contributes five valence electrons.",
+        "solution": "Two nitrogen atoms contribute 2×5=10 valence electrons.",
+        "lesson_ids": [
+          "general-chemistry-1-8"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-1-8:mo-n2-bond-order",
+      "type": "numeric",
+      "prompt": "The stated N₂ filling has 8 bonding and 2 antibonding valence electrons. What is its MO bond order?",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-8-objective-4"
+      ],
+      "solution_spec": {
+        "answer": 3,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use one half of the bonding-minus-antibonding count.",
+        "solution": "(8−2)/2=3.",
+        "lesson_ids": [
+          "general-chemistry-1-8"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-1-8:mo-n2-magnetism",
+      "type": "single_choice",
+      "prompt": "Under the stated N₂ filling, what magnetic classification follows?",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-8-objective-4"
+      ],
+      "options": [
+        "Diamagnetic: every occupied molecular orbital contains paired electrons.",
+        "Paramagnetic: one electron occupies an antibonding orbital.",
+        "Paramagnetic: the molecule has three unpaired electrons because its bond order is three."
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Magnetism depends on unpaired occupancy, not bond-order magnitude.",
+        "solution": "The N₂ occupancy listed in the lesson has all electrons paired, so it is diamagnetic.",
+        "lesson_ids": [
+          "general-chemistry-1-8"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-1-8:mo-o2-bond-order",
+      "type": "numeric",
+      "prompt": "The stated O₂ filling has 8 bonding and 4 antibonding valence electrons. What is its MO bond order?",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-8-objective-4"
+      ],
+      "solution_spec": {
+        "answer": 2,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Apply the same bonding-minus-antibonding count.",
+        "solution": "(8−4)/2=2.",
+        "lesson_ids": [
+          "general-chemistry-1-8"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-1-8:mo-o2-unpaired",
+      "type": "numeric",
+      "prompt": "In the stated O₂ filling, how many unpaired electrons occupy the two degenerate π* orbitals?",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-8-objective-4"
+      ],
+      "solution_spec": {
+        "answer": 2,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Apply Hund’s rule before pairing equal-energy orbitals.",
+        "solution": "One electron enters each of the two equal-energy π* orbitals, giving two unpaired electrons.",
+        "lesson_ids": [
+          "general-chemistry-1-8"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-1-8:mo-energy-order",
+      "type": "single_choice",
+      "prompt": "Which relative 2p orbital ordering is used in the stated N₂ and O₂ examples?",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-8-objective-4"
+      ],
+      "options": [
+        "For N₂, π(2p) lies below σ(2p); for O₂, σ(2p) lies below π(2p).",
+        "For both N₂ and O₂, σ(2p) lies below π(2p).",
+        "For both N₂ and O₂, π(2p) lies below σ(2p).",
+        "For N₂, σ(2p) lies below π(2p); for O₂, π(2p) lies below σ(2p)."
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "The qualitative ordering changes across the second-row sequence around oxygen.",
+        "solution": "The stipulated N₂ model includes s–p mixing with π(2p) below σ(2p); the O₂ model uses σ(2p) below π(2p).",
+        "lesson_ids": [
+          "general-chemistry-1-8"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-1-8:mo-model-claims",
+      "type": "multiple_select",
+      "prompt": "Which conclusions follow from the stated qualitative MO model? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "general-chemistry-1-8-objective-4"
+      ],
+      "options": [
+        "Bond order equals half the bonding-electron count minus the antibonding-electron count.",
+        "Bond order alone gives an exact dissociation energy for any molecule.",
+        "The stated N₂ configuration has bond order 3 and no unpaired electrons.",
+        "The stated O₂ configuration is diamagnetic because all electrons are paired.",
+        "The stated O₂ configuration has two unpaired π* electrons and is paramagnetic.",
+        "MO theory treats every electron as localized in one Lewis bond."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          2,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "feedback": {
+        "hint": "Separate electron counting and magnetic occupancy from quantitative energy prediction.",
+        "solution": "The formula gives bond order 3 for the stated N₂ occupancy; O₂ has two singly occupied π* orbitals. This qualitative model does not supply exact dissociation energies.",
+        "lesson_ids": [
+          "general-chemistry-1-8"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-1-8:mo-o2-plus-bond-order",
+      "type": "single_choice",
+      "prompt": "In the stated O₂ model, one electron is removed from an antibonding π* orbital to form O₂⁺. What bond order follows?",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-8-objective-4"
+      ],
+      "options": [
+        "2.5, because the antibonding count falls by one while the bonding count stays fixed.",
+        "1.5, because removing any electron lowers bond order by one half.",
+        "2.0, because removing an electron cannot affect bond order."
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Track whether the removed electron was bonding or antibonding.",
+        "solution": "The antibonding count changes from 4 to 3, so (8−3)/2=2.5.",
+        "lesson_ids": [
+          "general-chemistry-1-8"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-1-14:sp2-angle",
+      "type": "numeric",
+      "prompt": "What is the angle, in degrees, between two equivalent sp² hybrid orbitals on the same atom? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 120,
+        "unit": "",
+        "tolerance": 0.1,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "For spⁿ hybrids, cos θ = −1/λ² with λ² = n.",
+        "solution": "λ² = 2 gives cos θ = −1/2, so θ = 120°, the trigonal-planar angle.",
+        "lesson_ids": [
+          "general-chemistry-1-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-1-14:sp3-s-character",
+      "type": "numeric",
+      "prompt": "What percentage s-character does each of four equivalent sp³ hybrids have? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 25,
+        "unit": "",
+        "tolerance": 0.1,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "One s orbital is shared equally among the hybrids it forms.",
+        "solution": "s-character = 1/(1 + λ²) = 1/4 = 25%.",
+        "lesson_ids": [
+          "general-chemistry-1-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-1-14:bent-lambda-squared",
+      "type": "numeric",
+      "prompt": "A synthetic bent molecule AX₂ has two bonds and two lone pairs on A and an X–A–X angle of 100°. Treat the two bonding hybrids as equivalent s + λp hybrids, so cos θ = −1/λ². What is λ² for the bonding hybrids? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 5.759,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Rearrange: λ² = −1/cos θ.",
+        "solution": "cos 100° = −0.1736, so λ² = 5.76: much more p than an sp³ hybrid (λ² = 3).",
+        "lesson_ids": [
+          "general-chemistry-1-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-1-14:bent-bond-s-character",
+      "type": "numeric",
+      "prompt": "A synthetic bent molecule AX₂ has two bonds and two lone pairs on A and an X–A–X angle of 100°. Treat the two bonding hybrids as equivalent s + λp hybrids, so cos θ = −1/λ². What percentage s-character does each bonding hybrid have? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 14.8,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "s-character = 1/(1 + λ²).",
+        "solution": "1/(1 + 5.759) = 0.148, or 14.8%.",
+        "lesson_ids": [
+          "general-chemistry-1-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-1-14:bent-lone-pair-s-character",
+      "type": "numeric",
+      "prompt": "A synthetic bent molecule AX₂ has two bonds and two lone pairs on A and an X–A–X angle of 100°. Treat the two bonding hybrids as equivalent s + λp hybrids, so cos θ = −1/λ². A has one s orbital in total, shared among four hybrids. If the two lone-pair hybrids are equivalent, what percentage s-character does each have? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 35.2,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Subtract the s-character used by the two bonding hybrids from 1, then share the rest between the two lone pairs.",
+        "solution": "(1 − 2 × 0.148)/2 = 0.352, or 35.2%: the lone pairs take more s-character than the bonds.",
+        "lesson_ids": [
+          "general-chemistry-1-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-1-14:acrylonitrile-sigma",
+      "type": "numeric",
+      "prompt": "How many σ bonds does the synthetic molecule CH₂=CH–C≡N contain? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 6,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Every bond contains exactly one σ component; count the bonds.",
+        "solution": "Three C–H, one C=C, one C–C and one C≡N bond: six σ bonds. Its π bonds number three.",
+        "lesson_ids": [
+          "general-chemistry-1-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-1-14:propynal-pi",
+      "type": "numeric",
+      "prompt": "How many π bonds does the synthetic molecule HC≡C–CH=O contain? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 3,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "A double bond has one π bond and a triple bond has two.",
+        "solution": "Two π bonds in C≡C and one in C=O give three π bonds; the σ count is five.",
+        "lesson_ids": [
+          "general-chemistry-1-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-1-14:pi-bond-estimate",
+      "type": "numeric",
+      "prompt": "Using illustrative average bond enthalpies of 348 kJ/mol for C–C and 614 kJ/mol for C=C, estimate the contribution of the π bond in kJ/mol. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 266,
+        "unit": "",
+        "tolerance": 0.5,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "A double bond is one σ plus one π bond.",
+        "solution": "614 − 348 = 266 kJ/mol. This is an estimate from averages, not a measured π-bond energy.",
+        "lesson_ids": [
+          "general-chemistry-1-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-1-14:steric-three",
+      "type": "single_choice",
+      "prompt": "A central atom has three bonded atoms and no lone pairs. Which hybridization describes it in the valence bond model?",
+      "options": [
+        "sp², with one unhybridized p orbital available for a π bond",
+        "sp³, because every atom uses four hybrids",
+        "sp, because only one double bond can form",
+        "sp³d, because three bonds need d orbitals"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Count domains: bonded atoms plus lone pairs.",
+        "solution": "A steric number of 3 gives three sp² hybrids at 120°, leaving one p orbital perpendicular to the plane, which can form a π bond.",
+        "lesson_ids": [
+          "general-chemistry-1-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-1-14:restricted-rotation",
+      "type": "single_choice",
+      "prompt": "Why can the two ends of a C=C double bond not rotate freely relative to each other at room temperature?",
+      "options": [
+        "Twisting would break the side-by-side p-orbital overlap of the π bond",
+        "The σ bond is too short to rotate",
+        "The carbons are sp³ and locked in a tetrahedron",
+        "Double bonds have no σ component"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Which overlap depends on the relative orientation of the two ends?",
+        "solution": "σ overlap is cylindrically symmetric and survives rotation; π overlap needs parallel p orbitals and is lost at 90°, so cis and trans isomers are distinct.",
+        "lesson_ids": [
+          "general-chemistry-1-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-1-14:model-limits",
+      "type": "single_choice",
+      "prompt": "Which observation can the localized hybrid-orbital model NOT explain without help from another model?",
+      "options": [
+        "The paramagnetism of O₂",
+        "The 109.5° angles in a tetrahedral molecule",
+        "Free rotation about single bonds",
+        "The linear shape of a molecule with two σ domains on its central atom"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Which property depends on unpaired electrons in delocalized orbitals?",
+        "solution": "Valence bond pairing puts all of O₂'s electrons in pairs; molecular orbital theory places two unpaired electrons in degenerate π* orbitals and explains the paramagnetism.",
+        "lesson_ids": [
+          "general-chemistry-1-14"
         ],
         "misconception_ids": []
       },

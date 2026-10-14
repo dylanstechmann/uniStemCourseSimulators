@@ -22,12 +22,17 @@ import { MaturityBadge } from "./MaturityBadge";
 import { GradedAssessment } from "./GradedAssessment";
 import { PracticeAssessmentView } from "./PracticeAssessmentView";
 import { ReviewQueueView } from "./ReviewQueueView";
+import { CourseSchedule } from "./CourseSchedule";
+import { CaseStudio } from "./CaseStudio";
 
 export function CourseWorkspace({
   id,
+  archivedVersion,
   lessonId,
+  assessmentId,
   showGradebook,
   showReview = false,
+  showCases = false,
   enrollmentVersion,
   catalog,
   enrolled,
@@ -39,9 +44,12 @@ export function CourseWorkspace({
   onBookmark,
 }: {
   id: string;
+  archivedVersion?: string;
   lessonId?: string;
+  assessmentId?: string;
   showGradebook: boolean;
   showReview?: boolean;
+  showCases?: boolean;
   enrollmentVersion?: string;
   catalog: CourseSummary[];
   enrolled: boolean;
@@ -53,6 +61,7 @@ export function CourseWorkspace({
   onBookmark: (saved: boolean) => Promise<void>;
 }) {
   const [course, setCourse] = useState<Course | null>(null);
+  const [archivedVersions, setArchivedVersions] = useState<string[]>([]);
   const [lesson, setLesson] = useState<Lesson | null>(null);
   const [progress, setProgress] = useState<Progress[]>([]);
   const [notes, setNotes] = useState<Note[]>([]);
@@ -80,8 +89,7 @@ export function CourseWorkspace({
     setError("");
     setActiveGradedAssessmentId(null);
     setActivePracticeAssessmentId(null);
-    api
-      .course(id)
+    (archivedVersion ? api.archivedCourse(id, archivedVersion) : api.course(id))
       .then((data) => {
         if (active) setCourse(data);
       })
@@ -91,13 +99,33 @@ export function CourseWorkspace({
     return () => {
       active = false;
     };
-  }, [id]);
+  }, [id, archivedVersion]);
+  useEffect(() => {
+    let active = true;
+    if (!enrolled || archivedVersion) {
+      setArchivedVersions([]);
+      return;
+    }
+    api
+      .archivedCourseVersions(id)
+      .then((versions) => {
+        if (active) setArchivedVersions(versions);
+      })
+      .catch(() => {
+        if (active) setArchivedVersions([]);
+      });
+    return () => {
+      active = false;
+    };
+  }, [id, enrolled, archivedVersion]);
   useEffect(() => {
     let active = true;
     setLesson(null);
     if (lessonId)
-      api
-        .lesson(id, lessonId)
+      (archivedVersion
+        ? api.archivedLesson(id, archivedVersion, lessonId)
+        : api.lesson(id, lessonId)
+      )
         .then((data) => {
           if (active) setLesson(data);
         })
@@ -107,10 +135,11 @@ export function CourseWorkspace({
     return () => {
       active = false;
     };
-  }, [id, lessonId]);
+  }, [id, archivedVersion, lessonId]);
   useEffect(() => {
     let active = true;
     if (
+      archivedVersion ||
       !enrolled ||
       !course ||
       (enrollmentVersion && enrollmentVersion !== course.version)
@@ -166,7 +195,24 @@ export function CourseWorkspace({
     return () => {
       active = false;
     };
-  }, [id, enrolled, course, enrollmentVersion]);
+  }, [id, archivedVersion, enrolled, course, enrollmentVersion]);
+  useEffect(() => {
+    if (!showGradebook || !assessmentId) {
+      setActiveGradedAssessmentId(null);
+      setActivePracticeAssessmentId(null);
+      return;
+    }
+    if (!assessmentPlan) return;
+    const selected = assessmentPlan.assessments.find(
+      (assessment) => assessment.id === assessmentId,
+    );
+    setActiveGradedAssessmentId(
+      selected?.mode === "graded" ? selected.id : null,
+    );
+    setActivePracticeAssessmentId(
+      selected?.mode === "practice" ? selected.id : null,
+    );
+  }, [assessmentId, assessmentPlan, showGradebook]);
   async function enroll() {
     setBusy(true);
     setError("");
@@ -290,7 +336,9 @@ export function CourseWorkspace({
       mark,
     ]);
   }
-  const courseLink = `#/course/${encodeURIComponent(id)}`;
+  const courseLink = archivedVersion
+    ? `#/course/${encodeURIComponent(id)}/version/${encodeURIComponent(archivedVersion)}`
+    : `#/course/${encodeURIComponent(id)}`;
   function prerequisites(ids: string[]) {
     return ids.length ? (
       <ul>
@@ -321,7 +369,10 @@ export function CourseWorkspace({
       </>
     );
   const needsVersionReview = Boolean(
-    enrolled && enrollmentVersion && enrollmentVersion !== course.version,
+    !archivedVersion &&
+    enrolled &&
+    enrollmentVersion &&
+    enrollmentVersion !== course.version,
   );
   return (
     <>
@@ -337,27 +388,70 @@ export function CourseWorkspace({
             <span>{course.lesson_count} available lessons</span>
           </div>
         </div>
-        <div className="actions">
-          {!enrolled && (
+        {!archivedVersion && (
+          <div className="actions">
+            {!enrolled && (
+              <button
+                className="primary"
+                onClick={enroll}
+                disabled={!hasSession || busy}
+              >
+                Enroll in partial course
+              </button>
+            )}
+            {enrolled && <span className="tag">Enrolled</span>}
             <button
-              className="primary"
-              onClick={enroll}
+              onClick={bookmark}
               disabled={!hasSession || busy}
+              aria-pressed={bookmarked}
             >
-              Enroll in partial course
+              {bookmarked ? "Remove bookmark" : "Bookmark course"}
             </button>
-          )}
-          {enrolled && <span className="tag">Enrolled</span>}
-          <button
-            onClick={bookmark}
-            disabled={!hasSession || busy}
-            aria-pressed={bookmarked}
-          >
-            {bookmarked ? "Remove bookmark" : "Bookmark course"}
-          </button>
-        </div>
+          </div>
+        )}
       </div>
       <p className="lead">{course.description}</p>
+      {!archivedVersion &&
+        archivedVersions.some((version) => version !== course.version) && (
+          <section className="card" aria-labelledby="archived-versions-title">
+            <h2 id="archived-versions-title">Earlier archived versions</h2>
+            <p className="muted">
+              These saved public packages open in read-only mode.
+            </p>
+            <ul>
+              {archivedVersions
+                .filter((version) => version !== course.version)
+                .map((version) => (
+                  <li key={version}>
+                    <a
+                      href={`#/course/${encodeURIComponent(id)}/version/${encodeURIComponent(version)}`}
+                    >
+                      Read version {version}
+                    </a>
+                  </li>
+                ))}
+            </ul>
+          </section>
+        )}
+      {archivedVersion && (
+        <aside className="notice" aria-label="Archived course version">
+          <strong>Archived package · read-only</strong>
+          <p>
+            You are viewing the saved public content for version{" "}
+            {archivedVersion}. Practice, notes, progress marks, and card ratings
+            are disabled here.
+          </p>
+          <a href={`#/course/${encodeURIComponent(id)}`}>
+            Open the current course version (
+            {catalog.find((item) => item.id === id)?.version || "current"})
+          </a>
+          {!!course.case_studies?.length && (
+            <p>
+              <a href={`${courseLink}/cases`}>Read archived case studio</a>
+            </p>
+          )}
+        </aside>
+      )}
       {needsVersionReview && (
         <aside className="notice" aria-label="Course content update">
           <strong>Course content updated</strong>
@@ -365,6 +459,13 @@ export function CourseWorkspace({
             Your saved attempts and reading marks remain attached to version{" "}
             {enrollmentVersion}. Review the current partial package and update
             your enrollment to continue saving work.
+          </p>
+          <p>
+            <a
+              href={`#/course/${encodeURIComponent(id)}/version/${encodeURIComponent(enrollmentVersion || "")}`}
+            >
+              Read your enrolled version ({enrollmentVersion})
+            </a>
           </p>
           <button
             className="primary"
@@ -384,11 +485,19 @@ export function CourseWorkspace({
       {course.limitations.length > 0 && (
         <aside className="notice" aria-label="Course limitations">
           <strong>Current limitations</strong>
-          <ul>
-            {course.limitations.map((limitation, index) => (
-              <li key={index}>{limitation}</li>
-            ))}
-          </ul>
+          <p>{course.limitations[0]}</p>
+          {course.limitations.length > 1 && (
+            <details>
+              <summary>
+                Read all {course.limitations.length} course limitations
+              </summary>
+              <ul>
+                {course.limitations.map((limitation, index) => (
+                  <li key={index}>{limitation}</li>
+                ))}
+              </ul>
+            </details>
+          )}
         </aside>
       )}
       {error && (
@@ -396,63 +505,157 @@ export function CourseWorkspace({
           {error}
         </p>
       )}
-      <nav className="tabs" aria-label="Course views">
-        <a
-          href={courseLink}
-          aria-current={
-            !lessonId && !showGradebook && !showReview ? "page" : undefined
-          }
-        >
-          Syllabus and lessons
-        </a>
-        <a
-          href={`${courseLink}/gradebook`}
-          aria-current={showGradebook ? "page" : undefined}
-        >
-          Practice gradebook
-        </a>
-        <a
-          href={`${courseLink}/review`}
-          aria-current={showReview ? "page" : undefined}
-        >
-          Review queue
-          {reviewQueue && reviewQueue.counts.due > 0
-            ? ` (${reviewQueue.counts.due} due)`
-            : ""}
-        </a>
-      </nav>
-      <div className="workspace-grid">
-        <aside className="card lesson-navigation">
-          <h2>Available lessons</h2>
-          <p className="muted">
-            {progress.filter((item) => item.completed).length} marked read. This
-            is self-reported progress.
-          </p>
-          <nav aria-label="Lessons">
-            {course.modules.map((module) => (
-              <section key={module.id}>
-                <h3>{module.title}</h3>
-                <ol>
-                  {module.lessons.map((item) => (
-                    <li key={item.id}>
-                      <a
-                        href={`${courseLink}/lesson/${encodeURIComponent(item.id)}`}
-                        aria-current={lessonId === item.id ? "page" : undefined}
-                      >
-                        {item.title}
-                      </a>
-                      {progress.some(
-                        (mark) => mark.lesson_id === item.id && mark.completed,
-                      ) && <span className="read-label">Read</span>}
-                    </li>
-                  ))}
-                </ol>
-              </section>
-            ))}
-          </nav>
-        </aside>
+      {!archivedVersion && (
+        <nav className="tabs" aria-label="Course views">
+          <a
+            href={courseLink}
+            aria-current={
+              !lessonId && !showGradebook && !showReview && !showCases
+                ? "page"
+                : undefined
+            }
+          >
+            Syllabus and lessons
+          </a>
+          <a
+            href={`${courseLink}/gradebook`}
+            aria-current={showGradebook ? "page" : undefined}
+          >
+            Practice gradebook
+          </a>
+          <a
+            href={`${courseLink}/review`}
+            aria-current={showReview ? "page" : undefined}
+          >
+            Review queue
+            {reviewQueue && reviewQueue.counts.due > 0
+              ? ` (${reviewQueue.counts.due} due)`
+              : ""}
+          </a>
+          <a href="#/tools">Study tools</a>
+          {!!course.case_studies?.length && (
+            <a
+              href={`${courseLink}/cases`}
+              aria-current={showCases ? "page" : undefined}
+            >
+              Case studio
+            </a>
+          )}
+        </nav>
+      )}
+      <div className={`workspace-grid${showCases ? " case-workspace" : ""}`}>
+        {!showCases && (
+          <aside className="card lesson-navigation">
+            <h2>Available lessons</h2>
+            {!archivedVersion && (
+              <p className="muted">
+                {progress.filter((item) => item.completed).length} marked read.
+                This is self-reported progress.
+              </p>
+            )}
+            <nav aria-label="Lessons">
+              {course.modules.map((module) => (
+                <section key={module.id}>
+                  <h3>{module.title}</h3>
+                  <ol>
+                    {module.lessons.map((item) => (
+                      <li key={item.id}>
+                        <a
+                          href={`${courseLink}/lesson/${encodeURIComponent(item.id)}`}
+                          aria-current={
+                            lessonId === item.id ? "page" : undefined
+                          }
+                        >
+                          {item.title}
+                        </a>
+                        {!archivedVersion &&
+                          progress.some(
+                            (mark) =>
+                              mark.lesson_id === item.id && mark.completed,
+                          ) && <span className="read-label">Read</span>}
+                      </li>
+                    ))}
+                  </ol>
+                </section>
+              ))}
+            </nav>
+          </aside>
+        )}
         <div className="workspace-main">
-          {showGradebook ? (
+          {showCases ? (
+            <CaseStudio
+              key={`${course.version}:${enrolled}`}
+              course={course}
+              enrolled={enrolled && hasSession}
+              enabled={
+                enrolled &&
+                hasSession &&
+                !needsVersionReview &&
+                !archivedVersion
+              }
+              archived={!!archivedVersion}
+            />
+          ) : archivedVersion ? (
+            lessonId ? (
+              lesson ? (
+                <LessonStudy
+                  key={`${archivedVersion}:${lesson.id}`}
+                  lesson={lesson}
+                  enabled={false}
+                  disabledMessage={`Version ${archivedVersion} is archived and read-only.`}
+                  completed={false}
+                  attempts={[]}
+                  sources={sources}
+                  onAttempt={async () => {
+                    throw new Error("Archived lessons are read-only.");
+                  }}
+                  onAppeal={async () => {
+                    throw new Error("Archived lessons are read-only.");
+                  }}
+                  onSaveNote={async () => {
+                    throw new Error("Archived lessons are read-only.");
+                  }}
+                  onProgress={async () => {
+                    throw new Error("Archived lessons are read-only.");
+                  }}
+                />
+              ) : (
+                <p role="status">Loading archived lesson…</p>
+              )
+            ) : (
+              <>
+                <CourseSchedule
+                  courseId={id}
+                  weeks={course.weeks}
+                  linkPrefix={courseLink}
+                  readOnly
+                />
+                <section className="card">
+                  <h2>Syllabus</h2>
+                  <MarkdownReader>{course.syllabus_markdown}</MarkdownReader>
+                  <h3>Prerequisite knowledge</h3>
+                  <p>{course.prerequisites.statement}</p>
+                  <ul>
+                    {course.prerequisites.knowledge.map((knowledge, index) => (
+                      <li key={index}>{knowledge}</li>
+                    ))}
+                  </ul>
+                </section>
+                <section className="card">
+                  <h2>Learning outcomes</h2>
+                  <ul className="objectives">
+                    {course.outcomes.map((objective) => (
+                      <li key={objective.id}>
+                        <span className="tag">{objective.bloom}</span>{" "}
+                        {objective.description}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="muted">Content license: {course.license}.</p>
+                </section>
+              </>
+            )
+          ) : showGradebook ? (
             enrolled && !needsVersionReview && gradebook ? (
               <>
                 {assessmentPlan && (
@@ -488,7 +691,12 @@ export function CourseWorkspace({
                     attempts={attempts}
                     onSubmit={submit}
                     onAppeal={requestAppeal}
-                    onClose={() => setActivePracticeAssessmentId(null)}
+                    onClose={() => {
+                      setActivePracticeAssessmentId(null);
+                      if (assessmentId) {
+                        window.location.hash = `${courseLink}/gradebook`;
+                      }
+                    }}
                   />
                 )}
                 <GradebookView
@@ -566,6 +774,7 @@ export function CourseWorkspace({
             )
           ) : (
             <>
+              <CourseSchedule courseId={id} weeks={course.weeks} />
               <section className="card">
                 <h2>Syllabus</h2>
                 <MarkdownReader>{course.syllabus_markdown}</MarkdownReader>

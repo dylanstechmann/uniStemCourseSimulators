@@ -36,6 +36,8 @@ For a marker `M`, percent recovery across the collected fractions is:
 
 `recovery(M) = 100 × (amount of M in all collected fractions) / (amount of M in the starting input)`
 
+**In words:** percent recovery for marker M is the amount found across all collected fractions divided by its starting-input amount, multiplied by 100.
+
 For the synthetic ER marker, `4 + 18 + 68 + 5 = 95%` recovery. The missing 5% could reflect assay uncertainty, uncollected material, degradation, or measurement error. It is not evidence that 5% of ER was biologically destroyed. Recovery is an accounting check on the experiment; it is not the same as purity or enrichment.
 
 **Enrichment** is a concentration or specific-activity comparison and needs a denominator such as total protein, fraction volume, or a documented input. The table supports a statement about marker partitioning and recovery, not a normalized enrichment factor. **Purity** asks what else is present and usually requires several independent markers or orthogonal characterization. **Yield** asks how much target material was retained. Increasing purity can reduce yield, and an unreported loss can make fractions appear selectively depleted.

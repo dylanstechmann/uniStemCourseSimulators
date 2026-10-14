@@ -48,6 +48,18 @@ For the synthetic person with blood pressure 124/88 mmHg, PP = 36 mmHg, so C ≈
 
 Cardiac output is HR × SV. Stroke volume depends on how much the ventricle fills (**preload**), on the resistance it ejects against (**afterload**) and on its contractility. The Frank–Starling relation says that within limits a more filled ventricle ejects more, which matches output to venous return from beat to beat. In a steady state, cardiac output equals venous return, so changes in the circulation's resistance and capacity change the output as well as the pressure.
 
+## Pressure-volume loops and pump work
+
+A ventricular pressure-volume (PV) loop plots volume on the horizontal axis and pressure on the vertical axis over one beat. During filling, volume rises; isovolumic contraction raises pressure at nearly fixed volume; ejection reduces volume from end-diastolic volume (EDV) to end-systolic volume (ESV); and isovolumic relaxation lowers pressure at nearly fixed volume. The loop's horizontal width is stroke volume, **SV = EDV − ESV**. The magnitude of the enclosed area, $|\oint P\,dV|$, is external stroke work delivered to the blood per beat.
+
+Pressure times volume has units of work. For the units below, **1 mmHg·mL = 1.33322 × 10⁻⁴ J**. Use that conversion before reporting joules; a value in mmHg·mL is not itself an SI energy.
+
+**Synthetic rectangular approximation.** Let EDV = 120 mL and ESV = 50 mL, so SV = 70 mL. If the average ejection pressure is represented as a constant 100 mmHg and filling pressure is treated as negligible, the rectangular area estimates work as $100×70=7000$ mmHg·mL, or 0.933 J per beat. At a stipulated heart rate of 75 beats/min, cardiac output is $75×70=5250$ mL/min = 5.25 L/min, and mean external pump power in this model is about 1.17 W.
+
+Now consider a separate stipulated afterload-like perturbation: keep EDV at 120 mL, raise average ejection pressure to 120 mmHg, and set ESV to 70 mL. The width is now SV = 50 mL; the rectangular estimate is $120×50=6000$ mmHg·mL = 0.800 J per beat, and at the same heart rate output is 3.75 L/min. Pressure rose while the loop narrowed, so work depends on both the pressure trace and volume change. These paired numbers do not assert a universal response to afterload; they define one synthetic comparison.
+
+The rectangle is an approximation to the area under a non-rectangular pressure-volume path. It omits the actual ejection waveform, filling contribution, valve dynamics, ventricular geometry and wall stress, myocardial oxygen use, and changes in heart rate or contractility. It is a pump-work calculation from invented values, not a clinical estimate or prediction about a person. The MIT OCW HST.542J undergraduate calendar includes cardiovascular models and “the heart as a pump”; this short local treatment is a comparator-informed addition, not a reproduction of that course.
+
 ## Common mistakes
 
 - Adding parallel resistances as if they were in series.

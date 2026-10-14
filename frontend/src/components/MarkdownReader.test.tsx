@@ -22,4 +22,13 @@ describe("MarkdownReader content boundary", () => {
     expect(container.querySelector("[onerror]")).toBeNull();
     expect(container.querySelector('a[href^="javascript:"]')).toBeNull();
   });
+
+  it("makes scrollable code blocks keyboard focusable", () => {
+    const { container } = render(
+      <MarkdownReader>
+        {"```csv\ncondition,measurement\ncontrol,12\n```"}
+      </MarkdownReader>,
+    );
+    expect(container.querySelector("pre")).toHaveAttribute("tabindex", "0");
+  });
 });

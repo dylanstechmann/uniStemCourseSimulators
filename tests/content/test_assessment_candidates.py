@@ -40,7 +40,7 @@ def packet(tmp_path):
 def test_real_report_is_current_and_does_not_open_private_stores():
     report = MODULE.audit(ROOT)
     assert len(report["packages"]) == 25
-    assert sum(len(p["candidates"]) for p in report["packages"]) == 14
+    assert sum(len(p["candidates"]) for p in report["packages"]) == 26
     assert MODULE.render(report) == (ROOT / "docs/ASSESSMENT_CANDIDATE_REPORT.md").read_text()
     assert "private_source_ref" not in json.dumps(report)
     assert report["evidence_scope"] == "public-authoring-artifact-audit-only"
@@ -57,6 +57,16 @@ def test_file_hashes_change_without_granting_review(packet):
     audited = MODULE.audit(root)["packages"][0]["candidates"][0]
     assert audited["unresolved_activation_gates"] == candidate["activation_gates"]
     assert "remain unresolved" in MODULE.render(MODULE.audit(root))
+
+
+def test_human_portfolio_points_are_not_reported_as_machine_scored(packet):
+    root, _course, path, candidate = packet
+    candidate["assessment_kind"] = "human-portfolio"
+    path.write_text(json.dumps(candidate))
+    report = MODULE.audit(root)
+    audited = report["packages"][0]["candidates"][0]
+    assert audited["assessment_kind"] == "human-portfolio"
+    assert "2 proposed human-review points" in MODULE.render(report)
 
 
 @pytest.mark.parametrize("change", ["answer", "variant-answer", "points", "objective", "version", "escape", "prerequisite"])

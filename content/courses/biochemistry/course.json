@@ -3,18 +3,20 @@
   "id": "biochemistry",
   "legacy_code": "BIOC 301",
   "title": "Biochemistry I: Proteins, Enzymes & Metabolism",
-  "description": "A mechanistic and quantitative introduction to protein structure, enzyme kinetics, thermodynamics, central metabolism, and pathway regulation.",
+  "description": "A mechanistic and quantitative introduction to protein structure, enzyme kinetics, thermodynamics, and central metabolism, with an animal-cell focus and an explicit photosynthesis boundary.",
   "domain": "Biochemistry",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.4.0",
+  "version": "0.4.85",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
     "source_path": "src/data/courses.js",
     "source_sha256": "a77a7cb7f5be2ffa12068877042ac775c6d9b79b83ac2f316fe4f26a0d3d783b",
     "migration_version": "1.0",
-    "modifications": []
+    "modifications": [
+      "Linked the first four lesson pairs to outcomes 1–4. Reassociated the preserved ligand-occupancy and pool-versus-flux questions with their binding and flux objectives, and added direct practice for protein structure levels and regulatory layers. Existing numeric prompts and keys remain unchanged. The course remains partial, unreviewed and formative-only."
+    ]
   },
   "prerequisites": {
     "course_ids": [
@@ -47,6 +49,11 @@
       "id": "biochemistry-outcome-4",
       "description": "Explain pathway control through multiple regulatory layers.",
       "bloom": "understand"
+    },
+    {
+      "id": "biochemistry-outcome-5",
+      "description": "Evaluate protein separation and purification data to judge selectivity, recovery and enrichment.",
+      "bloom": "evaluate"
     }
   ],
   "lesson_objectives": [
@@ -54,49 +61,73 @@
       "id": "biochemistry-1-objective-1",
       "description": "Describe primary through quaternary structure.",
       "bloom": "understand",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "biochemistry-outcome-1"
+      ]
     },
     {
       "id": "biochemistry-1-objective-2",
       "description": "Distinguish binding affinity, specificity, and cooperativity.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "biochemistry-outcome-1"
+      ]
     },
     {
       "id": "biochemistry-2-objective-1",
       "description": "Distinguish competitive and noncompetitive model signatures.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "biochemistry-outcome-2"
+      ]
     },
     {
       "id": "biochemistry-2-objective-2",
       "description": "Use catalytic efficiency and model assumptions carefully.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "biochemistry-outcome-2"
+      ]
     },
     {
       "id": "biochemistry-3-objective-1",
       "description": "Track oxidation state and carbon fate through glycolysis and respiration.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "biochemistry-outcome-3"
+      ]
     },
     {
       "id": "biochemistry-3-objective-2",
       "description": "Relate redox carriers and proton motive force to ATP synthesis.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "biochemistry-outcome-3"
+      ]
+    },
+    {
+      "id": "biochemistry-3-objective-3",
+      "description": "Calculate net ATP-pool change from stipulated synthesis and utilization rates and distinguish a stable pool from ongoing ATP turnover.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3"
+      ]
     },
     {
       "id": "biochemistry-4-objective-1",
       "description": "Identify control at substrate supply, allostery, covalent modification, and expression.",
       "bloom": "understand",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "biochemistry-outcome-4"
+      ]
     },
     {
       "id": "biochemistry-4-objective-2",
       "description": "Predict how perturbing one pathway affects connected fluxes.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "biochemistry-outcome-4"
+      ]
     },
     {
       "id": "biochemistry-5-objective-1",
@@ -351,11 +382,319 @@
         "biochemistry-outcome-3",
         "biochemistry-outcome-4"
       ]
+    },
+    {
+      "id": "biochemistry-protein-purification-objective-1",
+      "description": "Choose a protein-separation method from evidence about charge relative to pI, molecular size or a selective binding interaction, and state its limits.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-5"
+      ]
+    },
+    {
+      "id": "biochemistry-protein-purification-objective-2",
+      "description": "Calculate total protein, total activity, specific activity, recovery and fold enrichment from fraction data, and distinguish enrichment from a claim of homogeneity.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-5"
+      ]
+    },
+    {
+      "id": "biochemistry-tca-cycle-objective-1",
+      "description": "Account for carbon and cofactor outputs from one acetyl-CoA turn of the citric acid cycle and distinguish those outputs from pyruvate oxidation and electron transport.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3"
+      ]
+    },
+    {
+      "id": "biochemistry-tca-cycle-objective-2",
+      "description": "Explain how withdrawal and replenishment of cycle intermediates and changing redox or energy demand can affect pathway flux.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ]
+    },
+    {
+      "id": "biochemistry-tca-cycle-objective-3",
+      "description": "Interpret mass-isotopologue evidence and distinguish changes in labeling from claims about pathway flux.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ]
+    },
+    {
+      "id": "biochemistry-gluconeogenesis-objective-1",
+      "description": "Explain the three gluconeogenic bypasses and calculate the ATP, GTP and NADH input needed to form glucose from pyruvate.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3"
+      ]
+    },
+    {
+      "id": "biochemistry-gluconeogenesis-objective-2",
+      "description": "Interpret reciprocal regulation of glycolysis and gluconeogenesis and identify carbon sources that can or cannot support net glucose synthesis.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ]
+    },
+    {
+      "id": "biochemistry-glycogen-objective-1",
+      "description": "Trace glucose into glycogen and glycogen residues into glucose 6-phosphate, including nucleotide cost and the roles of phosphorylase and the debranching enzyme.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3"
+      ]
+    },
+    {
+      "id": "biochemistry-glycogen-objective-2",
+      "description": "Predict reciprocal glycogen synthesis and breakdown responses and distinguish the systemic role of liver glycogen from the local role of muscle glycogen.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ]
+    },
+    {
+      "id": "biochemistry-ppp-objective-1",
+      "description": "Calculate oxidative-branch NADPH and carbon dioxide outputs from glucose 6-phosphate and distinguish NADPH production from ATP yield.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3"
+      ]
+    },
+    {
+      "id": "biochemistry-ppp-objective-2",
+      "description": "Explain how reversible nonoxidative reactions connect pentose needs to glycolytic carbon and how NADP availability relates to oxidative-branch flux.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ]
+    },
+    {
+      "id": "biochemistry-fatty-acid-objective-1",
+      "description": "Calculate beta-oxidation cycle count, acetyl-CoA and reducing-equivalent outputs for an even-chain saturated fatty acyl-CoA, and account for activation cost when starting from a free fatty acid.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3"
+      ]
+    },
+    {
+      "id": "biochemistry-fatty-acid-objective-2",
+      "description": "Integrate beta-oxidation with the citric acid cycle and electron transport using stated P/O assumptions, and explain carnitine transport and its regulation.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ]
+    },
+    {
+      "id": "biochemistry-urea-cycle-objective-1",
+      "description": "Trace the two nitrogen atoms and the carbon atom of urea to their immediate donors, and calculate ATP molecules and high-energy phosphate equivalents consumed.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3"
+      ]
+    },
+    {
+      "id": "biochemistry-urea-cycle-objective-2",
+      "description": "Relate transamination, glutamate, aspartate, urea-cycle compartmentation, CPS1 regulation and fumarate return to central metabolism.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ]
+    },
+    {
+      "id": "biochemistry-amino-carbon-objective-1",
+      "description": "Match representative amino-acid carbon skeletons to pyruvate, acetyl-CoA/acetoacetate or citric-acid-cycle entry points and classify their carbon as glucogenic, ketogenic or both.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3"
+      ]
+    },
+    {
+      "id": "biochemistry-amino-carbon-objective-2",
+      "description": "Explain how transamination separates amino nitrogen from carbon fate and why acetyl-CoA alone cannot support net glucose synthesis in mammals.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ]
+    },
+    {
+      "id": "biochemistry-ketone-objective-1",
+      "description": "Identify the three ketone bodies and explain how acetyl-CoA, mitochondrial redox and gluconeogenic demand relate to hepatic ketogenesis.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3"
+      ]
+    },
+    {
+      "id": "biochemistry-ketone-objective-2",
+      "description": "Trace ketone-body use in extrahepatic mitochondria and explain why liver exports rather than oxidizes the ketones it makes.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ]
+    },
+    {
+      "id": "biochemistry-ketone-objective-4",
+      "description": "Distinguish canonical SCOT-dependent oxidative ketolysis from reported SCOT-independent anabolic use in hepatocytes, and state the evidence’s species and pathway boundary.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ]
+    },
+    {
+      "id": "biochemistry-ketone-objective-3",
+      "description": "Calculate conditional ATP-equivalent output from acetoacetate and D-beta-hydroxybutyrate under stated P/O and SCOT opportunity-cost assumptions.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3"
+      ]
+    },
+    {
+      "id": "biochemistry-fatty-synthesis-objective-1",
+      "description": "Calculate the cytosolic acetyl-CoA, malonyl-CoA, ATP and NADPH requirements for palmitate synthesis while stating the accounting boundary.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3"
+      ]
+    },
+    {
+      "id": "biochemistry-fatty-synthesis-objective-2",
+      "description": "Explain citrate-shuttle acetyl-CoA supply, acetyl-CoA carboxylase control and malonyl-CoA inhibition of mitochondrial fatty-acid entry.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ]
+    },
+    {
+      "id": "biochemistry-cholesterol-objective-1",
+      "description": "Trace cholesterol biosynthesis from acetyl-CoA through mevalonate and explain sterol feedback on HMG-CoA reductase and LDL-receptor expression.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ]
+    },
+    {
+      "id": "biochemistry-cholesterol-objective-2",
+      "description": "Trace dietary and endogenous lipoprotein routes and distinguish the functions of key apolipoproteins, lipoprotein lipase and LDL receptor.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ]
+    },
+    {
+      "id": "biochemistry-nucleotide-objective-1",
+      "description": "Trace the de novo purine and pyrimidine pathways to IMP and UMP, distinguish their construction order and explain nucleotide-branch control.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ]
+    },
+    {
+      "id": "biochemistry-nucleotide-objective-2",
+      "description": "Explain purine salvage, ribonucleotide reduction and thymidylate formation as linked routes that support nucleotide pools and DNA precursors.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ]
+    },
+    {
+      "id": "biochemistry-nucleotide-objective-3",
+      "description": "Calculate PRPP use across synthetic de novo purine synthesis and purine salvage, then separately account for ATP and GTP used at the IMP branch point.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ]
+    },
+    {
+      "id": "biochemistry-neutral-lipid-objective-1",
+      "description": "Trace glycerol-3-phosphate acylation through phosphatidic acid and diacylglycerol to triacylglycerol, and connect storage to hepatic VLDL export.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3"
+      ]
+    },
+    {
+      "id": "biochemistry-neutral-lipid-objective-2",
+      "description": "Compare intracellular adipose lipolysis with capillary lipoprotein lipase and trace fatty-acid and glycerol products into downstream metabolism.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ]
+    },
+    {
+      "id": "biochemistry-lab-02-objective-1",
+      "description": "Calculate total protein and activity, specific activity, activity recovery and fold enrichment from synthetic fraction data.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "biochemistry-outcome-5"
+      ]
+    },
+    {
+      "id": "biochemistry-lab-02-objective-2",
+      "description": "Select an orthogonal separation property and interpret why enrichment and activity do not establish homogeneity.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "biochemistry-outcome-5"
+      ]
+    },
+    {
+      "id": "biochemistry-amino-carbon-objective-3",
+      "description": "Interpret isotope-tracing evidence for amino-acid carbon fate in a stated model, distinguishing substrate contribution to biosynthesis from net glucose production and whole-body inference.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3"
+      ]
+    },
+    {
+      "id": "biochemistry-ppp-objective-3",
+      "description": "Calculate a labeled-ribose fraction from a synthetic isotopomer distribution and explain why labeling alone does not quantify pathway flux.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ]
+    },
+    {
+      "id": "biochemistry-urea-cycle-objective-3",
+      "description": "Convert a stated nitrogen-disposal load into a stoichiometric urea amount and the associated ATP-equivalent demand under an explicit closed-balance assumption.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ]
+    },
+    {
+      "id": "biochemistry-cholesterol-objective-3",
+      "description": "Calculate a synthetic hepatocyte cholesterol-pool balance from input and output rates and distinguish that cellular pool from circulating LDL concentration.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week undergraduate scope only. The four compact prototype units sit in weeks 1, 5, 9 and 12 beside original lessons on amino-acid charge, protein stability, binding, enzyme kinetics, free energy, glycolysis, mitochondrial bioenergetics and flux control; week 7 is a synthetic-data enzyme-kinetics lab and week 14 a lesson on reading a metabolic perturbation with the course case. All activities are open, ungraded practice. There are no graded homework sets, exams or project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week undergraduate sequence, not measured semester equivalence. It stages protein recognition before quantitative binding, thermodynamics before metabolic applications, and network perturbation before quantitative flux control. The schedule includes ungraded synthetic-data practice and two virtual data-analysis labs; there are no approved summative assessments or physical laboratory sequence.",
     "weeks": [
       {
         "week": 1,
@@ -369,12 +708,16 @@
       },
       {
         "week": 2,
-        "title": "Amino acids, charge and pH: titration, isoelectric points and protein charge",
+        "title": "Amino-acid charge, nitrogen disposal and carbon metabolism",
         "lesson_ids": [
-          "biochemistry-8"
+          "biochemistry-8",
+          "biochemistry-urea-cycle",
+          "biochemistry-amino-acid-carbon-skeletons"
         ],
         "assessment_ids": [
-          "biochemistry-8-practice"
+          "biochemistry-8-practice",
+          "biochemistry-urea-cycle-practice",
+          "biochemistry-amino-acid-carbon-skeletons-practice"
         ]
       },
       {
@@ -389,12 +732,16 @@
       },
       {
         "week": 4,
-        "title": "Binding equilibria: dissociation constants, depletion and cooperativity",
+        "title": "Protein binding and purification: selectivity, depletion and activity evidence",
         "lesson_ids": [
-          "biochemistry-7"
+          "biochemistry-7",
+          "biochemistry-protein-purification",
+          "biochemistry-lab-02"
         ],
         "assessment_ids": [
-          "biochemistry-7-practice"
+          "biochemistry-7-practice",
+          "biochemistry-protein-purification-practice",
+          "biochemistry-week4-purification-lab"
         ]
       },
       {
@@ -429,67 +776,85 @@
       },
       {
         "week": 8,
-        "title": "Free energy in the cell: actual ΔG, coupling and redox potential",
+        "title": "Free energy, nucleotide biosynthesis and salvage",
         "lesson_ids": [
-          "biochemistry-6"
+          "biochemistry-6",
+          "biochemistry-nucleotide-biosynthesis"
         ],
         "assessment_ids": [
-          "biochemistry-6-practice"
+          "biochemistry-6-practice",
+          "biochemistry-nucleotide-biosynthesis-practice"
         ]
       },
       {
         "week": 9,
-        "title": "Bioenergetics and central carbon metabolism",
+        "title": "Central carbon metabolism: the citric acid cycle and bioenergetics",
         "lesson_ids": [
-          "biochemistry-3"
+          "biochemistry-3",
+          "biochemistry-tca-cycle"
         ],
         "assessment_ids": [
-          "biochemistry-3-practice"
+          "biochemistry-3-practice",
+          "biochemistry-tca-cycle-practice"
         ]
       },
       {
         "week": 10,
-        "title": "Glycolysis and its control: energy charge and the AMP signal",
+        "title": "Glycolysis, gluconeogenesis and reciprocal control",
         "lesson_ids": [
-          "biochemistry-10"
+          "biochemistry-10",
+          "biochemistry-gluconeogenesis"
         ],
         "assessment_ids": [
-          "biochemistry-10-practice"
+          "biochemistry-10-practice",
+          "biochemistry-gluconeogenesis-practice"
         ]
       },
       {
         "week": 11,
-        "title": "Mitochondrial bioenergetics: proton-motive force, ATP yield and leak",
+        "title": "Mitochondrial bioenergetics, fatty-acid oxidation and ketone bodies",
         "lesson_ids": [
-          "biochemistry-11"
+          "biochemistry-11",
+          "biochemistry-fatty-acid-oxidation",
+          "biochemistry-ketone-body-metabolism"
         ],
         "assessment_ids": [
-          "biochemistry-11-practice"
+          "biochemistry-11-practice",
+          "biochemistry-fatty-acid-oxidation-practice",
+          "biochemistry-ketone-body-metabolism-practice"
         ]
       },
       {
         "week": 12,
-        "title": "Pathway regulation and metabolic integration",
+        "title": "Glycogen, cholesterol metabolism and pathway regulation",
         "lesson_ids": [
-          "biochemistry-4"
+          "biochemistry-4",
+          "biochemistry-glycogen-metabolism",
+          "biochemistry-cholesterol-lipoproteins"
         ],
         "assessment_ids": [
-          "biochemistry-4-practice"
+          "biochemistry-4-practice",
+          "biochemistry-glycogen-metabolism-practice",
+          "biochemistry-cholesterol-lipoproteins-practice"
         ]
       },
       {
         "week": 13,
-        "title": "Flux control and the layers of regulation",
+        "title": "Flux control, pentose phosphate pathway and fatty-acid synthesis",
         "lesson_ids": [
-          "biochemistry-12"
+          "biochemistry-12",
+          "biochemistry-pentose-phosphate",
+          "biochemistry-fatty-acid-synthesis"
         ],
         "assessment_ids": [
-          "biochemistry-12-practice"
+          "biochemistry-12-practice",
+          "biochemistry-pentose-phosphate-practice",
+          "biochemistry-fatty-acid-synthesis-practice"
         ]
       },
       {
         "week": 14,
-        "title": "Reading a metabolic perturbation: ATP, lactate, redox and oxygen consumption",
+        "title": "Metabolic perturbation and fed-to-fasting integration: ATP, carbon, redox and nitrogen",
         "lesson_ids": [
           "biochemistry-13"
         ],
@@ -511,7 +876,10 @@
       "title": "Protein structure and molecular recognition",
       "source_ids": [
         "biochemistry",
-        "biology"
+        "biology",
+        "biochem-koshland-induced-fit-1958",
+        "biochem-gbp-unione-2016",
+        "mit-7-05-general-biochemistry-2020"
       ],
       "lessons": [
         {
@@ -522,10 +890,11 @@
             "biochemistry-1-objective-1",
             "biochemistry-1-objective-2"
           ],
-          "worked_example": "For a 1:1 interaction at free ligand concentration [L] = Kd, fractional occupancy θ = [L]/(Kd + [L]) = 0.5.",
+          "worked_example": "For a simple 1:1 interaction at equilibrium with negligible ligand depletion, Kd equals the free ligand concentration at half occupancy. At 12 µM free ligand and Kd 4 µM, θ = 12/(4 + 12) = 0.75, or 75%; this is an equilibrium fraction, not a rate.",
           "question_ids": [
             "biochemistry-1:check",
-            "biochemistry-1:affinity-specificity-cooperativity"
+            "biochemistry-1:affinity-specificity-cooperativity",
+            "biochemistry-1:structure-levels"
           ],
           "card_ids": [
             "biochemistry-0-0",
@@ -539,7 +908,11 @@
       "title": "Enzyme mechanisms and inhibition",
       "source_ids": [
         "biochemistry",
-        "biology"
+        "biology",
+        "biochem-chymotrypsin-blow-1969",
+        "biochem-chymotrypsin-fastrez-houyet-1977",
+        "eyring-activated-complex-1935",
+        "mit-7-05-general-biochemistry-2020"
       ],
       "lessons": [
         {
@@ -550,7 +923,7 @@
             "biochemistry-2-objective-1",
             "biochemistry-2-objective-2"
           ],
-          "worked_example": "If competitive inhibitor raises apparent Km from 2 to 8 mM while Vmax remains 100 μmol/min, sufficiently high substrate can still approach the same Vmax.",
+          "worked_example": "Without inhibitor, Vmax is 100 µmol/min and Km is 2 mM; at 2 mM substrate, rate is 50 µmol/min. A simple competitive inhibitor raises apparent Km to 8 mM while leaving Vmax unchanged, giving 20 µmol/min at the same substrate level. At saturating substrate, both ideal curves approach the same maximum rate.",
           "question_ids": [
             "biochemistry-2:check",
             "biochemistry-2:catalytic-efficiency"
@@ -567,7 +940,8 @@
       "title": "Bioenergetics and central carbon metabolism",
       "source_ids": [
         "biochemistry",
-        "biology"
+        "biology",
+        "mit-7-05-general-biochemistry-2020"
       ],
       "lessons": [
         {
@@ -576,16 +950,20 @@
           "reading": "modules/03-bioenergetics-and-central-carbon-metabolism.md",
           "objectives": [
             "biochemistry-3-objective-1",
-            "biochemistry-3-objective-2"
+            "biochemistry-3-objective-2",
+            "biochemistry-3-objective-3"
           ],
-          "worked_example": "Net glycolysis produces 2 ATP and 2 NADH per glucose. If a preparation yields 3 ATP per cytosolic NADH via its chosen shuttle, glycolytic reducing equivalents contribute 6 ATP equivalents in that accounting scheme.",
+          "worked_example": "Glycolysis yields 2 mol net ATP directly per mol glucose; five mol glucose yield 10 mol directly. A separate ATP amount balance with synthesis 146 µmol/min and use 134 µmol/min gives a pool increase of 12 µmol/min, not a concentration or pathway-flux estimate.",
           "question_ids": [
             "biochemistry-3:check",
-            "biochemistry-3:uncoupler-and-pmf"
+            "biochemistry-3:uncoupler-and-pmf",
+            "biochemistry-3:pool-change",
+            "biochemistry-3:pool-vs-turnover"
           ],
           "card_ids": [
             "biochemistry-2-0",
-            "biochemistry-2-1"
+            "biochemistry-2-1",
+            "biochemistry-3-card-3"
           ]
         }
       ]
@@ -595,7 +973,10 @@
       "title": "Pathway regulation and metabolic integration",
       "source_ids": [
         "biochemistry",
-        "biology"
+        "biology",
+        "biochem-mca-heinrich-rapoport-1974",
+        "biochem-mfa-sauer-1999",
+        "mit-7-05-general-biochemistry-2020"
       ],
       "lessons": [
         {
@@ -606,10 +987,11 @@
             "biochemistry-4-objective-1",
             "biochemistry-4-objective-2"
           ],
-          "worked_example": "If a labeled-carbon pool stays constant while labeled product appearance slows, both production and consumption may have changed; isotope time courses help separate those rates.",
+          "worked_example": "In a restricted two-input isotope-mixing model, fully labeled and unlabeled inputs that produce a 60% labeled product contribute in a 3:2 relative flux ratio. That result identifies neither absolute flux nor an unrestricted network solution; precursor labeling, turnover and exchange assumptions must be stated.",
           "question_ids": [
             "biochemistry-4:check",
-            "biochemistry-4:pathway-block-and-fluxes"
+            "biochemistry-4:pathway-block-and-fluxes",
+            "biochemistry-4:regulatory-layers"
           ],
           "card_ids": [
             "biochemistry-3-0",
@@ -623,7 +1005,8 @@
       "title": "Enzyme kinetics from data",
       "source_ids": [
         "biochemistry",
-        "biology"
+        "biology",
+        "mit-7-05-general-biochemistry-2020"
       ],
       "lessons": [
         {
@@ -658,7 +1041,8 @@
       "title": "Free energy, coupling and redox",
       "source_ids": [
         "biochemistry",
-        "biology"
+        "biology",
+        "mit-7-05-general-biochemistry-2020"
       ],
       "lessons": [
         {
@@ -693,7 +1077,8 @@
       "title": "Binding equilibria and cooperativity",
       "source_ids": [
         "biochemistry",
-        "biology"
+        "biology",
+        "mit-7-05-general-biochemistry-2020"
       ],
       "lessons": [
         {
@@ -728,7 +1113,8 @@
       "title": "Amino acids, charge and pH",
       "source_ids": [
         "biochemistry",
-        "biology"
+        "biology",
+        "mit-7-05-general-biochemistry-2020"
       ],
       "lessons": [
         {
@@ -764,7 +1150,8 @@
       "title": "Protein folding and stability",
       "source_ids": [
         "biochemistry",
-        "biology"
+        "biology",
+        "mit-7-05-general-biochemistry-2020"
       ],
       "lessons": [
         {
@@ -800,7 +1187,8 @@
       "title": "Glycolysis and its control",
       "source_ids": [
         "biochemistry",
-        "biology"
+        "biology",
+        "mit-7-05-general-biochemistry-2020"
       ],
       "lessons": [
         {
@@ -836,7 +1224,8 @@
       "title": "Mitochondrial bioenergetics",
       "source_ids": [
         "biochemistry",
-        "biology"
+        "biology",
+        "mit-7-05-general-biochemistry-2020"
       ],
       "lessons": [
         {
@@ -872,7 +1261,8 @@
       "title": "Flux control and regulation",
       "source_ids": [
         "biochemistry",
-        "biology"
+        "biology",
+        "mit-7-05-general-biochemistry-2020"
       ],
       "lessons": [
         {
@@ -944,7 +1334,8 @@
       "title": "Reading a metabolic perturbation",
       "source_ids": [
         "biochemistry",
-        "biology"
+        "biology",
+        "mit-7-05-general-biochemistry-2020"
       ],
       "lessons": [
         {
@@ -974,6 +1365,544 @@
           ]
         }
       ]
+    },
+    {
+      "id": "biochemistry-module-14",
+      "title": "Protein purification and activity data",
+      "source_ids": [
+        "biochemistry",
+        "biology",
+        "cytiva-protein-purification-strategies",
+        "cytiva-ion-exchange-handbook",
+        "cytiva-size-exclusion-handbook"
+      ],
+      "lessons": [
+        {
+          "id": "biochemistry-protein-purification",
+          "title": "Protein purification as quantitative evidence: selectivity, recovery and specific activity",
+          "reading": "modules/14-protein-purification-and-activity-data.md",
+          "objectives": [
+            "biochemistry-protein-purification-objective-1",
+            "biochemistry-protein-purification-objective-2"
+          ],
+          "worked_example": "A 12 mL synthetic fraction at 0.25 mg/mL contains 3.0 mg protein; at 90 U/mL it has 1,080 U activity, 18% recovery from 6,000 U and 360 U/mg, or sixfold enrichment over 60 U/mg starting activity.",
+          "question_ids": [
+            "biochemistry-protein-purification:ion-exchange-by-pi",
+            "biochemistry-protein-purification:size-exclusion-order",
+            "biochemistry-protein-purification:affinity-selectivity",
+            "biochemistry-protein-purification:ion-exchange-specific-activity",
+            "biochemistry-protein-purification:ion-exchange-recovery",
+            "biochemistry-protein-purification:enrichment-not-homogeneity"
+          ],
+          "card_ids": [
+            "biochemistry-protein-purification-card-1",
+            "biochemistry-protein-purification-card-2",
+            "biochemistry-protein-purification-card-3",
+            "biochemistry-protein-purification-card-4"
+          ]
+        },
+        {
+          "id": "biochemistry-lab-02",
+          "title": "Virtual purification lab: fraction recovery and enrichment",
+          "reading": "labs/02-protein-purification-from-fractionation-data.md",
+          "objectives": [
+            "biochemistry-lab-02-objective-1",
+            "biochemistry-lab-02-objective-2"
+          ],
+          "worked_example": "The crude fraction contains 50 mL × 2.00 mg/mL = 100 mg total protein and 50 mL × 120 U/mL = 6,000 U total activity. Its specific activity is 60 U/mg and defines the baseline for recovery and enrichment. This comparison is meaningful only when the same assay definition is used for all fractions.",
+          "question_ids": [
+            "biochemistry-lab2:ion-exchange-protein-mass",
+            "biochemistry-lab2:ion-exchange-total-activity",
+            "biochemistry-lab2:ion-exchange-specific-activity",
+            "biochemistry-lab2:ion-exchange-recovery",
+            "biochemistry-lab2:sec-enrichment",
+            "biochemistry-lab2:orthogonal-step",
+            "biochemistry-lab2:enrichment-limit"
+          ],
+          "card_ids": [
+            "biochemistry-lab-02-card-1",
+            "biochemistry-lab-02-card-2",
+            "biochemistry-lab-02-card-3",
+            "biochemistry-lab-02-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biochemistry-module-15",
+      "title": "The citric acid cycle: carbon, redox and replenishment",
+      "source_ids": [
+        "biochemistry",
+        "biology",
+        "kegg-citrate-cycle-map00020",
+        "reactome-human-tca-cycle",
+        "biochem-tca-mimosa-alves-2015",
+        "biochem-tca-anaplerosis-comte-1997",
+        "mit-7-05-general-biochemistry-2020"
+      ],
+      "lessons": [
+        {
+          "id": "biochemistry-tca-cycle",
+          "title": "The citric acid cycle: carbon, reducing equivalents and replenishment",
+          "reading": "modules/15-citric-acid-cycle-carbon-and-redox.md",
+          "objectives": [
+            "biochemistry-tca-cycle-objective-1",
+            "biochemistry-tca-cycle-objective-2",
+            "biochemistry-tca-cycle-objective-3"
+          ],
+          "worked_example": "Three mmol glucose supplies six acetyl-CoA and six TCA turns, producing 6.0 mmol GTP and 18 mmol NADH in the cycle. Pyruvate dehydrogenase adds 6 mmol NADH, for 24 mmol total in this boundary; glycolytic NADH is excluded. A synthetic [U-¹³C₆]glucose pulse raises the labeled citrate fraction from 30% to 60% (+30 percentage points), which demonstrates increased label incorporation but does not alone establish a doubled flux.",
+          "question_ids": [
+            "biochemistry-tca-cycle:per-turn-output",
+            "biochemistry-tca-cycle:nadh-two-turns",
+            "biochemistry-tca-cycle:pdh-boundary",
+            "biochemistry-tca-cycle:gtp-two-turns",
+            "biochemistry-tca-cycle:anaplerosis",
+            "biochemistry-tca-cycle:pool-versus-flux",
+            "biochemistry-tca-cycle:label-fate",
+            "biochemistry-tca-cycle:isotope-enrichment-vs-flux"
+          ],
+          "card_ids": [
+            "biochemistry-tca-cycle-card-1",
+            "biochemistry-tca-cycle-card-2",
+            "biochemistry-tca-cycle-card-3",
+            "biochemistry-tca-cycle-card-4",
+            "biochemistry-tca-cycle-card-5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biochemistry-module-16",
+      "title": "Gluconeogenesis: bypass reactions and reciprocal control",
+      "source_ids": [
+        "biochemistry",
+        "biology",
+        "kegg-glycolysis-gluconeogenesis-map00010",
+        "reactome-human-gluconeogenesis",
+        "van-schaftingen-hers-1981-f26bp-fbpase",
+        "mit-7-05-general-biochemistry-2020"
+      ],
+      "lessons": [
+        {
+          "id": "biochemistry-gluconeogenesis",
+          "title": "Gluconeogenesis: bypass reactions, energy cost and reciprocal control",
+          "reading": "modules/16-gluconeogenesis-bypass-and-reciprocal-control.md",
+          "objectives": [
+            "biochemistry-gluconeogenesis-objective-1",
+            "biochemistry-gluconeogenesis-objective-2"
+          ],
+          "worked_example": "Starting from pyruvate, 2.5 mol glucose requires 10 mol ATP, 5 mol GTP and 5 mol NADH. Per glucose, gluconeogenesis uses 4 ATP, 2 GTP and 2 NADH; six high-energy phosphate equivalents are split between ATP and GTP, and NADH is a separate reducing input. This accounting boundary excludes precursor formation.",
+          "question_ids": [
+            "biochemistry-gluconeogenesis:pyruvate-kinase-bypass",
+            "biochemistry-gluconeogenesis:atp-cost",
+            "biochemistry-gluconeogenesis:gtp-cost",
+            "biochemistry-gluconeogenesis:f26bp-control",
+            "biochemistry-gluconeogenesis:bypass-hydrolysis",
+            "biochemistry-gluconeogenesis:net-glucose-carbon",
+            "biochemistry-gluconeogenesis:energy-cost-scaling"
+          ],
+          "card_ids": [
+            "biochemistry-gluconeogenesis-card-1",
+            "biochemistry-gluconeogenesis-card-2",
+            "biochemistry-gluconeogenesis-card-3",
+            "biochemistry-gluconeogenesis-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biochemistry-module-17",
+      "title": "Glycogen storage, mobilization and tissue-specific control",
+      "source_ids": [
+        "biochemistry",
+        "biology",
+        "kegg-glycogen-map00500",
+        "reactome-human-glycogen-metabolism",
+        "human-glycogen-metabolism-review-2016",
+        "mit-7-05-general-biochemistry-2020"
+      ],
+      "lessons": [
+        {
+          "id": "biochemistry-glycogen-metabolism",
+          "title": "Glycogen storage and mobilization: reciprocal control across tissues",
+          "reading": "modules/17-glycogen-storage-and-mobilization.md",
+          "objectives": [
+            "biochemistry-glycogen-objective-1",
+            "biochemistry-glycogen-objective-2"
+          ],
+          "worked_example": "For an unbranched muscle-glycogen segment, 4 mol glucosyl residues release glucose 1-phosphate and then glucose 6-phosphate without a hexokinase investment. At 3 mol ATP net per residue to lactate, glycolysis yields 12 mol ATP. By contrast, storing 4 mol free glucose costs 8 mol ATP equivalents: one ATP for phosphorylation and one ATP equivalent per UDP-glucose activation.",
+          "question_ids": [
+            "biochemistry-glycogen-metabolism:glycogen-storage-cost",
+            "biochemistry-glycogen-metabolism:glycogen-phosphorylase",
+            "biochemistry-glycogen-metabolism:muscle-atp-yield",
+            "biochemistry-glycogen-metabolism:tissue-roles",
+            "biochemistry-glycogen-metabolism:phosphorylation-switch",
+            "biochemistry-glycogen-metabolism:muscle-signal",
+            "biochemistry-glycogen-metabolism:g1p-and-branch-point"
+          ],
+          "card_ids": [
+            "biochemistry-glycogen-metabolism-card-1",
+            "biochemistry-glycogen-metabolism-card-2",
+            "biochemistry-glycogen-metabolism-card-3",
+            "biochemistry-glycogen-metabolism-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biochemistry-module-18",
+      "title": "The pentose phosphate pathway: reducing power, ribose and carbon exchange",
+      "source_ids": [
+        "biochemistry",
+        "biology",
+        "kegg-pentose-phosphate-map00030",
+        "reactome-human-pentose-phosphate",
+        "biochem-ppp-tracer-lee-1998",
+        "biochem-ppp-tracer-metallo-2009",
+        "mit-7-05-general-biochemistry-2020"
+      ],
+      "lessons": [
+        {
+          "id": "biochemistry-pentose-phosphate",
+          "title": "The pentose phosphate pathway: NADPH, ribose and carbon exchange",
+          "reading": "modules/18-pentose-phosphate-pathway.md",
+          "objectives": [
+            "biochemistry-ppp-objective-1",
+            "biochemistry-ppp-objective-2",
+            "biochemistry-ppp-objective-3"
+          ],
+          "worked_example": "For one oxidative-branch pass, each mole of glucose 6-phosphate produces 2 mol NADPH, 1 mol carbon dioxide and 1 mol ribulose 5-phosphate. Six moles therefore produce 12 mol NADPH, 6 mol carbon dioxide and 6 mol ribulose 5-phosphate, with no direct ATP product in this pathway boundary.",
+          "question_ids": [
+            "biochemistry-pentose-phosphate:oxidative-nadph",
+            "biochemistry-pentose-phosphate:oxidative-co2",
+            "biochemistry-pentose-phosphate:no-direct-atp",
+            "biochemistry-pentose-phosphate:nonoxidative-carbon-balance",
+            "biochemistry-pentose-phosphate:ribose-demand",
+            "biochemistry-pentose-phosphate:nadp-availability",
+            "biochemistry-pentose-phosphate:scale-nadph",
+            "biochemistry-pentose-phosphate:tracer-labeled-ribose",
+            "biochemistry-pentose-phosphate:tracer-flux-limit"
+          ],
+          "card_ids": [
+            "biochemistry-pentose-phosphate-card-1",
+            "biochemistry-pentose-phosphate-card-2",
+            "biochemistry-pentose-phosphate-card-3",
+            "biochemistry-pentose-phosphate-card-4",
+            "biochemistry-pentose-phosphate-card-5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biochemistry-module-19",
+      "title": "Mitochondrial fatty-acid beta-oxidation and energy accounting",
+      "source_ids": [
+        "biochemistry",
+        "biology",
+        "kegg-fatty-acid-degradation-map00071",
+        "reactome-human-mitochondrial-fatty-acid-beta-oxidation",
+        "pubmed-lipid-metabolism-34470787",
+        "mit-7-05-general-biochemistry-2020"
+      ],
+      "lessons": [
+        {
+          "id": "biochemistry-fatty-acid-oxidation",
+          "title": "Fatty-acid beta-oxidation: acetyl-CoA and reducing equivalents",
+          "reading": "modules/19-fatty-acid-beta-oxidation.md",
+          "objectives": [
+            "biochemistry-fatty-acid-objective-1",
+            "biochemistry-fatty-acid-objective-2"
+          ],
+          "worked_example": "Three mol palmitoyl-CoA (C16) yields 3 × (16/2 − 1) = 21 mol beta-oxidation turns and 3 × 8 = 24 mol acetyl-CoA. The starting boundary is activated palmitoyl-CoA, so free-fatty-acid activation cost is excluded.",
+          "question_ids": [
+            "biochemistry-fatty-acid-oxidation:palmitate-cycles",
+            "biochemistry-fatty-acid-oxidation:palmitate-acetyl-coa",
+            "biochemistry-fatty-acid-oxidation:cycle-carriers",
+            "biochemistry-fatty-acid-oxidation:reaction-order",
+            "biochemistry-fatty-acid-oxidation:malonyl-cpt1",
+            "biochemistry-fatty-acid-oxidation:activation-cost",
+            "biochemistry-fatty-acid-oxidation:palmitate-atp-yield"
+          ],
+          "card_ids": [
+            "biochemistry-fatty-acid-oxidation-card-1",
+            "biochemistry-fatty-acid-oxidation-card-2",
+            "biochemistry-fatty-acid-oxidation-card-3",
+            "biochemistry-fatty-acid-oxidation-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biochemistry-module-20",
+      "title": "Amino-acid nitrogen handling and the urea cycle",
+      "source_ids": [
+        "biochemistry",
+        "biology",
+        "kegg-arginine-proline-urea-cycle-map00330",
+        "reactome-human-urea-cycle",
+        "ncbi-physiology-urea-cycle",
+        "mit-7-05-general-biochemistry-2020"
+      ],
+      "lessons": [
+        {
+          "id": "biochemistry-urea-cycle",
+          "title": "Amino-acid nitrogen and the urea cycle",
+          "reading": "modules/20-amino-nitrogen-and-urea-cycle.md",
+          "objectives": [
+            "biochemistry-urea-cycle-objective-1",
+            "biochemistry-urea-cycle-objective-2",
+            "biochemistry-urea-cycle-objective-3"
+          ],
+          "worked_example": "Five mol of nitrogen atoms form 2.5 mol urea under the two-nitrogen-per-urea balance. At 3 ATP molecules and 4 high-energy phosphate equivalents per mol urea, this requires 7.5 mol ATP molecules and 10 mol high-energy phosphate equivalents.",
+          "question_ids": [
+            "biochemistry-urea-cycle:nitrogen-donors",
+            "biochemistry-urea-cycle:urea-carbon",
+            "biochemistry-urea-cycle:atp-molecules",
+            "biochemistry-urea-cycle:phosphate-equivalents",
+            "biochemistry-urea-cycle:cps1-activator",
+            "biochemistry-urea-cycle:compartments",
+            "biochemistry-urea-cycle:fumarate-link",
+            "biochemistry-urea-cycle:nitrogen-to-urea",
+            "biochemistry-urea-cycle:urea-energy-scale"
+          ],
+          "card_ids": [
+            "biochemistry-urea-cycle-card-1",
+            "biochemistry-urea-cycle-card-2",
+            "biochemistry-urea-cycle-card-3",
+            "biochemistry-urea-cycle-card-4",
+            "biochemistry-urea-cycle-card-5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biochemistry-module-21",
+      "title": "Amino-acid carbon skeletons and central-metabolism entry points",
+      "source_ids": [
+        "biochemistry",
+        "biology",
+        "ncbi-protein-catabolism-amino-acid-fates",
+        "review-amino-acid-metabolism-2021",
+        "mit-7-05-general-biochemistry-2020"
+      ],
+      "lessons": [
+        {
+          "id": "biochemistry-amino-acid-carbon-skeletons",
+          "title": "Amino-acid carbon skeletons: entry points and metabolic fate",
+          "reading": "modules/21-amino-acid-carbon-skeletons.md",
+          "objectives": [
+            "biochemistry-amino-carbon-objective-1",
+            "biochemistry-amino-carbon-objective-2",
+            "biochemistry-amino-carbon-objective-3"
+          ],
+          "worked_example": "Alanine transfers its amino group to alpha-ketoglutarate and leaves a three-carbon pyruvate skeleton that can support gluconeogenesis; glutamate carries the nitrogen separately. In a distinct synthetic tracer example, the assigned BCAA contribution to lipogenic acetyl-CoA rises from 8.0% to 26.0% between cell states, a change of 18.0 percentage points that applies only to the stated model.",
+          "question_ids": [
+            "biochemistry-amino-acid-carbon-skeletons:gluconeogenic-entry-points",
+            "biochemistry-amino-acid-carbon-skeletons:leucine-lysine",
+            "biochemistry-amino-acid-carbon-skeletons:alanine-entry",
+            "biochemistry-amino-acid-carbon-skeletons:valine-entry",
+            "biochemistry-amino-acid-carbon-skeletons:both-classification",
+            "biochemistry-amino-acid-carbon-skeletons:acetylcoa-net-glucose",
+            "biochemistry-amino-acid-carbon-skeletons:separate-nitrogen-carbon",
+            "biochemistry-amino-acid-carbon-skeletons:bcaas-share-change",
+            "biochemistry-amino-acid-carbon-skeletons:tracer-scope"
+          ],
+          "card_ids": [
+            "biochemistry-amino-acid-carbon-skeletons-card-1",
+            "biochemistry-amino-acid-carbon-skeletons-card-2",
+            "biochemistry-amino-acid-carbon-skeletons-card-3",
+            "biochemistry-amino-acid-carbon-skeletons-card-4",
+            "biochemistry-amino-acid-carbon-skeletons-card-5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biochemistry-module-22",
+      "title": "Ketone-body synthesis and extrahepatic utilization",
+      "source_ids": [
+        "biochemistry",
+        "biology",
+        "reactome-human-ketone-body-metabolism",
+        "ncbi-biochemistry-ketogenesis",
+        "review-metabolic-signaling-ketone-bodies",
+        "biochem-ketone-scot-tissue-fukao-1997",
+        "biochem-ketone-hepatic-anabolism-queathem-2025",
+        "mit-7-05-general-biochemistry-2020"
+      ],
+      "lessons": [
+        {
+          "id": "biochemistry-ketone-body-metabolism",
+          "title": "Ketone-body synthesis and use: a fasting fuel connection",
+          "reading": "modules/22-ketone-body-synthesis-and-use.md",
+          "objectives": [
+            "biochemistry-ketone-objective-1",
+            "biochemistry-ketone-objective-2",
+            "biochemistry-ketone-objective-3",
+            "biochemistry-ketone-objective-4"
+          ],
+          "worked_example": "Two mmol D-BHB yield 43 mmol ATP-equivalents under an explicit model: P/O 2.5/1.5, one GTP per TCA turn, an extra NADH from D-BHB oxidation and one GTP-forming step bypassed by SCOT.",
+          "question_ids": [
+            "biochemistry-ketone-body-metabolism:ketone-bodies",
+            "biochemistry-ketone-body-metabolism:hepatic-synthesis",
+            "biochemistry-ketone-body-metabolism:redox-ratio",
+            "biochemistry-ketone-body-metabolism:liver-scot",
+            "biochemistry-ketone-body-metabolism:ketolysis-sequence",
+            "biochemistry-ketone-body-metabolism:acetyl-coa-yield",
+            "biochemistry-ketone-body-metabolism:fasting-integration",
+            "biochemistry-ketone-body-metabolism:conditional-atp-yield",
+            "biochemistry-ketone-body-metabolism:hepatic-fate-nuance"
+          ],
+          "card_ids": [
+            "biochemistry-ketone-body-metabolism-card-1",
+            "biochemistry-ketone-body-metabolism-card-2",
+            "biochemistry-ketone-body-metabolism-card-3",
+            "biochemistry-ketone-body-metabolism-card-4",
+            "biochemistry-ketone-body-metabolism-card-5",
+            "biochemistry-ketone-body-metabolism-card-6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biochemistry-module-23",
+      "title": "Fatty-acid synthesis, triacylglycerol storage and reciprocal control",
+      "source_ids": [
+        "biochemistry",
+        "biology",
+        "kegg-fatty-acid-biosynthesis-map00061",
+        "reactome-human-fatty-acyl-coa-biosynthesis",
+        "mit-7-05-general-biochemistry-2020"
+      ],
+      "lessons": [
+        {
+          "id": "biochemistry-fatty-acid-synthesis",
+          "title": "Fatty-acid synthesis and triacylglycerol storage and mobilization",
+          "reading": "modules/23-fatty-acid-synthesis.md",
+          "objectives": [
+            "biochemistry-fatty-synthesis-objective-1",
+            "biochemistry-fatty-synthesis-objective-2",
+            "biochemistry-neutral-lipid-objective-1",
+            "biochemistry-neutral-lipid-objective-2"
+          ],
+          "worked_example": "Twenty-four mol cytosolic acetyl-CoA provide three mol palmitate. The synthesis ledger forms 21 mol malonyl-CoA, consumes 21 mol ATP at acetyl-CoA carboxylase and 42 mol NADPH in fatty-acid synthase. The citrate-shuttle cost is outside this starting boundary. In a separate neutral-lipid ledger, 5 mol fully hydrolyzed triacylglycerol yields 15 mol fatty acids and 5 mol glycerol; this storage-mobilization count is independent of the cytosolic palmitate-synthesis boundary.",
+          "question_ids": [
+            "biochemistry-fatty-acid-synthesis:acetyl-coa-count",
+            "biochemistry-fatty-acid-synthesis:malonyl-coa-count",
+            "biochemistry-fatty-acid-synthesis:acc-atp-cost",
+            "biochemistry-fatty-acid-synthesis:nadph-cost",
+            "biochemistry-fatty-acid-synthesis:citrate-shuttle",
+            "biochemistry-fatty-acid-synthesis:malonyl-control",
+            "biochemistry-fatty-acid-synthesis:nadph-source",
+            "biochemistry-fatty-acid-synthesis:triacylglycerol-fatty-acid-count",
+            "biochemistry-fatty-acid-synthesis:tag-acyl-coa",
+            "biochemistry-fatty-acid-synthesis:stored-lipolysis-sequence",
+            "biochemistry-fatty-acid-synthesis:lipolysis-hormone-control",
+            "biochemistry-fatty-acid-synthesis:capillary-vs-adipose-lipases",
+            "biochemistry-fatty-acid-synthesis:glycerol-fate",
+            "biochemistry-fatty-acid-synthesis:hepatic-tag-route"
+          ],
+          "card_ids": [
+            "biochemistry-fatty-acid-synthesis-card-1",
+            "biochemistry-fatty-acid-synthesis-card-2",
+            "biochemistry-fatty-acid-synthesis-card-3",
+            "biochemistry-fatty-acid-synthesis-card-4",
+            "biochemistry-fatty-acid-synthesis-storage-card-1",
+            "biochemistry-fatty-acid-synthesis-storage-card-2",
+            "biochemistry-fatty-acid-synthesis-storage-card-3",
+            "biochemistry-fatty-acid-synthesis-storage-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biochemistry-module-24",
+      "title": "Cholesterol synthesis and lipoprotein transport",
+      "source_ids": [
+        "biochemistry",
+        "biology",
+        "kegg-steroid-biosynthesis-map00100",
+        "reactome-human-cholesterol-biosynthesis",
+        "endotext-lipoproteins-nbk305896",
+        "mit-7-05-general-biochemistry-2020"
+      ],
+      "lessons": [
+        {
+          "id": "biochemistry-cholesterol-lipoproteins",
+          "title": "Cholesterol synthesis and lipoprotein transport",
+          "reading": "modules/24-cholesterol-and-lipoproteins.md",
+          "objectives": [
+            "biochemistry-cholesterol-objective-1",
+            "biochemistry-cholesterol-objective-2",
+            "biochemistry-cholesterol-objective-3"
+          ],
+          "worked_example": "In a synthetic hepatocyte model, inhibiting HMG-CoA reductase lowers ER cholesterol. SREBP2 processing and expression of HMG-CoA reductase and the LDL receptor rise, but the inhibitor still suppresses enzyme activity. Increased LDL-receptor abundance can raise receptor-mediated LDL uptake, separating synthesis feedback from particle clearance.",
+          "question_ids": [
+            "biochemistry-cholesterol-lipoproteins:hmgcr-reaction",
+            "biochemistry-cholesterol-lipoproteins:low-sterol-response",
+            "biochemistry-cholesterol-lipoproteins:chylomicron-origin",
+            "biochemistry-cholesterol-lipoproteins:lpl-activation",
+            "biochemistry-cholesterol-lipoproteins:ldl-receptor-ligand",
+            "biochemistry-cholesterol-lipoproteins:endogenous-route",
+            "biochemistry-cholesterol-lipoproteins:hdl-transport",
+            "biochemistry-cholesterol-lipoproteins:hepatocyte-pool-change",
+            "biochemistry-cholesterol-lipoproteins:pool-vs-plasma"
+          ],
+          "card_ids": [
+            "biochemistry-cholesterol-lipoproteins-card-1",
+            "biochemistry-cholesterol-lipoproteins-card-2",
+            "biochemistry-cholesterol-lipoproteins-card-3",
+            "biochemistry-cholesterol-lipoproteins-card-4",
+            "biochemistry-cholesterol-lipoproteins-card-5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biochemistry-module-25",
+      "title": "Purine and pyrimidine biosynthesis, salvage and DNA precursors",
+      "source_ids": [
+        "biochemistry",
+        "biology",
+        "kegg-human-purine-map00230",
+        "kegg-pyrimidine-map00240",
+        "reactome-purine-ribonucleotide-biosynthesis",
+        "reactome-human-pyrimidine-biosynthesis",
+        "reactome-human-purine-salvage",
+        "reactome-ribonucleotide-reduction",
+        "reactome-thymidylate-synthesis"
+      ],
+      "lessons": [
+        {
+          "id": "biochemistry-nucleotide-biosynthesis",
+          "title": "Nucleotide biosynthesis, salvage and deoxyribonucleotides",
+          "reading": "modules/25-nucleotide-biosynthesis-and-salvage.md",
+          "objectives": [
+            "biochemistry-nucleotide-objective-1",
+            "biochemistry-nucleotide-objective-2",
+            "biochemistry-nucleotide-objective-3"
+          ],
+          "worked_example": "Six mol IMP are split so that four mol form AMP and two mol form GMP. The AMP branch consumes four mol GTP; the GMP branch consumes two mol ATP. This counts only the branch conversions and excludes PRPP formation, construction of IMP, and later nucleotide phosphorylation. A separate mixed-route example uses 4 mol de novo IMP and 3 mol hypoxanthine salvage: 7 mol PRPP are consumed, while converting 2 mol IMP to AMP and 1 mol to GMP consumes 2 mol GTP and 1 mol ATP at those branch steps.",
+          "question_ids": [
+            "biochemistry-nucleotide-biosynthesis:gmp-branch-atp",
+            "biochemistry-nucleotide-biosynthesis:amp-branch-gtp",
+            "biochemistry-nucleotide-biosynthesis:purine-ring-order",
+            "biochemistry-nucleotide-biosynthesis:pyrimidine-ring-order",
+            "biochemistry-nucleotide-biosynthesis:purine-salvage",
+            "biochemistry-nucleotide-biosynthesis:ribonucleotide-reduction",
+            "biochemistry-nucleotide-biosynthesis:thymidylate-folate",
+            "biochemistry-nucleotide-biosynthesis:prpp-route-accounting",
+            "biochemistry-nucleotide-biosynthesis:branch-energy-ledger"
+          ],
+          "card_ids": [
+            "biochemistry-nucleotide-biosynthesis-card-1",
+            "biochemistry-nucleotide-biosynthesis-card-2",
+            "biochemistry-nucleotide-biosynthesis-card-3",
+            "biochemistry-nucleotide-biosynthesis-card-4",
+            "biochemistry-nucleotide-biosynthesis-card-5"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -984,13 +1913,15 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "biochemistry-1-objective-1",
-        "biochemistry-1-objective-2"
+        "biochemistry-1-objective-2",
+        "biochemistry-outcome-1"
       ],
       "question_ids": [
         "biochemistry-1:check",
-        "biochemistry-1:affinity-specificity-cooperativity"
+        "biochemistry-1:affinity-specificity-cooperativity",
+        "biochemistry-1:structure-levels"
       ],
-      "points": 2
+      "points": 3
     },
     {
       "id": "biochemistry-2-practice",
@@ -999,7 +1930,8 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "biochemistry-2-objective-1",
-        "biochemistry-2-objective-2"
+        "biochemistry-2-objective-2",
+        "biochemistry-outcome-2"
       ],
       "question_ids": [
         "biochemistry-2:check",
@@ -1014,13 +1946,17 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "biochemistry-3-objective-1",
-        "biochemistry-3-objective-2"
+        "biochemistry-3-objective-2",
+        "biochemistry-outcome-3",
+        "biochemistry-3-objective-3"
       ],
       "question_ids": [
         "biochemistry-3:check",
-        "biochemistry-3:uncoupler-and-pmf"
+        "biochemistry-3:uncoupler-and-pmf",
+        "biochemistry-3:pool-change",
+        "biochemistry-3:pool-vs-turnover"
       ],
-      "points": 2
+      "points": 4
     },
     {
       "id": "biochemistry-4-practice",
@@ -1029,13 +1965,15 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "biochemistry-4-objective-1",
-        "biochemistry-4-objective-2"
+        "biochemistry-4-objective-2",
+        "biochemistry-outcome-4"
       ],
       "question_ids": [
         "biochemistry-4:check",
-        "biochemistry-4:pathway-block-and-fluxes"
+        "biochemistry-4:pathway-block-and-fluxes",
+        "biochemistry-4:regulatory-layers"
       ],
-      "points": 2
+      "points": 3
     },
     {
       "id": "biochemistry-5-practice",
@@ -1282,9 +2220,349 @@
       "type": "case",
       "mode": "self-assessment",
       "path": "rubrics/case-studio.json",
-      "objective_ids": [],
+      "objective_ids": [
+        "biochemistry-13-objective-1",
+        "biochemistry-13-objective-2",
+        "biochemistry-13-objective-3",
+        "biochemistry-glycogen-objective-2",
+        "biochemistry-gluconeogenesis-objective-1",
+        "biochemistry-gluconeogenesis-objective-2",
+        "biochemistry-fatty-acid-objective-2",
+        "biochemistry-neutral-lipid-objective-2",
+        "biochemistry-ketone-objective-1",
+        "biochemistry-ketone-objective-2",
+        "biochemistry-urea-cycle-objective-1"
+      ],
       "question_ids": [],
-      "points": 0
+      "points": 0,
+      "title": "Metabolic perturbation and fed-to-fasting pathway integration case"
+    },
+    {
+      "id": "biochemistry-protein-purification-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Protein purification and activity-data practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "biochemistry-protein-purification-objective-1",
+        "biochemistry-protein-purification-objective-2",
+        "biochemistry-outcome-5"
+      ],
+      "question_ids": [
+        "biochemistry-protein-purification:ion-exchange-by-pi",
+        "biochemistry-protein-purification:size-exclusion-order",
+        "biochemistry-protein-purification:affinity-selectivity",
+        "biochemistry-protein-purification:ion-exchange-specific-activity",
+        "biochemistry-protein-purification:ion-exchange-recovery",
+        "biochemistry-protein-purification:enrichment-not-homogeneity"
+      ],
+      "points": 6
+    },
+    {
+      "id": "biochemistry-tca-cycle-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Citric acid cycle carbon and redox practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "biochemistry-tca-cycle-objective-1",
+        "biochemistry-tca-cycle-objective-2",
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4",
+        "biochemistry-tca-cycle-objective-3"
+      ],
+      "question_ids": [
+        "biochemistry-tca-cycle:per-turn-output",
+        "biochemistry-tca-cycle:nadh-two-turns",
+        "biochemistry-tca-cycle:pdh-boundary",
+        "biochemistry-tca-cycle:gtp-two-turns",
+        "biochemistry-tca-cycle:anaplerosis",
+        "biochemistry-tca-cycle:pool-versus-flux",
+        "biochemistry-tca-cycle:label-fate",
+        "biochemistry-tca-cycle:isotope-enrichment-vs-flux"
+      ],
+      "points": 8
+    },
+    {
+      "id": "biochemistry-gluconeogenesis-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Gluconeogenesis bypass and regulation practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "biochemistry-gluconeogenesis-objective-1",
+        "biochemistry-gluconeogenesis-objective-2",
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ],
+      "question_ids": [
+        "biochemistry-gluconeogenesis:pyruvate-kinase-bypass",
+        "biochemistry-gluconeogenesis:atp-cost",
+        "biochemistry-gluconeogenesis:gtp-cost",
+        "biochemistry-gluconeogenesis:f26bp-control",
+        "biochemistry-gluconeogenesis:bypass-hydrolysis",
+        "biochemistry-gluconeogenesis:net-glucose-carbon",
+        "biochemistry-gluconeogenesis:energy-cost-scaling"
+      ],
+      "points": 7
+    },
+    {
+      "id": "biochemistry-glycogen-metabolism-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Glycogen storage, mobilization and tissue-control practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "biochemistry-glycogen-objective-1",
+        "biochemistry-glycogen-objective-2",
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ],
+      "question_ids": [
+        "biochemistry-glycogen-metabolism:glycogen-storage-cost",
+        "biochemistry-glycogen-metabolism:glycogen-phosphorylase",
+        "biochemistry-glycogen-metabolism:muscle-atp-yield",
+        "biochemistry-glycogen-metabolism:tissue-roles",
+        "biochemistry-glycogen-metabolism:phosphorylation-switch",
+        "biochemistry-glycogen-metabolism:muscle-signal",
+        "biochemistry-glycogen-metabolism:g1p-and-branch-point"
+      ],
+      "points": 7
+    },
+    {
+      "id": "biochemistry-pentose-phosphate-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Pentose phosphate pathway redox and carbon practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "biochemistry-ppp-objective-1",
+        "biochemistry-ppp-objective-2",
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4",
+        "biochemistry-ppp-objective-3"
+      ],
+      "question_ids": [
+        "biochemistry-pentose-phosphate:oxidative-nadph",
+        "biochemistry-pentose-phosphate:oxidative-co2",
+        "biochemistry-pentose-phosphate:no-direct-atp",
+        "biochemistry-pentose-phosphate:nonoxidative-carbon-balance",
+        "biochemistry-pentose-phosphate:ribose-demand",
+        "biochemistry-pentose-phosphate:nadp-availability",
+        "biochemistry-pentose-phosphate:scale-nadph",
+        "biochemistry-pentose-phosphate:tracer-labeled-ribose",
+        "biochemistry-pentose-phosphate:tracer-flux-limit"
+      ],
+      "points": 9
+    },
+    {
+      "id": "biochemistry-fatty-acid-oxidation-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Fatty-acid oxidation and energy-accounting practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "biochemistry-fatty-acid-objective-1",
+        "biochemistry-fatty-acid-objective-2",
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ],
+      "question_ids": [
+        "biochemistry-fatty-acid-oxidation:palmitate-cycles",
+        "biochemistry-fatty-acid-oxidation:palmitate-acetyl-coa",
+        "biochemistry-fatty-acid-oxidation:cycle-carriers",
+        "biochemistry-fatty-acid-oxidation:reaction-order",
+        "biochemistry-fatty-acid-oxidation:malonyl-cpt1",
+        "biochemistry-fatty-acid-oxidation:activation-cost",
+        "biochemistry-fatty-acid-oxidation:palmitate-atp-yield"
+      ],
+      "points": 7
+    },
+    {
+      "id": "biochemistry-urea-cycle-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Urea-cycle nitrogen, energy and compartment practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "biochemistry-urea-cycle-objective-1",
+        "biochemistry-urea-cycle-objective-2",
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4",
+        "biochemistry-urea-cycle-objective-3"
+      ],
+      "question_ids": [
+        "biochemistry-urea-cycle:nitrogen-donors",
+        "biochemistry-urea-cycle:urea-carbon",
+        "biochemistry-urea-cycle:atp-molecules",
+        "biochemistry-urea-cycle:phosphate-equivalents",
+        "biochemistry-urea-cycle:cps1-activator",
+        "biochemistry-urea-cycle:compartments",
+        "biochemistry-urea-cycle:fumarate-link",
+        "biochemistry-urea-cycle:nitrogen-to-urea",
+        "biochemistry-urea-cycle:urea-energy-scale"
+      ],
+      "points": 9
+    },
+    {
+      "id": "biochemistry-amino-acid-carbon-skeletons-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Amino-acid carbon fate and classification practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "biochemistry-amino-carbon-objective-1",
+        "biochemistry-amino-carbon-objective-2",
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4",
+        "biochemistry-amino-carbon-objective-3"
+      ],
+      "question_ids": [
+        "biochemistry-amino-acid-carbon-skeletons:gluconeogenic-entry-points",
+        "biochemistry-amino-acid-carbon-skeletons:leucine-lysine",
+        "biochemistry-amino-acid-carbon-skeletons:alanine-entry",
+        "biochemistry-amino-acid-carbon-skeletons:valine-entry",
+        "biochemistry-amino-acid-carbon-skeletons:both-classification",
+        "biochemistry-amino-acid-carbon-skeletons:acetylcoa-net-glucose",
+        "biochemistry-amino-acid-carbon-skeletons:separate-nitrogen-carbon",
+        "biochemistry-amino-acid-carbon-skeletons:bcaas-share-change",
+        "biochemistry-amino-acid-carbon-skeletons:tracer-scope"
+      ],
+      "points": 9
+    },
+    {
+      "id": "biochemistry-ketone-body-metabolism-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Ketone-body synthesis, redox and utilization practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "biochemistry-ketone-objective-1",
+        "biochemistry-ketone-objective-2",
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4",
+        "biochemistry-ketone-objective-3",
+        "biochemistry-ketone-objective-4"
+      ],
+      "question_ids": [
+        "biochemistry-ketone-body-metabolism:ketone-bodies",
+        "biochemistry-ketone-body-metabolism:hepatic-synthesis",
+        "biochemistry-ketone-body-metabolism:redox-ratio",
+        "biochemistry-ketone-body-metabolism:liver-scot",
+        "biochemistry-ketone-body-metabolism:ketolysis-sequence",
+        "biochemistry-ketone-body-metabolism:acetyl-coa-yield",
+        "biochemistry-ketone-body-metabolism:fasting-integration",
+        "biochemistry-ketone-body-metabolism:conditional-atp-yield",
+        "biochemistry-ketone-body-metabolism:hepatic-fate-nuance"
+      ],
+      "points": 9
+    },
+    {
+      "id": "biochemistry-fatty-acid-synthesis-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Fatty-acid synthesis and neutral-lipid metabolism practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "biochemistry-fatty-synthesis-objective-1",
+        "biochemistry-fatty-synthesis-objective-2",
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4",
+        "biochemistry-neutral-lipid-objective-1",
+        "biochemistry-neutral-lipid-objective-2"
+      ],
+      "question_ids": [
+        "biochemistry-fatty-acid-synthesis:acetyl-coa-count",
+        "biochemistry-fatty-acid-synthesis:malonyl-coa-count",
+        "biochemistry-fatty-acid-synthesis:acc-atp-cost",
+        "biochemistry-fatty-acid-synthesis:nadph-cost",
+        "biochemistry-fatty-acid-synthesis:citrate-shuttle",
+        "biochemistry-fatty-acid-synthesis:malonyl-control",
+        "biochemistry-fatty-acid-synthesis:nadph-source",
+        "biochemistry-fatty-acid-synthesis:triacylglycerol-fatty-acid-count",
+        "biochemistry-fatty-acid-synthesis:tag-acyl-coa",
+        "biochemistry-fatty-acid-synthesis:stored-lipolysis-sequence",
+        "biochemistry-fatty-acid-synthesis:lipolysis-hormone-control",
+        "biochemistry-fatty-acid-synthesis:capillary-vs-adipose-lipases",
+        "biochemistry-fatty-acid-synthesis:glycerol-fate",
+        "biochemistry-fatty-acid-synthesis:hepatic-tag-route"
+      ],
+      "points": 14
+    },
+    {
+      "id": "biochemistry-cholesterol-lipoproteins-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Cholesterol synthesis and lipoprotein transport practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "biochemistry-cholesterol-objective-1",
+        "biochemistry-cholesterol-objective-2",
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4",
+        "biochemistry-cholesterol-objective-3"
+      ],
+      "question_ids": [
+        "biochemistry-cholesterol-lipoproteins:hmgcr-reaction",
+        "biochemistry-cholesterol-lipoproteins:low-sterol-response",
+        "biochemistry-cholesterol-lipoproteins:chylomicron-origin",
+        "biochemistry-cholesterol-lipoproteins:lpl-activation",
+        "biochemistry-cholesterol-lipoproteins:ldl-receptor-ligand",
+        "biochemistry-cholesterol-lipoproteins:endogenous-route",
+        "biochemistry-cholesterol-lipoproteins:hdl-transport",
+        "biochemistry-cholesterol-lipoproteins:hepatocyte-pool-change",
+        "biochemistry-cholesterol-lipoproteins:pool-vs-plasma"
+      ],
+      "points": 9
+    },
+    {
+      "id": "biochemistry-nucleotide-biosynthesis-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Nucleotide biosynthesis and salvage practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "biochemistry-nucleotide-objective-1",
+        "biochemistry-nucleotide-objective-2",
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4",
+        "biochemistry-nucleotide-objective-3"
+      ],
+      "question_ids": [
+        "biochemistry-nucleotide-biosynthesis:gmp-branch-atp",
+        "biochemistry-nucleotide-biosynthesis:amp-branch-gtp",
+        "biochemistry-nucleotide-biosynthesis:purine-ring-order",
+        "biochemistry-nucleotide-biosynthesis:pyrimidine-ring-order",
+        "biochemistry-nucleotide-biosynthesis:purine-salvage",
+        "biochemistry-nucleotide-biosynthesis:ribonucleotide-reduction",
+        "biochemistry-nucleotide-biosynthesis:thymidylate-folate",
+        "biochemistry-nucleotide-biosynthesis:prpp-route-accounting",
+        "biochemistry-nucleotide-biosynthesis:branch-energy-ledger"
+      ],
+      "points": 9
+    },
+    {
+      "id": "biochemistry-week4-purification-lab",
+      "type": "lab",
+      "mode": "practice",
+      "title": "Virtual purification lab: fraction recovery and enrichment (ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 4,
+      "objective_ids": [
+        "biochemistry-lab-02-objective-1",
+        "biochemistry-lab-02-objective-2",
+        "biochemistry-outcome-5"
+      ],
+      "question_ids": [
+        "biochemistry-lab2:ion-exchange-protein-mass",
+        "biochemistry-lab2:ion-exchange-total-activity",
+        "biochemistry-lab2:ion-exchange-specific-activity",
+        "biochemistry-lab2:ion-exchange-recovery",
+        "biochemistry-lab2:sec-enrichment",
+        "biochemistry-lab2:orthogonal-step",
+        "biochemistry-lab2:enrichment-limit"
+      ],
+      "points": 7
     }
   ],
   "grading_policy": {
@@ -1299,6 +2577,9 @@
   "case_rubrics": "rubrics/case-studio.json",
   "source_map": "source-map.json",
   "syllabus": "syllabus.md",
+  "learner_resources": [
+    "labs/enzyme-kinetics-rates.csv"
+  ],
   "review": {
     "status": "unreviewed",
     "reviewed_version": null,
@@ -1344,19 +2625,445 @@
       "version": "0.4.0",
       "date": "2026-10-08",
       "summary": "Added a proposed 14-week schedule; six original lessons (amino acids, charge and the isoelectric point; protein folding and stability; glycolysis, energy charge and the AMP signal; mitochondrial bioenergetics and ATP yield; flux control and the layers of regulation; and reading a metabolic perturbation, which prepares the course case on a respiratory-chain inhibitor that lowers ATP and raises lactate); and a synthetic-data enzyme-kinetics lab with a competitive inhibitor. No new references were added. All activities remain ungraded practice; the package remains partial and unreviewed, gives no laboratory protocol or medical advice, and makes no claim about any compound or person."
+    },
+    {
+      "version": "0.4.1",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-1 protein-structure reading with structural levels, interaction and folding context, ligand occupancy, affinity, specificity, cooperativity and binding-pathway distinctions. Existing questions, keys and objectives are unchanged. Three compact prototype readings remain in weeks 5, 9 and 12; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.2",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-5 enzyme reading with catalytic strategies, Michaelis-Menten assumptions, inhibition patterns, parameter interpretation and unit-aware catalytic efficiency. Existing questions, keys and objectives are unchanged. Two compact prototype readings remain in weeks 9 and 12; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.3",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-9 bioenergetics reading with carbon and redox bookkeeping, condition-dependent free energy, proton-motive-force coupling, uncoupling and qualified ATP-yield accounting. Existing questions, keys and objectives are unchanged. One compact prototype reading remains in week 12; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.4",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-12 pathway-regulation reading with pool balances, flux-control coefficients, isotope-tracing limits, regulatory layers and perturbation time scales. Existing questions, keys and objectives are unchanged. All four original compact prototype readings now have expanded primers; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.5",
+      "date": "2026-10-10",
+      "summary": "Linked the first four lesson pairs to outcomes 1–4. Reassociated the preserved ligand-occupancy and pool-versus-flux questions with their matching objectives and added direct formative practice for protein structure levels and pathway regulatory layers. Existing numeric prompts and keys remain unchanged. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.6",
+      "date": "2026-10-11",
+      "summary": "Added an inactive synthetic protein-state portfolio connecting pH-dependent charge, two-state folding, denaturant stability and ligand-depletion binding under explicit assumptions. The values describe no real protein, assay or person; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.7",
+      "date": "2026-10-11",
+      "summary": "Made the week-14 metabolic case an explicit learner-facing, ungraded self-check in its delivered lesson, linked its case assessment to the three perturbation objectives, and replaced the empty case checklist with observable calculation, interpretation and experiment-design checks. No graded item or answer key changed; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.8",
+      "date": "2026-10-11",
+      "summary": "Added a synthetic-data lesson and formative practice on ion exchange, size exclusion, affinity selection, purification-table calculations and the limits of specific activity. Added a fifth authored outcome and linked the work into week 4. Method handbooks are cited by link only; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.9",
+      "date": "2026-10-11",
+      "summary": "Added a week-9 lesson on citric-acid-cycle carbon, cofactor and GTP accounting, pyruvate-dehydrogenase boundaries, intermediate withdrawal/replenishment and flux limits, with seven public formative items. KEGG and Reactome pathway records are linked only. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.10",
+      "date": "2026-10-11",
+      "summary": "Added a week-10 lesson on gluconeogenic bypasses, the ATP/GTP/NADH input from pyruvate, reciprocal liver regulation and carbon-source limits, with seven public formative items and four retrieval cards. KEGG, Reactome and the primary F2,6BP study are linked only. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.11",
+      "date": "2026-10-11",
+      "summary": "Added a week-12 lesson on glycogen storage and breakdown, UDP-glucose activation cost, muscle ATP accounting, reciprocal phosphorylation control, and liver-versus-muscle roles, with seven public formative items and four retrieval cards. KEGG, Reactome and a human glycogen-metabolism review are linked only. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.12",
+      "date": "2026-10-11",
+      "summary": "Added a week-13 lesson on oxidative-branch NADPH and carbon-dioxide accounting, reversible nonoxidative sugar rearrangements, pentose demand and NADP-sensitive flux, with seven public formative items and four retrieval cards. KEGG and Reactome pathway entries are linked only. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.13",
+      "date": "2026-10-11",
+      "summary": "Added a week-11 lesson on mitochondrial beta-oxidation, carnitine transport, palmitate cycle/carrier accounting, activation cost and an explicitly assumption-bound ATP estimate, with seven public formative items and four retrieval cards. KEGG, Reactome and a review are linked only. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.14",
+      "date": "2026-10-11",
+      "summary": "Added a week-2 lesson on amino-nitrogen transfer and urea-cycle atom, compartment and energy accounting, including the three-ATP/four-high-energy-bond distinction, CPS1 activation and fumarate connection, with seven public formative items and four retrieval cards. KEGG, Reactome and NCBI are linked only. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.15",
+      "date": "2026-10-11",
+      "summary": "Added a week-2 lesson connecting amino-acid carbon skeletons to pyruvate and citric-acid-cycle intermediates, with glucogenic, ketogenic and mixed fates, plus seven public formative items and four retrieval cards. NCBI Bookshelf and a review are linked only. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.16",
+      "date": "2026-10-11",
+      "summary": "Added a week-11 lesson on liver ketogenesis, extrahepatic ketolysis, the beta-hydroxybutyrate/acetoacetate redox relationship, SCOT tissue distinction and fasting integration, with seven public formative items and four retrieval cards. Reactome, NCBI and a review are linked only. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.17",
+      "date": "2026-10-11",
+      "summary": "Added a week-13 fatty-acid synthesis lesson with explicit cytosolic acetyl-CoA, malonyl-CoA, ATP and NADPH accounting, seven public formative questions, four retrieval cards, and link-only KEGG and Reactome references. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.18",
+      "date": "2026-10-11",
+      "summary": "Added a week-12 lesson on cholesterol biosynthesis and sterol feedback, dietary and liver-derived lipoprotein routes, apolipoprotein functions and LDL-receptor uptake, with seven public formative items, four retrieval cards and link-only KEGG, Reactome and Endotext references. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.19",
+      "date": "2026-10-11",
+      "summary": "Added a week-8 lesson on purine and pyrimidine synthesis, PRPP-dependent salvage, ribonucleotide reduction and folate-linked thymidylate formation, with explicit IMP branch energy accounting, seven public formative items, four retrieval cards and link-only KEGG and Reactome references. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.20",
+      "date": "2026-10-11",
+      "summary": "Extended the week-13 fatty-acid synthesis lesson to cover glycerol-3-phosphate acylation, triacylglycerol storage, adipose ATGL-HSL-MGL lipolysis, glycerol reuse and the distinction from capillary lipoprotein lipase. Added seven public formative items, four retrieval cards and link-only KEGG, Reactome and Endotext references. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.21",
+      "date": "2026-10-11",
+      "summary": "Expanded the existing ungraded week-14 case studio with a synthetic fed-like versus mobilization-like liver index table and an integrated pathway self-check on glucose sources, malonyl-CoA/CPT1 control, ketogenesis and urea output. Six explicit checklist criteria remain self-assessed and ungraded. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.22",
+      "date": "2026-10-11",
+      "summary": "Added an inactive answer-free cumulative final review candidate, synchronized the proposed syllabus with the complete 26-lesson schedule, and refreshed the public numeric recalculation inventory. No answer key or grader specification was authored; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.23",
+      "date": "2026-10-11",
+      "summary": "Added an inactive answer-free first-half midterm review candidate with ten synthetic cases and replicate kinetics and purification observations, and documented it in the proposed syllabus. The candidate remains outside live assessment policy; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.24",
+      "date": "2026-10-11",
+      "summary": "Added a week-4 synthetic-data virtual purification lab with seven ungraded formative checks and four retrieval cards, and extended the inactive midterm and cumulative-final candidates to include its objectives. No physical laboratory procedure or graded assessment was added; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.25",
+      "date": "2026-10-11",
+      "summary": "Added eight inactive answer-free homework review candidates spanning all 14 proposed weeks, with synthetic datasets and field-level links to the scheduled objectives. They have no protected keys or graders and remain outside the live assessment policy; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.26",
+      "date": "2026-10-11",
+      "summary": "Refined homework response fields to include quantitative ligand-depletion and purification calculations, explicit mitochondrial potential signs, glycogen nucleotide cost, lipid export and steady-state flux inputs. All eight homework packets and both exams remain inactive answer-free candidates outside the live policy; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.27",
+      "date": "2026-10-11",
+      "summary": "Rebalanced choice positions across all eight homework candidates, corrected the H3 enzyme-amount and H4 inhibitor-concentration inputs, and prepared private unreviewed key/grader drafts for all eight packets outside the public package. Their hashes match the current candidates; all remain inactive. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.28",
+      "date": "2026-10-11",
+      "summary": "Balanced answer positions and normalized grader-supported units in the inactive midterm and final drafts; prepared unreviewed private key/grader drafts for both exams outside the public package. All ten assessment candidates remain inactive; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.29",
+      "date": "2026-10-11",
+      "summary": "Converted the protein-state and ligand-binding portfolio into a mapped inactive human-review candidate with a 100-point draft rubric and a private worked-solution guide. No automated prose grading, assignment policy or release was added; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.30",
+      "date": "2026-10-11",
+      "summary": "Added an inactive grading-policy proposal with illustrative category weights, calculation, grade bands, attempt and feedback rules, accessibility considerations and open adoption gates. The manifest remains formative-only and no candidate became active."
+    },
+    {
+      "version": "0.4.31",
+      "date": "2026-10-11",
+      "summary": "Expanded the week-12 pathway-regulation reading with a fuller pool/flux analysis, local control and isotope-mixing examples, an integrated perturbation workflow, and two link-only primary studies. Existing objectives and graded candidates are unchanged; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.32",
+      "date": "2026-10-11",
+      "summary": "Expanded the week-5 enzyme-mechanism reading with reaction-coordinate and intermediate/transition-state distinctions, a bounded activation-free-energy comparison, a simplified chymotrypsin catalytic cycle, and three link-only primary references. Existing formative questions and answer keys are unchanged; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.33",
+      "date": "2026-10-11",
+      "summary": "Expanded the week-1 structure and molecular-recognition reading with limits of static structures, a primary conformational-ensemble case, a synthetic closed/open population-odds calculation, and evidence matched to affinity, kinetics and causality. Added two link-only primary references; existing formative items and answer keys are unchanged. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.34",
+      "date": "2026-10-11",
+      "summary": "Expanded the week-9 citric-acid-cycle lesson with conditional ¹³C entry signatures, a synthetic two-time-point isotopologue calculation and explicit limits on inferring flux from enrichment. Added one objective-aligned formative question/card and two link-only primary studies; no paper assets were imported. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.35",
+      "date": "2026-10-11",
+      "summary": "Expanded the week-11 ketone-body lesson with conditional acetoacetate/D-BHB ATP-equivalent accounting, the SCOT opportunity cost, and a distinction between canonical oxidative ketolysis and reported SCOT-independent anabolic use in mouse hepatocytes. Added two objective-aligned formative questions/cards, two link-only primary studies and an eighth inactive homework case with synthetic data/private key; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.36",
+      "date": "2026-10-11",
+      "summary": "Expanded the week-2 amino-acid carbon-skeleton lesson with a representative entry-point table, separate carbon/nitrogen ledgers, a model-bounded adipocyte isotope-tracing example and explicit limits on net-glucose and whole-body inference. Added one objective, two formative checks, a retrieval card, a link-only primary study and a seventh inactive Homework 1 case with synthetic values; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.37",
+      "date": "2026-10-11",
+      "summary": "Expanded the week-13 pentose-phosphate lesson with a synthetic [1,2-13C2]glucose/ribose isotopomer calculation and explicit limits on reading branch flux from labeling alone. Added one objective, two formative checks, a retrieval card, link-only primary studies and a tenth inactive Homework 8 case; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.38",
+      "date": "2026-10-11",
+      "summary": "Expanded the week-2 urea-cycle lesson with a closed-balance nitrogen-disposal example that scales urea amount and energy demand while separating stoichiometric cost from pathway rate and ATP-pool change. Added one objective, two formative checks, a retrieval card and an eighth inactive Homework 1 case; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.39",
+      "date": "2026-10-11",
+      "summary": "Expanded the week-12 cholesterol/lipoprotein lesson with a defined hepatocyte mass-balance example and a distinction between cellular sterol pool change and circulating LDL concentration. Added one objective, two formative checks, a retrieval card, a ninth inactive Homework 7 case and a fourteenth inactive final-candidate case; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.40",
+      "date": "2026-10-11",
+      "summary": "Expanded the week-9 nucleotide lesson with a synthetic mixed-route PRPP and purine-branch energy ledger. Added one objective, two formative checks, a retrieval card, an eighth inactive Homework 5 case and a fifteenth inactive final-candidate case; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.41",
+      "date": "2026-10-11",
+      "summary": "Expanded the week-9 bioenergetics lesson with a synthetic ATP-pool synthesis/utilization balance that distinguishes a steady pool from ongoing turnover. Added one objective, two formative checks, a retrieval card, a ninth inactive Homework 5 case and a sixteenth inactive final-candidate case; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.42",
+      "date": "2026-10-11",
+      "summary": "Corrected the cumulative-final mapping for the existing palmitate ATP-yield calculation so its evidence also covers integration across beta-oxidation, the citric acid cycle and electron transport. The corresponding formative item now carries the same objective link; no new assessment case was needed, and all candidates remain inactive."
+    },
+    {
+      "version": "0.4.43",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative-final blueprint with a synthetic case that assesses glycolytic carbon/redox products and the distinction between oxygen use and ATP synthesis during uncoupling. No new lesson objective or homework case was added; all assessments remain inactive."
+    },
+    {
+      "version": "0.4.44",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative-final blueprint with a synthetic acetoacetate ATP-equivalent calculation and a bounded interpretation of mouse hepatic ketone-carbon labeling. The distinct case assesses the ketone conditional-yield and liver-fate objectives; no new lesson objective or homework case was added, and all assessments remain inactive."
+    },
+    {
+      "version": "0.4.45",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative-final blueprint with a synthetic citrate isotopologue case that calculates enrichment change and distinguishes labeling from pathway flux. The case assesses the TCA isotope-interpretation objective; no homework case or live assessment was added, and all assessments remain inactive."
+    },
+    {
+      "version": "0.4.46",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative-final blueprint with a paired gluconeogenesis calculation and carbon-source boundary case. It assesses ATP/GTP cost and the limit on net glucose synthesis from even-chain fatty-acid acetyl-CoA; no homework case was added, and all assessments remain inactive."
+    },
+    {
+      "version": "0.4.47",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a synthetic anaplerosis/cataplerosis pool-balance case and bounded redox/energy-state interpretation. It assesses the TCA intermediate and flux objective; no lesson objective or homework case was added, and all candidates remain inactive."
+    },
+    {
+      "version": "0.4.48",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a synthetic glycolysis-control case pairing PFK-1 allosteric regulation with a measured uptake-rate change and an explicit metabolite-pool/flux distinction. No lesson objective or homework case was added, and all assessments remain inactive."
+    },
+    {
+      "version": "0.4.49",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a synthetic protein-structure case distinguishing a direct sequence change from downstream structural evidence and identifying quaternary structure in a homotetramer. No lesson objective or homework case was added, and all assessments remain inactive."
+    },
+    {
+      "version": "0.4.50",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a cytochrome-c-to-oxygen standard redox-potential calculation and a bounded interpretation of proton-gradient coupling in electron transport. The case assesses the reduction-potential/free-energy objective; no homework case was added, and all assessments remain inactive."
+    },
+    {
+      "version": "0.4.51",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a synthetic ligand-depletion case that calculates bound complex using the exact quadratic and evaluates the hyperbolic approximation under comparable receptor and Kd concentrations. The case assesses the ligand-depletion objective; no homework case was added, and all assessments remain inactive."
+    },
+    {
+      "version": "0.4.52",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a synthetic coupled-versus-uncoupled oxygen/P/O comparison that calculates oxidative ATP rate and bounds the inference from oxygen uptake alone. It assesses the mitochondrial uncoupling/ATP-turnover objective; no homework case was added, and all candidates remain inactive."
+    },
+    {
+      "version": "0.4.53",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a synthetic flux-control-coefficient case that applies the summation theorem and predicts a small enzyme-perturbation response. The case assesses distributed pathway control; no lesson objective or homework case was added, and all assessments remain inactive."
+    },
+    {
+      "version": "0.4.54",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a synthetic lactate/pyruvate redox and uniformly labeled-glucose source-fraction case. The case links redox context and tracer-derived carbon-source interpretation while explicitly distinguishing enrichment from rate; all candidates remain inactive."
+    },
+    {
+      "version": "0.4.55",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a synthetic ATP-demand calculation and oxygen-consumption comparison that distinguishes complete oxidative-phosphorylation block from a primary glycolytic defect with alternate-fuel support. The new case maps the week-14 glucose/lactate calculation and diagnostic-design objectives; all candidates remain inactive."
+    },
+    {
+      "version": "0.4.56",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a synthetic first-order enzyme-turnover case. It calculates the 90% adjustment time from a new half-life and distinguishes fast allosteric and covalent control from slower enzyme-abundance changes; all candidates remain inactive."
+    },
+    {
+      "version": "0.4.57",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a synthetic Hill-equation oxygen-delivery case. It calculates hemoglobin-like unloading between lung and tissue pressures, compares a non-cooperative carrier and interprets the Hill coefficient; all candidates remain inactive."
+    },
+    {
+      "version": "0.4.58",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a synthetic two-step steady-state model. Two perturbations produce the same intermediate pool but different fluxes, illustrating why pool size alone does not identify flow; all candidates remain inactive."
+    },
+    {
+      "version": "0.4.59",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a synthetic short-peptide protonation calculation. It uses separate acid and base fractional-charge equations to calculate net charge under an independent-group approximation; all candidates remain inactive."
+    },
+    {
+      "version": "0.4.60",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with an isoelectric-point case covering an amino acid without an ionizable side chain and acidic/basic side-chain pKa bracketing. All candidates remain inactive."
+    },
+    {
+      "version": "0.4.61",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a synthetic protein charge-versus-pH interpretation. It links pH-relative-to-pI with migration direction and cation/anion-exchange binding while treating pI and group charges as model estimates; all candidates remain inactive."
+    },
+    {
+      "version": "0.4.62",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a synthetic catalytic-efficiency case. It converts kcat/Km units, compares low-substrate and near-saturating regimes, and distinguishes catalytic efficiency from binding affinity; all candidates remain inactive."
+    },
+    {
+      "version": "0.4.63",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a controlled regulatory-layer case that distinguishes substrate supply, allosteric response, covalent modification and enzyme expression. All candidates remain inactive."
+    },
+    {
+      "version": "0.4.64",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a synthetic connected-pathway perturbation case. It calculates immediate pool accumulation after a partial block and distinguishes the initial response from possible later compensation; all candidates remain inactive."
+    },
+    {
+      "version": "0.4.65",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a synthetic two-state protein-folding case. It converts unfolding free energy to an equilibrium constant and folded fraction while preserving the sign convention and model assumption; all candidates remain inactive."
+    },
+    {
+      "version": "0.4.66",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a synthetic denaturant-stability extrapolation. It estimates the zero-denaturant unfolding free energy and denaturation midpoint from two linear-region observations; all candidates remain inactive."
+    },
+    {
+      "version": "0.4.67",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a synthetic destabilizing-mutation case. It relates the change in unfolding equilibrium to the unfolded population and proteostasis while retaining the two-state assumption; all candidates remain inactive."
+    },
+    {
+      "version": "0.4.68",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a synthetic replicate-summary case. It preserves four initial-rate groups across two conditions and two substrate concentrations and reports their independent-reaction means; all candidates remain inactive."
+    },
+    {
+      "version": "0.4.69",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a synthetic double-reciprocal fit case. It derives Vmax, Km, inhibited apparent Km and Ki from stated fit coefficients; all candidates remain inactive."
+    },
+    {
+      "version": "0.4.70",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with an inhibition-method case. It distinguishes a competitive pattern from unsupported interpretations, notes the limits of reciprocal plots, and selects the valid initial-rate interval; all candidates remain inactive."
+    },
+    {
+      "version": "0.4.71",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a synthetic pentose-phosphate carbon-balance case. It connects reversible nonoxidative carbon rearrangement to ribose demand and relates NADP+ availability to oxidative-branch support; all candidates remain inactive."
+    },
+    {
+      "version": "0.4.72",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with an amino-acid carbon-skeleton map. It distinguishes pyruvate and TCA entry from exclusively ketogenic products and classifies a mixed-fate amino acid; all candidates remain inactive."
+    },
+    {
+      "version": "0.4.73",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a nitrogen-versus-carbon fate case. It applies alanine transamination and the mammalian acetyl-CoA net-carbon boundary; all candidates remain inactive."
+    },
+    {
+      "version": "0.4.74",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a fatty-acid synthesis control case. It connects citrate export to cytosolic acetyl-CoA, ACC regulation to malonyl-CoA formation, and malonyl-CoA to CPT1 inhibition; all candidates remain inactive."
+    },
+    {
+      "version": "0.4.75",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a neutral-lipid storage case. It traces glycerol-3-phosphate acylation to triacylglycerol and connects hepatic storage to VLDL export; all candidates remain inactive."
+    },
+    {
+      "version": "0.4.76",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a synthetic amino-acid tracer interpretation case. It computes a pool-specific percentage-point change and limits inference about oxidation, net glucose and whole-body flux; all candidates remain inactive."
+    },
+    {
+      "version": "0.4.77",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a synthetic ribose isotopomer case. It computes the labeled fraction and distinguishes label appearance from pathway-flux quantification; all candidates remain inactive."
+    },
+    {
+      "version": "0.4.78",
+      "date": "2026-10-11",
+      "summary": "Expanded the inactive cumulative final with a urea-cycle nitrogen and energy ledger. It calculates a closed-balance urea amount and distinguishes ATP molecules from high-energy phosphate equivalents; all candidates remain inactive."
+    },
+    {
+      "version": "0.4.79",
+      "date": "2026-10-11",
+      "summary": "Expanded the synthetic protein-purification lab with worked totals, activity recovery and specific-activity enrichment for every fraction, plus an explicit limit on replicate uncertainty; all assessments remain formative-only or inactive candidates."
+    },
+    {
+      "version": "0.4.80",
+      "date": "2026-10-11",
+      "summary": "Replaced the week-7 kinetics lab's mutable raw CSV link with a package-pinned learner resource, available from the saved package version to enrolled learners; the synthetic dataset and lab activity are unchanged. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.81",
+      "date": "2026-10-11",
+      "summary": "Marked the week-7 kinetics lab's suggested 2–3 hour learner time as an unvalidated author estimate; no time data or approved workload targets exist. The course remains partial, unreviewed and formative-only, and no learner activity or assessment policy changed."
+    },
+    {
+      "version": "0.4.82",
+      "date": "2026-10-11",
+      "summary": "Expanded the binding-equilibria reading with a ligand-depletion derivation, a mass-balance-checked quadratic example and explicit model assumptions; assessments remain formative-only or inactive candidates."
+    },
+    {
+      "version": "0.4.83",
+      "date": "2026-10-11",
+      "summary": "Made the free-energy reading's reaction quotient explicitly dimensionless and added regression checks for its displayed ATP, coupling, redox and equilibrium examples; assessment policy remains unchanged."
+    },
+    {
+      "version": "0.4.84",
+      "date": "2026-10-11",
+      "summary": "Aligned the kinetics-lab package label and added a CSV-linked regression that recomputes its replicate means and inhibition fits; all candidates remain inactive."
+    },
+    {
+      "version": "0.4.85",
+      "date": "2026-10-11",
+      "summary": "Consolidated overlapping overview material: central-metabolism, free-energy and mitochondrial lessons now have distinct roles; pathway integration signposts the detailed flux-control treatment. Recorded the animal-cell scope and explicit photosynthesis boundary against MIT OCW 7.05 Spring 2020."
     }
   ],
   "limitations": [
-    "Four compact legacy units are preserved beside ten original readings, including one synthetic-data virtual lab; this package is not equivalent to a full university semester.",
-    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm, cumulative final, or graded integrative project.",
-    "Practice items are short formative checks (two per prototype unit and six to seven per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
+    "The proposed scope focuses on proteins, enzymes and heterotrophic animal-cell metabolism. Photosynthetic energy conversion and carbon assimilation, membrane transport mechanisms and translation are not taught as dedicated strands; MIT OCW 7.05 Spring 2020 includes them, so this package is narrower than that comparator.",
+    "A proposed 14-week schedule and inactive grading-policy proposal exist but are unmeasured and unreviewed. Two synthetic-data virtual labs provide a limited paper-only sequence, not a physical laboratory sequence; eight homework packets, two exams and a human-scored protein-state project remain inactive ungraded review candidates with private unreviewed solution/scoring drafts outside the public package. None is approved or active. Physical laboratory work is not authored.",
+    "Practice items are short formative checks; they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
-    "Of the 50 numerical answers in this package, 26 require a unit, one checks significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
+    "Of the 81 numerical practice answers in this package, 49 require a unit and 32 accept a number within a stated tolerance with the unit optional; none checks dimensions or significant figures.",
     "Total workload and weekly duration are unknown; former nominal credit values and hardcoded reading times do not establish workload.",
     "All metabolic scenarios, cells and numbers are synthetic teaching examples; this package gives no laboratory protocols or medical advice and says nothing about any real compound, cell line or person."
   ],
   "intentionally_omitted": [
-    "Graded assessments and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package."
+    "No grading policy or summative assessment is approved, and a physical laboratory sequence is not authored; eight answer-free homework candidates, two exams, the human-scored project and two synthetic-data virtual labs remain ungraded drafts. All eleven homework/exam/project candidates have private unreviewed key or scoring drafts held outside the public package. The original lessons extend a partial package.",
+    "Photosystem light harvesting and electron transport, photophosphorylation, Calvin–Benson CO₂ assimilation, membrane transport mechanisms and translation are deliberately deferred from this animal-cell-focused partial sequence; MIT OCW 7.05 Spring 2020 includes these topics."
   ]
 }

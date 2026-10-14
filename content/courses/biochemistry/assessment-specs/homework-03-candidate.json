@@ -1,0 +1,376 @@
+{
+  "candidate_id": "biochemistry-homework-03-candidate-v1",
+  "course_id": "biochemistry",
+  "content_version": "0.4.85",
+  "state": "inactive-review-candidate",
+  "title": "Homework 3 review candidate: enzyme mechanisms and kinetic models",
+  "points": 50,
+  "lesson_ids": [
+    "biochemistry-2",
+    "biochemistry-5"
+  ],
+  "objective_ids": [
+    "biochemistry-2-objective-1",
+    "biochemistry-2-objective-2",
+    "biochemistry-5-objective-1",
+    "biochemistry-5-objective-2",
+    "biochemistry-5-objective-3"
+  ],
+  "course_outcome_ids": [
+    "biochemistry-outcome-2",
+    "biochemistry-outcome-1"
+  ],
+  "objective_link_occurrences": 11,
+  "objective_evidence": [
+    {
+      "question_id": "biochemistry-homework-03-candidate-v1:case-01",
+      "field_id": "mechanism-model",
+      "objective_ids": [
+        "biochemistry-2-objective-1"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    },
+    {
+      "question_id": "biochemistry-homework-03-candidate-v1:case-01",
+      "field_id": "model-limit",
+      "objective_ids": [
+        "biochemistry-2-objective-2"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    },
+    {
+      "question_id": "biochemistry-homework-03-candidate-v1:case-02",
+      "field_id": "rate-at-substrate",
+      "objective_ids": [
+        "biochemistry-5-objective-1"
+      ],
+      "points": 5,
+      "evidence_type": "numeric"
+    },
+    {
+      "question_id": "biochemistry-homework-03-candidate-v1:case-02",
+      "field_id": "turnover-number",
+      "objective_ids": [
+        "biochemistry-5-objective-1"
+      ],
+      "points": 5,
+      "evidence_type": "numeric"
+    },
+    {
+      "question_id": "biochemistry-homework-03-candidate-v1:case-03",
+      "field_id": "catalytic-efficiency",
+      "objective_ids": [
+        "biochemistry-2-objective-2"
+      ],
+      "points": 5,
+      "evidence_type": "numeric"
+    },
+    {
+      "question_id": "biochemistry-homework-03-candidate-v1:case-03",
+      "field_id": "efficiency-limit",
+      "objective_ids": [
+        "biochemistry-2-objective-2"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    },
+    {
+      "question_id": "biochemistry-homework-03-candidate-v1:case-04",
+      "field_id": "apparent-km",
+      "objective_ids": [
+        "biochemistry-5-objective-2"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    },
+    {
+      "question_id": "biochemistry-homework-03-candidate-v1:case-04",
+      "field_id": "noncompetitive-pattern",
+      "objective_ids": [
+        "biochemistry-5-objective-2"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    },
+    {
+      "question_id": "biochemistry-homework-03-candidate-v1:case-05",
+      "field_id": "linearized-risk",
+      "objective_ids": [
+        "biochemistry-5-objective-3"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    },
+    {
+      "question_id": "biochemistry-homework-03-candidate-v1:case-05",
+      "field_id": "assay-condition",
+      "objective_ids": [
+        "biochemistry-5-objective-3",
+        "biochemistry-2-objective-2"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    }
+  ],
+  "instruction_path": "assessment-specs/homework-03-candidate.md",
+  "dataset_path": "assessment-specs/homework-03-candidate-data.csv",
+  "prerequisite_sha256": {
+    "modules/02-enzyme-mechanisms-and-inhibition.md": "1d822c9aff1733764642e88d9d18fbaa58d6f162a6d2ea9bc08dcb264c288e02",
+    "modules/05-enzyme-kinetics-from-data-and-inhibition-modes.md": "94b8ef84ff47a0ab60c2dc5d01ea5bd66bd66be1880df3f53decfce9f54c9d12"
+  },
+  "questions": [
+    {
+      "id": "biochemistry-homework-03-candidate-v1:case-01",
+      "type": "structured",
+      "prompt": "A fictional inhibitor binds only the free enzyme and competes with substrate for the same site.",
+      "options": [],
+      "unit": null,
+      "significant_figures": null,
+      "points": 10,
+      "selection": "single",
+      "partial_credit_policy": null,
+      "response_fields": [
+        {
+          "id": "mechanism-model",
+          "type": "single_choice",
+          "prompt": "Which simple inhibition model is most consistent with the stated binding competition?",
+          "options": [
+            "Competitive inhibition.",
+            "Pure noncompetitive inhibition.",
+            "Uncompetitive inhibition."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        },
+        {
+          "id": "model-limit",
+          "type": "single_choice",
+          "prompt": "Which statement should accompany a simple inhibition diagnosis?",
+          "options": [
+            "It proves the inhibitor binds in a living organism.",
+            "It is conditional on the model and assay assumptions.",
+            "It identifies the inhibitor structure."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        }
+      ],
+      "graph_spec": null,
+      "accepted_media_types": [],
+      "max_upload_bytes": null,
+      "variant_id": null,
+      "variant_token": null,
+      "learning_objective_ids": [
+        "biochemistry-2-objective-1",
+        "biochemistry-2-objective-2"
+      ],
+      "assessment_role": "graded"
+    },
+    {
+      "id": "biochemistry-homework-03-candidate-v1:case-02",
+      "type": "structured",
+      "prompt": "Use the catalytic parameters and total enzyme amount in the synthetic dataset.",
+      "options": [],
+      "unit": null,
+      "significant_figures": null,
+      "points": 10,
+      "selection": "single",
+      "partial_credit_policy": null,
+      "response_fields": [
+        {
+          "id": "rate-at-substrate",
+          "type": "numeric",
+          "prompt": "Calculate the initial rate at the listed substrate concentration with the Michaelis–Menten relation.",
+          "options": [],
+          "unit": "µmol/min",
+          "points": 5,
+          "significant_figures": 3
+        },
+        {
+          "id": "turnover-number",
+          "type": "numeric",
+          "prompt": "Calculate kcat from Vmax and the listed total active-enzyme amount in the assay.",
+          "options": [],
+          "unit": "1/min",
+          "points": 5,
+          "significant_figures": 3
+        }
+      ],
+      "graph_spec": null,
+      "accepted_media_types": [],
+      "max_upload_bytes": null,
+      "variant_id": null,
+      "variant_token": null,
+      "learning_objective_ids": [
+        "biochemistry-5-objective-1"
+      ],
+      "assessment_role": "graded"
+    },
+    {
+      "id": "biochemistry-homework-03-candidate-v1:case-03",
+      "type": "structured",
+      "prompt": "Use the stated kcat and Km inputs; preserve compatible units when calculating catalytic efficiency.",
+      "options": [],
+      "unit": null,
+      "significant_figures": null,
+      "points": 10,
+      "selection": "single",
+      "partial_credit_policy": null,
+      "response_fields": [
+        {
+          "id": "catalytic-efficiency",
+          "type": "numeric",
+          "prompt": "Calculate kcat/Km and report compatible concentration and time units.",
+          "options": [],
+          "unit": "L/(µmol·min)",
+          "points": 5,
+          "significant_figures": 3
+        },
+        {
+          "id": "efficiency-limit",
+          "type": "single_choice",
+          "prompt": "Which interpretation of kcat/Km is appropriate under the stated model?",
+          "options": [
+            "It is numerically identical to Kd in every mechanism.",
+            "It does not depend on the units chosen for concentration.",
+            "It is a model-based efficiency measure, not a universal binding constant."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        }
+      ],
+      "graph_spec": null,
+      "accepted_media_types": [],
+      "max_upload_bytes": null,
+      "variant_id": null,
+      "variant_token": null,
+      "learning_objective_ids": [
+        "biochemistry-2-objective-2"
+      ],
+      "assessment_role": "graded"
+    },
+    {
+      "id": "biochemistry-homework-03-candidate-v1:case-04",
+      "type": "structured",
+      "prompt": "Compare the control and inhibitor parameters in the dataset under the stated simple models.",
+      "options": [],
+      "unit": null,
+      "significant_figures": null,
+      "points": 10,
+      "selection": "single",
+      "partial_credit_policy": null,
+      "response_fields": [
+        {
+          "id": "apparent-km",
+          "type": "single_choice",
+          "prompt": "Which apparent Km pattern is expected for the listed competitive-inhibitor input?",
+          "options": [
+            "Apparent Km increases while Vmax is unchanged in the simple model.",
+            "Apparent Km decreases while Vmax is unchanged.",
+            "Both apparent Km and Vmax must become zero."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        },
+        {
+          "id": "noncompetitive-pattern",
+          "type": "single_choice",
+          "prompt": "Which pair of apparent parameter changes is associated with pure noncompetitive inhibition in the simple model?",
+          "options": [
+            "Vmax is unchanged while Km increases.",
+            "Vmax decreases while Km is unchanged.",
+            "Both Vmax and Km increase by the same factor."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        }
+      ],
+      "graph_spec": null,
+      "accepted_media_types": [],
+      "max_upload_bytes": null,
+      "variant_id": null,
+      "variant_token": null,
+      "learning_objective_ids": [
+        "biochemistry-5-objective-2"
+      ],
+      "assessment_role": "graded"
+    },
+    {
+      "id": "biochemistry-homework-03-candidate-v1:case-05",
+      "type": "structured",
+      "prompt": "A learner estimates parameters from a reciprocal plot built from a small set of rates.",
+      "options": [],
+      "unit": null,
+      "significant_figures": null,
+      "points": 10,
+      "selection": "single",
+      "partial_credit_policy": null,
+      "response_fields": [
+        {
+          "id": "linearized-risk",
+          "type": "single_choice",
+          "prompt": "Why can a double-reciprocal plot distort parameter estimates?",
+          "options": [
+            "It removes measurement error from every point.",
+            "It makes all assay conditions equivalent.",
+            "Reciprocal transformation disproportionately weights low-substrate, low-rate observations."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        },
+        {
+          "id": "assay-condition",
+          "type": "single_choice",
+          "prompt": "Which assay feature most directly supports interpretation of a measured rate as an initial velocity?",
+          "options": [
+            "A short linear time window with substrate depletion and product accumulation kept small.",
+            "A long endpoint after substrate is exhausted.",
+            "Mixing rates from different enzyme concentrations without normalization."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        }
+      ],
+      "graph_spec": null,
+      "accepted_media_types": [],
+      "max_upload_bytes": null,
+      "variant_id": null,
+      "variant_token": null,
+      "learning_objective_ids": [
+        "biochemistry-5-objective-3",
+        "biochemistry-2-objective-2"
+      ],
+      "assessment_role": "graded"
+    }
+  ],
+  "review": {
+    "status": "unreviewed",
+    "reviewers": []
+  },
+  "activation_gates": [
+    "independent-recalculation",
+    "grader-mutation-review",
+    "qualified-biochemical-review",
+    "assessment-blueprint-review",
+    "accessibility-and-fairness-review",
+    "measured-workload",
+    "candidate-specific-protected-delivery-verification",
+    "operator-release-and-retake-policy"
+  ],
+  "key_status": "An unreviewed private key/grader draft is stored outside the public package. It is not approved or active and requires candidate-specific hash checks, independent recalculation and mutation review.",
+  "provenance": {
+    "kind": "original",
+    "license": "CC-BY-4.0",
+    "ai_assistance": "Codex authored an answer-free draft; no independent or qualified review occurred.",
+    "source_scope": "Existing course lessons and synthetic observations authored for this candidate; no external assessment or dataset was copied."
+  }
+}

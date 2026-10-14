@@ -7,7 +7,7 @@
   "domain": "Chemistry",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.4.0",
+  "version": "0.4.9",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -15,7 +15,13 @@
     "source_sha256": "a77a7cb7f5be2ffa12068877042ac775c6d9b79b83ac2f316fe4f26a0d3d783b",
     "migration_version": "1.0",
     "modifications": [
-      "Clarified the typical E2 answer option as anti-periplanar; atypical syn elimination is not presented as equally typical."
+      "Clarified the typical E2 answer option as anti-periplanar; atypical syn elimination is not presented as equally typical.",
+      "Expanded the week-1 resonance and acid-base prototype with formal-charge and arrow auditing, conjugate-base stability comparisons, a hypothetical pKa equilibrium example, and solvent and mechanism limits.",
+      "Expanded the week-5 SN1/SN2 prototype with a conditional mechanism comparison, rate-law consequences, synthetic concentration changes, geometric stereochemistry, and ion-pair limits; linked registered primary OpenStax sections.",
+      "Expanded the week-7 elimination prototype with E1/E2/E1cB step order, rate-law models, beta-hydrogen inventory, anti-periplanar and trans-diaxial constraints, and qualified alkene-regioselectivity reasoning.",
+      "Expanded the week-9 carbonyl prototype with carbonyl polarization, charge-audited tetrahedral intermediates, addition-versus-acyl-substitution criteria, leaving-group/resonance comparisons, and biomolecular context.",
+      "MIT OCW 5.12 Organic Chemistry I, Spring 2005 calendar was checked for aromaticity/EAS placement and used as a curriculum comparator only; the new lesson is original.",
+      "Added original aromaticity and electrophilic aromatic-substitution instruction with cyclic electron counting, sigma-complex reasoning and directing effects; combined four related primer/expanded pairs in the proposed schedule. The 11-block grouped sequence remains unmeasured and makes no semester-equivalence claim."
     ]
   },
   "prerequisites": {
@@ -55,49 +61,68 @@
       "id": "organic-chemistry-1-objective-1",
       "description": "Rank acidity using conjugate-base stabilization.",
       "bloom": "understand",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "organic-chemistry-outcome-1"
+      ]
     },
     {
       "id": "organic-chemistry-1-objective-2",
       "description": "Use resonance without moving atoms or violating valence.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "organic-chemistry-outcome-1"
+      ]
     },
     {
       "id": "organic-chemistry-2-objective-1",
       "description": "Predict how substrate structure and solvent affect substitution.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "organic-chemistry-outcome-2"
+      ]
     },
     {
       "id": "organic-chemistry-2-objective-2",
       "description": "Connect mechanism to stereochemical outcome and rate law.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "organic-chemistry-outcome-2",
+        "organic-chemistry-outcome-3"
+      ]
     },
     {
       "id": "organic-chemistry-3-objective-1",
       "description": "Distinguish E1 and E2 pathways.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "organic-chemistry-outcome-2"
+      ]
     },
     {
       "id": "organic-chemistry-3-objective-2",
       "description": "Predict alkene products while stating regioselectivity assumptions.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "organic-chemistry-outcome-2",
+        "organic-chemistry-outcome-3"
+      ]
     },
     {
       "id": "organic-chemistry-4-objective-1",
       "description": "Explain why carbonyl carbon is electrophilic.",
       "bloom": "understand",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "organic-chemistry-outcome-1"
+      ]
     },
     {
       "id": "organic-chemistry-4-objective-2",
       "description": "Predict addition versus substitution from the carbonyl derivative.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "organic-chemistry-outcome-1",
+        "organic-chemistry-outcome-4"
+      ]
     },
     {
       "id": "organic-chemistry-5-objective-1",
@@ -340,34 +365,107 @@
       "course_outcome_ids": [
         "organic-chemistry-outcome-3"
       ]
+    },
+    {
+      "id": "organic-chemistry-14-objective-1",
+      "description": "Classify a cyclic π system as aromatic, antiaromatic or nonaromatic from its conjugation, geometry and electron count.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "organic-chemistry-outcome-1"
+      ]
+    },
+    {
+      "id": "organic-chemistry-14-objective-2",
+      "description": "Explain the addition–elimination sequence of electrophilic aromatic substitution and show where the ring temporarily loses aromaticity.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "organic-chemistry-outcome-2"
+      ]
+    },
+    {
+      "id": "organic-chemistry-14-objective-3",
+      "description": "Predict the broad directing pattern of a substituent on a monosubstituted benzene and state when the product distribution cannot be inferred from directing labels alone.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "organic-chemistry-outcome-3"
+      ]
+    },
+    {
+      "id": "organic-chemistry-14-objective-4",
+      "description": "Explain the addition–elimination mechanism of nucleophilic aromatic substitution (SNAr) and predict how the position of an electron-withdrawing group and the identity of the leaving group affect an aryl halide's reactivity.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "organic-chemistry-outcome-2"
+      ]
+    },
+    {
+      "id": "organic-chemistry-15-objective-1",
+      "description": "Predict usual hydrohalogenation and hydration regiochemistry for an unsymmetrical alkene and state the mechanistic assumption.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "organic-chemistry-outcome-3"
+      ]
+    },
+    {
+      "id": "organic-chemistry-15-objective-2",
+      "description": "Distinguish carbocation, halonium-ion and hydroboration pathways by their stereochemical outcomes and rearrangement limits.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "organic-chemistry-outcome-2",
+        "organic-chemistry-outcome-3"
+      ]
+    },
+    {
+      "id": "organic-chemistry-15-objective-3",
+      "description": "Check alkene addition products with atom, stoichiometric-equivalent and unsaturation bookkeeping.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "organic-chemistry-outcome-4"
+      ]
+    },
+    {
+      "id": "organic-chemistry-16-objective-1",
+      "description": "Predict carbonyl products of standard terminal-alkyne hydration routes and explain enol-to-carbonyl tautomerization.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "organic-chemistry-outcome-3"
+      ]
+    },
+    {
+      "id": "organic-chemistry-16-objective-2",
+      "description": "Distinguish partial alkyne reduction to cis or trans alkene from complete reduction to an alkane.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "organic-chemistry-outcome-3"
+      ]
+    },
+    {
+      "id": "organic-chemistry-16-objective-3",
+      "description": "Check alkyne reaction products with formula, degree-of-unsaturation and hydrogen-equivalent balances.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "organic-chemistry-outcome-4"
+      ]
     }
   ],
   "duration": {
-    "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week scope retaining compact prototype readings in weeks 1,5,7,9. Workload and qualified review are absent; no semester equivalence is established.",
+    "instructional_weeks": 12,
+    "equivalent_structure": "Proposed 12-block scope, not measured workload or a complete university semester. Four compact-primer/expanded-reading pairs remain grouped. A new alkene/alkyne block follows elimination and alkene formation and precedes aromaticity; MIT OCW 5.12 Spring 2005 allocates weeks 5–7 to alkene and alkyne reactions, so this local treatment remains selective. The synthetic-data virtual lab and preserved self-assessment case are practice activities.",
     "weeks": [
       {
         "week": 1,
-        "title": "Structure, resonance, and acid-base reactivity",
+        "title": "Structure, resonance, electron flow and acid-base balance",
         "lesson_ids": [
-          "organic-chemistry-1"
-        ],
-        "assessment_ids": [
-          "organic-chemistry-1-practice"
-        ]
-      },
-      {
-        "week": 2,
-        "title": "Structure, electron flow and acid–base balance",
-        "lesson_ids": [
+          "organic-chemistry-1",
           "organic-chemistry-7"
         ],
         "assessment_ids": [
+          "organic-chemistry-1-practice",
           "organic-chemistry-7-practice"
         ]
       },
       {
-        "week": 3,
+        "week": 2,
         "title": "Conformations, Fischer maps and stereochemical labels",
         "lesson_ids": [
           "organic-chemistry-8"
@@ -377,67 +475,65 @@
         ]
       },
       {
-        "week": 4,
-        "title": "Substitution mechanisms and stereochemistry: predicting SN1 versus SN2 and tracking what happens at a stereocenter",
+        "week": 3,
+        "title": "Substitution mechanisms and stereochemistry: SN1 and SN2",
         "lesson_ids": [
-          "organic-chemistry-6"
-        ],
-        "assessment_ids": [
-          "organic-chemistry-6-practice"
-        ]
-      },
-      {
-        "week": 5,
-        "title": "Substitution mechanisms: SN1 and SN2",
-        "lesson_ids": [
+          "organic-chemistry-6",
           "organic-chemistry-2"
         ],
         "assessment_ids": [
+          "organic-chemistry-6-practice",
           "organic-chemistry-2-practice"
         ]
       },
       {
-        "week": 6,
-        "title": "Substitution, elimination and competing pathways",
+        "week": 4,
+        "title": "Competing substitution/elimination pathways and alkene formation",
         "lesson_ids": [
-          "organic-chemistry-9"
-        ],
-        "assessment_ids": [
-          "organic-chemistry-9-practice"
-        ]
-      },
-      {
-        "week": 7,
-        "title": "Elimination, alkenes, and stereochemical control",
-        "lesson_ids": [
+          "organic-chemistry-9",
           "organic-chemistry-3"
         ],
         "assessment_ids": [
+          "organic-chemistry-9-practice",
           "organic-chemistry-3-practice"
         ]
       },
       {
-        "week": 8,
-        "title": "Carbonyl addition, acyl transfer and proton bookkeeping",
+        "week": 5,
+        "title": "Alkene and alkyne additions: mechanism, regioselectivity and stereochemical outcome",
         "lesson_ids": [
-          "organic-chemistry-10"
+          "organic-chemistry-15",
+          "organic-chemistry-16"
         ],
         "assessment_ids": [
-          "organic-chemistry-10-practice"
+          "organic-chemistry-15-practice",
+          "organic-chemistry-16-practice"
         ]
       },
       {
-        "week": 9,
-        "title": "Carbonyl chemistry and acyl transfer",
+        "week": 6,
+        "title": "Aromaticity, electrophilic and nucleophilic aromatic substitution",
         "lesson_ids": [
+          "organic-chemistry-14"
+        ],
+        "assessment_ids": [
+          "organic-chemistry-14-practice"
+        ]
+      },
+      {
+        "week": 7,
+        "title": "Carbonyl addition, acyl transfer and proton bookkeeping",
+        "lesson_ids": [
+          "organic-chemistry-10",
           "organic-chemistry-4"
         ],
         "assessment_ids": [
+          "organic-chemistry-10-practice",
           "organic-chemistry-4-practice"
         ]
       },
       {
-        "week": 10,
+        "week": 8,
         "title": "Enolates, aldol connectivity and atom balance",
         "lesson_ids": [
           "organic-chemistry-11"
@@ -447,8 +543,8 @@
         ]
       },
       {
-        "week": 11,
-        "title": "Functional groups at work in biomolecules: acyl reactivity, ionization and slow chemical damage",
+        "week": 9,
+        "title": "Functional groups at work in biomolecules",
         "lesson_ids": [
           "organic-chemistry-5"
         ],
@@ -457,7 +553,7 @@
         ]
       },
       {
-        "week": 12,
+        "week": 10,
         "title": "Spectroscopic constraints and product identity",
         "lesson_ids": [
           "organic-chemistry-12"
@@ -467,7 +563,7 @@
         ]
       },
       {
-        "week": 13,
+        "week": 11,
         "title": "Reaction networks, selectivity and evidence",
         "lesson_ids": [
           "organic-chemistry-13"
@@ -477,7 +573,7 @@
         ]
       },
       {
-        "week": 14,
+        "week": 12,
         "title": "Virtual lab 1: calibrated peak amounts and enantiomeric excess",
         "lesson_ids": [
           "organic-chemistry-lab-01"
@@ -500,7 +596,9 @@
       "title": "Structure, resonance, and acid-base reactivity",
       "source_ids": [
         "organic",
-        "chemistry"
+        "chemistry",
+        "openstax-organic-resonance",
+        "openstax-organic-acid-strength"
       ],
       "lessons": [
         {
@@ -511,7 +609,7 @@
             "organic-chemistry-1-objective-1",
             "organic-chemistry-1-objective-2"
           ],
-          "worked_example": "A carboxylate conjugate base distributes negative charge over two oxygens, making a carboxylic acid more acidic than a typical alcohol whose alkoxide charge is localized.",
+          "worked_example": "A carboxylate has two valid contributors that keep atom positions fixed and distribute charge over both oxygens. For a hypothetical proton transfer from an acid with pKa 5 to a base whose conjugate acid has pKa 9, the same-scale estimate is K≈10^4 toward products; this compares equilibrium preference, not rate.",
           "question_ids": [
             "organic-chemistry-1:check",
             "organic-chemistry-1:resonance-carboxylate"
@@ -519,160 +617,6 @@
           "card_ids": [
             "organic-chemistry-0-0",
             "organic-chemistry-0-1"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "organic-chemistry-module-2",
-      "title": "Substitution mechanisms: SN1 and SN2",
-      "source_ids": [
-        "organic",
-        "chemistry"
-      ],
-      "lessons": [
-        {
-          "id": "organic-chemistry-2",
-          "title": "Substitution mechanisms: SN1 and SN2",
-          "reading": "modules/02-substitution-mechanisms-sn1-and-sn2.md",
-          "objectives": [
-            "organic-chemistry-2-objective-1",
-            "organic-chemistry-2-objective-2"
-          ],
-          "worked_example": "A primary alkyl halide with a strong nucleophile in a polar aprotic solvent favors SN2; a tertiary substrate blocks backside attack and may favor ionization when a stable carbocation can form.",
-          "question_ids": [
-            "organic-chemistry-2:check",
-            "organic-chemistry-2:sn2-stereochemistry-and-rate"
-          ],
-          "card_ids": [
-            "organic-chemistry-1-0",
-            "organic-chemistry-1-1"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "organic-chemistry-module-3",
-      "title": "Elimination, alkenes, and stereochemical control",
-      "source_ids": [
-        "organic",
-        "chemistry"
-      ],
-      "lessons": [
-        {
-          "id": "organic-chemistry-3",
-          "title": "Elimination, alkenes, and stereochemical control",
-          "reading": "modules/03-elimination-alkenes-and-stereochemical-control.md",
-          "objectives": [
-            "organic-chemistry-3-objective-1",
-            "organic-chemistry-3-objective-2"
-          ],
-          "worked_example": "In a cyclohexane chair, E2 requires a trans-diaxial beta hydrogen and leaving group; ring flip can expose the reactive conformation.",
-          "question_ids": [
-            "organic-chemistry-3:check",
-            "organic-chemistry-3:zaitsev-regioselectivity"
-          ],
-          "card_ids": [
-            "organic-chemistry-2-0",
-            "organic-chemistry-2-1"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "organic-chemistry-module-4",
-      "title": "Carbonyl chemistry and acyl transfer",
-      "source_ids": [
-        "organic",
-        "chemistry"
-      ],
-      "lessons": [
-        {
-          "id": "organic-chemistry-4",
-          "title": "Carbonyl chemistry and acyl transfer",
-          "reading": "modules/04-carbonyl-chemistry-and-acyl-transfer.md",
-          "objectives": [
-            "organic-chemistry-4-objective-1",
-            "organic-chemistry-4-objective-2"
-          ],
-          "worked_example": "An ester plus hydroxide forms a tetrahedral intermediate; collapse expels an alkoxide, followed by proton transfer to give a carboxylate under basic conditions.",
-          "question_ids": [
-            "organic-chemistry-4:check",
-            "organic-chemistry-4:addition-vs-substitution"
-          ],
-          "card_ids": [
-            "organic-chemistry-3-0",
-            "organic-chemistry-3-1"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "organic-chemistry-module-5",
-      "title": "Functional groups in biomolecules",
-      "source_ids": [
-        "organic",
-        "chemistry"
-      ],
-      "lessons": [
-        {
-          "id": "organic-chemistry-5",
-          "title": "Functional groups at work in biomolecules: acyl reactivity, ionization and slow chemical damage",
-          "reading": "modules/05-functional-groups-in-biomolecules-and-slow-damage.md",
-          "objectives": [
-            "organic-chemistry-5-objective-1",
-            "organic-chemistry-5-objective-2",
-            "organic-chemistry-5-objective-3"
-          ],
-          "worked_example": "At pH 7.4, histidine is 3.8% protonated and lysine 99.92%; with modification at 0.01 per year, a protein with a 10-year half-life reaches a steady-state modified fraction of 0.126, while a 2-day protein reaches 7.9×10⁻⁵.",
-          "question_ids": [
-            "organic-chemistry-5:acyl-ranking",
-            "organic-chemistry-5:histidine-fraction",
-            "organic-chemistry-5:lysine-unprotonated",
-            "organic-chemistry-5:steady-state-long-lived",
-            "organic-chemistry-5:steady-state-short-lived",
-            "organic-chemistry-5:glycation-step"
-          ],
-          "card_ids": [
-            "organic-chemistry-5-card-1",
-            "organic-chemistry-5-card-2",
-            "organic-chemistry-5-card-3",
-            "organic-chemistry-5-card-4"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "organic-chemistry-module-6",
-      "title": "Substitution mechanisms and stereochemistry",
-      "source_ids": [
-        "organic",
-        "chemistry"
-      ],
-      "lessons": [
-        {
-          "id": "organic-chemistry-6",
-          "title": "Substitution mechanisms and stereochemistry: predicting SN1 versus SN2 and tracking what happens at a stereocenter",
-          "reading": "modules/06-substitution-mechanisms-and-stereochemistry.md",
-          "objectives": [
-            "organic-chemistry-6-objective-1",
-            "organic-chemistry-6-objective-2",
-            "organic-chemistry-6-objective-3"
-          ],
-          "worked_example": "An SN2 rate of 2×10⁻³ × 0.1 × 0.2 = 4.0×10⁻⁵ M/s doubles when the nucleophile doubles; 3 stereocenters allow up to 8 stereoisomers; a rotation of -9.2° against -11.5° means ee = 80%, or 90:10.",
-          "question_ids": [
-            "organic-chemistry-6:mechanism-tertiary",
-            "organic-chemistry-6:sn2-rate",
-            "organic-chemistry-6:sn2-stereo",
-            "organic-chemistry-6:stereoisomers",
-            "organic-chemistry-6:enantiomeric-excess",
-            "organic-chemistry-6:major-fraction"
-          ],
-          "card_ids": [
-            "organic-chemistry-6-card-1",
-            "organic-chemistry-6-card-2",
-            "organic-chemistry-6-card-3",
-            "organic-chemistry-6-card-4"
           ]
         }
       ]
@@ -756,6 +700,73 @@
       ]
     },
     {
+      "id": "organic-chemistry-module-6",
+      "title": "Substitution mechanisms and stereochemistry",
+      "source_ids": [
+        "organic",
+        "chemistry"
+      ],
+      "lessons": [
+        {
+          "id": "organic-chemistry-6",
+          "title": "Substitution mechanisms and stereochemistry: predicting SN1 versus SN2 and tracking what happens at a stereocenter",
+          "reading": "modules/06-substitution-mechanisms-and-stereochemistry.md",
+          "objectives": [
+            "organic-chemistry-6-objective-1",
+            "organic-chemistry-6-objective-2",
+            "organic-chemistry-6-objective-3"
+          ],
+          "worked_example": "An SN2 rate of 2×10⁻³ × 0.1 × 0.2 = 4.0×10⁻⁵ M/s doubles when the nucleophile doubles; 3 stereocenters allow up to 8 stereoisomers; a rotation of -9.2° against -11.5° means ee = 80%, or 90:10.",
+          "question_ids": [
+            "organic-chemistry-6:mechanism-tertiary",
+            "organic-chemistry-6:sn2-rate",
+            "organic-chemistry-6:sn2-stereo",
+            "organic-chemistry-6:stereoisomers",
+            "organic-chemistry-6:enantiomeric-excess",
+            "organic-chemistry-6:major-fraction"
+          ],
+          "card_ids": [
+            "organic-chemistry-6-card-1",
+            "organic-chemistry-6-card-2",
+            "organic-chemistry-6-card-3",
+            "organic-chemistry-6-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "organic-chemistry-module-2",
+      "title": "Substitution mechanisms: SN1 and SN2",
+      "source_ids": [
+        "organic",
+        "chemistry",
+        "openstax-organic-sn2",
+        "openstax-organic-sn2-characteristics",
+        "openstax-organic-sn1",
+        "openstax-organic-sn1-characteristics"
+      ],
+      "lessons": [
+        {
+          "id": "organic-chemistry-2",
+          "title": "Substitution mechanisms: SN1 and SN2",
+          "reading": "modules/02-substitution-mechanisms-sn1-and-sn2.md",
+          "objectives": [
+            "organic-chemistry-2-objective-1",
+            "organic-chemistry-2-objective-2"
+          ],
+          "worked_example": "A tertiary alkyl halide in water favors SN1 in the simplified comparison because backside attack is hindered and ionization can form a stabilized carbocation; a chiral secondary substrate reacting by stated concerted cyanide attack undergoes geometric inversion and follows rate = k[RBr][CN-].",
+          "question_ids": [
+            "organic-chemistry-2:check",
+            "organic-chemistry-2:sn2-stereochemistry-and-rate"
+          ],
+          "card_ids": [
+            "organic-chemistry-1-0",
+            "organic-chemistry-1-1"
+          ]
+        }
+      ]
+    },
+    {
       "id": "organic-chemistry-module-9",
       "title": "Substitution, elimination and competing pathways",
       "source_ids": [
@@ -790,6 +801,88 @@
             "organic-chemistry-9-card-2",
             "organic-chemistry-9-card-3",
             "organic-chemistry-9-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "organic-chemistry-module-3",
+      "title": "Elimination, alkenes, and stereochemical control",
+      "source_ids": [
+        "organic",
+        "chemistry",
+        "openstax-organic-elimination-zaitsev",
+        "openstax-organic-e2",
+        "openstax-organic-e2-cyclohexane",
+        "openstax-organic-e1"
+      ],
+      "lessons": [
+        {
+          "id": "organic-chemistry-3",
+          "title": "Elimination, alkenes, and stereochemical control",
+          "reading": "modules/03-elimination-alkenes-and-stereochemical-control.md",
+          "objectives": [
+            "organic-chemistry-3-objective-1",
+            "organic-chemistry-3-objective-2"
+          ],
+          "worked_example": "In a cyclohexane chair, E2 requires a trans-diaxial beta hydrogen and leaving group; only an aligned beta hydrogen can form a product. Check both chairs and any population difference before predicting which alkene dominates, because conformation can override a Zaitsev-only prediction.",
+          "question_ids": [
+            "organic-chemistry-3:check",
+            "organic-chemistry-3:zaitsev-regioselectivity"
+          ],
+          "card_ids": [
+            "organic-chemistry-2-0",
+            "organic-chemistry-2-1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "organic-chemistry-module-14",
+      "title": "Aromaticity, electrophilic and nucleophilic aromatic substitution",
+      "source_ids": [
+        "organic",
+        "chemistry",
+        "mit-5-12-organic-chemistry-2005"
+      ],
+      "lessons": [
+        {
+          "id": "organic-chemistry-14",
+          "title": "Aromaticity, electrophilic and nucleophilic aromatic substitution",
+          "reading": "modules/14-aromaticity-and-electrophilic-substitution.md",
+          "objectives": [
+            "organic-chemistry-14-objective-1",
+            "organic-chemistry-14-objective-2",
+            "organic-chemistry-14-objective-3",
+            "organic-chemistry-14-objective-4"
+          ],
+          "worked_example": "For methoxybenzene, oxygen-lone-pair donation stabilizes the ortho and para sigma-complex contributors, so the broad EAS products are ortho- and para-substituted; directing labels alone do not establish their ratio. Cyclooctatetraene has eight pi electrons, but its nonplanar tub geometry interrupts continuous overlap, so it is nonaromatic rather than antiaromatic under the stated Hückel criteria. These examples show why geometry and mechanism must be checked before using electron-count or directing-effect shortcuts. The ring can also be the electrophile: methoxide adds to C1 of 1-chloro-2,4-dinitrobenzene, the Meisenheimer complex places negative charge on C2, C4 and C6 and onto both nitro groups, and loss of chloride restores aromaticity; the 3,5-dinitro isomer, with only meta nitro groups, is far less activated.",
+          "question_ids": [
+            "organic-chemistry-14:pi-benzene",
+            "organic-chemistry-14:pi-cyclobutadiene",
+            "organic-chemistry-14:pi-cyclopentadienyl",
+            "organic-chemistry-14:pi-tropylium",
+            "organic-chemistry-14:aromatic-test",
+            "organic-chemistry-14:eas-sequence",
+            "organic-chemistry-14:methoxy-directing",
+            "organic-chemistry-14:nitro-directing",
+            "organic-chemistry-14:halogen-directing",
+            "organic-chemistry-14:snar-sequence",
+            "organic-chemistry-14:snar-activation-position",
+            "organic-chemistry-14:snar-leaving-group",
+            "organic-chemistry-14:snar-vs-eas-nitro",
+            "organic-chemistry-14:meisenheimer-charged-carbons",
+            "organic-chemistry-14:meta-nitro-count",
+            "organic-chemistry-14:meisenheimer-net-charge"
+          ],
+          "card_ids": [
+            "organic-chemistry-14-card-1",
+            "organic-chemistry-14-card-2",
+            "organic-chemistry-14-card-3",
+            "organic-chemistry-14-card-4",
+            "organic-chemistry-14-card-5",
+            "organic-chemistry-14-card-6",
+            "organic-chemistry-14-card-7"
           ]
         }
       ]
@@ -833,6 +926,36 @@
       ]
     },
     {
+      "id": "organic-chemistry-module-4",
+      "title": "Carbonyl chemistry and acyl transfer",
+      "source_ids": [
+        "organic",
+        "chemistry",
+        "openstax-organic-carbonyl-addition",
+        "openstax-organic-acyl-substitution"
+      ],
+      "lessons": [
+        {
+          "id": "organic-chemistry-4",
+          "title": "Carbonyl chemistry and acyl transfer",
+          "reading": "modules/04-carbonyl-chemistry-and-acyl-transfer.md",
+          "objectives": [
+            "organic-chemistry-4-objective-1",
+            "organic-chemistry-4-objective-2"
+          ],
+          "worked_example": "A neutral amine adds to an acid chloride carbonyl, forming a tetrahedral intermediate after the C=O pi pair shifts to oxygen. Proton transfers enable collapse; oxygen reforms C=O as chloride leaves, so the net change is acyl substitution rather than simple addition.",
+          "question_ids": [
+            "organic-chemistry-4:check",
+            "organic-chemistry-4:addition-vs-substitution"
+          ],
+          "card_ids": [
+            "organic-chemistry-3-0",
+            "organic-chemistry-3-1"
+          ]
+        }
+      ]
+    },
+    {
       "id": "organic-chemistry-module-11",
       "title": "Enolates, aldol connectivity and atom balance",
       "source_ids": [
@@ -867,6 +990,41 @@
             "organic-chemistry-11-card-2",
             "organic-chemistry-11-card-3",
             "organic-chemistry-11-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "organic-chemistry-module-5",
+      "title": "Functional groups in biomolecules",
+      "source_ids": [
+        "organic",
+        "chemistry"
+      ],
+      "lessons": [
+        {
+          "id": "organic-chemistry-5",
+          "title": "Functional groups at work in biomolecules: acyl reactivity, ionization and slow chemical damage",
+          "reading": "modules/05-functional-groups-in-biomolecules-and-slow-damage.md",
+          "objectives": [
+            "organic-chemistry-5-objective-1",
+            "organic-chemistry-5-objective-2",
+            "organic-chemistry-5-objective-3"
+          ],
+          "worked_example": "At pH 7.4, histidine is 3.8% protonated and lysine 99.92%; with modification at 0.01 per year, a protein with a 10-year half-life reaches a steady-state modified fraction of 0.126, while a 2-day protein reaches 7.9×10⁻⁵.",
+          "question_ids": [
+            "organic-chemistry-5:acyl-ranking",
+            "organic-chemistry-5:histidine-fraction",
+            "organic-chemistry-5:lysine-unprotonated",
+            "organic-chemistry-5:steady-state-long-lived",
+            "organic-chemistry-5:steady-state-short-lived",
+            "organic-chemistry-5:glycation-step"
+          ],
+          "card_ids": [
+            "organic-chemistry-5-card-1",
+            "organic-chemistry-5-card-2",
+            "organic-chemistry-5-card-3",
+            "organic-chemistry-5-card-4"
           ]
         }
       ]
@@ -985,6 +1143,88 @@
           ]
         }
       ]
+    },
+    {
+      "id": "organic-chemistry-module-15",
+      "title": "Alkene addition: regiochemistry and stereochemistry",
+      "source_ids": [
+        "organic",
+        "chemistry",
+        "mit-5-12-organic-chemistry-2005",
+        "openstax-organic-alkene-halogenation-8-2",
+        "openstax-organic-alkene-hydroboration-8-5"
+      ],
+      "lessons": [
+        {
+          "id": "organic-chemistry-15",
+          "title": "Alkene addition: regiochemistry and stereochemistry",
+          "reading": "modules/15-alkene-addition-regiochemistry-and-stereochemistry.md",
+          "objectives": [
+            "organic-chemistry-15-objective-1",
+            "organic-chemistry-15-objective-2",
+            "organic-chemistry-15-objective-3"
+          ],
+          "worked_example": "For 1-butene, the standard acid-hydration model predicts 2-butanol, while hydroboration–oxidation predicts 1-butanol; HBr addition changes C₄H₈ to C₄H₉Br and lowers DBE from 1 to 0. This stoichiometric and formula check supports the overall product inventory but does not distinguish 1-butanol from 2-butanol or assign a stereoisomer; those conclusions require connectivity and mechanism evidence.",
+          "question_ids": [
+            "organic-chemistry-15:propene-unsaturation",
+            "organic-chemistry-15:bromopropane-unsaturation",
+            "organic-chemistry-15:hx-stoichiometry",
+            "organic-chemistry-15:limiting-product",
+            "organic-chemistry-15:acid-hydration",
+            "organic-chemistry-15:halogenation",
+            "organic-chemistry-15:hydroboration",
+            "organic-chemistry-15:mechanism-comparison",
+            "organic-chemistry-15:markovnikov-boundary"
+          ],
+          "card_ids": [
+            "organic-chemistry-15-card-1",
+            "organic-chemistry-15-card-2",
+            "organic-chemistry-15-card-3",
+            "organic-chemistry-15-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "organic-chemistry-module-16",
+      "title": "Alkyne hydration and selective reduction",
+      "source_ids": [
+        "organic",
+        "chemistry",
+        "mit-5-12-organic-chemistry-2005",
+        "openstax-organic-alkyne-hydration-9-4",
+        "openstax-organic-alkyne-reduction-9-5"
+      ],
+      "lessons": [
+        {
+          "id": "organic-chemistry-16",
+          "title": "Alkyne hydration and selective reduction",
+          "reading": "modules/16-alkyne-hydration-and-selective-reduction.md",
+          "objectives": [
+            "organic-chemistry-16-objective-1",
+            "organic-chemistry-16-objective-2",
+            "organic-chemistry-16-objective-3"
+          ],
+          "worked_example": "Hydration of propyne is predicted to give acetone by the Markovnikov route or propanal by terminal-alkyne hydroboration after enol tautomerization. One H₂ equivalent reduces an alkyne to an alkene; two give an alkane. These are predicted textbook products, not measured conversion or isolated yield.",
+          "question_ids": [
+            "organic-chemistry-16:propyne-unsaturation",
+            "organic-chemistry-16:one-equivalent-pi",
+            "organic-chemistry-16:complete-hydrogenation",
+            "organic-chemistry-16:butane-formula",
+            "organic-chemistry-16:mercury-hydration",
+            "organic-chemistry-16:terminal-hydroboration",
+            "organic-chemistry-16:partial-reduction",
+            "organic-chemistry-16:reaction-ledger",
+            "organic-chemistry-16:tautomerization"
+          ],
+          "card_ids": [
+            "organic-chemistry-16-card-1",
+            "organic-chemistry-16-card-2",
+            "organic-chemistry-16-card-3",
+            "organic-chemistry-16-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -995,7 +1235,8 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "organic-chemistry-1-objective-1",
-        "organic-chemistry-1-objective-2"
+        "organic-chemistry-1-objective-2",
+        "organic-chemistry-outcome-1"
       ],
       "question_ids": [
         "organic-chemistry-1:check",
@@ -1010,7 +1251,9 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "organic-chemistry-2-objective-1",
-        "organic-chemistry-2-objective-2"
+        "organic-chemistry-2-objective-2",
+        "organic-chemistry-outcome-2",
+        "organic-chemistry-outcome-3"
       ],
       "question_ids": [
         "organic-chemistry-2:check",
@@ -1025,7 +1268,9 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "organic-chemistry-3-objective-1",
-        "organic-chemistry-3-objective-2"
+        "organic-chemistry-3-objective-2",
+        "organic-chemistry-outcome-2",
+        "organic-chemistry-outcome-3"
       ],
       "question_ids": [
         "organic-chemistry-3:check",
@@ -1040,7 +1285,9 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "organic-chemistry-4-objective-1",
-        "organic-chemistry-4-objective-2"
+        "organic-chemistry-4-objective-2",
+        "organic-chemistry-outcome-1",
+        "organic-chemistry-outcome-4"
       ],
       "question_ids": [
         "organic-chemistry-4:check",
@@ -1281,7 +1528,7 @@
       "mode": "practice",
       "title": "Virtual lab 1: calibrated peak amounts and enantiomeric excess (ungraded practice)",
       "path": "question-banks/practice.json",
-      "week": 14,
+      "week": 11,
       "objective_ids": [
         "organic-chemistry-lab-01-objective-1",
         "organic-chemistry-lab-01-objective-2",
@@ -1308,6 +1555,94 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "organic-chemistry-14-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Aromaticity, electrophilic and nucleophilic aromatic substitution practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "organic-chemistry-14-objective-1",
+        "organic-chemistry-14-objective-2",
+        "organic-chemistry-14-objective-3",
+        "organic-chemistry-14-objective-4",
+        "organic-chemistry-outcome-1",
+        "organic-chemistry-outcome-2",
+        "organic-chemistry-outcome-3"
+      ],
+      "question_ids": [
+        "organic-chemistry-14:pi-benzene",
+        "organic-chemistry-14:pi-cyclobutadiene",
+        "organic-chemistry-14:pi-cyclopentadienyl",
+        "organic-chemistry-14:pi-tropylium",
+        "organic-chemistry-14:aromatic-test",
+        "organic-chemistry-14:eas-sequence",
+        "organic-chemistry-14:methoxy-directing",
+        "organic-chemistry-14:nitro-directing",
+        "organic-chemistry-14:halogen-directing",
+        "organic-chemistry-14:snar-sequence",
+        "organic-chemistry-14:snar-activation-position",
+        "organic-chemistry-14:snar-leaving-group",
+        "organic-chemistry-14:snar-vs-eas-nitro",
+        "organic-chemistry-14:meisenheimer-charged-carbons",
+        "organic-chemistry-14:meta-nitro-count",
+        "organic-chemistry-14:meisenheimer-net-charge"
+      ],
+      "points": 16
+    },
+    {
+      "id": "organic-chemistry-15-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Alkene addition practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "organic-chemistry-15-objective-1",
+        "organic-chemistry-15-objective-2",
+        "organic-chemistry-15-objective-3",
+        "organic-chemistry-outcome-2",
+        "organic-chemistry-outcome-3",
+        "organic-chemistry-outcome-4"
+      ],
+      "question_ids": [
+        "organic-chemistry-15:propene-unsaturation",
+        "organic-chemistry-15:bromopropane-unsaturation",
+        "organic-chemistry-15:hx-stoichiometry",
+        "organic-chemistry-15:limiting-product",
+        "organic-chemistry-15:acid-hydration",
+        "organic-chemistry-15:halogenation",
+        "organic-chemistry-15:hydroboration",
+        "organic-chemistry-15:mechanism-comparison",
+        "organic-chemistry-15:markovnikov-boundary"
+      ],
+      "points": 9
+    },
+    {
+      "id": "organic-chemistry-16-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Alkyne hydration and reduction practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "organic-chemistry-16-objective-1",
+        "organic-chemistry-16-objective-2",
+        "organic-chemistry-16-objective-3",
+        "organic-chemistry-outcome-3",
+        "organic-chemistry-outcome-4"
+      ],
+      "question_ids": [
+        "organic-chemistry-16:propyne-unsaturation",
+        "organic-chemistry-16:one-equivalent-pi",
+        "organic-chemistry-16:complete-hydrogenation",
+        "organic-chemistry-16:butane-formula",
+        "organic-chemistry-16:mercury-hydration",
+        "organic-chemistry-16:terminal-hydroboration",
+        "organic-chemistry-16:partial-reduction",
+        "organic-chemistry-16:reaction-ledger",
+        "organic-chemistry-16:tautomerization"
+      ],
+      "points": 9
     }
   ],
   "grading_policy": {
@@ -1372,18 +1707,63 @@
       "version": "0.4.0",
       "date": "2026-10-09",
       "summary": "Added seven original lessons on structure/electron flow, conformation/Fischer mapping, competing substitution/elimination, carbonyl/acyl accounting, enolate/aldol mapping, spectroscopic constraints and reaction-network evidence; one synthetic peak-calibration/enantiomeric-excess lab and a proposed weekly schedule. Developed with Codex assistance. Still partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.1",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-1 structure and acid-base reading with resonance electron bookkeeping, conjugate-base comparisons, a synthetic pKa equilibrium example, and solvent and mechanism limits. Linked both objectives and the practice assessment to course outcome 1; added two registered link-only OpenStax references. Existing questions, answer keys and cards are unchanged; three compact legacy readings remain. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.2",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-5 SN1/SN2 prototype with mechanism evidence, simple rate laws, synthetic concentration comparisons, stereochemical limits and competing-pathway cautions. Both objectives and the practice assessment now map to outcomes 2 and 3. Registered three additional link-only OpenStax references alongside the existing SN2 section. Existing questions, answer keys and cards are unchanged; two compact readings remain in weeks 7 and 9. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.3",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-7 elimination prototype with E1/E2/E1cB step order, kinetic models, beta-hydrogen accounting, anti-periplanar and trans-diaxial geometry, and qualified alkene regioselectivity. Both objectives and the practice assessment map to outcomes 2 and 3. Added four registered link-only primary OpenStax references. Existing questions, answer keys and cards are unchanged; one compact reading remains in week 9. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.4",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-9 carbonyl prototype with polarization, tetrahedral-intermediate charge accounting, addition versus acyl substitution, leaving-group and resonance effects, and biological-context limits. Both objectives and the practice assessment map to outcomes 1 and 4. Added two registered link-only primary OpenStax sections. Existing questions, answer keys and cards are unchanged; all four legacy compact prototypes now have expanded instruction. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.5",
+      "date": "2026-10-11",
+      "summary": "Added an inactive crossed-aldol identity portfolio connecting atom mapping, addition/dehydration balance, degree of unsaturation, synthetic IR/NMR constraints and stereochemical limits. No product distribution or synthesis procedure is supplied; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.6",
+      "date": "2026-10-11",
+      "summary": "Added original aromaticity and electrophilic aromatic-substitution instruction, including electron counts, mechanism and directing effects. Combined four related prototype/expanded-reading pairs and regrouped the proposed scope as 11 unmeasured content blocks. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.7",
+      "date": "2026-10-11",
+      "summary": "Expanded the aromaticity/EAS lesson worked example with explicit competing conclusions for methoxybenzene directing and cyclooctatetraene geometry after repository depth validation identified an undersized worked-example field. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.8",
+      "date": "2026-10-11",
+      "summary": "Added a bounded alkene-addition and alkyne-hydration/reduction block after elimination and before aromaticity, with original mechanism/selectivity explanations and mapped practice; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.9",
+      "date": "2026-10-13",
+      "summary": "Added an SNAr addition–elimination strand to the existing aromaticity lesson, scoped by the MIT OCW 5.12 Spring 2005 week-11 pairing of electrophilic and nucleophilic aromatic substitution: Meisenheimer-complex charge placement, ortho/para versus meta activation, the activated-ring leaving-group trend and the nitro group's opposite EAS/SNAr roles, with one new objective, seven mapped formative items and three cards. No week was added; benzyne and multistep synthesis remain limited. The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "Four compact prototype readings remain beside nine substantive original lessons and one synthetic data lab; this is not a full university semester.",
-    "The proposed 14-week sequence is unmeasured and unreviewed. Graded homework, exams, a full laboratory sequence and a cumulative graded project remain absent.",
+    "The four primer/expanded-reading pairs are grouped. A new 12-week block adds selected alkene addition and alkyne hydration/reduction instruction. The proposed 12-block schedule, 17 readings and one synthetic-data virtual lab do not constitute a complete university semester.",
+    "The proposed 12-block content grouping is unmeasured and unreviewed. Graded homework, exams and a full laboratory sequence remain absent; the paper-only project draft is inactive and ungraded.",
     "New parameters and observations are synthetic; selected electron-flow, conformation, ideal-kinetic and reporting models provide no synthesis or handling procedure or biological recommendation.",
-    "Of 40 numeric items, four preserved items require units; none checks significant figures or dimensions. New numeric items ask for bare numbers in stated scales; conceptual choices assess selected mechanism/spatial/evidence decisions, not drawn mechanisms or proof quality.",
+    "Of 52 numeric practice items, four preserved items require units; the remaining numeric items use stated scales. No item checks significant figures or dimensions. The new reaction items use formula/unsaturation and stoichiometric-equivalent counts; conceptual choices assess selected mechanisms and product outcomes, not drawn-mechanism or written-argument quality.",
     "Public keys and feedback remain formative authoring specifications; practice points are not course grades.",
     "Subject-matter, accessibility and workload review remain outstanding; the original text Fischer diagram has a verbal description but no assistive-technology review.",
-    "Six primary OpenStax pages were retrieved as link-only references; no teaching text, problem, figure or dataset was imported."
+    "OpenStax sections are link-only factual references; no teaching text, problem, figure or dataset was imported. MIT OCW 5.12 Spring 2005 is a course-calendar comparator only; no source course asset was adapted."
   ],
   "intentionally_omitted": [
-    "Graded assessments, complete laboratory sequence, cumulative graded project, measured workload and qualified human review remain outstanding."
+    "Graded assessments, complete laboratory sequence, an active graded project, measured workload and qualified human review remain outstanding. The new block selects common alkene additions and alkyne hydration/reduction, but does not develop the full alkene/alkyne reaction range, the benzyne pathway or multistep synthesis; SNAr is introduced only as an addition–elimination strand within the aromaticity lesson. MIT 5.12 Spring 2005 spends four calendar weeks on alkene and alkyne reactions; the local unit is narrower."
   ]
 }

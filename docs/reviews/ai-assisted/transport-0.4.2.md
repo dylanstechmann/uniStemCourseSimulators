@@ -1,0 +1,7 @@
+# Thermodynamics & Transport in Bioengineering 0.4.2 — diffusion and reaction scales
+
+Week 3 now defines Fickian flux and direction, connects flux to species conservation, distinguishes steady from transient diffusion, and states boundary conditions. It derives the diffusion-time scale, first-order reaction time, Damköhler comparison and reaction-diffusion length, and identifies where geometry, advection, external resistance and nonlinear kinetics require more than the scale estimate. The synthetic example with D=2×10⁻⁹ m²/s, L=200 μm and k=0.05 s⁻¹ gives tD=tR=20 s, Da≈1 and λ=200 μm.
+
+Both objectives map to outcomes 2 and 4. Existing diffusion-time prompts and keys are unchanged; their objective association is aligned to time-scale comparison. Added direct practice for flux direction and the relative diffusion/reaction regime. MIT OpenCourseWare 10.37 Lecture 20 is a link-only reference; no lecture material, problem or data was copied or adapted.
+
+Checks: the combined focused Transport regression passed 4 tests; Ruff passed; full validation passed (25 courses, 384 lessons, 2,241 questions, 1,276 cards and 25 cases; 0 errors and 2 disclosed depth warnings); the assessment-candidate report drift check passed after regeneration. These same-AI checks are not independent transport, accessibility or domain review. Two compact readings remain in weeks 9 and 12; the course remains partial, unreviewed and formative-only.

@@ -3490,6 +3490,438 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "genetics-7:tetrad-recombination",
+      "type": "numeric",
+      "prompt": "An unordered-tetrad sample contains 60 PD, 4 NPD, and 36 T tetrads. What is the recombinant fraction? Enter a percent.",
+      "points": 1,
+      "objective_ids": [
+        "genetics-7-objective-4"
+      ],
+      "solution_spec": {
+        "answer": 22,
+        "unit": "%",
+        "tolerance": 0.22,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Count four recombinant spores per NPD and two per tetratype.",
+        "solution": "r = (NPD + T/2)/N = (4 + 18)/100 = 0.22, or 22%.",
+        "lesson_ids": [
+          "genetics-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-7:tetrad-linkage",
+      "type": "single_choice",
+      "prompt": "In an unordered-tetrad analysis of two loci, parental ditypes are much more common than nonparental ditypes. What conclusion is supported?",
+      "options": [
+        "The loci are linked under the tetrad model, but this alone does not give a three-gene order.",
+        "The loci are unlinked and the order is known.",
+        "The first locus is necessarily the causal variant.",
+        "All tetratype spores should be discarded as technical failures."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "genetics-7-objective-4"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Compare PD and NPD classes; do not infer three-gene order from a two-locus sample.",
+        "solution": "An excess of PD over NPD supports linkage. The two-locus class comparison does not establish a three-gene order or causality.",
+        "lesson_ids": [
+          "genetics-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-16:transfer-route",
+      "type": "single_choice",
+      "prompt": "A phage particle occasionally packages a random fragment of a donor bacterium's chromosome and carries it to another bacterium. Which route is described?",
+      "options": [
+        "Generalized transduction",
+        "Transformation",
+        "Hfr conjugation",
+        "Specialized transduction"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "genetics-16-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Look for phage-mediated packaging of a random bacterial fragment.",
+        "solution": "Generalized transduction can package random bacterial DNA in a phage particle. Specialized transduction instead favors DNA adjacent to a prophage insertion after imprecise excision.",
+        "lesson_ids": [
+          "genetics-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-16:hfr-interval",
+      "type": "numeric",
+      "prompt": "In an Hfr interrupted-mating study, marker A enters at 4 minutes and marker B at 10 minutes. What is the approximate transfer interval from A to B? Enter minutes.",
+      "points": 1,
+      "objective_ids": [
+        "genetics-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 6,
+        "unit": "min",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Subtract the earlier entry time from the later one.",
+        "solution": "The interval is 10 − 4 = 6 transfer-minutes; this is not a physical distance in base pairs.",
+        "lesson_ids": [
+          "genetics-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-16:cotransduction",
+      "type": "single_choice",
+      "prompt": "Among transductants carrying marker x, marker b co-transfers in 72/120 colonies and marker c in 18/120 under comparable recovery conditions. What is the best inference?",
+      "options": [
+        "b is likely closer to x than c is, but these frequencies do not give an exact base-pair distance.",
+        "c is necessarily closer because its count is smaller.",
+        "b and c are both proven causal for x.",
+        "The two frequencies determine a unique three-locus order without further markers."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "genetics-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Higher co-transfer supports closer linkage only when selection and recovery are comparable.",
+        "solution": "b accompanies x more often, supporting closer linkage under comparable conditions. Fragment size, recombination, selection and viability prevent a direct conversion to physical distance.",
+        "lesson_ids": [
+          "genetics-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-16:transformation",
+      "type": "single_choice",
+      "prompt": "A recipient cell takes up free DNA released into its surroundings. Which transfer mechanism is this?",
+      "options": [
+        "Transformation",
+        "Conjugation",
+        "Generalized transduction",
+        "Hfr entry"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "genetics-16-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "The DNA is free in the environment rather than delivered by contact or a phage.",
+        "solution": "Transformation is uptake of free environmental DNA; conjugation uses cell contact and transduction is phage-mediated.",
+        "lesson_ids": [
+          "genetics-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-16:complementation",
+      "type": "single_choice",
+      "prompt": "A mutant phenotype is restored by a plasmid carrying wild-type gene A, but not by an empty vector or a plasmid carrying gene B. What does this most directly support?",
+      "options": [
+        "The defect may disrupt A function, though the exact DNA change and direct mechanism remain unresolved.",
+        "The causal nucleotide in A is identified.",
+        "A directly catalyzes every reaction in the pathway.",
+        "The empty vector is a positive rescue control."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "genetics-16-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Complementation tests whether a functional copy can restore the phenotype; ask what it cannot localize.",
+        "solution": "Selective rescue supports an A-function hypothesis, but plasmid dosage and indirect bypass can matter; it does not identify the exact mutation or prove a direct biochemical mechanism.",
+        "lesson_ids": [
+          "genetics-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-16:empty-vector-control",
+      "type": "single_choice",
+      "prompt": "Which comparison best checks whether apparent plasmid rescue is due to the insert rather than the vector backbone?",
+      "options": [
+        "The same mutant with the matched empty vector under the same conditions.",
+        "A wild-type strain measured only after a different growth interval.",
+        "A second gene expressed at an unmeasured copy number.",
+        "A sample without a recorded genotype."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "genetics-16-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Match the mutant, vector backbone and assay conditions; vary the insert.",
+        "solution": "A matched empty-vector control tests the vector contribution. A wild-type positive control is also useful, but it does not replace the empty-vector comparison.",
+        "lesson_ids": [
+          "genetics-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-17:lac-high-output",
+      "type": "single_choice",
+      "prompt": "For wild-type lac regulatory DNA, which condition is expected to support the highest expression?",
+      "options": [
+        "Lactose present and glucose low.",
+        "Lactose absent and glucose low.",
+        "Lactose present and glucose high.",
+        "Lactose absent and glucose high."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "genetics-17-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "High output requires relief of LacI repression and positive activation by CAP–cAMP.",
+        "solution": "Lactose-derived allolactose reduces LacI binding, and low glucose permits CAP–cAMP activation; both conditions favor high output.",
+        "lesson_ids": [
+          "genetics-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-17:lac-lactose-high-glucose",
+      "type": "single_choice",
+      "prompt": "Wild-type cells have lactose present but glucose is high. Compared with lactose present and glucose low, what is expected?",
+      "options": [
+        "Lower lac output because CAP activation is weak, even though LacI repression is relieved.",
+        "Higher output because high glucose activates CAP.",
+        "No transcription because lactose binds CAP.",
+        "Identical maximal output because only lactose matters."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "genetics-17-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Lactose and glucose regulate different parts of the circuit.",
+        "solution": "Lactose reduces LacI repression, but high glucose lowers cAMP and weakens CAP activation, so expression is below the high-output state.",
+        "lesson_ids": [
+          "genetics-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-17:laci-loss",
+      "type": "single_choice",
+      "prompt": "A lacI− cell has no lactose and high glucose. Which prediction best accounts for both regulatory inputs?",
+      "options": [
+        "Repression by LacI is lost, but high glucose still limits positive CAP activation, so expression need not be maximal.",
+        "The cell must have maximal expression because loss of LacI removes all regulation.",
+        "The operator mutation is repaired by the lacI− allele.",
+        "Expression is impossible because CAP is a repressor."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "genetics-17-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "A lacI loss removes one control input, not the separate CAP–cAMP input.",
+        "solution": "A lacI− mutation reduces repressor control but does not restore CAP activation under high glucose. Loss of one regulator does not abolish the other signal.",
+        "lesson_ids": [
+          "genetics-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-17:operator-cis",
+      "type": "single_choice",
+      "prompt": "A constitutive lacOᶜ operator allele is linked to a reporter. Why is adding wild-type LacI on a separate plasmid not expected to restore repression of that reporter?",
+      "options": [
+        "The mutated operator is a cis-acting DNA site on the reporter molecule; a diffusible repressor cannot repair its binding sequence.",
+        "LacI is a DNA sequence that travels only in cis.",
+        "The operator is an enzyme that degrades cAMP.",
+        "A plasmid cannot express any protein in a bacterial cell."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "genetics-17-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Separate a diffusible trans-acting regulator from the DNA site it binds.",
+        "solution": "LacI can act in trans, but an operator mutation changes the linked DNA site in cis; supplying more repressor does not restore the original operator sequence.",
+        "lesson_ids": [
+          "genetics-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-17:trp-corepressor",
+      "type": "single_choice",
+      "prompt": "When tryptophan is abundant, it binds the Trp repressor and reduces transcription of biosynthetic genes. This is best described as:",
+      "options": [
+        "Negative repressible control.",
+        "Negative inducible control.",
+        "Positive catabolite activation.",
+        "Constitutive expression caused by an operator mutation."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "genetics-17-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "The end product helps the repressor become active, which is repressible control.",
+        "solution": "Tryptophan acts as a corepressor, promoting repressor binding when the product is abundant. That is negative repressible control.",
+        "lesson_ids": [
+          "genetics-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-17:reporter-design",
+      "type": "single_choice",
+      "prompt": "Which design best tests whether lac output depends separately on lactose and glucose while checking reporter background?",
+      "options": [
+        "A matched 2×2 lactose-by-glucose comparison with the same reporter and cell background, plus a promoterless reporter and a justified growth or cell-density normalization.",
+        "Measure one wild-type sample with lactose and infer the glucose effect from its absolute signal.",
+        "Compare different strains in unrelated media without matching or normalization.",
+        "Use only a promoterless reporter, which cannot report regulatory output."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "genetics-17-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Vary both environmental inputs systematically and include a background control.",
+        "solution": "A factorial comparison estimates both inputs and their combination; the promoterless construct checks background, while normalization addresses broad growth or measurement changes. This still tests the reporter context, not every native setting.",
+        "lesson_ids": [
+          "genetics-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
     }
   ]
 }

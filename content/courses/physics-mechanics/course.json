@@ -7,14 +7,20 @@
   "domain": "Physics",
   "level": "Year 1",
   "maturity": "partial",
-  "version": "0.4.0",
+  "version": "0.4.9",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
     "source_path": "src/data/courses.js",
     "source_sha256": "a77a7cb7f5be2ffa12068877042ac775c6d9b79b83ac2f316fe4f26a0d3d783b",
     "migration_version": "1.0",
-    "modifications": []
+    "modifications": [
+      "Expanded the week-1 kinematics and force-balance reading with position, velocity and acceleration distinctions; free-body diagram boundaries; Newton's second law; axis-resolved incline forces; and unit and limiting-case checks. Clarified both objectives and linked them to outcomes 1, 2 and 4.",
+      "Expanded the week-4 work, energy and power reading with the work–energy theorem, gravitational and spring potential energy, energy accounting for a drop, conservative and dissipative transfers, and power units. Clarified both objectives and linked them to outcomes 2 and 4.",
+      "Expanded the week-6 momentum, collisions and impulse reading with signed momentum, external-impulse conditions, force–time area, momentum change and the distinction between momentum and kinetic-energy conservation. Clarified both objectives and linked them to outcomes 2 and 4.",
+      "Expanded week 9 with perpendicular moment arms, signed planar torque, moments about a common axis, engineering stress and strain, small-strain modulus calculations, dimensional checks, and model limits. Clarified both objectives and linked them and the unchanged practice assessment to outcomes 3 and 4.",
+      "Added an original variable-mass momentum lesson deriving momentum flux for inflow and outflow, applying it to an ideal rocket and a mass-capturing cart, and stating system/frame assumptions; added eight formative items and four cards with synthetic values. The package remains partial, unreviewed and formative-only."
+    ]
   },
   "prerequisites": {
     "course_ids": [],
@@ -52,51 +58,71 @@
   "lesson_objectives": [
     {
       "id": "physics-mechanics-1-objective-1",
-      "description": "Translate position data into velocity and acceleration.",
-      "bloom": "understand",
-      "course_outcome_ids": []
+      "description": "Apply Newton's second law to a defined system and calculate acceleration from its net force and mass.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2"
+      ]
     },
     {
       "id": "physics-mechanics-1-objective-2",
-      "description": "Apply Newton's second law along chosen axes.",
+      "description": "Draw a force balance with stated axes and resolve gravity and support forces on a frictionless incline.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-1",
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-4"
+      ]
     },
     {
       "id": "physics-mechanics-2-objective-1",
-      "description": "Use work-energy when forces vary with position.",
+      "description": "Calculate translational kinetic energy and relate net work to its change.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2"
+      ]
     },
     {
       "id": "physics-mechanics-2-objective-2",
-      "description": "Distinguish conservative energy storage from dissipation.",
+      "description": "Compare gravitational potential energy with final kinetic energy and interpret the difference within a stated model.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-4"
+      ]
     },
     {
       "id": "physics-mechanics-3-objective-1",
-      "description": "Apply momentum conservation to a defined isolated system.",
+      "description": "Apply signed momentum conservation to a one-dimensional sticking collision when external impulse is negligible.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2"
+      ]
     },
     {
       "id": "physics-mechanics-3-objective-2",
-      "description": "Relate impulse to force-time history.",
-      "bloom": "analyze",
-      "course_outcome_ids": []
+      "description": "Calculate impulse as signed area under a force–time curve and relate it to momentum change with units.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-4"
+      ]
     },
     {
       "id": "physics-mechanics-4-objective-1",
-      "description": "Calculate torque about a stated axis.",
+      "description": "Calculate the magnitude and sign of torque about a stated axis using force direction and the perpendicular moment arm.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-3"
+      ]
     },
     {
       "id": "physics-mechanics-4-objective-2",
-      "description": "Relate stress and strain to a material model.",
+      "description": "Calculate engineering stress, strain and a declared small-strain elastic modulus; check units and model limits.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-4"
+      ]
     },
     {
       "id": "physics-mechanics-5-objective-1",
@@ -340,11 +366,61 @@
       "course_outcome_ids": [
         "physics-mechanics-outcome-4"
       ]
+    },
+    {
+      "id": "physics-mechanics-14-objective-1",
+      "description": "Choose a system and inertial frame and identify momentum carried by incoming and outgoing mass.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2"
+      ]
+    },
+    {
+      "id": "physics-mechanics-14-objective-2",
+      "description": "Apply a one-dimensional mass-flow momentum balance to a rocket or a body that captures material, using consistent signs and velocity frames.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2"
+      ]
+    },
+    {
+      "id": "physics-mechanics-14-objective-3",
+      "description": "Derive and use the ideal constant-exhaust-speed rocket velocity increment and evaluate its assumptions with units and limiting cases.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-4"
+      ]
+    },
+    {
+      "id": "physics-mechanics-15-objective-1",
+      "description": "Apply Newton's law of universal gravitation, including the shell result, to find the gravitational force and field strength at a distance from a spherical body.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2"
+      ]
+    },
+    {
+      "id": "physics-mechanics-15-objective-2",
+      "description": "Calculate the speed and period of a circular orbit, apply Kepler's third law for circular orbits, and find the radius for a given period.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2"
+      ]
+    },
+    {
+      "id": "physics-mechanics-15-objective-3",
+      "description": "Use U = −GMm/r to calculate orbital energy, the energy to reach an orbit and the escape speed, and explain when mgh is an adequate approximation.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-4"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week scope retaining compact prototype readings in weeks 1,4,6,9. Workload and qualified review are absent; no semester equivalence is established.",
+    "equivalent_structure": "Proposed 14-week undergraduate scope only. Week 6 now links the fixed-mass momentum/impulse foundation to a variable-mass momentum and mass-flow lesson; week 10 pairs centrifuge circular motion with universal gravitation and circular orbits; week 14 remains a synthetic machine-compliance/orientation lab. All activities are open, ungraded practice. There are no graded homework sets, exams or project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
@@ -398,12 +474,14 @@
       },
       {
         "week": 6,
-        "title": "Momentum, collisions, and impulse",
+        "title": "Momentum, collisions, impulse, and variable-mass flow",
         "lesson_ids": [
-          "physics-mechanics-3"
+          "physics-mechanics-3",
+          "physics-mechanics-14"
         ],
         "assessment_ids": [
-          "physics-mechanics-3-practice"
+          "physics-mechanics-3-practice",
+          "physics-mechanics-14-practice"
         ]
       },
       {
@@ -438,12 +516,14 @@
       },
       {
         "week": 10,
-        "title": "Rotation in the lab: the centrifuge, relative centrifugal force, moment of inertia and why balance matters",
+        "title": "Uniform circular motion: an ideal centrifuge model, universal gravitation and circular orbits",
         "lesson_ids": [
-          "physics-mechanics-6"
+          "physics-mechanics-6",
+          "physics-mechanics-15"
         ],
         "assessment_ids": [
-          "physics-mechanics-6-practice"
+          "physics-mechanics-6-practice",
+          "physics-mechanics-15-practice"
         ]
       },
       {
@@ -500,7 +580,10 @@
       "title": "Kinematics and force balance",
       "source_ids": [
         "mechanics",
-        "engineeringMath"
+        "engineeringMath",
+        "openstax-physics-acceleration",
+        "openstax-physics-newton-second-law",
+        "openstax-physics-free-body-diagrams"
       ],
       "lessons": [
         {
@@ -511,7 +594,7 @@
             "physics-mechanics-1-objective-1",
             "physics-mechanics-1-objective-2"
           ],
-          "worked_example": "A 0.20 kg instrument package accelerating upward at 2 m/s² has tension T−mg=ma, so T=0.20(9.81+2)=2.36 N.",
+          "worked_example": "A 3 kg cart under a 12 N net horizontal force accelerates at 4 m/s². A 10 kg block on a frictionless 30° incline accelerates at g sin(30°)=4.905 m/s² and has normal force mg cos(30°)≈84.96 N. A 0.20 kg package accelerating upward at 2 m/s² requires tension 0.20(9.81+2)=2.36 N.",
           "question_ids": [
             "physics-mechanics-1:check",
             "physics-mechanics-1:incline-acceleration"
@@ -528,7 +611,11 @@
       "title": "Work, energy, and power",
       "source_ids": [
         "mechanics",
-        "engineeringMath"
+        "engineeringMath",
+        "openstax-physics-kinetic-energy",
+        "openstax-physics-work-energy-theorem",
+        "openstax-physics-power",
+        "openstax-physics-conservative-forces"
       ],
       "lessons": [
         {
@@ -539,7 +626,7 @@
             "physics-mechanics-2-objective-1",
             "physics-mechanics-2-objective-2"
           ],
-          "worked_example": "Compressing a linear spring by x stores U=½kx². A spring with k=200 N/m compressed 0.05 m stores 0.25 J.",
+          "worked_example": "A 2 kg object moving at 3 m/s has 9 J of translational kinetic energy. For the preserved drop, initial mgh=98.1 J and final translational kinetic energy is 64.0 J, leaving a 34.1 J mechanical-energy difference under the stated model. A 200 N/m spring compressed 0.05 m stores 0.25 J.",
           "question_ids": [
             "physics-mechanics-2:check",
             "physics-mechanics-2:dissipated-energy"
@@ -556,7 +643,10 @@
       "title": "Momentum, collisions, and impulse",
       "source_ids": [
         "mechanics",
-        "engineeringMath"
+        "engineeringMath",
+        "openstax-physics-linear-momentum",
+        "openstax-physics-impulse-collisions",
+        "openstax-physics-momentum-conservation"
       ],
       "lessons": [
         {
@@ -567,7 +657,7 @@
             "physics-mechanics-3-objective-1",
             "physics-mechanics-3-objective-2"
           ],
-          "worked_example": "A 0.15 kg ball changes velocity from +8 to −4 m/s. Its impulse is 0.15(−12)=−1.8 N·s.",
+          "worked_example": "A 0.10 kg cart moving at +5 m/s sticks to a stationary 0.40 kg cart, giving final speed +1.0 m/s when external impulse is negligible. A triangular 200 N pulse lasting 0.020 s has impulse +2.0 N·s. A 0.15 kg ball changing velocity from +8 to −4 m/s receives impulse −1.8 N·s.",
           "question_ids": [
             "physics-mechanics-3:check",
             "physics-mechanics-3:impulse-area"
@@ -584,7 +674,9 @@
       "title": "Rotation, torque, and material response",
       "source_ids": [
         "mechanics",
-        "engineeringMath"
+        "engineeringMath",
+        "openstax-physics-torque",
+        "openstax-physics-stress-strain"
       ],
       "lessons": [
         {
@@ -595,7 +687,7 @@
             "physics-mechanics-4-objective-1",
             "physics-mechanics-4-objective-2"
           ],
-          "worked_example": "A 10 N force perpendicular to a 0.25 m lever arm produces 2.5 N·m torque.",
+          "worked_example": "A 30 N downward force applied 0.20 m from a hinge at a perpendicular moment arm gives a torque magnitude of 6 N·m. If counterclockwise is positive, the downward force turns clockwise, so τz = −6 N·m. The sign records direction, while the requested magnitude is positive; force times moment arm gives N·m.",
           "question_ids": [
             "physics-mechanics-4:check",
             "physics-mechanics-4:strain-from-stress"
@@ -644,22 +736,23 @@
     },
     {
       "id": "physics-mechanics-module-6",
-      "title": "Centrifuge rotation and balance",
+      "title": "Circular motion and rigid-body rotation",
       "source_ids": [
         "mechanics",
-        "engineeringMath"
+        "engineeringMath",
+        "mit-801sc-mechanics-syllabus"
       ],
       "lessons": [
         {
           "id": "physics-mechanics-6",
-          "title": "Rotation in the lab: the centrifuge, relative centrifugal force, moment of inertia and why balance matters",
+          "title": "Uniform circular motion and rigid-body rotation: an ideal centrifuge model",
           "reading": "modules/06-centrifuge-rotation-and-balance.md",
           "objectives": [
             "physics-mechanics-6-objective-1",
             "physics-mechanics-6-objective-2",
             "physics-mechanics-6-objective-3"
           ],
-          "worked_example": "3000 rpm at 10 cm is 1006 ×g, and 500 ×g needs 2115 rpm; a 2 kg, 12 cm disk rotor stores 711 J and needs 0.226 N·m to spin up in 20 s; a 1 g imbalance produces 9.9 N.",
+          "worked_example": "At 3000 rpm, a point at 0.10 m has inward acceleration 9,870 m/s²; an ideal 2 kg, 0.12 m disk has 711 J of rotational energy; a 1 g point-mass imbalance corresponds to a 9.87 N rotating support load.",
           "question_ids": [
             "physics-mechanics-6:rcf",
             "physics-mechanics-6:rpm-target",
@@ -673,6 +766,45 @@
             "physics-mechanics-6-card-2",
             "physics-mechanics-6-card-3",
             "physics-mechanics-6-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "physics-mechanics-module-15",
+      "title": "Universal gravitation, circular orbits and orbital energy",
+      "source_ids": [
+        "mechanics"
+      ],
+      "lessons": [
+        {
+          "id": "physics-mechanics-15",
+          "title": "Universal gravitation, circular orbits and orbital energy",
+          "reading": "modules/15-universal-gravitation-circular-orbits-and-orbital-energy.md",
+          "objectives": [
+            "physics-mechanics-15-objective-1",
+            "physics-mechanics-15-objective-2",
+            "physics-mechanics-15-objective-3"
+          ],
+          "worked_example": "Around a synthetic planet with GM = 4.0 × 10¹⁴ m³/s², a 500 kg satellite at r = 8.0 × 10⁶ m moves at 7.07 km/s with period 7107 s; its energy is −1.25 × 10¹⁰ J, placing it there from rest on the surface takes 1.88 × 10¹⁰ J, and escape from that radius needs 10.0 km/s.",
+          "question_ids": [
+            "physics-mechanics-15:sphere-attraction",
+            "physics-mechanics-15:field-at-altitude",
+            "physics-mechanics-15:orbital-speed",
+            "physics-mechanics-15:orbital-period",
+            "physics-mechanics-15:radius-for-period",
+            "physics-mechanics-15:escape-from-orbit",
+            "physics-mechanics-15:orbital-total-energy",
+            "physics-mechanics-15:period-ratio",
+            "physics-mechanics-15:mass-cancels",
+            "physics-mechanics-15:weightlessness",
+            "physics-mechanics-15:higher-orbit-energy"
+          ],
+          "card_ids": [
+            "physics-mechanics-15-card-1",
+            "physics-mechanics-15-card-2",
+            "physics-mechanics-15-card-3",
+            "physics-mechanics-15-card-4"
           ]
         }
       ]
@@ -983,6 +1115,44 @@
           ]
         }
       ]
+    },
+    {
+      "id": "physics-mechanics-module-14",
+      "title": "Variable-mass momentum and continuous mass transfer",
+      "source_ids": [
+        "mechanics",
+        "mit-801sc-mechanics-syllabus",
+        "mit-801sc-continuous-mass-transfer"
+      ],
+      "lessons": [
+        {
+          "id": "physics-mechanics-14",
+          "title": "Variable-mass momentum and continuous mass transfer",
+          "reading": "modules/14-variable-mass-momentum-and-mass-flow.md",
+          "objectives": [
+            "physics-mechanics-14-objective-1",
+            "physics-mechanics-14-objective-2",
+            "physics-mechanics-14-objective-3"
+          ],
+          "worked_example": "A synthetic rocket with m0=600 kg, mf=450 kg and constant relative exhaust speed 800 m/s has an ideal external-force-free velocity increment 800 ln(4/3)=230.1 m/s; a 20 kg cart at 10 m/s that retains 5 kg at rest instead slows to 8.0 m/s.",
+          "question_ids": [
+            "physics-mechanics-14:rocket-delta-v",
+            "physics-mechanics-14:rocket-acceleration",
+            "physics-mechanics-14:exhaust-frame-velocity",
+            "physics-mechanics-14:capture-speed",
+            "physics-mechanics-14:flow-statements",
+            "physics-mechanics-14:rocket-conditions",
+            "physics-mechanics-14:momentum-flux-balance",
+            "physics-mechanics-14:zero-relative-exhaust"
+          ],
+          "card_ids": [
+            "physics-mechanics-14-card-1",
+            "physics-mechanics-14-card-2",
+            "physics-mechanics-14-card-3",
+            "physics-mechanics-14-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -993,7 +1163,10 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "physics-mechanics-1-objective-1",
-        "physics-mechanics-1-objective-2"
+        "physics-mechanics-1-objective-2",
+        "physics-mechanics-outcome-1",
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-4"
       ],
       "question_ids": [
         "physics-mechanics-1:check",
@@ -1008,7 +1181,9 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "physics-mechanics-2-objective-1",
-        "physics-mechanics-2-objective-2"
+        "physics-mechanics-2-objective-2",
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-4"
       ],
       "question_ids": [
         "physics-mechanics-2:check",
@@ -1023,7 +1198,9 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "physics-mechanics-3-objective-1",
-        "physics-mechanics-3-objective-2"
+        "physics-mechanics-3-objective-2",
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-4"
       ],
       "question_ids": [
         "physics-mechanics-3:check",
@@ -1038,7 +1215,9 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "physics-mechanics-4-objective-1",
-        "physics-mechanics-4-objective-2"
+        "physics-mechanics-4-objective-2",
+        "physics-mechanics-outcome-3",
+        "physics-mechanics-outcome-4"
       ],
       "question_ids": [
         "physics-mechanics-4:check",
@@ -1074,7 +1253,7 @@
       "id": "physics-mechanics-6-practice",
       "type": "practice",
       "mode": "practice",
-      "title": "Centrifuge rotation and balance practice",
+      "title": "Circular motion and rotation practice",
       "path": "question-banks/practice.json",
       "objective_ids": [
         "physics-mechanics-6-objective-1",
@@ -1278,6 +1457,31 @@
       "points": 9
     },
     {
+      "id": "physics-mechanics-14-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Variable-mass momentum and continuous mass transfer practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "physics-mechanics-14-objective-1",
+        "physics-mechanics-14-objective-2",
+        "physics-mechanics-14-objective-3",
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-4"
+      ],
+      "question_ids": [
+        "physics-mechanics-14:rocket-delta-v",
+        "physics-mechanics-14:rocket-acceleration",
+        "physics-mechanics-14:exhaust-frame-velocity",
+        "physics-mechanics-14:capture-speed",
+        "physics-mechanics-14:flow-statements",
+        "physics-mechanics-14:rocket-conditions",
+        "physics-mechanics-14:momentum-flux-balance",
+        "physics-mechanics-14:zero-relative-exhaust"
+      ],
+      "points": 9
+    },
+    {
       "id": "physics-mechanics-week14-compliance-lab",
       "type": "lab",
       "mode": "practice",
@@ -1311,6 +1515,34 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "physics-mechanics-15-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Gravitation and circular orbits practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "physics-mechanics-15-objective-1",
+        "physics-mechanics-15-objective-2",
+        "physics-mechanics-15-objective-3",
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-4"
+      ],
+      "question_ids": [
+        "physics-mechanics-15:sphere-attraction",
+        "physics-mechanics-15:field-at-altitude",
+        "physics-mechanics-15:orbital-speed",
+        "physics-mechanics-15:orbital-period",
+        "physics-mechanics-15:radius-for-period",
+        "physics-mechanics-15:escape-from-orbit",
+        "physics-mechanics-15:orbital-total-energy",
+        "physics-mechanics-15:period-ratio",
+        "physics-mechanics-15:mass-cancels",
+        "physics-mechanics-15:weightlessness",
+        "physics-mechanics-15:higher-orbit-energy"
+      ],
+      "points": 11
     }
   ],
   "grading_policy": {
@@ -1365,18 +1597,66 @@
       "version": "0.4.0",
       "date": "2026-10-09",
       "summary": "Added seven original lessons on vector/frame kinematics, contact/friction, work/momentum boundaries, rotation/rolling, damping/energy, scalar time-dependent materials and machine-compliance inference; one synthetic orientation/compliance lab and a proposed weekly schedule. Developed with Codex assistance. Still partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.1",
+      "date": "2026-10-10",
+      "summary": "Expanded week 1 with kinematics, force diagrams, Newton's second law, force components on a frictionless incline, and unit and limiting-case checks. Clarified both objectives and mapped them and the unchanged practice assessment to outcomes 1, 2 and 4. Existing question IDs, prompts, answer keys and cards are unchanged. Compact prototype readings remain in weeks 4, 6 and 9; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.2",
+      "date": "2026-10-10",
+      "summary": "Expanded week 4 with kinetic energy, the work–energy theorem, gravitational and spring potential energy, mechanical-energy differences, conservative and dissipative transfers, and power. Clarified both objectives and linked them and the unchanged practice assessment to outcomes 2 and 4. Existing question IDs, prompts, answer keys and cards are unchanged. Compact prototype readings remain in weeks 6 and 9; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.3",
+      "date": "2026-10-10",
+      "summary": "Expanded week 6 with signed momentum, external-impulse conditions for conservation, force–time area, impulse–momentum balance, and the distinction between momentum and kinetic-energy conservation. Clarified both objectives and linked them and the unchanged practice assessment to outcomes 2 and 4. Existing question IDs, prompts, answer keys and cards are unchanged. One compact prototype reading remains in week 9; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.4",
+      "date": "2026-10-10",
+      "summary": "Expanded week 9 with perpendicular moment arms, signed torque, stress and strain definitions, small-strain modulus calculations, and explicit model limits. Clarified both objectives and mapped them and the unchanged practice assessment to outcomes 3 and 4. Added one OpenStax torque reference and reused the registered stress/strain section. Existing question IDs, prompts, answer keys and cards are unchanged; all 13 readings now have substantive instruction beside the synthetic data lab. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.5",
+      "date": "2026-10-11",
+      "summary": "Added an inactive, ungraded synthetic rotor trade-off portfolio comparing equal-RCF speed, idealized disk inertia and energy, and point-imbalance force; linked it from the syllabus while keeping platform activation off. Existing lessons, practice items, keys and cards are unchanged. The course remains partial, unreviewed and formative-only; invented values are not an operating specification."
+    },
+    {
+      "version": "0.4.6",
+      "date": "2026-10-11",
+      "summary": "Rebounded the centrifuge reading to stipulated circular-motion and rigid-body models; removed unsupported sedimentation-time, temperature and equipment-protocol claims, clarified the acceleration-ratio meaning of RCF, and reframed its example and practice item. Added a direct 8.01SC syllabus comparator. The package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.7",
+      "date": "2026-10-11",
+      "summary": "Added an original week-6 variable-mass momentum lesson deriving inflow/outflow momentum flux, a signed rocket equation and a retained-mass capture example. Eight formative items and four cards use synthetic values. Compared with undergraduate MIT OCW 8.01SC Fall 2016 Week 6 continuous mass transfer and its rocket/recoil scope; no source material was imported. The package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.8",
+      "date": "2026-10-13",
+      "summary": "Extended the bounded week-10 circular-motion and rotation lesson with a rotating-frame description: the centrifugal pseudo-force that balances the real inward force for a point at rest on the rotor, agreement of both frames on the measurable support force, the Coriolis term the lesson does not need, and a rule against mixing frames in one free-body diagram. The lesson now uses the standard worked-example and limits headings. No item, key or card changed. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.9",
+      "date": "2026-10-13",
+      "summary": "Grouped an original universal-gravitation and circular-orbit reading with the week-10 circular-motion lesson: the inverse-square law and shell result, local field strength, orbital speed and period, Kepler's third law for circular orbits, gravitational potential energy, orbital energy and escape speed. Added three objectives, eleven formative items and four cards, with no week added, and corrected stale limitation counts (fourteen readings and 66 numeric items before this release, not thirteen and 63). The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "Four compact prototype readings remain beside nine substantive original lessons and one synthetic data lab; this is not a full university semester.",
-    "The proposed 14-week sequence is unmeasured and unreviewed. Graded homework, exams, a full laboratory sequence and a cumulative graded project remain absent.",
-    "New parameters and reports are synthetic; selected point-particle, rigid-body, contact and scalar material models provide no real equipment or specimen-testing procedure.",
-    "Of 63 numeric items, eight preserved items require units; none checks significant figures or dimensions. New numeric items ask for bare numbers in stated scales; choices assess selected force/constraint/evidence decisions, not free-body drawings or proof quality.",
+    "All 15 readings now have substantive instruction beside one synthetic data lab; this is not a full university semester.",
+    "The proposed 14-week sequence is unmeasured and unreviewed. Graded homework, exams, a full laboratory sequence and an active graded cumulative project remain absent; the new rotor portfolio is an inactive authoring draft only.",
+    "All parameters and reports are synthetic; selected point-particle, rigid-body, contact and scalar material models provide no real equipment or specimen-testing procedure. In particular, ω²r and RCF determine acceleration only; they do not predict sedimentation or justify a speed, time or temperature protocol.",
+    "Of 74 numeric items, eight preserved items require units; none checks significant figures or dimensions. New numeric items ask for bare numbers in stated scales; choices assess selected force/constraint/evidence decisions, not free-body drawings or proof quality.",
     "Public keys and feedback remain formative authoring specifications; practice points are not course grades.",
     "Subject-matter, accessibility and workload review remain outstanding; the original text free-body diagram has a verbal description but no assistive-technology review.",
-    "Four primary OpenStax sections were retrieved as link-only references; no teaching text, problem, figure or dataset was imported."
+    "Fifteen primary OpenStax University Physics Volume 1 sections are registered as link-only references; no teaching prose, problem, figure or dataset was imported.",
+    "The new variable-mass lesson is a one-dimensional point-body model with uniform stream velocities and stated external forces. It does not cover engine thermodynamics, pressure thrust, multidimensional flow, vehicle control or real propulsion design."
   ],
   "intentionally_omitted": [
-    "Graded assessments, complete laboratory sequence, cumulative graded project, measured workload and qualified human review remain outstanding."
+    "Graded assessments, complete laboratory sequence, cumulative graded project, measured workload and qualified human review remain outstanding.",
+    "The fictional rotor trade-off portfolio is an inactive, ungraded paper-exercise draft and is not activated or mapped to course completion.",
+    "A full continuum/control-volume treatment of distributed momentum transport, propulsion design and snowplow or vehicle engineering applications remains outside this bounded lesson."
   ]
 }

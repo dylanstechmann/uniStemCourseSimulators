@@ -3490,6 +3490,642 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "robotics-1:compose-transform-order",
+      "type": "single_choice",
+      "prompt": "Using column vectors, T_WB maps coordinates from frame B to W and T_BC maps C to B. Which product maps a point from C directly to W?",
+      "options": [
+        "T_WB T_BC",
+        "T_BC T_WB",
+        "T_WB + T_BC",
+        "T_BC⁻¹ T_WB⁻¹"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "robotics-1-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "The rightmost transform acts first on the point coordinates.",
+        "solution": "Apply T_BC first to map C to B, then T_WB to map B to W, giving T_WB T_BC.",
+        "lesson_ids": [
+          "robotics-1"
+        ],
+        "misconception_ids": [
+          "transform-composition-order"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct formative practice for ordered rigid-transform composition."
+        ]
+      }
+    },
+    {
+      "id": "robotics-3:joint-torque-from-inertia",
+      "type": "numeric",
+      "prompt": "A joint has rotational inertia I = 0.020 kg·m² and angular acceleration α = 5.0 rad/s². Ignoring other torques, what net torque is required? Enter a value and unit.",
+      "points": 1,
+      "objective_ids": [
+        "robotics-3-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.1,
+        "unit": "N*m",
+        "tolerance": 0.0015,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "For this simplified rotational model, net torque equals inertia times angular acceleration.",
+        "solution": "τ = Iα = 0.020 × 5.0 = 0.10 N·m.",
+        "lesson_ids": [
+          "robotics-3"
+        ],
+        "misconception_ids": [
+          "rotational-torque-inertia"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct formative practice estimating joint torque from inertia and angular acceleration."
+        ]
+      }
+    },
+    {
+      "id": "robotics-4:safety-clearance-margin",
+      "type": "single_choice",
+      "prompt": "A conservative lower confidence bound on clearance is 4 mm, while validated stopping distance plus the required safety margin is 6 mm. Which action respects that constraint?",
+      "options": [
+        "Do not advance; stop or replan until the lower-bound clearance exceeds stopping distance plus margin.",
+        "Advance because the nominal sensor estimate is positive.",
+        "Ignore uncertainty when a path planner reports collision-free motion.",
+        "Reduce the safety margin until it is below the measured clearance."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "robotics-4-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Compare the conservative clearance bound with the full stopping requirement.",
+        "solution": "The lower-bound gap (4 mm) is below the required 6 mm, so the motion cannot be declared safe under the stated constraint; stop or replan.",
+        "lesson_ids": [
+          "robotics-4"
+        ],
+        "misconception_ids": [
+          "nominal-clearance-versus-safety-margin"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct formative practice for applying an uncertainty-aware stopping constraint."
+        ]
+      }
+    },
+    {
+      "id": "robotics-4:contact-position-force",
+      "type": "numeric",
+      "prompt": "A one-dimensional linear contact has stiffness 450 N/m. A position controller commands 2.0 mm of indentation. What force does the quasistatic spring model predict? Enter the value and unit.",
+      "points": 1,
+      "objective_ids": [
+        "robotics-4-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.9,
+        "unit": "N",
+        "tolerance": 0.009,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Convert 2.0 mm to 0.0020 m, then use F=kδ.",
+        "solution": "F=(450 N/m)(0.0020 m)=0.90 N. A position command sets indentation; the resulting force depends on contact stiffness.",
+        "lesson_ids": [
+          "robotics-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice for the quasistatic compliant-contact comparison."
+        ]
+      }
+    },
+    {
+      "id": "robotics-4:contact-force-limit",
+      "type": "numeric",
+      "prompt": "A fixed 2.0 mm indentation is applied to a surface whose stiffness could be anywhere from 400 to 600 N/m. What is the largest modeled contact force? Enter the value and unit.",
+      "points": 1,
+      "objective_ids": [
+        "robotics-4-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 1.2,
+        "unit": "N",
+        "tolerance": 0.012,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The largest force occurs at the largest stated stiffness.",
+        "solution": "Fmax=(600 N/m)(0.0020 m)=1.20 N. If a modeled limit were 1.0 N, this position command would exceed it at the high-stiffness end; this model comparison is not a hardware safety guarantee.",
+        "lesson_ids": [
+          "robotics-4"
+        ],
+        "misconception_ids": [
+          "position-command-implies-fixed-contact-force"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice for stiffness uncertainty and a stated force limit."
+        ]
+      }
+    },
+    {
+      "id": "robotics-4:contact-indentation",
+      "type": "numeric",
+      "prompt": "In the quasistatic spring model, a force controller targets 0.80 N against a surface stiffness of 400 N/m. What indentation is predicted, in mm? Enter the value and unit.",
+      "points": 1,
+      "objective_ids": [
+        "robotics-4-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 2.0,
+        "unit": "mm",
+        "tolerance": 0.02,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Rearrange F=kδ to δ=F/k, then convert meters to millimeters.",
+        "solution": "δ=(0.80 N)/(400 N/m)=0.0020 m=2.0 mm. A force target maps to different indentation when the environment stiffness changes.",
+        "lesson_ids": [
+          "robotics-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice for force-target indentation in the spring model."
+        ]
+      }
+    },
+    {
+      "id": "robotics-4:hybrid-axis-assignment",
+      "type": "single_choice",
+      "prompt": "A tool slides along a surface while maintaining contact. In a well-aligned contact frame, which assignment best describes a basic hybrid position-force controller?",
+      "options": [
+        "Track tangential position while regulating force along the surface normal",
+        "Regulate force tangentially and ignore the normal contact direction",
+        "Use position commands alone to guarantee constant normal force for any surface stiffness",
+        "Disable sensing after contact because the geometric path is already known"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "robotics-4-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Separate motion along the surface from loading into the surface.",
+        "solution": "A basic hybrid assignment can track position along a tangent while controlling normal force. This depends on a contact frame that represents the task directions; it is only a conceptual assignment, not a validated controller.",
+        "lesson_ids": [
+          "robotics-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added original conceptual practice on hybrid position-force axis assignment."
+        ]
+      }
+    },
+    {
+      "id": "robotics-4:contact-force-feedback",
+      "type": "single_choice",
+      "prompt": "A force target is 1.00 N and the measured contact force is 0.80 N. Under eF=Ftarget−Fmeasured and the spring model F=kδ with k>0, which direction should a simple controller move the tool along the normal?",
+      "options": [
+        "Increase indentation, because the force error is positive",
+        "Decrease indentation, because the force error is positive",
+        "Keep indentation fixed; a force sensor cannot inform position adjustment",
+        "Move tangentially; the normal direction is unrelated to contact force"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "robotics-4-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Compute the sign of the force error and recall that increasing δ increases F when k is positive.",
+        "solution": "eF=1.00−0.80=+0.20 N. In the stated static spring model, increasing indentation increases force. The response of a real feedback loop also depends on its dynamics, delay, gain and limits.",
+        "lesson_ids": [
+          "robotics-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added original conceptual practice on force-error sign in a static contact model."
+        ]
+      }
+    },
+    {
+      "id": "robotics-4:contact-model-boundary",
+      "type": "single_choice",
+      "prompt": "What is the strongest conclusion supported by the linear spring contact calculation F=kδ?",
+      "options": [
+        "It predicts force for the stated quasistatic model parameters, but does not establish transient behavior, closed-loop stability or safe hardware limits",
+        "It proves the robot will remain stable whenever a force target is selected",
+        "It guarantees the true contact stiffness is constant during a task",
+        "It validates the sensor, actuator and protective functions without measurements"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "robotics-4-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "List the phenomena omitted from a static, frictionless spring model.",
+        "solution": "The equation supports conditional arithmetic for the stated linear quasistatic spring only. It omits inertia, transients, friction, latency, saturation and force-loop stability, so it is not a safety or hardware validation.",
+        "lesson_ids": [
+          "robotics-4"
+        ],
+        "misconception_ids": [
+          "model-calculation-is-hardware-validation"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added original formative practice on the scope of a quasistatic contact model."
+        ]
+      }
+    },
+    {
+      "id": "robotics-14:pd-sag-estimate",
+      "type": "numeric",
+      "prompt": "A vertical-plane arm has massless links L₁ = 0.30 m and L₂ = 0.20 m, m₁ = 1 kg at the elbow, m₂ = 0.5 kg at the tool and g = 9.81 m/s²; q₁ is measured from horizontal and q₂ relative to link one. PD control with K_p = diag(50, 20) N·m/rad and no gravity model holds the target q = (0, 90°). Using the gravity torque at the target, estimate the shoulder's steady-state error in rad. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "robotics-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.08829,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "At rest the proportional term alone balances gravity: K_p e ≈ G(q_d).",
+        "solution": "G₁ = (1.5)(9.81)(0.30) + (0.5)(9.81)(0.20)cos 90° = 4.4145 N·m, so e₁ ≈ 4.4145/50 = 0.0883 rad (about 5.1°).",
+        "lesson_ids": [
+          "robotics-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "robotics-14:gravity-mismatch-error",
+      "type": "numeric",
+      "prompt": "A vertical-plane arm has massless links L₁ = 0.30 m and L₂ = 0.20 m, m₁ = 1 kg at the elbow, m₂ = 0.5 kg at the tool and g = 9.81 m/s²; q₁ is measured from horizontal and q₂ relative to link one. Gravity compensation is added using this model, but the tool actually weighs 0.6 kg. With a shoulder gain of K_p = 50 N·m/rad at q = (0, 90°), what residual shoulder error in rad remains? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "robotics-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.005886,
+        "unit": "",
+        "tolerance": 0.0002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Only the uncompensated gravity torque ΔG has to be balanced by the proportional term.",
+        "solution": "ΔG₁ = 0.1 × 9.81 × (0.30 cos 0 + 0.20 cos 90°) = 0.2943 N·m, so e₁ ≈ 0.2943/50 = 0.0059 rad.",
+        "lesson_ids": [
+          "robotics-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "robotics-14:pd-natural-frequency-straight",
+      "type": "numeric",
+      "prompt": "A vertical-plane arm has massless links L₁ = 0.30 m and L₂ = 0.20 m, m₁ = 1 kg at the elbow, m₂ = 0.5 kg at the tool and g = 9.81 m/s²; q₁ is measured from horizontal and q₂ relative to link one. The elbow is held at q₂ = 0 (arm straight) and the shoulder has PD gain K_p = 15.5 N·m/rad. What is the shoulder's natural frequency in rad/s? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "robotics-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 8.4908,
+        "unit": "",
+        "tolerance": 0.02,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use the shoulder's effective inertia M₁₁ = m₁L₁² + m₂(L₁² + L₂² + 2L₁L₂cos q₂).",
+        "solution": "M₁₁ = 0.09 + 0.5 × 0.25 = 0.215 kg·m², so ω_n = √(15.5/0.215) = 8.49 rad/s, compared with 10.0 rad/s in the bent posture where M₁₁ = 0.155.",
+        "lesson_ids": [
+          "robotics-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "robotics-14:computed-torque-damping-gain",
+      "type": "numeric",
+      "prompt": "A computed-torque loop should give every joint error ë + K_d ė + K_p e = 0 a natural frequency of 8 rad/s and a damping ratio of 0.9. What K_d in s⁻¹ is needed? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "robotics-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 14.4,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Match ë + K_d ė + K_p e = 0 with ë + 2ζω_n ė + ω_n² e = 0.",
+        "solution": "K_d = 2ζω_n = 2 × 0.9 × 8 = 14.4 s⁻¹, with K_p = ω_n² = 64 s⁻².",
+        "lesson_ids": [
+          "robotics-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "robotics-14:feedforward-shoulder",
+      "type": "numeric",
+      "prompt": "A vertical-plane arm has massless links L₁ = 0.30 m and L₂ = 0.20 m, m₁ = 1 kg at the elbow, m₂ = 0.5 kg at the tool and g = 9.81 m/s²; q₁ is measured from horizontal and q₂ relative to link one. On a planned path at q = (0, 90°) with q̇ = (1, 2) rad/s, q̈_d = (1, 0) rad/s² and zero tracking error, what shoulder torque in N·m does computed torque command? At this posture M = [0.155, 0.020; 0.020, 0.020] kg·m². Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "robotics-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 4.3295,
+        "unit": "",
+        "tolerance": 0.003,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "τ = M q̈_d + h + G, with h₁ = −m₂L₁L₂ sin q₂ (2q̇₁q̇₂ + q̇₂²).",
+        "solution": "M q̈_d gives 0.155, h₁ = −0.03 × 8 = −0.24 and G₁ = 4.4145, so τ₁ = 0.155 − 0.24 + 4.4145 = 4.3295 N·m.",
+        "lesson_ids": [
+          "robotics-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "robotics-14:feedforward-elbow",
+      "type": "numeric",
+      "prompt": "A vertical-plane arm has massless links L₁ = 0.30 m and L₂ = 0.20 m, m₁ = 1 kg at the elbow, m₂ = 0.5 kg at the tool and g = 9.81 m/s²; q₁ is measured from horizontal and q₂ relative to link one. For the same trajectory point (q = (0, 90°), q̇ = (1, 2) rad/s, q̈_d = (1, 0) rad/s²), what elbow torque in N·m does computed torque command? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "robotics-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.05,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "τ₂ = M₂₁q̈₁ + M₂₂q̈₂ + h₂ + G₂, with h₂ = m₂L₁L₂ sin q₂ q̇₁².",
+        "solution": "M₂₁ × 1 = 0.020, h₂ = 0.03 × 1 = 0.03 and G₂ = 0 because the tool link is vertical, so τ₂ = 0.050 N·m.",
+        "lesson_ids": [
+          "robotics-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "robotics-14:velocity-term-shoulder",
+      "type": "numeric",
+      "prompt": "A vertical-plane arm has massless links L₁ = 0.30 m and L₂ = 0.20 m, m₁ = 1 kg at the elbow, m₂ = 0.5 kg at the tool and g = 9.81 m/s²; q₁ is measured from horizontal and q₂ relative to link one. At q = (0, 90°) with q̇ = (1, 2) rad/s, what is the shoulder's velocity-product torque h₁ in N·m? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "robotics-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": -0.24,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "h₁ = −m₂L₁L₂ sin q₂ (2q̇₁q̇₂ + q̇₂²).",
+        "solution": "h₁ = −(0.5)(0.30)(0.20)(1)(2 × 1 × 2 + 2²) = −0.03 × 8 = −0.24 N·m.",
+        "lesson_ids": [
+          "robotics-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "robotics-14:computed-torque-mismatch",
+      "type": "numeric",
+      "prompt": "A vertical-plane arm has massless links L₁ = 0.30 m and L₂ = 0.20 m, m₁ = 1 kg at the elbow, m₂ = 0.5 kg at the tool and g = 9.81 m/s²; q₁ is measured from horizontal and q₂ relative to link one. Computed torque with K_p = 100 s⁻² holds the arm at rest at q_d = (0, 90°), but the tool actually weighs 0.6 kg while the model uses 0.5 kg. Using e = M̂⁻¹ΔG/K_p with M̂ = [0.155, 0.020; 0.020, 0.020] kg·m², what is the shoulder's steady error in rad? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "robotics-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0.0218,
+        "unit": "",
+        "tolerance": 0.0005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "ΔG = (0.2943, 0) N·m. Invert M̂ (determinant 0.0027) and divide by K_p.",
+        "solution": "M̂⁻¹ΔG = (1/0.0027)(0.020 × 0.2943, −0.020 × 0.2943) = (2.18, −2.18) rad/s², so e ≈ (0.0218, −0.0218) rad. The elbow error comes from the coupling in M̂⁻¹.",
+        "lesson_ids": [
+          "robotics-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "robotics-14:pd-needs-error",
+      "type": "single_choice",
+      "prompt": "Why does PD control alone leave a steady error when an arm holds a posture against gravity?",
+      "options": [
+        "At rest the derivative term is zero, so the proportional term must supply the holding torque, which needs a nonzero error",
+        "The derivative term pushes the arm away from the target",
+        "Gravity makes the closed loop unstable",
+        "PD control ignores the position measurement at rest"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "robotics-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Write the torque balance at rest.",
+        "solution": "With q̇ = 0 the law gives τ = K_p e, and equilibrium needs τ = G(q). Unless G = 0, e must be nonzero. Gravity compensation or integral action removes it.",
+        "lesson_ids": [
+          "robotics-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "robotics-14:computed-torque-linearizes",
+      "type": "single_choice",
+      "prompt": "What does computed-torque control achieve when its model is exact and the actuators do not saturate?",
+      "options": [
+        "Each joint error follows ë + K_d ė + K_p e = 0, independent of posture and of the other joints",
+        "The arm no longer needs position feedback",
+        "The required motor torque becomes zero",
+        "The arm becomes stable for any gains, including negative ones"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "robotics-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Substitute the control law into τ = Mq̈ + h + G.",
+        "solution": "The model terms cancel M, h and G, leaving a decoupled linear second-order error equation for each joint whose gains set the same response everywhere. Feedback is still essential, and positive gains are needed for stability.",
+        "lesson_ids": [
+          "robotics-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "robotics-14:saturation-breaks-cancellation",
+      "type": "single_choice",
+      "prompt": "A computed-torque command exceeds the shoulder motor's torque limit during a fast move. What follows?",
+      "options": [
+        "The delivered torque differs from the command, the cancellation fails and the error no longer obeys the designed linear equation",
+        "The controller automatically lowers the target speed",
+        "The error equation remains linear but with a lower natural frequency",
+        "Only the elbow is affected"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "robotics-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "The cancellation assumes the requested torque is delivered.",
+        "solution": "When torque saturates, the unmodeled difference between command and delivered torque acts as a large disturbance, and the closed loop becomes nonlinear. Trajectory timing, gain choice or torque headroom must prevent it.",
+        "lesson_ids": [
+          "robotics-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
     }
   ]
 }

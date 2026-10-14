@@ -1,6 +1,6 @@
 # Cellular Biomechanics & Mechanobiology
 
-**Maturity: partial. Version: 0.3.0.**
+**Maturity: partial. Version: 0.3.9.**
 
 Connect forces, matrix mechanics, cell adhesion, mechanotransduction, and quantitative assays across molecular-to-tissue scales.
 
@@ -17,15 +17,15 @@ Cell biology; Physics: Mechanics; Differential Equations recommended. Structured
 
 ## Proposed 14-week schedule
 
-This is a proposed scope, not a measured or reviewed semester. Each week lists its readings; the four short prototype readings (about 70 to 75 words each) sit in weeks 1, 5, 8 and 10 beside the original lessons, and every lesson has public formative items and retrieval cards.
+This is a proposed scope, not a measured or reviewed semester. Each week lists its readings; weeks 1, 5, 8 and 10 have expanded primers on mechanics, adhesion/force transmission, mechanotransduction and experimental design. Week 3 pairs indentation and viscoelastic relaxation with a size-dependent poroelastic comparison, and week 5 pairs adhesion and force transmission with cytoskeletal filament mechanics. All four original compact prototype readings have expanded instruction alongside the original lessons. Every lesson has public formative items and retrieval cards.
 
 | Week | Theme | Readings |
 |---|---|---|
 | 1 | Stress, strain and constitutive behavior | Stress, strain, and constitutive behavior |
 | 2 | Applying strain to cells: engineering and true strain, Poisson contraction and strain rate | Applying strain to cells: engineering and true strain, Poisson contraction and strain rate |
-| 3 | Measuring how stiff a cell is: Hertz indentation and viscoelastic relaxation | Measuring how stiff a cell is: Hertz indentation, viscoelastic relaxation and what a single modulus hides |
+| 3 | Indentation, viscoelasticity and size-dependent poroelastic relaxation | Measuring how stiff a cell is: Hertz indentation, viscoelastic relaxation and what a single modulus hides; Poroelastic relaxation and specimen-size scaling |
 | 4 | Oscillatory rheology: storage and loss moduli of a viscoelastic gel | Oscillatory rheology: storage and loss moduli of a viscoelastic gel |
-| 5 | Adhesion, cytoskeleton and force transmission | Adhesion, cytoskeleton, and force transmission |
+| 5 | Adhesion, cytoskeleton and force transmission, with cytoskeletal filament mechanics | Adhesion, cytoskeleton, and force transmission; Cytoskeletal filament mechanics: persistence length, entropic elasticity and buckling |
 | 6 | Traction forces from micropillars: force from deflection | Traction forces from micropillars: force from deflection, and what the substrate really is |
 | 7 | Bonds under force and rigidity sensing: lifetimes, loading rates and the molecular clutch | Bonds under force and rigidity sensing: lifetimes, loading rates and the molecular clutch |
 | 8 | Mechanotransduction and mechanosensitive pathways | Mechanotransduction and mechanosensitive pathways |
@@ -38,11 +38,15 @@ This is a proposed scope, not a measured or reviewed semester. Each week lists i
 
 ## Assessment and study policy
 
-Every lesson has public formative items (numeric, single-choice, multiple-select, data-interpretation, structured-response and CSV-upload) mapped to its objectives, plus retrieval cards for the review queue; each practice assessment also lists the course outcomes its items assess. Week 13 is a synthetic-data virtual lab and week 14 pairs a lesson on redesigning the stiffness experiment with the course case and its self-assessment checklist. These are practice activities with unlimited retries and no institutional grade, university credit or transferable credit. Workload has not been measured.
+Every lesson has public formative items (numeric, single-choice, multiple-select, data-interpretation, structured-response and CSV-upload) mapped to its objectives, plus retrieval cards for the review queue; each practice assessment also lists the course outcomes its items assess. Week 3 pairs the existing indentation/viscoelasticity work with an eight-item size-scaling comparison, without adding a nominal week. Week 13 is a synthetic-data virtual lab and week 14 pairs a lesson on redesigning the stiffness experiment with the course case and its self-assessment checklist. These are practice activities with unlimited retries and no institutional grade, university credit or transferable credit. Workload has not been measured.
+
+## Inactive integrative project draft
+
+The [viscoelastic material-selection portfolio](assessment-specs/viscoelastic-material-selection-project-draft.md) compares fictional standard-linear-solid models across step relaxation and oscillatory loading. It is a paper-only mathematical exercise, is not scheduled or assigned, and makes no prediction about cell behavior or any real material.
 
 ## Current limitations
 
-The schedule above is proposed, not measured, and has not been reviewed by a qualified instructor. There are no graded homework sets, midterm, final or graded project. The four prototype readings remain short. The package cites no new papers: the lessons teach standard models with synthetic data, and the typical values they quote (moduli, pillar and bond parameters, cortical tensions, water properties) are textbook-level and vary between sources. All gels, cells, forces and numbers are synthetic; no lesson gives a laboratory protocol or handling procedure, and nothing here says anything about any real cell type, material or measurement. Qualified human review is required before this course could meet the complete-course standard.
+The schedule above is proposed, not measured, and has not been reviewed by a qualified instructor. There are no graded homework sets, midterm or final; the new project draft is inactive and ungraded. The four former compact readings now have expanded primers, and the size-scaling reading extends Week 3 without a new week; broader workload, assessment, laboratory, and review gaps remain. The package cites no new papers: the lessons teach standard models with synthetic data, and the typical values they quote (moduli, pillar and bond parameters, cortical tensions, water properties) are textbook-level and vary between sources. All gels, cells, forces, candidate materials and numbers are synthetic; no lesson gives a laboratory protocol or handling procedure, and nothing here says anything about any real cell type, material or measurement. Qualified human review is required before this course could meet the complete-course standard.
 
 ## Sources and licensing
 

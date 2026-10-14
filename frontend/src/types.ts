@@ -71,11 +71,45 @@ export interface LearningObjective {
   description: string;
   bloom: string;
 }
+export interface CourseWeek {
+  week: number;
+  title: string;
+  lessons: { id: string; title: string }[];
+  assessments: {
+    id: string;
+    title: string;
+    type: string;
+    mode: "practice" | "graded" | "self-assessment";
+  }[];
+}
 export interface LessonSummary {
   id: string;
   title: string;
   learning_objective_ids: string[];
 }
+export interface CaseStudy {
+  id: string;
+  prompt: string;
+  mode: "self-assessment";
+  objective_ids: string[];
+  criteria: { id: string; criterion: string }[];
+  limitations: string[];
+  case_sha256: string;
+}
+
+export interface CaseDraft {
+  id: string;
+  course_id: string;
+  case_id: string;
+  content_version: string;
+  case_sha256: string;
+  case_snapshot: CaseStudy;
+  response: string;
+  checked_criteria: string[];
+  revision: number;
+  updated_at: string;
+}
+
 export interface Course extends CourseSummary {
   prerequisites: {
     course_ids: string[];
@@ -92,6 +126,8 @@ export interface Course extends CourseSummary {
     source_ids: string[];
     lessons: LessonSummary[];
   }[];
+  weeks: CourseWeek[];
+  case_studies?: CaseStudy[];
   syllabus_markdown: string;
   license: string;
   review_status: unknown;
@@ -206,6 +242,20 @@ export interface Note {
   lesson_id: string;
   body: string;
   updated_at?: string;
+}
+export interface NotebookNote {
+  course_id: string;
+  course_title: string;
+  lesson_id: string;
+  lesson_title: string;
+  body: string;
+  updated_at: string;
+}
+export interface NotebookPage {
+  items: NotebookNote[];
+  total: number;
+  offset: number;
+  limit: number;
 }
 export interface Feedback {
   diagnosis: string;
@@ -330,6 +380,7 @@ export interface GradedAssessment {
   attempts_used: number;
   attempt_limit: number | null;
   schedule_status: "open" | "closed";
+  assignment_token?: string | null;
 }
 export interface GradedSubmission {
   id: string;
@@ -340,6 +391,7 @@ export interface GradedSubmission {
   responses: Record<string, AssessmentAnswer>;
   results: {
     question_id: string;
+    variant_id?: string | null;
     score: number;
     max_score: number;
     feedback: Feedback;
@@ -370,7 +422,7 @@ export interface GradedSubmissionAppeal {
 }
 export interface InstructorGradedSubmissionAppeal extends GradedSubmissionAppeal {
   learner: string;
-  content_is_current: boolean;
+  specification_verified: boolean;
   assessment_title: string;
   questions: Question[] | null;
   responses: Record<string, AssessmentAnswer>;

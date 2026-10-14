@@ -40,7 +40,7 @@
       "prompt": "For D=1×10⁻⁹ m²/s and a characteristic length L=100 μm, estimate L²/D in seconds.",
       "points": 1,
       "objective_ids": [
-        "transport-2-objective-1"
+        "transport-2-objective-2"
       ],
       "solution_spec": {
         "answer": 10,
@@ -102,7 +102,7 @@
       "prompt": "A slab has thickness 0.02 m, conductivity 0.5 W/(m·K), and area 0.10 m². What is its conductive thermal resistance in K/W?",
       "points": 1,
       "objective_ids": [
-        "transport-4-objective-1"
+        "transport-4-objective-2"
       ],
       "solution_spec": {
         "answer": 0.4,
@@ -158,6 +158,40 @@
       }
     },
     {
+      "id": "transport-1:energy-balance",
+      "type": "numeric",
+      "prompt": "A steady control volume has mass flow 1 kg/s in and out. Inlet and outlet specific enthalpies are 100 and 110 kJ/kg. Shaft work and kinetic- and potential-energy changes are negligible. What net heat-transfer rate into the control volume is required? Enter kW.",
+      "points": 1,
+      "objective_ids": [
+        "transport-1-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 10,
+        "unit": "kW",
+        "tolerance": 0.1,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Set energy accumulation to zero and use heat into the volume as positive.",
+        "solution": "At steady state with no shaft work or kinetic/potential-energy change, Q̇ = ṁ(hout−hin) = 1(110−100) = 10 kJ/s = 10 kW into the control volume.",
+        "lesson_ids": [
+          "transport-1"
+        ],
+        "misconception_ids": [
+          "energy-balance-sign"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added a steady-flow first-law calculation to directly exercise the mass-and-energy balance outcome."
+        ]
+      }
+    },
+    {
       "id": "transport-2:diffusion-time",
       "type": "numeric",
       "prompt": "Estimate the diffusion time across L = 100 µm for a solute with D = 1.0×10⁻⁹ m²/s using t ≈ L²/D. Enter a value and unit.",
@@ -185,6 +219,76 @@
       "provenance": {
         "kind": "original",
         "modifications": []
+      }
+    },
+    {
+      "id": "transport-2:flux-direction",
+      "type": "single_choice",
+      "prompt": "Across a one-dimensional slab, concentration is 8 mol/m³ at x=0 and 2 mol/m³ at x=1 mm. With constant D, which way does diffusive flux point?",
+      "options": [
+        "Toward negative x, from the lower concentration toward the higher concentration.",
+        "Toward positive x, down the concentration gradient.",
+        "There is no flux because both boundary values are specified.",
+        "The direction cannot be determined unless the area is known."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "transport-2-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Use the minus sign in Fick’s first law, J = −D dC/dx.",
+        "solution": "Concentration decreases as x increases, so dC/dx is negative and Jx = −D dC/dx is positive: flux points toward positive x. The area affects total rate, not the direction of flux.",
+        "lesson_ids": [
+          "transport-2"
+        ],
+        "misconception_ids": [
+          "fick-sign"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added a direct check of Fickian flux direction."
+        ]
+      }
+    },
+    {
+      "id": "transport-2:regime",
+      "type": "single_choice",
+      "prompt": "For D=2×10⁻⁹ m²/s, L=200 μm, and first-order k=0.05 s⁻¹, which comparison is best?",
+      "options": [
+        "Da≈0.01; diffusion is much faster than reaction.",
+        "Da≈0.1; reaction is much slower than diffusion.",
+        "Da≈1; diffusion and reaction act on comparable time scales.",
+        "Da≈10; reaction is much slower than diffusion."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "transport-2-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 2
+      },
+      "feedback": {
+        "hint": "Calculate tD≈L²/D, tR≈1/k, and Da=tD/tR.",
+        "solution": "L=2×10⁻⁴ m gives tD≈20 s; tR≈20 s; thus Da≈1 and neither time scale is clearly negligible.",
+        "lesson_ids": [
+          "transport-2"
+        ],
+        "misconception_ids": [
+          "damkohler-reciprocal"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct practice comparing diffusion and reaction time scales."
+        ]
       }
     },
     {
@@ -216,6 +320,41 @@
       "provenance": {
         "kind": "original",
         "modifications": []
+      }
+    },
+    {
+      "id": "transport-3:reynolds-limits",
+      "type": "single_choice",
+      "prompt": "A vessel segment has Re=10 using its specified characteristic length and mean speed. Which statement is best?",
+      "options": [
+        "Re=10 proves laminar flow in every geometry and makes wall effects irrelevant.",
+        "Viscous effects are important at this scale, but Re alone is not a universal transition rule; geometry, flow development, and fluid behavior still matter.",
+        "Re has units of inverse time.",
+        "Pressure drop and flow cannot be related when Re is low."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "transport-3-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Re compares inertial and viscous scales for the specified length and speed.",
+        "solution": "A low Re indicates viscosity matters at the selected scale. Transition behavior depends on geometry and conditions; Re does not make wall stresses or pressure-flow modeling disappear.",
+        "lesson_ids": [
+          "transport-3"
+        ],
+        "misconception_ids": [
+          "reynolds-universal-threshold"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added a direct check of Reynolds-number interpretation and limits."
+        ]
       }
     },
     {
@@ -3076,6 +3215,923 @@
           "inlet-adequate-means-supplied",
           "outlet-only-measurement"
         ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-4:heat-transfer-modes",
+      "type": "single_choice",
+      "prompt": "In an idealized path from a moving fluid, through a solid wall, across an evacuated gap, and to a cooler surface, which mechanisms act in those three regions?",
+      "options": [
+        "Convection between fluid and wall, conduction through the wall, and radiation across the vacuum gap.",
+        "Conduction between fluid and wall, convection through the solid, and radiation carried by gas across the gap.",
+        "Radiation between fluid and wall, convection through the solid, and conduction across the vacuum gap.",
+        "Convection in all three regions because heat always moves from hot to cold."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "transport-4-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Name the material present in each region and ask whether it is moving, stationary, or absent.",
+        "solution": "Moving fluid exchanges heat with a surface by convection, energy crosses the stationary solid by conduction, and surfaces can exchange radiation across a vacuum. An evacuated gap has no material to carry convection or ordinary conduction.",
+        "lesson_ids": [
+          "transport-4"
+        ],
+        "misconception_ids": [
+          "heat-transfer-mode-confusion"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct formative practice distinguishing convection, conduction, and radiation by transfer region."
+        ]
+      }
+    },
+    {
+      "id": "transport-14:closed-entropy",
+      "type": "numeric",
+      "prompt": "A closed system receives 600 J of heat at a 300 K boundary and generates 0.2 J/K of entropy. What is ΔS in J/K? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "transport-14-objective-1",
+        "transport-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 2.2,
+        "unit": "J/K",
+        "tolerance": 0.02,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Add entropy transferred with heat to entropy generated within the system.",
+        "solution": "ΔS=Q/T_b+S_gen=600/300+0.2=2.2 J/K.",
+        "lesson_ids": [
+          "transport-14"
+        ],
+        "misconception_ids": [
+          "entropy-transfer-versus-generation"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-14:transfer-vs-generation",
+      "type": "single_choice",
+      "prompt": "Which statement correctly separates entropy transfer from entropy generation?",
+      "options": [
+        "Heat transfers entropy across a boundary; irreversibility generates entropy inside the modeled system.",
+        "Entropy generation is negative whenever heat leaves a system.",
+        "Work always carries entropy at the rate work divided by temperature.",
+        "Entropy transfer and entropy generation are the same term with different names."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "transport-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Track what crosses the boundary separately from what is produced within it.",
+        "solution": "Heat and mass streams can carry entropy across a boundary. Irreversibility produces nonnegative entropy generation within the chosen system or control volume; classical work transfer does not carry entropy directly.",
+        "lesson_ids": [
+          "transport-14"
+        ],
+        "misconception_ids": [
+          "entropy-transfer-versus-generation"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-14:reservoir-generation",
+      "type": "numeric",
+      "prompt": "Transfer 1200 J from a reservoir at 400 K to one at 300 K. For the two-reservoir system, what is total entropy generation in J/K? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "transport-14-objective-2",
+        "transport-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 1.0,
+        "unit": "J/K",
+        "tolerance": 0.02,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The hot reservoir loses Q/T_hot; the cold reservoir gains Q/T_cold.",
+        "solution": "The total is 1200(1/300−1/400)=1 J/K. Energy is conserved, while transfer across a finite temperature difference generates entropy.",
+        "lesson_ids": [
+          "transport-14"
+        ],
+        "misconception_ids": [
+          "finite-temperature-difference"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-14:steady-flow-generation",
+      "type": "numeric",
+      "prompt": "An adiabatic steady device has one inlet and one outlet at 0.10 kg/s. Specific entropy is 2.0 kJ/(kg·K) in and 2.3 kJ/(kg·K) out. What entropy-generation rate is required in kW/K? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "transport-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.03,
+        "unit": "kW/K",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "For an adiabatic steady one-inlet/one-outlet volume, solve the stream balance for generation.",
+        "solution": "Ṡ_gen=ṁ(s_out−s_in)=0.10(2.3−2.0)=0.03 kW/K, which is nonnegative.",
+        "lesson_ids": [
+          "transport-14"
+        ],
+        "misconception_ids": [
+          "steady-flow-entropy-signs"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-14:negative-generation",
+      "type": "single_choice",
+      "prompt": "A stated adiabatic steady-flow balance gives Ṡ_gen = −0.02 kW/K. Which response follows from the second law?",
+      "options": [
+        "Accept it as a reversible process with negative generation.",
+        "The specified process or model is inconsistent or incomplete; check signs, omitted streams or heat, and steady-state assumptions.",
+        "Replace the result with zero because entropy is conserved.",
+        "Treat the negative value as entropy transferred by shaft work."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "transport-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Entropy generation cannot be negative in a physically complete model.",
+        "solution": "A negative generation rate signals inconsistent data, signs, boundaries or assumptions. It is not a physical entropy-generation value and should not be silently clipped to zero.",
+        "lesson_ids": [
+          "transport-14"
+        ],
+        "misconception_ids": [
+          "negative-entropy-generation"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-14:absolute-temperature",
+      "type": "single_choice",
+      "prompt": "When evaluating entropy transfer with heat as Q/T_b, what temperature scale must T_b use?",
+      "options": [
+        "Kelvin, the absolute thermodynamic scale",
+        "Degrees Celsius, because temperature differences are unchanged",
+        "Any scale, provided Q is in joules",
+        "Fahrenheit, if the heat rate is in watts"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "transport-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "The expression uses a reciprocal absolute temperature, not a temperature difference.",
+        "solution": "Use kelvin. Entropy transfer depends on absolute thermodynamic temperature; using Celsius or Fahrenheit reciprocals is incorrect.",
+        "lesson_ids": [
+          "transport-14"
+        ],
+        "misconception_ids": [
+          "absolute-temperature-for-entropy"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-14:adiabatic-closed",
+      "type": "single_choice",
+      "prompt": "A closed adiabatic system undergoes an irreversible process. Which entropy-balance statement applies?",
+      "options": [
+        "ΔS = S_gen > 0",
+        "ΔS = 0 because there is no heat transfer",
+        "ΔS = −S_gen < 0",
+        "ΔS is set by the work divided by the boundary temperature"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "transport-14-objective-2",
+        "transport-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Set the heat-transfer term to zero in the closed-system entropy balance.",
+        "solution": "With no mass crossing and no heat transfer, ΔS=S_gen. Irreversibility makes the generation positive; adiabatic does not mean isentropic.",
+        "lesson_ids": [
+          "transport-14"
+        ],
+        "misconception_ids": [
+          "adiabatic-versus-isentropic"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-14:energy-vs-entropy",
+      "type": "single_choice",
+      "prompt": "Which statement can be true for an irreversible heat-transfer process?",
+      "options": [
+        "The complete energy balance closes while total entropy generation is positive.",
+        "Positive entropy generation means energy was created inside the system.",
+        "Entropy generation must vanish whenever mass is conserved.",
+        "A positive energy balance term can be substituted directly for entropy generation."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "transport-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Energy conservation and the second law are separate accounting statements.",
+        "solution": "Energy remains conserved while irreversibility generates entropy. Closing an energy balance does not prove that a process is reversible or second-law consistent.",
+        "lesson_ids": [
+          "transport-14"
+        ],
+        "misconception_ids": [
+          "energy-versus-entropy"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-15:standard-free-energy",
+      "type": "numeric",
+      "prompt": "At 298 K, what is ΔrG° in kJ/mol if K=4.00? Use R=8.314 J mol⁻¹ K⁻¹.",
+      "points": 1,
+      "objective_ids": [
+        "transport-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": -3.43,
+        "unit": "kJ/mol",
+        "tolerance": 0.02,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use ΔrG°=−RT ln K and convert joules to kilojoules.",
+        "solution": "−(8.314)(298)ln(4)/1000 = −3.43 kJ/mol.",
+        "lesson_ids": [
+          "transport-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-15:current-reaction-free-energy",
+      "type": "numeric",
+      "prompt": "At 298 K, K=4.00 and Q=0.20. What is ΔrG in kJ/mol?",
+      "points": 1,
+      "objective_ids": [
+        "transport-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": -7.43,
+        "unit": "kJ/mol",
+        "tolerance": 0.02,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use ΔrG=RT ln(Q/K).",
+        "solution": "(8.314)(298)ln(0.20/4.00)/1000 = −7.43 kJ/mol.",
+        "lesson_ids": [
+          "transport-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-15:equilibrium-a",
+      "type": "numeric",
+      "prompt": "A closed ideal A⇌B batch contains 1.20 mM total A+B. At equilibrium K=[B]/[A]=4.00. What is [A] in mM?",
+      "points": 1,
+      "objective_ids": [
+        "transport-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.24,
+        "unit": "mM",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use [B]=4[A] and [A]+[B]=1.20 mM.",
+        "solution": "5[A]=1.20 mM, so [A]=0.24 mM.",
+        "lesson_ids": [
+          "transport-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-15:quotient",
+      "type": "numeric",
+      "prompt": "For A⇌B, what is Q when aA=0.40 and aB=0.10?",
+      "points": 1,
+      "objective_ids": [
+        "transport-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.25,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "For this reaction, Q=aB/aA.",
+        "solution": "Q=0.10/0.40=0.25.",
+        "lesson_ids": [
+          "transport-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-15:activity-change",
+      "type": "numeric",
+      "prompt": "At 298 K, what is the RT ln(a) composition term in μ when activity changes from 1.00 to 0.10? Enter the change in kJ/mol.",
+      "points": 1,
+      "objective_ids": [
+        "transport-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": -5.71,
+        "unit": "kJ/mol",
+        "tolerance": 0.02,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Calculate RT ln(0.10/1.00), then convert to kJ/mol.",
+        "solution": "RT ln(0.1)=(8.314)(298)ln(0.1)≈−5.71 kJ/mol.",
+        "lesson_ids": [
+          "transport-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-15:equilibrium-condition",
+      "type": "single_choice",
+      "prompt": "For a reaction at fixed temperature and pressure, which condition characterizes equilibrium?",
+      "points": 1,
+      "objective_ids": [
+        "transport-15-objective-2"
+      ],
+      "options": [
+        "Q=K and ΔrG=0",
+        "Q=0 and ΔrG°=0",
+        "Q=K and the forward rate is zero",
+        "ΔrG°=0 for every mixture"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Use the reaction Gibbs energy under the current composition.",
+        "solution": "At equilibrium Q=K and ΔrG=0. Forward and reverse molecular events can still occur.",
+        "lesson_ids": [
+          "transport-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-15:equilibrium-vs-rate",
+      "type": "single_choice",
+      "prompt": "What does K=4.00 represent in the ideal A⇌B example?",
+      "points": 1,
+      "objective_ids": [
+        "transport-15-objective-3"
+      ],
+      "options": [
+        "The equilibrium activity ratio aB/aA at the stated temperature",
+        "The reaction rate in mol/s",
+        "The time required to reach equilibrium",
+        "The fraction of A molecules that react per second"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "K is defined from equilibrium composition, while rates need kinetic information.",
+        "solution": "K is a thermodynamic equilibrium ratio, not a kinetic rate constant.",
+        "lesson_ids": [
+          "transport-15"
+        ],
+        "misconception_ids": [
+          "equilibrium-constant-rate-constant-confusion"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-15:direction",
+      "type": "single_choice",
+      "prompt": "For the stated current mixture, ΔrG is negative. What follows from this sign under the fixed-T, fixed-P model?",
+      "points": 1,
+      "objective_ids": [
+        "transport-15-objective-3"
+      ],
+      "options": [
+        "The forward direction lowers Gibbs energy at this composition; the sign does not specify a rate.",
+        "The reaction reaches equilibrium immediately.",
+        "The equilibrium constant must be negative.",
+        "Every molecule of A converts to B."
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Interpret the sign as a thermodynamic direction, not as kinetics or completion.",
+        "solution": "A negative ΔrG favors forward change at that state, but does not determine the rate or final conversion.",
+        "lesson_ids": [
+          "transport-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-15:assumptions",
+      "type": "multiple_select",
+      "prompt": "Which assumptions are used to solve the example composition? Select all that apply.",
+      "points": 1,
+      "objective_ids": [
+        "transport-15-objective-3"
+      ],
+      "options": [
+        "The batch is closed and contains only A and B.",
+        "The mixture is treated as ideal dilute with activities referenced to the same standard concentration.",
+        "Temperature is fixed, so the stated K applies.",
+        "K is a first-order reaction-rate constant.",
+        "There are no side reactions or binding reactions."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "feedback": {
+        "hint": "Select the stated thermodynamic and material-balance assumptions, not kinetic claims.",
+        "solution": "The composition calculation uses a closed A+B batch, ideal activities with a common standard, fixed temperature, and no side reactions. K is not a rate constant.",
+        "lesson_ids": [
+          "transport-15"
+        ],
+        "misconception_ids": [
+          "ideal-mixture-overgeneralization"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-16:stream-heating",
+      "type": "numeric",
+      "prompt": "Treat the synthetic liquid as incompressible with ρ = 1000 kg/m³ and g = 9.81 m/s². A synthetic medium with c_p = 4180 J/(kg·K) flows at 15 mL/min and is warmed from 25 °C to 37 °C. Neglecting pressure, kinetic and height terms, what heating power is needed, in W? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "transport-16-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 12.54,
+        "unit": "",
+        "tolerance": 0.02,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Convert to mass flow, then use Q̇ = ṁ c_p ΔT.",
+        "solution": "ṁ = 2.5 × 10⁻⁴ kg/s, so Q̇ = 2.5 × 10⁻⁴ × 4180 × 12 = 12.5 W.",
+        "lesson_ids": [
+          "transport-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-16:feed-height",
+      "type": "numeric",
+      "prompt": "Treat the synthetic liquid as incompressible with ρ = 1000 kg/m³ and g = 9.81 m/s². How high above an outlet must a reservoir at rest sit to supply a driving pressure of 50 mmHg (1 mmHg = 133.322 Pa), in m? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "transport-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.6795,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use ΔP = ρ g h.",
+        "solution": "h = 50 × 133.322/(1000 × 9.81) = 0.680 m.",
+        "lesson_ids": [
+          "transport-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-16:efflux-speed",
+      "type": "numeric",
+      "prompt": "Treat the synthetic liquid as incompressible with ρ = 1000 kg/m³ and g = 9.81 m/s². A large open tank drains through a small hole 0.80 m below the liquid surface. What is the frictionless efflux speed, in m/s? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "transport-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 3.962,
+        "unit": "",
+        "tolerance": 0.003,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Apply Bernoulli between the surface and the jet, both at atmospheric pressure.",
+        "solution": "v = √(2gh) = √(2 × 9.81 × 0.80) = 3.96 m/s, an upper bound for a real orifice.",
+        "lesson_ids": [
+          "transport-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-16:constriction-drop",
+      "type": "numeric",
+      "prompt": "Treat the synthetic liquid as incompressible with ρ = 1000 kg/m³ and g = 9.81 m/s². Flow of 2.0 mL/s passes from a 3.0 mm bore into a 1.5 mm bore. Using mean velocities and Bernoulli, what is the pressure drop across the contraction, in Pa? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "transport-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 600.4,
+        "unit": "",
+        "tolerance": 0.5,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Find both velocities from Q/A, then ΔP = ½ρ(v₂² − v₁²).",
+        "solution": "v₁ = 0.283 m/s and v₂ = 1.13 m/s, so ΔP = ½ × 1000 × (1.278 − 0.080) = 600 Pa.",
+        "lesson_ids": [
+          "transport-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-16:poiseuille-loss",
+      "type": "numeric",
+      "prompt": "Treat the synthetic liquid as incompressible with ρ = 1000 kg/m³ and g = 9.81 m/s². Medium with μ = 0.90 mPa·s flows at 5.0 mL/min through 0.50 m of 1.0 mm bore tubing. What is the frictional pressure loss, in Pa? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "transport-16-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 1527.9,
+        "unit": "",
+        "tolerance": 1.0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "ΔP_f = 128 μ L Q/(πD⁴) with Q in m³/s.",
+        "solution": "Q = 8.33 × 10⁻⁸ m³/s, so ΔP_f = 128 × 0.90 × 10⁻³ × 0.50 × 8.33 × 10⁻⁸/(π × 10⁻¹²) = 1.53 kPa.",
+        "lesson_ids": [
+          "transport-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-16:tubing-reynolds",
+      "type": "numeric",
+      "prompt": "Treat the synthetic liquid as incompressible with ρ = 1000 kg/m³ and g = 9.81 m/s². Medium with μ = 0.90 mPa·s flows at 5.0 mL/min through 0.50 m of 1.0 mm bore tubing. What is the Reynolds number based on mean velocity and bore? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "transport-16-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 117.9,
+        "unit": "",
+        "tolerance": 0.3,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "v = Q/A, then Re = ρvD/μ.",
+        "solution": "v = 0.106 m/s, so Re = 1000 × 0.106 × 0.001/0.00090 = 118, laminar.",
+        "lesson_ids": [
+          "transport-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-16:pump-hydraulic-power",
+      "type": "numeric",
+      "prompt": "Treat the synthetic liquid as incompressible with ρ = 1000 kg/m³ and g = 9.81 m/s². Medium with μ = 0.90 mPa·s flows at 5.0 mL/min through 0.50 m of 1.0 mm bore tubing. The medium is also lifted 0.20 m. Neglecting kinetic energy, what hydraulic power must the pump deliver, in mW? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "transport-16-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0.2908,
+        "unit": "",
+        "tolerance": 0.0005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Add the friction loss and ρgΔz, then multiply by Q.",
+        "solution": "(1528 + 1962) Pa × 8.33 × 10⁻⁸ m³/s = 2.91 × 10⁻⁴ W = 0.291 mW.",
+        "lesson_ids": [
+          "transport-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-16:viscous-heating",
+      "type": "numeric",
+      "prompt": "Treat the synthetic liquid as incompressible with ρ = 1000 kg/m³ and g = 9.81 m/s². With c_p = 4180 J/(kg·K), what temperature rise does a frictional pressure loss of 2.0 kPa produce in a liquid stream, if all the lost mechanical energy stays in the liquid, in mK? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "transport-16-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0.4785,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The dissipated energy per volume ΔP_f heats the liquid: ΔT = ΔP_f/(ρ c_p).",
+        "solution": "ΔT = 2000/(1000 × 4180) = 4.8 × 10⁻⁴ K = 0.48 mK, negligible.",
+        "lesson_ids": [
+          "transport-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-16:bernoulli-validity",
+      "type": "single_choice",
+      "prompt": "Why does Bernoulli's equation alone fail to predict the pressure drop along 2 m of narrow perfusion tubing?",
+      "options": [
+        "Viscous friction dissipates mechanical energy along the tube, and that loss usually dominates the other terms",
+        "Bernoulli applies only to gases",
+        "The fluid's density changes along the tube",
+        "Bernoulli is valid only for vertical flow"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "transport-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Which assumption of Bernoulli fails in a long, narrow tube?",
+        "solution": "Bernoulli assumes negligible friction. In narrow tubing the Poiseuille loss is typically much larger than kinetic-energy changes, so the mechanical energy balance with h_f is needed.",
+        "lesson_ids": [
+          "transport-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-16:dominant-term",
+      "type": "single_choice",
+      "prompt": "A medium warmer heats a slow liquid stream by 15 K while the pressure changes by a few kilopascals. Which term dominates the steady-flow first law?",
+      "options": [
+        "The thermal term ṁc_pΔT",
+        "The kinetic-energy change",
+        "The pressure term ΔP/ρ",
+        "The height change"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "transport-16-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Compare c_pΔT with ΔP/ρ per unit mass.",
+        "solution": "c_pΔT ≈ 63 kJ/kg, while a few kPa divided by ρ is a few J/kg, so the thermal term dominates by orders of magnitude.",
+        "lesson_ids": [
+          "transport-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-16:pump-work-sign",
+      "type": "single_choice",
+      "prompt": "In the first law written as Q̇ − Ẇ_s = ṁ[Δh + Δ(v²/2) + gΔz], how does a pump that raises the fluid's pressure appear?",
+      "options": [
+        "As a negative Ẇ_s, because the work is done on the fluid",
+        "As a positive Ẇ_s, because the pump consumes power",
+        "As a heat input Q̇",
+        "It does not appear; pumps only change velocity"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "transport-16-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "What sign convention does Ẇ_s use here?",
+        "solution": "Ẇ_s is work done by the fluid, so work done on the fluid by a pump is negative and adds to the right-hand side's energy increase.",
+        "lesson_ids": [
+          "transport-16"
+        ],
+        "misconception_ids": []
       },
       "visibility": "public-practice-authoring",
       "provenance": {

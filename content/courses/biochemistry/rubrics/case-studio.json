@@ -4,31 +4,61 @@
   "cases": [
     {
       "id": "biochemistry:case",
-      "prompt": "A mitochondrial inhibitor reduces ATP and increases lactate. Propose a carbon/electron-flow explanation and one experiment that distinguishes impaired oxidative phosphorylation from a primary glycolytic defect.",
+      "prompt": "Use the existing synthetic respiratory-chain perturbation and a second fed-like versus mobilization-like hepatic dataset to integrate ATP, glucose sources, triglyceride mobilization, beta-oxidation, ketone export and urea output. The relative indices are not concentrations or a mass-balanced flux model; distinguish observations, mechanisms and limitations.",
       "mode": "self-assessment",
-      "objective_ids": [],
+      "objective_ids": [
+        "biochemistry-13-objective-1",
+        "biochemistry-13-objective-2",
+        "biochemistry-13-objective-3",
+        "biochemistry-glycogen-objective-2",
+        "biochemistry-gluconeogenesis-objective-1",
+        "biochemistry-gluconeogenesis-objective-2",
+        "biochemistry-fatty-acid-objective-2",
+        "biochemistry-neutral-lipid-objective-2",
+        "biochemistry-ketone-objective-1",
+        "biochemistry-ketone-objective-2",
+        "biochemistry-urea-cycle-objective-1"
+      ],
       "rubric": [
         {
           "id": "biochemistry-case-criterion-1",
-          "criterion": "Connects electron transport inhibition to NADH reoxidation and proton motive force/ATP",
+          "criterion": "Shows the baseline and blocked ATP, glucose-uptake and lactate accounting with units and the stated idealized yields.",
           "points": 0,
           "levels": []
         },
         {
           "id": "biochemistry-case-criterion-2",
-          "criterion": "Explains increased glycolytic dependence and lactate as a redox outlet",
+          "criterion": "Interprets the lactate/pyruvate ratio as redox context and M+3 labeling as carbon-source evidence, while distinguishing tracer fraction from flux.",
           "points": 0,
           "levels": []
         },
         {
           "id": "biochemistry-case-criterion-3",
-          "criterion": "Chooses a discriminating measurement such as oxygen consumption, NADH/NAD⁺, isotope tracing, or rescue with an electron acceptor",
+          "criterion": "Chooses a measurement such as oxygen-consumption rate, predicts contrasting results for both hypotheses, and names one ambiguity that warrants corroboration.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "biochemistry-case-criterion-4",
+          "criterion": "Connect lower malonyl-CoA, CPT1 access, fatty-acid oxidation and hepatic ketone export while distinguishing liver production from extrahepatic ketone use.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "biochemistry-case-criterion-5",
+          "criterion": "Trace glycerol, lactate and glucogenic amino-acid carbon toward glucose while distinguishing energy supply from net glucose carbon from even-chain fatty acids.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "biochemistry-case-criterion-6",
+          "criterion": "Interpret urea output cautiously and state what the arbitrary, non-mass-balanced indices cannot establish.",
           "points": 0,
           "levels": []
         }
       ],
       "limitations": [
-        "This preserved three-criterion checklist is self-assessment, not an analytic grading rubric or an institutional grade."
+        "The checklist is an ungraded self-assessment, not an analytic grading rubric, collected response or institutional grade."
       ]
     }
   ]

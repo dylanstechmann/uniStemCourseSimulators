@@ -7,14 +7,20 @@
   "domain": "Quantitative methods",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.4.0",
+  "version": "0.4.8",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
     "source_path": "src/data/courses.js",
     "source_sha256": "a77a7cb7f5be2ffa12068877042ac775c6d9b79b83ac2f316fe4f26a0d3d783b",
     "migration_version": "1.0",
-    "modifications": []
+    "modifications": [
+      "Expanded week 1 with event and conditional-probability definitions, Bayes' rule and a synthetic diagnostic-count example, discrete distributions, sampling distributions, standard-error calculations, independence and experimental-unit checks, and model limits. Clarified both objectives and mapped them and the practice assessment to outcomes 1 and 6. Reassociated the preserved standard-error check to the sampling-variability objective and added one Bayes calculation so both objectives have direct practice evidence. Added an MIT OpenCourseWare 18.05 Reading 3 page as a link-only technical reference.",
+      "Expanded week 4 with repeated-sampling coverage, a paired-mean t interval calculation, precision versus magnitude, practical thresholds, effect-size scales, bias limits, and regression to the mean. Mapped both existing objectives and the unchanged practice assessment to outcome 3; the interval and effect-size question prompts and keys remain unchanged. Added MIT OpenCourseWare 18.05 Reading 23a as a link-only reference.",
+      "Expanded week 6 with null and alternative hypotheses, conditional p-value interpretation, Type I and II error, power, analysis-plan dependence, family-wise error, Bonferroni control, and confirmatory versus exploratory distinctions. Mapped both objectives and the formative assessment to outcomes 2 and 3. Corrected the two preserved multiplicity items to the multiplicity objective and added one p-value interpretation item so both objectives have direct practice evidence. Added MIT OpenCourseWare 18.05 NHST II and Problem Set 9 Solutions as link-only references.",
+      "Expanded week 8 with assignment and observational units, randomization, blocking, replication levels, regression models for treatment and nuisance factors, residual diagnostics, and reproducible analysis. Mapped both objectives and the practice assessment to outcomes 1, 2 and 4. Corrected the preserved sample-size question's objective association and added a blocked-randomization item so both objectives have direct practice evidence. Added MIT OpenCourseWare Reading 26 and an open PLOS Biology paper on experimental units as link-only references.",
+      "Added an original continuous-prior Beta–Binomial lesson in the existing week 13, with conjugate posterior updates, a posterior-mean calculation, an integrated predictive count, prior-sensitivity comparison, nine formative items and four retrieval cards. The MIT 18.05 Spring 2022 calendar and Reading 15 are link-only curriculum and technical references; no source asset or assessment was imported. The course remains partial, unreviewed and formative-only."
+    ]
   },
   "prerequisites": {
     "course_ids": [],
@@ -52,56 +58,90 @@
       "id": "statistics-outcome-5",
       "description": "Create a labeled quantitative graph using an explicit scale and the units of the measured variables.",
       "bloom": "create"
+    },
+    {
+      "id": "statistics-outcome-6",
+      "description": "Use conditional probability and Bayes' rule to update an event probability from evidence.",
+      "bloom": "apply"
+    },
+    {
+      "id": "statistics-outcome-7",
+      "description": "Update a finite prior over model parameters with likelihoods, normalize a posterior, and compute posterior predictive probabilities distinct from p-values.",
+      "bloom": "analyze"
+    },
+    {
+      "id": "statistics-outcome-8",
+      "description": "Update a continuous Beta prior with binomial observations and compute posterior predictive probabilities under stated assumptions.",
+      "bloom": "analyze"
     }
   ],
   "lesson_objectives": [
     {
       "id": "statistics-1-objective-1",
-      "description": "Use conditional probability and Bayes' rule.",
+      "description": "Apply conditional probability and Bayes' rule to update an event probability from evidence.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "statistics-outcome-6"
+      ]
     },
     {
       "id": "statistics-1-objective-2",
-      "description": "Explain why a sample mean varies across repeated samples.",
+      "description": "Explain how a sample mean varies across repeated independent samples and how its standard error describes that sampling variability.",
       "bloom": "understand",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "statistics-outcome-1"
+      ]
     },
     {
       "id": "statistics-2-objective-1",
       "description": "Interpret an interval as a procedure for repeated sampling.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "statistics-outcome-3"
+      ]
     },
     {
       "id": "statistics-2-objective-2",
       "description": "Separate magnitude from statistical precision.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "statistics-outcome-3"
+      ]
     },
     {
       "id": "statistics-3-objective-1",
       "description": "Interpret p-values conditional on the null and analysis plan.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "statistics-outcome-3"
+      ]
     },
     {
       "id": "statistics-3-objective-2",
       "description": "Account for multiplicity and distinguish confirmatory from exploratory work.",
       "bloom": "understand",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "statistics-outcome-2",
+        "statistics-outcome-3"
+      ]
     },
     {
       "id": "statistics-4-objective-1",
       "description": "Use randomization and blocking to reduce confounding.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "statistics-outcome-4"
+      ]
     },
     {
       "id": "statistics-4-objective-2",
       "description": "Assess model residuals and distinguish replication levels.",
       "bloom": "evaluate",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "statistics-outcome-1",
+        "statistics-outcome-2",
+        "statistics-outcome-4"
+      ]
     },
     {
       "id": "statistics-5-objective-1",
@@ -406,11 +446,59 @@
         "statistics-outcome-3",
         "statistics-outcome-4"
       ]
+    },
+    {
+      "id": "statistics-16-objective-1",
+      "description": "Calculate finite-state likelihoods and normalize prior-weighted likelihoods into a posterior distribution.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "statistics-outcome-7"
+      ]
+    },
+    {
+      "id": "statistics-16-objective-2",
+      "description": "Compute posterior odds and posterior predictive probabilities for a separate holdout under the stated model.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-7"
+      ]
+    },
+    {
+      "id": "statistics-16-objective-3",
+      "description": "Distinguish likelihood, posterior, predictive probability and p-value, and state the assumptions each calculation uses.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "statistics-outcome-7"
+      ]
+    },
+    {
+      "id": "statistics-17-objective-1",
+      "description": "Update a Beta prior after binomial observations and identify the posterior parameters.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "statistics-outcome-8"
+      ]
+    },
+    {
+      "id": "statistics-17-objective-2",
+      "description": "Compute a posterior mean and integrate over posterior uncertainty for a future binomial count.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-8"
+      ]
+    },
+    {
+      "id": "statistics-17-objective-3",
+      "description": "Evaluate how prior concentration and conditional exchangeability constrain interpretation and prediction.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "statistics-outcome-8"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week undergraduate scope only. The four compact prototype units sit in weeks 1, 4, 6 and 8 beside original lessons on variability and pseudoreplication, comparing two groups, power, regression and calibration, resampling, base rates and replication, and planning a confirmatory study; week 12 is a synthetic-data lab on nested designs and week 14 pairs the planning lesson with the course case. All activities are open, ungraded practice. There are no graded homework sets, exams or project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week undergraduate scope only. The four former compact prototype readings in weeks 1, 4, 6 and 8 now have expanded instruction beside original lessons on variability and pseudoreplication, comparing two groups, power, regression and calibration, resampling, base rates and replication, and planning a confirmatory study; week 12 is a synthetic-data lab on nested designs and week 14 pairs the planning lesson with the course case. All activities are open, ungraded practice. There are no graded homework sets, exams or project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
@@ -538,12 +626,16 @@
       },
       {
         "week": 13,
-        "title": "From p-values to evidence: base rates, positive predictive value and replication",
+        "title": "From p-values to evidence: base rates and discrete and continuous Bayesian updating",
         "lesson_ids": [
-          "statistics-14"
+          "statistics-14",
+          "statistics-16",
+          "statistics-17"
         ],
         "assessment_ids": [
-          "statistics-14-practice"
+          "statistics-14-practice",
+          "statistics-16-practice",
+          "statistics-17-practice"
         ]
       },
       {
@@ -570,7 +662,8 @@
       "title": "Probability, distributions, and sampling",
       "source_ids": [
         "statistics",
-        "biology"
+        "biology",
+        "mit-ocw-statistics-bayes"
       ],
       "lessons": [
         {
@@ -581,10 +674,11 @@
             "statistics-1-objective-1",
             "statistics-1-objective-2"
           ],
-          "worked_example": "If biological replicates have SD=12 units and n=9 independent samples, the standard error of the mean is 12/√9=4 units.",
+          "worked_example": "Among 1,000 people at 10% prevalence, a test with 90% sensitivity and a 5% false-positive rate yields 90 true positives and 45 false positives, so P(condition|positive)=90/135=0.667. For independent measurements with s=10 and n=25, estimated SE=10/√25=2 units.",
           "question_ids": [
             "statistics-1:check",
-            "statistics-1:standard-error"
+            "statistics-1:standard-error",
+            "statistics-1:bayes-positive"
           ],
           "card_ids": [
             "statistics-0-0",
@@ -598,7 +692,8 @@
       "title": "Estimation, confidence intervals, and effect sizes",
       "source_ids": [
         "statistics",
-        "biology"
+        "biology",
+        "mit-ocw-statistics-confidence"
       ],
       "lessons": [
         {
@@ -609,7 +704,7 @@
             "statistics-2-objective-1",
             "statistics-2-objective-2"
           ],
-          "worked_example": "If an estimated treatment effect is 4.0 units with 95% CI [1.0, 7.0], the interval excludes zero under that model, but the effect's biological importance still requires context.",
+          "worked_example": "In a synthetic paired study, 25 independent differences average 4.0 mm with SD 2.0 mm; SE=0.40 mm, so the 95% t interval is about 4.0 ± 2.064(0.40)=[3.17,4.83] mm. It excludes zero under the model, but whether 4 mm matters depends on the prespecified threshold, measurement error, bias, and target population.",
           "question_ids": [
             "statistics-2:check",
             "statistics-2:magnitude-vs-precision"
@@ -626,7 +721,9 @@
       "title": "Hypothesis tests and multiple comparisons",
       "source_ids": [
         "statistics",
-        "biology"
+        "biology",
+        "mit-ocw-statistics-nhst",
+        "mit-ocw-statistics-pset-9"
       ],
       "lessons": [
         {
@@ -637,10 +734,11 @@
             "statistics-3-objective-1",
             "statistics-3-objective-2"
           ],
-          "worked_example": "If 20 independent null tests each use α=0.05 without correction, the probability of at least one false positive is 1−0.95²⁰≈0.64.",
+          "worked_example": "Under the global null, ten independent tests at α=0.05 have FWER 1−0.95¹⁰≈0.401. For twenty planned hypotheses, Bonferroni gives 0.05/20=0.0025 per test. The independence formula and Bonferroni bound answer different questions; neither turns a p-value into the probability that a hypothesis is true.",
           "question_ids": [
             "statistics-3:check",
-            "statistics-3:bonferroni"
+            "statistics-3:bonferroni",
+            "statistics-3:p-value-meaning"
           ],
           "card_ids": [
             "statistics-2-0",
@@ -654,7 +752,9 @@
       "title": "Experimental design, regression, and reproducibility",
       "source_ids": [
         "statistics",
-        "biology"
+        "biology",
+        "mit-ocw-statistics-regression",
+        "plos-statistics-experimental-unit"
       ],
       "lessons": [
         {
@@ -665,10 +765,11 @@
             "statistics-4-objective-1",
             "statistics-4-objective-2"
           ],
-          "worked_example": "In a 2-condition study across 6 independent donors, donor is a biological replication/blocking factor; measuring 100 cells per donor improves within-donor precision but does not create 600 independent donors.",
+          "worked_example": "Suppose 24 independent donor-derived samples are assigned to two conditions across four processing days. Put six samples in each day block, allocate three to each condition at random within every day, and randomize measurement order within each day. With treatment assigned to each donor-derived sample, there are 24 experimental units; measured wells and cells are nested. A treatment-plus-day model estimates the blocked comparison. If each condition occurred only on different days, treatment and day could not be separated by regression.",
           "question_ids": [
             "statistics-4:check",
-            "statistics-4:pseudoreplication"
+            "statistics-4:pseudoreplication",
+            "statistics-4:randomization-blocking"
           ],
           "card_ids": [
             "statistics-3-0",
@@ -1061,6 +1162,80 @@
       ]
     },
     {
+      "id": "statistics-module-16",
+      "title": "Finite Bayesian parameter updating",
+      "source_ids": [
+        "mit-ocw-statistics-calendar"
+      ],
+      "lessons": [
+        {
+          "id": "statistics-16",
+          "title": "Finite Bayesian updating: priors, likelihood and prediction",
+          "reading": "modules/16-finite-bayesian-updating-and-predictive-checks.md",
+          "objectives": [
+            "statistics-16-objective-1",
+            "statistics-16-objective-2",
+            "statistics-16-objective-3"
+          ],
+          "worked_example": "A finite prior puts probabilities 0.5, 0.3 and 0.2 on Bernoulli success rates 0.2, 0.5 and 0.8. After two successes the likelihoods are 0.04, 0.25 and 0.64, the evidence is 0.223, and the normalized posterior is 20/223, 75/223 and 128/223. The probability of exactly one success in a separate two-trial holdout is about 0.381.",
+          "question_ids": [
+            "statistics-16:likelihood",
+            "statistics-16:evidence",
+            "statistics-16:posterior-high",
+            "statistics-16:posterior-odds",
+            "statistics-16:predictive-one-of-two",
+            "statistics-16:likelihood-vs-posterior",
+            "statistics-16:mle-vs-posterior",
+            "statistics-16:pvalue-meaning",
+            "statistics-16:predictive-check"
+          ],
+          "card_ids": [
+            "statistics-16-card-1",
+            "statistics-16-card-2",
+            "statistics-16-card-3",
+            "statistics-16-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "statistics-module-17",
+      "title": "Continuous Bayesian updating and Beta–Binomial prediction",
+      "source_ids": [
+        "mit-ocw-statistics-conjugate"
+      ],
+      "lessons": [
+        {
+          "id": "statistics-17",
+          "title": "Continuous Bayesian updating: Beta–Binomial conjugacy and prediction",
+          "reading": "modules/17-beta-binomial-conjugacy-and-prediction.md",
+          "objectives": [
+            "statistics-17-objective-1",
+            "statistics-17-objective-2",
+            "statistics-17-objective-3"
+          ],
+          "worked_example": "A Beta(2,2) prior updated by eight positive and two negative results becomes Beta(10,4), with mean 5/7. Integrating that posterior gives probability 11/28 for exactly two successes in three future trials, compared with about 0.437 from plugging the mean into a binomial model.",
+          "question_ids": [
+            "statistics-17:posterior-alpha",
+            "statistics-17:posterior-beta",
+            "statistics-17:posterior-mean",
+            "statistics-17:predictive-two-of-three",
+            "statistics-17:prior-sensitivity-mean",
+            "statistics-17:conjugacy",
+            "statistics-17:predictive-integration",
+            "statistics-17:assumptions",
+            "statistics-17:mode-vs-mean"
+          ],
+          "card_ids": [
+            "statistics-17-card-1",
+            "statistics-17-card-2",
+            "statistics-17-card-3",
+            "statistics-17-card-4"
+          ]
+        }
+      ]
+    },
+    {
       "id": "statistics-module-15",
       "title": "Planning a confirmatory study",
       "source_ids": [
@@ -1107,13 +1282,16 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "statistics-1-objective-1",
-        "statistics-1-objective-2"
+        "statistics-1-objective-2",
+        "statistics-outcome-1",
+        "statistics-outcome-6"
       ],
       "question_ids": [
         "statistics-1:check",
-        "statistics-1:standard-error"
+        "statistics-1:standard-error",
+        "statistics-1:bayes-positive"
       ],
-      "points": 2
+      "points": 3
     },
     {
       "id": "statistics-2-practice",
@@ -1122,7 +1300,8 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "statistics-2-objective-1",
-        "statistics-2-objective-2"
+        "statistics-2-objective-2",
+        "statistics-outcome-3"
       ],
       "question_ids": [
         "statistics-2:check",
@@ -1137,13 +1316,16 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "statistics-3-objective-1",
-        "statistics-3-objective-2"
+        "statistics-3-objective-2",
+        "statistics-outcome-2",
+        "statistics-outcome-3"
       ],
       "question_ids": [
         "statistics-3:check",
-        "statistics-3:bonferroni"
+        "statistics-3:bonferroni",
+        "statistics-3:p-value-meaning"
       ],
-      "points": 2
+      "points": 3
     },
     {
       "id": "statistics-4-practice",
@@ -1152,13 +1334,17 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "statistics-4-objective-1",
-        "statistics-4-objective-2"
+        "statistics-4-objective-2",
+        "statistics-outcome-1",
+        "statistics-outcome-2",
+        "statistics-outcome-4"
       ],
       "question_ids": [
         "statistics-4:check",
-        "statistics-4:pseudoreplication"
+        "statistics-4:pseudoreplication",
+        "statistics-4:randomization-blocking"
       ],
-      "points": 2
+      "points": 3
     },
     {
       "id": "statistics-5-practice",
@@ -1401,6 +1587,31 @@
       "points": 8
     },
     {
+      "id": "statistics-16-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Finite Bayesian updating practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "statistics-16-objective-1",
+        "statistics-16-objective-2",
+        "statistics-16-objective-3",
+        "statistics-outcome-7"
+      ],
+      "question_ids": [
+        "statistics-16:likelihood",
+        "statistics-16:evidence",
+        "statistics-16:posterior-high",
+        "statistics-16:posterior-odds",
+        "statistics-16:predictive-one-of-two",
+        "statistics-16:likelihood-vs-posterior",
+        "statistics-16:mle-vs-posterior",
+        "statistics-16:pvalue-meaning",
+        "statistics-16:predictive-check"
+      ],
+      "points": 9
+    },
+    {
       "id": "statistics-15-practice",
       "type": "practice",
       "mode": "practice",
@@ -1463,6 +1674,31 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "statistics-17-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Beta–Binomial conjugacy and prediction practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "statistics-17-objective-1",
+        "statistics-17-objective-2",
+        "statistics-17-objective-3",
+        "statistics-outcome-8"
+      ],
+      "question_ids": [
+        "statistics-17:posterior-alpha",
+        "statistics-17:posterior-beta",
+        "statistics-17:posterior-mean",
+        "statistics-17:predictive-two-of-three",
+        "statistics-17:prior-sensitivity-mean",
+        "statistics-17:conjugacy",
+        "statistics-17:predictive-integration",
+        "statistics-17:assumptions",
+        "statistics-17:mode-vs-mean"
+      ],
+      "points": 9
     }
   ],
   "grading_policy": {
@@ -1532,18 +1768,59 @@
       "version": "0.4.0",
       "date": "2026-10-08",
       "summary": "Added a proposed 14-week schedule; seven original lessons (sources of variability and pseudoreplication; comparing two groups with Welch and paired t statistics; power and sample size; regression, calibration and inverse prediction; permutation, bootstrap and rank-based methods; base rates, positive predictive value and replication; and planning a confirmatory study, which prepares the course case on a pilot with one p = 0.04 among 18 biomarkers); and a synthetic-data lab on nested designs. No new references were added. All activities remain ungraded practice; the package remains partial and unreviewed, gives no laboratory protocol or medical advice, and makes no claim about any compound, organism or person."
+    },
+    {
+      "version": "0.4.1",
+      "date": "2026-10-10",
+      "summary": "Expanded week 1 with conditional probability, Bayes' rule and a synthetic diagnostic-count example, distributions, sampling distributions, standard errors, independence and sampling-unit checks, and explicit model limits. Added course outcome 6 for Bayesian updating, clarified both objectives, and mapped them and the practice assessment to outcomes 1 and 6. Reassociated the preserved standard-error check to the sampling-variability objective and added one Bayes calculation so both objectives have direct practice evidence. Added MIT OpenCourseWare 18.05 Reading 3 as a link-only technical reference. Existing standard-error question IDs, prompts and keys are unchanged; compact readings remain in weeks 4, 6 and 8. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.2",
+      "date": "2026-10-10",
+      "summary": "Expanded week 4 with repeated-sampling confidence-interval coverage, a paired t-interval calculation, practical importance, effect-size scales, bias limits and regression to the mean. Mapped both objectives and the unchanged formative assessment to outcome 3. Existing interval and effect-size question IDs, prompts and keys remain unchanged. MIT OpenCourseWare 18.05 Reading 23a is registered as a link-only technical reference. Two compact readings remain in weeks 6 and 8; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.3",
+      "date": "2026-10-10",
+      "summary": "Expanded week 6 with NHST assumptions, p-value interpretation, error and power, family-wise multiplicity, Bonferroni and confirmatory versus exploratory analysis. Mapped both objectives and the assessment to outcomes 2 and 3, corrected the preserved FWER item association and added a p-value interpretation item. Existing question prompts and keys remain unchanged. MIT OpenCourseWare 18.05 NHST II and Problem Set 9 Solutions are link-only references. One compact reading remains in week 8; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.4",
+      "date": "2026-10-10",
+      "summary": "Expanded week 8 with experimental and observational units, randomization, blocking, replication, regression for design factors, residual checks and reproducible analysis. Mapped both objectives and the practice assessment to outcomes 1, 2 and 4. Corrected the preserved replication question objective association and added a blocked-randomization item so both objectives have direct practice evidence. MIT OpenCourseWare Reading 26 and an open PLOS Biology paper are link-only references. All four readings migrated from the compact prototype now have expanded instruction; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.5",
+      "date": "2026-10-10",
+      "summary": "Added an inactive, ungraded confirmatory-study protocol project draft that integrates experimental units, design, sample-size assumptions, analysis and multiplicity, reproducibility and bounded interpretation. It is not part of the assessment schedule; existing questions and keys remain unchanged. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.6",
+      "date": "2026-10-11",
+      "summary": "Added an original finite Bayesian parameter-updating lesson in week 13 with prior-weighted likelihoods, posterior normalization, posterior odds, a separate posterior predictive check, and an explicit distinction from p-values. Added nine formative items and four retrieval cards; the proposed 14-week schedule remains unchanged. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.7",
+      "date": "2026-10-11",
+      "summary": "Added one original Beta–Binomial lesson to the existing week-13 Bayesian unit, with conjugate updating, posterior and predictive calculations, prior sensitivity and explicit model assumptions. Added nine formative items and four retrieval cards; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.8",
+      "date": "2026-10-13",
+      "summary": "The syllabus outcome list now quotes the manifest's course outcomes exactly; the newest outcome had been paraphrased. No lesson, item, key or card changed. The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "Four compact legacy units are preserved beside twelve original readings, including one synthetic-data virtual lab; this package is not equivalent to a full university semester.",
+    "The four readings migrated from the compact prototype now contain expanded instruction, alongside fourteen original readings including one synthetic-data virtual lab; this package is not equivalent to a full university semester.",
     "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm, cumulative final, or graded integrative project.",
-    "Practice items are short formative checks (two per prototype unit and two to nine per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
+    "Practice items remain short formative checks (two to three per expanded prototype unit and two to nine per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
-    "Of the 60 numerical answers in this package, two require a unit, three check significant figures and one checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
+    "Of the 71 numerical answers in this package, two require a unit, three check significant figures and one checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
     "Total workload and weekly duration are unknown; former nominal credit values and hardcoded reading times do not establish workload.",
     "The graph exercise checks coordinate placement on author-specified axes; it does not assess axis selection, uncertainty bars, model fitting, or interpretation.",
-    "All data, animals and numbers are synthetic teaching examples; this package gives no laboratory protocols or medical advice and says nothing about any real compound, organism or person. Sample-size calculations use normal approximations with rounded critical values unless an exact calculation is stated."
+    "All data, animals and numbers are synthetic teaching examples; this package gives no laboratory protocols or medical advice and says nothing about any real compound, organism or person. Sample-size calculations use normal approximations with rounded critical values unless an exact calculation is stated.",
+    "Bayesian coverage includes finite-prior updating and one Beta–Binomial conjugate model; normal conjugacy, broad maximum-likelihood theory and richer hierarchical or covariate models remain outside the authored sequence."
   ],
   "intentionally_omitted": [
     "Graded assessments and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package."

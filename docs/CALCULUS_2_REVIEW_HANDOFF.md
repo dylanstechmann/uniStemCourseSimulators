@@ -1,0 +1,21 @@
+# Calculus II course review handoff
+
+This handoff targets Calculus II: Integration, Series & Applications, package version 0.4.8. The [review snapshot](CALCULUS_2_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded. The local Calculus I/II sequence divides the single 18.01SC comparator and does not claim two independent course equivalents.
+
+## Review scope
+
+- Review the proposed 14-week sequence, prerequisites, objective/outcome associations and mathematical level, including the week-3 grouping and the week-2 pairing of method selection with trigonometric integration.
+- Independently recalculate representative public work, geometry, improper-integral, convergence-test, Taylor-error and force-lab keys.
+- Check the new portfolio's improper-integral limit, tail inequality and cutoff, integrated degree-four polynomial, interval-specific Lagrange remainder and approximation/error distinctions.
+- Independently verify the new `0/0`/`∞/∞` eligibility explanations, derivative-quotient examples, transformations of products and powers, and failure cases.
+- Check the trigonometric-integration reading against MIT OCW 18.01SC Unit 4 Part A: odd/even power strategies, tangent and secant integrals and their domains, the sine/tangent/secant substitution ranges and branch arguments, completed-square forms, and the worked example.
+- Confirm that the normalized function is consistently described as a mathematical construct, with no implication of measured biological or mechanical behavior.
+- Review whether the project complements the existing force-work lab and radial case, and assess notation, accessible alternatives, manual accessibility and likely weekly workload.
+
+## Author-side evidence and its limits
+
+Historical version 0.4.6 records a focused suite of 89 passing tests, including independent recomputations of the project integral, Taylor error bound, tail cutoff and inactive status. No tests were run for version 0.4.7. For 0.4.8 the Calculus II recalculation file recomputes all 75 numeric keys; the eight new keys come from Simpson quadrature of the original integrands, with the secant item's endpoint singularity removed by an algebraic change of variable, and ten values stated in the new reading are checked the same way. The full-suite result is in the validation report. These checks come from the same AI-assisted authoring effort. These earlier author-side results do not establish independent mathematical review, accessible learner usability, semester workload, student learning or university equivalency. Graded homework, exams and a laboratory sequence remain absent; the project is inactive and ungraded.
+
+## Review record to complete only after review
+
+After a review actually occurs, record reviewer name and qualifications, date, package version and archive digest, artifacts examined, concrete findings and disposition. Keep separate decisions for mathematical correctness, instructional design, assessment, accessibility, workload and release. Do not infer approval from the package hash or test results.

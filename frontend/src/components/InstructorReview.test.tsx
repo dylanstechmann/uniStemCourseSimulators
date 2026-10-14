@@ -74,7 +74,7 @@ const gradedAppeal: InstructorGradedSubmissionAppeal = {
   created_at: "2026-10-06T12:00:00Z",
   reviewed_at: null,
   learner: "learner@example.org",
-  content_is_current: true,
+  specification_verified: true,
   assessment_title: "Control analysis",
   questions: [
     {
@@ -229,7 +229,7 @@ describe("instructor appeal review", () => {
     vi.spyOn(api, "instructorGradedAppeals").mockResolvedValue([
       {
         ...gradedAppeal,
-        content_is_current: false,
+        specification_verified: false,
         questions: null,
         responses: {},
       },
@@ -238,7 +238,7 @@ describe("instructor appeal review", () => {
 
     expect(
       await screen.findByText(
-        /saved assignment source or grading digest no longer matches/,
+        /archived assignment source or grading digest cannot be verified/,
       ),
     ).toBeInTheDocument();
     expect(

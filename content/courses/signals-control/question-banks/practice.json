@@ -3453,6 +3453,606 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "signals-control-14:step-sample-3",
+      "type": "numeric",
+      "prompt": "A synthetic system follows y[k] = 0.75 y[k−1] + 0.25 x[k] from rest. For a unit-step input, what is y[3]? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "signals-control-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.68359375,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Start with y[−1]=0 and apply the recurrence once per sample.",
+        "solution": "The values are y[0]=0.25, y[1]=0.4375, y[2]=0.578125 and y[3]=0.683594.",
+        "lesson_ids": [
+          "signals-control-14"
+        ],
+        "misconception_ids": [
+          "recurrence-indexing"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "signals-control-14:impulse-sample-4",
+      "type": "numeric",
+      "prompt": "For y[k] = 0.8 y[k−1] + 0.2 x[k] from rest, the impulse response is h[k] = 0.2(0.8)^k. What is h[4]? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "signals-control-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.08192,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Substitute k=4 into b a^k.",
+        "solution": "0.2×0.8^4 = 0.08192.",
+        "lesson_ids": [
+          "signals-control-14"
+        ],
+        "misconception_ids": [
+          "impulse-response-indexing"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "signals-control-14:transfer-function",
+      "type": "single_choice",
+      "prompt": "From rest, y[k] = 0.25 y[k−1] + 0.75 x[k]. Which transfer function follows from the one-sided Z-transform?",
+      "points": 1,
+      "objective_ids": [
+        "signals-control-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Move the delayed-output term to the left side before dividing by X(z).",
+        "solution": "With zero initial conditions, H(z)=b/(1−a z⁻¹)=0.75/(1−0.25 z⁻¹).",
+        "lesson_ids": [
+          "signals-control-14"
+        ],
+        "misconception_ids": [
+          "z-transform-delay-sign"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "0.75/(1−0.25z⁻¹)",
+        "0.75/(1+0.25z⁻¹)",
+        "0.25/(1−0.75z⁻¹)",
+        "0.75−0.25z⁻¹"
+      ]
+    },
+    {
+      "id": "signals-control-14:negative-pole",
+      "type": "single_choice",
+      "prompt": "A causal first-order system has pole a = −0.7. What natural response does this pole produce?",
+      "points": 1,
+      "objective_ids": [
+        "signals-control-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Compare the pole magnitude with one and note its sign.",
+        "solution": "Because |−0.7|<1, the response decays; the negative sign makes successive samples alternate.",
+        "lesson_ids": [
+          "signals-control-14"
+        ],
+        "misconception_ids": [
+          "negative-pole-instability"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "It grows with alternating sign and is unstable.",
+        "It decays while alternating sign.",
+        "It decays without alternating sign.",
+        "It remains constant."
+      ]
+    },
+    {
+      "id": "signals-control-14:step-sample-9",
+      "type": "numeric",
+      "prompt": "A synthetic recurrence has a = 0.8 and b = 0.2, so its response to a unit step from rest is y[k] = 1 − 0.8^(k+1). What is y[9]? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "signals-control-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.8926258176,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Evaluate 1−0.8^10.",
+        "solution": "1−0.8^10 = 0.8926258. The pole is stable but near one, so the step approaches one gradually.",
+        "lesson_ids": [
+          "signals-control-14"
+        ],
+        "misconception_ids": [
+          "step-response-exponent"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "signals-control-14:closed-loop-pole",
+      "type": "numeric",
+      "prompt": "A unity-negative-feedback loop has P(z) = 0.2/(1−0.8z⁻¹) and proportional gain Kc = 2. Its closed-loop denominator is 1.4−0.8z⁻¹. What is the closed-loop pole? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "signals-control-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0.5714285714,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Write 1.4−0.8z⁻¹ = 1.4(1−(0.8/1.4)z⁻¹).",
+        "solution": "The pole is 0.8/1.4 = 4/7 ≈ 0.5714, inside the unit circle. Check the closed-loop denominator, not just the plant pole.",
+        "lesson_ids": [
+          "signals-control-14"
+        ],
+        "misconception_ids": [
+          "closed-loop-pole"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "signals-control-14:transform-interpretation",
+      "type": "multiple_select",
+      "prompt": "For a causal first-order recurrence y[k] = a y[k−1] + b x[k], which statements are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "signals-control-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "feedback": {
+        "hint": "Separate transfer-function assumptions, natural response and pole interpretation.",
+        "solution": "From rest H(z)=b/(1−az⁻¹); nonzero initial conditions add a natural-response contribution; the pole is z=a. The zero-initial-condition transfer function does not include saturation behavior.",
+        "lesson_ids": [
+          "signals-control-14"
+        ],
+        "misconception_ids": [
+          "initial-condition-confusion",
+          "pole-vs-gain"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "The transfer function is derived with zero initial conditions.",
+        "A nonzero initial state contributes a natural-response term.",
+        "The pole is z=b/(1−a).",
+        "The pole is z=a.",
+        "The transfer function automatically predicts actuator saturation."
+      ]
+    },
+    {
+      "id": "signals-control-14:near-unit-pole",
+      "type": "single_choice",
+      "prompt": "A first-order causal recurrence has a = 0.98. Which description is correct for its unforced natural response?",
+      "points": 1,
+      "objective_ids": [
+        "signals-control-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "A pole magnitude below one determines decay, while closeness to one affects its rate.",
+        "solution": "The response decays, but slowly compared with a pole much nearer zero.",
+        "lesson_ids": [
+          "signals-control-14"
+        ],
+        "misconception_ids": [
+          "near-unit-pole"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "The response decays, but slowly compared with a pole much nearer zero.",
+        "It is unstable because any pole above 0.9 grows.",
+        "The response alternates because every discrete pole does.",
+        "The steady-state gain is 0.98 regardless of b."
+      ]
+    },
+    {
+      "id": "signals-control-15:coefficient-test",
+      "type": "single_choice",
+      "prompt": "Every coefficient of a cubic closed-loop characteristic polynomial is positive. What can you conclude?",
+      "options": [
+        "Only that the necessary condition holds; the Routh array is still needed",
+        "All closed-loop poles are in the left half-plane",
+        "The loop is unstable",
+        "The loop is marginally stable"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "signals-control-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Same-sign coefficients are necessary for stability; ask whether they are sufficient beyond second order.",
+        "solution": "For third and higher order, all-positive coefficients are necessary but not sufficient. The cubic in this lesson has positive coefficients for every K > −6 yet is unstable for K > 60.",
+        "lesson_ids": [
+          "signals-control-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "signals-control-15:routh-gain-limit",
+      "type": "numeric",
+      "prompt": "A synthetic plant G(s) = 1/((s + 2)(s + 4)(s + 6)) is under proportional control K with negative unity feedback, so the characteristic equation is s³ + 12s² + 44s + 48 + K = 0. Using the Routh array, what is the largest proportional gain for which the loop is stable? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "signals-control-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 480,
+        "unit": "",
+        "tolerance": 0.5,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The s¹ entry is (a₂a₁ − a₃a₀)/a₂; require it to be positive.",
+        "solution": "(12 × 44 − (48 + K))/12 > 0 gives K < 480 (and 48 + K > 0 gives K > −48).",
+        "lesson_ids": [
+          "signals-control-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "signals-control-15:crossing-frequency",
+      "type": "numeric",
+      "prompt": "A synthetic plant G(s) = 1/((s + 2)(s + 4)(s + 6)) is under proportional control K with negative unity feedback, so the characteristic equation is s³ + 12s² + 44s + 48 + K = 0. At the gain that makes the loop marginally stable, at what frequency would it oscillate? Enter rad/s.",
+      "points": 1,
+      "objective_ids": [
+        "signals-control-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 6.6332,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use the auxiliary polynomial from the s² row at the limiting gain.",
+        "solution": "12s² + (48 + 480) = 0 gives s² = −44, so ω = √44 ≈ 6.63 rad/s.",
+        "lesson_ids": [
+          "signals-control-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "signals-control-15:rhp-pole-count",
+      "type": "numeric",
+      "prompt": "A synthetic plant G(s) = 1/((s + 2)(s + 4)(s + 6)) is under proportional control K with negative unity feedback, so the characteristic equation is s³ + 12s² + 44s + 48 + K = 0. How many closed-loop poles lie in the right half-plane when K = 600? Enter the count.",
+      "points": 1,
+      "objective_ids": [
+        "signals-control-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 2,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Count sign changes in the first column of the Routh array.",
+        "solution": "The first column is 1, 12, (528 − 648)/12 = −10, 648: two sign changes, so two right-half-plane poles.",
+        "lesson_ids": [
+          "signals-control-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "signals-control-15:locus-start-end",
+      "type": "single_choice",
+      "prompt": "For a loop K·G(s) with three open-loop poles and no zeros, where do the root-locus branches start and end as K goes from 0 to ∞?",
+      "options": [
+        "They start at the open-loop poles and all three go to infinity along asymptotes",
+        "They start at infinity and end at the open-loop poles",
+        "They start at the origin and end at the open-loop poles",
+        "They stay on the real axis between the open-loop poles"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "signals-control-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "At K = 0 the characteristic equation reduces to the plant denominator.",
+        "solution": "At K = 0 the closed-loop poles equal the open-loop poles. With no finite zeros, all n − m = 3 branches travel to infinity along asymptotes at ±60° and 180°.",
+        "lesson_ids": [
+          "signals-control-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "signals-control-15:asymptote-centroid",
+      "type": "numeric",
+      "prompt": "A synthetic plant G(s) = 1/((s + 2)(s + 4)(s + 6)) is under proportional control K with negative unity feedback, so the characteristic equation is s³ + 12s² + 44s + 48 + K = 0. Where do the root-locus asymptotes meet the real axis? Enter the signed value.",
+      "points": 1,
+      "objective_ids": [
+        "signals-control-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": -4,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "σ = (sum of poles − sum of zeros)/(n − m).",
+        "solution": "(−2 − 4 − 6)/3 = −4.",
+        "lesson_ids": [
+          "signals-control-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "signals-control-15:breakaway-point",
+      "type": "numeric",
+      "prompt": "A synthetic plant G(s) = 1/((s + 2)(s + 4)(s + 6)) is under proportional control K with negative unity feedback, so the characteristic equation is s³ + 12s² + 44s + 48 + K = 0. Where does the locus leave the real axis between −2 and −4? Enter the signed value.",
+      "points": 1,
+      "objective_ids": [
+        "signals-control-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": -2.8453,
+        "unit": "",
+        "tolerance": 0.005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Maximize K = −(s + 2)(s + 4)(s + 6) on that segment: set dK/ds = 0.",
+        "solution": "3s² + 24s + 44 = 0 gives s = (−24 + √48)/6 ≈ −2.845 (the other root, −5.155, is not on a locus segment).",
+        "lesson_ids": [
+          "signals-control-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "signals-control-15:breakaway-gain",
+      "type": "numeric",
+      "prompt": "A synthetic plant G(s) = 1/((s + 2)(s + 4)(s + 6)) is under proportional control K with negative unity feedback, so the characteristic equation is s³ + 12s² + 44s + 48 + K = 0. What gain places the two dominant poles at the breakaway point, so that they are equal? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "signals-control-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 3.0792,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Evaluate K = −(s + 2)(s + 4)(s + 6) at the breakaway point.",
+        "solution": "K = −(−0.845)(1.155)(3.155) ≈ 3.08. Above this gain the dominant poles are complex.",
+        "lesson_ids": [
+          "signals-control-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "signals-control-15:damping-gain",
+      "type": "numeric",
+      "prompt": "A synthetic plant G(s) = 1/((s + 2)(s + 4)(s + 6)) is under proportional control K with negative unity feedback, so the characteristic equation is s³ + 12s² + 44s + 48 + K = 0. The complex branch meets the ζ = 0.5 ray (60° from the negative real axis) where the dominant poles are −1.833 ± j3.175. What gain places them there? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "signals-control-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 64.037,
+        "unit": "",
+        "tolerance": 0.3,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The product of the three roots equals −(48 + K); the third pole is fixed by the root sum −12.",
+        "solution": "The third pole is −12 + 2(1.833) = −8.333. The product is −8.333 × (1.833² + 3.175²) = −112.04 = −(48 + K), so K ≈ 64.0.",
+        "lesson_ids": [
+          "signals-control-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "signals-control-15:gain-margin",
+      "type": "numeric",
+      "prompt": "A synthetic plant G(s) = 1/((s + 2)(s + 4)(s + 6)) is under proportional control K with negative unity feedback, so the characteristic equation is s³ + 12s² + 44s + 48 + K = 0. At a nominal gain K₀ = 80, by what factor can the loop gain grow before the stability limit? Enter the factor (not dB).",
+      "points": 1,
+      "objective_ids": [
+        "signals-control-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 6,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Compare the Routh limiting gain with the nominal gain.",
+        "solution": "GM = 480/80 = 6 (about 15.6 dB), matching the frequency-response gain margin at the −180° crossing ω = √44.",
+        "lesson_ids": [
+          "signals-control-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "signals-control-15:delay-limit",
+      "type": "single_choice",
+      "prompt": "A sensor adds a pure time delay e^(−sT) to the loop. Why can the Routh array not be applied directly?",
+      "options": [
+        "The characteristic equation is no longer a polynomial in s",
+        "Delays always make a loop unstable",
+        "Delays add zeros at the origin",
+        "The Routh array requires a stable open-loop plant"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "signals-control-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Write 1 + K G(s) e^(−sT) = 0 and look at its form.",
+        "solution": "The delay makes the equation transcendental, with infinitely many roots. Routh needs a polynomial; use the delay margin from frequency response, or treat a Padé approximation as approximate.",
+        "lesson_ids": [
+          "signals-control-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
     }
   ]
 }

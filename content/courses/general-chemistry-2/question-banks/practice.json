@@ -9,7 +9,7 @@
       "prompt": "A buffer has pKa = 7.2 and [A⁻]/[HA] = 10. What is its approximate pH?",
       "points": 1,
       "objective_ids": [
-        "general-chemistry-2-1-objective-1"
+        "general-chemistry-2-1-objective-2"
       ],
       "solution_spec": {
         "answer": 8.2,
@@ -3396,6 +3396,374 @@
         "solution": "The naive endpoint value is approximately 0.032494 min⁻¹. The nonzero physical plateau explains the discrepancy in this stipulated model.",
         "lesson_ids": [
           "general-chemistry-2-lab-01"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-2-1:weak-acid-mass-balance",
+      "type": "single_choice",
+      "prompt": "For a monoprotic acid HA ⇌ H⁺ + A⁻ with formal concentration C, assume water autoionization is negligible and let x=[H⁺]≈[A⁻]. Which expression for Ka uses the material balance?",
+      "options": [
+        "Ka = x²/(C−x), because [HA]=C−x and [A⁻]=x.",
+        "Ka = x²/C; this is the exact expression for every dissociation fraction.",
+        "Ka = x/(C−x), because only one product concentration appears in Ka.",
+        "Ka = (C−x)/x², because products belong in the denominator."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-2-1-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Use the material balance C=[HA]+[A⁻] before substituting into the equilibrium expression.",
+        "solution": "With [A⁻]=x, material balance gives [HA]=C−x. Therefore Ka=[H⁺][A⁻]/[HA]=x²/(C−x). Replacing C−x by C is only a small-dissociation approximation.",
+        "lesson_ids": [
+          "general-chemistry-2-1"
+        ],
+        "misconception_ids": [
+          "weak-acid-mass-balance"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct formative practice connecting the weak-acid material balance to the Ka expression."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-2-15:equivalence-concentration",
+      "type": "numeric",
+      "prompt": "20.00 mL of an unknown monoprotic acid reaches equivalence after 16.40 mL of 0.1000 M NaOH. What is the acid concentration in mol/L? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-2-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.082,
+        "unit": "",
+        "tolerance": 0.0005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "At equivalence, mmol of base equals mmol of acid.",
+        "solution": "n = 16.40 mL × 0.1000 M = 1.640 mmol, so C = 1.640/20.00 = 0.0820 M. The acid's strength does not change this.",
+        "lesson_ids": [
+          "general-chemistry-2-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-2-15:initial-weak-acid-ph",
+      "type": "numeric",
+      "prompt": "Use K_w = 1.0 × 10⁻¹⁴, concentration-form constants, additive volumes and fully dissociated NaOH. What is the pH of 0.050 M weak acid with pK_a = 3.86 before any base is added? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-2-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 2.592,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Solve K_a = x²/(C − x) for x = [H⁺]; check whether the approximation x ≪ C holds.",
+        "solution": "K_a = 1.38 × 10⁻⁴. The quadratic gives x = 2.56 × 10⁻³ M, so pH = 2.59. The shortcut √(K_aC) gives 2.58, about 5% dissociation, so the quadratic is safer.",
+        "lesson_ids": [
+          "general-chemistry-2-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-2-15:buffer-region-ph",
+      "type": "numeric",
+      "prompt": "Use K_w = 1.0 × 10⁻¹⁴, concentration-form constants, additive volumes and fully dissociated NaOH. 25.00 mL of 0.100 M weak acid (pK_a 4.76) receives 10.00 mL of 0.100 M NaOH. What is the pH? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-2-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 4.584,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Neutralize first: 1.00 mmol OH⁻ converts 1.00 mmol HA to A⁻. Then use Henderson–Hasselbalch.",
+        "solution": "HA: 2.50 − 1.00 = 1.50 mmol; A⁻: 1.00 mmol. pH = 4.76 + log(1.00/1.50) = 4.58.",
+        "lesson_ids": [
+          "general-chemistry-2-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-2-15:half-equivalence-pka",
+      "type": "numeric",
+      "prompt": "Use K_w = 1.0 × 10⁻¹⁴, concentration-form constants, additive volumes and fully dissociated NaOH. 25.00 mL of 0.0736 M of an unknown weak acid is titrated with 0.1000 M NaOH. Equivalence falls at 18.40 mL, and the pH at 9.20 mL is 5.12. Estimate the acid's pK_a. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-2-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 5.12,
+        "unit": "",
+        "tolerance": 0.02,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "What is the relation between [HA] and [A⁻] halfway to equivalence?",
+        "solution": "9.20 mL is half the equivalence volume, so [HA] ≈ [A⁻] and pH ≈ pK_a = 5.12.",
+        "lesson_ids": [
+          "general-chemistry-2-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-2-15:equivalence-ph",
+      "type": "numeric",
+      "prompt": "Use K_w = 1.0 × 10⁻¹⁴, concentration-form constants, additive volumes and fully dissociated NaOH. 20.00 mL of 0.0800 M weak acid (pK_a 4.20) is titrated with 0.100 M NaOH. What is the pH at the equivalence point? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-2-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 8.424,
+        "unit": "",
+        "tolerance": 0.02,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Find V_eq, then treat the conjugate base at its diluted concentration as a weak base with K_b = K_w/K_a.",
+        "solution": "V_eq = 16.00 mL; [A⁻] = 1.600/36.00 = 0.0444 M; K_b = 1.58 × 10⁻¹⁰; [OH⁻] = 2.65 × 10⁻⁶ M; pOH 5.58 and pH 8.42.",
+        "lesson_ids": [
+          "general-chemistry-2-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-2-15:past-equivalence-ph",
+      "type": "numeric",
+      "prompt": "Use K_w = 1.0 × 10⁻¹⁴, concentration-form constants, additive volumes and fully dissociated NaOH. 25.00 mL of 0.100 M weak acid (pK_a 4.76) receives 27.00 mL of 0.100 M NaOH. What is the pH? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-2-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 11.585,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Beyond equivalence, the excess strong base sets the pH; include the total volume.",
+        "solution": "Excess OH⁻ = 2.70 − 2.50 = 0.20 mmol in 52.00 mL, 3.85 × 10⁻³ M, so pOH 2.41 and pH 11.59.",
+        "lesson_ids": [
+          "general-chemistry-2-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-2-15:strong-acid-before-equivalence",
+      "type": "numeric",
+      "prompt": "Use K_w = 1.0 × 10⁻¹⁴, concentration-form constants, additive volumes and fully dissociated NaOH. 25.00 mL of 0.100 M HCl receives 24.50 mL of 0.100 M NaOH. What is the pH? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-2-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 2.996,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The remaining strong acid sets [H⁺]; divide by the total volume.",
+        "solution": "Excess H⁺ = 2.500 − 2.450 = 0.050 mmol in 49.50 mL, 1.01 × 10⁻³ M, so pH = 3.00. Half a millilitre before equivalence, the pH is still low.",
+        "lesson_ids": [
+          "general-chemistry-2-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-2-15:diprotic-second-equivalence",
+      "type": "numeric",
+      "prompt": "20.00 mL of 0.0500 M diprotic acid H₂A (pK_a1 3.0, pK_a2 7.0) is titrated with 0.100 M NaOH. At what added volume, in mL, is the second equivalence point? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-2-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 20.0,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Each mole of H₂A needs two moles of OH⁻ to reach A²⁻.",
+        "solution": "1.000 mmol H₂A needs 2.000 mmol OH⁻, or 20.00 mL; the first equivalence point is at 10.00 mL.",
+        "lesson_ids": [
+          "general-chemistry-2-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-2-15:weak-acid-equivalence-basic",
+      "type": "single_choice",
+      "prompt": "Why is the pH at the equivalence point of a weak acid titrated with NaOH above 7?",
+      "options": [
+        "The conjugate base A⁻ is a weak base and takes protons from water, producing OH⁻",
+        "Excess NaOH remains at the equivalence point",
+        "Na⁺ ions make the solution basic",
+        "The weak acid is only half neutralized at equivalence"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-2-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "What species remains at equivalence, and how does it react with water?",
+        "solution": "At equivalence the acid has been converted stoichiometrically to A⁻, with no excess OH⁻. A⁻ + H₂O ⇌ HA + OH⁻ with K_b = K_w/K_a makes the solution basic. Na⁺ is a spectator.",
+        "lesson_ids": [
+          "general-chemistry-2-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-2-15:indicator-choice",
+      "type": "single_choice",
+      "prompt": "A weak-acid titration has an equivalence pH of 8.7. Which illustrative indicator transition range is most suitable?",
+      "options": [
+        "8.2–10.0",
+        "3.8–5.4",
+        "6.0–7.6",
+        "4.4–6.2"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-2-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "The colour change should bracket the equivalence pH.",
+        "solution": "Only 8.2–10.0 brackets pH 8.7. The lower ranges change colour in the buffer region, so the endpoint would come well before equivalence.",
+        "lesson_ids": [
+          "general-chemistry-2-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-2-15:endpoint-versus-equivalence",
+      "type": "single_choice",
+      "prompt": "How does the endpoint of a titration differ from its equivalence point?",
+      "options": [
+        "The equivalence point is the stoichiometric match of acid and base; the endpoint is the observed signal, such as an indicator change, which should fall close to it",
+        "They are two names for the same volume",
+        "The endpoint is always at pH 7 and the equivalence point is not",
+        "The equivalence point depends on the indicator chosen"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-2-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "One is defined by stoichiometry, the other by observation.",
+        "solution": "Equivalence is fixed by the amounts of acid and base. The endpoint is what is detected, and a poorly chosen indicator can place it far from equivalence.",
+        "lesson_ids": [
+          "general-chemistry-2-15"
         ],
         "misconception_ids": []
       },

@@ -1,4 +1,1449 @@
-# Progress review: uniStemCourseSimulators
+## Searchable cross-course notebook (2026-10-11)
+
+Added a **My notes** page that searches learners' existing private notes across current-version enrollments, filters by course, paginates matches and links each result to its course lesson. The API scopes records to the signed-in user, rejects an unowned course filter, hides notes for stale course-version enrollments, and bounds query length and page size. Note bodies remain plain text; no separate notebook data or migration was introduced.
+
+Content validation passed (25 courses, 424 lessons, 2,644 questions, 1,461 cards and 25 cases; zero errors or explicit depth warnings). Backend Ruff, frontend TypeScript, ESLint/Prettier and production build passed. No tests were run. The next roadmap batch returns to course work with a bioreactor scope check against MIT OCW 10.442 Spring 2005.
+
+## Signals & Feedback Control scope boundary (2026-10-11)
+
+Signals & Feedback Control 0.4.7 now includes a course-level crosswalk against MIT OCW 6.003 (Fall 2011) and 2.004 Dynamics and Control II (Spring 2008). The proposed title fits its selected, integrated signals/systems and feedback sequence; the crosswalk marks Fourier/discrete-frequency breadth, physical component modeling, root-locus design and hands-on lab practice as gaps. No lesson, question, card or stable ID changed. The 2.004 Spring 2008 source is kept separate from existing Fall 2007 lecture links.
+
+Content validation passed at 25 courses, 424 lessons, 2,644 questions, 1,461 cards and 25 cases, with zero errors or explicit depth warnings. The assessment-candidate and objective-coverage reports passed drift checks. Package digest: 24 files, 338,720 bytes; archive SHA-256 `b70072cb8e02a13ce44cc6cff0d4be2fda2e011fc75c882577930125501e7774`; manifest SHA-256 `25d3e64a58fc12c31a5abcd18921698f7135b90fbec47ddcfe863ebe8c19099e`. No tests were run. The course remains partial, unreviewed and formative-only.
+
+## General Chemistry I/II paired-scope crosswalk (2026-10-11)
+
+Added [GENERAL_CHEMISTRY_SEQUENCE_CROSSWALK.md](GENERAL_CHEMISTRY_SEQUENCE_CROSSWALK.md) to map both local packages across MIT OCW 5.111SC's five undergraduate units. It distinguishes the Chemistry I atom/bonding/amount and general thermochemistry/equilibrium foundations from Chemistry II's applied acid-speciation, kinetics, redox, coordination and solubility work. It records deliberate bridges (general equilibrium to ΔG/Q/K applications; introductory buffers to coupled speciation), and limits including full quantum atomic structure, valence-bond/hybridization breadth, and the dedicated MIT catalyst/nuclear-chemistry topics. The existing course syllabi already state that these packages split one comparator, so no redundant disclaimer, lesson or assessment was added.
+
+This was a documentation-only scope audit. Course versions and learning counts are unchanged at 25 packages, 424 lessons, 2,644 questions, 1,461 cards and 25 cases. The source record remains link-only; no MIT content was reused. No tests were run.
+
+## Physics II: E&M two-source interference (2026-10-11)
+
+Physics E&M 0.4.7 adds one original Week 11 lesson on coherent two-source interference, grouped with the existing Maxwell/plane-wave block. Six numeric items and two multiple-select questions cover path/phase conditions, equal-source intensity and far-field fringe geometry; four cards support retrieval. MIT OCW 8.02 Spring 2007 treats radiation generation and interference as later topics; this local unit selects the two-source model and leaves antenna generation and diffraction outside.
+
+Direct recalculation gives 4.0 mm fringe spacing, 20 mm at the fifth bright fringe, a 2.0 mm first dark fringe, phase 2.094 rad for δ=λ/3, intensity 2I₀ at φ=π/2, and 1.25 μm for the third dark path difference. Content validation passed: 25 courses, 424 lessons, 2,644 questions, 1,461 cards and 25 cases; zero errors or explicit depth warnings. The package has 25 files and 351,102 bytes (archive SHA-256 `67d280bc585e0d4382cba03c09e1c721596aa538e143b09166076b118b535b46`; manifest SHA-256 `6af379833b702264a88e2f26b065b7796315bf0cdc3b0c6876af512ee50141c9`). No tests were run. The course remains partial, unreviewed and formative-only.
+
+## Cell & Molecular Biology scope and redundancy pass (2026-10-11)
+
+Cell Biology 0.61.1 distinguishes its required molecular/cell foundation from optional mechanobiology, senescence/apoptosis and regenerative applications. Week 8 is now a short cross-week control/replicate table that directs learners to the detailed Week 4 framework, eliminating repeated definitions while retaining stable lesson IDs, questions and experiments. The official MIT OCW 7.016 Fall 2018 calendar served as a breadth comparator; its broader model-organism, recombinant-DNA, human-genetics, neuron, cancer, immunology and infection topics are explicitly outside this focused sequence.
+
+Content validation passed: 25 courses, 423 lessons, 2,636 questions, 1,457 cards and 25 cases; zero errors or explicit depth warnings. The 21-item numeric and 114-cell public-table reconciliations passed, as did the review-evidence, objective-coverage and assessment-candidate checks. Package digest: 122 files, 2,113,739 bytes; archive SHA-256 `2ba0e84e4145db1642457ea2629372df2fbcbbf16125a8d91fc017d428d44719`; manifest SHA-256 `845edd2bc294c67af32bcb8eea2f84bb43c0b972eb03367b083d9df8060c9313`. No tests were run. The course remains partial, unreviewed and formative-only.
+
+## Programming & Numerical Methods interpolation unit (2026-10-11)
+
+Programming 0.4.8 adds one original week-10 lesson comparing quadratic interpolation with regression. The synthetic table yields p₂(x)=1−0.6x+0.1x², p₂(0.5)=0.725 against f(0.5)=0.8, signed error −0.075, and an extrapolated p₂(4)=0.2 against f(4)=1/17. Nine formative items and four cards cover node fit, between-node error, extrapolation, method choice and assumptions. MIT OCW 2.086 Fall 2014 places interpolation in its opening numerical-calculus unit and later includes least-squares fitting; this lesson is selective, and no MIT content was copied.
+
+Content validation passed: 25 courses, 423 lessons, 2,636 questions, 1,457 cards and 25 cases; zero errors or explicit depth warnings. Objective-coverage and assessment-candidate reports pass their drift checks. Package digest: 26 files, 329,778 bytes; archive SHA-256 `41c6ea2786d2d22669456c6f070569a8b054961861eb336dcf25d2a7ef4b1ddc`; manifest SHA-256 `531ffdba665b585375deb76d833166460f9ff96a47de2a5b2980292a3f6fd578`. No test suite was run. The course remains partial, unreviewed and formative-only.
+
+## Thermodynamics & Transport chemical-potential unit (2026-10-11)
+
+Thermodynamics & Transport 0.4.7 adds an original week-1 reading on chemical potential, reaction Gibbs energy, equilibrium constants and an ideal A⇌B composition. Nine formative items and four cards distinguish Q from K, equilibrium from reaction rate, and thermodynamic direction from kinetics. MIT OCW 20.110J Fall 2005 places equilibrium/free energy, chemical potential and chemical equilibrium in sessions 8–12; the local lesson is one bounded example, with phase equilibrium and nonideal solutions still outside scope.
+
+Content validation passed: 25 courses, 422 lessons, 2,627 questions, 1,453 cards and 25 cases; zero errors or explicit depth warnings. The check suites were not run. Package digest: 24 files, 339,920 bytes; archive SHA-256 `0e4a3a49a7010445c0505240ac1061e0a4d26472b617f858b5ba6fd562ccc774`; manifest SHA-256 `33abc493119da72377a07a38a552f1db64a7b71ad2fef9bc3aa5d7be58f76ab2`. The course remains partial, unreviewed and formative-only.
+
+## Organic Chemistry alkene/alkyne reactions and Statistics continuous Bayesian updating (2026-10-11)
+
+Organic Chemistry I 0.4.8 adds two original alkene/alkyne readings, 18 formative questions and eight cards within its 12-block schedule. MIT OCW 5.12 Spring 2005 assigns several weeks to these reactions; the local block is a selective two-reading subset, with SNAr and multistep synthesis still open. Statistics 0.4.7 adds one original Beta–Binomial conjugacy and prediction lesson inside week 13, with nine formative questions and four cards. MIT OCW 18.05 Spring 2022 includes Beta conjugacy; normal conjugacy and broader Bayesian/MLE coverage remain limited. Both source sets are link-only; no source instruction or assessment was imported.
+
+Content validation passed: 25 courses, 421 lessons, 2,618 questions, 1,449 cards and 25 cases; zero errors or explicit depth warnings. Objective coverage and assessment-candidate report checks pass. Organic Chemistry digest: 26 files, 391,546 bytes; archive SHA-256 `82ea4e533d191f1e7dfeda42fe5c74ccb1e99f7055b7dcdd040e5e4e2036afd0`; manifest SHA-256 `7a7b092c5eb06751f678b60933cb7515e131cb0c6e8d59d3a312e09702968178`. Statistics digest: 26 files, 384,072 bytes; archive SHA-256 `5f4b17230ce989ca45b9043198810829b19fd10589ef6955e7636c9e02a69d81`; manifest SHA-256 `d12c0185b23f1b698dfef1ed5bb0767ac28b0658e2f4c23916d333806ffed1e4`. No test suites were run. Both courses remain partial, unreviewed and formative-only.
+
+## Biochemistry I sequence consolidation (2026-10-11)
+
+Biochemistry I 0.4.85 consolidates overlap between the central-metabolism and thermodynamics/mitochondrial primers, and between network integration and the quantitative flux-control lesson. Stable lesson and question IDs remain. The proposed course scope now clearly defers photosynthesis/CO₂ assimilation, membrane transport and translation; MIT OCW [7.05 Spring 2020 calendar](https://ocw.mit.edu/courses/7-05-general-biochemistry-spring-2020/pages/calendar/) includes those strands, while its [syllabus](https://ocw.mit.edu/courses/7-05-general-biochemistry-spring-2020/pages/syllabus/) says the OCW page primarily covers the metabolism half. The local package is narrower.
+
+The 11 inactive assessment candidates were rebound to the updated readings by refreshing prerequisite hashes only; questions, keys and states did not change. Content validation passed: 25 courses, 418 lessons, 2,591 questions, 1,437 cards, 25 cases; zero errors and explicit depth warnings. Objective and candidate reports pass their drift checks. Biochemistry 0.4.85 has 70 files, 1,125,089 bytes, archive SHA-256 `281ee947fac158f6d9ce6befa7b040a9983a36d640e09e95d2eef717a8547942`, and manifest SHA-256 `d7a4eff4abdf375eee7ab178729c004fbb09b949cabd62bc11703b016e6a3906`. No test suite was run; the package remains partial, unreviewed and formative-only.
+
+## Geroscience primary-study intervention comparison (2026-10-11)
+
+Geroscience 0.5.8 adds an original comparison of the Baker et al. (2016) inducible p16-positive-cell-clearance study and Harrison et al. (2009) late-life rapamycin study inside Week 11's existing paper-reading lesson. The exercise separates each intervention's mechanistic reach from its mouse survival/function outcomes, checks the 14%/9% age-at-90%-mortality figures, and avoids a head-to-head or human-efficacy claim. Eight questions and four cards extend the existing reading without adding a week. MIT OCW 2.787J Fall 2024 is a graduate, selective regeneration comparator rather than a full geroscience match.
+
+The current inventory is 25 courses, 418 lessons, 2,591 questions, 1,437 cards and 25 cases. Content validation passed with zero errors or explicit depth warnings; objective and candidate reports were regenerated and checked. The 0.5.8 package has 26 files, 363,850 bytes, archive SHA-256 `04cfc8f0135c8ed766383307ce59c638aa68cad46b7c702777bfbc6ebb335a35`, and manifest SHA-256 `3548aaf8753eb448f3e6764ba06c0deda317c062fcdf5a7a529b2d36b25776fe`. No test suite was run. The course remains partial, unreviewed and formative-only.
+
+## Cellular Biomechanics specimen-size relaxation unit (2026-10-11)
+
+Cellular Biomechanics 0.3.7 adds a synthetic Week 3 comparison of poroelastic length-squared scaling and a size-independent viscoelastic time. Means at 0.5, 1 and 2 mm give 5, 20 and 80 s, respectively; the exponent is 2, the effective diffusivity is 5.0×10^-8 m^2/s, and the 1.5 mm prediction is 45 s. Eight questions and four cards cover the calculation, model choice, experimental controls and claim limits. MIT OCW 20.310J's undergraduate syllabus and Spring 2015 calendar separately schedule tissue viscoelasticity, poroelasticity and a later cell-scale comparison; the local unit is original and narrower.
+
+The current inventory is 25 courses, 418 lessons, 2,583 questions, 1,433 cards and 25 cases. Content validation passed with zero errors or explicit depth warnings; objective and candidate reports were regenerated and checked. The 0.3.7 package has 24 files, 337,328 bytes, archive SHA-256 `be8759406627b69deeed3568bf6098c2a1387d0d6be2c7029a6b26511e289ef3`, and manifest SHA-256 `84d34dd7831351fd48453bc1dfb682d565e086c0d18d7f6f0b92ff4f29aebed2`. No test suite was run. The course remains partial, unreviewed and formative-only.
+
+## Repository-wide scope reset (2026-10-11)
+
+The user replaced the overly narrow, repetitive course-expansion direction with work across the repository. The goal tool reports no active goal. The [scope audit](COURSE_SCOPE_AUDIT.md) covers all 25 authored packages using local instruction and official MIT OpenCourseWare syllabi/calendars; it records foundational gaps, narrower boundaries, merged/split subjects and redundant applications. The active [roadmap](ROADMAP.md) rotates through Differential Equations, Organic Chemistry, Statics/Materials, E&M, Genetics and Linear Algebra, with Robotics, Physiology and Circuits queued next. Repository instructions require bounded outcomes, appropriate university-course scope, original work and bundled verification. No new indefinite goal was created.
+
+## Linear Algebra four-subspaces unit (2026-10-11)
+
+Linear Algebra 0.3.6 expands the existing week-3 rank/null-space lesson rather than adding a week. One original 3 × 4 example computes bases and dimensions for the column, null, row and left-null spaces, checks both rank-nullity identities and orthogonal pairs, tests consistency, and locates a least-squares residual in the left null space. Six practice items and four cards provide mapped checks. MIT OCW 18.06SC Fall 2011 contains a dedicated “Four Fundamental Subspaces” session and a computational recitation; this increment is a focused comparison, not an equivalence claim. The package remains partial, unreviewed and formative-only.
+
+The active inventory is 25 courses, 407 lessons, 2,462 questions and 1,372 cards. Content validation and both generated reports pass; no test suite was run for 0.3.6.
+
+## Genetics & Genomics microbial genetics and regulation (2026-10-11)
+
+Genetics 0.5.6 adds two original lessons on microbial transfer/complementation and prokaryotic regulatory circuits, plus an unordered-tetrad extension to three-point mapping. The practice bank gains 14 original checks, the deck gains 10 cards, and two outcomes cover microbial inference and prokaryotic regulatory logic. Weeks 9–11 now sequence microbial foundations before gene-expression analysis; the advanced human Mendelian-randomization and locus-follow-up pair is explicitly optional. MIT OCW 7.03 Fall 2004's calendar includes tetrad analysis, phage genetics, bacterial transduction/plasmid complementation, and negative and positive regulation; this batch improves selected foundations without claiming full course depth. The course stays partial, unreviewed and formative-only.
+
+The 0.5.6 public package contains 27 files (archive SHA-256 `d2c6ee59eeb8f507ce316dc9c0ce29f7f0e601204b9b7f506509c8841156d80a`; manifest SHA-256 `bc567e193d41ae109ace2ee0cff28ef71f25c7bb3add64256b75dadd6d210b98`). Repository validation passes with 25 courses, 407 lessons, 2,456 questions and 1,368 cards; objective and candidate reports are current. No test suite was run for this increment.
+
+Removed the long, repeated development chronology from the README and active roadmap; detailed historical review/validation evidence remains preserved. Updated the quality standard so each subject uses an appropriate assessment plan rather than inheriting every Cell Biology component. This audit is a first-pass curriculum comparison, not independent scientific review or evidence that its listed gaps have been fixed.
+
+## Differential Equations Laplace IVP unit (2026-10-11)
+
+Added an original lesson on derivative transforms with initial values, partial fractions and delayed step forcing, with worked first/second-order IVPs, six formative checks and four retrieval cards. MIT OCW 18.03SC Fall 2011 Unit III is recorded as a scope comparator only. Fourier series, impulse inputs, convolution and transfer functions remain outside this lesson. The proposed 14-week sequence keeps its length by combining the related logistic equilibrium and closed-form/fitting readings in one block. A follow-up schema correction changed the grouped schedule fields to arrays and advanced the package to 0.3.9 without adding course content; it remains partial, unreviewed and formative-only.
+
+## Organic Chemistry aromaticity/EAS unit (2026-10-11)
+
+Added an original lesson on Hückel electron counting, aromatic/antiaromatic/nonaromatic distinctions, the EAS σ complex, aromaticity restoration, and broad directing effects including the halogen exception. Added four electron-count checks, five conceptual items and four retrieval cards. MIT OCW 5.12 Organic Chemistry I (Spring 2005) is a scope comparator only. Four repeated primer/expanded calendar pairs are now grouped, reducing the proposed sequence to 11 unmeasured blocks. Alkynes, nucleophilic aromatic substitution and a full alkene-addition sequence remain outside the current package; maturity remains partial, unreviewed and formative-only.
+
+## Statics & Materials beam diagrams unit (2026-10-11)
+
+Added an original lesson connecting distributed loads, cut-section equilibrium, piecewise shear and bending-moment functions, point-load jumps and support checks to nominal elastic bending stress. It includes two worked beam examples, eight formative items and five retrieval cards. MIT OCW 2.001's undergraduate syllabus and lecture-notes index place shear-force and bending-moment diagrams after equilibrium and before stress/deformation topics. The proposed 14-week sequence groups the short forearm-equilibrium application with the free-body-diagram opening and introduces the diagrams in week 2 before axial and bending-stress lessons. Compatibility, truss deformation, friction and fuller material coverage remain thin; version 0.4.6 is still partial, unreviewed and formative-only.
+
+## Physics II: E&M displacement-current and wave-energy unit (2026-10-11)
+
+Added an original lesson on charging-capacitor current continuity, the displacement-current term, the Ampère–Maxwell law, magnetic field inside and outside circular plates, and Poynting energy flux for a sinusoidal plane wave. The unit has six numerical checks, two conceptual selections and four retrieval cards. MIT OCW 8.02 Spring 2007 places Maxwell equations, electromagnetic radiation and energy flow after its circuit units; its class-topics page is a scope comparator only. The opening electrostatics block now groups the related field/potential and superposition/Gauss readings, keeping the proposal at 14 weeks. Radiation generation and interference remain outside the current scope; version 0.4.6 remains partial, unreviewed and formative-only.
+
+## Shared case studio (2026-10-11)
+
+The React reader now exposes the existing authored case prompts and self-check criteria in all 25 partial packages. Public readers can inspect each task; enrolled learners can write and save a private response and checklist marks. Drafts are bound to the package version and visible prompt/checklist digest, with an authored snapshot retained for earlier responses. Concurrent browser edits require the expected saved revision. Earlier drafts remain readable, archived studios are read-only, guest registration retains drafts, and account export/deletion includes them. Self-checks do not create attempts, scores, objective evidence, or grades, and inactive project candidates stay inactive.
+
+The course header retains its first authored limitation and exposes the complete list through an expandable disclosure. The case view omits the lesson sidebar so learners can reach the prompt and response form without scrolling through dozens of lesson links. All authored caveats remain available.
+
+Validation: **5,146 backend tests passed, two existing symbolic response-builder cases skipped**; migration upgrade, metadata comparison and downgrade passed. **71 frontend tests passed**; production build, ESLint/Prettier and Ruff passed. The focused browser checks cover three public case studios, all six calculators, keyboard interaction, draft persistence, stale-tab conflict handling, export, read-only archive routing, expandable caveats, and a 390-pixel layout. Automated axe scans supplement visual inspection; qualified manual review remains open. No course package, grading policy or review gate was changed. Next shared capability: a searchable cross-course notebook; new-course candidates remain planning topics until coherent original instruction and practice are authored.
+
+## Shared scientific study tools (2026-10-11)
+
+Integrated dilution, buffer pH, enzyme kinetics, RC charging, diffusion timescale, and Ohm's-law calculators into the React reader. Learners can open a calculator directly or from the main/course navigation, inspect its equation and model assumptions, calculate with explicit units, reset an example, and follow links to related courses. Invalid or nonfinite inputs produce an accessible error; editing an input clears the old result. The feature needs no enrollment and makes no API writes or grading changes. The original legacy tools remain preserved.
+
+Validation: **64 frontend tests passed**, including independent formula/unit checks and keyboard/public-route regressions; production build and lint passed. **Two Playwright tests passed**, covering all six calculator results, invalid input, keyboard activation, no API writes, WCAG 2.1 A/AA axe scans, and a 390-pixel mobile viewport. Desktop and mobile screenshots were visually inspected. These automated results do not constitute qualified accessibility or scientific review. Cell Biology remains version 0.61.0, partial and formative-only.
+
+## Cell Biology week-14 studio and browser quality gate (2026-10-11)
+
+Added a dedicated Playwright route check for the optional written-design studio, then extended axe WCAG 2.1 A/AA scans and keyboard route activation across all 43 Cell Biology lesson routes. This surfaced horizontally scrollable CSV code blocks that were not keyboard-focusable; the shared Markdown renderer now gives code blocks a tab stop, with a component regression test. The review also found that package-local lesson links fell back to the app shell; lesson and syllabus links now open current in-app readings, while archived packages keep links pinned to the saved version. External URLs and links to non-lesson files are preserved. These automated checks do not replace qualified assistive-technology or subject-matter review.
+
+The broader browser run also exposed outdated expected question counts in the week 9–14 tests and a stale `%` unit in a synthetic lab test; these now match the current public manifest and requested `pp` unit. The full browser suite passes 22 tests; two protected-assessment cases remain skipped because they require the separate QA fixture. Configurable API write limits let CI raise limits only for its disposable test stack; default limits remain 120 ordinary and 30 authentication writes per minute.
+
+## Cell Biology 0.55.0 review-target refresh (2026-10-11)
+
+Corrected the public package's embedded independent-review handoff, which still named version 0.53.0 and 42 lessons, to match the live 43-lesson, 69-objective version 0.55.0 package. Updated its syllabus, crosswalks, candidate index, review handoffs, and digest-bound evidence; preserved the empty 0.54.0 review scaffold as a versioned historical file. No learner-facing lesson, question, card, assessment, or policy changed. The new package remains partial, unreviewed, and formative-only, with 142 unresolved candidate-gate instances, four unresolved course-level gates, and no reviewer or operator decisions.
+
+## Cell Biology 0.56.0 week-14 dataset count correction (2026-10-11)
+
+The week-14 virtual lab described “160 observations,” while its synthetic CSV contains 40 culture-level records. Clarified the distinction: two conditions × five collection days × four cultures produce 40 independent culture records, with four constructed outcome values per record (160 values total). No data or activity changed. Added a regression check for the full condition/day/replicate grid, updated the lab candidate’s prerequisite hash, advanced the course to 0.56.0, and regenerated its public digest, candidate and review evidence, numeric/table audits, response-format inventory, and workload packet. The package remains partial, formative-only, unreviewed; 142 candidate gates and four course-level gates remain open.
+
+| Actual command/check | Result |
+| --- | --- |
+| Focused Cell Biology and content-validation regression suite | **223 passed, 2 skipped**. |
+| Virtual-lab dataset count and replicate regression | **3 passed**; lab CSVs contain 8, 120, and 40 culture-level rows, with the documented replicate groups intact; week 14 has four outcome values per row. |
+| Content validator with link checks | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards, 25 cases; 0 errors and 12 explicit `link-access-denied` limitation warnings. |
+| Candidate, review-evidence, objective-coverage, and response-format drift checks | Passed. Review evidence records zero reviewer sign-offs and no release authorization. |
+| Public numeric and table recalculations | **21/21** numeric checks and **114/114** table checks passed; protected answer sources were not read. |
+| Ruff on changed Cell Biology tests | Passed. |
+| Public package | Version 0.56.0; 122 files; 2,113,860 bytes; archive SHA-256 `6e07c8c49282fabfdbc3761e8eec4a0afbddf52b939b02133ec1e151deb4a5eb`; manifest SHA-256 `87255c6be323bf955096261532b35476f0206802b14186c7a99f7f24c80e70cd`. |
+
+## Cell Biology 0.57.0 package-pinned learner resource (2026-10-11)
+
+Replaced the week-5 virtual lab's mutable raw-GitHub CSV link with an allowlisted resource in the public course package. Current learners receive the current package bytes; enrolled learners can retrieve the same file from their immutable course-version archive after the package changes. Added schema and content validation for the resource allowlist, repository link rewriting, and API coverage for allowlisting, enrollment checks, and byte preservation. Refreshed the current review snapshot, evidence index, candidate audit, public numeric/table reports, response-mode inventory, and prospective workload packet while preserving the 0.56.0 review artifacts. The course remains partial, unreviewed and formative-only; no external review or release gate was closed.
+
+| Actual command/check | Result |
+| --- | --- |
+| Public package | Version 0.57.0; 122 files; 2,114,450 bytes; archive SHA-256 `a731447f4eb6d6bf596199480007484d152522b6ff4915654a8fdd501e1ad79e`; manifest SHA-256 `2f7a159a454b13206daf9774d226f27a1099c80cae4daf852de2747c4ab4ccd0`. |
+| Content validator with live links | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards, 25 cases; zero errors and 11 access-denied limitation warnings. |
+| Focused resource/content regressions | **127 passed, 3 skipped** (Windows symlink support); the updated version-history handoff test then passed separately (**1 passed**). This includes the current and archived resource API checks. |
+| Digest-bound author evidence | Candidate audit, review index, objective coverage, response-mode inventory, 21 numeric recalculations and 114 table recalculations pass their drift checks. The review index still records 142 unresolved candidate gates, four course-level gates, zero reviewer sign-offs and no release authorization. |
+| Ruff and `git diff --check` | Passed. |
+
+## Cell Biology 0.61.0 syllabus workload-label alignment (2026-10-11)
+
+Marked the two remaining 2–3 hour lab-duration descriptions in the syllabus as unvalidated author estimates, matching the labels already used in all eight homework and three lab packet headers. Updated the current package labels and three inactive lab candidates' public prerequisite hashes, then regenerated current and versioned review artifacts. Added regression coverage that recomputes the displayed summary examples in all three virtual labs from their linked CSVs. The course remains partial, unreviewed, and formative-only; no learner time was measured, no workload target was approved, and no review or release gate was closed.
+
+| Actual command/check | Result |
+| --- | --- |
+| Package, review-handoff, and content-repository regressions | **39 passed, 1 skipped** (Windows symlink support). |
+| Homework and virtual-lab source-to-example regressions | Recompute all eight homework summary tables and selected derivations plus the displayed summary examples for all three labs from their linked CSVs; author consistency only. |
+| Current-version content assertions | **6 passed**; 95 unrelated content-validation tests deselected. |
+| Content validator | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards, 25 cases; 0 errors and 0 explicit limitation/depth warnings. |
+| Candidate, review-evidence, objective-coverage, response-mode, numeric, and table drift checks | Passed. Numeric evidence: 21/21; public-table evidence: 114/114. The index records 142 unresolved candidate-gate instances, four course-level gates, zero reviewer sign-offs, and no release authorization. |
+| Public package | Version 0.61.0; 122 files, 2,118,140 bytes; archive SHA-256 `63ce2392d5586830e414c4e214af42de73adef03a9f1276dbbd58024a4a9b50a`; manifest SHA-256 `75449a3d7439567f29afd56bb88e81e21340d7bd68eaa5d469dc4d1bf24de173`. |
+| Ruff and `git diff --check` | Passed. |
+
+## Cell Biology 0.60.0 unvalidated workload labels (2026-10-11)
+
+Marked the suggested 2–3 hour values in all eight homework and three lab packets as unvalidated author estimates. This clarifies their status without presenting them as measured learner workload or approved time targets. Split two lab metadata lines for consistent packet formatting and refreshed those candidates' public prerequisite hashes. Regenerated the current and versioned package snapshot, audit reports, evidence index, and prospective workload protocol. The course remains partial, unreviewed, and formative-only; no learners were recruited, no workload data or targets were approved, and no review or release gate was closed.
+
+| Actual command/check | Result |
+| --- | --- |
+| Package, review-handoff, and content-repository regressions | **38 passed, 1 skipped** (Windows symlink support). |
+| Current-version content assertions | **6 passed**; 95 unrelated content-validation tests deselected. |
+| Content validator | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards, 25 cases; 0 errors and 0 explicit limitation/depth warnings. |
+| Candidate, review-evidence, objective-coverage, response-mode, numeric, and table drift checks | Passed. Numeric evidence: 21/21; public-table evidence: 114/114. The index records 142 unresolved candidate-gate instances, four course-level gates, zero reviewer sign-offs, and no release authorization. |
+| Public package | Version 0.60.0; 122 files, 2,117,340 bytes; archive SHA-256 `bead4874f7ebdd104f8a7c2fcef1c60a55d06d5d5357224d8ad7841500c95b3f`; manifest SHA-256 `7e4092a09591ab50fc19e659df5f5cb8d676bd95defb8e936b9e2a1c97153ba5`. |
+| Ruff and `git diff --check` | Passed. |
+
+## Cell Biology 0.59.0 packet-version alignment (2026-10-11)
+
+Aligned the embedded package-version labels in all eight open homework packets and all three lab packets with the current manifest. Refreshed the corresponding public prerequisite hashes on the three inactive lab candidates; question content and protected answer-source digests did not change. Regenerated the current review snapshot, candidate/evidence records, numerical/table audit records, response-mode report, and prospective workload packet while preserving version 0.58.0 artifacts. The package remains partial, unreviewed, and formative-only; no review or release gate was closed.
+
+| Actual command/check | Result |
+| --- | --- |
+| Package, review-handoff, and content-repository regressions | **38 passed, 1 skipped** (Windows symlink support), including packet-label consistency and current/archived dataset routing. |
+| Homework worked-example source regression | Recomputes all eight learner-facing summary tables and key worked derivations from their linked CSVs; this is author-side consistency evidence only. |
+| Current-version content assertions | **6 passed**; 95 unrelated content-validation tests deselected. |
+| Content validator | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards, 25 cases; 0 errors and 0 explicit limitation/depth warnings. |
+| Candidate, review-evidence, objective-coverage, response-mode, numeric, and table drift checks | Passed. Numeric evidence remains 21/21 and public-table evidence 114/114; 142 candidate gates and four course-level gates remain unresolved, with zero reviewer sign-offs and no release authorization. |
+| Public package | Version 0.59.0; 122 files, 2,116,301 bytes; archive SHA-256 `78fbdce816d2f68c264a306ee2e9e20f8604a6190a42e4c9b07756e55c98341e`; manifest SHA-256 `b9857af6e169b0e31ae1153c3770e64cc7f9c150b3faae131d444d9b9e4e6e5b`. |
+| Ruff and `git diff --check` | Passed. |
+
+## Cell Biology 0.58.0 homework dataset package pins (2026-10-11)
+
+The eight open homework packets were already manifest lessons linked from their syllabus weeks; their CSV links still depended on mutable raw-GitHub URLs. Replaced those links with course-relative dataset paths, allowlisted all eight CSVs alongside the existing week-5 lab CSV, and retained the current and enrollment-gated archived resource routes. This changes no dataset, question, grading policy, lesson record, or maturity. Refreshed the exact-version review snapshot and machine evidence; preserved the 0.57.0 review artifacts. The course remains partial, unreviewed, and formative-only, with all independent review and release gates open.
+
+| Actual command/check | Result |
+| --- | --- |
+| Focused Cell Biology repository, API, integrity, and handoff regressions | **13 passed**; 66 unrelated tests deselected. Current and archived syllabus links and dataset rewrites are checked for all eight packets. |
+| Open-homework data recalculation regressions | **12 integrity tests passed**. The checks recompute all Homework 1–8 example summaries from linked CSVs and independently verify the worked kinetic curves, penetrance, ChIP enrichment, half-life, matrix ratio, and cell-state contrasts. |
+| Content validator | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards, 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Frontend suite, build, and lint | **46 tests passed**; TypeScript/Vite build and ESLint/Prettier checks passed. |
+| Candidate, evidence, coverage, response-mode, numeric, and table drift checks | Passed. Public calculations remain 21/21 numeric and 114/114 table checks; review evidence records 142 unresolved candidate gates, four course gates, zero reviewer sign-offs, and no release authorization. |
+| Public package | Version 0.58.0; 122 files, 2,115,110 bytes; archive SHA-256 `484572596063c1e8a8f95f9c459dae580adcf11f512dd3875bd01659f7f94a4e`; manifest SHA-256 `ae1348cd86cc84add822ae0927b4774a79f3ebf1779323a3a1bb4599af5a38de`. |
+| Live external-link check | `--check-links` was rate-limited: PubMed returned HTTP 429 for 50 references. The local/package validator passed without live probes; no external-link result is claimed. |
+
+## Cell Biology 0.55.0 workload-pilot packet (2026-10-11)
+
+Refreshed the prospective workload protocol and blank participant log for the exact 0.55.0 public package. The 14-week lesson and formative-activity inventory now matches the course manifest, including the optional week-2 rehearsal and week-14 design studio; it labels week 8 as ungraded cumulative review, not a midterm. The protocol records both package hashes, while required activities, time bands, contact-time treatment, recruitment, and learner results remain unset. The review handoff and roadmap now link the packet. No data or approvals were added; workload remains an open gate.
+
+| Actual command/check | Result |
+| --- | --- |
+| Workload protocol and manifest regression | **1 passed**; all schedule rows and IDs match `course.json`, both package digests are present, and the CSV remains header-only. |
+| Content validator with link checks | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards, 25 cases; 0 errors and 13 explicit `link-access-denied` limitation warnings. |
+| Ruff on the review-packet regression | Passed. |
+
+## Biochemistry 0.4.84 kinetics-lab consistency (2026-10-11)
+
+Aligned the kinetics-lab header with its package version and added a regression that reads its linked CSV, checks all twelve displayed means and the six three-replicate groups per condition, refits both reciprocal lines, and verifies Vmax, Km, alpha and the inhibition constant. The Biochemistry suite passed **103 tests with one incomplete protected-fixture skip**; content validation passed with zero errors or explicit limitation/depth warnings, and Ruff passed. Current review artifacts target 70 files and 1,119,349 bytes: package SHA-256 `b650c42d64a583e2828de5e588b646a0b9316b967332042a8d629b485fda28eb`, manifest SHA-256 `cba02bb31072d88e073e4bf444771e5071743a2cc62a4b8c7f94d4fb82089751`. All candidates remain inactive and the course remains partial, unreviewed and formative-only.
+
+## Biochemistry 0.4.83 free-energy standard-state clarity (2026-10-11)
+
+Made the biochemical reaction quotient explicitly dimensionless by defining activities relative to the 1 M standard concentration, then rewrote the ATP-hydrolysis example to show its normalized activities. Added an equation regression for the displayed ATP, phosphorylation-equilibrium, hexokinase-coupling, NADH-to-oxygen, and isomerization calculations. Updated all 11 inactive candidates to the new package version and refreshed the two candidate prerequisite hashes that cite the free-energy reading. Rebound the current snapshot, evidence register, workload protocol, review checklist, and response-format inventory; preserved the 0.4.82 artifacts. Course maturity and assessment policy are unchanged.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry regression suite | **102 passed, 1 skipped**; the protected-answer fixture is incomplete, so its consistency test skipped before reading any key file. |
+| Free-energy equation regression | Recomputes dimensionless ATP Q and displayed actual/standard ΔG, equilibrium constant, redox potential difference, and stopping ratio. |
+| Content validator | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors and 0 explicit limitation/depth warnings. |
+| Candidate, review-evidence, and objective-coverage drift checks | Passed. The evidence index retains 88 unresolved candidate-gate instances and four course-level gates, with zero reviewer sign-offs and no release authorization. |
+| Public package digest | Version 0.4.83; 70 files; 1,119,100 bytes; archive SHA-256 `83d21f6b34bc076298c3aec2e9082552848dcbb30513cbd7b25cfc00222a7a33`; manifest SHA-256 `b0ec7af9367295ec69ea5f5d56c75328c2e371f22d37c2b6744219a792da580c`. |
+| Ruff and `git diff --check` | Passed. |
+
+## Biochemistry 0.4.82 binding-equilibria worked example (2026-10-11)
+
+Expanded the week-4 binding-equilibria reading with a derivation of the ligand-depletion quadratic, a worked example that checks free and bound concentrations against mass balance, and an explicit statement of the model assumptions. Added a regression that independently recomputes the example and recovers the stated K_d. Updated all 11 inactive candidates to the new package version and refreshed the three candidate prerequisite hashes that include this lesson. Rebound the current snapshot, empty evidence register, workload protocol, review checklist, and response-format inventory; preserved the 0.4.81 artifacts. The course remains partial, unreviewed, and formative-only; no activity, assessment policy, or review decision changed.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry regression suite | **101 passed, 1 skipped**; the protected-answer fixture is incomplete, so its consistency test skipped before reading any key file. |
+| Binding-equilibria example regression | Recomputes 15 nM complex, 5 nM free receptor, 45 nM free ligand, and recovers K_d = 15 nM; the 16 nM approximation and 6.7% overestimate are checked against the lesson. |
+| Content validator | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors and 0 explicit limitation/depth warnings. |
+| Candidate, review-evidence, and objective-coverage drift checks | Passed. The evidence index retains 88 unresolved candidate-gate instances and four course-level gates, with zero reviewer sign-offs and no release authorization. |
+| Public package digest | Version 0.4.82; 70 files; 1,118,417 bytes; archive SHA-256 `2b08ccf0c715d31142d118f364d422d16c05045282b31ead654a92310a94bbcb`; manifest SHA-256 `95512ab22432ec9cf2ac972d6f5623a59b252c377f91279095d767c7cd8a814e`. |
+| Ruff and `git diff --check` | Passed. |
+
+## Biochemistry 0.4.81 workload-estimate labeling (2026-10-11)
+
+Marked the week-7 kinetics lab's 2–3 hour duration as an unvalidated author estimate. Refreshed its package version, all 11 inactive candidate course-version bindings, and the public prerequisite hashes on the homework-4, midterm, and final candidates that cite the lab. Rebound the review snapshot, evidence index, workload protocol, reviewer checklist, and response-mode inventory to the 0.4.81 package. The course remains partial, unreviewed, and formative-only; no learner time was measured, no target was approved, and no review or release gate was closed.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry regression suite | **100 passed, 1 skipped**; the protected-answer fixture is incomplete in this checkout, so its private-key consistency test skipped before reading any key file. |
+| Content validator | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors and 0 explicit limitation/depth warnings. |
+| Candidate, review-evidence, objective-coverage and response-mode drift checks | Passed. The evidence index retains 88 unresolved candidate-gate instances and four course-level gates, with zero reviewer sign-offs and no release authorization. |
+| Public package digest | Version 0.4.81; 70 files; 1,117,012 bytes; archive SHA-256 `b2b723acb41cced40fcb4ec25528bc60a2e053fb835107ca6d79b74d9dc15134`; manifest SHA-256 `96f09bc371679b2e4dc30774ca62c3f2cc1debb7d21f6dc71989835967c3a9ec`. |
+| Ruff and `git diff --check` | Passed. |
+
+## Biochemistry 0.4.79 physical-lab proposal (2026-10-11)
+
+Drafted a review-only proposal for supervised potato-catalase kinetics and a blank instructor pilot log. The proposal describes separate reaction replicates, a no-enzyme blank, and the limitation that collected oxygen alone cannot verify peroxide depletion because dissolved or uncollected oxygen may be missed. The log captures exact-product safety review, raw pilot data, accessibility, measured workload, and local go/no-go evidence. These documents are outside the course manifest and learner schedule, have no local pilot or approval, and do not complete the physical-laboratory gate or change the public package digest.
+
+Added a version-pinned [external-review checklist](reviews/biochemistry-reviewer-checklist-0.4.79.md) for the 11 candidate inventories and four course-level gates. It distinguishes author-side machine checks from independent review, and reviewer records from operator release. No evidence register entries or approvals were added.
+
+The [Biochemistry handoff](BIOCHEMISTRY_REVIEW_HANDOFF.md) links the draft and reviewer checklist. The evidence register remains empty; external review and release gates stay open.
+
+## Historical graded-assessment archive triage (2026-10-11)
+
+Added a [report-only archive triage runbook](HISTORICAL_ASSESSMENT_ARCHIVE_RECOVERY.md) for operators handling pre-migration submissions. It explains what each archive-audit status establishes, separates public course snapshots from private assessment sources, and directs unverifiable cases to the institution's human appeal process. It forbids reconstructing historical source from current files or writing archive rows directly. This documents safe handling but does not recover source bytes or enable historical regrading.
+
+## Biochemistry 0.4.79 protein-purification lab walkthrough (2026-10-11)
+
+Expanded the synthetic-data purification lab with a worked table for all four fractions: total protein, total activity, specific activity, activity recovery and fold enrichment. The new comparison makes the crude baseline explicit and states that one observation per fraction cannot estimate replicate variability. It remains a paper-only virtual lab, with no real protein, experimental procedure, or evidence of a physical separation.
+
+| Actual command/check | Result |
+| --- | --- |
+| Focused Biochemistry regressions | **99 passed**, including a regression that recalculates all four displayed rows from the synthetic CSV. |
+| Review snapshot/evidence tests | **8 passed**; the version-bound package digest, generated reports and evidence-register structure checks passed. |
+| Private grader and one-field mutation audit | **122 questions, 247 response fields and 247 mutations**; each keyed response received full credit and each single-field mutation lost exactly that field’s points. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register checks and Ruff | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; no reviewer signoffs or operator approval are recorded. |
+| Public-package snapshot | 70 files, 1,116,201 bytes; archive SHA-256 `2a3e4df695f46db6ef54426db20e0594420815ef3adda0dece17c83bfb86ff61`; manifest SHA-256 `f9f3fac07002318bf85ecd13324ca5cdbb4e2d2d544c90a3407544cdd14b7aa2`. |
+
+The cumulative final maps all 75 lesson objectives, but the course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.79-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.79.md) bind this package.
+
+## Biochemistry 0.4.78 cumulative-final urea-cycle ledger (2026-10-11)
+
+Added final case 52 using the lesson’s synthetic closed-balance load of 5 mol nitrogen atoms. It yields 2.50 mol urea, 7.50 mol ATP molecules and 10 mol high-energy phosphate equivalents, keeping the ATP-to-AMP cost explicit and treating the load as stoichiometry rather than a measured rate. The inactive cumulative final now has 52 cases and 520 proposed points, mapping all 75 lesson objectives.
+
+| Actual command/check | Result |
+| --- | --- |
+| Focused Biochemistry regressions | **98 passed**. |
+| Full backend and content suite | **8,058 passed, 5 skipped**; skips cover unsupported symbolic response builders and Windows symlink tests. |
+| Review snapshot/evidence tests | **8 passed**; the package digest, generated reports and evidence-register structure checks passed. |
+| Private grader and one-field mutation audit | **122 questions, 247 response fields and 247 mutations**; each keyed response received full credit and each single-field mutation lost exactly that field’s points. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register checks and Ruff | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; no reviewer signoffs or operator approval are recorded. |
+| Public-package snapshot | 70 files, 1,114,442 bytes; archive SHA-256 `37efca303772bce4d682f1f7599b2a30bde20747fb24b3b938d98aed3ffe3dc2`; manifest SHA-256 `5b429f510372a884734f9650ad60c062737537977272d55b0b227e16f90e0703`. |
+
+The course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.78-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.78.md) bind this package.
+
+## Biochemistry 0.4.77 cumulative-final labeled-ribose case (2026-10-11)
+
+Added final case 51 using a synthetic ribose isotopomer distribution: M+1 plus M+2 equals 60% labeled ribose. The item supports labeled-carbon appearance under the stated model and explicitly avoids inferring oxidative/nonoxidative branch contributions or a quantitative PPP rate from the isotopomer fraction alone. The inactive cumulative final now has 51 cases and 510 proposed points, mapping 74 of 75 lesson objectives.
+
+| Actual command/check | Result |
+| --- | --- |
+| Focused Biochemistry regressions | **97 passed**. |
+| Review snapshot/evidence tests | **8 passed**; the package digest, generated reports and evidence-register structure checks passed. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register checks and Ruff | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; no reviewer signoffs or operator approval are recorded. |
+| Public-package snapshot | 70 files, 1,123,023 bytes; archive SHA-256 `59b23cac4e3e1193d064d131c4bfae26e5d3dc287f5b62e3950c2d682fa64092`; manifest SHA-256 `5c1a2a928260e107af2c960f428e600079dbb6ced6fe77ec7e43ab033a65a1f2`. |
+
+The course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.77-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.77.md) bind this package.
+
+## Biochemistry 0.4.76 cumulative-final amino-acid tracer case (2026-10-11)
+
+Added final case 50 using the lesson’s synthetic adipocyte tracer comparison: modeled BCAA contribution to lipogenic acetyl-CoA changes from 8% to 26%, a rise of 18 percentage points. The interpretation remains specific to the modeled pool and cultured-cell states; it does not imply total oxidation, whole-body flux or net glucose from leucine. The inactive final now has 50 cases and 500 proposed points, mapping 73 of 75 lesson objectives.
+
+| Actual command/check | Result |
+| --- | --- |
+| Focused Biochemistry regressions | **96 passed**. |
+| Review snapshot/evidence tests | **8 passed**; the public digest, empty evidence register and generated reports match version 0.4.76. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register checks and Ruff | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; no reviewer signoffs or operator approval are recorded. |
+| Private answer and actual-grader audit | All private fingerprints match. The actual grader awarded full credit to **120 keyed questions across 243 response fields**; **243 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,119,488 bytes; archive SHA-256 `ec942ca7db746aacc12b27a6c16ccf99933b94616bbbf18dca3d75d6bd6a29f5`; manifest SHA-256 `4501e24e1696c7ec5b047c65d09cb0189704a29befad2eded1d4c8d423529537`. |
+
+The course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.76-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.76.md) bind this package.
+
+## Biochemistry 0.4.75 cumulative-final neutral-lipid/VLDL case (2026-10-11)
+
+Added final case 49 tracing glycerol-3-phosphate through lysophosphatidic acid, phosphatidic acid and diacylglycerol to TAG, then connecting hepatic TAG storage to VLDL export. The inactive final now has 49 cases and 490 proposed points, mapping 72 of 75 lesson objectives.
+
+| Actual command/check | Result |
+| --- | --- |
+| Focused Biochemistry regressions | **95 passed**. |
+| Review snapshot/evidence tests | **8 passed**; the public digest, empty evidence register and generated reports match version 0.4.75. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register checks and Ruff | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; no reviewer signoffs or operator approval are recorded. |
+| Private answer and actual-grader audit | All private fingerprints match. The actual grader awarded full credit to **119 keyed questions across 241 response fields**; **241 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,115,737 bytes; archive SHA-256 `d8c3338c2ec4acbc78c206495f85adeef4c64a4ad63a89936b4f341e0df61c00`; manifest SHA-256 `f438b24b1402f9e33a8ac5a985d4224d3845224861a7f5f212f6206607ab3eef`. |
+
+The course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.75-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.75.md) bind this package.
+
+## Biochemistry 0.4.74 cumulative-final citrate-shuttle and malonyl-CoA case (2026-10-11)
+
+Added final case 48 connecting citrate export and ATP-citrate-lyase regeneration of cytosolic acetyl-CoA to ACC regulation. The response also captures malonyl-CoA’s dual role as a fatty-acid-synthesis substrate and CPT1 inhibitor. The inactive final now has 48 cases and 480 proposed points, mapping 71 of 75 lesson objectives.
+
+| Actual command/check | Result |
+| --- | --- |
+| Focused Biochemistry regressions | **94 passed**. |
+| Review snapshot/evidence tests | **8 passed**; the public digest, empty evidence register and generated reports match version 0.4.74. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register checks and Ruff | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; no reviewer signoffs or operator approval are recorded. |
+| Private answer and actual-grader audit | All private fingerprints match. The actual grader awarded full credit to **118 keyed questions across 239 response fields**; **239 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,112,380 bytes; archive SHA-256 `59f5b0d18a6936bfc4fe1dcafc760a86252c985f9954c244cca1ab37fe044c97`; manifest SHA-256 `f397117ff5fecbff1205c3838e5571cd3f8303ec3732840ecb22b19ae3dac917`. |
+
+The course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.74-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.74.md) bind this package.
+
+## Biochemistry 0.4.73 cumulative-final nitrogen and carbon-fate case (2026-10-11)
+
+Added final case 47 separating alanine's transferred amino group from its pyruvate carbon skeleton, then applying the mammalian acetyl-CoA net-carbon boundary. It distinguishes label appearance in downstream pools from net glucose production. The inactive final now has 47 cases and 470 proposed points, mapping 70 of 75 lesson objectives.
+
+| Actual command/check | Result |
+| --- | --- |
+| Focused Biochemistry regressions | **93 passed**. |
+| Review snapshot/evidence tests | **8 passed**; the public digest, empty evidence register and generated reports match version 0.4.73. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register checks and Ruff | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; no reviewer signoffs or operator approval are recorded. |
+| Private answer and actual-grader audit | All private fingerprints match. The actual grader awarded full credit to **117 keyed questions across 237 response fields**; **237 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,108,724 bytes; archive SHA-256 `a1cbdaa5e444415edc204967028e6b23ac6f2f2d88b954dfeb946f2f5eba94b9`; manifest SHA-256 `d7692aa59e7c6eeef6e43e6acc1de81b9cae0aef89c631ddd342e42c1bf2dadb`. |
+
+The course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.73-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.73.md) bind this package.
+
+## Biochemistry 0.4.72 cumulative-final amino-acid carbon-fate case (2026-10-11)
+
+Added final case 46 mapping alanine to pyruvate, aspartate to oxaloacetate, leucine to acetyl-CoA/acetoacetate, and phenylalanine to fumarate plus acetoacetate. The companion classification distinguishes glucogenic, exclusively ketogenic, and mixed carbon fates. The inactive final now has 46 cases and 460 proposed points, mapping 69 of 75 lesson objectives.
+
+| Actual command/check | Result |
+| --- | --- |
+| Focused Biochemistry regressions | **92 passed**. |
+| Review snapshot/evidence tests | **8 passed**; the public digest, empty evidence register and generated reports match version 0.4.72. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register checks and Ruff | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; no reviewer signoffs or operator approval are recorded. |
+| Private answer and actual-grader audit | All private fingerprints match. The actual grader awarded full credit to **116 keyed questions across 235 response fields**; **235 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,105,266 bytes; archive SHA-256 `52f0b4b75961f93046d2d1b641d8ad63b8c128d18091b788ff48651328ff448b`; manifest SHA-256 `bfcc425627effcff5438d6590ad4b0be934af53315be6d019fc2d8e636b850ec`. |
+
+The course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.72-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.72.md) bind this package.
+
+## Biochemistry 0.4.71 cumulative-final pentose-demand case (2026-10-11)
+
+Added final case 45 for reversible nonoxidative pentose-phosphate carbon rearrangement. Six mol F6P and three mol G3P form nine mol pentose-phosphate equivalents while preserving 45 mol of carbon equivalents. A second response distinguishes NADP+ as a G6PD substrate from a complete flux predictor and relates glycolytic intermediates to ribose demand. The inactive final now has 45 cases and 450 proposed points, mapping 68 of 75 lesson objectives.
+
+| Actual command/check | Result |
+| --- | --- |
+| Focused Biochemistry regressions | **91 passed**. |
+| Review snapshot/evidence tests | **8 passed**; the public digest, empty evidence register and generated reports match version 0.4.71. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register checks and Ruff | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; no reviewer signoffs or operator approval are recorded. |
+| Private answer and actual-grader audit | All private fingerprints match. The actual grader awarded full credit to **115 keyed questions across 233 response fields**; **233 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,101,816 bytes; archive SHA-256 `1566448e7343d13fe16e3979ee6977d6d6905f6423bf79b23dab92781c8496ae`; manifest SHA-256 `dad7382947b877f0bbdabfb6c11dc4522af5a7908ddeee38dd21476c7a1b5fbf`. |
+
+The course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.71-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.71.md) bind this package.
+
+## Biochemistry 0.4.70 cumulative-final inhibition-method case (2026-10-11)
+
+Added final case 44 to distinguish the supported competitive-inhibition pattern from misuse of reciprocal plots and to select a trustworthy initial-rate interval. The fitted y-intercept is unchanged while the slope rises; a separate synthetic interval has 4% substrate use with no product-inhibition signal, compared with a late interval at 18% use with a signal. The inactive final now has 44 cases and 440 proposed points, mapping 67 of 75 lesson objectives.
+
+| Actual command/check | Result |
+| --- | --- |
+| Focused Biochemistry regressions | **90 passed**. |
+| Review snapshot/evidence tests | **8 passed**; the public digest, empty evidence register and generated reports match version 0.4.70. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register checks and Ruff | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; no reviewer signoffs or operator approval are recorded. |
+| Private answer and actual-grader audit | All private fingerprints match. The actual grader awarded full credit to **114 keyed questions across 231 response fields**; **231 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,097,918 bytes; archive SHA-256 `c67df9b05652757f8c1183c99d20e789637990377bd038155d23ef26bee87e37`; manifest SHA-256 `ed4d3e06385d24de1f9ac8599a9ad19be729247d68ff5329c5ae68e0c743ffa7`. |
+
+The course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.70-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.70.md) bind this package.
+
+## Biochemistry 0.4.69 cumulative-final kinetic-parameter case (2026-10-11)
+
+Added final case 43 using synthetic double-reciprocal fits. From the shared 0.0100 min/μM intercept, the case derives Vmax = 100 μM/min in both conditions; the slopes give control Km = 5 μM and inhibitor Km,app = 15 μM. With 4 μM inhibitor, Ki = 2 μM. The inactive final now has 43 cases and 430 proposed points, mapping 66 of 75 lesson objectives.
+
+| Actual command/check | Result |
+| --- | --- |
+| Focused Biochemistry regressions | **89 passed**. |
+| Review snapshot/evidence tests | **8 passed**; the public digest, empty evidence register and generated reports match version 0.4.69. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register checks and Ruff | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; no reviewer signoffs or operator approval are recorded. |
+| Private answer and actual-grader audit | All private fingerprints match. The actual grader awarded full credit to **113 keyed questions across 229 response fields**; **229 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,093,026 bytes; archive SHA-256 `38a588e7190634659fc0241c6492e92fc8b37ae3503070de1a0edcf0999629e1`; manifest SHA-256 `9062b4646ca4d9df276aa89bef02009da7b04959297e28dcb3ecbcf90f6df62c`. |
+
+The course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.69-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.69.md) bind this package.
+
+## Biochemistry 0.4.68 cumulative-final replicate-summary case (2026-10-11)
+
+Added final case 42 for four synthetic initial-rate groups: control and inhibitor at 2.5 and 20 μM substrate, each with three independent reactions. Learners calculate each group mean and preserve both experimental factors in the summary. The inactive final now has 42 cases and 420 proposed points, mapping 65 of 75 lesson objectives.
+
+| Actual command/check | Result |
+| --- | --- |
+| Focused Biochemistry regressions | **88 passed**. |
+| Review snapshot/evidence tests | **8 passed**; the public digest, empty evidence register and generated reports match version 0.4.68. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register checks and Ruff | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; no reviewer signoffs or operator approval are recorded. |
+| Private answer and actual-grader audit | All private fingerprints match. The actual grader awarded full credit to **112 keyed questions across 227 response fields**; **227 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,089,150 bytes; archive SHA-256 `54cae6cf81bc75e0d2f622a76a7bf4c304ed18288dd82de440c3dd716ba5e86f`; manifest SHA-256 `4bedf27a3c61fda442507b480a1ecea17a45a516e719db75fa0f4aec1f33aaa8`. |
+
+The course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.68-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.68.md) bind this package.
+
+## Biochemistry 0.4.67 cumulative-final mutation and proteostasis case (2026-10-11)
+
+Added final case 41 for a synthetic destabilizing substitution. A −8.00 kJ/mol change in unfolding free energy raises K_u by 25.2-fold; the variant remains about 99.895% folded, while its unfolded fraction rises about 25.18-fold. The case links marginal stability to increased chaperone and degradation demand. The inactive final now has 41 cases and 410 proposed points, mapping 64 of 75 lesson objectives.
+
+| Actual command/check | Result |
+| --- | --- |
+| Focused Biochemistry regressions | **87 passed**. |
+| Review snapshot/evidence tests | **8 passed**; the public digest, empty evidence register and generated reports match version 0.4.67. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register checks and Ruff | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; no reviewer signoffs or operator approval are recorded. |
+| Private answer and actual-grader audit | All private fingerprints match. The actual grader awarded full credit to **111 keyed questions across 222 response fields**; **222 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,082,158 bytes; archive SHA-256 `2fbbf6e469671d346fc7effb219c8336956be7584816be623d1c37c5c8eb63fa`; manifest SHA-256 `4ed409fed8e2db28f5cbea6c0a97160755e989e893e961678631e5ffe735280a`. |
+
+The course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.67-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.67.md) bind this package.
+
+## Biochemistry 0.4.66 cumulative-final denaturant-stability case (2026-10-11)
+
+Added final case 40 for a synthetic two-point denaturant series. The linear model gives m = 10.0 kJ mol⁻¹ M⁻¹, ΔG_H₂O = 21.0 kJ/mol, and C_m = 2.10 M. The inactive final now has 40 cases and 400 proposed points, mapping 63 of 75 lesson objectives.
+
+| Actual command/check | Result |
+| --- | --- |
+| Focused Biochemistry regressions | **86 passed**. |
+| Review snapshot/evidence tests | **8 passed**; the public digest, empty evidence register and generated reports match version 0.4.66. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register checks and Ruff | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; no reviewer signoffs or operator approval are recorded. |
+| Private answer and actual-grader audit | All private fingerprints match. The actual grader awarded full credit to **110 keyed questions across 220 response fields**; **220 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,078,099 bytes; archive SHA-256 `4e1e4f9b0bd33e42fb7937449c3b1c6852ad39c5929db1c1c6c495862a269415`; manifest SHA-256 `8c51697b35e557d9fc0d3d155f9267807d045e9c7bcc19da0ddd0090e4b3f102`. |
+
+The course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.66-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.66.md) bind this package.
+
+## Biochemistry 0.4.65 cumulative-final two-state folding case (2026-10-11)
+
+Added final case 39 for a synthetic two-state protein equilibrium. From ΔG_unfold = +8.00 kJ/mol and RT = 2.479 kJ/mol, the case evaluates Ku = exp(−ΔG/RT) = 0.039672 and f_folded = 1/(1+Ku) = 0.961842, then checks the sign and population interpretation. The inactive final now has 39 cases and 390 proposed points, mapping 62 of 75 lesson objectives.
+
+| Actual command/check | Result |
+| --- | --- |
+| Focused Biochemistry regressions | **85 passed**. |
+| Review snapshot/evidence tests | **8 passed**; the public digest, empty evidence register and generated reports match version 0.4.65. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register checks and Ruff | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; no reviewer signoffs or operator approval are recorded. |
+| Private answer and actual-grader audit | All private fingerprints match. The actual grader awarded full credit to **109 keyed questions across 218 response fields**; **218 one-field mutations** each lost exactly their field points. |
+| Broader content regression checks | **195 passed, 2 skipped**; five assertions still expected an older repository-wide inventory. Updated them to the validated totals and reran those five affected cases: **5 passed**. |
+| Public-package snapshot | 70 files, 1,074,806 bytes; archive SHA-256 `c732e944fa3e4d064d1b1657232ba92605ae807069d1a4f21874e53e2aca1c64`; manifest SHA-256 `a5a7182fbb14a61a5eb70e8d2a644da8ee757e2ba6328bde03a922297a7fc79d`. |
+
+The course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.65-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.65.md) bind this package.
+
+## Biochemistry 0.4.64 cumulative-final connected-pathway case (2026-10-11)
+
+Added final case 38 from the pathway-integration lesson. It calculates the initial accumulation rate after a partial block and predicts reduced downstream delivery, while separating that immediate response from possible later feedback or alternate routing. The inactive final now has 38 cases and 380 proposed points, mapping 61 of 75 lesson objectives.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry and assessment-candidate regressions | **94 passed**. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register check and Ruff | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; there are no reviewer signoffs or operator approval. |
+| Private assessment fingerprint and actual-grader audit | All private fingerprints and machine-graded inventories match. The actual grader awarded full credit to **108 keyed questions across 216 response fields**; **216 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,071,227 bytes; archive SHA-256 `d7755319f767ac8743c9d1e500993ab4b81810fc65d8a81519371e62ae41e698`; manifest SHA-256 `0b468bbe0743757580a5f5a0af0157f43772ed16894f9cfe83f4442b5a4b57c0`. |
+
+The course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.64-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.64.md) bind this package.
+
+## Biochemistry 0.4.63 cumulative-final regulation-layer case (2026-10-11)
+
+Added final case 37 from the pathway-regulation lesson. It distinguishes changes in substrate supply, rapid allosteric response, covalent modification and slower enzyme expression from controlled synthetic observations. The inactive final now has 37 cases and 370 proposed points, mapping 60 of 75 lesson objectives.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry and assessment-candidate regressions | **93 passed**. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register check and Ruff | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; there are no reviewer signoffs or operator approval. |
+| Private assessment fingerprint and actual-grader audit | All private fingerprints and machine-graded inventories match. The actual grader awarded full credit to **107 keyed questions across 214 response fields**; **214 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,066,514 bytes; archive SHA-256 `83966068278d81b38ec8221555a477265fa2d827c9cf782e438c02dad3b5ad16`; manifest SHA-256 `34f6e40536753e2653029a966ad03e0b93b93d8cd22192c25782527e6035ff43`. |
+
+The course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.63-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.63.md) bind this package.
+
+## Biochemistry 0.4.62 cumulative-final catalytic-efficiency case (2026-10-11)
+
+Added final case 36 from the enzyme-mechanisms lesson. It converts Km to molar units, calculates kcat/Km, compares the low-substrate regime with near saturation, and distinguishes catalytic efficiency from binding affinity. The inactive final now has 36 cases and 360 proposed points, mapping 59 of 75 lesson objectives.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry and assessment-candidate regressions | **92 passed**. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register check and Ruff | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; there are no reviewer signoffs or operator approval. |
+| Private assessment fingerprint and actual-grader audit | All private fingerprints and machine-graded inventories match. The actual grader awarded full credit to **106 keyed questions across 212 response fields**; **212 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,059,345 bytes; archive SHA-256 `1b1a7b9bdd7af6c390546225b0ad62c41511383da8fc821509fa3b5fe9abc112`; manifest SHA-256 `877302d509ebbbc3e5315ff0637def1d4903969a4496b3cc03174fcdbaacee51`. |
+
+The course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.62-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.62.md) bind this package.
+
+## Biochemistry 0.4.61 cumulative-final protein-charge case (2026-10-11)
+
+Added final case 35 from the amino-acid charge lesson. It calculates a modeled charge shift with pH, then predicts migration direction and cation/anion-exchange binding from pH relative to pI. The inactive final now has 35 cases and 350 proposed points, mapping 58 of 75 lesson objectives.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry and assessment-candidate regressions | **91 passed**. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register check and Ruff | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; there are no reviewer signoffs or operator approval. |
+| Private assessment fingerprint and actual-grader audit | All private fingerprints and machine-graded inventories match. The actual grader awarded full credit to **105 keyed questions across 210 response fields**; **210 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,054,442 bytes; archive SHA-256 `47d80b4064332b9111ae2e4ea31f9178200e48284bcf81f30346dead71c550eb`; manifest SHA-256 `02454f3ce5310bbec18b6043d3b114bcb1b61c71f31464ae87e16a0535bd7758`. |
+
+The course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.61-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.61.md) bind this package.
+
+## Biochemistry 0.4.60 cumulative-final isoelectric-point case (2026-10-11)
+
+Added final case 34 from the amino-acid charge lesson. It calculates alanine’s pI and applies the correct pKa brackets to amino acids with acidic and basic side chains. The inactive final now has 34 cases and 340 proposed points, mapping 57 of 75 lesson objectives.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry and assessment-candidate regressions | **90 passed**. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register check and Ruff | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; there are no reviewer signoffs or operator approval. |
+| Private assessment fingerprint and actual-grader audit | All private fingerprints and machine-graded inventories match. The actual grader awarded full credit to **104 keyed questions across 208 response fields**; **208 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,050,228 bytes; archive SHA-256 `81e225cf95c917570c25ab356075330e1708ae243e6f56bfd788ba6abd42c174`; manifest SHA-256 `d057a127637a563a0f0d963a588d8e233ddee30f3f41df8acbc624dba413976c`. |
+
+The course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.60-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.60.md) bind this package.
+
+## Biochemistry 0.4.59 cumulative-final protonation case (2026-10-11)
+
+Added final case 33 from the amino-acid charge lesson. It sums fractional charges for a synthetic short peptide using separate acid and base protonation equations and identifies the independent-group approximation. The inactive final now has 33 cases and 330 proposed points, mapping 56 of 75 lesson objectives.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry and assessment-candidate regressions | **89 passed**. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register check and Ruff | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; there are no reviewer signoffs or operator approval. |
+| Private assessment fingerprint and actual-grader audit | All private fingerprints and machine-graded inventories match. The actual grader awarded full credit to **103 keyed questions across 206 response fields**; **206 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,045,664 bytes; archive SHA-256 `30a3eb899673879384d2a4dbf062190ed1cfb6f840c065c815fdbc0c6409f136`; manifest SHA-256 `41095e1fdad8be7549bb2246fd3388c31bfab3cc771294fd79ccee4903ff54b5`. |
+
+The course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.59-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.59.md) bind this package.
+
+## Biochemistry 0.4.58 cumulative-final pool/flux case (2026-10-11)
+
+Added final case 32 from the flux-regulation lesson. It compares two steady-state perturbations with the same 8 mM intermediate pool but different pathway fluxes, reinforcing that a pool size alone does not measure flow. The inactive final now has 32 cases and 320 proposed points, mapping 55 of 75 lesson objectives.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry and assessment-candidate regressions | **88 passed**. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register check and Ruff | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; there are no reviewer signoffs or operator approval. |
+| Private assessment fingerprint and actual-grader audit | All private fingerprints and machine-graded inventories match. The actual grader awarded full credit to **102 keyed questions across 204 response fields**; **204 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,040,508 bytes; archive SHA-256 `789c98e75793b41daaa66b8d84c63e23721635403aa59bbc4194ac677ee697f9`; manifest SHA-256 `7961bbba910d789034dea3a1f0d7ec2348f51b4354fb676d55c9b1ab668ae104`. |
+
+The course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.58-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.58.md) bind this package.
+
+## Biochemistry 0.4.57 cumulative-final cooperative-binding case (2026-10-11)
+
+Added final case 31 from the binding-equilibria lesson. It calculates hemoglobin-like oxygen unloading between lung and tissue pressures, compares a non-cooperative myoglobin-like curve, and treats the Hill coefficient as a steepness parameter rather than a site count. The inactive final now has 31 cases and 310 proposed points, mapping 54 of 75 lesson objectives.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry and assessment-candidate regressions | **87 passed**. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register check and Ruff | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; there are no reviewer signoffs or operator approval. |
+| Private assessment fingerprint and actual-grader audit | All private fingerprints and machine-graded inventories match. The actual grader awarded full credit to **101 keyed questions across 202 response fields**; **202 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,035,583 bytes; archive SHA-256 `a233903ff793cb163505d3096e8c625c099747e1f217e8ac154e8b7ffd3b257f`; manifest SHA-256 `48ac2e0fa94a2206f38636efb79f17c212c11d5663d374816a0b576a1a9f73aa`. |
+
+The course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.57-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.57.md) bind this package.
+
+## Biochemistry 0.4.56 cumulative-final enzyme-turnover case (2026-10-11)
+
+Added final case 30 from the flux-regulation lesson. It uses an 18-hour enzyme half-life to calculate the 90% transition time after a synthesis-rate change, then distinguishes enzyme-abundance turnover over hours to days from rapid allosteric and covalent control. The inactive final now has 30 cases and 300 proposed points, mapping 53 of 75 lesson objectives.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry and assessment-candidate regressions | **86 passed**. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register check and Ruff | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; there are no reviewer signoffs or operator approval. |
+| Private assessment fingerprint and actual-grader audit | All private fingerprints and machine-graded inventories match. The actual grader awarded full credit to **100 keyed questions across 200 response fields**; **200 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,031,056 bytes; archive SHA-256 `b3f25634ed263d88a85ff7712ccae339b9265aa046213fbc242f576b79591ea8`; manifest SHA-256 `3ccf50efc11dce4f87cdcd3d4fa624ac2511ca52cb309d25b0a8c98040c2599e`. |
+
+The course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.56-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.56.md) bind this package.
+
+## Biochemistry 0.4.55 cumulative-final pathway-block case (2026-10-11)
+
+Added final case 29 from the week-14 lesson. It calculates glucose uptake and lactate output required when oxidative phosphorylation is blocked, then compares oxygen-consumption evidence for a respiratory-chain block and a primary glycolytic defect with alternate-fuel support. The inactive cumulative final now has 29 cases and 290 proposed points, mapping 52 of 75 lesson objectives.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry and assessment-candidate regressions | **85 passed**. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register check, Ruff and `git diff --check` | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; there are no reviewer signoffs or operator approval. Git reports line-ending normalization notices only. |
+| Private assessment fingerprint and actual-grader audit | All private fingerprints and machine-graded inventories match. The actual grader awarded full credit to **99 keyed questions across 198 response fields**; **198 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,027,201 bytes; archive SHA-256 `267c3e2af73637078965b02327715e05a120119f1ede73c3302be27c3b77d164`; manifest SHA-256 `80dcf33125ab64c46702afd1e0f8951991c072a6105e0b0919e029cafd963dbe`. |
+
+The course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.55-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.55.md) bind this package.
+
+## Biochemistry 0.4.54 cumulative-final redox and tracer case (2026-10-11)
+
+Added final case 28 from the week-14 lesson. It calculates the medium-glucose contribution to lactate from synthetic M+3 labeling and interprets the lactate/pyruvate shift as redox context, while explicitly keeping enrichment separate from production rate. The inactive final now has 28 cases and 280 proposed points, mapping 50 of 75 lesson objectives.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry and assessment-candidate regressions | **84 passed**. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, version-bound review-register check, Ruff and `git diff --check` | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; there are no reviewer signoffs or operator approval. Git reports line-ending normalization notices only. |
+| Private assessment fingerprint and actual-grader audit | All private fingerprints and machine-graded inventories match. The actual grader awarded full credit to **98 keyed questions across 196 response fields**; **196 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,021,492 bytes; archive SHA-256 `2591bd0dd766af39d5b21e4a9b8d30df7dcf045a5da5be3fd59d0d727cac9dd5`; manifest SHA-256 `7481201deb5cf2bb044358e12a99ea758c259fcd3dd0a566a66ca8beea5f1eae`. |
+
+The course remains partial, formative-only and unreviewed. Qualified scientific and assessment review, accessibility/fairness review, measured workload, institutional scope/equivalency review, physical laboratory training and operator release approval remain open. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.54-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.54.md) bind the package; the protocol filename is retained from its predecessor and its contents target 0.4.54.
+
+## Biochemistry 0.4.53 cumulative-final flux-control case (2026-10-11)
+
+Added case 27 to calculate a missing control coefficient using the summation theorem and predict the local flux response to a small enzyme decrease. Both fields map to the distributed flux-control objective. The candidate remains inactive and adds no required learner workload.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry lesson and candidate regressions | **83 passed**. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, review-register check, Ruff and `git diff --check` | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; there are no reviewer signoffs or operator approval. |
+| Private assessment fingerprint and actual-grader audit | All private fingerprints and machine-graded question inventories match. The actual grader awarded full credit to **97 keyed questions across 194 response fields**; **194 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,015,806 bytes; archive SHA-256 `433bd4dc74bf2a37091d99cbcdebcace2b340a2a77b680fdeac9dbf98db22c78`; manifest SHA-256 `8bfb07b6919a9f59e8223ff7bd3fec9f90bba39236c898d717ce13f7cc3c406f`. |
+
+The cumulative final maps 49 of 75 Biochemistry lesson objectives. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md) and empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.53-finalized.json) bind this package. The referenced version-0.4.53 workload-pilot protocol is missing from this checkout; the current [0.4.79 protocol](reviews/biochemistry-workload-pilot-0.4.79.md) is bound to a different package and is not a substitute. Qualified scientific and assessment review, accessibility/fairness review, measured workload, physical laboratory training, institutional scope/equivalency review and operator release approval remain necessary.
+
+## Biochemistry 0.4.52 cumulative-final uncoupling/ATP-rate case (2026-10-11)
+
+Added case 26 with synthetic coupled and uncoupled oxygen uptake and P/O values. It calculates the oxidative ATP rate and shows how oxygen consumption can rise while the ATP rate implied by the lower coupling yield falls. Both fields map to the uncoupling/ATP-turnover objective. The candidate remains inactive and adds no required learner workload.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry lesson and candidate regressions | **82 passed**. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, review-register check, Ruff and `git diff --check` | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; there are no reviewer signoffs or operator approval. |
+| Private assessment fingerprint and actual-grader audit | All private fingerprints and machine-graded question inventories match. The actual grader awarded full credit to **96 keyed questions across 192 response fields**; **192 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,012,905 bytes; archive SHA-256 `e18af224675b4f7a4f87ec624d01270babf6bc553cad99034e47da4a29ba0156`; manifest SHA-256 `aa650f59ae1cea1bc2b34b1d4ce1ec7be0214bad0272fe6eee90e5155cf4af04`. |
+
+The cumulative final maps 48 of 75 Biochemistry lesson objectives. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.52-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.52.md) bind this package. Qualified scientific and assessment review, accessibility/fairness review, measured workload, physical laboratory training, institutional scope/equivalency review and operator release approval remain necessary.
+
+## Biochemistry 0.4.51 cumulative-final ligand-depletion case (2026-10-11)
+
+Added case 25 to calculate bound complex using the exact quadratic at appreciable receptor concentration and compare that result with a free-ligand hyperbolic estimate. Both fields map to the ligand-depletion objective. The candidate remains inactive and adds no required learner workload.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry lesson and candidate regressions | **81 passed**. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, review-register check, Ruff and `git diff --check` | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; there are no reviewer signoffs or operator approval. |
+| Private assessment fingerprint and actual-grader audit | All private fingerprints and machine-graded question inventories match. The actual grader awarded full credit to **95 keyed questions across 190 response fields**; **190 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,009,419 bytes; archive SHA-256 `e7f4e4545f11bbcc418e15bbdbb079ab3eaa81be80784334a2ebb6c61c84b54e`; manifest SHA-256 `b1160a3a42eabb1f39139f486ae35d5d4d3d0cc1fb5b3ade28a46279dd930e4a`. |
+
+The cumulative final maps 47 of 75 Biochemistry lesson objectives. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.51-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.51.md) bind this package. Qualified scientific and assessment review, accessibility/fairness review, measured workload, physical laboratory training, institutional scope/equivalency review and operator release approval remain necessary.
+
+## Biochemistry 0.4.50 cumulative-final redox/energy case (2026-10-11)
+
+Added case 24 to calculate ΔG°′ from a cytochrome-c-to-oxygen reduction-potential difference and distinguish redox energy release from proton-gradient-driven ATP synthesis. Both fields map to the redox/free-energy objective. The candidate remains inactive and adds no required learner workload.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry lesson and candidate regressions | **80 passed**. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, review-register check, Ruff and `git diff --check` | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; there are no reviewer signoffs or operator approval. |
+| Private assessment fingerprint and actual-grader audit | All private fingerprints and machine-graded question inventories match. The actual grader awarded full credit to **94 keyed questions across 188 response fields**; **188 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,006,425 bytes; archive SHA-256 `0f4efd4c32bec3980f6c7ba1eeee8b6011d3bc0d121eea468707580c15930dd9`; manifest SHA-256 `3c9f41bcd644838e3c662aded31510ba5f9b93f33792201f85c312cf9a826247`. |
+
+The cumulative final maps 46 of 75 Biochemistry lesson objectives. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.50-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.50.md) bind this package. Qualified scientific and assessment review, accessibility/fairness review, measured workload, physical laboratory training, institutional scope/equivalency review and operator release approval remain necessary.
+
+## Biochemistry 0.4.49 cumulative-final protein-structure case (2026-10-11)
+
+Added case 23 to distinguish a direct primary-structure change from unmeasured effects on higher-order folding and identify quaternary structure as association among subunits. Both fields map to the primary-through-quaternary objective. The candidate remains inactive and adds no required learner workload.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry lesson and candidate regressions | **79 passed**. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, review-register check, Ruff and `git diff --check` | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; there are no reviewer signoffs or operator approval. |
+| Private assessment fingerprint and actual-grader audit | All private fingerprints and machine-graded question inventories match. The actual grader awarded full credit to **93 keyed questions across 186 response fields**; **186 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,003,291 bytes; archive SHA-256 `1726efdb4713e1c749063b6915546f9eb9dfc200782fa74058d72049d0ad0f05`; manifest SHA-256 `58b51a7da513abf19921692a7415b5f52c728228d8866da49779fcfdba6e1036`. |
+
+The cumulative final maps 45 of 75 Biochemistry lesson objectives. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.49-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.49.md) bind this package. Qualified scientific and assessment review, accessibility/fairness review, measured workload, physical laboratory training, institutional scope/equivalency review and operator release approval remain necessary.
+
+## Biochemistry 0.4.48 cumulative-final PFK regulation case (2026-10-11)
+
+Added case 22 with synthetic ATP/AMP, fructose-6-phosphate pool, glucose-uptake and lactate-appearance measurements. One field calculates the uptake-rate change; the second relates PFK-1 effectors to measured flux while rejecting the pool-equals-flux shortcut. Both fields map to the PFK regulation objective. The candidate remains inactive and adds no required learner workload.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry lesson and candidate regressions | **78 passed**. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, review-register check, Ruff and `git diff --check` | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; there are no reviewer signoffs or operator approval. |
+| Private assessment fingerprint and actual-grader audit | All private fingerprints and machine-graded question inventories match. The actual grader awarded full credit to **92 keyed questions across 184 response fields**; **184 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 1,000,107 bytes; archive SHA-256 `069445dcc53cc2a4e82a1bf7fd2c96fe242e7bfaffbe56c23d46a6ff6307803d`; manifest SHA-256 `ababcf04d1c9912b9c8e2f644dbf59847dc09d72ef5e18b582a924fcf06bb557`. |
+
+The cumulative final maps 44 of 75 Biochemistry lesson objectives. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.48-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.48.md) bind this package. Qualified scientific and assessment review, accessibility/fairness review, measured workload, physical laboratory training, institutional scope/equivalency review and operator release approval remain necessary.
+
+## Biochemistry 0.4.47 cumulative-final TCA pool/flux case (2026-10-11)
+
+Added case 21 to calculate synthetic anaplerotic replenishment minus cataplerotic withdrawal and interpret elevated NADH/NAD+ and ATP/ADP ratios without equating an intermediate-pool balance to TCA-cycle flux. Both response fields map to the TCA pool/flux objective. The candidate remains inactive and adds no required learner workload.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry lesson and candidate regressions | **77 passed**. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, review-register check, Ruff and `git diff --check` | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; there are no reviewer signoffs or operator approval. |
+| Private assessment fingerprint and actual-grader audit | All private fingerprints and machine-graded question inventories match. The actual grader awarded full credit to **91 keyed questions across 182 response fields**; **182 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 995,001 bytes; archive SHA-256 `854a16e60f3eb27410946a8906a5458b816ea98ebf83ec895ec256c401450360`; manifest SHA-256 `981221f3c464dd33dd56f05d95e2671b4f68b6e041bb3329503c8a25a8ccad3c`. |
+
+The cumulative final maps 43 of 75 Biochemistry lesson objectives. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.47-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.47.md) bind this package. Qualified scientific and assessment review, accessibility/fairness review, measured workload, physical laboratory training, institutional scope/equivalency review and operator release approval remain necessary.
+
+## Biochemistry 0.4.46 cumulative-final gluconeogenesis case (2026-10-11)
+
+Added case 20 to calculate ATP plus GTP use per glucose and distinguish that energy input from the mammalian limit on net glucose synthesis from even-chain fatty-acid acetyl-CoA. The numerical field maps to the gluconeogenesis energy-cost objective; the interpretation field maps to that objective and the carbon-source objective. The candidate remains inactive and adds no required learner workload.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry lesson and candidate regressions | **76 passed**. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, review-register check, Ruff and `git diff --check` | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; there are no reviewer signoffs or operator approval. |
+| Private assessment fingerprint and actual-grader audit | All private fingerprints and machine-graded question inventories match. The actual grader awarded full credit to **90 keyed questions across 180 response fields**; **180 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 991,244 bytes; archive SHA-256 `6d8ab52e8a3313c00f09aa0f8ca104437ae523930b65a4452e82be651e57ea6b`; manifest SHA-256 `f406b89623f3ffa094dfa2a8b9b2b3f2451a39e380c72e8959d6daa318778256`. |
+
+The cumulative final maps 42 of 75 Biochemistry lesson objectives. The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.46-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.46.md) bind this package. Qualified scientific and assessment review, accessibility/fairness review, measured workload, physical laboratory training, institutional scope/equivalency review and operator release approval remain necessary.
+
+## Biochemistry 0.4.45 cumulative-final citrate isotope case (2026-10-11)
+
+Added case 19 to calculate the change in synthetic labeled citrate fraction and distinguish enrichment from a quantitative claim about TCA-cycle flux. Both fields map to the TCA isotope-interpretation objective. The final remains inactive; the case adds no required learner workload.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry lesson and candidate regressions | **75 passed**. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, review-register check, Ruff and `git diff --check` | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; there are no reviewer signoffs or operator approval. |
+| Private assessment fingerprint and actual-grader audit | All private fingerprints and machine-graded question inventories match. The actual grader awarded full credit to **89 keyed questions across 178 response fields**; **178 one-field mutations** each lost exactly their field points. |
+| Public-package snapshot | 70 files, 988,039 bytes; archive SHA-256 `34333bbb1396fd61fae6a89f67ae54fa1a0f2bae6844b8556c50bf630e2ca04b`; manifest SHA-256 `bc2ec9a782c784fd70f6552519a5b1ef00f80e80ff494b8d139f2b4326d20f22`. |
+
+The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.45-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.45.md) bind this package. Qualified scientific and assessment review, accessibility/fairness review, measured workload, physical laboratory training, institutional scope/equivalency review and operator release approval remain necessary.
+
+## Biochemistry 0.4.44 cumulative ketone-use case (2026-10-11)
+
+Added inactive final case 18, combining an assumption-bound acetoacetate ATP-equivalent calculation with a bounded reading of mouse hepatic isotope evidence. The fields separately map to conditional-yield and species/pathway-fate objectives. The public dataset uses synthetic values distinct from Homework 7. The course remains partial, unreviewed and formative-only.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry lesson, candidate and candidate-audit regressions | **74 passed**. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, review-register check, Ruff and `git diff --check` | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; there are no reviewer signoffs or operator approval. |
+| Private assessment fingerprint and actual-grader audit | All private fingerprints and machine-graded question inventories match. The actual grader awarded full credit to **88 keyed questions across 176 response fields**; **176 one-field mutations** each lost exactly their field points. The human-scored project remains outside automatic grading. |
+| Biochemistry public-package snapshot | 70 files, 974,603 bytes; archive SHA-256 `c47d4bde60c2e3bf83fceefd96aea6e20f81572da5bd7eae85b5bef11184f15a`; manifest SHA-256 `bb6466cedb2f24bb6bd5f8838ab136e1237506b9b9c570a12e1a5fa3f697e144`. |
+
+The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.44-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.44.md) bind this package. Qualified scientific and assessment review, accessibility/fairness review, measured workload, physical laboratory training, institutional scope/equivalency review and operator release approval remain necessary.
+
+## Biochemistry 0.4.43 cumulative glycolysis/uncoupling case (2026-10-11)
+
+Added inactive final case 17 with a synthetic glycolysis boundary and an uncoupled mitochondrial readout. Its two fields separately assess glycolytic carbon/redox products and the separation between oxygen use and ATP synthesis, and map to the corresponding lesson objectives. No new lesson objective or homework case was added. The candidate remains inactive; the course remains partial, unreviewed and formative-only.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry lesson, candidate and candidate-audit regressions | **73 passed**. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, review-register check, Ruff and `git diff --check` | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; there are no reviewer signoffs or operator approval. |
+| Private assessment fingerprint and actual-grader audit | All private fingerprints and machine-graded question inventories match. The actual grader awarded full credit to **87 keyed questions across 174 response fields**; **174 one-field mutations** each lost exactly their field points. The human-scored project remains outside automatic grading. |
+| Biochemistry public-package snapshot | 70 files, 970,491 bytes; archive SHA-256 `38853ad2a4e7311faa9e13b71d39e03c587774619f7436672feb59d5add7f634`; manifest SHA-256 `8fb18bbafb74dfc9eb5bf8b11ff54b80a06e0abda1592b03e014407feef08486`. |
+
+The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.43-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.43.md) bind this package. Qualified scientific and assessment review, accessibility/fairness review, measured workload, physical laboratory training, institutional scope/equivalency review and operator release approval remain necessary.
+
+## Biochemistry 0.4.42 fatty-acid objective-map correction (2026-10-11)
+
+Corrected the objective links on the existing integrated palmitate ATP-yield formative item and cumulative-final case. Both now evidence the fatty-acid objective for integration across beta-oxidation, the citric acid cycle and electron transport under explicit P/O assumptions, alongside the existing cycle-output objective. No item, key or learner workload was added. All eleven private drafts target 0.4.42 and match public candidate inventories; the course remains partial, unreviewed and formative-only.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry lesson, candidate and candidate-audit regressions | **72 passed**. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, review-register check, Ruff and `git diff --check` | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; there are no reviewer signoffs or operator approval. |
+| Private assessment fingerprint and actual-grader audit | All private fingerprints and machine-graded question inventories match. The actual grader awarded full credit to **86 keyed questions across 172 response fields**; **172 one-field mutations** each lost exactly their field points. The human-scored project remains outside automatic grading. |
+| Biochemistry public-package snapshot | 70 files, 967,226 bytes; archive SHA-256 `e690c7ef76975c9e8c5d94a8147f92f51779da92d1ad306b73c4cdb314ab9f16`; manifest SHA-256 `8b9ee7d3528dc9c08b1b5659c4a5591e740f7c571b68667a8fe121bf9d5840ea`. |
+
+The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.42-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.42.md) bind this package. Qualified scientific and assessment review, accessibility/fairness review, measured workload, physical laboratory training, institutional scope/equivalency review and operator release approval remain necessary.
+
+## Biochemistry 0.4.41 week-9 ATP-pool balance expansion (2026-10-11)
+
+Expanded the bioenergetics lesson with a synthetic ATP synthesis/utilization balance that distinguishes net pool change from simultaneous turnover and avoids unsupported concentration or pathway-flux claims. Added one objective, two formative checks and a retrieval card. Homework 5 now has nine cases and 90 proposed points; the cumulative final has 16 cases and 160 proposed points. All eleven private drafts target 0.4.41 and match their public question inventories. The course remains partial, unreviewed and formative-only.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry lesson, candidate and candidate-audit regressions | **72 passed**. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,411 questions, 1,341 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, review-register check, Ruff and `git diff --check` | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; there are no reviewer signoffs or operator approval. |
+| Private assessment fingerprint and actual-grader audit | All private fingerprints and machine-graded question inventories match. The actual grader awarded full credit to **86 keyed questions across 172 response fields**; **172 one-field mutations** each lost exactly their field points. The human-scored project remains outside automatic grading. |
+| Biochemistry public-package snapshot | 70 files, 966,577 bytes; archive SHA-256 `2fa6abcaf2d5cb8e0fdeffebed34b2c352c99f063d66d61fabbc42b836f69149`; manifest SHA-256 `39693203e61b46409f08a472c085c3a971bc5146cf1f0fa71b9260f365eb9400`. |
+
+The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.41-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.41.md) bind this package. Qualified scientific and assessment review, accessibility/fairness review, measured workload, physical laboratory training, institutional scope/equivalency review and operator release approval remain necessary.
+
+## Biochemistry 0.4.40 week-9 nucleotide route-accounting expansion (2026-10-11)
+
+Expanded the nucleotide lesson with a synthetic mixed-route example that counts PRPP for de novo IMP formation and purine salvage, then separately counts GTP for AMP formation and ATP for GMP formation. Added one objective, two formative checks and a retrieval card. Homework 5 now has eight cases and 80 proposed points; the cumulative final has 15 cases and 150 proposed points. All eleven private drafts target 0.4.40 and match their public question inventories. The course remains partial, unreviewed and formative-only.
+
+| Actual command/check | Result |
+| --- | --- |
+| Biochemistry lesson, candidate and candidate-audit regressions | **70 passed**. |
+| Content validator with private assessment root | Passed: 25 courses, 401 lessons, 2,409 questions, 1,340 cards and 25 cases; 0 errors or explicit limitation/depth warnings. |
+| Candidate report, objective coverage, review-register check, Ruff and `git diff --check` | Passed. Eleven inactive candidates retain 88 unresolved candidate gates and four unresolved course gates; there are no reviewer signoffs or operator approval. |
+| Private assessment fingerprint and actual-grader audit | All private fingerprints and machine-graded question inventories match. The actual grader awarded full credit to **84 keyed questions across 168 response fields**; **168 one-field mutations** each lost exactly their field points. The human-scored project remains outside automatic grading. |
+| Biochemistry public-package snapshot | 70 files, 956,243 bytes; archive SHA-256 `00d6ea874cd1fb4dce64f9e6247a71dab733c2d097edde06bb04ab3febc99aa4`; manifest SHA-256 `1f1cfb9de500b1fb975d25c385a4f7b39673c1a1c4520c82b583df839f661f96`. |
+
+The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.40-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.40.md) bind this package. Qualified scientific and assessment review, accessibility/fairness review, measured workload, physical laboratory training, institutional scope/equivalency review and operator release approval remain necessary.
+
+## Biochemistry 0.4.39 week-12 cholesterol-pool accounting expansion (2026-10-11)
+
+Expanded the cholesterol/lipoprotein lesson with an explicit cellular sterol balance and a synthetic calculation: 36 + 24 − 18 − 12 = +30 mg/h. The interpretation keeps the hepatocyte pool separate from circulating LDL concentration and whole-body balance. Added one objective, two formative checks and a retrieval card. Homework 7 now has nine cases and 90 proposed points; the cumulative final has 14 cases and 140 proposed points. All eleven private drafts target 0.4.39. The course remains partial, unreviewed and formative-only.
+
+## Verification
+
+- Biochemistry lesson and candidate regressions: **67 passed**.
+- Content validator with private assessment root: 25 courses, 401 lessons, 2,407 questions, 1,339 cards and 25 cases; **0 errors and 0 explicit limitation/depth warnings**.
+- Candidate and objective reports, package-bound review-register check, Ruff and `git diff --check` passed. The current register records 88 unresolved candidate gates and four unresolved course-level gates, with no reviewer signoffs or operator approval.
+- All private fingerprints match, and machine-graded public/private question inventories match. The actual backend grader awarded full credit to **82 keyed questions across 164 response fields**; **164 one-field mutations** each lost exactly their field points. The human-scored project remains outside automatic grading.
+- Package 0.4.39: 70 files, 962,660 bytes; archive SHA-256 `98c9ce1ea33f6ffa917fb62c6fd84e9901d500fb27190c5df37f8dffdda143b5`; manifest SHA-256 `2583b6942be492c0d37afb17c157342011b09bbf62f99f2fa04f374bfe6f6a34`.
+
+The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.39-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.39.md) bind this package. Qualified scientific and assessment review, accessibility/fairness review, measured workload, physical laboratory training, institutional scope/equivalency review and operator release approval remain necessary.
+
+## Biochemistry 0.4.38 week-2 urea-cycle stoichiometry expansion (2026-10-11)
+
+Added a third urea-cycle objective, two formative checks and a retrieval card for scaling nitrogen-atom input to urea and high-energy phosphate demand under an explicit closed balance. Homework 1 now has eight cases and 80 proposed points; the inactive midterm now has 12 cases and 120 proposed points to cover every objective in its weeks 1–7 scope. A private-key coverage audit found that the previously added public H8 tracer case and this new H1 case lacked matching protected entries; both keys are now present, and a local regression checks public/private machine-candidate question coverage without exposing answers. All eleven private drafts are fingerprinted to package 0.4.38. The course remains partial, unreviewed and formative-only.
+
+## Verification
+
+- Biochemistry lesson and candidate regressions: **66 passed**.
+- Content validator with private assessment root: 25 courses, 401 lessons, 2,405 questions, 1,338 cards and 25 cases; **0 errors and 0 explicit limitation/depth warnings**.
+- Candidate and objective reports, package-bound review-register check, Ruff and `git diff --check` passed. The current register records 88 unresolved candidate gates and four unresolved course-level gates, with no reviewer signoffs or operator approval.
+- All private fingerprints match; machine-graded public/private question inventories match. The actual backend grader awarded full credit to **80 keyed questions across 160 response fields**; **160 one-field mutations** each lost exactly their field points. The human-scored project remains outside automatic grading.
+- Package 0.4.38: 70 files, 950,965 bytes; archive SHA-256 `f5bbba1db79de93d47db9dfa9da26e93a07834db568e924e97bacc6afc9a273e`; manifest SHA-256 `6a9612cc511c5b77d7599b39e012d6ebae3192a687828f3f5c988bfb54717a83`.
+
+The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.38-finalized.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.38.md) bind this package. Qualified scientific and assessment review, accessibility/fairness review, measured workload, physical laboratory training, institutional scope/equivalency review and operator release approval remain necessary.
+
+## Biochemistry 0.4.37 week-13 PPP isotope-tracer expansion (2026-10-11)
+
+Expanded the pentose-phosphate lesson with a synthetic [1,2-13C2]glucose/ribose M+0/M+1/M+2 calculation, a careful distinction between label incorporation and flux, and two link-only primary research references. Added one objective, two formative checks and a retrieval card. Inactive Homework 8 now has ten cases and 100 proposed points, including a synthetic two-field tracer case; all eleven private candidate drafts target package 0.4.37. The course remains partial, unreviewed and formative-only.
+
+## Verification
+
+- Biochemistry lesson and candidate regressions: **64 passed**.
+- Content validator with private assessment root: 25 courses, 401 lessons, 2,403 questions, 1,337 cards and 25 cases; **0 errors and 0 explicit limitation/depth warnings**.
+- Candidate and objective reports, package-bound review-register check, Ruff and `git diff --check` passed. The current register records 88 unresolved candidate gates and four unresolved course-level gates, with no reviewer signoffs or operator approval.
+- All 11 private drafts match their public candidate, instruction, dataset, prerequisite and rubric fingerprints. The actual backend grader awarded full credit to **79 keyed responses**; **154 one-field mutations** each lost exactly their field points. The human-scored project remains outside automatic grading.
+- Package 0.4.37: 70 files, 940,894 bytes; archive SHA-256 `5bbd1b87903c18b1e5728052810727e18d65a2aa5c08cf8bad4ce6f9bd9799f4`; manifest SHA-256 `f646b74e80194f7a70aa4b657a2d8d959d95f56a35b93771eec2ce395aa52926`.
+
+The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.37-final.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.37.md) bind this package. Qualified scientific and assessment review, accessibility/fairness review, measured workload, physical laboratory training, institutional scope/equivalency review and operator release approval remain necessary.
+
+## Biochemistry 0.4.36 week-2 amino-acid carbon-skeleton and tracer expansion (2026-10-11)
+
+Expanded the shortest reading with a representative carbon-entry table, separate nitrogen/carbon ledgers, a net-carbon explanation for the acetyl-CoA boundary, and a model-bounded isotope-tracing example. A link-only primary adipocyte study supports the example; its cell-model result is kept separate from leucine’s ketogenic classification and from whole-body or net-glucose claims. Added one objective, two formative checks and a retrieval card. Homework 1 now has seven cases and 70 proposed points, including a synthetic tracer calculation; the existing midterm carbon-fate field now also assesses the new tracer objective without changing its case count or points. All eleven private drafts are fingerprinted to package 0.4.36. The course remains partial, unreviewed and formative-only.
+
+## Verification
+
+- Biochemistry lesson and candidate regressions: **63 passed**.
+- Content validator with the private-assessment root: 25 courses, 401 lessons, 2,401 questions, 1,336 cards and 25 cases; **0 errors and 0 explicit limitation/depth warnings**.
+- Candidate and objective reports, package-bound review-register check, Ruff and `git diff --check` passed. The current register records 88 unresolved candidate gates and four unresolved course-level gates, no reviewer signoffs and no operator approval.
+- All 11 private drafts match their public candidate, instruction, dataset, prerequisite and rubric fingerprints. The actual backend grader awarded full credit to **77 keyed responses**; **154 one-field mutations** each lost exactly their field points. The human-scored project remains outside automatic grading.
+- Package 0.4.36: 70 files, 914,618 bytes; archive SHA-256 `ec36a6dd8f2814bd5614a9fc491d1fb14c4f41b2dafbe4f295143818aedf5c09`; manifest SHA-256 `d7e05c6f594aa94f09d7c4b29aa280b6a6aaf44c78e83966e095779ecdf14287`.
+
+The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [post-authoring evidence register](reviews/biochemistry-review-evidence-0.4.36-post-authoring.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.36.md) bind this package. Qualified scientific and assessment review, accessibility/fairness review, measured workload, physical laboratory training, institutional scope/equivalency review and operator release approval remain necessary.
+
+## Biochemistry 0.4.35 week-11 ketone-body carbon and energy accounting (2026-10-11)
+
+Expanded the ketone-body reading with convention-bound ATP-equivalent accounting for acetoacetate and D-BHB, the GTP opportunity cost of SCOT, and a qualified tissue-specific distinction between canonical oxidative ketolysis and reported SCOT-independent anabolic ketone-carbon use in mouse hepatocytes. Added two link-only primary studies, two objective-aligned formative checks and retrieval cards, and a two-part inactive Homework 7 case; all eleven private candidates now target package 0.4.35. The course remains partial, unreviewed and formative-only.
+
+## Verification
+
+- Biochemistry lesson and assessment-candidate regressions: **62 passed**.
+- Content validator with the private-assessment root: 25 courses, 401 lessons, 2,399 questions, 1,335 cards and 25 cases; **0 errors and 0 explicit limitation/depth warnings**.
+- Candidate and objective reports, package-bound review-register check, Ruff and `git diff --check` passed. The register records 88 unresolved candidate gates and four unresolved course-level gates, no reviewer signoffs, and no operator approval.
+- All 11 private drafts match their public candidate and prerequisite fingerprints. The actual backend grader awarded full credit to **76 keyed responses**; **152 one-field mutations** each lost exactly 5 points. The human-scored project remains outside automatic grading.
+- Package 0.4.35: 70 files, 901,995 bytes; archive SHA-256 `a18e9a7a7d6a74a55594a30c6954ccb424078d02277a5e3b4c786a43b73477b4`; manifest SHA-256 `7f833d898e7b4e06a1b25f515f6518107b299944f8eda08bbd647963eed79428`.
+
+The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [hash-pinned evidence register](reviews/biochemistry-review-evidence-0.4.35.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.35.md) bind this package. Qualified scientific and assessment review, accessibility/fairness review, measured workload, physical laboratory training, institutional scope/equivalency review and operator release approval remain necessary; the package is not a credit-approved or independently reviewed university course.
+
+## Biochemistry 0.4.34 week-9 TCA isotope-tracing expansion (2026-10-11)
+
+Expanded the citric-acid-cycle reading with conditional ¹³C entry signatures, a two-time-point synthetic M+0/M+2/M+3 calculation, and a clear distinction among labeling, pool concentration and flux inference. Added two link-only primary studies. Added a new lesson objective, formative question and retrieval card, and extended the inactive week-8/9 homework candidate with a two-field tracer case and synthetic CSV rows; its private key remains outside the public package. The course is still partial, unreviewed and formative-only.
+
+## Verification
+
+- Biochemistry and assessment-candidate regressions: **61 passed**.
+- Content validator with the private-assessment root: 25 courses, 401 lessons, 2,397 questions, 1,333 cards and 25 cases; **0 errors and 0 explicit limitation/depth warnings**.
+- Candidate report, objective coverage, review-register and Ruff checks passed; `git diff --check` passed.
+- All 11 private drafts match their public candidate, instruction, dataset, rubric (where applicable) and prerequisite fingerprints. The actual backend grader awarded all **75 keyed responses** full credit; **150 one-field mutations** each lost exactly 5 points. The human-scored project remains outside automatic grading.
+- Package 0.4.34: 70 files, 888,642 bytes; archive SHA-256 `295bac5bc6e2f0fe54411c3c5fa9916f6f7ec51427db4cab3745eb3163297b3e`; manifest SHA-256 `1f97517b8fc5a58bc7b63a3f4b54766bc9ebecc4933404fdaf8f443fc047abc8`.
+
+The [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), empty [hash-pinned evidence register](reviews/biochemistry-review-evidence-0.4.34.json) and prospective [workload-pilot protocol](reviews/biochemistry-workload-pilot-0.4.34.md) target these exact materials. Eleven assessment candidates retain 88 unresolved activation gates; four course-level gates remain open; there are no reviewer signoffs or operator approval. Qualified scientific and assessment review, accessibility/fairness review, measured workload, physical laboratory training, institutional scope/equivalency review and release approval remain necessary. Authoring validation is not independent review or credit approval.
+
+## Biochemistry 0.4.33 week-1 protein-structure and ensemble expansion (2026-10-11)
+
+Expanded the structure and molecular-recognition reading with a clearer boundary between static structural models and solution ensembles, a primary glucose/galactose-binding protein example, a synthetic 21-fold closed/open-odds calculation, and an evidence checklist separating affinity, kinetics and causal perturbation claims. Added two link-only primary studies; no article assets or paper text were imported. Existing formative questions and private answer keys are unchanged, and all candidate fingerprints now target version 0.4.33. Content validation reports 25 courses and no errors or warnings; all 59 Biochemistry and candidate regressions pass. The private backend grader passed 74 correct responses and 148 one-field mutations. The package remains partial, unreviewed and formative-only. See the [validation report](VALIDATION_REPORT.md), [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), [evidence register](reviews/biochemistry-review-evidence-0.4.33.json) and [prospective workload protocol](reviews/biochemistry-workload-pilot-0.4.33.md).
+
+## Biochemistry 0.4.32 week-5 enzyme-mechanism expansion (2026-10-11)
+
+Expanded the enzyme primer with a reaction-coordinate explanation, clear distinctions among transition states and intermediates, a conditional 298 K rate/barrier comparison, and a simplified chymotrypsin acylation/deacylation cycle. Added three link-only primary references; no article assets or paper text were imported. Added explicit support for enzyme activity (`U`), specific activity (`U/mg`) and exact-only fold-change labels in the deterministic unit parser so the existing protein-purification exercise can be graded consistently. Existing formative questions and private answer keys are unchanged and have been re-fingerprinted for the new candidate version. Content validation passed with no errors or warnings; the full cross-course and backend suite passed 7,975 tests with 5 skips. The private backend-grader audit passed 74 correct responses and 148 one-field mutations. The course remains partial, unreviewed and formative-only; its review register has no signoffs and retains all unresolved candidate and course-level gates. See the [validation report](VALIDATION_REPORT.md), [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), [evidence register](reviews/biochemistry-review-evidence-0.4.32.json) and [prospective workload protocol](reviews/biochemistry-workload-pilot-0.4.32.md).
+
+## Biochemistry 0.4.31 week-12 pathway-regulation expansion (2026-10-11)
+
+Expanded the week-12 regulation primer with explicit pool-balance reasoning, local flux control and its limits, a synthetic two-input isotope-label calculation, regulatory layers, and an integrated perturbation checklist. Added two link-only primary studies to the module map and source registry without importing paper assets. Existing objectives and assessment keys are unchanged; all eleven candidate fingerprints were refreshed. The course remains partial, unreviewed and formative-only. Its hash-pinned register has 88 unresolved candidate gates and four unresolved course-level gates. See the [validation report](VALIDATION_REPORT.md), [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), [evidence register](reviews/biochemistry-review-evidence-0.4.31.json) and [prospective workload protocol](reviews/biochemistry-workload-pilot-0.4.31.md).
+
+## Biochemistry 0.4.30 proposed grading policy (2026-10-11)
+
+Added an inactive course-level grading-policy candidate with illustrative 40/20/25/15 category weights, a transparent percentage formula, provisional bands, proposed attempt/feedback/extension/accessibility/appeal rules and adoption gates. The live manifest remains formative-only, with no graded categories. The review ledger now explicitly tracks course-grading-policy review; the 0.4.30 register remains empty, with 88 candidate gates and four course-level gates unresolved. The package is still partial and unreviewed; no workload or institutional approval is implied. See the [validation report](VALIDATION_REPORT.md), [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md), [evidence register](reviews/biochemistry-review-evidence-0.4.30.json) and [prospective workload protocol](reviews/biochemistry-workload-pilot-0.4.30.md).
+
+## Biochemistry 0.4.29 human-scored project candidate checkpoint (2026-10-11)
+
+Converted the protein-state/ligand-binding portfolio into an inactive five-deliverable project candidate mapped to eight objectives across four lessons. It now has a proposed 100-point, criterion-anchored human rubric; its worked solution is isolated outside the public package, and no prose is automatically graded. The current inventory has 11 inactive assessment candidates, 88 unresolved candidate gates and 3 course-level gates. The package stays partial, unreviewed and formative-only; the rubric needs qualified scientific/assessment review, calibration, accessibility/fairness review and measured workload before it could be considered for use.
+
+## Biochemistry 0.4.28 midterm/final key and grader checkpoint (2026-10-11)
+
+The inactive midterm (11 cases) and cumulative final (13 cases) now have local unreviewed key/grader drafts outside the public package. Choice positions are balanced, numeric units are accepted by the backend grader, and the kinetic-fit prompts specify the model and residual criterion. Across all ten homework/exam packets, 74 correct case attempts earned full credit and 148 one-field mutations each lost exactly 5 points. Private question schemas and fingerprints match the current candidates, instructions and datasets. Biochemistry remains partial, unreviewed and formative-only; none of the candidate assessments is approved, scheduled or graded. The 0.4.28 package snapshot and empty review register bind the exact reviewer target, with 80 unresolved candidate gates and 3 unresolved course gates. Qualified scientific and assessment review, accessibility/fairness review, measured workload, a grade policy, approved graded assessments, physical labs, institutional scope review and operator release remain open.
+
+## Biochemistry 0.4.27 homework-key and grader-validation checkpoint (2026-10-11)
+
+All eight inactive answer-free homework candidates remain outside live assessment policy. Choice positions are balanced across H1–H8; the H3 turnover calculation now uses total active-enzyme amount in the assay, and H4 supplies inhibitor concentration and specifies untransformed nonlinear fits. Unreviewed private key/grader drafts are stored outside the public package and pinned to the exact current public candidates, instructions and datasets. The real field grader scored all 50 correct cases fully; 100 one-field mutations each lost exactly that field’s 5 points. Content validation and objective-coverage drift checks pass. The 0.4.27 public package contains 67 files and is pinned in the [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md); the blank review register lists 80 candidate-level and 3 course-level gates unresolved. Biochemistry remains partial, unreviewed and formative-only. Qualified biochemical and assessment review, accessibility/fairness review, measured workload, a grade policy, graded exams/project/labs, physical laboratory work, institutional scope review and operator release approval remain open.
+
+Eight inactive answer-free homework candidates now span all 14 proposed weeks: 50 cases and 500 proposed points. Each candidate links its response fields to the lesson objectives and course outcomes and uses a synthetic dataset; the drafts have no protected keys, graders, due dates, workload claims or live assessment policy. Numeric prompts were refined to require ligand-depletion, purification, enzyme-kinetics, bioenergetics and pathway calculations where the objectives call for them. The 0.4.26 public package contains 67 files and is pinned in the [review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md); its empty review register lists 80 candidate-level and 3 course-level gates unresolved. Content validation passes with 25 courses, 401 lessons, 2,396 practice questions, 1,332 cards and 25 cases. The course remains partial, unreviewed and formative-only. It still needs protected keys and grader tests, independent recalculation, qualified biochemical and assessment review, accessibility/fairness review, measured workload, a grade policy, physical lab work, institutional scope review and operator release approval.
+
+## Biochemistry 0.4.24 readiness checkpoint (2026-10-11)
+
+The 0.4.24 Biochemistry package adds a week-4 synthetic fractionation-data purification lab and updates the answer-free inactive midterm and cumulative-final candidates to cover it. The 14-week workload-pilot protocol and blank log template now enumerate the complete current lesson and formative-activity inventory. An empty review-evidence register is pinned to the exact public package digest; it records no human review or release approval. The full cross-course content suite passed (2,863 passed, 2 skipped), and the focused evidence/lab/candidate selection passed (13 tests). The course remains partial, unreviewed and formative-only: it still needs graded homework, labs, exams and project, a course grade policy, measured workload, named qualified review, protected-delivery verification and an operator release decision. See the current [validation report](VALIDATION_REPORT.md) and [Biochemistry review snapshot](BIOCHEMISTRY_REVIEW_SNAPSHOT.md).
+
+## Update after distinguishing blocked source probes from broken links (2026-10-10)
+
+The live link checker now scans both registry URLs and public course-package Markdown links, deduplicating 251 destinations across 214 registry entries and 141 Markdown URLs. HTTP 401/403 are `link-access-denied` warnings; missing destinations such as 404 remain errors. The expanded live check passed for 25 courses, 384 lessons, 2,270 questions, 1,276 cards and 25 cases with zero broken links and three access-denied warnings (the two JHU Advanced Academic Programs URLs and an IUPAC Gold Book URL). Both JHU pages were opened through the official JHU site on 2026-10-10 and their program and prerequisite content remain present; registry access dates were refreshed. The validator fixture now includes source-map references and current inventory, and outdated exact expectations were refreshed. All 87 content-validator regressions passed. The direct Python link probe still cannot access those protected endpoints, and access warnings do not establish that every learner browser can reach the pages. This resolves the false broken-link classification, not the server-side access restriction or independent curriculum review.
+
+## Update after digest-gated legacy archive recovery tooling (2026-10-10)
+
+Added the operator-only `python -m courselab.backfill_course_archives` command for old enrollments that lack a migration-0011 public-package snapshot. It defaults to a report-only run, groups by course/version without exposing learner IDs, and records a snapshot only when the installed version matches and its deterministic archive digest matches an independently verified expected SHA-256. A version-string match alone is not treated as evidence; stale versions and digest mismatches are skipped, and writes require `--apply`. The test suite confirms dry-run has no DB effect, verified apply is idempotent, stale versions remain untouched and an incorrect digest cannot write. The complete backend suite passed with 4,828 passed and 2 expected skips; the focused archive suite passed 12 tests and Ruff passed. An enhanced disposable PostgreSQL 17 smoke exercised dry-run, rejection without approval and verified apply as the restricted `courselab_app` role. No production or persistent database was modified. The legacy content still cannot be reconstructed without its original verified package; historical regrading and external course-review gates remain open.
+
+## Update after read-only rendering of archived course versions (2026-10-10)
+
+Enrolled learners can now open an older course version from its digest-verified public-package snapshot. The API returns only the existing answer-free course and lesson DTOs; archived questions carry no variant token or grader fields. An enrollment-gated version index exposes saved snapshots after an upgrade. Historical views disable submissions, notes, progress marks and card ratings, and link back to the current version. Private answer sources remain excluded. The full backend suite passed with 4,824 passed and 2 expected skips; eight archive API tests passed. All 45 frontend unit tests, typecheck, lint and production build passed, as did Ruff, content validation and both report drift checks. CI now runs the candidate-audit and course-gap drift checks with content validation. Runtime API and web images built; a disposable read-only API container applied migration 0011 against PostgreSQL 17 and passed a real-package enrollment/archive/course/lesson smoke. Production Compose configuration parsed with placeholder values; no persistent environment was changed. A new `production-images` CI job repeats the image builds, restricted-role migration/archive smoke, bundle check and Compose parse on CI runs. The API smoke uses `courselab_app` after Alembic 0011 and confirms that the new archive table privileges work without granting database-administration rights. Existing enrollments are not backfilled, and historical regrading, course maturity and external review gates remain unchanged.
+
+## Previous update after immutable public course-package archives (2026-10-10)
+
+Alembic 0011 now stores a deterministic snapshot of every public file in a course package at enrollment and version upgrade, with per-file SHA-256 values and rejection of same-version edits. Private answer sources are excluded, and existing enrollments are not backfilled. A sweep of the 25 live packages archived and round-tripped 628 files (largest archive: 1,949,252 bytes). The full backend suite passed with 4,822 passed and 2 skipped; Ruff and `git diff --check` passed. Unit support now includes kW for the authored transport item. Learners still cannot render historical package snapshots, and this work does not permit historical regrading or change course maturity.
+
+## Previous update after Biology candidate dataset integrity checks through the final and integrative project (2026-10-10)
+
+Strengthened answer-free checks for eight inactive Biology homework candidates, the midterm and final, Labs 1–3 and the integrative project. Homework 1 enforces four named preparations per condition, matched times and preparation-specific pulse inputs; Homework 2 enforces the four-day by three-condition block structure; Homework 3 enforces four cultures per condition, matched time points, finite channels and positive DNA-reference values; Homework 4 enforces the stated four-culture assignments in both ChIP and reporter datasets; Homework 5 enforces four cultures per condition, condition consistency across matched baseline/chase tables, finite chase measurements and positive recovery references; Homework 6 enforces named four-clone groups and two nested culture replicates per clone; Homework 7 enforces four named preparations crossed with six conditions, matched seeded-cell denominators and ligand-level matching; Homework 8 enforces four named cultures per condition, consistent labels and matched 0/24/72-hour observations. The midterm checks measured case/metric parity and unit consistency across forms A and B. Lab 1 checks all four culture input/fraction pairs, matched inputs across forms and fraction bounds; Lab 2 checks paired 10/30-minute trajectory values for four cultures on both forms; Lab 3 checks four viable/positive count pairs, valid denominators and matched viable counts across forms. The final and project observation tables pin the complete expected measured-case sets and row counts. The project also checks its complete form/condition/culture/time matrix, finite channels and reference/count bounds. Existing dataset-specific series checks remain. The candidate test selection passed 105 tests and Ruff passed. Full content validation remained clean (25 courses, 384 lessons, 2,270 questions, 1,276 cards and 25 cases; 0 errors and 0 warnings); both report drift checks passed. No prompts, keys, hashes or activation decisions changed. These checks do not meet any independent-review or release gate.
+
+## Previous update after Robotics & Mechatronics 0.4.5 (2026-10-10)
+
+Linked the first four lesson objective pairs to outcomes 1–4 and added direct checks for transform composition, torque from angular acceleration and uncertainty-aware stopping margins. The Robotics selection passed 112 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,270 questions, 1,276 cards and 25 cases; 0 errors and 0 warnings). The assessment-candidate and course-gap drift checks passed; no objectives remain without assessment/practice coverage or outcome links, and all 102 outcomes are listed in relevant assessments. Course maturity remains partial and unreviewed; these same-AI checks do not establish instructional completeness or independent safety review.
+
+## Previous update after Human Physiology for Engineers 0.4.5 (2026-10-10)
+
+Linked the first four lesson objective pairs to their outcomes, clarified the homeostasis objective, corrected the membrane-current question association, and added practice for feedback-loop components, membrane voltage as a state variable, and ventilation limitation. The focused Physiology selection passed 5 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,267 questions, 1,276 cards and 25 cases; 0 errors and 0 warnings). Assessment-candidate and course-gap drift checks passed; 8 objectives remain without an outcome link. The course remains partial, unreviewed and formative-only, and these same-AI checks are not independent medical or accessibility review.
+
+## Previous update after Cellular Biomechanics & Mechanobiology 0.3.5 (2026-10-10)
+
+Linked the first four lesson objective pairs to outcomes 1–4, corrected the stress-relaxation and perturbation/rescue item associations, and added direct practice for mechanical quantities, force transmission to the nucleus, and mechanical inputs versus molecular readouts. The focused Cellular Biomechanics selection passed 5 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,264 questions, 1,276 cards and 25 cases; 0 errors and 0 warnings). Assessment-candidate and course-gap drift checks passed; 16 objectives remain without an outcome link. The package remains partial, unreviewed and formative-only, and these same-AI checks are not independent science or accessibility review.
+
+## Previous update after Calculus III 0.4.5 (2026-10-10)
+
+Linked the first four lesson objective pairs to outcomes 1–4, clarified outcome 1 to cover vector-frame representation, corrected the vector-component, constrained-optimum and divergence-theorem item associations, and added direct practice for those objectives. The focused Calculus III selection passed 90 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,261 questions, 1,276 cards and 25 cases; 0 errors and 0 warnings). Assessment-candidate and course-gap drift checks passed; 24 objectives remain without an outcome link. The course remains partial, unreviewed and formative-only, and these same-AI checks are not independent mathematics or accessibility review.
+
+## Previous update after Calculus II 0.4.5 (2026-10-10)
+
+Linked the first four lesson objective pairs to outcomes 1–4, clarified outcome 1 for improper-integral convergence, corrected the exponential-integral association, and added direct formative checks for integration-method choice, Taylor-polynomial construction and power-series convergence. The focused Calculus II selection passed 87 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,258 questions, 1,276 cards and 25 cases; 0 errors and 0 warnings). Assessment-candidate and course-gap drift checks passed; 32 objectives remain without an outcome link. The course remains partial, unreviewed and formative-only, and these same-AI checks are not independent mathematics or accessibility review.
+
+## Previous update after Calculus I 0.4.5 (2026-10-10)
+
+Linked the first four lesson pairs to outcomes 1–4, corrected the first lesson's derivative-item association, and added direct practice for a removable-factor limit. The focused Calculus I selection passed 80 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,255 questions, 1,276 cards and 25 cases; 0 errors and 0 warnings). Assessment-candidate and course-gap drift checks passed; 40 objectives remain without an outcome link. The course remains partial, unreviewed and formative-only, and these same-AI checks are not independent mathematics or accessibility review.
+
+## Previous update after Biochemistry I 0.4.5 (2026-10-10)
+
+Linked the first four lesson pairs to outcomes 1–4, corrected the occupancy and pool/flux question associations, and added direct checks for protein structure levels and regulatory layers. The focused Biochemistry selection passed 5 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,254 questions, 1,276 cards and 25 cases; 0 errors and 0 warnings). Assessment-candidate and course-gap drift checks passed; 48 objectives remain without an outcome link. The course remains partial, unreviewed and formative-only, and these same-AI checks are not independent scientific or accessibility review.
+
+## Update after Biomaterials & Tissue Engineering 0.3.5 (2026-10-10)
+
+Linked the first four lesson pairs to outcomes 1–4. Corrected the degradation and cartilage-evidence question associations, expanded the tissue-strategy objective to include functional readouts, and refined outcome 4 for failure-mode identification. Added direct formative practice for scaffold pore/load-bearing/fabrication tradeoffs and cell-source choices; existing prompts and numeric keys are unchanged. The focused Biomaterials selection passed 5 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,252 questions, 1,276 cards and 25 cases; 0 errors and 0 depth warnings); the assessment-candidate and course-gap drift checks passed. The course remains partial, unreviewed and formative-only; checks are not independent biomaterials or accessibility review.
+
+## Update after Bioreactors & Tissue Culture Engineering 0.4.5 (2026-10-10)
+
+Broadened outcome 2 to cover scale-up and linked the first four lesson pairs to outcomes 2–4. Corrected the oxygen-demand and constant-tip-speed item associations and added a direct impeller-Reynolds calculation. The focused Bioreactors regression passed 5 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,250 questions, 1,276 cards and 25 cases; 0 errors, 0 depth warnings); the assessment-candidate and course-gap report drift checks passed after regeneration. The new dimensionless example gives Reᵢ=8,000. These same-AI checks are not independent bioprocess, hardware-safety or accessibility review; the course remains partial, unreviewed and formative-only.
+
+## Update after General Chemistry II 0.4.5 (2026-10-10)
+
+Linked both weak-acid/buffer objectives to outcome 1, corrected the pKa-and-ratio item's objective association, and added direct formative practice for the weak-acid mass balance. Existing prompts and keys are unchanged; the syllabus now reports 98 practice items. The focused Chemistry II suite passed 7 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,249 questions, 1,276 cards and 25 cases; 0 errors, 0 depth warnings); assessment-candidate and course-gap report drift checks passed after regeneration. These same-AI checks are not independent chemistry or accessibility review; the package remains partial, unreviewed and formative-only.
+
+## Update after General Chemistry I 0.4.5 (2026-10-10)
+
+Refined outcome 2 to include electronic structure and linked both week-1 objectives to it. Reassociated the existing trigonal-planar item with the VSEPR objective and added a direct Period 3 atomic-radius check; the original prompt and key are unchanged. The syllabus now reports 92 public practice items. The focused Chemistry I suite passed 4 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,248 questions, 1,276 cards and 25 cases; 0 errors, 0 depth warnings); the assessment-candidate and course-gap report drift checks passed after regeneration. These same-AI checks are not independent chemistry or accessibility review; the course remains partial, unreviewed and formative-only.
+
+## Update after Electrical Circuits & Instrumentation 0.4.5 (2026-10-10)
+
+Linked the first four lesson pairs to the matching DC network, amplifier, frequency-response and measurement outcomes. Added direct KCL and analog anti-alias practice, preserving all prior prompts and keys. The focused Circuits regression passed 124 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,247 questions, 1,276 cards and 25 cases; 0 errors, 0 depth warnings); assessment-candidate and course-gap report drift checks passed after regeneration. These same-AI checks are not independent circuit, instrumentation, hardware-safety or accessibility review. The package remains partial, unreviewed and formative-only.
+
+## Update after Programming & Numerical Methods for Bioengineering 0.4.5 (2026-10-10)
+
+Linked the first four lesson pairs to outcomes 1–4 based on their existing data/provenance, modular-code, numerical-method, model-validation and visualization objectives. Existing questions and keys are unchanged; all four readings already had expanded instruction. The Programming regression suite passed 108 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,245 questions, 1,276 cards and 25 cases; 0 errors, 0 depth warnings). The assessment-candidate and course-gap report drift checks passed after regeneration. These checks are not independent programming or accessibility review; the package remains partial, unreviewed and formative-only.
+
+## Update after Differential Equations for Living & Engineered Systems 0.3.6 (2026-10-10)
+
+Linked the first four lesson pairs to course outcomes 1, 2 and 4. Clarified the damping-ratio objective, corrected the existing stability item's objective association, and added direct formative checks for damping regime and local linearization; existing numeric prompts and keys are unchanged. The focused Differential Equations regression passed 5 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,245 questions, 1,276 cards and 25 cases; 0 errors, 0 depth warnings). Assessment-candidate and course-gap report drift checks passed after regeneration. These same-AI checks are not independent math, engineering or accessibility review; the course remains partial, unreviewed and formative-only.
+
+## Update after Thermodynamics & Transport in Bioengineering 0.4.4 (2026-10-10)
+
+Expanded week 12 with heat-transfer rate laws and mechanisms, steady resistance networks, transient storage and lumped-capacitance limits. Corrected the preserved slab-resistance objective association and added a mechanism-comparison question; both original numeric prompts and keys are unchanged. Mapped the objectives and assessment to outcomes 1 and 4. The focused Transport suite passed 8 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,243 questions, 1,276 cards and 25 cases; 0 errors, 0 depth warnings). The assessment-candidate and course-gap report drift checks passed. MIT OpenCourseWare 2.51 readings are link-only. All four former compact readings now have expanded instruction, while the course remains partial, unreviewed and formative-only. These checks are not independent heat-transfer, accessibility or domain review.
+
+## Update after Thermodynamics & Transport in Bioengineering 0.4.3 (2026-10-10)
+
+Expanded week 9 with Reynolds scaling, characteristic-length conventions, fully developed Poiseuille flow, radius sensitivity, network resistance and microvascular model limits. Mapped both objectives to outcomes 3 and 4 and added direct Reynolds-limit practice while preserving the existing numeric prompts and keys. The focused Transport suite passed 6 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,242 questions, 1,276 cards and 25 cases; 0 errors, 1 disclosed depth warning); the candidate report was regenerated and its drift check passed. MIT OpenCourseWare microfluidics and fluid-mechanics materials are link-only references. These checks are not independent fluid-mechanics, accessibility or domain review; one compact reading remains and the course remains partial, unreviewed and formative-only.
+
+## Update after Thermodynamics & Transport in Bioengineering 0.4.2 (2026-10-10)
+
+Expanded week 3 with Fickian flux, transient diffusion, boundary conditions, diffusion and reaction clocks, the Damköhler number, reaction-diffusion length, and model limits. Mapped the objectives to outcomes 2 and 4, aligned the preserved diffusion-time check to time-scale comparison, and added direct flux-direction and regime questions. Existing numeric prompts and keys remain unchanged. The focused Transport regression passed 4 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,241 questions, 1,276 cards and 25 cases; 0 errors, 2 disclosed depth warnings); the candidate report was regenerated and its drift check passed. MIT OpenCourseWare 10.37 Lecture 20 is a link-only reference. These checks are not independent transport, accessibility or domain review; two compact readings remain and the course remains partial, unreviewed and formative-only.
+
+## Update after Thermodynamics & Transport in Bioengineering 0.4.1 (2026-10-10)
+
+Expanded week 1 with control-volume selection, species and total-mass balances, steady versus transient behavior, residence time, reaction terms and a signed open-system energy balance. Mapped both objectives and the assessment to outcome 1. Added a required-unit energy-balance item while preserving the existing concentration and accumulation prompts and keys. The focused regression passed 2 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,239 questions, 1,276 cards and 25 cases; 0 errors, 3 disclosed depth warnings); the candidate report was regenerated and its drift check passed. MIT OpenCourseWare Unified Engineering thermodynamics notes are a link-only reference. These checks are not independent thermodynamics, accessibility or domain review; three compact readings remained and the course was partial, unreviewed and formative-only.
+
+## Update after Probability, Biostatistics & Experimental Design 0.4.4 (2026-10-10)
+
+Expanded week 8 with assignment units, randomization, blocking, nested replication, regression for design factors, residual diagnostics and reproducible analysis. Corrected the preserved biological-sample-size question's objective link and added a direct blocked-randomization item; both existing question prompts and keys remain unchanged. Both objectives and the assessment map to outcomes 1, 2 and 4. The focused Statistics suite passed 8 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,238 questions, 1,276 cards and 25 cases; 0 errors, 4 disclosed depth warnings); the candidate report was regenerated and its drift check passed. MIT OpenCourseWare Reading 26 and a PLOS Biology paper on the experimental unit are link-only references. These checks are not independent statistical, accessibility or domain review; all four former compact readings now have expanded instruction, while the course remains partial, unreviewed and formative-only.
+
+## Update after Probability, Biostatistics & Experimental Design 0.4.3 (2026-10-10)
+
+Expanded week 6 with NHST assumptions, p-value interpretation, error and power, family-wise multiplicity, Bonferroni and confirmatory versus exploratory analysis. Corrected the preserved ten-test FWER objective link and added a direct p-value check while keeping both existing numeric prompts and keys. Both objectives and assessment map to outcomes 2 and 3. The focused Statistics suite passed 6 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,237 questions, 1,276 cards and 25 cases; 0 errors, 5 disclosed depth warnings); the assessment-candidate report was regenerated and its drift check passed. MIT OpenCourseWare 18.05 NHST II and Problem Set 9 Solutions are link-only references. These checks are not independent statistical, accessibility or domain review; one compact reading remained and the course was partial, unreviewed and formative-only.
+
+## Update after Probability, Biostatistics & Experimental Design 0.4.2 (2026-10-10)
+
+Expanded week 4 with repeated-sampling interval coverage, a paired t-interval example, effect-size scales, practical thresholds, bias limits and regression to the mean. Mapped both objectives and the unchanged questions to outcome 3. The focused regression passed 4 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,236 questions, 1,276 cards and 25 cases; 0 errors, 6 disclosed depth warnings); the assessment-candidate report was regenerated and its drift check passed. MIT OpenCourseWare 18.05 Reading 23a is a link-only reference. These checks are not independent statistics, accessibility or domain review; two compact readings remained and the course was partial, unreviewed and formative-only.
+
+## Update after Statics & Mechanics of Materials 0.4.4 (2026-10-10)
+
+Expanded week 8 with yield, ultimate strength, fracture, fatigue, and functional-failure distinctions, consistent capacity-to-demand ratios, explicit allowable terminology, and uncertainty limits. Corrected the preserved factor-of-safety check's objective link and added a criterion-discrimination item so both objectives have aligned practice. Existing numeric prompts and keys remain unchanged. The focused Statics suite passed 8 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,235 questions, 1,276 cards and 25 cases; 0 errors, 8 disclosed depth warnings); the assessment-candidate report was regenerated. These checks are not independent mechanics, safety, accessibility or reliability review. All four original compact readings now have expanded instruction; the package remains partial, unreviewed and formative-only.
+
+## Update after Statics & Mechanics of Materials 0.4.3 (2026-10-10)
+
+Expanded week 4 with circular-shaft torsional shear, solid and hollow polar moments, elementary bending stress, section moments, unit-checked calculations and model limits. Corrected the preserved beam-bending check's objective link and added one torsion-stress item so both objectives have direct practice evidence. Existing question wording and keys remain stable; the new shaft item computes to 6.37 MPa. The focused Statics suite passed 6 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,234 questions, 1,276 cards and 25 cases; 0 errors, 9 disclosed depth warnings), and the assessment-candidate report drift check passed. These same-AI checks are not independent mechanics, accessibility or safety review; the package remains partial, unreviewed and formative-only.
+
+## Update after Statics & Mechanics of Materials 0.4.2 (2026-10-10)
+
+Expanded week 3 with average axial stress, engineering strain, linear-elastic modulus, uniform-bar extension and stiffness, segmented-bar reasoning, unit conversions and model limits. Clarified both objectives and mapped them and the unchanged formative assessment to outcomes 2 and 3. MIT OpenCourseWare's 2.001 Mechanics & Materials I notes page is a link-only reference. Existing question IDs, prompts and keys remain unchanged. The focused Statics suite passed 4 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 10 disclosed depth warnings), and the assessment-candidate report drift check passed. These same-AI checks are not independent mechanics, accessibility or safety review; the course remains partial, unreviewed and formative-only.
+
+## Update after Statics & Mechanics of Materials 0.4.1 (2026-10-10)
+
+Expanded week 1 with free-body diagrams, ideal support reactions, planar force and moment balance, beam reactions, load resultants, and determinacy and unit checks. Clarified both objectives and linked them and the unchanged practice assessment to outcome 1. An MIT OpenCourseWare lecture-notes page is a link-only reference. Existing question IDs, prompts and keys are unchanged; compact readings remain in weeks 3, 4 and 8. The focused Statics regression passed 2 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 11 disclosed depth warnings), and the assessment-candidate report check passed. These same-AI checks are not independent statics, accessibility or safety review; the course remains partial, unreviewed and formative-only.
+
+## Update after Signals, Systems & Feedback Control 0.4.4 (2026-10-10)
+
+Expanded week 12 with P/I/D action, integral offset removal, windup under saturation, anti-windup, derivative noise, sample-and-hold, quantization and timing limits. Clarified both objectives and linked them and the unchanged practice assessment to outcomes 3 and 4. Two MIT OpenCourseWare pages are link-only references. Existing question IDs, prompts, options and keys are unchanged; all four preserved prototype readings now have expanded instruction. The focused Signals suite passed 8 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 12 disclosed depth warnings), and the assessment-candidate report check passed. These same-AI checks are not independent controls, safety or accessibility review; the course remains partial, unreviewed and formative-only.
+
+## Update after Signals, Systems & Feedback Control 0.4.3 (2026-10-10)
+
+Expanded week 8 with negative-unity-feedback algebra, characteristic roots, sensitivity and disturbance paths, nominal stability versus performance, model uncertainty, and the preserved gain-margin calculation. Clarified both objectives and linked them and the unchanged practice assessment to outcomes 1, 3 and 4. Two MIT OpenCourseWare lecture pages are link-only references. Existing question IDs, prompts, options and keys are unchanged; one compact reading remains in week 12. The focused Signals regression suite passed 6 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 13 disclosed depth warnings), and the assessment-candidate report check passed. These same-AI checks are not independent controls or accessibility review; the course remains partial, unreviewed and formative-only.
+
+## Update after Signals, Systems & Feedback Control 0.4.2 (2026-10-10)
+
+Expanded week 4 with sinusoidal magnitude and phase, first-order low-pass cutoff and decibel level, anti-alias filtering before sampling, and a worked alias calculation. Clarified both objectives and linked them and the unchanged practice assessment to outcomes 2 and 4. Two MIT OpenCourseWare lecture pages are registered as link-only references. Existing item IDs, prompts and keys are unchanged; compact readings remain in weeks 8 and 12. The focused Signals regressions passed 4 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 14 disclosed depth warnings), and the assessment-candidate report check passed. These same-AI checks are not independent controls or accessibility review; the course remains partial, unreviewed and formative-only.
+
+## Update after Signals, Systems & Feedback Control 0.4.1 (2026-10-10)
+
+Expanded week 1 with LTI assumptions, impulse-response interpretation, zero-state transfer functions, first-order pole and DC-gain calculations, units, and model boundaries. Clarified both objectives and linked them and the unchanged practice assessment to outcomes 1 and 2. Two MIT OpenCourseWare lecture pages are registered as link-only technical references. Existing question IDs, prompts, answer choices, keys and cards are unchanged; compact readings remain in weeks 4, 8 and 12. The focused Signals regression passed 2 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 15 disclosed depth warnings), and the assessment-candidate report check passed. These same-AI checks are not independent controls or accessibility review; the course remains partial, unreviewed and formative-only.
+
+## Update after Physics: Mechanics for Biomedical Engineers 0.4.4 (2026-10-10)
+
+Expanded week 9 with perpendicular moment arms, signed torque about a stated axis, stress/strain definitions, small-strain modulus calculations and explicit model limits. Clarified both objectives and linked them and the unchanged practice assessment to outcomes 3 and 4. Added OpenStax's torque page as a link-only source and reused the existing stress/strain reference. Existing question IDs, prompts, answer keys and cards are unchanged; all 13 readings now have substantive instruction beside the synthetic data lab. The focused mechanics suite passed 103 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 16 disclosed depth warnings), and the assessment-candidate report check passed. These same-AI checks are not independent physics or accessibility review; the course remains partial, unreviewed and formative-only.
+
+## Update after Physics: Mechanics for Biomedical Engineers 0.4.3 (2026-10-10)
+
+Expanded week 6 with signed momentum, conditions for momentum conservation, force–time area, impulse–momentum balance, and the distinction between momentum and kinetic-energy conservation. Clarified both objectives and linked them and the unchanged practice assessment to outcomes 2 and 4. Three OpenStax University Physics Volume 1 sections are registered as link-only references. Existing question IDs, prompts, answer keys and cards are unchanged; one compact reading remains in week 9. The focused mechanics suite passed 101 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 17 disclosed depth warnings), and the assessment-candidate report check passed. These same-AI checks are not independent physics or accessibility review.
+
+## Update after Physics: Mechanics for Biomedical Engineers 0.4.2 (2026-10-10)
+
+Expanded week 4 with kinetic energy, the work–energy theorem, gravitational and spring potential energy, conservative and dissipative transfers, energy accounting for a drop, and power. Clarified both objectives and linked them and the unchanged practice assessment to outcomes 2 and 4. Four OpenStax University Physics Volume 1 sections are registered as link-only references. Existing question IDs, prompts, answer keys and cards are unchanged; compact readings remain in weeks 6 and 9. The focused mechanics suite passed 99 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 18 disclosed depth warnings), and the assessment-candidate report check passed. These same-AI checks are not independent physics or accessibility review.
+
+## Update after Physics: Mechanics for Biomedical Engineers 0.4.1 (2026-10-10)
+
+Expanded week 1 with position, velocity and acceleration distinctions, free-body diagram boundaries, Newton's second law, axis-resolved incline forces, and unit and limiting-case checks. Clarified both objectives and linked them and the unchanged practice assessment to outcomes 1, 2 and 4. Three OpenStax University Physics Volume 1 sections are registered as link-only references. Existing question IDs, prompts, answer keys and cards are unchanged; compact prototype readings remain in weeks 4, 6 and 9. The focused mechanics suite passed 97 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 19 disclosed depth warnings), and the assessment-candidate report check passed. These same-AI checks are not independent physics or accessibility review.
+
+## Update after Physics: Electricity & Magnetism 0.4.4 (2026-10-10)
+
+Expanded week 12 with a bounded electrode-interface model, resistance-divider loading, differential measurement, and careful interpretation of baseline drift. Clarified both objectives and linked them and the unchanged practice assessment to outcome 4. Added link-only references to OpenStax AC circuits and a PubMed-indexed electrode-interface review. Existing question IDs, prompts, answer keys and cards are unchanged; all 13 readings now have substantive instruction. The focused Physics II suite passed 111 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 20 disclosed depth warnings), and the assessment-candidate report check passed. These same-AI checks are not independent physics or accessibility review; the course remains partial, unreviewed and formative-only.
+
+## Update after Physics: Electricity & Magnetism 0.4.3 (2026-10-10)
+
+Expanded week 8 with magnetic force on charges and current segments, magnetic flux orientation, Faraday emf calculations, Lenz-law direction and the distinction between open-circuit emf and current. Clarified both objectives and linked them and the unchanged practice assessment to outcome 3. Three OpenStax University Physics Volume 2 sections are registered as link-only references. Existing question IDs, prompts, answer keys and cards are unchanged; one compact reading remains in week 12. The focused Physics II suite passed 109 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 21 disclosed depth warnings), and the assessment-candidate report check passed. These same-AI checks are not independent physics or accessibility review.
+
+## Update after Physics: Electricity & Magnetism 0.4.2 (2026-10-10)
+
+Expanded week 5 with current and resistance definitions, Ohm's law limits, RC time-constant units, ideal charging/discharging responses, the correct meaning of the one-τ fraction, and input-loading limits. Clarified both objectives and linked them and the unchanged practice assessment to outcome 2. Three OpenStax University Physics Volume 2 sections are registered as link-only references. Existing question IDs, prompts, answer keys and cards are unchanged; compact readings remain in weeks 8 and 12. The focused Physics II suite passed 107 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 22 disclosed depth warnings), and the assessment-candidate report check passed. These same-AI checks are not independent physics or accessibility review.
+
+## Update after Physics: Electricity & Magnetism 0.4.1 (2026-10-10)
+
+Expanded week 1 with electric potential versus energy, field-direction signs, conductor equilibrium, parallel-plate capacitance, capacitor energy and limits of the membrane analogy. Clarified both objectives and linked them and the unchanged practice assessment to outcome 1. Added three OpenStax University Physics Volume 2 sections as link-only references. Existing question IDs, prompts, answer keys and cards are unchanged; compact readings remain in weeks 5, 8 and 12. The focused Physics II suite passed 105 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 23 disclosed depth warnings), and the assessment-candidate report check passed. These same-AI checks are not independent physics or accessibility review.
+
+## Update after General Chemistry II 0.4.4 (2026-10-10)
+
+Expanded the final compact week-12 reading with coordination-sphere and donor-atom accounting, formal oxidation-state bookkeeping, geometry constraints, ligand-field and spin qualifications, and protein-environment effects on metal behavior. Clarified both objectives and linked them and the unchanged practice assessment to outcome 4. Added one OpenStax Chemistry 2e coordination reference and reused the registered ligand-field section. Existing question IDs, prompts, answer keys and cards are unchanged; all four original compact readings now have expanded instruction. The focused General Chemistry II suite passed 7 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 24 disclosed depth warnings), and the assessment-candidate report check passed. These same-AI checks are not independent chemistry review.
+
+## Update after General Chemistry II 0.4.3 (2026-10-10)
+
+Expanded the week-9 reading with galvanic-cell components, electron and ion flow, standard reduction potentials, cell-notation conventions, unit-aware ΔG° calculations, and the limits of standard-state predictions. Clarified both objectives and linked the unchanged practice assessment to outcome 3. Three new OpenStax Chemistry 2e electrochemistry pages are registered as link-only references. Existing question IDs, prompts, answer keys and cards are unchanged; one compact reading remains in week 12. The focused General Chemistry II suite passed 5 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 25 disclosed depth warnings), and the assessment-candidate report check passed. These same-AI checks are not independent chemistry review.
+
+## Update after General Chemistry II 0.4.2 (2026-10-10)
+
+Expanded the week-5 reading with controlled initial-rate comparisons, empirical rate-law units, an Arrhenius two-temperature calculation, mechanism constraints, catalysis and a limited first-order half-life example. Clarified the first objective to match the preserved half-life item; both objectives and the assessment map to outcome 2. Added four OpenStax Chemistry 2e link-only references and reused the registered mechanism section. Existing question IDs, prompts, answer keys and cards are unchanged; compact readings remain in weeks 9 and 12. The focused General Chemistry II suite passed 3 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 26 disclosed depth warnings), and the assessment-candidate report check passed. These same-AI checks are not independent chemistry review.
+
+## Update after General Chemistry I 0.4.4 (2026-10-10)
+
+Expanded the module-4/week-11 reading with dynamic equilibrium, mass-action expressions, Q/K direction, concentration and temperature effects, and catalyst and kinetics limits. Clarified the first objective; the first unchanged question maps to both Q/K interpretation and direction prediction. Both objectives and the practice assessment map to outcome 3. Three OpenStax Chemistry 2e sections are link-only references. All four original compact prototype readings now have expanded instruction. The focused suite passed 4 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 27 disclosed depth warnings), and the assessment-candidate report check passed. This same-AI work is not independent chemistry review.
+
+## Update after General Chemistry I 0.4.3 (2026-10-10)
+
+Expanded the module-3/week-8 reading with first-law sign conventions, calorimetry balance, state functions, Hess-law scaling and formation-enthalpy calculations. Clarified the first objective; the first question maps to both sign interpretation and enthalpy calculation. Existing prompts, IDs and answer keys are unchanged. Objectives and assessment map to outcomes 3 and 4; two OpenStax Chemistry 2e sections are link-only references. Compact readings remain in weeks 4 and 11. The focused suite passed 3 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 28 disclosed depth warnings), and the assessment-candidate report check passed. This same-AI work is not independent chemistry review.
+
+## Update after General Chemistry I 0.4.2 (2026-10-10)
+
+Expanded the module-2/week-4 reading with balanced-equation mole ratios, limiting-reagent reasoning, theoretical yield, molarity, dilution, unit checks and reporting limits. Corrected the dilution question’s objective mapping and linked the limiting-reagent item to both relevant objectives; prompts, IDs and answer keys remain unchanged. Objectives and assessment map to outcomes 1 and 4. Three OpenStax Chemistry 2e sections are registered as link-only references. The focused General Chemistry I regressions passed 2 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 29 disclosed depth warnings), and the assessment-candidate report check passed. This same-AI work is not independent chemistry review.
+
+## Update after Organic Chemistry I for Life Sciences 0.4.4 (2026-10-10)
+
+Expanded week 9 with carbonyl polarization, tetrahedral-intermediate charge accounting, addition versus acyl substitution, leaving-group and resonance effects, and biological-context limits. Both objectives and the practice assessment map to outcomes 1 and 4; two primary OpenStax sections are registered as link-only references. Existing questions, answer keys and cards are unchanged; all four compact legacy prototypes now have expanded instruction. The focused Organic Chemistry selection passed 92 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 30 disclosed depth warnings), and the assessment-candidate report check passed. This same-AI work is not independent chemistry review.
+
+## Update after Organic Chemistry I for Life Sciences 0.4.3 (2026-10-10)
+
+Expanded week 7 with E1/E2/E1cB sequence comparisons, simplified rate laws, beta-hydrogen accounting, anti-periplanar and trans-diaxial geometry, and qualified alkene regioselectivity. The objectives and practice assessment map to outcomes 2 and 3; four primary OpenStax sections are registered as link-only references. Existing prompts, answer keys and cards are unchanged; one compact reading remains in week 9. The focused Organic Chemistry selection passed 91 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 31 disclosed depth warnings), and the assessment-candidate report check passed. This same-AI work is not independent chemistry review.
+
+## Update after Organic Chemistry I for Life Sciences 0.4.2 (2026-10-10)
+
+Expanded week 5 with a conditional SN1/SN2 comparison, rate laws, a synthetic concentration example, stereochemical limits and elimination competition. The two objectives and practice assessment map to outcomes 2 and 3; four primary OpenStax sections are registered as link-only references. Existing questions, answer keys and cards are unchanged; two compact readings remain in weeks 7 and 9. The focused Organic Chemistry selection passed 90 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 32 disclosed depth warnings), and the assessment-candidate report check passed. This same-AI work is not independent chemistry review.
+
+## Update after Organic Chemistry I for Life Sciences 0.4.1 (2026-10-10)
+
+Expanded week 1 with conjugate-base comparisons, resonance and formal-charge bookkeeping, a hypothetical pKa equilibrium calculation, and conditions and rate limits. Both objectives and the practice assessment map to outcome 1. Reused one registered resonance reference and added one registered link-only acid-strength reference. Existing questions, keys and cards are unchanged; compact prototypes remain in weeks 5, 7 and 9. The focused Organic Chemistry selection passed 89 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 33 disclosed depth warnings), and the assessment-candidate report check passed. This same-AI work is not independent chemistry review.
+
+## Update after Linear Algebra for Modeling & Robotics 0.3.4 (2026-10-10)
+
+Expanded week 4 with the normal-equation derivation, synthetic overdetermined fit, residual projection and diagnostics, and conditioning and weighting limits. Both lesson objectives and the practice assessment map to outcome 4. Existing prompts, answers and cards are unchanged; all four legacy prototypes now have expanded instruction. The focused Linear Algebra selection passed 82 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 34 disclosed depth warnings), and the assessment-candidate report check passed. This same-AI work is not independent mathematics review.
+
+## Update after Linear Algebra for Modeling & Robotics 0.3.3 (2026-10-10)
+
+Expanded week 7 across discrete and continuous eigenmodes, stability, transition matrices and linearization limits. Corrected the first objective to match the existing continuous-time question; both objectives and the practice assessment now map to outcome 3. Existing questions, keys and cards are unchanged; one compact prototype remains in week 4. The focused Linear Algebra selection passed 81 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 35 disclosed depth warnings), and the assessment-candidate report check passed. This same-AI work is not independent mathematics review.
+
+## Update after Linear Algebra for Modeling & Robotics 0.3.2 (2026-10-10)
+
+Expanded week 2 with basis and coordinate conversions, span and independence tests, and active-versus-passive rotation examples. Both lesson objectives and the practice assessment map to outcome 2. Existing questions, keys and cards are unchanged; compact prototypes remain in weeks 4 and 7. The focused Linear Algebra selection passed 80 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 36 disclosed depth warnings), and the assessment-candidate report check passed. This same-AI work is not independent mathematics review.
+
+## Update after Linear Algebra for Modeling & Robotics 0.3.1 (2026-10-10)
+
+Expanded the week-1 reading with reversible elimination, worked unique/infinite/no-solution cases, rank and consistency reasoning, and numerical limits. Linked both lesson objectives and the practice assessment to outcomes 1 and 2. Existing questions, answer keys and cards are unchanged; compact prototypes remain in weeks 2, 4 and 7. The focused Linear Algebra selection passed 79 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 37 disclosed depth warnings), and the assessment-candidate report check passed. This same-AI work is not independent mathematics review.
+
+## Update after Geroscience & Regenerative Biology 0.5.6 (2026-10-10)
+
+Expanded week 11 with claim-matched endpoints, a synthetic comparison of survival, target engagement, survivor function and adverse events, causal-mechanism design, and translation limits. Reused one registered link-only primary mouse lifespan study. Existing objectives, questions, keys and cards are unchanged; all four compact legacy prototype readings now have expanded instruction. The focused Geroscience selection passed 485 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 38 disclosed depth warnings), and the assessment-candidate report check passed. This same-AI work is not independent geroscience review.
+
+## Update after Geroscience & Regenerative Biology 0.5.5 (2026-10-10)
+
+Expanded week 8 with distinctions among abundance, self-renewal, differentiation, lineage contribution and tissue recovery; compared assay strengths and limits; and added a synthetic donor-cell-age by recipient-environment comparison. Reused one registered link-only primary mouse study. Existing objectives, questions, keys and cards are unchanged; one compact prototype reading remains in week 11. The focused Geroscience selection passed 484 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 39 disclosed depth warnings), and the assessment-candidate report check passed. This same-AI work is not independent geroscience review.
+
+## Update after Geroscience & Regenerative Biology 0.5.4 (2026-10-10)
+
+Expanded week 5 with a multi-feature operational definition of senescence, a synthetic example separating single-marker positivity from convergent evidence, and tissue-dependent interpretation of secretory effects and wound repair. Existing objectives, questions, keys and cards are unchanged; compact prototype readings remain in weeks 8 and 11. The focused Geroscience selection passed 483 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 40 disclosed depth warnings), and the assessment-candidate report check passed. This same-AI work is not independent geroscience review.
+
+## Update after Geroscience & Regenerative Biology 0.5.3 (2026-10-10)
+
+Expanded week 1 with interacting damage-input, maintenance and adaptation models, a simple damage-balance equation, and a synthetic biomarker/function comparison showing a 40% marker reduction without functional change. Reused link-only aging-framework and clock-reliability references. Existing objectives, questions, keys and cards are unchanged; compact prototype readings remain in weeks 5, 8 and 11. The focused Geroscience selection passed 482 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 41 disclosed depth warnings), and the assessment-candidate report check passed. This same-AI work is not independent geroscience review.
+
+## Update after Genetics & Genomics 0.5.4 (2026-10-10)
+
+Expanded week 11 with a synthetic 2×2 odds-ratio calculation and confidence interval, multiple-testing and population-context cautions, LD/fine-mapping limits, and a staged interpretation from association to functional evidence. Added one link-only primary reference. The objectives and practice assessment now map to outcome 3; existing questions, keys and cards remain unchanged. All four compact Genetics prototypes now have expanded instruction, though the course remains partial and unreviewed. The focused Genetics regression and content selection passed 485 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 42 disclosed depth warnings), and the assessment-candidate report check passed. This same-AI work is not independent genetics review.
+
+## Update after Genetics & Genomics 0.5.3 (2026-10-10)
+
+Expanded week 9 with cis/trans regulatory reasoning, synthetic allele-specific expression, controlled perturbation and rescue evidence, and explicit limits on causal claims. Added two link-only primary references. Lesson objectives and the week-9 assessment now link to outcomes 3 and 4; the earlier Genetics 0.5.1 and 0.5.2 practice assessments now list their newly mapped outcomes. Existing questions, keys and cards remain unchanged. The focused Genetics regression and content selection passed 484 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 43 disclosed depth warnings), and the assessment-candidate report check passed. This same-AI work is not independent genetics review.
+
+## Update after Genetics & Genomics 0.5.2 (2026-10-10)
+
+Expanded week 4 with parental-phase identification, the testcross recombination fraction, binomial sampling uncertainty, the short-interval cM convention, and hidden double crossovers with the 0.5 ceiling. Both existing objectives now link to the linkage/recombination outcome; practice questions, answer keys and cards are unchanged. The focused Genetics regression and content selection passed 483 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 44 disclosed depth warnings), and the assessment-candidate report check passed. This same-AI work is not independent genetics review.
+
+## Update after Genetics & Genomics 0.5.1 (2026-10-10)
+
+Expanded week 1 with Mendelian genotype probabilities, a Bayes update showing a 2/3 carrier probability for an unaffected sibling of two carriers, the resulting synthetic 1/6 affected-child probability with a known-carrier partner, and a population example distinguishing 4% recessive phenotype frequency from 32% carrier frequency. Both existing objectives now link to the genotype-probability outcome; practice questions, answer keys and cards are unchanged. The focused Genetics regression and content selection passed 482 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 45 disclosed depth warnings), and the assessment-candidate report check passed. This same-AI work is not independent genetics review.
+
+## Update after General Chemistry II 0.4.1 (2026-10-10)
+
+Expanded week 1 with weak-acid Ka and mass-balance reasoning, a qualified Henderson–Hasselbalch derivation, neutralization-before-equilibrium mole updates, and buffer-capacity interpretation. Existing questions, keys and objectives are unchanged; compact readings remain in weeks 5, 9 and 12. Regressions verify pH estimates 8.2 and 5.06103, the −0.08715 pH shift after a synthetic 1 mmol acid addition, and the ideal maximum capacity for a 0.10 M buffer. The focused General Chemistry II suite passed 835 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 46 disclosed depth warnings), and the assessment-candidate report was regenerated. This same-AI work is not independent chemistry review.
+
+## Update after General Chemistry I 0.4.1 (2026-10-10)
+
+Expanded week 1 with electron-configuration trends, Lewis and formal-charge bookkeeping, electron-domain/molecular geometry, bond-dipole vector addition, and model limits. Existing questions, keys and objectives are unchanged; compact readings remain in weeks 4, 8 and 11. Regressions verify water's eight valence electrons and zero formal charges, its bent-geometry dipole sum, and dipole cancellation for linear CO₂. The focused General Chemistry I suite passed 734 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 47 disclosed depth warnings), and the assessment-candidate report was regenerated. This same-AI work is not independent chemistry review.
+
+## Update after Differential Equations for Living & Engineered Systems 0.3.5 (2026-10-10)
+
+Expanded week 11 with the Euler update, stability/accuracy distinction, strict decay and positivity bounds, step refinement, and stiff-system considerations. Clarified the stability item to ask for the upper boundary; its 0.04 s key and the other keys and objectives are unchanged. All four former compact readings now have expanded instruction, though the course remains partial, unreviewed and formative-only. Regressions verify the one-step value 3.5, the −1 amplification factor at the 0.04 s boundary, the 0.02 s positivity boundary, and roughly first-order error reduction under step halving. The focused Differential Equations selection passed 103 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 48 disclosed depth warnings), and the assessment-candidate report was regenerated. This same-AI work is not independent mathematical or engineering review.
+
+## Update after Differential Equations for Living & Engineered Systems 0.3.4 (2026-10-10)
+
+Expanded the week-6 coupled-systems lesson with Jacobian linearization, eigenvalue modes, nullclines, local classifications and limits on nonhyperbolic or global claims. Existing questions, keys and objectives are unchanged; one compact reading remains in week 11. Regressions verify eigenvalues −1/−2 for a stable node, −1±2i for a stable spiral, and the positive-mode instability criterion. The focused Differential Equations selection passed 102 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 49 disclosed depth warnings), and the assessment-candidate report was regenerated. This same-AI work is not independent mathematical or engineering review.
+
+## Update after Differential Equations for Living & Engineered Systems 0.3.3 (2026-10-10)
+
+Expanded week 4 with the signed mass–spring–damper force balance, units, natural frequency, damping ratio, transient classes, initial conditions and a forced-response qualification. Existing questions, keys and objectives are unchanged; compact readings remain in weeks 6 and 11. Regressions verify natural frequencies 2 and 5 rad/s, damping ratios 0.375 and 0.15, and the corresponding damped frequencies. The focused Differential Equations selection passed 101 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 50 disclosed depth warnings), and the assessment-candidate report was regenerated. This same-AI work is not independent engineering review.
+
+## Update after Differential Equations for Living & Engineered Systems 0.3.2 (2026-10-10)
+
+Expanded the week-1 first-order lesson with separation and integrating-factor solutions, equilibrium and initial-condition roles, stability, time-constant interpretation and unit checks. Existing questions, keys and objectives are unchanged; compact readings remain in weeks 4, 6 and 11. Regressions verify x(4)≈2.943 for the decay example, τ=2 s, 63.2% completion at one τ, and the nonzero-equilibrium trajectory. The focused Differential Equations selection passed 100 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 51 disclosed depth warnings), and the assessment-candidate report was regenerated. This same-AI work is not independent mathematical or engineering review.
+
+## Update after Cellular Biomechanics & Mechanobiology 0.3.4 (2026-10-10)
+
+Expanded week 10 with a worked stiffness-by-ligand factorial design, main-effect and interaction contrasts, independent-unit and nested-replicate reasoning, material checks, blocking and randomization. Existing questions, keys and objectives are unchanged; all four former compact readings now have expanded primers, but the course remains partial, unreviewed and formative-only. Regressions verify stiffness and ligand contrasts of 10 and 8 units and an interaction contrast of 8 units for the synthetic table. The focused Cellular Biomechanics selection passed 72 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 52 disclosed depth warnings), and the assessment-candidate report was regenerated. This same-AI work is not independent biomechanics or academic review.
+
+## Update after Cellular Biomechanics & Mechanobiology 0.3.3 (2026-10-10)
+
+Expanded week 8 with a stimulus-to-response framework, necessity and sufficiency tests, rescue and orthogonal perturbation logic, and limits on pathway claims. Existing questions, keys and objectives are unchanged; one compact reading remains in week 10. The regression verifies the lesson preserves the distinction between a response supported by rescue and claims of direct binding or a complete pathway. The focused Cellular Biomechanics selection passed 71 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 54 disclosed depth warnings), and the assessment-candidate report was regenerated. This same-AI work is not independent biomechanics or biomedical review.
+
+## Update after Cellular Biomechanics & Mechanobiology 0.3.2 (2026-10-10)
+
+Expanded week 5 with a matrix-to-nucleus force path, local adhesion geometry, separation of mechanical and biochemical cues, and the inverse-mechanics assumptions in traction-force microscopy. Existing questions, keys and objectives are unchanged; compact readings remain in weeks 8 and 10. Regression confirms equal 100 µm² total area for one 10-by-10 µm patch and sixteen 2.5-by-2.5 µm patches. The focused Cellular Biomechanics selection passed 70 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 54 disclosed depth warnings), and the assessment-candidate report was regenerated. This same-AI work is not independent biomechanics or biomedical review.
+
+## Update after Cellular Biomechanics & Mechanobiology 0.3.1 (2026-10-10)
+
+Expanded the week-1 mechanics reading with unit-aware stress and strain, geometry-dependent stiffness, relaxation and creep protocols, Maxwell/SLS behavior and regime-specific model choice. Existing questions, keys and objectives are unchanged; compact readings remain in weeks 5, 8 and 10. Regressions verify 10 kPa stress, 2% strain, 0.50 MPa apparent modulus, 25 N/m specimen stiffness and the illustrative viscoelastic time courses. The focused Cellular Biomechanics selection passed 69 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 55 disclosed depth warnings), and the assessment-candidate report was regenerated. This same-AI work is not independent biomechanics or clinical review.
+
+## Update after Bioreactors & Tissue Culture Engineering 0.4.4 (2026-10-10)
+
+Expanded the week-12 reading with process-parameter and quality-attribute distinctions, sensor/control-loop reasoning, assay-trend comparison, predeclared criteria and traceable records. Existing questions, keys and objectives are unchanged; all four original compact readings now have expanded primers, though the course remains partial, unreviewed and formative-only. Regressions verify that a 20% titre decline is ten times a ±2% reference deviation. The focused Bioreactors selection passed 74 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 56 disclosed depth warnings), and the assessment-candidate report was regenerated. This same-AI work is not independent bioprocess or quality review.
+
+## Update after Bioreactors & Tissue Culture Engineering 0.4.3 (2026-10-10)
+
+Expanded the week-9 mixing lesson with transport criteria, an idealized 2 L-to-200 L geometric scale comparison, links between gradients and cell exposure, and scale-down inference limits. Existing questions, keys and objectives are unchanged; one compact reading remains in week 12. Regressions verify a 4.64 linear scale factor, constant-tip-speed rotational ratio 0.215, constant-power-density ratio 0.359 and tip-speed ratio 1.67. The focused Bioreactors selection passed 73 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 57 disclosed depth warnings), and the assessment-candidate report was checked. This same-AI work is not independent bioprocess or engineering review.
+
+## Update after Bioreactors & Tissue Culture Engineering 0.4.2 (2026-10-10)
+
+Expanded the week-5 oxygen lesson with transfer-driving-force and uptake-rate units, a dissolved-oxygen balance, target-level capacity check and bulk-measurement limitations. Existing questions, keys and objectives are unchanged; compact readings remain in weeks 9 and 12. Regressions verify 0.72 mmol/(L·h) uptake, 1.00 mmol/(L·h) transfer, −0.50 mmol/(L·h) accumulation and the idealized 0.05 mmol/L steady concentration. The focused Bioreactors selection passed 72 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 58 disclosed depth warnings), and the assessment-candidate report was checked. This same-AI work is not independent bioprocess, biomedical or clinical review.
+
+## Update after Bioreactors & Tissue Culture Engineering 0.4.1 (2026-10-10)
+
+Expanded the week-1 growth reading with an interval-specific exponential model, viable-count versus total-cell balance, loss terms and substrate/product balances. Existing questions, keys and objectives are unchanged; compact readings remain in weeks 5, 9 and 12. Regressions verify growth rate 0.0231 h⁻¹, doubling time 8.962 h, fourfold growth over 48 h and net accumulation of 5×10⁷ cells/h under stated assumptions. The focused Bioreactors selection passed 71 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 59 disclosed depth warnings), and the assessment-candidate report passed `--check`. This same-AI work is not independent bioprocess, biomedical or clinical review.
+
+## Update after Biomaterials & Tissue Engineering 0.3.4 (2026-10-10)
+
+Expanded the week-13 reading with application-specific biocompatibility, evidence scope, host/mechanical/degradation/transport/process failure categories, causal comparisons and manufacturing/time considerations. Existing questions, keys and objectives are unchanged; all four original prototype readings now have expanded primers. The focused Biomaterials selection passed 68 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 60 disclosed depth warnings), and the assessment-candidate report passed `--check`. These same-AI checks are not independent materials, biomedical or clinical review.
+
+## Update after Biomaterials & Tissue Engineering 0.3.3 (2026-10-10)
+
+Expanded the week-9 reading with a function-led cell/scaffold/signal/mechanics framework, time-dependent cues and loading, tissue-specific readouts, controls, and limits on in-vitro inference. Existing questions, keys and objectives are unchanged; one compact reading remains in week 13. The focused Biomaterials selection passed 67 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 61 disclosed depth warnings), and the assessment-candidate report passed `--check`. These checks are not independent materials, biomedical, clinical or accessibility review.
+
+## Update after Biomaterials & Tissue Engineering 0.3.2 (2026-10-10)
+
+Expanded the week-3 reading with scaffold architecture, porosity/mechanics scaling, distinct degradation measures, exponential mass/modulus examples and tissue load sharing. Existing questions, keys and objectives are unchanged; compact readings remain in weeks 9 and 13. Regressions verify 10/40 MPa relative-density estimates, 85 mg after one week and 0.9932 MPa modulus after 14 days. The focused Biomaterials selection passed 66 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 62 disclosed depth warnings), and the assessment-candidate report passed `--check`. These same-AI model checks are not material-design or clinical validation.
+
+## Update after Biomaterials & Tissue Engineering 0.3.1 (2026-10-10)
+
+Expanded the week-1 reading with bulk/surface distinctions, contact-angle interpretation, protein-interface dynamics, unit-aware modulus and time-dependent characterization. Existing questions, keys and objectives are unchanged; compact readings remain in weeks 3, 9 and 13. Regressions verify ideal contact angles of 60° and 41.4° and a synthetic modulus of 40 MPa. The focused Biomaterials selection passed 65 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 63 disclosed depth warnings), and the assessment-candidate report passed `--check`. This same-AI work is not independent materials-science or clinical review.
+
+## Update after Biochemistry I 0.4.4 (2026-10-10)
+
+Expanded the week-12 pathway-regulation reading with pool balances, flux-control coefficients, isotope-tracing limits, layered regulation and perturbation time scales. Existing questions, keys and objectives are unchanged; all four original prototype readings now have expanded primers. Regressions verify that a 5 mM pool can remain steady as throughput halves and that a local 0.4 control coefficient gives an approximate 4% flux response to a small 10% enzyme change. The focused Biochemistry selection passed 55 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 64 disclosed depth warnings), and the assessment-candidate report passed `--check`. This same-AI work is not independent biochemistry review.
+
+## Update after Biochemistry I 0.4.3 (2026-10-10)
+
+Expanded the week-9 bioenergetics reading with carbon/redox bookkeeping, condition-dependent free energy, proton-motive-force coupling, uncoupling and qualified ATP-yield accounting. Existing questions, keys and objectives are unchanged; one compact prototype remains in week 12. Regressions verify 10 mol direct glycolytic ATP from 5 mol glucose and the distinct 8-equivalent result under an explicitly chosen partial-accounting convention. The focused Biochemistry selection passed 54 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 65 disclosed depth warnings), and the assessment-candidate report passed `--check`. This same-AI work is not independent biochemistry review.
+
+## Update after Biochemistry I 0.4.2 (2026-10-10)
+
+Expanded the week-5 enzyme reading with catalytic strategies, Michaelis-Menten assumptions, inhibition patterns and unit-aware catalytic efficiency. Existing questions, keys and objectives are unchanged; compact readings remain in weeks 9 and 12. Regressions verify rates of 50 and 20 µmol/min for the uninhibited and competitive examples and catalytic efficiency of $2.0\times10^7$ L/(mol·s). The focused Biochemistry selection passed 53 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 66 disclosed depth warnings), and the assessment-candidate report passed `--check`. This same-AI work is not independent biochemistry review.
+
+## Update after Biochemistry I 0.4.1 (2026-10-10)
+
+Expanded the week-1 protein-structure reading with structural levels, folding interactions, equilibrium occupancy and distinctions among affinity, specificity, cooperativity and binding kinetics. Existing questions, keys and objectives are unchanged; compact readings remain in weeks 5, 9 and 12. Regressions verify 0.75 occupancy at 12 µM ligand for $K_d=4$ µM and compare 0.833 versus 0.111 occupancy for the constructed Hill curves. The focused Biochemistry selection passed 52 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 67 disclosed depth warnings), and the assessment-candidate report passed `--check`. This same-AI work is not independent biochemistry review.
+
+## Update after Human Physiology for Engineers 0.4.4 (2026-10-10)
+
+Expanded the week-11 renal/endocrine reading with unit-aware clearance, filtered-load balance, limits of clearance comparisons, a feedback-sensitivity model and integrated amount balance. Existing questions, keys and objectives are unchanged; all four original prototype readings now have expanded primers. Calculations verify 25 mL/min clearance, a 0.2 mg/min filtered load and the synthetic sensitivity shift from 10 to 20 units. The focused physiology selection passed 64 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 68 disclosed depth warnings), and the assessment-candidate report passed `--check`. This same-AI work is not medical advice or independent physiology review.
+
+## Update after Human Physiology for Engineers 0.4.3 (2026-10-10)
+
+Expanded the week-5 transport reading with pressure-flow resistance, series/parallel pathways, diffusion scaling and regional ventilation-perfusion matching. Existing questions, keys and objectives are unchanged; one compact reading remains in week 11. Regressions verify 16-fold ideal tube-flow scaling, parallel resistance 4, synthetic diffusion indices 4/8/2 and a 0.8 ventilation-perfusion ratio. The focused physiology selection passed 63 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 69 disclosed depth warnings), and the assessment-candidate report was regenerated. This same-AI work is not medical advice or independent physiology review.
+
+## Update after Human Physiology for Engineers 0.4.2 (2026-10-10)
+
+Expanded the week-3 electrophysiology lesson with current conventions, ionic driving force and passive multi-ion balance. Existing questions, keys and objectives are unchanged; compact readings remain in weeks 5 and 11. Independent calculations verify 60 pA for the K⁺ example and a −77.273 mV passive steady voltage with balancing pathway currents. The focused physiology selection passed 62 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 70 disclosed depth warnings), and the assessment-candidate report passed `--check`. This same-AI work is not medical advice or independent physiology review.
+
+## Update after Human Physiology for Engineers 0.4.1 (2026-10-10)
+
+Expanded the week-1 homeostasis lesson with amount balance, a first-order concentration example, negative-feedback direction and response-time interpretation. Existing questions, keys and objectives are unchanged; compact readings remain in weeks 3, 5 and 11. Independent calculations verify equilibrium 20 µmol/L, restoring rates at concentrations 30 and 10 µmol/L, and a 3.33 min time constant. The focused physiology selection passed 62 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 71 disclosed depth warnings), and the assessment-candidate report passed `--check`. This same-AI work is not medical advice or independent physiology review.
+
+## Update after Electrical Circuits & Instrumentation 0.4.4 (2026-10-10)
+
+Expanded the final compact lesson with affine calibration inversion, first-order uncertainty propagation, covariance qualifications and traceable calibration conditions. Existing questions, keys and objectives are unchanged; all scheduled lessons now have expanded or original instructional text. Calculations verify x=4 and uₓ=0.04 units for the stated voltage calibration, and 20.0 V with standard uncertainty 0.283 V for the independent I·R example. The focused Circuits file passed 122 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 72 disclosed depth warnings), and the assessment-candidate report passed `--check`. The package remains partial, unreviewed and formative-only; the single synthetic lab is not a laboratory sequence.
+
+## Update after Electrical Circuits & Instrumentation 0.4.3 (2026-10-10)
+
+Expanded the week-7 lesson with RC magnitude response, analog anti-alias filtering, sampled-frequency equivalence and exact-Nyquist phase ambiguity. Existing questions and keys are unchanged; only the week-12 prototype reading remains compact. Regressions verify 15.9155 Hz cutoff, magnitude 0.622 at 20 Hz, equivalence of sampled 250 Hz and 50 Hz cosines at 300 samples/s, and the boundary-phase example. The focused Circuits file passed 121 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 73 disclosed depth warnings), and the assessment-candidate report passed `--check`. These same-AI checks do not validate acquisition hardware.
+
+## Update after Electrical Circuits & Instrumentation 0.4.2 (2026-10-10)
+
+Expanded the week-4 amplifier lesson with inverting/non-inverting gain, differential amplification, ADC reference bias and real-device headroom checks. Existing questions, keys and objectives are unchanged; compact readings remain in weeks 7 and 12. Recalculation confirms gains 10 and −9, outputs 1.0 and −0.90 V, and the biased differential range 1.45–1.85 V under stated ideal assumptions. The focused Circuits file passed 120 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 74 disclosed depth warnings), and the assessment-candidate report passed `--check`. These checks do not validate a physical device or safety function.
+
+## Update after Electrical Circuits & Instrumentation 0.4.1 (2026-10-10)
+
+Expanded the week-1 DC reading with unit-aware KCL/KVL and resistor reduction, Thevenin port calculations, dependent-source qualification and meter loading. Existing questions and keys are unchanged; compact readings remain in weeks 4, 7 and 12. The regression verifies 9 V open-circuit voltage, 3 Ω port resistance, 6 V under a 6 Ω load in both circuits and a 0.9901 meter-loading fraction. The focused Circuits file passed 119 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 75 disclosed depth warnings), and the assessment-candidate report passed `--check`. These same-AI checks are not hardware or safety validation.
+
+## Update after Programming & Numerical Methods 0.4.4 (2026-10-10)
+
+Expanded the final compact reading with paired donor-level displays, explicit interval meaning, independent sample size and plot-scale guidance. Existing items, keys, objectives and counts are unchanged; all scheduled lessons now have expanded or original instructional text. The regression recomputes mean paired change 1 mg/mL, sample SD 0.8165 mg/mL and the paired-$t$ interval about [−0.299, 2.299] mg/mL. The focused Programming file passed 107 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 76 disclosed depth warnings), and the assessment-candidate report passed `--check`. The package remains partial, unreviewed and formative-only; the synthetic lab is not a laboratory sequence.
+
+## Update after Programming & Numerical Methods 0.4.3 (2026-10-10)
+
+Expanded the week-10 regression lesson with residual scatter, coefficient/predictive uncertainty distinctions, training-only preprocessing and grouping by the prediction unit. Existing questions, keys and objectives are unchanged; one compact prototype reading remains in week 12. The regression recomputes residual sum of squares 0.06 and residual standard error 0.1414 for the existing five-point example. The focused Programming file passed 106 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 77 disclosed depth warnings), and the assessment-candidate report passed `--check`. These same-AI checks do not evaluate a real dataset or learner-authored implementation.
+
+## Update after Programming & Numerical Methods 0.4.2 (2026-10-10)
+
+Expanded the week-7 reading with trapezoid/Simpson quadrature, accumulated units, forward-Euler recurrence and the stability limit for scalar decay. Existing questions, keys and objectives are unchanged; compact readings remain in weeks 10 and 12. Separate calculations verify estimates 4 versus 8/3 for $t^2$ on [0,2], and Euler factors −1.4 at h=0.6 and −0.6 at h=0.4. The focused Programming file passed 105 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 78 disclosed depth warnings), and the assessment-candidate report passed `--check`. The package remains partial, unreviewed and formative-only.
+
+## Update after Programming & Numerical Methods 0.4.1 (2026-10-10)
+
+Expanded the week-1 reading with explicit data contracts, metadata-preserving structures, a unit conversion, pure-function checks and provenance practices. Existing questions, keys and objectives are unchanged; three compact prototype readings remain. A separate calculation converts 500 µL to 0.5 mL and obtains 3 mg/mL from 1.5 mg. The focused Programming file passed 104 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 79 disclosed depth warnings), and the assessment-candidate report passed `--check`. These same-AI checks do not run learner code or validate biological assays.
+
+## Update after Calculus III 0.4.4 (2026-10-10)
+
+Expanded the week-10 lesson with parameterized work integrals, orientation reversal, Green circulation and flux forms, and the scope of Stokes' and divergence theorems. Existing practice questions and keys are unchanged; all scheduled Calculus III lessons now have expanded or original instructional text. Regression calculations verify both circle orientations, the Green circulation cross-check, planar outward flux and the unit-sphere divergence result. The focused Calculus III file passed 89 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 80 disclosed depth warnings), and the assessment-candidate report passed `--check`. The course remains partial, unreviewed and formative-only; these same-AI checks are not independent mathematical review.
+
+## Update after Calculus III 0.4.4 (2026-10-10)
+
+Expanded the week-10 lesson with parameterized work integrals, orientation reversal, Green circulation and flux forms, and the scope of Stokes' and divergence theorems. Existing practice questions and keys are unchanged; all scheduled Calculus III lessons now have expanded or original instructional text. Regression calculations verify both circle orientations, the Green circulation cross-check, planar outward flux and the unit-sphere divergence result. The focused Calculus III file passed 89 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 80 disclosed depth warnings), and the assessment-candidate report passed `--check`. The course remains partial, unreviewed and formative-only; these same-AI checks are not independent mathematical review.
+
+## Update after Calculus III 0.4.3 (2026-10-10)
+
+Expanded the week-8 multiple-integral lesson with change-of-variables Jacobians, polar disk area, a Cartesian comparison and a variable-density accumulation with units. Existing questions, keys and objectives are unchanged; only the week-10 prototype reading remains compact. Independent calculations match both disk-area integrals at $9\pi$, verify the ellipse scaling determinant 2, and produce total $40\pi/3$ mg and mean density $10/3$ mg/cm² for the constructed radial example. The focused Calculus III file passed 88 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 81 disclosed depth warnings), and the assessment-candidate report passed `--check`. These checks are same-AI development evidence, not independent mathematical or accessibility review.
+
+## Update after Calculus III 0.4.2 (2026-10-10)
+
+Expanded the week-5 optimization reading with Hessian classification, a negative-definite example, a regular Lagrange-multiplier calculation and a direct global-bound proof along the feasible line. Existing questions, keys and objectives are unchanged; two compact prototype readings remain. Separate calculations verify stationary point (1,−2), Hessian diag(−2,−4), maximum 4, and the constrained value 25 with the identity $x(10−x)=25−(x−5)^2$. The focused Calculus III file passed 87 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 82 disclosed depth warnings), and the assessment-candidate report passed `--check`. These checks are same-AI development evidence, not independent mathematical or accessibility review.
+
+## Update after Calculus III 0.4.1 (2026-10-10)
+
+Expanded the week-1 vectors reading with coordinate partials, the gradient-based first-order model, unit-direction derivatives, level-curve geometry and a finite-change comparison. Existing public questions, keys and objectives are unchanged; three compact prototype readings remain. Centered differences and a separate directional calculation verify gradient (0,2), derivative 1.6 and the local change prediction 0.06 versus exact change about 0.061207. The focused Calculus III regression file passed 86 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 83 disclosed depth warnings), and the assessment-candidate report passed `--check`. These same-AI checks are not independent mathematical or accessibility review.
+
+## Update after Robotics & Mechatronics 0.4.4 (2026-10-10)
+
+Expanded the week-12 reading with path time-scaling, frame and sensor uncertainty, a constructed static feedback update, and limits on what residuals and simple recovery descriptions establish. Existing practice keys and item counts are unchanged; every scheduled Robotics lesson now has expanded or original instructional text. The regression recomputes residuals 0.9, 0.45 and 0.225 for the stated biased static model. The focused Robotics file passed 110 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 84 disclosed depth warnings), and the assessment-candidate report passed `--check`. The package remains partial, unreviewed and formative-only; these same-AI checks do not validate a physical robot, protective function or controller stability.
+
+## Update after Robotics & Mechatronics 0.4.3 (2026-10-10)
+
+Expanded the week-7 dynamics reading with the fixed-axis rotor equation, rotational work and power, a kinetic-energy balance, and an efficiency-aware gearbox example. Existing practice keys and item counts are unchanged; one compact prototype reading remains. Separate arithmetic checks match 0.12 J of net work to kinetic-energy gain and preserve the 80% gearbox power ratio. The focused Robotics file passed 109 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 85 disclosed depth warnings), and the assessment-candidate report passed `--check`. These same-AI checks are not independent device, safety or course review.
+
+## Update after Robotics & Mechatronics 0.4.2 (2026-10-10)
+
+Expanded the week-3 kinematics reading with two-link forward equations, a reachable-annulus check, two inverse branches for a shared endpoint, and joint-limit/singular-boundary qualifications. Existing question keys and item counts are unchanged; two compact prototype readings remain. Separate geometry calculations verify both inverse branches at (0.4,0.3) m for 0.4 m/0.3 m links. The focused Robotics file passed 108 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 86 disclosed depth warnings), and the assessment-candidate report passed `--check`. These are same-AI checks, not independent robotics, safety or accessibility review.
+
+## Update after Robotics & Mechatronics 0.4.1 (2026-10-10)
+
+Expanded the week-1 frame-transform reading with a labeled planar homogeneous matrix, rotation properties, composition order and inverse-coordinate recovery. Existing practice keys, objectives, item totals and schedule are unchanged; three compact prototypes remain. Matrix regressions verify the (1,0) to (2,2) frame mapping, inverse recovery, determinant and the different result from reversing operation order. The focused Robotics file passed 107 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 87 disclosed depth warnings), and the assessment-candidate report passed `--check`. These are same-AI checks, not independent robotics or safety review.
+
+## Update after Calculus II 0.4.4 (2026-10-10)
+
+Expanded the week-10 Taylor lesson with derivative-based polynomial construction, a Lagrange remainder bound tied to the whole interval, and the distinction between a finite polynomial and convergence of its infinite series. Existing practice keys, objectives and item totals are unchanged; all fourteen scheduled readings now have expanded or original text. Separate checks show the degree-two errors at 0.2 and 0.5 lie below their interval-specific bounds. The focused Calculus II file passed 86 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 88 disclosed depth warnings), and the assessment-candidate report passed `--check`. These checks are same-AI development evidence, not independent course review.
+
+## Update after Calculus II 0.4.3 (2026-10-10)
+
+Expanded the week-7 series primer with partial sums, the geometric-series total and exact tail, the necessary-but-not-sufficient term test, and a separate Taylor Lagrange bound. Existing practice keys, objectives and item counts are unchanged; one compact prototype reading remains. Direct checks verify the 1.24 partial sum, 1.25 total and 0.01 tail, as well as the Taylor error lying below its bound. The focused Calculus II file passed 85 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 89 disclosed depth warnings), and the assessment-candidate report passed `--check`. These same-AI checks do not substitute for independent course review.
+
+## Update after Calculus II 0.4.2 (2026-10-10)
+
+Expanded the week-4 work lesson with the force-displacement sum, a variable-force integral, consistent N·m/J units, direction-sensitive work and a short quadrature approximation. Existing question keys, objectives, item counts and schedule are unchanged; two compact prototype readings remain. Direct calculations check 18 J total work, 0.42 J over a short interval, and −18 J for the reversed force. The focused Calculus II file passed 84 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 90 disclosed depth warnings), and the assessment-candidate report passed `--check`. These checks are same-AI development evidence, not independent academic review.
+
+## Update after Calculus II 0.4.1 (2026-10-10)
+
+Expanded the week-1 Calculus II reading with substitution, parts and partial-fraction method examples, plus power-integral convergence criteria at infinite and singular endpoints. Existing practice keys, objectives, item counts and schedule are unchanged; three compact prototype readings remain. Separate calculations check all three antiderivatives/integrals, the p=2 tail and the harmonic divergence example. The focused Calculus II file passed 83 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 91 disclosed depth warnings), and the assessment-candidate report passed `--check`. These same-AI checks do not constitute academic or accessibility review.
+
+## Update after Calculus I 0.4.4 (2026-10-10)
+
+Expanded the week-9 definite-integral reading with signed-sum interpretation, net versus total change, both parts of the Fundamental Theorem and initial-state recovery with units. Existing practice keys, objectives, item totals and schedule are unchanged; all fourteen scheduled readings now have expanded or original instructional text, while the package remains partial and unreviewed. Numerical regressions independently recompute 6 mg net change, 10 mg total transfer and the final 18 mg state. The focused Calculus I file passed 79 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 92 disclosed depth warnings), and the assessment-candidate report passed `--check`. The checks are same-AI development evidence, not independent academic review.
+
+## Update after Calculus I 0.4.3 (2026-10-10)
+
+Expanded the week-6 optimization reading with a fixed-perimeter area model, an explicit comparison between open and closed feasible domains, endpoint checking, and a unit-aware area-rate example. Existing practice keys, objectives, item totals and schedule are unchanged; the course advanced to 0.4.3, with one compact prototype reading remaining. Separate arithmetic regressions check the candidate values (0, 25, 0 cm²) and rate (2 cm²/s). The focused Calculus I file passed 78 tests and Ruff passed. Full validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 93 disclosed depth warnings), and the assessment-candidate report passed `--check`. The package remains partial, unreviewed and formative-only; these same-AI checks are not independent academic review.
+
+## Update after Calculus I 0.4.1 (2026-10-10)
+
+Expanded the introductory Calculus I limits/continuity reading with a removable-hole example, unequal one-sided limits, and a local square-root approximation with an explicit Taylor error bound. Existing question keys, objectives, schedule and formative policy are unchanged; the course version advanced to 0.4.1, and three compact prototypes remain. Separate arithmetic checks cover the table and remainder bound; the targeted Calculus I file passed 76 tests. Full content validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors and 95 disclosed legacy-depth warnings), and the assessment-candidate report was regenerated and passed `--check`. The package remains partial, unreviewed and formative-only; this AI-assisted check is not independent academic review.
+
+## Update after Calculus I 0.4.2 (2026-10-10)
+
+Expanded the week-3 derivative-rules reading with product, quotient and chain rules; an exponential-decay rate; and a concentration-dependent response whose units are carried through the chain rule. Existing practice keys, objectives, item totals and schedule are unchanged; the course version advanced to 0.4.2, and two compact prototypes remain. Direct numerical checks cover product/quotient slopes, the chain-rule value, decay rate and response rate. The Calculus I regression file passed 77 tests, Ruff passed, full content validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards and 25 cases; 0 errors, 94 disclosed legacy-depth warnings), and the assessment-candidate report was regenerated and passed its drift check. The package remains partial, unreviewed and formative-only.
+
+## Update after the typed learner week schedule (2026-10-10)
+
+Developed with Codex assistance. The public course DTO now exposes a validated typed week sequence with lesson links and allowlisted scheduled-activity labels; malformed order, out-of-range weeks, duplicate references and unknown content are rejected by runtime or schema checks. The learner syllabus links lessons and opens scheduled practice/graded activities through the enrollment-pinned assessment plan. Week labels describe course order rather than calendar dates, and the view makes no workload claim. The API/content-repository suite passed 49 tests and focused validator tests passed 5; Ruff and full content validation passed (25 courses, 384 lessons, 2,233 questions, 1,276 cards, 25 cases; 0 errors and 96 disclosed warnings). The frontend suite passed 43 tests, including the app-level schedule URL routing test, and typecheck, lint/format and production build passed. No calendar dates, workload measurements, assessment release policy or independent course sign-off were added. Retention effects from the review queue remain unevaluated.
+
+## Update after PostgreSQL runtime-role separation (2026-10-10)
+
+Compose now provisions a separate `courselab_app` runtime login with no superuser, database-creation, role-creation or schema-creation rights. The API uses this account; Alembic continues under the bootstrap account, which owns migration-created objects. Provisioning grants current table CRUD and sequence access and sets default privileges for future migration-created objects. On a fresh isolated PostgreSQL 17 Compose project, role creation, migration to `0010 (head)`, API health, and a guest-session write all passed. Direct privilege checks confirmed that the runtime role could not create a public schema object, while default grants covered a test table and sequence; the test objects and isolated volumes were removed. Development and production Compose configs validated. The full backend suite passed (4,742 passed, 2 expected skips), and Ruff passed. This narrows database-administration exposure but does not add row-level security or limit the API account's access to other learners' rows or protected answer archives. Production email recovery, distributed throttling, trusted proxy attribution, retention, resource limits, rollback and recovery objectives remain open.
+
+## Update after graded-source archiving (2026-10-10)
+
+Alembic 0010 adds a private archive of exact graded-assessment source bytes, keyed by course version, assessment ID and SHA-256. New plans store the archive transactionally; an existing plan created before the migration archives its source on the first valid graded request when the live bytes still match. A source already archived for another learner is reused, while edited bytes under the same course version are refused. Instructor appeals reconstruct the original prompt and assigned form from the archive, so they remain reviewable after a legitimate course-version update. Digest tampering, missing archives and grader-spec mismatches block uphold/adjust decisions, while a documented decline remains available. Migration 0010 cannot recover a source that had already changed or disappeared before archiving. Database backups now contain graded keys and must be protected at the same level as private assessment files. Verification passed 25 focused API/migration tests, 96 candidate/content integrity tests, Ruff, candidate-audit drift check, and full content validation (25 courses, 384 lessons, 2,233 questions, 1,276 cards, 25 cases; 0 errors and 96 disclosed warnings). Frontend tests (39), typecheck, lint and production build also passed. Biology candidates remain inactive; candidate-specific protected delivery/source checks and human, workload and release gates remain open.
+
+## Workload-pilot preparation (2026-10-10)
+
+Added a version-scoped workload-pilot protocol, blank de-identified logging template, and blank independent assessment-review register for the proposed Biology 0.35.0 course. These documents make future review and measurement processes concrete; no reviewer is assigned, no participant was recruited, and no workload data were collected. The protocol requires a frozen course, independent subject-matter/assessment/accessibility review, institution-approved participant protections, and predeclared weekly time targets before data collection. Workload and qualified review remain open completion gates.
+
+## Update after protected authored-form assignment and replay (2026-10-10)
+
+Graded assignments now select and persist one shared authored form for each learner attempt. Refreshes return the same form and opaque assignment token; retakes use forms not yet assigned in the current cycle, and each submission stores its variant ID and exact grader digest. Appeal review resolves that saved variant before exposing the prompt. Alembic 0009 adds the assignment record. Synthetic integration coverage exercises private and open sources, token ownership, idempotent retries, form cycling, and exact appeal replay. The complete Python backend/content run passed 7,270 tests with 2 skips; the frontend suite passed 39 tests, typecheck, lint and production build passed, and content validation reported 0 errors with 96 disclosed warnings. The Biology candidates remain inactive: candidate-specific protected-source verification, independent recalculation and qualified subject-matter/assessment/accessibility review, approved human scoring, historical source archives, workload data and operator release decisions are still open.
+
+## Update after the final-candidate tolerance revision (2026-10-10)
+
+Biology 0.35.0 adds an inactive, versioned final candidate v2. Form A's case-05 ratio is 0.0100 at three significant figures; the adjacent lower three-figure value, 0.00999, is 0.00001 away, so its absolute tolerance is 0.000005, half that gap. This allows small calculation noise while rejecting the neighboring rounded value. Form B's result is 100 and retains its 0.005 tolerance. The original 0.29.0 packet and private key remain unchanged; the new private key is outside Git. The current course version and audit were updated while all fourteen intended assessment components remain inactive. This authored revision has not received independent recalculation or qualified review, and no test suite was run for it. The course remains partial, unreviewed and formative-only.
 
 ## Update after the Biology assessment draft set (2026-10-10)
 
@@ -216,15 +1661,15 @@ Next, author week 8–14 instruction and the substantive homework, three data/la
 
 ## Overall assessment
 
-The repository is a working local formative learning and practice platform. Infrastructure has progressed substantially: React/TypeScript, FastAPI, PostgreSQL, migrations, durable learner records, bounded deterministic graders and a curriculum graph exist. The central educational deliverable—a substantive university course—remains unfinished. **Zero courses are complete, beta or externally reviewed.** No credit, university equivalency, affiliation or admission eligibility is implied.
+The repository is a working local formative learning and practice platform. Infrastructure has progressed substantially: React/TypeScript, FastAPI, PostgreSQL, migrations, durable learner records, bounded deterministic graders and a curriculum graph exist. Biology 0.48.0 now has an authored 14-week sequence, a topic-level comparator map and a full set of inactive assessment drafts, but the central educational deliverable—a reviewed course with accepted grade-bearing assessments—remains unfinished. **Zero courses are complete, beta or externally reviewed.** No credit, university equivalency, affiliation or admission eligibility is implied.
 
 | Milestone | Current assessment | Main remaining work |
 | --- | --- | --- |
 | 1: Audit, identity, schemas, maturity | Substantially delivered | Maintain accurate documentation and migration compatibility |
-| 2: Full-stack reader and persistence | Delivered for local formative study | Semester calendar, scheduled assessments and richer learner tools |
-| 3: Grading and instructor feedback | Partial | The current increment closes email-impersonation and same-version variant/digest review defects. Semester assignments/exams, weighted policies, broader reasoning assessment and immutable historical content remain |
+| 2: Full-stack reader and persistence | Delivered for local formative study | Calendar dates require real term data; richer learner tools and measured retrieval outcomes remain |
+| 3: Grading and instructor feedback | Partial | Weighted policy calculation, graded-submission integration and appeal overrides pass synthetic tests; no shipped course activates them. Candidate review/activation, full human reasoning assessment and historical course-package archives remain |
 | 4: Catalog and dependencies | Planning metadata delivered | Qualified review of scope, sequencing and prerequisites |
-| 5: Full biology vertical slice | Not delivered | Original 14-week instruction and aligned semester assessment sequence |
+| 5: Full biology vertical slice | 14-week instruction and inactive assessment drafts authored; course remains partial | Accepted semester assessments, independent academic/accessibility review, measured workload and operator release decision |
 | 6: Full quality gates/deployment | Foundations delivered | Trusted completion evidence, academic/accessibility review, operational hardening |
 
 ## What works now
@@ -232,7 +1677,7 @@ The repository is a working local formative learning and practice platform. Infr
 - Local Docker Compose startup with private database/credential volumes, Alembic migrations including operator-provisioned review roles, a same-origin API proxy and a separate frontend image.
 - Public course reading; guest/account sessions and conversion; enrollment, reading marks, notes/bookmarks, immutable attempts, feedback history, practice gradebook and learner export/delete.
 - Choice/multiple-select, constrained numerical units/tolerances/significant figures, bounded rational-expression equivalence, fielded data/rubric responses, small CSV numeric tables and fixed-axis coordinate grading. These are narrowly specified formative graders, with explicit unsupported cases.
-- Append-only appeal decisions and effective formative-score overrides. Instructor roles are granted only through an operator CLI after out-of-band identity review; registration cannot grant access. Variant attempts are reconstructed from their saved ID, and changes are accepted only when the current course version and question-specification digest match. Older content cannot be restored because immutable package archives do not exist.
+- Append-only appeal decisions and effective formative-score overrides. Instructor roles are granted only through an operator CLI after out-of-band identity review; registration cannot grant access. Variant attempts are reconstructed from their saved ID. Graded appeals use SHA-256-verified archived source bytes and the saved grader digest, including after course-version changes. Existing attempts without archive records, and formative appeals without archived package versions, still require decline when installed content changes.
 - Eight pathway maps and prerequisite validation across 62 nodes. The JHU map includes all four requested foundational topics and the advanced topic list, with link-only provenance and equivalency caveats.
 - Source registry, separate software/content licenses, public DTO exclusions, CSRF/ownership checks, safe Markdown, CI, backend/frontend/content tests and basic browser accessibility checks.
 
@@ -240,21 +1685,22 @@ Evidence: `compose.yaml`, `backend/courselab/{db,main,grading,content,evidence}.
 
 ## Content depth and alignment
 
-| Inventory at the reviewed baseline | Actual scope |
+| Inventory at the 2026-10-10 review | Actual scope |
 | --- | --- |
-| 25 course packages | All `partial` and `unreviewed` |
+| 25 course packages | All `partial` and `unreviewed`; none is complete or externally reviewed |
 | 37 additional subject nodes | `catalog-only`; no enrollable instructional package |
-| 101 readings | 100 at most 100 words including headings; approximately 7,833 words in total |
-| 106 questions | 57 numeric, 43 single choice, one each of six other types |
-| 203 retrieval cards / 25 cases | Primarily prototype prompts and self-assessment checklists |
-| 101 practice inventories | No graded homework/lab/exam/project inventories |
-| Semester weeks/workload | No populated week schedules or measured workload estimates |
+| 384 lessons | Includes 39 in Cell and Molecular Biology; all packages remain partial |
+| 2,299 formative questions | Includes 166 in Cell and Molecular Biology |
+| 1,276 retrieval cards / 25 cases | Includes 89 Cell and Molecular Biology cards; self-ratings are not grades |
+| Weekly sequence | Biology has 14 typed weeks; week numbers are not calendar dates |
+| Biology assessment drafts | 15 public candidate files represent 14 intended components; every candidate remains inactive |
+| Workload/review evidence | No pilot data or qualified reviewer sign-offs; workload is unmeasured |
 
-Foundations of Cell and Molecular Biology has four readings totaling approximately 308 words, seven questions, eight cards and one self-assessed case. One question has three authored forms. It lacks the requested 14-week instruction, eight substantive homework sets, three activities, midterm, cumulative final and integrative project. Its case uses zero-point checklist criteria rather than a developed analytic performance rubric.
+Foundations of Cell and Molecular Biology 0.48.0 has 39 lessons, 166 public formative questions, 89 retrieval cards, 28 formative assessment entries, a typed 14-week schedule and a topic-level scope crosswalk against selected public MIT OpenCourseWare comparators. Version 0.36.0 added four original practice items for mutation chemistry, ion driving force, enzyme parameters, and replicate-level inference; the week-8 review remains at 25 questions and 44 ungraded practice points. Version 0.43.0 added chromatin-replicate, RNA-processing and linkage practice; version 0.44.0 added late-course practice on cytoskeletal roles and cell-cycle evidence. Version 0.45.0 adds structured association and regenerative-evidence practice. Version 0.46.0 prepared an independent-review handoff with explicit scientific, assessment, accessibility, workload and release gates; version 0.47.0 adds structured formative practice for explanation of DNA replication, chromatin organization, and RNA processing; version 0.48.0 adds an ungraded, self-assessed written-design exercise for matrix mechanics linked from the week-12 syllabus. No review or approval has occurred. Every lesson objective maps to at least two distinct public items; this coverage count does not establish depth or mastery. The generated response-format inventory lists item forms by objective, but it does not establish that those forms measure objective verbs or free-response performance. Version 0.37.0 records topic presence and explicit omissions only; it does not establish equivalency, comparable workload, or review. The course also has eight open formative homework companions, three interactive synthetic labs, and inactive drafts for eight homework candidates, three lab candidates, a midterm, a cumulative final and an integrative project. The earlier final candidate is retained as a historical file, so the public audit lists 15 files for 14 intended components. The package remains `partial`, `unreviewed` and `formative-only`; draft candidates are not active course assessments.
 
-Assessment development has outpaced instruction: a structured item asks about ChIP-qPCR and motif-mutant reporters, but the linked gene-expression reading does not explain those methods or provide worked experimental examples. Expand instruction alongside assessment, including controls, uncertainty and causal reasoning.
+Instruction and assessment drafts now span the proposed sequence, including worked examples on chromatin occupancy and reporter evidence. Candidate objective mappings and machine-checked responses do not establish complete cognitive-level coverage or meet a summative blueprint. Qualified scientific, assessment and accessibility review, independent numerical recalculation, human scoring procedures, protected-source verification and an approved workload pilot remain open.
 
-Only seven of 13 biology course/lesson objectives have an assessment or question mapping; all four course outcomes remain unmapped. Eight of nine lesson-objective records lack a course-outcome link, and all eight cards lack objective mappings. Reference presence does not prove the assessment exercises the claimed cognitive level. See `content/courses/cell-biology/course.json`, `question-banks/practice.json`, `modules/` and `rubrics/case-studio.json`.
+All 101 course outcomes across the catalog link from lesson objectives and appear in assessment mappings; 184 prototype-unit objectives remain unlinked to a course outcome and need review. These associations still require subject-matter judgement. Biology’s crosswalk is a draft scope comparator, not evidence of equivalent coverage. See `content/courses/cell-biology/course.json`, `question-banks/practice.json`, `assessment-specs/` and `modules/`.
 
 Module provenance and licensing boundaries are strengths. Current biology source alignment points broadly to two comparator courses; it is not an exact source-unit/topic/assessment crosswalk or evidence of comparable coverage. The developed course needs a documented scope comparison, explicit omissions and real scientific review. Public catalogs inform the knowledge map; they do not validate equivalency.
 
@@ -263,24 +1709,164 @@ Module provenance and licensing boundaries are strengths. Current biology source
 | Priority | Finding and consequence | Required resolution |
 | --- | --- | --- |
 | Addressed in current increment | A registrant could previously claim an allowlisted email and obtain reviewer access. | `INSTRUCTOR_EMAILS` authorization is removed. All accounts default to no role; only the operator CLI changes the persisted role, and self-registration still fails closed. The operator must verify identity outside the application. |
-| Addressed for the installed package; historical limitation remains | The previous queue showed the base prompt for variant attempts and could not detect same-version edits. | The queue resolves the stored variant and checks its question-specification digest before exposing the prompt/options. Adjust/uphold fail closed on missing, stale or changed content. Old package versions are not archived, so old appeals can only be declined. |
+| Addressed for new graded plans; old and formative cases remain limited | The previous queue showed the base prompt for variant attempts and could not detect same-version edits. | The queue resolves the stored variant from a private, digest-verified source archive and checks its question-specification digest. Adjust/uphold fail closed on missing, corrupt or mismatched archives. Alembic 0010 does not backfill old submissions; the formative appeal path still uses installed content. |
 | Addressed in current increment | After a page reload, a fresh random variant could replace the prompt attached to a saved attempt and hide its feedback. | Lesson loading now reuses the latest attempted variant for the learner and current content version; a signed pin token reproduces that exact question, and a regression test checks restored feedback/status. |
-| P1 course delivery | API/result schemas and gradebook cover formative practice only. Best per-question scores are not category-weighted semester grades. | Add assessment instances, homework/lab/project/exam categories, release/deadline/attempt policies, protected key storage and weighted calculation. |
+| P1 course delivery | The manifest and gradebook remain formative-only; authored candidate packets are not enrolled assignments. | After review, provision accepted candidates as semester assignments with approved release, deadline, retake, category-weight and human-scoring policies; retain protected keys and audited grade calculation. |
 | P1 before complete status | Completion evidence currently trusts manifest booleans and a nonempty execution list, without trusted artifact/result verification or content/commit binding. | Generate evidence from actual CI runners, bind it to content/software hashes and require actual human signoff. |
-| P2 learner coverage | Addressed 2026-10-07: retrieval ratings, history and a due queue persist, and unassessed objectives stay visible as `no items`. Course DTO/UI still omit weekly scheduling. | Expose typed weeks and a learner calendar. |
-| P2 extensibility | Content loader hardcodes `question-banks/practice.json`; API/grader remain large modules. | Resolve manifest-defined banks and split routers/services around tested grader contracts. |
-| P2 production | Email verification/recovery, shared throttling, retention, least-privilege DB roles, resource limits and public HTTPS operation remain unvalidated. | Implement and validate these before handling real learner records publicly. |
+| P2 learner coverage | Addressed in part 2026-10-10: retrieval ratings, history and a due queue persist; unassessed objectives stay visible as `no items`; the syllabus now has typed weeks, lesson links and assessment deep links. | Add calendar dates only when real dates are available; measure whether the retrieval schedule improves retention. |
+| P2 extensibility | Addressed for current routes 2026-10-10: lesson-question loading uses optional `practice_question_bank` with course-confined paths; catalog, authentication, lesson, learner-state, retrieval, formative-attempt, legacy instructor-appeal, gradebook, enrollment/assessment-plan, graded delivery/submission, graded history/appeal and learner-account routes live in dedicated modules; assessment-plan creation/source archiving and graded-submission serialization/review verification live in `courselab/assessment_plans.py` and `courselab/graded_views.py`; DB, identity, CSRF, enrollment and reviewer checks are shared in `courselab/dependencies.py`. `main.py` now owns app construction, middleware and exception handlers. | Return to release criteria and production validation. |
+| P2 production | API/database readiness and Compose startup ordering are checked, the API uses a separate least-privilege PostgreSQL role, and production Compose now sets adjustable CPU/memory caps; email verification/recovery, shared throttling and trusted client attribution, retention, row-level isolation, resource sizing/load tests, rollback, recovery objectives and public HTTPS operation remain unvalidated. | Implement and validate these before handling real learner records publicly. |
 
 Code evidence: reviewer checks/registration in `backend/courselab/main.py` (`require_reviewer`, `register`); appeals in `instructor_appeal_record` and `review_appeal`; digest storage in `submit`; completion evidence in `tools/validate_content.py`; retrieval in `LessonStudy.tsx`; objective initialization in `evidence.py`; public manifest fields in `content.py` and course views in `CourseWorkspace.tsx`.
 
-Live-link probes are optional and not a mandatory CI check. Two JHU URLs denied the automated client with HTTP 403 in the recorded prior run; this is an unresolved access/probe result, not proof that the pages are missing. Link checks should cover instructional links as well as registry URLs and distinguish denied access from broken destinations. Independent recalculation currently covers selected CSV/graph keys, not every numerical item. A disabled runner cannot establish isolation against malicious code or infinite loops.
+Live-link probes are optional and not a mandatory CI check. The validator reports HTTP 401/403 as `link-access-denied` warnings and continues to treat missing destinations such as HTTP 404 as errors. On 2026-10-10, Python's live probe still received HTTP 403 for the JHU degree-details and admissions pages and IUPAC Gold Book entry; the two official JHU pages were separately opened and their current content confirmed. This verifies those destinations through the official web pages, but does not establish that automated clients can fetch them. Link checks now cover registry URLs and public course-package Markdown destinations; other file types and browser-specific access still need review. In Cell Biology 0.48.0, author-side recalculation covers all 21 public numeric-type keys across the 0.36.0 and 0.39.0 audits; source reconciliation covers 114 public summary cells across 12 table-upload items. Neither is independent review; inactive candidate packets remain outside both checks. See [the table-key audit](reviews/cell-biology-public-table-key-audit-0.36.0.md), [the 0.36.0 numeric-key audit](reviews/cell-biology-numeric-key-audit-0.36.0.md), [the 0.39.0 numeric-key audit](reviews/cell-biology-numeric-key-audit-0.39.0.md), and the course's topic-level comparator crosswalk. The percentage-point item uses context-specific `pp`, and the grader rejects `%` for that answer. A disabled runner cannot establish isolation against malicious code or infinite loops.
 
 ## Recommended execution order
 
-1. Implement a manifest-driven graded-assessment model: assignment instances, homework/lab/project categories, deadlines, release and attempt policies, weighted calculations, and protected assessment-key storage. Keep current practice scores clearly formative.
-2. Draft the 14-week cell/molecular-biology scope, source map and assessment crosswalk, then author substantial teaching, worked experimental examples, homework and data/lab activities in sequence. Address methods already referenced by questions (including ChIP-qPCR and reporter controls). Do not mark the package beta until its course materials meet the documented gates.
-3. Add immutable content-package archives so appeal review can load historical prompts/specifications rather than only decline after an update. Extend learner scheduling, spaced retrieval and objective coverage including unassessed objectives.
-4. Build trusted hash-bound quality evidence, independently recalculate every numerical key, broaden mutation/adversarial tests, validate instructional links, and obtain actual subject-matter/accessibility review before any complete badge.
-5. Complete production hardening and recovery rehearsal before serving valuable learner records: separate least-privilege database roles, email verification/recovery, distributed throttling, retention, resource limits and a verified off-host backup process. Implement code execution only with demonstrated isolation.
+1. Keep the graded-assessment model and private-source runtime testable, then integrate candidates into the course manifest only after each candidate’s reviews, source checks and release policy are accepted.
+2. Freeze Biology 0.48.0 for qualified scientific, assessment and accessibility review; independently recalculate every candidate numeric key, exercise grader boundaries, establish human-scoring procedures, and run an institution-approved workload pilot. Preserve `partial` maturity until actual evidence and an operator decision satisfy the gates.
+3. Extend immutable history from graded assessment source files to complete course packages, lesson sources and other review artifacts; add a reviewed restore/regrading workflow for old versions. Measure retrieval outcomes and refine objective coverage only with suitable evidence.
+4. Build trusted hash-bound quality evidence from actual test artifacts and human sign-offs, validate instructional links, and expand manual accessibility checks before any complete badge.
+5. Complete production hardening and recovery rehearsal before serving valuable learner records: email verification/recovery, distributed throttling, trusted client attribution, retention, row-level data isolation, load-tested resource sizing and a verified off-host backup process. Implement code execution only with demonstrated isolation.
 
-The [roadmap](ROADMAP.md) tracks acceptance criteria. Existing useful content and legacy tools remain available. Branding now matches the renamed public repository. Historical browser storage identifiers and the untracked local Compose-volume identity remain only to preserve existing learner and database data; they are not product names. No course maturity label has advanced.
+The [roadmap](ROADMAP.md) tracks acceptance criteria. Existing useful content and legacy tools remain available. Branding now matches the renamed public repository. Historical browser storage identifiers and the untracked local Compose-volume identity remain only to preserve existing learner and database data; they are not product names. Biology’s authored scope has advanced, but no course maturity label has advanced because independent and operational gates remain open.
+
+## Robotics contact-control unit (2026-10-11)
+
+Robotics & Mechatronics 0.4.7 adds a bounded week-12 lesson treatment comparing position tracking and force regulation in compliant contact, including hybrid tangent-position/normal-force assignment. Six formative items and four cards raise that package to 100 practice questions and 52 cards. MIT OCW 2.12 Fall 2005's undergraduate calendar explicitly lists hybrid position-force control (L12) and compliance/end-effector design (L13); the added instruction uses original synthetic spring calculations and states the omitted dynamics and validation limits.
+
+Repository content validation passed for 25 courses, 407 lessons, 2,468 questions, 1,376 cards and 25 cases, with zero errors or warnings. The objective report covers 1,064 objectives and 106 outcomes with no unmapped, unpractised or outcome-unlinked objectives; the candidate inventory and both drift checks passed. The 0.4.7 Robotics package has 23 files, 309,392 bytes, archive SHA-256 `ea7ae53ba96f81b1ec45b5cbb4f38292434c4691e0dd62f2b3bf7a189b400351` and manifest SHA-256 `861564dd9f9095082690ccdc5c6f49ebc506e04524d78e6dde818dcd398c0f6c`. No test suite was run. The package remains partial, unreviewed and formative-only.
+
+## Human Physiology pressure-volume and pump-work unit (2026-10-11)
+
+Human Physiology for Engineers 0.4.7 extends the existing week-6 hemodynamics lesson with a synthetic pressure-volume loop, stroke-volume calculation and rectangular external-work estimate. Six formative items and four retrieval cards map to a new objective without adding a week. MIT OCW HST.542J Spring 2004 is an undergraduate comparator whose calendar includes cardiovascular models and the heart as a pump. The source map records the comparator and the local model's limits; all numerical values are invented, not clinical estimates.
+
+Repository content validation passed for 25 courses, 407 lessons, 2,474 questions, 1,380 cards and 25 cases, with zero errors or warnings. Objective coverage reports 1,065 objectives and 106 outcomes with no unmapped, unpractised or outcome-unlinked objectives; the candidate inventory and both drift checks passed. The 0.4.7 Physiology package has 24 files, 310,157 bytes, archive SHA-256 `c9014927ebd7a9f6b7e739a6d00f3c850eae5daaa4cacddaae38543b1b4eb4b7` and manifest SHA-256 `47e8bd6f5d28f5a090c31c0fc2e1d09aaf0105e7095a55c7422383f4dddf62f9`. No test suite was run; existing numeric-key and snapshot version expectations were updated. The package remains partial, unreviewed and formative-only.
+
+## Circuits & Instrumentation second-order response unit (2026-10-11)
+
+Circuits 0.4.7 adds an original week-8 lesson on series RLC transients, damping, resonance, impedance phase and stored energy alongside the existing first-order RC lesson. Nine formative questions and four cards address underdamped response and phase sign; calculated values are independently checked in the content notes. MIT OCW 6.002 Spring 2007 is an undergraduate comparator whose calendar covers second-order transients, damping, impedance, filters and energy/power. The lesson preserves the 14-week plan and states the ideal-component model limits.
+
+The package contains 23 files and 314,714 bytes; archive SHA-256 `41889f80bae543d4ff94d17d36b501a15a3addba8aad63baee6d41c574888799`; manifest SHA-256 `ffe89d5cc03bd095ed319fa95655722c1168bdbeea1d872d6d7223b94c0a7581`. Repository content validation passed for 25 courses, 408 lessons, 2,483 questions, 1,384 cards and 25 cases, with zero errors or warnings. No test suite was run. The course remains partial, unreviewed and formative-only.
+
+## Calculus I Mean Value Theorem unit (2026-10-11)
+
+Calculus I 0.4.7 adds a bounded week-7 theorem sequence: interval hypothesis checks, counterexamples when continuity or differentiability fails, Rolle's Theorem, derivative-sign proofs of monotonicity and root uniqueness, and a finite-change bound. Nine formative items and four cards exercise those outcomes alongside existing curve-shape work; the proposed schedule remains 14 weeks. MIT OCW 18.01SC Fall 2010 is an undergraduate comparator, and its Unit 2 Part C dedicates sessions 34–35 to introducing and using the Mean Value Theorem. This local lesson addresses that theorem strand and leaves antiderivatives/differential equations to the later sequence; it does not claim full course equivalence.
+
+Content validation passed for 25 courses, 409 lessons, 2,492 questions, 1,388 cards and 25 cases, with no errors or warnings. Objective coverage reports 1,069 objectives and 107 outcomes, with no unmapped, unpractised or outcome-unlinked objectives. The 0.4.7 package has 24 files, 288,867 bytes, archive SHA-256 5c660c5de34e369a3caeb1881ec0298f9ca6ca0afe3959e4a597543fece9147e, and manifest SHA-256 3a9efcafe060b5e353834d5a55c58d06e217c7732ebd89eb87df4bbf6d385a39. No test suite was run. The course remains partial, unreviewed and formative-only.
+
+## Probability, Biostatistics & Experimental Design Bayesian parameter unit (2026-10-11)
+
+Statistics 0.4.6 adds one original week-13 lesson alongside the existing base-rate and p-value treatment. A three-state discrete prior over Bernoulli success probabilities is updated with two synthetic successes: the likelihoods are 0.04, 0.25 and 0.64; evidence is 0.223; and the normalized posterior is 20/223, 75/223 and 128/223. It then computes posterior odds and a separate two-trial predictive check, and states why the p-value under a fixed null is not a posterior probability. Nine formative items and four retrieval cards support the unit. MIT OCW 18.05 Spring 2022 schedules likelihood/MLE in Class 10, discrete priors and predictive probabilities in Classes 11–12, and a Bayes/NHST comparison in Class 20. This unit adds only the finite-prior strand; continuous priors, beta conjugacy and broader MLE theory remain limited.
+
+Content validation passed for 25 courses, 410 lessons, 2,501 questions, 1,392 cards and 25 cases, with no errors or warnings. Objective coverage reports 1,072 objectives and 108 outcomes, with no unmapped, unpractised or outcome-unlinked objectives. The 0.4.6 package has 25 files, 358,151 bytes, archive SHA-256 1792fc3ede2767550400d1a98b820347d34db94c200622d552b55ab796433f22, and manifest SHA-256 60315cbd46deb19680ba33d9ecfcda80988546f255bac77383f5a5c7fdc58c0f. No test suite was run. The package remains partial, unreviewed and formative-only.
+
+## Bioreactors sterile-boundary reasoning (2026-10-11)
+
+Bioreactors & Tissue Culture Engineering 0.4.8 adds a conceptual sterile-boundary strand inside existing Week 12. It maps media/feed, gas, vessel-connection, and sampling/harvest interfaces; works one synthetic log-reduction calculation; and distinguishes that model and a sample-level no-detection result from whole-batch sterility or process validation. Three practice items and three retrieval cards support the new objective. No sterilization settings, lab procedures or real-process claims are provided.
+
+MIT OCW 10.442 Spring 2005 is the undergraduate biochemical-engineering comparator. Its calendar includes growth/product stoichiometry (sessions 11–12) and media/air sterilization (session 22); the local course remains narrower in microbial/enzyme coverage and does not import OCW instructional assets. This addition addresses a tissue-culture process-quality foundation within the proposed schedule rather than adding a week.
+
+Content validation passed for 25 courses, 424 lessons, 2,647 questions, 1,464 cards and 25 cases, with zero errors or warnings. Objective coverage has no unmapped, unpractised or outcome-unlinked objectives; the candidate inventory was regenerated. The 0.4.8 package has 23 files, 314,294 bytes, archive SHA-256 `5001aa825241e345df896ba4f744d5b6500b56d5c761a500342a0fbe44faff84`, and manifest SHA-256 `29b0d23d5673ce822d903d77e7d2689599dc9bebc4802427a00a51648a14fa11`. No test suite was run. The course remains partial, unreviewed and formative-only.
+
+## Differential Equations Fourier response (2026-10-11)
+
+Differential Equations for Living & Engineered Systems 0.4.0 extends the existing Week 3 first-order forcing lesson. An idealized square-wave feed is decomposed into odd Fourier harmonics, then each term is filtered at its own frequency. With synthetic amplitude 1 mM, period 120 min and time constant 40 min, the fundamental output amplitude is 0.5486 mM and the third-harmonic output amplitude is 0.06671 mM. The reading also states the midpoint convergence at jumps and finite-sum overshoot limits. Four formative checks and three cards support the new objective; no week was added.
+
+MIT OCW 18.03SC Fall 2011 Unit III includes Fourier series alongside Laplace transforms. The local addition addresses only harmonic response of a periodic input; impulse, convolution and transfer-function breadth remains limited, and no OCW asset was imported.
+
+Repository content validation passed for 25 courses, 424 lessons, 2,651 questions, 1,467 cards and 25 cases, with zero errors or warnings. Objective coverage reports 1,117 objectives and 114 outcomes, with no unmapped, unpractised or outcome-unlinked objectives; the candidate inventory was regenerated. The 0.4.0 package has 23 files, 330,230 bytes, archive SHA-256 `19882a7fa809e6cde6f4d1428a33e36451e24c2433e3c574560dfbdc3b78e224`, and manifest SHA-256 `c5f9e7ea93bdb4cd3b8dc8eec2a59f4b0638328be0e316056fa90010ff11a76a`. No test suite was run. The course remains partial, unreviewed and formative-only.
+
+## Statics & Mechanics of Materials axial compatibility (2026-10-11)
+
+Statics & Mechanics of Materials 0.4.7 extends its existing Week 3 axial-load unit with an original parallel-bar assembly. Two equal-length and equal-area bars at 200 and 100 GPa carry a synthetic total of 30 kN between rigid plates; shared extension is 0.4 mm and the forces are 20 and 10 kN. Three formative items and three cards practice the separate roles of equilibrium, geometric compatibility and each member's elastic relation. Indeterminate beam and truss analysis remain limited; no design or safety guidance is added.
+
+MIT OCW 2.001 Fall 2006 describes geometry/compatibility, force relations and material behavior as core mechanics ingredients; its syllabus/readings also schedule static indeterminacy, truss deformation and indeterminate beams. This original example covers only a bounded axial case and does not claim 2.001 equivalence or reproduce OCW content.
+
+Content validation passed for 25 courses, 424 lessons, 2,654 questions, 1,470 cards and 25 cases, with zero errors or warnings. Objective coverage reports 1,118 objectives and 114 outcomes, with no unmapped, unpractised or outcome-unlinked objectives; the candidate inventory was regenerated. The 0.4.7 package has 24 files, 338,262 bytes, archive SHA-256 `87cb69a9f7a90b854cc531bb891d85dc8b9198cdf9efb449b3dd41d2fb29b2f4`, and manifest SHA-256 `629d776431bcbed5480746a4136bcc5e0fa94edc7769e12bd0a4fe0568f05b3c`. No test suite was run. The course remains partial, unreviewed and formative-only.
+
+## Test-suite repair, content consistency fixes and two bounded units (2026-10-13)
+
+Earlier batches had recorded "no test suite was run". Running the suite found 86 root failures, 23 backend failures, one frontend failure and one security-scan finding. Each was examined individually. Most were stale test expectations: hard-coded versions, counts and syllabus phrases, and numeric items with no independent recalculation. These were replaced with invariants: manifest version equals the latest history entry, inventories are counted directly from the package files, and syllabus statements are derived from the manifest. 104 numeric keys across 17 courses that lacked them now have independent recalculations, using numeric limits, phasor sums, line-integral quadrature, Lagrange construction, exact cofactor expansion and atom balances. Every key agreed with its recalculation. Two test formulas were themselves wrong: the Statics point-load reaction and the Differential Equations display-precision comparison. The backend grader gained unit atoms that authored items already used (kN, T, mT, μT, nT, ratio, dimensionless). The CI smoke test now passes per-run random database passwords as files instead of fixed literals.
+
+Real learner-facing defects were fixed with a version bump and snapshot refresh for each package:
+
+- Genetics 0.5.7: two lessons had dropped out of the schedule and one appeared twice.
+- General Chemistry I 0.4.9: three-domain (trigonal planar) VSEPR was missing, and two week-1 items were not on their lesson page.
+- Physics I 0.4.8: a rotating-frame section was added to the centrifuge lesson.
+- Statistics 0.4.8, Transport 0.4.8 and Calculus I 0.4.8: syllabus outcomes now match the manifest exactly. Transport also links its project draft, and the Calculus I week-7 row now lists both lesson titles.
+- Programming 0.4.9: the syllabus now links the project draft.
+- Biomaterials 0.3.9: a lesson title in the syllabus is corrected.
+- Cellular Biomechanics 0.3.8: a raw exponent is now shown in scientific notation.
+
+Organic Chemistry I 0.4.9 adds an SNAr strand to the aromaticity lesson, matching the MIT 5.12 week-11 pairing of EAS and SNAr. Linear Algebra 0.3.7 adds a determinants reading before eigenvalues, following the 18.06SC Unit II order. Both are described in the validation report.
+
+Two issues were deliberately left for the owner. Cell Biology 0.61.1 lost its syllabus week-8 links, and its packets, like the Biochemistry kinetics lab, carry stale version labels. Correcting these files would change files frozen inside assessment-candidate prerequisite digests and the workload-pilot pin. All packages remain partial, unreviewed and formative-only.
+
+## Fed-batch culture, Routh–Hurwitz and root locus, passive cable properties (2026-10-13)
+
+Three bounded units were integrated into existing weeks, with no week added:
+
+- Bioreactors 0.4.9 places a fed-batch reading beside continuous culture in week 4. It covers balances with changing volume, the dilution term without outflow, an exponential feed that holds a substrate at a set point, and the working-volume limit.
+- Signals & Control 0.4.8 adds Routh–Hurwitz arrays and root-locus construction to the week-8 feedback lesson, following the placement in MIT OCW 2.004.
+- Physiology 0.4.8 adds passive membrane and cable properties to the week-4 membrane-potential lesson: the time constant, input resistance, length constant and conduction-velocity scaling.
+
+Every new numeric key has an independent recalculation, described in the validation report. All packages remain partial, unreviewed and formative-only.
+
+## Circuits & Instrumentation op-amp signal operations (2026-10-13)
+
+Circuits & Instrumentation 0.4.8 adds an op-amp signal-operations reading to week 5, after the finite-feedback lesson, following MIT OCW 6.002 session L22 and recitation R22. It covers summing by superposition at the virtual ground, integrators with offset drift and the lossy-integrator bound, differentiators and their rising noise gain, first-order active low-pass and band-pass stages, a unity-gain Sallen–Key low-pass, and the gain-bandwidth limit. The grader now accepts kHz. The manifest and syllabus had overstated the number of unit-required items (fourteen, where the bank had thirteen) and claimed units for six RLC items, where four require them. Both are corrected. The package remains partial, unreviewed and formative-only.
+
+## Calculus II trigonometric integration (2026-10-13)
+
+Calculus II 0.4.8 adds a reading on trigonometric powers, secant-family integrals, trigonometric substitution and completing the square. It is grouped with the week-2 integration-methods lesson, which had explicitly left trigonometric substitution out. The grouping follows MIT OCW 18.01SC Unit 4 Part A, which is registered as a link-only comparator. The package remains partial, unreviewed and formative-only.
+
+## Robotics computed-torque control (2026-10-13)
+
+Robotics & Mechatronics 0.4.8 adds a model-based control reading to the week-9 dynamics lesson, following MIT OCW 2.12, where computed-torque control (L19) comes directly after the dynamics lectures (L17–L18). It covers the steady sag of PD control under gravity, gravity compensation and its residual when the payload mass is wrong, posture-dependent natural frequency under fixed gains, the computed-torque law and its decoupled error equation, feedforward torque including the velocity-product term, and the ways model error, saturation and sampling break the cancellation. The manifest had said 65 numeric items, ten of them requiring units, where the bank had 66 and eleven; both are corrected. The package remains partial, unreviewed and formative-only.
+
+## Titration curves, least squares and held variables, why aging evolves (2026-10-13)
+
+Three bounded units were integrated into existing weeks, with no week added:
+
+- General Chemistry II 0.4.8 groups a titration-curve reading with week-3 coupled acid speciation, following MIT OCW 5.111SC Unit III Lectures 23–24. It covers equivalence and endpoint, the four regions of weak- and strong-acid curves checked against an exact charge balance, indicator choice and diprotic equivalence volumes.
+- Calculus III 0.4.9 groups a least-squares and held-variable reading with the week-6 Hessian lesson, following MIT OCW 18.02SC Unit 2 Sessions 29 and 42–43. It covers the normal equations and their minimum check, log-linear and direct exponential fits, partial derivatives of constrained variables and the triple-product rule.
+- Geroscience 0.5.9 adds the foundational question of why aging evolves to week 1. It covers the declining force of selection under extrinsic mortality, mutation accumulation, antagonistic pleiotropy, the disposable soma and a toy allele whose fate depends on the environment. Williams (1957), Hamilton (1966) and Kirkwood (1977) are link-only references whose DOIs were resolved with the citation-check script; resolution is not claim-level review. The reading makes no claim about human aging or interventions.
+
+Every new numeric key has an independent recalculation, described in the validation report. All packages remain partial, unreviewed and formative-only.
+
+## Impulse response and convolution, magnetic-field sources, multiaxial strain and pressure vessels (2026-10-13)
+
+Three bounded units were integrated into existing weeks, with no week added:
+
+- Differential Equations 0.4.1 groups an impulse-response, convolution and transfer-function reading with the week-6 Laplace lesson, following MIT OCW 18.03SC Unit III. The Laplace lesson's limits had named exactly these topics as missing. Its limits now point to the companion reading.
+- Physics II: E&M 0.4.8 groups a Biot–Savart, Ampère's-law and magnetic-dipole reading with the week-8 magnetic-vectors lesson, following MIT OCW 8.02 sessions 14–19. The wire and solenoid formulas had previously been stipulated without their sources.
+- Statics & Materials 0.4.8 groups a multiaxial Hooke's law, thermal-strain and thin-walled pressure-vessel reading with the week-7 combined-stress lesson, following MIT OCW 2.001 Lectures 12–15. Its limitations had understated the number of numerical answers (78 rather than 84) and of unit-required answers (40 rather than 46), and the per-unit item range. These are corrected.
+
+Every new numeric key has an independent recalculation, described in the validation report. All packages remain partial, unreviewed and formative-only.
+
+## Universal gravitation and orbits, valence-bond theory and hybridization (2026-10-13)
+
+Two bounded units began a second pass over thinly covered packages. Both were integrated into existing weeks, with no week added:
+
+- Physics I: Mechanics 0.4.9 groups a universal-gravitation and circular-orbit reading with the week-10 circular-motion lesson. It follows the MIT OCW 8.01SC Week 2 gravitation lesson and Week 3 orbital worked example. Gravitation and orbits had been absent. The manifest's limitations had said thirteen readings and 63 numeric items, where the package had fourteen and 66; both are corrected.
+- General Chemistry I 0.4.10 groups a valence-bond and hybridization reading with the week-2 bonding lesson, following MIT OCW 5.111SC Lecture 14. The General Chemistry I/II crosswalk had recorded this topic as missing; its Unit II row is updated. A stale limitation count (59 rather than 64 numeric items) is corrected.
+
+Every new numeric key has an independent recalculation, described in the validation report. All packages remain partial, unreviewed and formative-only.
+
+## Cytoskeletal filament mechanics, inverse/exponential/logarithmic derivatives (2026-10-13)
+
+Two further second-pass units were integrated into existing weeks, with no week added:
+
+- Cellular Biomechanics 0.3.9 groups a filament-mechanics reading with the week-5 adhesion and force-transmission lesson. It covers persistence length, worm-like-chain size, entropic elasticity and Euler buckling, following MIT OCW 20.310J sessions 2 and 19. Its limitations had understated the numerical answers (62 rather than 65) and those requiring units (twelve rather than fourteen); both are corrected.
+- Calculus I 0.4.9 groups a reading on derivatives of inverse functions, logarithms, general exponentials and inverse trigonometric functions with the week-4 implicit-differentiation lesson, following MIT OCW 18.01SC Unit 1 Part B. A hard-coded practice-item count in the outcome-mapping regression is now derived from the bank, and a stale reading count in the limitations is corrected.
+
+Every new numeric key has an independent recalculation, described in the validation report. All packages remain partial, unreviewed and formative-only.
+
+## Controlled-release kinetics (2026-10-13)
+
+Biomaterials 0.3.10 groups a controlled-release kinetics reading with the week-6 degradation and release lesson. It covers reservoir zero-order release, Higuchi matrix release, the early-time Fickian slab solution, first-order release, release exponents and burst identification. Drug delivery was one of the 3.051J applications that the scope crosswalk listed as omitted. The crosswalk now records this bounded addition, and device design, pharmacokinetics and formulation remain outside. A stale numerical-answer count in the limitations is corrected. The package remains partial, unreviewed and formative-only.
+
+## Steady-flow energy balances (2026-10-13)
+
+Thermodynamics & Transport 0.4.9 groups an energy-balance reading with the week-10 perfusion-tubing lesson. It covers the open-system first law with stream heating, Bernoulli's equation for hydrostatic feed, efflux and constrictions, and the mechanical energy balance with Poiseuille friction losses, pump power and viscous heating. It strengthens the thermodynamics side of the course title alongside the existing entropy and chemical-potential readings. A stale numerical-answer count in the limitations (71 rather than 76) is corrected. The package remains partial, unreviewed and formative-only.

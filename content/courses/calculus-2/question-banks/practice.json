@@ -9,7 +9,7 @@
       "prompt": "Evaluate ∫₀∞ 4e^(−2t) dt.",
       "points": 1,
       "objective_ids": [
-        "calculus-2-1-objective-1"
+        "calculus-2-1-objective-2"
       ],
       "solution_spec": {
         "answer": 2,
@@ -3103,6 +3103,703 @@
         "solution": "Convexity makes the piecewise linear interpolation lie above the exact force; rounded observations add a separate small effect.",
         "lesson_ids": [
           "calculus-2-lab-01"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-2-1:method-selection",
+      "type": "single_choice",
+      "prompt": "Which substitution turns ∫ 2x cos(x²) dx into a basic integral?",
+      "options": [
+        "Set u = x², so du = 2x dx",
+        "Set u = cos(x²)",
+        "Set u = 2x",
+        "Use integration by parts with u = 2x"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-1-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Look for an inner function whose derivative is already a factor.",
+        "solution": "With u = x², du = 2x dx, so the integral becomes ∫ cos(u) du.",
+        "lesson_ids": [
+          "calculus-2-1"
+        ],
+        "misconception_ids": [
+          "substitution-inner-derivative"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct practice for choosing integration methods from integrand structure."
+        ]
+      }
+    },
+    {
+      "id": "calculus-2-4:taylor-from-derivatives",
+      "type": "single_choice",
+      "prompt": "For f(x) = eˣ, which degree-2 Taylor polynomial at x = 0 follows from f(0) = f′(0) = f″(0) = 1?",
+      "options": [
+        "1 + x + x²/2",
+        "1 + x + 2x²",
+        "1 + x²/2",
+        "x + x²/2"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-4-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Use the Taylor coefficients f⁽ᵏ⁾(0)/k! for k = 0, 1, 2.",
+        "solution": "The polynomial is 1 + x + x²/2 because the quadratic coefficient is f″(0)/2!.",
+        "lesson_ids": [
+          "calculus-2-4"
+        ],
+        "misconception_ids": [
+          "taylor-factorial"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct practice constructing a Taylor polynomial from derivatives at its center."
+        ]
+      }
+    },
+    {
+      "id": "calculus-2-4:power-series-interval",
+      "type": "single_choice",
+      "prompt": "For which x-values does the geometric power series Σ from n = 0 to ∞ of ((x − 2)/3)ⁿ converge?",
+      "options": [
+        "−1 < x < 5",
+        "−1 ≤ x ≤ 5",
+        "x < 5",
+        "All real x"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-4-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "A geometric series converges only when the absolute value of its ratio is less than 1.",
+        "solution": "Require |(x − 2)/3| < 1, giving −1 < x < 5; at either endpoint the terms do not approach zero.",
+        "lesson_ids": [
+          "calculus-2-4"
+        ],
+        "misconception_ids": [
+          "power-series-endpoints"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct practice for a power-series interval of convergence and endpoint exclusion."
+        ]
+      }
+    },
+    {
+      "id": "calculus-2-14:form-classification",
+      "type": "single_choice",
+      "prompt": "Direct substitution into lim_(x→0) (√(1+x)−1)/x gives which form?",
+      "options": [
+        "0/0, so the limit is indeterminate and needs more analysis",
+        "1/0, so L’Hôpital’s rule applies",
+        "0/1, so the limit is zero",
+        "∞/∞, so the limit is one"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Evaluate the numerator and denominator separately before choosing a method.",
+        "solution": "The numerator and denominator both tend to zero, giving the 0/0 form. This form does not determine the limit; rationalization gives the value 1/2.",
+        "lesson_ids": [
+          "calculus-2-14"
+        ],
+        "misconception_ids": [
+          "indeterminate-is-not-a-value"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-2-14:nonindeterminate-warning",
+      "type": "single_choice",
+      "prompt": "Which conclusion is justified for the two-sided limit lim_(x→0) (1+x)/x?",
+      "options": [
+        "It equals 1 by L’Hôpital’s rule",
+        "It is 0/0, so it equals 1",
+        "The quotient is not an eligible 0/0 or ∞/∞ form, and the two-sided limit does not exist",
+        "It equals 0 because the denominator tends to zero"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 2
+      },
+      "feedback": {
+        "hint": "The numerator tends to 1, not 0. Compare the one-sided quotient signs.",
+        "solution": "This is not 0/0 or ∞/∞. The right-hand quotient tends to +∞ and the left-hand quotient to −∞, so there is no two-sided limit. Differentiating numerator and denominator would violate the theorem's hypotheses.",
+        "lesson_ids": [
+          "calculus-2-14"
+        ],
+        "misconception_ids": [
+          "lhopital-without-indeterminate-form"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-2-14:lhopital-exp",
+      "type": "numeric",
+      "prompt": "Evaluate lim_(x→0) (e^(2x)−1)/sin(3x). Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.6666666667,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Confirm 0/0, differentiate each function, then substitute into the derivative quotient.",
+        "solution": "The derivative quotient is 2e^(2x)/(3cos(3x)); at zero it equals 2/3.",
+        "lesson_ids": [
+          "calculus-2-14"
+        ],
+        "misconception_ids": [
+          "lhopital-derivative-quotient"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-2-14:lhopital-rational",
+      "type": "numeric",
+      "prompt": "Evaluate lim_(x→∞) (5x²+2)/(2x²−1). Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 2.5,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "This is ∞/∞. Either compare leading terms or differentiate numerator and denominator.",
+        "solution": "L’Hôpital’s rule gives 10x/(4x)=5/2; dividing by x² gives the same limit.",
+        "lesson_ids": [
+          "calculus-2-14"
+        ],
+        "misconception_ids": [
+          "dominant-term-limit"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-2-14:lhopital-repeat",
+      "type": "numeric",
+      "prompt": "Evaluate lim_(x→0) (x−sin x)/x³. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.1666666667,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "After each derivative step, check whether the new quotient is still 0/0.",
+        "solution": "Two applications give sin(x)/(6x), still 0/0. A third gives cos(x)/6, whose limit is 1/6.",
+        "lesson_ids": [
+          "calculus-2-14"
+        ],
+        "misconception_ids": [
+          "repeat-rule-recheck-form"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-2-14:transform-product",
+      "type": "numeric",
+      "prompt": "Evaluate lim_(x→0+) x ln(x). Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Rewrite the product as ln(x)/(1/x) and identify the quotient form.",
+        "solution": "The quotient is −∞/∞. The derivative quotient is −x, which tends to zero.",
+        "lesson_ids": [
+          "calculus-2-14"
+        ],
+        "misconception_ids": [
+          "transform-product-before-lhopital"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-2-14:transform-power",
+      "type": "numeric",
+      "prompt": "Evaluate lim_(x→0+) (1+x)^(1/x). Enter the number to three decimal places or more.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 2.718281828,
+        "unit": "",
+        "tolerance": 0.005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Take the natural logarithm, evaluate ln(1+x)/x, then exponentiate.",
+        "solution": "The logarithm tends to 1 by L’Hôpital’s rule, so the original positive expression tends to e, about 2.71828.",
+        "lesson_ids": [
+          "calculus-2-14"
+        ],
+        "misconception_ids": [
+          "transform-power-with-log"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-2-14:method-selection",
+      "type": "single_choice",
+      "prompt": "For lim_(x→∞) (√(x²+3x)−x), what is a valid first step before evaluating the limit?",
+      "options": [
+        "Apply L’Hôpital’s rule to the difference directly",
+        "Rationalize the difference, giving 3x/(√(x²+3x)+x)",
+        "Substitute infinity as if it were a real number",
+        "Differentiate only the square-root term and keep the −x unchanged"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "The original expression has an ∞−∞ form, not a quotient.",
+        "solution": "Rationalizing produces an equivalent quotient on the domain x>0. Dividing its numerator and denominator by x then gives the limit 3/2.",
+        "lesson_ids": [
+          "calculus-2-14"
+        ],
+        "misconception_ids": [
+          "transform-difference-before-rule"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-2-15:odd-power",
+      "type": "numeric",
+      "prompt": "Evaluate ∫₀^(π/2) sin⁵x dx. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.5333333333,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Save one sin x, write sin⁴x = (1 − cos²x)², and let u = cos x.",
+        "solution": "With u = cos x the integral becomes ∫₀¹ (1 − u²)² du = 1 − 2/3 + 1/5 = 8/15 ≈ 0.5333.",
+        "lesson_ids": [
+          "calculus-2-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-2-15:even-power",
+      "type": "numeric",
+      "prompt": "Evaluate ∫₀^(π/2) sin⁴x dx. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.5890486225,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Apply the half-angle identity twice: sin⁴x = ((1 − cos 2x)/2)².",
+        "solution": "sin⁴x = 3/8 − ½cos 2x + ⅛cos 4x. The cosine terms integrate to zero over [0, π/2], leaving (3/8)(π/2) = 3π/16 ≈ 0.5890.",
+        "lesson_ids": [
+          "calculus-2-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-2-15:tangent-integral",
+      "type": "numeric",
+      "prompt": "Evaluate ∫₀^(π/3) tan x dx. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.6931471806,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "∫ tan x dx = −ln|cos x| + C.",
+        "solution": "−ln cos(π/3) + ln cos 0 = −ln(1/2) = ln 2 ≈ 0.6931.",
+        "lesson_ids": [
+          "calculus-2-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-2-15:sine-substitution",
+      "type": "numeric",
+      "prompt": "Evaluate ∫₀¹ √(4 − x²) dx. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 1.913222955,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Let x = 2 sin θ; the bounds become 0 and π/6, and the integrand becomes 4cos²θ.",
+        "solution": "4∫₀^(π/6) cos²θ dθ = 2[θ + ½ sin 2θ]₀^(π/6) = π/3 + √3/2 ≈ 1.9132. Geometrically this is a circular sector plus a triangle under the circle of radius 2.",
+        "lesson_ids": [
+          "calculus-2-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-2-15:tangent-substitution",
+      "type": "numeric",
+      "prompt": "Evaluate ∫₀^√3 dx/(1 + x²)^(3/2). Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.8660254038,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Let x = tan θ; the integrand becomes cos θ dθ and the upper bound becomes π/3.",
+        "solution": "∫₀^(π/3) cos θ dθ = sin(π/3) = √3/2 ≈ 0.8660.",
+        "lesson_ids": [
+          "calculus-2-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-2-15:secant-substitution",
+      "type": "numeric",
+      "prompt": "Evaluate ∫₃⁶ dx/(x√(x² − 9)). Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.3490658504,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Let x = 3 sec θ with 0 ≤ θ < π/2; the integrand reduces to (1/3) dθ.",
+        "solution": "x = 3 gives θ = 0 and x = 6 gives sec θ = 2, θ = π/3. The integral is (1/3)(π/3) = π/9 ≈ 0.3491.",
+        "lesson_ids": [
+          "calculus-2-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-2-15:completed-square-arctangent",
+      "type": "numeric",
+      "prompt": "Evaluate ∫₁⁴ dx/(x² − 2x + 10). Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0.2617993878,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Complete the square: x² − 2x + 10 = (x − 1)² + 9.",
+        "solution": "The antiderivative is (1/3) arctan((x − 1)/3). From 1 to 4 this is (1/3) arctan 1 = π/12 ≈ 0.2618.",
+        "lesson_ids": [
+          "calculus-2-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-2-15:completed-square-arcsine",
+      "type": "numeric",
+      "prompt": "Evaluate ∫₁^2.5 dx/√(3 + 2x − x²). Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0.848062079,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Write 3 + 2x − x² = 4 − (x − 1)².",
+        "solution": "The antiderivative is arcsin((x − 1)/2). From 1 to 2.5 this is arcsin(0.75) ≈ 0.8481.",
+        "lesson_ids": [
+          "calculus-2-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-2-15:substitution-choice",
+      "type": "single_choice",
+      "prompt": "Which substitution removes the radical in ∫ dx/√(x² + 25)?",
+      "options": [
+        "x = 5 tan θ",
+        "x = 5 sin θ",
+        "x = 5 sec θ",
+        "u = x² + 25"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Match the radical with a Pythagorean identity.",
+        "solution": "With x = 5 tan θ, x² + 25 = 25 sec²θ, so the radical becomes 5 sec θ. A sine substitution gives √(1 + sin²θ), a secant substitution gives √(sec²θ + 1), and u = x² + 25 needs an x factor that is absent.",
+        "lesson_ids": [
+          "calculus-2-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-2-15:odd-even-strategy",
+      "type": "single_choice",
+      "prompt": "Which first step works for ∫ sin²x cos³x dx?",
+      "options": [
+        "Save one cos x, write cos²x = 1 − sin²x, and let u = sin x",
+        "Apply half-angle identities to both factors",
+        "Save one sin x and let u = cos x",
+        "Integrate by parts with u = sin²x"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Look for the odd exponent.",
+        "solution": "The cosine power is odd. Saving cos x dx provides du for u = sin x, and the integral becomes ∫u²(1 − u²) du. Half-angle reduction is needed only when both powers are even; saving a sin x leaves an odd power of cosine with no matching du.",
+        "lesson_ids": [
+          "calculus-2-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-2-15:branch-check",
+      "type": "single_choice",
+      "prompt": "After x = 3 sin θ with −π/2 ≤ θ ≤ π/2, why can √(9 − x²) be written as 3 cos θ rather than 3|cos θ|?",
+      "options": [
+        "Because cos θ ≥ 0 throughout that range of θ",
+        "Because square roots of squares always return the original expression",
+        "Because x is always positive",
+        "Because cos θ = sin θ on that interval"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "√(9 cos²θ) = 3|cos θ|. Where is cos θ non-negative?",
+        "solution": "The range −π/2 ≤ θ ≤ π/2 makes the substitution one-to-one and keeps cos θ ≥ 0, so the absolute value can be dropped. Outside that range the sign would have to be tracked.",
+        "lesson_ids": [
+          "calculus-2-15"
         ],
         "misconception_ids": []
       },

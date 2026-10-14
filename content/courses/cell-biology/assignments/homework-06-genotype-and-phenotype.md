@@ -1,10 +1,10 @@
 # Homework 6 practice: penetrance and isogenic evidence
 
 **Status:** open formative practice; this packet and its answer specifications are public and are not suitable for a protected or summative exam. It does not contribute to a course grade.  
-**Course package:** Foundations of Cell and Molecular Biology, version 0.19.0
-**Suggested time:** 2–3 hours  
+**Course package:** Foundations of Cell and Molecular Biology, version 0.61.0
+**Suggested time (unvalidated author estimate):** 2–3 hours
 **Prerequisite lessons:** [Inheritance, penetrance, and pedigree evidence](../modules/09a-inheritance-penetrance-and-pedigree-evidence.md) and [Variant mechanism and isogenic evidence](../modules/09b-variant-mechanism-and-isogenic-evidence.md).  
-**Dataset:** [synthetic measurements](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/cell-biology/assignments/homework-06-isogenic-clones.csv).
+**Dataset:** [synthetic measurements](homework-06-isogenic-clones.csv).
 
 ## Purpose
 

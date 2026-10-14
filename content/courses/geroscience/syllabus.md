@@ -1,6 +1,6 @@
 # Geroscience & Regenerative Biology
 
-**Maturity: partial. Version: 0.5.2.**
+**Maturity: partial. Version: 0.5.9.**
 
 Mechanisms linking aging biology to tissue resilience, damage response, senescence, stem-cell function, and regeneration—taught with evidence appraisal and translational caution.
 
@@ -21,7 +21,7 @@ This is a proposed scope, not a measured or reviewed semester. Each week lists i
 
 | Week | Theme | Readings |
 |---|---|---|
-| 1 | Aging as a systems process | Aging as a systems process |
+| 1 | Aging as a systems process and why aging evolves | Aging as a systems process; Why aging evolves: the selection shadow, antagonistic pleiotropy and trade-offs |
 | 2 | Measuring aging: survival curves, mortality hazards and healthspan endpoints | Survival curves, mortality hazards, and healthspan endpoints |
 | 3 | Genome instability and repair capacity | Genome instability and repair capacity: damage, maintenance and what accumulates |
 | 4 | Proteostasis, autophagy and mitochondria | Proteostasis, autophagy and mitochondria: quality control and what changes with age |
@@ -38,15 +38,15 @@ This is a proposed scope, not a measured or reviewed semester. Each week lists i
 
 ## Assessment and study policy
 
-Every lesson has formative items (numeric, single-choice, multiple-select, data-interpretation and, in the lab, CSV-upload and structured items) mapped to its objectives, plus retrieval cards for the review queue. Week 13 is a synthetic-data virtual lab and week 14 pairs a study-design lesson with the course case and its self-assessment checklist. These are practice activities with unlimited retries and no institutional grade, university credit or transferable credit. Workload has not been measured.
+Every lesson has formative items (numeric, single-choice, multiple-select, data-interpretation and, in the lab, CSV-upload and structured items) mapped to its objectives, plus retrieval cards for the review queue. Week 13 is a synthetic-data virtual lab and week 14 pairs a study-design lesson with the course case and its self-assessment checklist. These are practice activities with unlimited retries and no institutional grade, university credit or transferable credit. An [inactive, ungraded surrogate-endpoint evidence dossier draft](assessment-specs/surrogate-endpoint-evidence-dossier-draft.md) is provided for instructor review; it is not activated in the course platform. Week 11 also contains an original comparison of two primary mouse intervention studies inside the existing paper-reading lesson. Workload has not been measured.
 
 ## Data and source policy
 
-Every table in the original lessons is explicitly synthetic teaching data. Published studies are cited as link-only references and summarized qualitatively in original wording; no source text, figure, or dataset is reproduced. The lessons give no dosing, treatment, supplement, or clinical-test recommendations.
+Every table in the lessons and inactive project draft is explicitly synthetic teaching data. Published studies are cited as link-only references and summarized qualitatively in original wording; no source text, figure, or dataset is reproduced. The lessons and draft give no dosing, treatment, supplement, or clinical-test recommendations.
 
 ## Current limitations
 
-The schedule above is proposed, not measured, and has not been reviewed by a qualified instructor. There are no graded homework sets, midterm, final or graded project. The four compact prototype readings remain short. References are link-only and were checked for existence, not for support of each sentence. No lesson recommends any intervention, and nothing here is evidence that any intervention slows or reverses human aging. Qualified human review is required before this course could meet the complete-course standard.
+The schedule above is proposed, not measured, and has not been reviewed by a qualified instructor. There are no graded homework sets, midterm, final or active graded project; the evidence dossier is an inactive instructor-review draft. All four compact legacy prototype readings in weeks 1, 5, 8 and 11 now have expanded instructional readings. The selected claims in the Week 11 comparison were checked against their linked primary papers; elsewhere, references remain link-only and are not audited sentence by sentence. No lesson recommends any intervention, and nothing here is evidence that any intervention slows or reverses human aging. Qualified human review is required before this course could meet the complete-course standard.
 
 ## Sources and licensing
 

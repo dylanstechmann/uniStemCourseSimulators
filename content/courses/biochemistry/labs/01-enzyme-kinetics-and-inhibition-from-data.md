@@ -1,9 +1,10 @@
 # Virtual lab 1: enzyme kinetics and inhibition from replicate rates
 
 **Activity type:** synthetic-data analysis with public, ungraded formative checks
-**Course package:** Biochemistry I: Proteins, Enzymes & Metabolism. **Estimated learner time:** 2–3 hours
+**Course package:** Biochemistry I: Proteins, Enzymes & Metabolism, version 0.4.84.
+**Estimated learner time (unvalidated author estimate):** 2–3 hours
 **Data status:** all measurements are constructed for instruction. They describe no real enzyme, inhibitor or experiment, and nothing here is evidence about any compound or any cell.
-**Dataset:** [synthetic initial rates (CSV)](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/biochemistry/labs/enzyme-kinetics-rates.csv).
+**Dataset:** [synthetic initial rates (CSV)](enzyme-kinetics-rates.csv). This resource is pinned to the course package version so archived course pages keep the matching data file.
 
 ## Experimental question
 

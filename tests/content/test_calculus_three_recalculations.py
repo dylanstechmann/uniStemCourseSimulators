@@ -73,6 +73,42 @@ def bisect(f, a, b):
     return (a + b) / 2
 
 
+def squared_error(points):
+    return lambda a, b: math.fsum((y - a * x - b) ** 2 for x, y in points)
+
+
+def centred_line(points):
+    mean_x = math.fsum(x for x, _ in points) / len(points)
+    mean_y = math.fsum(y for _, y in points) / len(points)
+    slope = math.fsum((x - mean_x) * (y - mean_y) for x, y in points) / math.fsum(
+        (x - mean_x) ** 2 for x, _ in points
+    )
+    return slope, mean_y - slope * mean_x
+
+
+def best_exponential(points):
+    """Direct least squares in y: closed-form c for each k, golden search on k."""
+
+    def error(k):
+        e = [math.exp(k * x) for x, _ in points]
+        c = math.fsum(y * v for (_, y), v in zip(points, e)) / math.fsum(
+            v * v for v in e
+        )
+        return math.fsum((y - c * v) ** 2 for (_, y), v in zip(points, e)), c
+
+    low, high = -2.0, 0.0
+    ratio = (math.sqrt(5) - 1) / 2
+    for _ in range(200):
+        a, b = high - ratio * (high - low), low + ratio * (high - low)
+        if error(a)[0] < error(b)[0]:
+            high = b
+        else:
+            low = a
+    k = (low + high) / 2
+    sse, c = error(k)
+    return c, k, sse
+
+
 def dot(a, b):
     return math.fsum(x * y for x, y in zip(a, b))
 
@@ -428,6 +464,38 @@ def expected_answers():
         steady_sink=-transfer / 2,
         storage_rate=-12 * 2 - transfer,
     )
+    # Lesson 13: direct surface flux (no divergence theorem) and a clockwise line integral.
+    lateral = (2**2 / 3) / 2 * (2 * math.pi * 2 * 3)  # H.n = r^2/(3r) on r=2
+    top = (3 / 3) * (math.pi * 2**2)  # H.n = z/3 on z=3; the z=0 face contributes 0
+    add(
+        13,
+        cylinder_flux=lateral + top,
+        reverse_circulation=integral(
+            lambda t: dot(
+                (2 * math.sin(t) / 2, 2 * math.cos(t) / 2, 0),
+                (-2 * math.sin(t), -2 * math.cos(t), 0),
+            ),
+            0,
+            2 * math.pi,
+        ),
+    )
+    fit_points = [(1, 3), (2, 4), (3, 4), (4, 6), (5, 8)]
+    fit = squared_error(fit_points)
+    slope, intercept = centred_line(fit_points)
+    rate, _ = centred_line([(0, math.log(6)), (1, math.log(3)), (2, math.log(1.8))])
+    curvature = hessian(fit, (slope, intercept))
+    add(
+        14,
+        line_slope=slope,
+        line_intercept=intercept,
+        minimum_squared_error=fit(slope, intercept),
+        squared_error_hessian=curvature[0][0] * curvature[1][1]
+        - curvature[0][1] * curvature[1][0],
+        log_fit_rate=rate,
+        held_y_derivative=derivative(lambda x: x * x + 1 * (2 * x + 1), 1),
+        held_z_derivative=derivative(lambda x: x * x + (3 - 2 * x) * 3, 1),
+        triple_product_factor=derivative(lambda t: 10 * t / 4, 2),
+    )
     _, _, means, areas = lab_data()
     raw = math.fsum(means[k] * areas[k] for k in means)
     corrected = math.fsum((means[k] - 1) * areas[k] for k in means)
@@ -454,7 +522,193 @@ def test_all_numeric_keys_with_separate_methods(question_id):
 
 def test_numeric_inventory_is_exhaustive():
     assert set(EXPECTED) == {key for key, q in BANK.items() if q["type"] == "numeric"}
-    assert len(EXPECTED) == 62
+    assert len(EXPECTED) == 72
+
+
+def test_gradient_directional_derivative_and_local_linearization():
+    manifest = load(COURSE / "course.json")
+    lesson = next(
+        lesson
+        for module in manifest["modules"]
+        for lesson in module["lessons"]
+        if lesson["id"] == "calculus-3-1"
+    )
+    text = (COURSE / lesson["reading"]).read_text(encoding="utf-8")
+    assert "A non-unit vector scales the rate" in text
+    assert "The exact change is about" in text
+
+    def field(x, y):
+        return x**2 * y + math.sin(y)
+
+    point = (1.0, 0.0)
+    grad = gradient(field, point)
+    direction = (3 / 5, 4 / 5)
+    assert grad == pytest.approx([0, 2], abs=1e-8)
+    assert math.hypot(*direction) == pytest.approx(1)
+    assert dot(grad, direction) == pytest.approx(1.6)
+    h = 1e-5
+    directional_difference = (
+        field(point[0] + h * direction[0], point[1] + h * direction[1])
+        - field(point[0] - h * direction[0], point[1] - h * direction[1])
+    ) / (2 * h)
+    assert directional_difference == pytest.approx(1.6, abs=1e-8)
+
+    displacement = (0.02, 0.03)
+    predicted = dot(grad, displacement)
+    actual = field(point[0] + displacement[0], point[1] + displacement[1]) - field(
+        *point
+    )
+    assert predicted == pytest.approx(0.06)
+    assert actual == pytest.approx(0.061207, abs=1e-6)
+    assert abs(actual - predicted) < 0.002
+
+
+def test_integrative_field_project_draft_reconciles_area_and_flux_integrals():
+    radius = 2.0
+    diffusivities = (0.5, 0.75)
+
+    total_amount = 2 * math.pi * (12 * radius**2 / 2 - radius**4 / 4)
+    assert total_amount == pytest.approx(40 * math.pi)
+
+    for diffusivity, expected_flux in zip(diffusivities, (8 * math.pi, 12 * math.pi)):
+        divergence = 4 * diffusivity
+        boundary_density = 2 * diffusivity * radius
+        boundary_flux = 2 * math.pi * radius * boundary_density
+        volume_flux = divergence * math.pi * radius**2
+        assert boundary_flux == pytest.approx(expected_flux)
+        assert volume_flux == pytest.approx(expected_flux)
+
+    project = (COURSE / "assessment-specs/integrative-field-project-draft.md").read_text(
+        encoding="utf-8"
+    )
+    syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8")
+    manifest = load(COURSE / "course.json")
+    assert manifest["version"] == manifest["history"][-1]["version"]
+    assert all("integrative-field-project" not in item["id"] for item in manifest["assessments"])
+    assert "Inactive authoring draft" in project
+    assert "not a biological measurement or engineering specification" in project
+    assert "not scheduled, submitted or graded" in syllabus
+
+
+def test_directional_derivative_is_invariant_under_consistent_frame_rotation():
+    gradient_world = (3.0, 4.0)
+    direction_world = (3 / 5, 4 / 5)
+    x_axis_rotated = (0.0, 1.0)
+    y_axis_rotated = (-1.0, 0.0)
+
+    gradient_rotated = (
+        dot(gradient_world, x_axis_rotated),
+        dot(gradient_world, y_axis_rotated),
+    )
+    direction_rotated = (
+        dot(direction_world, x_axis_rotated),
+        dot(direction_world, y_axis_rotated),
+    )
+
+    assert gradient_rotated == pytest.approx((4.0, -3.0))
+    assert direction_rotated == pytest.approx((4 / 5, -3 / 5))
+    assert dot(gradient_world, direction_world) == pytest.approx(5.0)
+    assert dot(gradient_rotated, direction_rotated) == pytest.approx(5.0)
+    assert dot(gradient_world, direction_rotated) == pytest.approx(0.0)
+
+    reading = (COURSE / "modules/01-vectors-partial-derivatives-and-gradients.md").read_text(
+        encoding="utf-8"
+    )
+    assert "The dot product is still" in reading
+    assert "Mixing the old gradient components" in reading
+
+
+def test_hessian_classification_and_constrained_global_bound():
+    def maximum(x, y):
+        return 4 - (x - 1) ** 2 - 2 * (y + 2) ** 2
+
+    stationary = (1.0, -2.0)
+    assert gradient(maximum, stationary) == pytest.approx([0, 0], abs=1e-8)
+    h_max = hessian(maximum, stationary)
+    assert h_max[0] == pytest.approx([-2, 0], abs=1e-6)
+    assert h_max[1] == pytest.approx([0, -4], abs=1e-6)
+    assert h_max[0][0] < 0 and h_max[1][1] < 0
+    assert h_max[0][0] * h_max[1][1] - h_max[0][1] * h_max[1][0] > 0
+    assert maximum(*stationary) == pytest.approx(4)
+
+    def product(x, y):
+        return x * y
+
+    constrained_gradient = gradient(product, (5.0, 5.0))
+    constraint_gradient = (1.0, 1.0)
+    multiplier = constrained_gradient[0] / constraint_gradient[0]
+    assert constrained_gradient == pytest.approx([5, 5])
+    assert constrained_gradient == pytest.approx(
+        [multiplier * value for value in constraint_gradient]
+    )
+    assert product(5, 5) == pytest.approx(25)
+    for x in (-10, 0, 3.5, 10, 25):
+        assert product(x, 10 - x) == pytest.approx(25 - (x - 5) ** 2)
+        assert product(x, 10 - x) <= 25
+    text = (COURSE / "modules/02-multivariable-optimization-and-constraints.md").read_text(
+        encoding="utf-8"
+    )
+    assert "makes this second-derivative test inconclusive" in text
+    assert "Check feasible boundaries" in text
+
+
+def test_multiple_integral_jacobians_and_density_units():
+    text = (COURSE / "modules/03-multiple-integrals-and-coordinate-transforms.md").read_text(
+        encoding="utf-8"
+    )
+    assert "absolute value $|J|$" in text
+    assert "Multiplying the center value by the area" in text
+
+    radius = 3.0
+    polar_area = 2 * math.pi * integral(lambda r: r, 0, radius)
+    cartesian_area = integral(
+        lambda theta: 18 * math.cos(theta) ** 2,
+        -math.pi / 2,
+        math.pi / 2,
+    )
+    assert polar_area == pytest.approx(9 * math.pi)
+    assert cartesian_area == pytest.approx(polar_area, abs=1e-9)
+
+    # The linear map (u,v) -> (2u,v) stretches unit-disk area by |det J|=2.
+    ellipse_jacobian = 2 * 1 - 0 * 0
+    assert ellipse_jacobian == pytest.approx(2)
+    assert ellipse_jacobian * math.pi == pytest.approx(2 * math.pi)
+
+    total = 2 * math.pi * integral(lambda r: (2 + r) * r, 0, 2)
+    area = math.pi * 2**2
+    assert total == pytest.approx(40 * math.pi / 3)
+    assert total / area == pytest.approx(10 / 3)
+
+
+def test_line_integral_and_green_theorem_orientation_checks():
+    text = (COURSE / "modules/04-line-integrals-flux-and-integral-theorems.md").read_text(
+        encoding="utf-8"
+    )
+    assert "Reversing the path reverses this integral" in text
+    assert "Green's flux form" in text
+    assert "right-hand rule" in text
+
+    def circle_line_integral(direction):
+        def integrand(parameter):
+            theta = direction * parameter
+            tangent = (-direction * math.sin(theta), direction * math.cos(theta))
+            field = (-math.sin(theta), math.cos(theta))
+            return dot(field, tangent)
+
+        return integral(integrand, 0, 2 * math.pi)
+
+    parameterized = circle_line_integral(1)
+    reversed_parameterization = circle_line_integral(-1)
+    green_circulation = 2 * math.pi * integral(lambda r: 2 * r, 0, 1)
+    assert parameterized == pytest.approx(2 * math.pi)
+    assert green_circulation == pytest.approx(parameterized)
+    assert reversed_parameterization == pytest.approx(-2 * math.pi)
+
+    outward_flux = integral(lambda theta: 1.0, 0, 2 * math.pi)
+    divergence_flux = 2 * math.pi * integral(lambda r: 2 * r, 0, 1)
+    assert outward_flux == pytest.approx(2 * math.pi)
+    assert divergence_flux == pytest.approx(outward_flux)
+    assert 3 * (4 * math.pi / 3) == pytest.approx(4 * math.pi)
 
 
 CHECKS = BANK["calculus-3-lab-01:summary"]["solution_spec"]["validation_spec"]["checks"]
@@ -615,9 +869,58 @@ def test_lab_normals_areas_balanced_rows_and_offset():
     assert math.fsum((means[k] - 1) * areas[k] for k in means) == pytest.approx(-9 * 2)
 
 
+def test_least_squares_and_held_variable_lesson_statements():
+    text = (
+        COURSE / "modules/14-least-squares-and-constrained-partial-derivatives.md"
+    ).read_text(encoding="utf-8")
+    lesson_points = [(1, 2), (2, 3), (3, 5), (4, 6)]
+    fit = squared_error(lesson_points)
+    a, b = centred_line(lesson_points)
+    assert (round(a, 6), round(b, 6), round(fit(a, b), 6)) == (1.4, 0.5, 0.2)
+    assert all(
+        partial(fit, (a, b), i) == pytest.approx(0, abs=1e-6) for i in range(2)
+    )
+    assert math.fsum(x * (y - a * x - b) for x, y in lesson_points) == pytest.approx(0)
+    h = hessian(fit, (a, b))
+    assert h[0][0] * h[1][1] - h[0][1] ** 2 == pytest.approx(80, rel=1e-4)
+    decay = [(0, 5), (1, 3), (2, 2)]
+    k, log_c = centred_line([(x, math.log(y)) for x, y in decay])
+    assert (round(k, 3), round(math.exp(log_c), 2)) == (-0.458, 4.91)
+    c_direct, k_direct, sse_direct = best_exponential(decay)
+    sse_log = math.fsum((y - math.exp(log_c + k * x)) ** 2 for x, y in decay)
+    assert (round(c_direct, 2), round(k_direct, 3)) == (4.97, -0.474)
+    assert (round(sse_direct, 4), round(sse_log, 4)) == (0.0152, 0.0203)
+    assert derivative(lambda x: x * 2 * (x + 2), 1) == pytest.approx(8)
+    assert derivative(lambda x: x * (3 - x) * 3, 1) == pytest.approx(3)
+    factors = (
+        derivative(lambda v: 10 * 1 / v, 5),
+        derivative(lambda t: 10 * t / 2, 1),
+        derivative(lambda p: p * 5 / 10, 2),
+    )
+    assert factors[0] * factors[1] * factors[2] == pytest.approx(-1)
+    worked = [(0, 1), (1, 3), (2, 4), (3, 6)]
+    wa, wb = centred_line(worked)
+    shift = squared_error(worked)(wa, wb + 0.1) - squared_error(worked)(wa, wb)
+    assert (round(wa, 6), round(wb, 6), round(shift, 6)) == (1.6, 1.1, 0.04)
+    for phrase in (
+        "**a = 1.4**",
+        "**b = 0.5**",
+        "**D = 0.20**",
+        "**80**",
+        "k = **−0.458**",
+        "**4.91**",
+        "c ≈ 4.97 and k ≈ −0.474",
+        "0.0152 in y against 0.0203",
+        "**8** and **3**",
+        "(∂V/∂T)_P = 10/P = **5**",
+        "a = 1.6 and b = 1.1",
+    ):
+        assert phrase in text
+
+
 def test_schedule_and_conservative_labels():
     c = load(COURSE / "course.json")
-    assert c["version"] == "0.4.0" and c["maturity"] == "partial"
+    assert c["version"] == c["history"][-1]["version"] and c["maturity"] == "partial"
     assert (
         c["review"]["status"] == "unreviewed"
         and c["grading_policy"]["mode"] == "formative-only"
@@ -630,7 +933,12 @@ def test_schedule_and_conservative_labels():
         "calculus-3-week14-flux-lab",
         "calculus-3-case",
     ]
-    assert len(lessons) == 14 and len(BANK) == 91
+    assert len(lessons) == 15 and len(BANK) == 111
+    cards = len(load(COURSE / "question-banks/retrieval-cards.json")["cards"])
     syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8")
-    assert "14 readings, 91 public practice items and 48 retrieval cards" in syllabus
-    assert "Weeks 1, 5, 8 and 10 retain compact prototype readings" in syllabus
+    assert (
+        f"There are {len(lessons)} readings, {len(BANK)} public practice items and {cards} retrieval cards"
+        in syllabus
+    )
+    assert "Weeks 1, 5, 8, 10 and 13 now have expanded" in syllabus
+    assert "No compact prototype readings remain" in syllabus

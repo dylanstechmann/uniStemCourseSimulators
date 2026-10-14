@@ -3492,6 +3492,851 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "physics-em-14:displacement-current",
+      "type": "numeric",
+      "prompt": "An ideal parallel-plate capacitor is charging at a steady conduction current of 0.50 mA. What displacement-current magnitude passes through the gap in this model? Enter a value in mA.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.5,
+        "unit": "mA",
+        "tolerance": 0.005,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use the changing plate charge: the wire current is dQ/dt.",
+        "solution": "For negligible fringing, ΦE=Q/ε0, so ID=ε0 dΦE/dt=dQ/dt=I=0.50 mA.",
+        "lesson_ids": [
+          "physics-em-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-14:magnetic-field-inside",
+      "type": "numeric",
+      "prompt": "Circular capacitor plates of radius 40 mm charge at 0.50 mA with uniform current density. What magnetic-field magnitude occurs at r=20 mm between the plates? Enter a numerical value in nT.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 1.25,
+        "unit": "nT",
+        "tolerance": 0.03,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Only the fraction r²/R² of the displacement current is enclosed.",
+        "solution": "Iencl=0.50(20/40)²=0.125 mA. B=μ0Iencl/(2πr)=1.25 nT.",
+        "lesson_ids": [
+          "physics-em-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-14:magnetic-field-outside",
+      "type": "numeric",
+      "prompt": "For the same capacitor, what magnetic-field magnitude occurs at r=50 mm, outside the 40 mm plate radius? Enter a numerical value in nT.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 2.0,
+        "unit": "nT",
+        "tolerance": 0.04,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Outside the plate radius, the Amperian circle encloses the full 0.50 mA.",
+        "solution": "B=μ0I/(2πr)=2×10⁻⁷(0.00050)/(0.050)=2.00×10⁻⁹ T=2.00 nT.",
+        "lesson_ids": [
+          "physics-em-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-14:wave-magnetic-field",
+      "type": "numeric",
+      "prompt": "A sinusoidal plane wave in vacuum has peak electric-field amplitude E0=120 V/m. What is its peak magnetic-field amplitude? Enter a numerical value in μT.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0.4,
+        "unit": "μT",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "For a vacuum plane wave, E0=cB0.",
+        "solution": "B0=E0/c=120/(3.00×10⁸)=4.00×10⁻⁷ T=0.400 μT.",
+        "lesson_ids": [
+          "physics-em-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-14:wave-peak-intensity",
+      "type": "numeric",
+      "prompt": "For the same wave, what is the peak Poynting-flux magnitude? Enter a value in W/m^2.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 38.2,
+        "unit": "W/m^2",
+        "tolerance": 0.4,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use Speak=E0B0/μ0 with B0=4.00×10⁻⁷ T.",
+        "solution": "Speak=(120)(4.00×10⁻⁷)/(4π×10⁻⁷)=38.2 W/m².",
+        "lesson_ids": [
+          "physics-em-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-14:wave-average-intensity",
+      "type": "numeric",
+      "prompt": "For the same sinusoidal wave, what is the cycle-average Poynting-flux magnitude? Enter a value in W/m^2.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 19.1,
+        "unit": "W/m^2",
+        "tolerance": 0.25,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The cycle-average of the sinusoidal field product is half its peak value.",
+        "solution": "⟨S⟩=E0B0/(2μ0)=38.2/2=19.1 W/m².",
+        "lesson_ids": [
+          "physics-em-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-14:ampere-maxwell-concepts",
+      "type": "multiple_select",
+      "prompt": "Which statements correctly describe displacement current in an ideal charging capacitor? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "physics-em-14-objective-1"
+      ],
+      "options": [
+        "The changing electric flux term can supply the same loop contribution when the spanning surface passes through the capacitor gap.",
+        "For negligible fringing, the displacement-current magnitude equals dQ/dt and the wire current.",
+        "Displacement current means electrons cross the vacuum gap from one plate to the other.",
+        "The correction resolves the surface dependence that would otherwise arise from applying Ampère’s law to the charging circuit.",
+        "The displacement-current magnitude is zero whenever the capacitor plates are separated by an insulator."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "feedback": {
+        "hint": "Separate field-flux change from charge transport through the dielectric.",
+        "solution": "In the ideal charging model, ID=ε0 dΦE/dt=dQ/dt=I. The flux term supplies the gap-surface contribution, but it does not describe electrons crossing the gap.",
+        "lesson_ids": [
+          "physics-em-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-14:poynting-concepts",
+      "type": "multiple_select",
+      "prompt": "For a sinusoidal plane wave in vacuum, which statements are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "physics-em-14-objective-3"
+      ],
+      "options": [
+        "The electric and magnetic fields are perpendicular to each other and to the propagation direction.",
+        "The energy-flow direction is given by E×B.",
+        "The cycle-average Poynting flux equals the peak flux magnitude.",
+        "Because E0=cB0, the electric and magnetic energy densities are equal at each instant in the ideal wave.",
+        "The Poynting vector points along the magnetic field."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "feedback": {
+        "hint": "Use the vector cross product, E0=cB0 and the distinction between peak and averaged sinusoidal values.",
+        "solution": "A plane wave has mutually perpendicular transverse fields with S parallel to E×B. The relation E=cB makes uE=uB. The cycle-average flux is half the peak flux for a sinusoid.",
+        "lesson_ids": [
+          "physics-em-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-15:fringe-spacing",
+      "type": "numeric",
+      "prompt": "Two coherent, in-phase slits are separated by d=0.30 mm. A screen 2.0 m away receives light of wavelength 600 nm. What is the spacing between adjacent bright fringes? Enter a value in mm.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 4.0,
+        "unit": "mm",
+        "tolerance": 0.06,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use the far-field relation Δy≈λL/d, converting nanometres and millimetres to metres.",
+        "solution": "Δy=(600×10⁻⁹ m)(2.0 m)/(0.30×10⁻³ m)=4.0×10⁻³ m=4.0 mm.",
+        "lesson_ids": [
+          "physics-em-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-15:fifth-bright",
+      "type": "numeric",
+      "prompt": "For the same two-slit setup, how far from the central maximum is the fifth-order bright fringe (m=5)? Enter a value in mm.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 20.0,
+        "unit": "mm",
+        "tolerance": 0.3,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Bright fringes lie at yₘ≈mλL/d.",
+        "solution": "y₅=5(4.0 mm)=20 mm.",
+        "lesson_ids": [
+          "physics-em-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-15:first-dark",
+      "type": "numeric",
+      "prompt": "For the same setup, how far from the central maximum is the first dark fringe? Enter a value in mm.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 2.0,
+        "unit": "mm",
+        "tolerance": 0.03,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The first minimum is halfway between the central and first-order bright fringes.",
+        "solution": "y₁/₂≈(1/2)λL/d=(1/2)(4.0 mm)=2.0 mm.",
+        "lesson_ids": [
+          "physics-em-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-15:path-phase",
+      "type": "numeric",
+      "prompt": "Two in-phase waves of wavelength λ arrive with path difference δ=λ/3. What phase difference does the path difference produce? Enter the value in radians.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 2.094395,
+        "unit": "rad",
+        "tolerance": 0.04,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use φ=2πδ/λ.",
+        "solution": "φ=2π(λ/3)/λ=2π/3≈2.094 rad.",
+        "lesson_ids": [
+          "physics-em-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-15:equal-source-intensity",
+      "type": "numeric",
+      "prompt": "Two coherent waves of equal intensity I₀ arrive with phase difference φ=π/2. What is their combined intensity divided by I₀?",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 2.0,
+        "unit": "ratio",
+        "tolerance": 0.03,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "For equal intensities, I/I₀=4 cos²(φ/2).",
+        "solution": "I/I₀=4cos²(π/4)=2.",
+        "lesson_ids": [
+          "physics-em-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-15:third-dark-path",
+      "type": "numeric",
+      "prompt": "For in-phase sources with wavelength 500 nm, what path difference gives the third dark minimum from the center? Use δ=(m+1/2)λ with m=2. Enter a value in μm.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 1.25,
+        "unit": "μm",
+        "tolerance": 0.02,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The three noncentral dark minima use m=0, 1 and 2.",
+        "solution": "δ=(2+1/2)(500 nm)=1250 nm=1.25 μm.",
+        "lesson_ids": [
+          "physics-em-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-15:interference-conditions",
+      "type": "multiple_select",
+      "prompt": "For two coherent, same-frequency sources that start in phase, which statements are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "physics-em-15-objective-1"
+      ],
+      "options": [
+        "A path difference δ=mλ produces constructive interference for integer m.",
+        "A path difference δ=(m+1/2)λ produces destructive interference for integer m.",
+        "Increasing the path difference by one wavelength changes the phase difference by 2π.",
+        "Increasing the path difference by half a wavelength switches a maximum to a minimum.",
+        "A path difference δ=(m+1/2)λ produces constructive interference.",
+        "If relative phase fluctuates rapidly, a stable dark fringe remains at each half-integer path difference."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "feedback": {
+        "hint": "Translate between phase 2πδ/λ and path difference, and keep coherence in view.",
+        "solution": "A full wavelength adds 2π and repeats the phase; half a wavelength adds π and swaps constructive and destructive conditions. Rapid phase fluctuations wash out a stable pattern.",
+        "lesson_ids": [
+          "physics-em-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-15:pattern-assumptions",
+      "type": "multiple_select",
+      "prompt": "Which statements about the ideal double-slit pattern are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "physics-em-15-objective-2"
+      ],
+      "options": [
+        "The approximation Δy≈λL/d uses a distant screen and small observation angles.",
+        "Equal coherent source amplitudes can produce fully dark destructive minima.",
+        "Two unrelated sources with a rapidly changing relative phase always produce a stationary fringe pattern.",
+        "Increasing slit separation d decreases the bright-fringe spacing when λ and L are fixed.",
+        "The fringe spacing is independent of wavelength.",
+        "If the relative phase is not stable, the time-averaged intensity cross term can vanish."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3,
+          5
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "feedback": {
+        "hint": "Check the geometry assumptions, the equal-amplitude condition for zero intensity, and whether the cross term survives averaging.",
+        "solution": "The far-field small-angle geometry gives Δy≈λL/d. Equal coherent amplitudes permit zero-intensity minima. A fluctuating relative phase removes the average interference term.",
+        "lesson_ids": [
+          "physics-em-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-16:loop-centre-field",
+      "type": "numeric",
+      "prompt": "Stipulate μ₀ = 4π × 10⁻⁷ T·m/A. A single circular loop of radius 5.0 cm carries 0.80 A. What is the field magnitude at its centre, in μT? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-16-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 10.053,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Integrate Biot–Savart around the loop; every segment is distance R from the centre.",
+        "solution": "B = μ₀I/(2R) = 4π × 10⁻⁷ × 0.80/0.10 = 1.005 × 10⁻⁵ T = 10.05 μT.",
+        "lesson_ids": [
+          "physics-em-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-16:loop-axis-field",
+      "type": "numeric",
+      "prompt": "Stipulate μ₀ = 4π × 10⁻⁷ T·m/A. For the same 0.80 A loop of radius 5.0 cm, what is the field magnitude on its axis 5.0 cm from the centre, in μT? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-16-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 3.554,
+        "unit": "",
+        "tolerance": 0.005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use B = μ₀IR²/[2(R² + z²)^(3/2)] with z = R.",
+        "solution": "With z = R the centre value is multiplied by 2^(−3/2) = 0.354, giving 3.55 μT.",
+        "lesson_ids": [
+          "physics-em-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-16:finite-segment-field",
+      "type": "numeric",
+      "prompt": "Stipulate μ₀ = 4π × 10⁻⁷ T·m/A. A straight segment 4.0 cm long carries 3.0 A. What field magnitude does it produce at a point 2.0 cm from its midpoint, perpendicular to the segment, in μT? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-16-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 21.21,
+        "unit": "",
+        "tolerance": 0.02,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use B = (μ₀I/4πd) × 2a/√(a² + d²) with half-length a = 2.0 cm.",
+        "solution": "(10⁻⁷ × 3.0/0.020) × 0.040/0.0283 = 1.5 × 10⁻⁵ × 1.414 = 21.2 μT, about 71% of the infinite-wire value of 30 μT.",
+        "lesson_ids": [
+          "physics-em-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-16:inside-thick-wire",
+      "type": "numeric",
+      "prompt": "Stipulate μ₀ = 4π × 10⁻⁷ T·m/A. A long wire of radius 4.0 mm carries 8.0 A spread uniformly over its cross-section. What is the field magnitude 1.0 mm from its axis, in μT? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 100,
+        "unit": "",
+        "tolerance": 0.1,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "An Amperian circle of radius r encloses I r²/a².",
+        "solution": "B = μ₀I r/(2πa²) = 2 × 10⁻⁷ × 8.0 × 0.0010/(0.0040)² = 1.00 × 10⁻⁴ T = 100 μT.",
+        "lesson_ids": [
+          "physics-em-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-16:toroid-field",
+      "type": "numeric",
+      "prompt": "Stipulate μ₀ = 4π × 10⁻⁷ T·m/A. An ideal toroid has 500 turns carrying 0.20 A. What is the field magnitude inside the windings at radius 5.0 cm from its centre, in μT? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 400,
+        "unit": "",
+        "tolerance": 0.4,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "A circle inside the windings encloses N I.",
+        "solution": "B = μ₀NI/(2πr) = 2 × 10⁻⁷ × 100/0.050 = 4.0 × 10⁻⁴ T = 400 μT.",
+        "lesson_ids": [
+          "physics-em-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-16:parallel-wire-force",
+      "type": "numeric",
+      "prompt": "Stipulate μ₀ = 4π × 10⁻⁷ T·m/A. Two long parallel wires 1.0 cm apart each carry 5.0 A in the same direction. What is the force per unit length between them, in mN/m? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.5,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Find one wire's field at the other, then F/L = I₂B.",
+        "solution": "F/L = μ₀I₁I₂/(2πd) = 2 × 10⁻⁷ × 25/0.010 = 5.0 × 10⁻⁴ N/m = 0.50 mN/m, attractive.",
+        "lesson_ids": [
+          "physics-em-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-16:coil-torque",
+      "type": "numeric",
+      "prompt": "Stipulate μ₀ = 4π × 10⁻⁷ T·m/A. A synthetic flat circular coil has 40 turns of radius 1.5 cm and carries 0.20 A in a uniform 0.050 T field. Its normal makes 60° with the field. What is the torque magnitude, in mN·m? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-16-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0.2449,
+        "unit": "",
+        "tolerance": 0.0005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "μ = NIA and τ = μB sin θ.",
+        "solution": "μ = 40 × 0.20 × π(0.015)² = 5.65 × 10⁻³ A·m², so τ = 5.65 × 10⁻³ × 0.050 × sin 60° = 2.45 × 10⁻⁴ N·m = 0.245 mN·m.",
+        "lesson_ids": [
+          "physics-em-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-16:coil-turning-work",
+      "type": "numeric",
+      "prompt": "Stipulate μ₀ = 4π × 10⁻⁷ T·m/A. A synthetic flat circular coil has 40 turns of radius 1.5 cm and carries 0.20 A in a uniform 0.050 T field. How much work is needed to turn it from aligned with the field to anti-aligned, in mJ? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-16-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0.5655,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use U = −μB cos θ at 0° and 180°.",
+        "solution": "ΔU = 2μB = 2 × 5.65 × 10⁻³ × 0.050 = 5.65 × 10⁻⁴ J = 0.565 mJ.",
+        "lesson_ids": [
+          "physics-em-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-16:ampere-law-usefulness",
+      "type": "single_choice",
+      "prompt": "Ampère's law holds for any closed loop around steady currents. Why can it not directly give the field of a short straight segment?",
+      "options": [
+        "B is not constant in magnitude and tangent along any simple loop, so ∮B·dl cannot be solved for B; Biot–Savart is needed",
+        "Ampère's law is false for short segments",
+        "A short segment carries no enclosed current",
+        "Ampère's law applies only to time-varying fields"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "physics-em-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "What must be true of B on the loop to pull it out of the integral?",
+        "solution": "The law is still true, but without symmetry B varies along the loop. An isolated segment is also not a complete steady circuit, so Biot–Savart, summing segment contributions, is the appropriate tool.",
+        "lesson_ids": [
+          "physics-em-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-16:uniform-field-loop",
+      "type": "single_choice",
+      "prompt": "A current loop sits in a uniform magnetic field with its normal at 45° to the field. What does it experience?",
+      "options": [
+        "Zero net force but a torque that turns its normal toward the field",
+        "A net force along the field and no torque",
+        "A net force and a torque that both vanish only at 90°",
+        "Neither force nor torque, because the field is uniform"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "physics-em-16-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Compare the forces on opposite sides of the loop.",
+        "solution": "Forces on opposite sides are equal and opposite in a uniform field, so they cancel, but they act along different lines and give τ = μ × B. A net force needs a non-uniform field.",
+        "lesson_ids": [
+          "physics-em-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-16:field-model-choice",
+      "type": "single_choice",
+      "prompt": "A 2.0 cm straight wire segment carries current, and the field is needed 2.0 cm away from its midpoint. Which approach is appropriate?",
+      "options": [
+        "Integrate Biot–Savart over the finite segment, since μ₀I/(2πd) assumes an infinitely long wire",
+        "Use μ₀I/(2πd), because every wire looks infinite from nearby",
+        "Use the solenoid formula μ₀nI",
+        "Use Ampère's law with a circle of radius 2.0 cm"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "physics-em-16-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Compare the segment length with the distance.",
+        "solution": "The segment is no longer than the distance, so the infinite-wire formula overestimates substantially. The finite-segment result (μ₀I/4πd) × 2a/√(a² + d²) gives about 45% of the infinite value here.",
+        "lesson_ids": [
+          "physics-em-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
     }
   ]
 }

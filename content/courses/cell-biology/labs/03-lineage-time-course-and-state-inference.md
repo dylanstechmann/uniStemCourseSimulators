@@ -1,8 +1,9 @@
 # Virtual lab 3: lineage-marker time course and state inference
 
 **Activity type:** synthetic-data analysis with public, ungraded formative checks  
-**Course package:** Foundations of Cell and Molecular Biology, version 0.19.0. **Estimated learner time:** 2–3 hours  
-**Data status:** all 160 observations are constructed for instruction; no laboratory measurements or biological samples are represented.
+**Course package:** Foundations of Cell and Molecular Biology, version 0.61.0.
+**Estimated learner time (unvalidated author estimate):** 2–3 hours
+**Data status:** the CSV contains 40 culture-level records (2 conditions × 5 days × 4 cultures) and 160 constructed outcome measurements (four measured fields per record). No laboratory measurements or biological samples are represented.
 
 ## Experimental question
 

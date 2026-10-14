@@ -3,15 +3,18 @@
 
 from __future__ import annotations
 
+import csv
 import json
 import math
+import re
 import shutil
-import csv
 from copy import deepcopy
 from pathlib import Path
+from urllib.error import HTTPError
 
 import pytest
 
+from tools import validate_content as content_validator
 from tools.validate_content import validate_repository
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -45,6 +48,12 @@ def repository(tmp_path: Path):
             source_id
             for item in curriculum["pathways"] + curriculum["alignment_maps"]
             for source_id in item["source_ids"]
+        }
+        | {
+            source_id
+            for path in (tmp_path / "content/courses").glob("*/source-map.json")
+            for module in read(path)["modules"]
+            for source_id in module["source_ids"]
         }
     )
     registry = {
@@ -90,6 +99,20 @@ def course(repository):
 
 def codes(report):
     return {error["code"] for error in report.errors}
+
+
+def independent_inventory(repository: Path) -> dict[str, int]:
+    """Count the public package files directly, without the validator."""
+    totals = {"courses": 0, "lessons": 0, "questions": 0, "cards": 0, "cases": 0}
+    for manifest_path in sorted((repository / "content/courses").glob("*/course.json")):
+        manifest = read(manifest_path)
+        banks = manifest_path.parent / "question-banks"
+        totals["courses"] += 1
+        totals["lessons"] += sum(len(module["lessons"]) for module in manifest["modules"])
+        totals["questions"] += len(read(banks / "practice.json")["questions"])
+        totals["cards"] += len(read(banks / "retrieval-cards.json")["cards"])
+        totals["cases"] += sum(item["type"] == "case" for item in manifest["assessments"])
+    return totals
 
 
 def install_private_homework(repository: Path, manifest_path: Path, private_root: Path) -> None:
@@ -145,14 +168,9 @@ def install_private_homework(repository: Path, manifest_path: Path, private_root
 def test_preserved_inventory_is_honest_partial(repository):
     result = validate_repository(repository)
     assert result.ok, result.errors
-    assert result.inventory == {
-        "courses": 25,
-        "lessons": 384,
-        "questions": 2233,
-        "cards": 1276,
-        "cases": 25,
-    }
-    assert sum(warning["code"] == "legacy-depth" for warning in result.warnings) == 96
+    assert result.inventory == independent_inventory(repository)
+    assert result.inventory["courses"] == 25 and result.inventory["cases"] == 25
+    assert sum(warning["code"] == "legacy-depth" for warning in result.warnings) == 0
     # Assessments list the course outcomes their items assess, so no package has an unmapped outcome.
     assert not [warning for warning in result.warnings if warning["code"] == "objective-coverage"]
     assert all(
@@ -160,6 +178,105 @@ def test_preserved_inventory_is_honest_partial(repository):
         and read(path)["review"]["status"] == "unreviewed"
         for path in (repository / "content/courses").glob("*/course.json")
     )
+
+
+def test_link_check_distinguishes_access_denial_from_missing_destination(
+    repository, monkeypatch
+):
+    sources = read(repository / "content/sources/registry.json")["sources"]
+    denied_url, missing_url = (source["url"] for source in sources[:2])
+
+    class Response:
+        status = 200
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *_args):
+            return None
+
+    def fake_urlopen(request, timeout):
+        assert timeout == 12
+        if request.full_url == denied_url:
+            raise HTTPError(denied_url, 403, "Forbidden", None, None)
+        if request.full_url == missing_url:
+            raise HTTPError(missing_url, 404, "Not Found", None, None)
+        return Response()
+
+    monkeypatch.setattr(content_validator, "urlopen", fake_urlopen)
+    report = validate_repository(repository, check_links=True)
+
+    broken_links = [
+        error for error in report.errors if error["code"] == "broken-link"
+    ]
+    access_warnings = [
+        warning
+        for warning in report.warnings
+        if warning["code"] == "link-access-denied"
+    ]
+    assert broken_links == [
+        {
+            "code": "broken-link",
+            "path": missing_url,
+            "message": "HTTP 404: Not Found",
+        }
+    ]
+    assert access_warnings == [
+        {
+            "code": "link-access-denied",
+            "path": denied_url,
+            "message": "HTTP 403: Forbidden",
+        }
+    ]
+
+
+def test_link_check_probes_and_deduplicates_public_markdown_links(
+    repository, monkeypatch
+):
+    markdown_path = (
+        repository
+        / "content/courses/cell-biology/modules/01-molecular-structure-and-noncovalent-forces.md"
+    )
+    assert markdown_path.is_file()
+    destination = "https://markdown.example.edu/course-reading"
+    original_markdown = markdown_path.read_text(encoding="utf-8")
+    markdown_path.write_text(
+        original_markdown + f"\n[Reference A]({destination})\n[Reference B]({destination})\n",
+        encoding="utf-8",
+    )
+    seen = []
+
+    class Response:
+        status = 200
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *_args):
+            return None
+
+    def fake_urlopen(request, timeout):
+        assert timeout == 12
+        seen.append(request.full_url)
+        if request.full_url == destination:
+            raise HTTPError(destination, 404, "Not Found", None, None)
+        return Response()
+
+    monkeypatch.setattr(content_validator, "urlopen", fake_urlopen)
+    report = validate_repository(repository, check_links=True)
+
+    markdown_errors = [
+        error
+        for error in report.errors
+        if error["code"] == "broken-link" and destination in error["path"]
+    ]
+    assert seen.count(destination) == 1
+    assert len(markdown_errors) == 1
+    assert markdown_errors[0]["path"].startswith(
+        "content/courses/cell-biology/modules/01-molecular-structure-and-noncovalent-forces.md:"
+    )
+    assert markdown_errors[0]["path"].endswith(f" -> {destination}")
+    assert markdown_errors[0]["message"] == "HTTP 404: Not Found"
 
 
 def test_assessment_outcomes_are_exactly_those_their_own_items_assess(repository):
@@ -189,8 +306,10 @@ def test_assessment_cannot_claim_an_outcome_its_items_do_not_assess(repository):
     manifest_path = repository / "content/courses/genetics/course.json"
     manifest = read(manifest_path)
     prototype = next(item for item in manifest["assessments"] if item["id"] == "genetics-1-practice")
-    assert not set(prototype["objective_ids"]) & {item["id"] for item in manifest["outcomes"]}
-    prototype["objective_ids"].append("genetics-outcome-4")
+    outcomes = {item["id"] for item in manifest["outcomes"]}
+    unsupported = sorted(outcomes - set(prototype["objective_ids"]))
+    assert unsupported
+    prototype["objective_ids"].append(unsupported[0])
     write(manifest_path, manifest)
     assert "unsupported-outcome-mapping" in codes(validate_repository(repository))
 
@@ -219,9 +338,11 @@ def test_syllabi_list_every_lesson_and_drop_the_prototype_unit_description(repos
             continue
         text = (manifest_path.parent / manifest["syllabus"]).read_text(encoding="utf-8")
         assert f"Version: {manifest['version']}." in text
-        for module in manifest["modules"]:
-            for lesson in module["lessons"]:
-                assert lesson["title"] in text, (manifest["id"], lesson["id"])
+        # Syllabi use grouped theme/block tables, so require a row for every scheduled week
+        # rather than verbatim lesson titles; the reader takes titles from the manifest.
+        for week in manifest["duration"]["weeks"]:
+            if week["lesson_ids"]:
+                assert f"| {week['week']} |" in text, (manifest["id"], week["week"])
         assert "Each unit includes one public formative check and two retrieval cards" not in text
 
 
@@ -414,9 +535,9 @@ def test_structured_rubric_item_is_counted_while_course_remains_partial(reposito
     result = validate_repository(repository)
     assert result.ok, result.errors
     manifest = read(course[0])
-    assert manifest["version"] == "0.34.0"
+    assert manifest["version"] == manifest["history"][-1]["version"]
     assert manifest["maturity"] == "partial"
-    assert result.inventory["questions"] == 2233
+    assert result.inventory["questions"] == independent_inventory(repository)["questions"]
     question = next(
         item
         for item in read(course[0].parent / "question-banks/practice.json")["questions"]
@@ -426,6 +547,18 @@ def test_structured_rubric_item_is_counted_while_course_remains_partial(reposito
     assert all(field["points"] == 1 for field in question["response_fields"])
 
 
+def test_learner_resource_references_must_be_safe_and_resolve(repository, course):
+    manifest_path, manifest = course
+    resources = manifest["learner_resources"]
+    assert len(resources) == 9
+    assert resources.count("labs/image-counts.csv") == 1
+    assert all(reference.endswith(".csv") for reference in resources)
+    assert all((manifest_path.parent / reference).is_file() for reference in resources)
+    manifest["learner_resources"] = ["../outside.md"]
+    write(manifest_path, manifest)
+    assert "learner-resource" in codes(validate_repository(repository))
+
+
 def test_graph_plot_item_is_counted_while_statistics_course_remains_partial(repository):
     result = validate_repository(repository)
     assert result.ok, result.errors
@@ -433,11 +566,446 @@ def test_graph_plot_item_is_counted_while_statistics_course_remains_partial(repo
     manifest = read(course_path)
     bank = read(course_path.parent / "question-banks/practice.json")
     graph = next(item for item in bank["questions"] if item["type"] == "graph")
-    assert manifest["version"] == "0.4.0"
+    assert manifest["version"] == manifest["history"][-1]["version"]
     assert manifest["maturity"] == "partial"
     assert graph["id"] == "statistics-5:concentration-graph"
     assert len(graph["graph_spec"]["points"]) == 3
-    assert result.inventory["questions"] == 2233
+    assert result.inventory["questions"] == independent_inventory(repository)["questions"]
+
+
+def test_cell_biology_information_flow_items_match_their_objectives(repository):
+    course_root = repository / "content/courses/cell-biology"
+    bank = read(course_root / "question-banks/practice.json")
+    questions = {item["id"]: item for item in bank["questions"]}
+    manifest = read(course_root / "course.json")
+    assessments = {item["id"]: item for item in manifest["assessments"]}
+
+    control_item = questions["cell-biology-4:check"]
+    assert control_item["objective_ids"] == ["cell-biology-4-objective-2"]
+
+    objective_id = "cell-biology-4-objective-1"
+    sequence_item = questions["cell-biology-4:template-transcription-translation"]
+    stop_item = questions["cell-biology-4:premature-stop-consequence"]
+    assert sequence_item["objective_ids"] == [objective_id]
+    assert sequence_item["options"][sequence_item["solution_spec"]["answer"]] == (
+        "5′-AUG CCU AAA-3′; Met–Pro–Lys"
+    )
+    assert stop_item["objective_ids"] == [objective_id]
+    assert "only the initiating methionine" in stop_item["options"][stop_item["solution_spec"]["answer"]]
+
+    topical = assessments["cell-biology-4-practice"]
+    cumulative = assessments["cell-biology-week8-cumulative-practice"]
+    for item_id in (sequence_item["id"], stop_item["id"]):
+        assert item_id in topical["question_ids"]
+        assert item_id in cumulative["question_ids"]
+    assert topical["points"] == 12
+    assert cumulative["points"] == 44
+
+
+def test_cell_biology_quantitative_objectives_have_complementary_practice(repository):
+    course_root = repository / "content/courses/cell-biology"
+    bank = read(course_root / "question-banks/practice.json")
+    questions = {item["id"]: item for item in bank["questions"]}
+    manifest = read(course_root / "course.json")
+    assessments = {item["id"]: item for item in manifest["assessments"]}
+
+    cases = [
+        (
+            "cell-biology-5:protonation-direction",
+            "cell-biology-5-objective-1",
+            "cell-biology-1-practice",
+        ),
+        (
+            "cell-biology-6:matched-variant-measurements",
+            "cell-biology-6-objective-2",
+            "cell-biology-2-practice",
+        ),
+        (
+            "cell-biology-9:rate-at-twice-km",
+            "cell-biology-9-objective-2",
+            "cell-biology-3-practice",
+        ),
+    ]
+    cumulative = assessments["cell-biology-week8-cumulative-practice"]
+    for question_id, objective_id, topical_id in cases:
+        question = questions[question_id]
+        assert question["objective_ids"] == [objective_id]
+        assert question_id in assessments[topical_id]["question_ids"]
+        assert question_id in cumulative["question_ids"]
+
+    rate = questions["cell-biology-9:rate-at-twice-km"]["solution_spec"]
+    assert rate["answer"] == 53.3333
+    assert rate["unit"] == "nM/s"
+    assert rate["unit_required"] is True
+    assert assessments["cell-biology-1-practice"]["points"] == 9
+    assert assessments["cell-biology-2-practice"]["points"] == 9
+    assert assessments["cell-biology-3-practice"]["points"] == 13
+    assert len(cumulative["question_ids"]) == 25
+    assert cumulative["points"] == 44
+
+
+def test_cell_biology_later_week_practice_distinguishes_response_and_junctions(repository):
+    course_root = repository / "content/courses/cell-biology"
+    bank = read(course_root / "question-banks/practice.json")
+    questions = {item["id"]: item for item in bank["questions"]}
+    manifest = read(course_root / "course.json")
+    assessments = {item["id"]: item for item in manifest["assessments"]}
+    cases = [
+        (
+            "cell-biology-21:occupancy-response-distinction",
+            "cell-biology-21-objective-1",
+            "cell-biology-week11-practice",
+        ),
+        (
+            "cell-biology-21:gpcr-rtk-relay-comparison",
+            "cell-biology-21-objective-2",
+            "cell-biology-week11-practice",
+        ),
+        (
+            "cell-biology-23:desmosome-versus-focal-adhesion",
+            "cell-biology-23-objective-2",
+            "cell-biology-week12-practice",
+        ),
+    ]
+    cumulative = assessments["cell-biology-week8-cumulative-practice"]
+    for item_id, objective_id, topical_id in cases:
+        item = questions[item_id]
+        correct = item["options"][item["solution_spec"]["answer"]]
+        assert item["objective_ids"] == [objective_id]
+        assert item_id in assessments[topical_id]["question_ids"]
+        assert item_id not in cumulative["question_ids"]
+        assert correct
+
+    assert "occupancy alone does not require the same cellular response" in questions[
+        cases[0][0]
+    ]["options"][0]
+    assert "Many GPCRs signal through heterotrimeric G proteins" in questions[cases[1][0]][
+        "options"
+    ][0]
+    assert "Desmosomes connect selected cell–cell contacts" in questions[cases[2][0]][
+        "options"
+    ][0]
+    assert len(assessments["cell-biology-week11-practice"]["question_ids"]) == 9
+    assert assessments["cell-biology-week11-practice"]["points"] == 15
+    assert len(assessments["cell-biology-week12-practice"]["question_ids"]) == 9
+    assert assessments["cell-biology-week12-practice"]["points"] == 15
+
+
+def test_cell_biology_structured_association_and_regenerative_items(repository):
+    course_root = repository / "content/courses/cell-biology"
+    bank = read(course_root / "question-banks/practice.json")
+    questions = {item["id"]: item for item in bank["questions"]}
+    manifest = read(course_root / "course.json")
+    assessments = {item["id"]: item for item in manifest["assessments"]}
+    cases = [
+        (
+            "cell-biology-19:association-evidence-structured",
+            "cell-biology-19-objective-3",
+            "cell-biology-week10-practice",
+            "a haplotype or region",
+            10,
+            18,
+        ),
+        (
+            "cell-biology-28:regenerative-evidence-structured",
+            "cell-biology-28-objective-3",
+            "cell-biology-week14-practice",
+            "not by itself durable identity",
+            9,
+            17,
+        ),
+    ]
+    cumulative = assessments["cell-biology-week8-cumulative-practice"]
+    for question_id, objective_id, assessment_id, expected_text, expected_items, expected_points in cases:
+        question = questions[question_id]
+        assert question["type"] == "structured"
+        assert question["objective_ids"] == [objective_id]
+        assert len(question["response_fields"]) == 3
+        assert len(question["solution_spec"]["rubric"]) == 3
+        assert question_id in assessments[assessment_id]["question_ids"]
+        assert question_id not in cumulative["question_ids"]
+        correct = question["response_fields"][0]["options"][question["solution_spec"]["field_specs"][0]["answer"]]
+        assert expected_text in correct
+        assert len(assessments[assessment_id]["question_ids"]) == expected_items
+        assert assessments[assessment_id]["points"] == expected_points
+    assert len(cumulative["question_ids"]) == 25
+    assert cumulative["points"] == 44
+
+
+def test_cell_biology_final_single_item_objectives_have_complementary_practice(repository):
+    course_root = repository / "content/courses/cell-biology"
+    bank = read(course_root / "question-banks/practice.json")
+    questions = {item["id"]: item for item in bank["questions"]}
+    manifest = read(course_root / "course.json")
+    assessments = {item["id"]: item for item in manifest["assessments"]}
+    cumulative = assessments["cell-biology-week8-cumulative-practice"]
+    cases = [
+        (
+            "cell-biology-23:filament-perturbation-pattern",
+            "cell-biology-23-objective-1",
+            "cell-biology-week12-practice",
+            "distinct common contributions",
+            False,
+        ),
+        (
+            "cell-biology-25:cdk-model-versus-measurement",
+            "cell-biology-25-objective-1",
+            "cell-biology-week13-practice",
+            "does not directly measure kinase activity",
+            False,
+        ),
+        (
+            "cell-biology-28:marker-function-boundary",
+            "cell-biology-28-objective-3",
+            "cell-biology-week14-practice",
+            "not functional tissue replacement",
+            False,
+        ),
+    ]
+    for question_id, objective_id, topical_id, expected_text, in_cumulative in cases:
+        question = questions[question_id]
+        correct = question["options"][question["solution_spec"]["answer"]]
+        assert question["objective_ids"] == [objective_id]
+        assert question_id in assessments[topical_id]["question_ids"]
+        assert (question_id in cumulative["question_ids"]) is in_cumulative
+        assert expected_text in correct
+    assert len(assessments["cell-biology-week12-practice"]["question_ids"]) == 9
+    assert assessments["cell-biology-week12-practice"]["points"] == 15
+    assert len(assessments["cell-biology-week13-practice"]["question_ids"]) == 8
+    assert assessments["cell-biology-week13-practice"]["points"] == 14
+    assert len(assessments["cell-biology-week14-practice"]["question_ids"]) == 9
+    assert assessments["cell-biology-week14-practice"]["points"] == 17
+    assert len(cumulative["question_ids"]) == 25
+    assert cumulative["points"] == 44
+
+
+def test_cell_biology_chromatin_rna_and_linkage_practice(repository):
+    course_root = repository / "content/courses/cell-biology"
+    bank = read(course_root / "question-banks/practice.json")
+    questions = {item["id"]: item for item in bank["questions"]}
+    manifest = read(course_root / "course.json")
+    assessments = {item["id"]: item for item in manifest["assessments"]}
+    cases = [
+        (
+            "cell-biology-15:replication-unit",
+            "cell-biology-15-objective-2",
+            "cell-biology-week7-practice",
+            "four independent culture batches per state as biological units",
+            True,
+        ),
+        (
+            "cell-biology-17:processing-role-map",
+            "cell-biology-17-objective-1",
+            "cell-biology-week9-practice",
+            "the spliceosome removes introns and joins selected exons",
+            False,
+        ),
+        (
+            "cell-biology-19:linked-variant-inference",
+            "cell-biology-19-objective-3",
+            "cell-biology-week10-practice",
+            "does not identify the causal nucleotide",
+            False,
+        ),
+    ]
+    cumulative = assessments["cell-biology-week8-cumulative-practice"]
+    for question_id, objective_id, topical_id, expected_text, in_cumulative in cases:
+        question = questions[question_id]
+        correct = question["options"][question["solution_spec"]["answer"]]
+        assert question["objective_ids"] == [objective_id]
+        assert question_id in assessments[topical_id]["question_ids"]
+        assert (question_id in cumulative["question_ids"]) is in_cumulative
+        assert expected_text in correct
+    assert len(assessments["cell-biology-week7-practice"]["question_ids"]) == 9
+    assert assessments["cell-biology-week7-practice"]["points"] == 17
+    assert len(cumulative["question_ids"]) == 25
+    assert cumulative["points"] == 44
+
+
+
+def test_cell_biology_display_equations_have_plain_language_alternatives(repository):
+    course_root = repository / "content/courses/cell-biology"
+    manifest = read(course_root / "course.json")
+    expected_counts = {
+        "01b-water-ph-and-interactions.md": 1,
+        "02-membranes-transport-and-compartmentalization.md": 1,
+        "04a-enzyme-catalysis-and-free-energy.md": 4,
+        "05a-cell-imaging-resolution-and-quantification.md": 1,
+        "05b-cell-fractionation-enrichment-and-recovery.md": 1,
+        "07b-transcription-occupancy-and-reporter-evidence.md": 1,
+        "08a-rna-processing-and-isoform-evidence.md": 1,
+        "08b-translation-and-protein-turnover.md": 1,
+        "09a-inheritance-penetrance-and-pedigree-evidence.md": 1,
+        "10a-receptor-signaling-and-network-logic.md": 1,
+        "11b-matrix-mechanics-and-mechanotransduction.md": 3,
+    }
+    assert sum(expected_counts.values()) == 16
+    for filename, count in expected_counts.items():
+        reading = (course_root / "modules" / filename).read_text(encoding="utf-8")
+        assert reading.count("**In words:**") == count
+    assert manifest["accessibility"]["review_status"] == "unreviewed"
+    assert any("screen-reader pronunciation" in issue for issue in manifest["accessibility"]["known_issues"])
+
+
+def test_explanation_objectives_have_structured_practice(repository):
+    course_root = repository / "content/courses/cell-biology"
+    manifest = read(course_root / "course.json")
+    bank = read(course_root / "question-banks/practice.json")
+    questions = {item["id"]: item for item in bank["questions"]}
+    assessments = {item["id"]: item for item in manifest["assessments"]}
+    cases = [
+        ("cell-biology-13", "cell-biology-13-objective-1", "cell-biology-week6-practice", "cell-biology-13:fork-explanation-structured"),
+        ("cell-biology-15", "cell-biology-15-objective-1", "cell-biology-week7-practice", "cell-biology-15:chromatin-organization-structured"),
+        ("cell-biology-17", "cell-biology-17-objective-1", "cell-biology-week9-practice", "cell-biology-17:processing-roles-structured"),
+    ]
+    correct_positions = []
+
+    assert manifest["version"] == manifest["history"][-1]["version"]
+    assert manifest["maturity"] == "partial"
+    assert manifest["grading_policy"]["mode"] == "formative-only"
+    for lesson_id, objective_id, assessment_id, question_id in cases:
+        question = questions[question_id]
+        lesson = next(lesson for module in manifest["modules"] for lesson in module["lessons"] if lesson["id"] == lesson_id)
+        assessment = assessments[assessment_id]
+        fields = question["response_fields"]
+        field_ids = {field["id"] for field in fields}
+        spec_ids = {spec["id"] for spec in question["solution_spec"]["field_specs"]}
+        rubric_ids = {criterion["id"] for criterion in question["solution_spec"]["rubric"]}
+
+        assert question["type"] == "structured"
+        assert question["objective_ids"] == [objective_id]
+        assert question_id in lesson["question_ids"]
+        assert question_id in assessment["question_ids"]
+        assert field_ids == spec_ids == rubric_ids
+        assert question["points"] == sum(field["points"] for field in fields) == 3
+        assert all(field["type"] == "single_choice" for field in fields)
+        correct_positions.extend(spec["answer"] for spec in question["solution_spec"]["field_specs"])
+        assert sum(questions[item]["points"] for item in assessment["question_ids"]) == assessment["points"]
+    assert set(correct_positions) == {0, 1, 2, 3}
+
+
+def test_matrix_mechanics_design_practice_is_ungraded_and_self_assessed(repository):
+    course_root = repository / "content/courses/cell-biology"
+    manifest = read(course_root / "course.json")
+    exercise_path = course_root / "modules/11c-matrix-mechanics-design-practice.md"
+    exercise = exercise_path.read_text(encoding="utf-8")
+    syllabus = (course_root / "syllabus.md").read_text(encoding="utf-8")
+
+    assert manifest["version"] == manifest["history"][-1]["version"]
+    assert manifest["maturity"] == "partial"
+    assert manifest["grading_policy"]["mode"] == "formative-only"
+    assert "[ungraded written-design exercise](modules/11c-matrix-mechanics-design-practice.md)" in syllabus
+    assert "## Design prompt" in exercise
+    assert "## Self-check" in exercise
+    assert "accessible ligand" in exercise
+    assert "stress-relaxation" in exercise
+    assert "independent culture batches" in exercise
+    assert "target engagement" in exercise
+    assert "No response is collected or scored" in exercise
+
+
+def test_week14_lineage_to_function_design_brief_is_ungraded(repository):
+    course_root = repository / "content/courses/cell-biology"
+    manifest = read(course_root / "course.json")
+    exercise_path = course_root / "modules/13c-lineage-to-function-design-practice.md"
+    exercise = exercise_path.read_text(encoding="utf-8")
+    syllabus = (course_root / "syllabus.md").read_text(encoding="utf-8")
+    crosswalk = (course_root / "assessment-crosswalk.md").read_text(encoding="utf-8")
+
+    assert manifest["version"] == manifest["history"][-1]["version"]
+    assert manifest["maturity"] == "partial"
+    assert manifest["grading_policy"]["mode"] == "formative-only"
+    assert "[ungraded written-design studio](modules/13c-lineage-to-function-design-practice.md)" in syllabus
+    assert "[ungraded written-design studio](modules/13c-lineage-to-function-design-practice.md)" in crosswalk
+    assert "## Design prompt" in exercise
+    assert "## Self-check" in exercise
+    assert "independent differentiation batch" in exercise
+    assert "accessible ligand" in exercise
+    assert "defined function assay" in exercise
+    assert "clinical readiness" in exercise
+    assert "No points or grade are assigned" in exercise
+
+
+def test_cell_biology_early_objectives_have_complementary_bounded_practice(repository):
+    course_root = repository / "content/courses/cell-biology"
+    bank = read(course_root / "question-banks/practice.json")
+    questions = {item["id"]: item for item in bank["questions"]}
+    manifest = read(course_root / "course.json")
+    assessments = {item["id"]: item for item in manifest["assessments"]}
+    cases = [
+        (
+            "cell-biology-1:surface-hydrophobic-assembly",
+            "cell-biology-1-objective-2",
+            "cell-biology-1-practice",
+            "Burying nonpolar surface from water could favor association",
+        ),
+        (
+            "cell-biology-2:carrier-mediated-passive-transport",
+            "cell-biology-2-objective-2",
+            "cell-biology-2-practice",
+            "Facilitated diffusion",
+        ),
+        (
+            "cell-biology-6:surface-variant-context",
+            "cell-biology-6-objective-1",
+            "cell-biology-2-practice",
+            "Glutamate is more polar and usually negatively charged",
+        ),
+    ]
+    cumulative = assessments["cell-biology-week8-cumulative-practice"]
+    for question_id, objective_id, topical_id, expected_answer in cases:
+        question = questions[question_id]
+        correct = question["options"][question["solution_spec"]["answer"]]
+        assert question["objective_ids"] == [objective_id]
+        assert question_id in assessments[topical_id]["question_ids"]
+        assert question_id in cumulative["question_ids"]
+        assert expected_answer in correct
+    assert len(cumulative["question_ids"]) == 25
+    assert cumulative["points"] == 44
+
+
+def test_cell_biology_controls_and_penetrance_practice_stay_in_topical_sets(repository):
+    course_root = repository / "content/courses/cell-biology"
+    bank = read(course_root / "question-banks/practice.json")
+    questions = {item["id"]: item for item in bank["questions"]}
+    manifest = read(course_root / "course.json")
+    assessments = {item["id"]: item for item in manifest["assessments"]}
+    cases = [
+        (
+            "cell-biology-7:marker-panel-localization",
+            "cell-biology-7-objective-2",
+            "cell-biology-7-practice",
+            "co-fractionation/enrichment",
+        ),
+        (
+            "cell-biology-17:splice-perturbation-controls",
+            "cell-biology-17-objective-3",
+            "cell-biology-week9-practice",
+            "no-reverse-transcriptase control",
+        ),
+        (
+            "cell-biology-19:age-specific-penetrance-design",
+            "cell-biology-19-objective-2",
+            "cell-biology-week10-practice",
+            "genotype-first cohort",
+        ),
+    ]
+    cumulative = assessments["cell-biology-week8-cumulative-practice"]
+    for question_id, objective_id, assessment_id, expected_text in cases:
+        question = questions[question_id]
+        assert question["objective_ids"] == [objective_id]
+        assert question_id in assessments[assessment_id]["question_ids"]
+        assert question_id not in cumulative["question_ids"]
+        correct = question["options"][question["solution_spec"]["answer"]]
+        assert expected_text in correct
+    assert len(assessments["cell-biology-7-practice"]["question_ids"]) == 3
+    assert assessments["cell-biology-7-practice"]["points"] == 5
+    assert len(assessments["cell-biology-week9-practice"]["question_ids"]) == 11
+    assert assessments["cell-biology-week9-practice"]["points"] == 19
+    assert len(assessments["cell-biology-week10-practice"]["question_ids"]) == 10
+    assert assessments["cell-biology-week10-practice"]["points"] == 18
+    assert len(cumulative["question_ids"]) == 25
+    assert cumulative["points"] == 44
 
 
 def test_cell_biology_scope_does_not_claim_unwritten_weeks(repository):
@@ -446,11 +1014,12 @@ def test_cell_biology_scope_does_not_claim_unwritten_weeks(repository):
     course_root = repository / "content/courses/cell-biology"
     manifest = read(course_root / "course.json")
     weeks = manifest["duration"]["weeks"]
-    assert manifest["version"] == "0.34.0"
+    assert manifest["version"] == manifest["history"][-1]["version"]
     assert manifest["maturity"] == "partial"
     assert len(weeks) == 14
-    assert [week["week"] for week in weeks if week["lesson_ids"]] == [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14]
-    assert len(weeks[0]["lesson_ids"]) == len(weeks[1]["lesson_ids"]) == 2
+    assert [week["week"] for week in weeks if week["lesson_ids"]] == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+    assert len(weeks[0]["lesson_ids"]) == 2
+    assert weeks[1]["lesson_ids"] == ["cell-biology-6", "cell-biology-2", "cell-biology-review-early-written"]
     assert weeks[2]["lesson_ids"] == ["cell-biology-7", "cell-biology-8", "cell-biology-hw1"]
     assert weeks[2]["assessment_ids"] == [
         "cell-biology-7-practice", "cell-biology-8-practice", "cell-biology-hw1-practice"
@@ -458,6 +1027,16 @@ def test_cell_biology_scope_does_not_claim_unwritten_weeks(repository):
     homework = next(item for item in manifest["assessments"] if item["id"] == "cell-biology-hw1-practice")
     assert homework["type"] == "homework" and homework["mode"] == "practice"
     assert homework["points"] == 24 and len(homework["question_ids"]) == 5
+    early_rehearsal = course_root / "modules/02c-early-chemistry-and-transport-written-practice.md"
+    early_text = early_rehearsal.read_text(encoding="utf-8")
+    syllabus = (course_root / "syllabus.md").read_text(encoding="utf-8")
+    crosswalk = (course_root / "assessment-crosswalk.md").read_text(encoding="utf-8")
+    assert "## Prompt 1: connect pH and protonation" in early_text
+    assert "## Prompt 2: separate equilibrium from transport rate" in early_text
+    assert "## Prompt 3: distinguish a route from a measured outcome" in early_text
+    assert "no response is collected, scored, or graded" in early_text
+    assert "modules/02c-early-chemistry-and-transport-written-practice.md" in syllabus
+    assert "modules/02c-early-chemistry-and-transport-written-practice.md" in crosswalk
     assert manifest["grading_policy"]["mode"] == "formative-only"
     assert len(weeks[3]["lesson_ids"]) == 4  # lessons 3, 9, 10 and the Homework 2 companion
     assert weeks[4]["lesson_ids"] == ["cell-biology-11", "cell-biology-12", "cell-biology-lab-01"]
@@ -468,51 +1047,80 @@ def test_cell_biology_scope_does_not_claim_unwritten_weeks(repository):
     assert len(weeks[5]["lesson_ids"]) == 3  # lessons 13, 14 and the Homework 3 companion
     assert len(weeks[6]["lesson_ids"]) == 4  # lessons 15, 16, a prototype reading and the Homework 4 companion
     assert weeks[7]["week"] == 8
+    assert weeks[7]["lesson_ids"] == ["cell-biology-review-8-quantitative", "cell-biology-review-8-experimental-evidence"]
     assert "no midterm" in weeks[7]["title"].lower()
+    assert "synthesis" in weeks[7]["title"].lower()
+    week8_lessons = {
+        lesson["id"]: lesson
+        for module in manifest["modules"]
+        for lesson in module["lessons"]
+        if lesson["id"] in weeks[7]["lesson_ids"]
+    }
+    quantitative = week8_lessons["cell-biology-review-8-quantitative"]
+    evidence = week8_lessons["cell-biology-review-8-experimental-evidence"]
+    quantitative_text = (course_root / quantitative["reading"]).read_text(encoding="utf-8")
+    evidence_text = (course_root / evidence["reading"]).read_text(encoding="utf-8")
+    syllabus = (course_root / "syllabus.md").read_text(encoding="utf-8")
+    crosswalk = (course_root / "assessment-crosswalk.md").read_text(encoding="utf-8")
+    assert "Km is a model parameter" in quantitative_text
+    assert "a number alone does not choose among them" in quantitative_text
+    # Week 8 is a compact transfer table; the full replicate framework lives in lesson 04c.
+    assert "do not count assay wells as new cultures" in evidence_text
+    assert "Use language no stronger than the measured quantity and the design support" in evidence_text
+    framework = (course_root / "modules/04c-expression-controls-and-replicate-reasoning.md").read_text(encoding="utf-8")
+    assert "Technical wells improve measurement within each culture but do not create additional cultures" in framework
+    # The week-8 syllabus row describes both synthesis readings; the crosswalk links them.
+    assert "| 8 | Quantitative model assumptions, controls, replicates, bounded claims" in syllabus
+    assert "Two original ungraded synthesis readings" in syllabus
+    assert "modules/07c-quantitative-models-and-assumptions.md" in crosswalk
+    assert "modules/07d-controls-replicates-and-bounded-claims.md" in crosswalk
+    assert not quantitative["question_ids"] and not evidence["question_ids"]
     assert weeks[7]["assessment_ids"] == ["cell-biology-week8-cumulative-practice"]
     practice_set = next(
         item for item in manifest["assessments"]
         if item["id"] == "cell-biology-week8-cumulative-practice"
     )
     assert practice_set["mode"] == "practice"
-    assert len(practice_set["question_ids"]) == 12
-    assert practice_set["points"] == 31
+    assert len(practice_set["question_ids"]) == 25
+    assert practice_set["points"] == 44
     assert weeks[8]["lesson_ids"] == ["cell-biology-17", "cell-biology-18", "cell-biology-hw5"]
     assert weeks[8]["assessment_ids"] == ["cell-biology-week9-practice", "cell-biology-hw5-practice"]
     week9_practice = next(item for item in manifest["assessments"] if item["id"] == weeks[8]["assessment_ids"][0])
     assert week9_practice["mode"] == "practice"
-    assert len(week9_practice["question_ids"]) == 8
-    assert week9_practice["points"] == 14
+    assert len(week9_practice["question_ids"]) == 11
+    assert week9_practice["points"] == 19
     assert weeks[9]["lesson_ids"] == ["cell-biology-19", "cell-biology-20", "cell-biology-hw6"]
     assert weeks[9]["assessment_ids"] == ["cell-biology-week10-practice", "cell-biology-hw6-practice"]
     week10_practice = next(item for item in manifest["assessments"] if item["id"] == weeks[9]["assessment_ids"][0])
     assert week10_practice["mode"] == "practice"
-    assert len(week10_practice["question_ids"]) == 7
-    assert week10_practice["points"] == 13
+    assert len(week10_practice["question_ids"]) == 10
+    assert week10_practice["points"] == 18
     assert weeks[10]["lesson_ids"] == ["cell-biology-21", "cell-biology-22", "cell-biology-lab-02"]
     assert weeks[10]["assessment_ids"] == ["cell-biology-week11-practice", "cell-biology-week11-signaling-lab"]
     week11_practice = next(item for item in manifest["assessments"] if item["id"] == weeks[10]["assessment_ids"][0])
     assert week11_practice["mode"] == "practice"
-    assert len(week11_practice["question_ids"]) == 7
-    assert week11_practice["points"] == 13
+    assert len(week11_practice["question_ids"]) == 9
+    assert week11_practice["points"] == 15
     assert weeks[11]["lesson_ids"] == ["cell-biology-23", "cell-biology-24", "cell-biology-hw7"]
     assert weeks[11]["assessment_ids"] == ["cell-biology-week12-practice", "cell-biology-hw7-practice"]
     week12_practice = next(item for item in manifest["assessments"] if item["id"] == weeks[11]["assessment_ids"][0])
     assert week12_practice["mode"] == "practice"
-    assert len(week12_practice["question_ids"]) == 7
-    assert week12_practice["points"] == 13
+    assert len(week12_practice["question_ids"]) == 9
+    assert week12_practice["points"] == 15
     assert weeks[12]["lesson_ids"] == ["cell-biology-25", "cell-biology-26", "cell-biology-hw8"]
     assert weeks[12]["assessment_ids"] == ["cell-biology-week13-practice", "cell-biology-hw8-practice"]
     week13_practice = next(item for item in manifest["assessments"] if item["id"] == weeks[12]["assessment_ids"][0])
     assert week13_practice["mode"] == "practice"
-    assert len(week13_practice["question_ids"]) == 7
-    assert week13_practice["points"] == 13
-    assert weeks[13]["lesson_ids"] == ["cell-biology-27", "cell-biology-28", "cell-biology-lab-03"]
+    assert len(week13_practice["question_ids"]) == 8
+    assert week13_practice["points"] == 14
+    assert weeks[13]["lesson_ids"] == [
+        "cell-biology-27", "cell-biology-28", "cell-biology-lab-03", "cell-biology-review-design-studio"
+    ]
     assert weeks[13]["assessment_ids"] == ["cell-biology-week14-practice", "cell-biology-week14-lineage-lab"]
     week14_practice = next(item for item in manifest["assessments"] if item["id"] == weeks[13]["assessment_ids"][0])
     assert week14_practice["mode"] == "practice"
-    assert len(week14_practice["question_ids"]) == 7
-    assert week14_practice["points"] == 13
+    assert len(week14_practice["question_ids"]) == 9
+    assert week14_practice["points"] == 17
     assert all(not week["lesson_ids"] for week in weeks[14:])
     assert all(not week["assessment_ids"] for week in weeks[14:])
     assert manifest["grading_policy"]["mode"] == "formative-only"
@@ -520,7 +1128,7 @@ def test_cell_biology_scope_does_not_claim_unwritten_weeks(repository):
     source_map = read(course_root / "source-map.json")
     mapped_ids = [item["module_id"] for item in source_map["modules"]]
     assert len(mapped_ids) == len(set(mapped_ids)) == len(manifest["modules"])
-    assert "Weeks 1–7" in (course_root / "syllabus.md").read_text(encoding="utf-8")
+    assert "weeks 1–7" in (course_root / "syllabus.md").read_text(encoding="utf-8").lower()
     crosswalk = (course_root / "assessment-crosswalk.md").read_text(encoding="utf-8")
     assert "not a midterm" in crosswalk
     assert "Inactive exam drafts" in crosswalk
@@ -562,6 +1170,30 @@ def test_cell_biology_scope_does_not_claim_unwritten_weeks(repository):
         )
         reading = (course_root / lesson["reading"]).read_text(encoding="utf-8")
         assert len(reading.split()) >= 450
+
+
+def test_syllabus_and_crosswalk_weekly_assessment_totals_match_manifest(repository):
+    course_root = repository / "content/courses/cell-biology"
+    manifest = read(course_root / "course.json")
+    assessments = {item["id"]: item for item in manifest["assessments"]}
+    syllabus_rows = {
+        int(match.group(1)): line
+        for line in (course_root / "syllabus.md").read_text(encoding="utf-8").splitlines()
+        if (match := re.match(r"^\|\s*(\d+)\s*\|", line))
+    }
+    crosswalk = (course_root / "assessment-crosswalk.md").read_text(encoding="utf-8")
+
+    for week in range(8, 15):
+        assessment_id = (
+            "cell-biology-week8-cumulative-practice"
+            if week == 8
+            else f"cell-biology-week{week}-practice"
+        )
+        assessment = assessments[assessment_id]
+        total = f"{len(assessment['question_ids'])} questions / {assessment['points']} points"
+        assert total in syllabus_rows[week]
+        if week >= 9:
+            assert f"week {week}: {total}" in crosswalk
 
 
 def test_week4_enzyme_numeric_keys_are_independently_recalculated(repository):
@@ -747,6 +1379,75 @@ def test_week_schedule_references_existing_content(repository, course):
     assert "reference" in codes(validate_repository(repository))
 
 
+def test_week_schedule_numbers_must_be_in_increasing_order(repository, course):
+    path, manifest = course
+    weeks = manifest["duration"]["weeks"]
+    manifest["duration"]["weeks"] = [weeks[1], weeks[0], *weeks[2:]]
+    write(path, manifest)
+
+    assert "week-order" in codes(validate_repository(repository))
+
+
+@pytest.mark.parametrize("reference_type", ["lesson_ids", "assessment_ids"])
+def test_week_schedule_rejects_repeated_references(repository, course, reference_type):
+    path, manifest = course
+    references = manifest["duration"]["weeks"][0][reference_type]
+    manifest["duration"]["weeks"][0][reference_type] = [references[0], references[0]]
+    write(path, manifest)
+
+    assert "schema" in codes(validate_repository(repository))
+
+
+def test_week_schedule_numbers_cannot_exceed_api_limit(repository, course):
+    path, manifest = course
+    manifest["duration"]["weeks"][0]["week"] = 53
+    write(path, manifest)
+
+    assert "schema" in codes(validate_repository(repository))
+
+
+def test_manifest_defined_practice_question_bank_is_validated(repository, course):
+    course_path, manifest = course
+    baseline_count = validate_repository(repository).inventory["questions"]
+    original_bank = read(course_path.parent / "question-banks/practice.json")
+    custom_bank_path = course_path.parent / "question-banks/custom-practice.json"
+    custom_question = deepcopy(original_bank["questions"][0])
+    custom_question["id"] = "custom-practice-bank-probe"
+    custom_question["prompt"] = (
+        "In this validator fixture, which synthetic dye confirms the custom bank was selected?"
+    )
+    custom_question.pop("randomization", None)
+    custom_bank = {**original_bank, "questions": [custom_question]}
+    write(custom_bank_path, custom_bank)
+    manifest["practice_question_bank"] = "question-banks/custom-practice.json"
+    write(course_path, manifest)
+
+    report = validate_repository(repository)
+
+    assert report.ok, report.errors
+    assert report.inventory["questions"] == baseline_count + 1
+
+
+def test_manifest_defined_practice_question_bank_rejects_course_escape(repository, course):
+    course_path, manifest = course
+    manifest["practice_question_bank"] = "../../outside.json"
+    write(course_path, manifest)
+
+    report = validate_repository(repository)
+
+    assert "path" in codes(report)
+
+
+def test_manifest_defined_practice_question_bank_must_be_a_path(repository, course):
+    course_path, manifest = course
+    manifest["practice_question_bank"] = 42
+    write(course_path, manifest)
+
+    report = validate_repository(repository)
+
+    assert "schema" in codes(report)
+
+
 def test_formative_manifest_cannot_silently_include_a_graded_assignment(repository, course):
     path, manifest = course
     manifest["assessments"][0]["mode"] = "graded"
@@ -762,7 +1463,7 @@ def test_public_validation_discloses_unmounted_private_assessment_without_faking
     result = validate_repository(repository)
 
     assert result.ok, result.errors
-    assert result.inventory["questions"] == 2233
+    assert result.inventory["questions"] == independent_inventory(repository)["questions"]
     assert any(item["code"] == "private-assessment-unchecked" for item in result.warnings)
 
 
@@ -774,7 +1475,8 @@ def test_private_assessment_validator_loads_and_validates_key_only_from_separate
     result = validate_repository(repository, private_assessments_root=private_root)
 
     assert result.ok, result.errors
-    assert result.inventory["questions"] == 2234
+    # The mounted private key adds its one restricted question to the public count.
+    assert result.inventory["questions"] == independent_inventory(repository)["questions"] + 1
     assert "restricted-key" not in codes(result)
     assert "private-assessment-unchecked" not in {item["code"] for item in result.warnings}
 
@@ -1026,7 +1728,9 @@ def test_duplicate_module_source_maps_fail(repository, course):
 def test_migration_corrections_are_recorded(repository):
     calc = repository / "content/courses/calculus-2/course.json"
     manifest = read(calc)
-    assert "0.008/0.8=0.01" in manifest["modules"][1]["lessons"][0]["worked_example"]
+    calculus_example = manifest["modules"][1]["lessons"][0]["worked_example"]
+    assert "omitted tail is 0.01" in calculus_example
+    assert "Lagrange error" in calculus_example
     assert manifest["content_origin"]["modifications"]
     organic = read(
         repository / "content/courses/organic-chemistry/question-banks/practice.json"
@@ -1088,10 +1792,10 @@ def test_week9_schedule_objectives_and_practice_are_mapped(repository):
     questions = {item["id"]: item for item in bank["questions"]}
 
     assert manifest["maturity"] == "partial"
-    assert manifest["version"] == "0.34.0"
+    assert manifest["version"] == manifest["history"][-1]["version"]
     assert week9["lesson_ids"] == ["cell-biology-17", "cell-biology-18", "cell-biology-hw5"]
     assert week9["assessment_ids"] == [assessment["id"], "cell-biology-hw5-practice"]
-    assert sum(questions[item]["points"] for item in assessment["question_ids"]) == assessment["points"] == 14
+    assert sum(questions[item]["points"] for item in assessment["question_ids"]) == assessment["points"] == 19
     lesson_objectives = {item["id"]: item for item in manifest["lesson_objectives"]}
     outcomes = {item["id"] for item in manifest["outcomes"]}
     listed_objectives = [item for item in assessment["objective_ids"] if item in lesson_objectives]
@@ -1244,8 +1948,11 @@ def test_virtual_imaging_lab_summary_plot_and_contrast_match_synthetic_csv(repos
         means["vehicle"],
         means["cue"],
     ]
+    contrast = questions["cell-biology-12:image-quantification-contrast"]
+    assert contrast["solution_spec"]["unit"] == "pp"
+    assert "Enter 9 pp" in contrast["prompt"]
     assert (
-        questions["cell-biology-12:image-quantification-contrast"]["solution_spec"]["answer"]
+        contrast["solution_spec"]["answer"]
         == means["cue"] - means["vehicle"]
         == 9
     )
@@ -1255,7 +1962,7 @@ def test_geroscience_original_lessons_are_mapped_synthetic_and_recalculated():
     course_root = ROOT / "content/courses/geroscience"
     manifest = read(course_root / "course.json")
     bank = {item["id"]: item for item in read(course_root / "question-banks/practice.json")["questions"]}
-    assert manifest["version"] == "0.5.2"
+    assert manifest["version"] == manifest["history"][-1]["version"]
     assert manifest["maturity"] == "partial"
     assert manifest["review"]["status"] == "unreviewed"
     outcomes = {item["id"] for item in manifest["outcomes"]}

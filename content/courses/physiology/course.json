@@ -7,14 +7,16 @@
   "domain": "Life sciences",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.4.0",
+  "version": "0.4.8",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
     "source_path": "src/data/courses.js",
     "source_sha256": "a77a7cb7f5be2ffa12068877042ac775c6d9b79b83ac2f316fe4f26a0d3d783b",
     "migration_version": "1.0",
-    "modifications": []
+    "modifications": [
+      "Linked the first four lesson objectives to outcomes, clarified the homeostasis objective, corrected the membrane-voltage item association, and added direct practice for feedback-loop components, membrane voltage as a state variable, and ventilation limitation."
+    ]
   },
   "prerequisites": {
     "course_ids": [
@@ -53,51 +55,67 @@
   "lesson_objectives": [
     {
       "id": "physiology-1-objective-1",
-      "description": "Represent a regulated variable, sensor, controller, and effector.",
+      "description": "Represent a regulated variable, sensor, controller, and effector, and use a simple balance to describe homeostasis.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "physiology-outcome-1"
+      ]
     },
     {
       "id": "physiology-1-objective-2",
       "description": "Distinguish negative from positive feedback.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "physiology-outcome-4"
+      ]
     },
     {
       "id": "physiology-2-objective-1",
       "description": "Interpret membrane voltage as an electrical state variable.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "physiology-outcome-3"
+      ]
     },
     {
       "id": "physiology-2-objective-2",
       "description": "Relate ionic conductance to current and reversal potential.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "physiology-outcome-3"
+      ]
     },
     {
       "id": "physiology-3-objective-1",
       "description": "Use pressure-flow resistance analogies with stated assumptions.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "physiology-outcome-2"
+      ]
     },
     {
       "id": "physiology-3-objective-2",
       "description": "Distinguish ventilation, perfusion, and diffusion limitation.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "physiology-outcome-3"
+      ]
     },
     {
       "id": "physiology-4-objective-1",
       "description": "Use clearance and balance concepts to interpret kidney function.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "physiology-outcome-1"
+      ]
     },
     {
       "id": "physiology-4-objective-2",
       "description": "Predict how hormonal feedback changes transport or set points.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "physiology-outcome-4"
+      ]
     },
     {
       "id": "physiology-5-objective-1",
@@ -254,6 +272,16 @@
       ]
     },
     {
+      "id": "physiology-10-objective-4",
+      "description": "Interpret a ventricular pressure-volume loop's width and use a stated pressure-volume approximation to estimate stroke volume and external stroke work.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physiology-outcome-1",
+        "physiology-outcome-2",
+        "physiology-outcome-4"
+      ]
+    },
+    {
       "id": "physiology-11-objective-1",
       "description": "Compute minute and alveolar ventilation from tidal volume, breathing rate and dead space, and explain why shallow rapid breathing is less effective.",
       "bloom": "apply",
@@ -383,11 +411,36 @@
         "physiology-outcome-4",
         "physiology-outcome-2"
       ]
+    },
+    {
+      "id": "physiology-15-objective-1",
+      "description": "Treat a patch of membrane as a resistor and capacitor in parallel, calculate its time constant and a small cell's input resistance, and predict the voltage response to a current step.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "physiology-outcome-3"
+      ]
+    },
+    {
+      "id": "physiology-15-objective-2",
+      "description": "Calculate the length constant of a cylindrical process from membrane and axial resistances and predict steady-state electrotonic decay with distance.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "physiology-outcome-3"
+      ]
+    },
+    {
+      "id": "physiology-15-objective-3",
+      "description": "Explain how fiber radius and myelination change the length constant and conduction velocity, and distinguish passive spread from a regenerated action potential.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physiology-outcome-3",
+        "physiology-outcome-4"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week undergraduate scope only. The four compact prototype units sit in weeks 1, 3, 5 and 11 beside original lessons on balance and feedback, membrane potential, hemodynamics, respiratory mechanics, oxygen delivery, capillary exchange, muscle mechanics and tissue repair; week 13 is a synthetic-data closure lab and week 14 a compensation-and-reserve lesson with the course case. All activities are open, ungraded practice. There are no graded homework sets, exams or project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week undergraduate scope only. Two compact prototype units remain in weeks 5 and 11 beside original lessons on balance and feedback, membrane potential, hemodynamics, respiratory mechanics, oxygen delivery, capillary exchange, muscle mechanics and tissue repair; week 13 is a synthetic-data closure lab and week 14 a compensation-and-reserve lesson with the course case. All activities are open, ungraded practice. There are no graded homework sets, exams or project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
@@ -421,12 +474,14 @@
       },
       {
         "week": 4,
-        "title": "Membrane potential: Nernst, Goldman–Hodgkin–Katz and extracellular potassium",
+        "title": "Membrane potential and passive cable properties",
         "lesson_ids": [
-          "physiology-9"
+          "physiology-9",
+          "physiology-15"
         ],
         "assessment_ids": [
-          "physiology-9-practice"
+          "physiology-9-practice",
+          "physiology-15-practice"
         ]
       },
       {
@@ -556,10 +611,11 @@
             "physiology-1-objective-1",
             "physiology-1-objective-2"
           ],
-          "worked_example": "If a circulating solute enters at 5 μmol/min and is cleared with first-order rate constant 0.1 min⁻¹, the steady concentration in a well-mixed 1 L compartment is 50 μmol/L.",
+          "worked_example": "In the constructed balance dC/dt=r/V−kC, input 12 µmol/min into 2 L with k=0.3 min⁻¹ gives steady concentration 20 µmol/L. The response time is 1/k=3.33 min, after which 36.8% of a small initial deviation remains under this first-order model.",
           "question_ids": [
             "physiology-1:check",
-            "physiology-1:feedback-classification"
+            "physiology-1:feedback-classification",
+            "physiology-1:feedback-loop-components"
           ],
           "card_ids": [
             "physiology-0-0",
@@ -584,10 +640,11 @@
             "physiology-2-objective-1",
             "physiology-2-objective-2"
           ],
-          "worked_example": "If Vm = −60 mV, EK = −90 mV, and gK = 2 nS, then outward-positive IK = 2 nS × 30 mV = 60 pA.",
+          "worked_example": "With outward-positive current, Vm=−60 mV, EK=−90 mV and gK=2 nS give IK=+60 pA. With gNa=0.2 nS at ENa=+50 mV and gK=2 nS at EK=−90 mV, the passive zero-current voltage is about −77.3 mV, where the two ionic currents balance.",
           "question_ids": [
             "physiology-2:check",
-            "physiology-2:ionic-current"
+            "physiology-2:ionic-current",
+            "physiology-2:voltage-state-variable"
           ],
           "card_ids": [
             "physiology-1-0",
@@ -612,10 +669,11 @@
             "physiology-3-objective-1",
             "physiology-3-objective-2"
           ],
-          "worked_example": "Doubling vessel radius at fixed length and viscosity lowers ideal Poiseuille resistance by a factor of 16; real vessels also change tone and geometry.",
+          "worked_example": "An ideal tube carrying 0.50 mL/s would carry 8.0 mL/s if radius doubled at fixed pressure drop, length and viscosity; the sixteenfold result is a model scaling, not a biological prediction.",
           "question_ids": [
             "physiology-3:check",
-            "physiology-3:perfusion-limited-gas"
+            "physiology-3:perfusion-limited-gas",
+            "physiology-3:ventilation-limitation"
           ],
           "card_ids": [
             "physiology-2-0",
@@ -640,7 +698,7 @@
             "physiology-4-objective-1",
             "physiology-4-objective-2"
           ],
-          "worked_example": "If urinary concentration is 50 mg/L, urine flow is 1 mL/min, and plasma concentration is 2 mg/L, clearance is 25 mL/min.",
+          "worked_example": "For urine concentration 50 mg/L, urine flow 1 mL/min and plasma concentration 2 mg/L, convert flow to 0.001 L/min. Excretion is 0.05 mg/min, so clearance is 0.025 L/min or 25 mL/min; this constructed example emphasizes unit consistency, not a clinical estimate.",
           "question_ids": [
             "physiology-4:check",
             "physiology-4:hormonal-set-point"
@@ -834,7 +892,8 @@
       "title": "Hemodynamics",
       "source_ids": [
         "biology",
-        "transport"
+        "transport",
+        "hst542"
       ],
       "lessons": [
         {
@@ -844,9 +903,10 @@
           "objectives": [
             "physiology-10-objective-1",
             "physiology-10-objective-2",
-            "physiology-10-objective-3"
+            "physiology-10-objective-3",
+            "physiology-10-objective-4"
           ],
-          "worked_example": "With CO = 4.8 L/min, MAP = 100 and CVP = 4 mmHg, TPR = 20; beds of 40, 60 and 120 in parallel give 20; halving a radius multiplies resistance by 16; stiffening arteries to 1.2 mL/mmHg raises pulse pressure from 36 to 50 mmHg; dilating the muscle bed to 30 lowers TPR to 15.00 and would drop MAP to 76 mmHg unless output rises to 6.4 L/min.",
+          "worked_example": "With CO = 4.8 L/min, MAP = 100 and CVP = 4 mmHg, TPR = 20; beds of 40, 60 and 120 in parallel give 20; halving a radius multiplies resistance by 16; stiffening arteries to 1.2 mL/mmHg raises pulse pressure from 36 to 50 mmHg; dilating the muscle bed to 30 lowers TPR to 15.00 and would drop MAP to 76 mmHg unless output rises to 6.4 L/min. A separate synthetic PV rectangle with EDV 120 mL, ESV 50 mL and mean ejection pressure 100 mmHg gives SV 70 mL and about 0.933 J per beat; a stipulated perturbation to ESV 70 mL and pressure 120 mmHg gives SV 50 mL and about 0.800 J. This approximation is not a clinical estimate.",
           "question_ids": [
             "physiology-10:cardiac-output",
             "physiology-10:tpr",
@@ -854,13 +914,23 @@
             "physiology-10:bed-flow",
             "physiology-10:radius-halved",
             "physiology-10:pulse-pressure",
-            "physiology-10:dilation-effects"
+            "physiology-10:dilation-effects",
+            "physiology-10:pv-loop-stroke-volume",
+            "physiology-10:pv-loop-work-baseline",
+            "physiology-10:pv-loop-work-perturbed",
+            "physiology-10:pv-loop-cardiac-output",
+            "physiology-10:pv-loop-width-area",
+            "physiology-10:pv-loop-model-limit"
           ],
           "card_ids": [
             "physiology-10-card-1",
             "physiology-10-card-2",
             "physiology-10-card-3",
-            "physiology-10-card-4"
+            "physiology-10-card-4",
+            "physiology-10-card-5",
+            "physiology-10-card-6",
+            "physiology-10-card-7",
+            "physiology-10-card-8"
           ]
         }
       ]
@@ -975,6 +1045,46 @@
       ]
     },
     {
+      "id": "physiology-module-15",
+      "title": "Passive membrane and cable properties",
+      "source_ids": [
+        "biology",
+        "transport",
+        "mit-6-021j-cells-tissues-2004-calendar"
+      ],
+      "lessons": [
+        {
+          "id": "physiology-15",
+          "title": "Passive membrane and cable properties: time constant, length constant and conduction",
+          "reading": "modules/15-passive-membrane-and-cable-properties.md",
+          "objectives": [
+            "physiology-15-objective-1",
+            "physiology-15-objective-2",
+            "physiology-15-objective-3"
+          ],
+          "worked_example": "With R_m = 20 kΩ·cm² and C_m = 1 μF/cm², τ_m = 20 ms for any cell size; a 20 μm cell has R_in = 1.59 GΩ, so 10 pA gives 15.9 mV at steady state. An axon of radius 1 μm with R_i = 100 Ω·cm has λ = 1.0 mm, leaving 13.5% of a steady voltage at 2 mm. A dendrite (a = 0.5 μm, R_m = 40 kΩ·cm², R_i = 200 Ω·cm) has λ = 0.707 mm and τ_m = 40 ms, so a 10 mV synaptic depolarization 0.5 mm away arrives as 4.93 mV in the steady-state model.",
+          "question_ids": [
+            "physiology-15:time-constant",
+            "physiology-15:fraction-at-two-tau",
+            "physiology-15:input-resistance",
+            "physiology-15:time-constant-size",
+            "physiology-15:length-constant",
+            "physiology-15:electrotonic-decay",
+            "physiology-15:radius-scaling",
+            "physiology-15:unmyelinated-velocity",
+            "physiology-15:myelin-mechanism",
+            "physiology-15:passive-versus-regenerative"
+          ],
+          "card_ids": [
+            "physiology-15-card-1",
+            "physiology-15-card-2",
+            "physiology-15-card-3",
+            "physiology-15-card-4"
+          ]
+        }
+      ]
+    },
+    {
       "id": "physiology-module-lab-01",
       "title": "Virtual laboratory: closure kinetics in a scratch assay",
       "source_ids": [
@@ -1055,13 +1165,16 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "physiology-1-objective-1",
-        "physiology-1-objective-2"
+        "physiology-1-objective-2",
+        "physiology-outcome-1",
+        "physiology-outcome-4"
       ],
       "question_ids": [
         "physiology-1:check",
-        "physiology-1:feedback-classification"
+        "physiology-1:feedback-classification",
+        "physiology-1:feedback-loop-components"
       ],
-      "points": 2
+      "points": 3
     },
     {
       "id": "physiology-2-practice",
@@ -1070,13 +1183,15 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "physiology-2-objective-1",
-        "physiology-2-objective-2"
+        "physiology-2-objective-2",
+        "physiology-outcome-3"
       ],
       "question_ids": [
         "physiology-2:check",
-        "physiology-2:ionic-current"
+        "physiology-2:ionic-current",
+        "physiology-2:voltage-state-variable"
       ],
-      "points": 2
+      "points": 3
     },
     {
       "id": "physiology-3-practice",
@@ -1085,13 +1200,16 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "physiology-3-objective-1",
-        "physiology-3-objective-2"
+        "physiology-3-objective-2",
+        "physiology-outcome-2",
+        "physiology-outcome-3"
       ],
       "question_ids": [
         "physiology-3:check",
-        "physiology-3:perfusion-limited-gas"
+        "physiology-3:perfusion-limited-gas",
+        "physiology-3:ventilation-limitation"
       ],
-      "points": 2
+      "points": 3
     },
     {
       "id": "physiology-4-practice",
@@ -1100,7 +1218,9 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "physiology-4-objective-1",
-        "physiology-4-objective-2"
+        "physiology-4-objective-2",
+        "physiology-outcome-1",
+        "physiology-outcome-4"
       ],
       "question_ids": [
         "physiology-4:check",
@@ -1241,7 +1361,9 @@
         "physiology-10-objective-1",
         "physiology-10-objective-2",
         "physiology-10-objective-3",
+        "physiology-10-objective-4",
         "physiology-outcome-2",
+        "physiology-outcome-1",
         "physiology-outcome-4"
       ],
       "question_ids": [
@@ -1251,9 +1373,15 @@
         "physiology-10:bed-flow",
         "physiology-10:radius-halved",
         "physiology-10:pulse-pressure",
-        "physiology-10:dilation-effects"
+        "physiology-10:dilation-effects",
+        "physiology-10:pv-loop-stroke-volume",
+        "physiology-10:pv-loop-work-baseline",
+        "physiology-10:pv-loop-work-perturbed",
+        "physiology-10:pv-loop-cardiac-output",
+        "physiology-10:pv-loop-width-area",
+        "physiology-10:pv-loop-model-limit"
       ],
-      "points": 8
+      "points": 14
     },
     {
       "id": "physiology-11-practice",
@@ -1391,6 +1519,33 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "physiology-15-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Passive membrane and cable properties practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "physiology-15-objective-1",
+        "physiology-15-objective-2",
+        "physiology-15-objective-3",
+        "physiology-outcome-3",
+        "physiology-outcome-4"
+      ],
+      "question_ids": [
+        "physiology-15:time-constant",
+        "physiology-15:fraction-at-two-tau",
+        "physiology-15:input-resistance",
+        "physiology-15:time-constant-size",
+        "physiology-15:length-constant",
+        "physiology-15:electrotonic-decay",
+        "physiology-15:radius-scaling",
+        "physiology-15:unmyelinated-velocity",
+        "physiology-15:myelin-mechanism",
+        "physiology-15:passive-versus-regenerative"
+      ],
+      "points": 10
     }
   ],
   "grading_policy": {
@@ -1450,19 +1605,60 @@
       "version": "0.4.0",
       "date": "2026-10-08",
       "summary": "Added a proposed 14-week schedule; seven original lessons (balance and feedback gain with heat balance; membrane potential with the Nernst and Goldman–Hodgkin–Katz equations; hemodynamics; respiratory mechanics and gas exchange; skeletal muscle mechanics with Hill's force–velocity relation; tissue repair and closure kinetics; and compensation and reserve, which prepares the course case); and a synthetic-data scratch-assay lab with a migration inhibitor and a division block. No new references were added. All activities remain ungraded practice; the package remains partial and unreviewed, gives no medical advice, and makes no claim about any person."
+    },
+    {
+      "version": "0.4.1",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-1 homeostasis reading with amount balance, a first-order concentration model, negative-feedback direction and a response-time calculation. Existing questions, keys and objectives are unchanged. Three compact prototype readings remain; the package stays partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.2",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-3 electrophysiology reading with membrane-voltage and current conventions, ionic driving force, pathway conductances and a multi-ion steady-state calculation. Existing questions, keys and objectives are unchanged. Two compact prototype readings remain; the package stays partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.3",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-5 transport reading with pressure-flow resistance, series and parallel pathways, diffusion across an exchange surface, regional ventilation-perfusion matching and transport-limitation distinctions. Existing questions, keys and objectives are unchanged. One compact prototype reading remains; the package stays partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.4",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-11 renal and endocrine reading with clearance units, filtered-load balance, limits of clearance comparisons, feedback sensitivity and integrated amount balance. Existing questions, keys and objectives are unchanged. All four original compact prototype readings now have expanded primers; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.5",
+      "date": "2026-10-10",
+      "summary": "Linked the first four lesson objective pairs to the matching course outcomes, clarified the homeostasis objective, corrected the membrane-voltage question association, and added direct formative checks for feedback-loop components, membrane voltage, and ventilation limitation. Existing numeric prompts and keys are unchanged. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.6",
+      "date": "2026-10-11",
+      "summary": "Added an inactive, ungraded synthetic renal-clearance ledger draft that reconciles clearance, filtered load, excretion and net tubular handling; linked it from the syllabus while keeping platform activation off. Existing lessons, practice items, keys and cards are unchanged. The course remains partial, unreviewed and formative-only; the invented quantities are not clinical measurements."
+    },
+    {
+      "version": "0.4.7",
+      "date": "2026-10-11",
+      "summary": "Expanded the existing hemodynamics lesson with a synthetic ventricular pressure-volume loop, stroke-volume comparison, external stroke-work calculation and model limitations. Added one objective, six formative items and four retrieval cards without adding a week. The values are invented and are not clinical estimates; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.8",
+      "date": "2026-10-13",
+      "summary": "Added an original passive membrane and cable-properties reading grouped with the week-4 membrane-potential lesson: the membrane as a parallel RC element, the size-independent time constant and compact-cell input resistance, the core-conductor length constant and electrotonic decay, conduction-velocity scaling with radius and myelination, and passive spread versus regenerated action potentials. MIT OCW 6.021J Fall 2004 (core-conductor, cable and myelinated-fiber lectures) is registered as a link-only comparator. Three objectives, ten formative items and four cards; no week was added. The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "Four compact legacy units are preserved beside eleven original readings, including one synthetic-data virtual lab; this package is not equivalent to a full university semester.",
-    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm, cumulative final, or graded integrative project.",
-    "Practice items are short formative checks (two per prototype unit and six to eight per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
+    "The four original legacy units remain short primers despite their expansion; the package includes only one synthetic-data virtual lab and is not equivalent to a full university semester.",
+    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab, no substantive homework sequence, laboratory sequence, midterm, cumulative final, or active graded integrative project; the new renal-clearance ledger is an inactive authoring draft only.",
+    "Practice items are short formative checks (two per prototype unit and generally six to eight per expanded lesson); the hemodynamics week also includes a bounded cardiac pressure-volume addition. These items do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
-    "Of the 60 numerical answers in this package, 32 require a unit, one checks significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
+    "Of the 64 numerical answers in this package, 36 require a unit, one checks significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
     "Total workload and weekly duration are unknown; former nominal credit values and hardcoded reading times do not establish workload.",
     "All physiological scenarios, people and numbers are synthetic teaching examples; this package gives no medical advice, describes no real person's health and recommends no test or treatment."
   ],
   "intentionally_omitted": [
-    "Graded assessments and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package."
+    "Graded assessments and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package.",
+    "The synthetic renal-clearance ledger is an inactive, ungraded paper-exercise draft and is not activated or mapped to course completion."
   ]
 }

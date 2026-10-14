@@ -1,0 +1,42 @@
+case_id,variable,value,unit,notes
+case-01,delta_psi,150,mV,matrix-negative potential expressed as a positive driving component
+case-01,delta_pH,0.8,pH units,matrix pH minus intermembrane-space pH
+case-01,temperature,310,K,model temperature
+case-01,protons_per_atp,4,mol H+/mol ATP,explicit accounting convention
+case-01,protons_per_nadh,10,mol H+/mol NADH,explicit accounting convention
+case-01,protons_per_fadh2,6,mol H+/mol FADH2,explicit accounting convention
+case-01,p_o_nadh,2.5,mol ATP/mol NADH,explicit model assumption
+case-01,p_o_fadh2,1.5,mol ATP/mol FADH2,explicit model assumption
+case-01,glucose_nadh,10,mol NADH/mol glucose,chosen textbook accounting convention
+case-01,glucose_fadh2,2,mol FADH2/mol glucose,chosen textbook accounting convention
+case-01,substrate_level_atp,4,mol ATP/mol glucose,chosen accounting convention
+case-02,fatty_acyl_chain_length,16,carbons,even-chain saturated model substrate
+case-02,starting_form,acyl-CoA,none,activation cost excluded in this item
+case-02,malonyl_coa_state,elevated,none,fictional regulation cue
+case-03,fatty_acid_start,free fatty acid,none,activation cost must be stated in an ATP estimate
+case-03,carnitine_shuttle,required for long-chain acyl groups,none,standard pathway label
+case-03,malonyl_coa_effect,CPT1 restraint,none,standard pathway label
+case-04,hepatic_acetyl_coa,elevated,none,fictional fasting-state context
+case-04,hepatic_nadh_nad_ratio,elevated,none,fictional redox context
+case-04,scot_in_liver,absent,none,standard human pathway teaching model
+case-05,liver_glycogen_role,blood glucose support,none,fictional summary label
+case-05,muscle_glycogen_role,local ATP supply,none,fictional summary label
+case-05,branch_point_frequency,12,residues,stipulated illustrative structural spacing
+case-06,ER_sterol,low,none,fictional regulatory state
+case-06,dietary_particle,chylomicron,none,fictional route label
+case-06,apoCII,activates LPL,none,standard pathway label
+case-07,substrate_supply,reduced,none,fictional perturbation
+case-07,hormone_signal,increased,none,fictional perturbation
+case-08,beta_hydroxybutyrate_amount,2.0,mmol,synthetic amount completely oxidized
+case-08,acetyl_coa_per_ketone,2,mol/mol,standard ketolysis stoichiometry
+case-08,tca_nadh_per_acetyl_coa,3,mol/mol,explicit course accounting convention
+case-08,tca_fadh2_per_acetyl_coa,1,mol/mol,explicit course accounting convention
+case-08,tca_gtp_per_acetyl_coa,1,mol/mol,explicit course accounting convention
+case-08,bhb_oxidation_nadh,1,mol/mol,explicit BDH1 redox accounting
+case-08,p_o_nadh,2.5,ATP-equivalents/mol NADH,stated model assumption
+case-08,p_o_fadh2,1.5,ATP-equivalents/mol FADH2,stated model assumption
+case-08,scot_bypassed_gtp,1,mol/mol ketone,opportunity-cost convention
+case-09,synthesis_rate,36,mg/h,synthetic intracellular cholesterol synthesis rate
+case-09,ldlr_uptake_rate,24,mg/h,synthetic LDL-receptor uptake into hepatocyte
+case-09,bile_acid_conversion_rate,18,mg/h,synthetic conversion out of the defined cellular pool
+case-09,vldl_export_rate,12,mg/h,synthetic export out of the defined cellular pool

@@ -118,6 +118,17 @@ def sensor_rows():
     return rows, estimates
 
 
+def det(a):
+    """Exact cofactor expansion along the first row, independent of elimination."""
+    a = [[Fraction(v) for v in row] for row in a]
+    if len(a) == 1:
+        return a[0][0]
+    return sum(
+        (-1) ** j * a[0][j] * det([row[:j] + row[j + 1 :] for row in a[1:]])
+        for j in range(len(a))
+    )
+
+
 def expected_answers():
     values = {}
 
@@ -288,6 +299,28 @@ def expected_answers():
         offset_bias=solve(poor, [0, 0.01])[0],
         better_sd=better_sd,
     )
+    rect = [[1, 1, 0, 0], [0, 1, 1, 0], [1, 2, 1, 0]]
+    fitted = [sum(Fraction(a) * x for a, x in zip(row, (1, Fraction(4, 3), 0, 0))) for row in rect]
+    add(
+        7,
+        rectangular_nullity=len(rect[0]) - rank(rect),
+        residual_third_coordinate=float(4 - fitted[2]),
+    )
+    lesson_a = [[2, 1, 3], [4, 5, 7], [-2, 4, 1]]
+    lesson_b = [[0, 2, 1], [1, 1, 0], [3, 1, 2]]
+    char = [[4, 2], [1, 3]]
+    trace, char_det = char[0][0] + char[1][1], det(char)
+    add(
+        14,
+        parallelogram_area=float(det([[3, 1], [1, 2]])),
+        area_scaling=float(det([[Fraction("1.2"), Fraction("0.1")], [0, Fraction("0.9")]]) * 120),
+        elimination_determinant=float(det([[2, 1, 0], [1, 3, 1], [0, 1, 4]])),
+        row_exchange_sign=float(det([[0, 3, 1], [2, 1, 4], [0, 0, 5]])),
+        scalar_multiple=float(det([[2 * v for v in row] for row in lesson_a])),
+        product_inverse=float(det(lesson_a) / det(lesson_b)),
+        characteristic_root=(trace + math.sqrt(trace**2 - 4 * float(char_det))) / 2,
+        scaled_sensor_determinant=float(det([[10, Fraction("9.9")], [Fraction("9.9"), 10]])),
+    )
     _, estimates = sensor_rows()
     rmse = {
         g: math.sqrt(
@@ -310,7 +343,7 @@ EXPECTED = expected_answers()
 
 def test_every_package_numeric_key_is_recalculated():
     assert set(EXPECTED) == {qid for qid, q in BANK.items() if q["type"] == "numeric"}
-    assert len(EXPECTED) == 69
+    assert len(EXPECTED) == 79
 
 
 @pytest.mark.parametrize("qid,value", sorted(EXPECTED.items()))
@@ -456,15 +489,36 @@ def test_schedule_syllabus_and_partial_labels():
     lessons = {record["id"] for m in c["modules"] for record in m["lessons"]}
     assessment_ids = {a["id"] for a in c["assessments"]}
     scheduled = [lid for w in weeks for lid in w["lesson_ids"]]
-    assert len(weeks) == 14 and len(scheduled) == len(set(scheduled)) == 14
+    assert len(weeks) == 14 and len(scheduled) == len(set(scheduled)) == 15
     assert set(scheduled) == lessons
     assert {aid for w in weeks for aid in w["assessment_ids"]} <= assessment_ids
     assert weeks[12]["lesson_ids"] == ["linear-algebra-lab-01"]
     assert "linear-algebra-case" in weeks[13]["assessment_ids"]
     assert c["maturity"] == "partial" and c["review"]["status"] == "unreviewed"
-    assert c["grading_policy"]["mode"] == "formative-only" and c["version"] == "0.3.0"
+    assert c["grading_policy"]["mode"] == "formative-only"
     syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8")
     assert all(o["description"] in syllabus for o in c["outcomes"])
-    assert "Version: 0.3.0" in syllabus and "no instructor review" in lesson_text(
+    assert f"Version: {c['version']}" in syllabus and "no instructor review" in lesson_text(
         "linear-algebra-13"
     )
+
+
+def test_determinant_lesson_examples_rules_and_placement():
+    a = [[2, 1, 3], [4, 5, 7], [-2, 4, 1]]
+    b = [[0, 2, 1], [1, 1, 0], [3, 1, 2]]
+    singular = [[1, 2, 3], [2, 4, 7], [3, 6, 10]]
+    worked = [[1, 2, 0], [3, 4, 1], [0, 2, 5]]
+    assert det(a) == 14 and det(b) == -6 and det(worked) == -12
+    assert det(singular) == 0 and rank(singular) == 2
+    assert [sum(x * y for x, y in zip(row, (-2, 1, 0))) for row in singular] == [0, 0, 0]
+    product = [[sum(a[i][k] * b[k][j] for k in range(3)) for j in range(3)] for i in range(3)]
+    assert det(product) == det(a) * det(b) == -84
+    assert det([list(col) for col in zip(*a)]) == det(a)
+    assert det([[2 * v for v in row] for row in worked]) == -96
+    assert det([[Fraction(v) / 10 if i == j else 0 for j in range(10)] for i, v in enumerate([1] * 10)]) == Fraction(1, 10**10)
+    c = load(COURSE / "course.json")
+    week7 = next(w for w in c["duration"]["weeks"] if w["week"] == 7)
+    assert week7["lesson_ids"] == ["linear-algebra-14", "linear-algebra-3"]
+    text = lesson_text("linear-algebra-14")
+    assert "18-06sc-linear-algebra-fall-2011/pages/least-squares-determinants-and-eigenvalues" in text
+    assert "## Limits of this lesson" in text and "det(cA) = cⁿ det A" in text

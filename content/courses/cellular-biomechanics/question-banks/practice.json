@@ -15,7 +15,7 @@
       ],
       "points": 1,
       "objective_ids": [
-        "cellular-biomechanics-1-objective-1"
+        "cellular-biomechanics-1-objective-2"
       ],
       "solution_spec": {
         "answer": 0
@@ -79,7 +79,7 @@
       ],
       "points": 1,
       "objective_ids": [
-        "cellular-biomechanics-3-objective-1"
+        "cellular-biomechanics-3-objective-2"
       ],
       "solution_spec": {
         "answer": 0
@@ -3536,6 +3536,703 @@
           "confounding-ignored",
           "cells-as-units"
         ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cellular-biomechanics-1:mechanical-quantity-definitions",
+      "type": "single_choice",
+      "prompt": "Which set of definitions correctly distinguishes force, stress, displacement, and engineering strain in a uniaxial specimen?",
+      "options": [
+        "Force F is a load in N; stress F/A is in Pa; displacement ΔL is in m; strain ΔL/L₀ is dimensionless.",
+        "Force F is in Pa; stress F/A is in N; displacement is dimensionless; strain is in m.",
+        "Force is displacement per time; stress is force times area; displacement is strain times area; strain is force per length.",
+        "Force and stress both have units N, while displacement and strain both have units m."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "cellular-biomechanics-1-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Check which quantities describe the applied load, local intensity, geometric change, and normalized geometric change.",
+        "solution": "Force is measured in newtons, stress is force per area in pascals, displacement is a length, and engineering strain is the dimensionless ratio ΔL/L₀.",
+        "lesson_ids": [
+          "cellular-biomechanics-1"
+        ],
+        "misconception_ids": [
+          "stress-force-confusion",
+          "strain-displacement-confusion"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct formative practice separating force, stress, displacement, and strain."
+        ]
+      }
+    },
+    {
+      "id": "cellular-biomechanics-2:force-path",
+      "type": "single_choice",
+      "prompt": "Which sequence best represents a plausible force-transmission path from extracellular matrix attachment toward the nucleus?",
+      "options": [
+        "ECM ligand → integrin/focal adhesion → actin cytoskeleton → LINC complex → nuclear lamina/chromatin",
+        "Chromatin → LINC complex → actin cytoskeleton → integrin → ECM ligand",
+        "ECM ligand → soluble medium → ribosome → nucleus, with no adhesion or cytoskeletal link",
+        "Integrin → DNA replication → focal adhesion → ECM ligand"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "cellular-biomechanics-2-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Follow the physical connections from matrix-bound adhesion through cytoskeletal and nuclear-coupling structures.",
+        "solution": "Integrins and focal adhesions connect matrix attachment to the actin cytoskeleton; LINC complexes couple cytoskeletal structures to the nuclear envelope and associated chromatin.",
+        "lesson_ids": [
+          "cellular-biomechanics-2"
+        ],
+        "misconception_ids": [
+          "force-path-disconnected"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct formative practice tracing a matrix-to-nucleus force path."
+        ]
+      }
+    },
+    {
+      "id": "cellular-biomechanics-3:input-versus-readout",
+      "type": "single_choice",
+      "prompt": "In an experiment that assigns hydrogel stiffness and measures nuclear YAP localization, which pairing identifies the mechanical input and molecular readout?",
+      "options": [
+        "Assigned hydrogel stiffness is the input; nuclear YAP localization is the readout.",
+        "Nuclear YAP localization is the mechanical input; assigned stiffness is the molecular readout.",
+        "Both are molecular readouts because each can be measured.",
+        "Neither is an input or readout unless a pathway inhibitor is used."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "cellular-biomechanics-3-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Separate the controlled physical condition from the downstream quantity measured in cells.",
+        "solution": "The assigned stiffness is the mechanical condition; YAP localization is a molecular/cellular response measured under that condition.",
+        "lesson_ids": [
+          "cellular-biomechanics-3"
+        ],
+        "misconception_ids": [
+          "input-readout-confusion"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct formative practice distinguishing a mechanical input from a molecular readout."
+        ]
+      }
+    },
+    {
+      "id": "cellular-biomechanics-14:effective-diffusivity",
+      "type": "numeric",
+      "prompt": "At L = 1.0 mm, a synthetic characteristic relaxation time is 20 s. Under tau = L^2/D_eff, calculate D_eff in mm^2/s. Enter a value and unit.",
+      "points": 1,
+      "objective_ids": [
+        "cellular-biomechanics-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.05,
+        "unit": "mm^2/s",
+        "tolerance": 0.002,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use the same length units as the requested diffusivity: square 1.0 mm, then divide by 20 s.",
+        "solution": "D_eff = (1.0 mm)^2/(20 s) = 0.050 mm^2/s, equivalent to 5.0×10⁻⁸ m^2/s.",
+        "lesson_ids": [
+          "cellular-biomechanics-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cellular-biomechanics-14:predict-at-1_5mm",
+      "type": "numeric",
+      "prompt": "Use D_eff = 0.050 mm^2/s to predict the characteristic time at L = 1.5 mm. Enter a value and unit.",
+      "points": 1,
+      "objective_ids": [
+        "cellular-biomechanics-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 45.0,
+        "unit": "s",
+        "tolerance": 0.5,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Square the new drainage length before dividing by D_eff.",
+        "solution": "tau = (1.5 mm)^2/(0.050 mm^2/s) = 45 s.",
+        "lesson_ids": [
+          "cellular-biomechanics-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cellular-biomechanics-14:scaling-exponent",
+      "type": "numeric",
+      "prompt": "The synthetic mean times are 5 s at 0.5 mm and 80 s at 2.0 mm. For tau proportional to L^n, estimate n = ln(80/5)/ln(2.0/0.5). Enter the dimensionless exponent.",
+      "points": 1,
+      "objective_ids": [
+        "cellular-biomechanics-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 2.0,
+        "unit": "dimensionless",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Take the logarithm of the time ratio and divide by the logarithm of the length ratio.",
+        "solution": "n = ln(16)/ln(4) = 2, consistent with the approximate poroelastic size scaling.",
+        "lesson_ids": [
+          "cellular-biomechanics-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cellular-biomechanics-14:model-comparison",
+      "type": "single_choice",
+      "prompt": "The synthetic mean relaxation times are 5, 20 and 80 s at lengths 0.5, 1 and 2 mm. Which comparison best describes these data?",
+      "points": 1,
+      "objective_ids": [
+        "cellular-biomechanics-14-objective-2"
+      ],
+      "options": [
+        "A single size-independent characteristic time predicts the observed 16-fold change across the full size range.",
+        "An approximate tau proportional to L^2 model matches the means better than a common constant-time model, under the stated fixed conditions.",
+        "The data prove that the material has no intrinsic viscoelasticity.",
+        "No model can be considered unless each specimen has a different composition."
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Compare the 16-fold time ratio with the square of the fourfold length ratio; keep the conclusion conditional.",
+        "solution": "The means follow the L^2 scaling and differ from a common time, supporting a length-dependent transport contribution under these synthetic conditions. Model support is not proof of a unique mechanism.",
+        "lesson_ids": [
+          "cellular-biomechanics-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cellular-biomechanics-14:design-controls",
+      "type": "multiple_select",
+      "prompt": "Which choices make a specimen-size comparison more interpretable? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cellular-biomechanics-14-objective-3"
+      ],
+      "options": [
+        "Use the same material formulation, temperature, imposed strain and loading protocol at every size.",
+        "Keep specimen shape and drained/sealed boundary conditions geometrically consistent, and report the effective drainage length.",
+        "Use independently prepared specimens at each size and randomize measurement order; block by preparation batch when needed.",
+        "Count each time point from a relaxation curve as an independent specimen.",
+        "Change crosslinking chemistry for the largest specimens so all tests finish on the same day."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "feedback": {
+        "hint": "Control the material and the fluid-flow path; distinguish repeated readings from independent specimens.",
+        "solution": "Composition, loading and boundary conditions must be comparable. Independent specimens are the units; time points estimate each curve, while batch blocking and random order address nuisance variation.",
+        "lesson_ids": [
+          "cellular-biomechanics-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cellular-biomechanics-14:experimental-unit",
+      "type": "single_choice",
+      "prompt": "Three independently prepared gels are tested at each of three sizes, with 100 time points recorded from every gel. What is the independent experimental unit for comparing size groups?",
+      "points": 1,
+      "objective_ids": [
+        "cellular-biomechanics-14-objective-3"
+      ],
+      "options": [
+        "Each recorded time point, giving 300 independent replicates per size.",
+        "Each fitted time constant from a separate nonlinear fit window.",
+        "Each independently prepared gel; the 100 time points are repeated measurements within that gel.",
+        "Every pixel in the stress sensor trace."
+      ],
+      "solution_spec": {
+        "answer": 2
+      },
+      "feedback": {
+        "hint": "Ask which units received an independently prepared specimen, rather than a repeated observation.",
+        "solution": "The independently prepared gel is the experimental unit. Repeated time points help estimate its curve but do not multiply the independent sample size.",
+        "lesson_ids": [
+          "cellular-biomechanics-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cellular-biomechanics-14:model-limits",
+      "type": "multiple_select",
+      "prompt": "Which statements are valid limits on interpreting tau approximately proportional to L^2? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cellular-biomechanics-14-objective-2"
+      ],
+      "options": [
+        "The geometry and boundary conditions affect the coefficient and effective drainage length.",
+        "A size-squared trend can support a transport contribution without excluding intrinsic viscoelasticity or other mechanisms.",
+        "A single exponential may summarize a curve even when the actual relaxation is multi-scale or non-exponential.",
+        "The fitted D_eff is automatically a universal molecular diffusion coefficient for every material and geometry.",
+        "Changing specimen size can introduce fixture, surface-to-volume or substrate effects that need checking."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "feedback": {
+        "hint": "Separate an effective scaling parameter from a universal material constant, and consider coupled mechanisms and geometry.",
+        "solution": "The scaling is an approximate model under fixed conditions. Geometry, coupled relaxation, material heterogeneity and size-related artifacts can all alter its fit; D_eff should be reported as an effective parameter for this setup.",
+        "lesson_ids": [
+          "cellular-biomechanics-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cellular-biomechanics-14:ambiguous-fit",
+      "type": "single_choice",
+      "prompt": "If both a common-time model and an L^2 model fit the observed size range within their uncertainty, what is the defensible conclusion?",
+      "points": 1,
+      "objective_ids": [
+        "cellular-biomechanics-14-objective-3"
+      ],
+      "options": [
+        "The current experiment has not distinguished the models; more informative sizes, precision or measurements may be needed.",
+        "The models are mechanistically identical.",
+        "Poroelasticity is proven because one of the candidate models contains L.",
+        "All time points can be counted as new specimens to resolve the ambiguity."
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Model selection depends on whether observations and uncertainty separate predictions, not on which equation sounds more specific.",
+        "solution": "Overlapping predictive fits mean this design has not identified the mechanism. Improve the size range or precision and retain appropriate specimen-level replication.",
+        "lesson_ids": [
+          "cellular-biomechanics-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cellular-biomechanics-15:persistence-length",
+      "type": "numeric",
+      "prompt": "Stipulate k_BT = 4.1 pN·nm = 4.1 × 10⁻²¹ J. A synthetic filament has bending stiffness κ = 2.0 × 10⁻²⁶ N·m². What is its persistence length, in μm? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "cellular-biomechanics-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 4.878,
+        "unit": "",
+        "tolerance": 0.005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "L_p = κ/(k_BT); keep both in SI units.",
+        "solution": "L_p = 2.0 × 10⁻²⁶/4.1 × 10⁻²¹ = 4.88 × 10⁻⁶ m = 4.88 μm.",
+        "lesson_ids": [
+          "cellular-biomechanics-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cellular-biomechanics-15:tangent-correlation",
+      "type": "numeric",
+      "prompt": "In three dimensions, a synthetic filament has persistence length 10 μm. What is the average cosine of the angle between tangents 3.0 μm apart along it? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "cellular-biomechanics-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.7408,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use ⟨cos θ(s)⟩ = e^(−s/L_p).",
+        "solution": "e^(−3/10) = 0.741.",
+        "lesson_ids": [
+          "cellular-biomechanics-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cellular-biomechanics-15:semiflexible-rms-ratio",
+      "type": "numeric",
+      "prompt": "For a worm-like chain with contour length L = 2L_p, what is the ratio of the root-mean-square end-to-end distance to L? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "cellular-biomechanics-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.7534,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use ⟨R²⟩ = 2L_pL[1 − (L_p/L)(1 − e^(−L/L_p))] and take the square root.",
+        "solution": "With L = 2L_p, ⟨R²⟩ = 4L_p² × [1 − 0.5(1 − e^(−2))] = 2.271L_p², so R_rms/L = √(2.271/4) = 0.753.",
+        "lesson_ids": [
+          "cellular-biomechanics-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cellular-biomechanics-15:entropic-spring",
+      "type": "numeric",
+      "prompt": "Stipulate k_BT = 4.1 pN·nm = 4.1 × 10⁻²¹ J. A synthetic flexible chain has L_p = 0.40 nm and L = 100 nm. Using the worm-like-chain ⟨R²⟩ and k ≈ 3k_BT/⟨R²⟩, what is its small-extension spring constant, in pN/nm? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "cellular-biomechanics-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.1544,
+        "unit": "",
+        "tolerance": 0.0005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Compute ⟨R²⟩ first; the correction term is small because L ≫ L_p.",
+        "solution": "⟨R²⟩ = 2 × 0.40 × 100 × (1 − 0.004) = 79.7 nm², so k = 12.3/79.7 = 0.154 pN/nm.",
+        "lesson_ids": [
+          "cellular-biomechanics-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cellular-biomechanics-15:wlc-force",
+      "type": "numeric",
+      "prompt": "Stipulate k_BT = 4.1 pN·nm = 4.1 × 10⁻²¹ J. Using F L_p/(k_BT) = 1/[4(1 − x/L)²] − 1/4 + x/L for a synthetic chain with L_p = 50 nm, what force holds it at 80% extension, in pN? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "cellular-biomechanics-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.5576,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Evaluate the bracket at x/L = 0.8, then multiply by k_BT/L_p.",
+        "solution": "1/(4 × 0.04) − 0.25 + 0.8 = 6.80, and 6.80 × 4.1/50 = 0.558 pN.",
+        "lesson_ids": [
+          "cellular-biomechanics-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cellular-biomechanics-15:filament-buckling",
+      "type": "numeric",
+      "prompt": "A synthetic filament with κ = 3.0 × 10⁻²³ N·m² and length 8.0 μm is pinned at both ends. What is its Euler buckling force, in pN? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "cellular-biomechanics-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 4.626,
+        "unit": "",
+        "tolerance": 0.005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "F_c = π²κ/L².",
+        "solution": "π² × 3.0 × 10⁻²³/(8.0 × 10⁻⁶)² = 4.63 × 10⁻¹² N = 4.63 pN.",
+        "lesson_ids": [
+          "cellular-biomechanics-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cellular-biomechanics-15:buckling-length",
+      "type": "numeric",
+      "prompt": "A synthetic filament with κ = 4.0 × 10⁻²⁶ N·m² and pinned ends carries a compressive load of 1.0 pN. Above what length, in μm, does it buckle? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "cellular-biomechanics-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0.6283,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Rearrange F_c = π²κ/L² for L.",
+        "solution": "L = π√(κ/F) = π√(4.0 × 10⁻¹⁴ m²) = 0.628 μm.",
+        "lesson_ids": [
+          "cellular-biomechanics-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cellular-biomechanics-15:bundle-factor",
+      "type": "numeric",
+      "prompt": "Six identical filaments are crosslinked into a tightly coupled bundle that bends as one rod. By what factor does the bundle's buckling force exceed that of one filament of the same length? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "cellular-biomechanics-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 36,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Tight coupling scales bending stiffness with the square of the number of filaments.",
+        "solution": "κ grows by about 6² = 36, and F_c is proportional to κ. With free sliding it would grow only about 6 times.",
+        "lesson_ids": [
+          "cellular-biomechanics-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cellular-biomechanics-15:entropic-temperature",
+      "type": "single_choice",
+      "prompt": "A flexible polymer behaves as an entropic spring at small extensions. What happens to its spring constant if the absolute temperature rises by 10%?",
+      "options": [
+        "It increases by about 10%, because k ≈ 3k_BT/⟨R²⟩ is proportional to temperature",
+        "It decreases by about 10%, as for a metal spring",
+        "It is unchanged, because no bonds are stretched",
+        "It drops to zero, because the chain melts"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "cellular-biomechanics-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Where does the restoring force of an entropic spring come from?",
+        "solution": "The restoring force comes from lost configurational entropy, so it scales with k_BT; warming stiffens an entropic spring, the opposite of typical energetic elasticity.",
+        "lesson_ids": [
+          "cellular-biomechanics-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cellular-biomechanics-15:filament-classification",
+      "type": "single_choice",
+      "prompt": "A synthetic filament 3 μm long has persistence length 10 μm. How is it best classified?",
+      "options": [
+        "Semiflexible to stiff: it bends gently but does not coil, because L is shorter than L_p",
+        "Flexible random coil, because it is thin",
+        "Rigid rod with no thermal bending at all",
+        "Its classification depends only on its diameter"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "cellular-biomechanics-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Compare the contour length with the persistence length.",
+        "solution": "With L < L_p, thermal bending is modest (tangent correlation e^(−0.3) ≈ 0.74 end to end). Flexible coiling requires L ≫ L_p.",
+        "lesson_ids": [
+          "cellular-biomechanics-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cellular-biomechanics-15:buckling-length-dependence",
+      "type": "single_choice",
+      "prompt": "A protrusion must push with a given force. Why might a cell use many short filaments rather than a few long ones, in the Euler model?",
+      "options": [
+        "The buckling force scales as 1/L², so halving the length quadruples the load each filament can bear",
+        "Short filaments have higher persistence length",
+        "Long filaments cannot polymerize",
+        "Buckling force is independent of length"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "cellular-biomechanics-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "How does F_c depend on L?",
+        "solution": "F_c = π²κ/L². This is a model consequence, not a claim about any specific cell; lateral support from a network raises buckling loads further.",
+        "lesson_ids": [
+          "cellular-biomechanics-15"
+        ],
+        "misconception_ids": []
       },
       "visibility": "public-practice-authoring",
       "provenance": {

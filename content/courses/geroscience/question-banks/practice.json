@@ -2786,6 +2786,594 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "geroscience-13:baker-intervention",
+      "type": "single_choice",
+      "prompt": "Which intervention was tested in Baker et al. (2016)?",
+      "points": 1,
+      "objective_ids": [
+        "geroscience-13-objective-4"
+      ],
+      "options": [
+        "An inducible INK-ATTAC system was activated to clear p16(Ink4a)-expressing cells in aged mice.",
+        "Rapamycin was fed to mice to inhibit mTOR.",
+        "Navitoclax was administered to inhibit BCL-xL in people.",
+        "Caloric restriction was assigned to rhesus monkeys."
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Identify whether the intervention changed a genetic cell-clearance tool or administered a pathway-targeting drug.",
+        "solution": "The study used AP20187 to activate inducible INK-ATTAC clearance of p16(Ink4a)-expressing cells in mice.",
+        "lesson_ids": [
+          "geroscience-13"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "geroscience-13:baker-supported-claim",
+      "type": "single_choice",
+      "prompt": "What is the strongest conclusion supported by the Baker et al. (2016) comparison?",
+      "points": 1,
+      "objective_ids": [
+        "geroscience-13-objective-4"
+      ],
+      "options": [
+        "A p16-driven cell-clearance intervention changed lifespan and several age-related outcomes in the tested mouse models; this does not establish human benefit or implicate every senescent cell.",
+        "Every senescent cell causes aging and must be removed.",
+        "The intervention proves that all human aging is reversible.",
+        "Only tumor incidence changed; the study reported no lifespan outcome."
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Keep the cell label, model species and measured outcomes inside the claim.",
+        "solution": "The paper reports longer median lifespan in treated male and female mice of two backgrounds and changes in several age-related outcomes. A p16-driven tool is not a universal label for senescence, and the result is not human evidence.",
+        "lesson_ids": [
+          "geroscience-13"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "geroscience-13:rapamycin-statistic",
+      "type": "single_choice",
+      "prompt": "Harrison et al. (2009) reported increases of 14% in females and 9% in males for which survival summary?",
+      "points": 1,
+      "objective_ids": [
+        "geroscience-13-objective-4"
+      ],
+      "options": [
+        "Age at 90% mortality, a late-life survival summary; these values are not a hazard reduction or a human treatment effect.",
+        "A reduction in all-cause mortality hazard in people.",
+        "Median survival only, with no late-life survival measure.",
+        "A 14- or 9-percentage-point increase in the fraction of animals alive at every age."
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Read the metric next to the percentage before repeating the headline.",
+        "solution": "The abstract reports 14% in females and 9% in males based on age at 90% mortality, alongside increased median and maximal lifespan in the mouse cohorts.",
+        "lesson_ids": [
+          "geroscience-13"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "geroscience-13:mechanism-from-survival",
+      "type": "single_choice",
+      "prompt": "Rapamycin inhibited mTOR signaling and improved survival in the Harrison et al. mouse study. What remains unresolved by those two observations alone?",
+      "points": 1,
+      "objective_ids": [
+        "geroscience-13-objective-2"
+      ],
+      "options": [
+        "Whether the survival effect was mediated by the measured mTOR change, another drug action, delayed cancer, or a combination.",
+        "Whether the study involved mice.",
+        "Whether rapamycin was the intervention.",
+        "Whether survival was measured."
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Separate target engagement from evidence that the target mediated the outcome.",
+        "solution": "A target and survival can change together without proving mediation. The paper discussed delaying cancer, changes in aging mechanisms, or both as possible explanations.",
+        "lesson_ids": [
+          "geroscience-13"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "geroscience-13:two-study-comparison",
+      "type": "multiple_select",
+      "prompt": "Which statements are justified when comparing these two papers? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "geroscience-13-objective-4"
+      ],
+      "options": [
+        "Both report intervention evidence in mice, including survival outcomes.",
+        "Baker et al. used inducible cell clearance, whereas Harrison et al. tested a pharmacologic mTOR-pathway inhibitor.",
+        "The studies were not a shared-protocol head-to-head comparison, so their percentages should not be used to rank the interventions.",
+        "They used identical models, treatment timing and endpoints, so their effect sizes are directly comparable.",
+        "Neither mouse study establishes that the intervention improves human lifespan."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "feedback": {
+        "hint": "Compare species, intervention and endpoint, then check whether the studies shared a protocol.",
+        "solution": "The intervention modes and experiments differ. Both give bounded mouse evidence; they were not a direct comparison and do not establish human efficacy.",
+        "lesson_ids": [
+          "geroscience-13"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "geroscience-13:stronger-mechanism-test",
+      "type": "single_choice",
+      "prompt": "What would most strengthen a claim that rapamycin extends lifespan through mTOR signaling?",
+      "points": 1,
+      "objective_ids": [
+        "geroscience-13-objective-2"
+      ],
+      "options": [
+        "A controlled perturbation of the relevant mTOR pathway that changes the rapamycin effect as predicted, with target engagement measured at the relevant tissue and time.",
+        "A second measurement showing only that survival differs.",
+        "A biomarker change measured after all animals have died.",
+        "A larger effect percentage from an unrelated study."
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Look for a design that tests dependence on the proposed pathway, not just a second correlated result.",
+        "solution": "Pathway perturbation with suitable controls can test whether the intervention effect depends on that pathway. Target engagement is useful, but by itself does not demonstrate mediation.",
+        "lesson_ids": [
+          "geroscience-13"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "geroscience-13:baker-control-arms",
+      "type": "single_choice",
+      "prompt": "To separate AP20187 effects from INK-ATTAC-mediated cell clearance in a follow-up study, which design is most informative?",
+      "points": 1,
+      "objective_ids": [
+        "geroscience-13-objective-2"
+      ],
+      "options": [
+        "A matched 2×2 comparison of transgene-positive and transgene-negative littermates, each given AP20187 or vehicle, with cell-clearance verification.",
+        "Only transgene-positive mice given AP20187, with no comparator.",
+        "A young untreated group measured once.",
+        "A historical human cohort taking an unrelated senolytic."
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Separate the inducer effect from the transgene-dependent effect and verify the intended clearance.",
+        "solution": "The factorial control distinguishes AP20187 effects from transgene-dependent killing. Confirming clearance checks that the intended manipulation occurred.",
+        "lesson_ids": [
+          "geroscience-13"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "geroscience-13:human-evidence-tier",
+      "type": "single_choice",
+      "prompt": "What can these mouse studies establish about human aging?",
+      "points": 1,
+      "objective_ids": [
+        "geroscience-13-objective-4"
+      ],
+      "options": [
+        "They identify model-specific hypotheses that need appropriately designed human studies; they do not demonstrate human lifespan or healthspan benefit.",
+        "They prove that the tested strategies are safe and effective in people.",
+        "The largest mouse percentage can be used as an expected human treatment effect.",
+        "A survival change in mice validates any aging clock that changes after treatment."
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Place the conclusion at the highest evidence level directly tested.",
+        "solution": "Both primary studies test mouse interventions. Human benefit, clinical safety and validated human health outcomes require direct human evidence.",
+        "lesson_ids": [
+          "geroscience-13"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "geroscience-17:extrinsic-survival",
+      "type": "numeric",
+      "prompt": "A synthetic non-aging population has a constant extrinsic hazard of 0.5 per year. What fraction of a cohort survives to age 4? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "geroscience-17-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.1353,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "With a constant hazard μ, l(a) = e^(−μa).",
+        "solution": "l(4) = e^(−0.5 × 4) = e^(−2) = 0.135. Few individuals reach age 4 even though none declines.",
+        "lesson_ids": [
+          "geroscience-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "geroscience-17:mean-extrinsic-lifespan",
+      "type": "numeric",
+      "prompt": "In the same kind of non-aging population, the constant extrinsic hazard is 0.25 per year. What is the mean lifespan in years? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "geroscience-17-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 4,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "For a constant hazard, the lifespan is exponential with mean 1/μ.",
+        "solution": "Mean lifespan = 1/0.25 = 4 years, set entirely by external causes.",
+        "lesson_ids": [
+          "geroscience-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "geroscience-17:relative-selection-strength",
+      "type": "numeric",
+      "prompt": "With a constant hazard of 0.25 per year, maturity at age 1 and constant adult reproduction in a stationary population, what is the strength of selection against added mortality at age 7, relative to its value at maturity? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "geroscience-17-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.2231,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use S(a) = e^(−μ(a − α)).",
+        "solution": "S(7) = e^(−0.25 × 6) = e^(−1.5) = 0.223, about one-fifth of the strength at maturity.",
+        "lesson_ids": [
+          "geroscience-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "geroscience-17:late-allele-frequency",
+      "type": "numeric",
+      "prompt": "A harmful allele arises at mutation rate 2 × 10⁻⁵ and would face selection s = 0.02 if it acted early. It acts only at an age where the relative force of selection is 0.1. Using q ≈ u/s_effective, what is its approximate equilibrium frequency? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "geroscience-17-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.01,
+        "unit": "",
+        "tolerance": 0.0002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Multiply s by the relative force of selection to get the effective selection, then divide u by it.",
+        "solution": "s_effective = 0.02 × 0.1 = 0.002, so q ≈ 2 × 10⁻⁵ / 0.002 = 0.01, ten times the early-acting value of 0.001.",
+        "lesson_ids": [
+          "geroscience-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "geroscience-17:baseline-lifetime-reproduction",
+      "type": "numeric",
+      "prompt": "In a synthetic discrete model, each year an individual survives with probability p = 0.8 and, from age 1 onward, produces one offspring for each year it is alive. What is the expected lifetime number of offspring? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "geroscience-17-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 4,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Sum the geometric series p + p² + p³ + …",
+        "solution": "p/(1 − p) = 0.8/0.2 = 4.0.",
+        "lesson_ids": [
+          "geroscience-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "geroscience-17:late-share",
+      "type": "numeric",
+      "prompt": "In a synthetic discrete model, each year an individual survives with probability p = 0.8 and, from age 1 onward, produces one offspring for each year it is alive. What fraction of expected lifetime reproduction comes after age 8? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "geroscience-17-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0.1678,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The share produced after age k is p^k.",
+        "solution": "0.8⁸ = 0.168. About a sixth of reproduction lies beyond age 8 in this environment.",
+        "lesson_ids": [
+          "geroscience-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "geroscience-17:pleiotropic-total",
+      "type": "numeric",
+      "prompt": "In a synthetic discrete model, each year an individual survives with probability p = 0.8 and, from age 1 onward, produces one offspring for each year it is alive. An allele raises reproduction by 20% at ages 1 and 2 but causes death at the end of age 8. What is the expected lifetime number of offspring for carriers? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "geroscience-17-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 3.617,
+        "unit": "",
+        "tolerance": 0.005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Start from the baseline, subtract the reproduction after age 8, and add 20% of the reproduction at ages 1 and 2.",
+        "solution": "4.0 − 4.0 × 0.168 + 0.2 × (0.8 + 0.64) = 4.0 − 0.671 + 0.288 = 3.617, so the allele is disfavoured at p = 0.8.",
+        "lesson_ids": [
+          "geroscience-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "geroscience-17:break-even-boost",
+      "type": "numeric",
+      "prompt": "In a synthetic discrete model, each year an individual survives with probability p = 0.8 and, from age 1 onward, produces one offspring for each year it is alive. An allele causes death at the end of age 8 but raises reproduction at ages 1 and 2 by a fraction b. What value of b makes it exactly neutral? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "geroscience-17-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0.466,
+        "unit": "",
+        "tolerance": 0.003,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Set the early gain b × (p + p²) equal to the reproduction lost after age 8.",
+        "solution": "b × 1.44 = 0.671, so b = 0.466, a 47% boost. At p = 0.7 the break-even is only 11%.",
+        "lesson_ids": [
+          "geroscience-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "geroscience-17:which-explanation",
+      "type": "single_choice",
+      "prompt": "An allele improves early fertility but raises late-life disease risk, and it has spread in a population. Which classical explanation does this example illustrate most directly?",
+      "options": [
+        "Antagonistic pleiotropy",
+        "Mutation accumulation",
+        "Aging as a programme selected for the good of the species",
+        "Extrinsic mortality alone, with no genetic contribution"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "geroscience-17-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Does the allele have one effect or two, and are they in opposite directions?",
+        "solution": "One allele with an early benefit and a late cost is antagonistic pleiotropy. Mutation accumulation concerns late-acting harmful alleles with no early benefit, removed only weakly by selection.",
+        "lesson_ids": [
+          "geroscience-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "geroscience-17:extrinsic-mortality-prediction",
+      "type": "single_choice",
+      "prompt": "Over many generations, what do classical evolutionary theories of aging predict if a population's extrinsic mortality falls substantially?",
+      "options": [
+        "Selection should favour slower aging, because more reproduction happens late and late costs weigh more",
+        "Aging should speed up, because there is less need for maintenance",
+        "Nothing changes, because extrinsic mortality does not affect selection on aging",
+        "Every individual should immediately live longer through a genetic change"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "geroscience-17-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Compare the break-even boost for the toy allele at p = 0.7 and p = 0.95.",
+        "solution": "Lower extrinsic mortality makes late reproduction a larger share of fitness, so alleles with late costs are opposed more strongly and greater maintenance pays off. The change is evolutionary, across generations, not an immediate individual effect.",
+        "lesson_ids": [
+          "geroscience-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "geroscience-17:what-theory-does-not-show",
+      "type": "single_choice",
+      "prompt": "Which conclusion does evolutionary theory of aging NOT support?",
+      "options": [
+        "That a particular intervention will slow aging in people",
+        "That selection on late-acting effects is weaker than on early-acting ones",
+        "That an allele with an early benefit and late cost can spread",
+        "That extrinsic mortality shapes how much maintenance is favoured"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "geroscience-17-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Separate why the decline is poorly opposed from how any mechanism could be changed.",
+        "solution": "The theory explains why aging is weakly opposed by selection. It does not identify molecular mechanisms, and it does not show that any intervention is safe or effective in people.",
+        "lesson_ids": [
+          "geroscience-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
     }
   ]
 }

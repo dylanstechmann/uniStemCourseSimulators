@@ -5,14 +5,16 @@ x-api: &api
     context: .
     dockerfile: backend/Dockerfile
   environment: &api-env
-    DATABASE_PASSWORD_FILE: /run/courselab/db-password
+    DATABASE_PASSWORD_FILE: /run/courselab/db-runtime-password
     DB_HOST: db
     DB_NAME: courselab
-    DB_USER: courselab
+    DB_USER: courselab_app
     CONTENT_ROOT: /content
     PRIVATE_ASSESSMENTS_ROOT: /run/private-assessments
     COOKIE_SECURE: "false"
     ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-http://localhost:8080,http://127.0.0.1:8080}
+    RATE_LIMIT: ${COURSELAB_RATE_LIMIT:-120}
+    AUTH_RATE_LIMIT: ${COURSELAB_AUTH_RATE_LIMIT:-30}
     VARIANT_TOKEN_SECRET: ${VARIANT_TOKEN_SECRET:-}
   volumes:
     - credentials:/run/courselab:ro
@@ -32,7 +34,7 @@ x-api: &api
 services:
   credentials:
     image: alpine:3.22
-    command: [sh, -ec, "umask 077; if [ ! -s /secrets/db-password ]; then head -c 32 /dev/urandom | base64 > /secrets/db-password; fi; chown 10001:10001 /secrets/db-password; chmod 0440 /secrets/db-password"]
+    command: [sh, -ec, "umask 077; if [ ! -s /secrets/db-password ]; then head -c 32 /dev/urandom | base64 > /secrets/db-password; fi; if [ ! -s /secrets/db-runtime-password ]; then head -c 32 /dev/urandom | base64 > /secrets/db-runtime-password; fi; chown 10001:10001 /secrets/db-password /secrets/db-runtime-password; chmod 0440 /secrets/db-password /secrets/db-runtime-password"]
     volumes: [credentials:/secrets]
     network_mode: none
     read_only: true
@@ -57,11 +59,38 @@ services:
       timeout: 3s
       retries: 20
     security_opt: [no-new-privileges:true]
+  db-roles:
+    image: postgres:17-alpine
+    entrypoint: ["/bin/sh", "/provision-runtime-role.sh"]
+    user: "10001:10001"
+    environment:
+      DB_HOST: db
+      DB_NAME: courselab
+      DB_ADMIN_USER: courselab
+      DB_RUNTIME_USER: courselab_app
+      DB_ADMIN_PASSWORD_FILE: /run/courselab/db-password
+      DB_RUNTIME_PASSWORD_FILE: /run/courselab/db-runtime-password
+    volumes:
+      - credentials:/run/courselab:ro
+      - ./deploy/provision-runtime-role.sh:/provision-runtime-role.sh:ro
+      - ./deploy/provision-runtime-role.sql:/provision-runtime-role.sql:ro
+    networks: [database]
+    depends_on:
+      db: {condition: service_healthy}
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,noexec,nosuid
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
   migrate:
     <<: *api
     command: [alembic, upgrade, head]
+    environment:
+      <<: *api-env
+      DATABASE_PASSWORD_FILE: /run/courselab/db-password
+      DB_USER: courselab
     depends_on:
-      db: {condition: service_healthy}
+      db-roles: {condition: service_completed_successfully}
   api:
     <<: *api
     depends_on:

@@ -22,7 +22,8 @@ def test_alembic_upgrade_matches_metadata(tmp_path, monkeypatch):
         "alembic_version", "users", "sessions", "enrollments", "progress", "notes", "bookmarks",
         "attempts", "appeals", "appeal_reviews", "assessment_plans", "assessment_instances",
         "graded_submissions", "graded_submission_appeals", "graded_submission_appeal_reviews",
-        "card_reviews",
+        "card_reviews", "graded_assessment_assignments", "assessment_source_archives",
+        "course_content_archives", "case_drafts",
     }
     command.check(config)
     command.downgrade(config, "base")
@@ -87,6 +88,20 @@ def test_database_url_wins_for_ci(monkeypatch):
     monkeypatch.setenv("DATABASE_URL", "sqlite:///:memory:")
     monkeypatch.setenv("DATABASE_PASSWORD_FILE", "/not/read/when/url/provided")
     assert Settings.from_environment().database_url == "sqlite:///:memory:"
+
+
+def test_rate_limits_keep_defaults_and_accept_environment_overrides(monkeypatch):
+    monkeypatch.delenv("RATE_LIMIT", raising=False)
+    monkeypatch.delenv("AUTH_RATE_LIMIT", raising=False)
+    defaults = Settings.from_environment()
+    assert defaults.rate_limit == 120
+    assert defaults.auth_rate_limit == 30
+
+    monkeypatch.setenv("RATE_LIMIT", "1000")
+    monkeypatch.setenv("AUTH_RATE_LIMIT", "500")
+    configured = Settings.from_environment()
+    assert configured.rate_limit == 1000
+    assert configured.auth_rate_limit == 500
 
 
 def test_variant_token_secret_is_private_and_has_a_minimum_length(monkeypatch):

@@ -24,6 +24,8 @@ For an idealized reversible interaction between one ligand and one class of inde
 
 `θ = [L]free / (Kd + [L]free)`
 
+**In words:** estimated occupied-site fraction is free-ligand concentration divided by the sum of free-ligand concentration and the dissociation constant.
+
 Here, `[L]free` is free ligand concentration and `Kd` is the concentration at which half of those sites are occupied under the model. If `[L]free = Kd`, then `θ = 0.5`. If `[L]free = 1 nM` and `Kd = 4 nM`, then `θ = 1/(4 + 1) = 0.20`.
 
 This is a binding calculation, not a prediction that the cell responds at 20% of its maximum. A cell may have spare receptors, nonlinear enzyme relays, thresholds, feedback, cooperative interactions, or a response assay that saturates before receptor occupancy does. The concentration giving half of a measured functional response is often called an operational `EC50`; it need not equal a binding `Kd`. The simple equation also assumes that free ligand is known, the system is near equilibrium, and the relevant sites behave as one population. Ligand depletion, multiple receptor states, cooperative binding, and receptor internalization can violate those assumptions.

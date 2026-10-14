@@ -30,6 +30,18 @@ When a solution x₀ exists and the nullity is positive, there are infinitely ma
 
 If a single answer is needed, one natural choice is the solution of smallest length. It is the one orthogonal to the null space. With x₀ = (1, 1, 1) the length is √3 = 1.7321; subtracting the component along n, x = x₀ + t n with t = −(x₀·n)/(n·n) = −1/3, gives **x = (0.6667, 0.6667, 1.3333)** with length **1.6330**. This choice is a convention, not a measurement: it is shrunk toward zero, and reporting it as the amounts is wrong unless the convention is stated.
 
+## All four fundamental subspaces of a rectangular matrix
+
+The examples above use the column space and null space to explain solutions. A rectangular matrix shows how those spaces fit with the row space and left null space. Consider the synthetic 3 × 4 measurement matrix
+
+B = [[1, 1, 0, 0], [0, 1, 1, 0], [1, 2, 1, 0]].
+
+Its third row is the sum of its first two, so its rank is 2. The pivot columns of the original matrix give a basis for the column space: (1, 0, 1) and (1, 1, 2). Independent original rows give a basis for the row space: (1, 1, 0, 0) and (0, 1, 1, 0). Row reduction shows that x₁ = −x₃ and x₂ = −x₃, while x₄ is free; therefore a basis for the null space is (−1, 1, −1, 0) and (0, 0, 0, 1). The relation −row₁ − row₂ + row₃ = 0 gives a basis (−1, −1, 1) for the left null space, the null space of Bᵀ.
+
+These spaces live in different ambient dimensions. The column space and left null space are both in R³, with dimensions 2 and 1; the row space and null space are both in R⁴, with dimensions 2 and 2. Accordingly, rank + dim N(B) = 2 + 2 = 4 columns, and rank + dim N(Bᵀ) = 2 + 1 = 3 rows. The orthogonal pairs are C(B) ⟂ N(Bᵀ) in R³ and C(Bᵀ) ⟂ N(B) in R⁴. This is why pivot columns of the original matrix form a column-space basis, while nonzero rows of an echelon form can be used for a row-space basis.
+
+The left null space also gives a compact consistency test. Every b in C(B) must satisfy yᵀb = 0 for each y in N(Bᵀ); here that condition is −b₁ − b₂ + b₃ = 0. For b = (2, 1, 4), the dot product is 1, so Bx = b is inconsistent. In least squares, the fitted vector lies in C(B) and the residual r = b − Bx̂ lies in N(Bᵀ). One fit is x̂ = (1, 4/3, 0, 0), giving Bx̂ = (7/3, 4/3, 11/3) and r = (−1/3, −1/3, 1/3); Bᵀr = 0 confirms that the residual is perpendicular to every column of B. Since N(B) is nontrivial, adding any null vector to x̂ leaves the fitted vector unchanged.
+
 ## Design matrices
 
 The same count applies to regression. A design with an intercept column and one indicator column for each of two groups,
@@ -44,6 +56,9 @@ has three columns but rank 2, because the intercept equals the sum of the indica
 - Concluding that a system has no solution because it has many, or the reverse.
 - Reporting one member of a solution family as if it were the measured value.
 - Forgetting that rank–nullity counts columns (unknowns), not rows (equations).
+- Mixing the ambient spaces: C(Aᵀ) and N(A) are in Rⁿ, while C(A) and N(Aᵀ) are in Rᵐ.
+- Using the pivot columns of the row-reduced matrix as a column-space basis; column bases use pivot columns from the original matrix.
+- Treating a nonzero least-squares residual as a failure of orthogonality; it lies in the left null space.
 - Using the full set of dummy variables together with an intercept.
 - Treating a nearly dependent column as exactly independent because the software did not complain.
 

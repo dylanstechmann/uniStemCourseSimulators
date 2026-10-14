@@ -77,7 +77,7 @@
       ],
       "points": 1,
       "objective_ids": [
-        "statics-materials-3-objective-1"
+        "statics-materials-3-objective-2"
       ],
       "solution_spec": {
         "answer": 1
@@ -103,7 +103,7 @@
       "prompt": "A part has a specified allowable stress of 120 MPa and a calculated maximum stress of 40 MPa. What is the factor of safety?",
       "points": 1,
       "objective_ids": [
-        "statics-materials-4-objective-1"
+        "statics-materials-4-objective-2"
       ],
       "solution_spec": {
         "answer": 3,
@@ -189,6 +189,97 @@
       }
     },
     {
+      "id": "statics-materials-2:parallel-load-share",
+      "type": "numeric",
+      "prompt": "Two bars of equal length 400 mm and area 100 mm² connect the same rigid end plates. Their elastic moduli are 200 GPa and 100 GPa, and the total axial load is 30 kN. What force, in kN, does the 200 GPa bar carry? Enter a value and unit.",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-2-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 20,
+        "unit": "kN",
+        "tolerance": 0.05,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Rigid plates impose the same extension; load divides in proportion to axial stiffness AE/L.",
+        "solution": "The stiffnesses are 50 and 25 kN/mm, so the 200 GPa bar carries 50/(50+25) × 30 = 20 kN. The two member forces sum to the applied load.",
+        "lesson_ids": [
+          "statics-materials-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-2:parallel-extension",
+      "type": "numeric",
+      "prompt": "For the same two-bar assembly, calculate the common end-plate displacement in mm under the 30 kN load. Enter a value and unit.",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-2-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0.4,
+        "unit": "mm",
+        "tolerance": 0.002,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The bars act as parallel axial springs with total stiffness 75 kN/mm.",
+        "solution": "The common displacement is δ = P/(k₁+k₂) = 30 kN/(75 kN/mm) = 0.4 mm.",
+        "lesson_ids": [
+          "statics-materials-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-2:compatibility-equation",
+      "type": "single_choice",
+      "prompt": "For two axial bars joined by rigid end plates, which relation supplies the compatibility condition needed to resolve their separate member forces?",
+      "options": [
+        "Their axial extensions are equal because both share the same end-plate displacement.",
+        "Their internal forces are equal because both carry tension.",
+        "Their nominal stresses are equal because their end plates are rigid.",
+        "Their extensions sum to zero because the total applied force is balanced."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-2-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Use the geometry of connected displacements, then relate each member's force to its extension.",
+        "solution": "The common rigid plates impose equal end displacement and hence equal member extension. Combined with force equilibrium and each bar's elastic force–deformation law, compatibility determines the load share.",
+        "lesson_ids": [
+          "statics-materials-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
       "id": "statics-materials-3:bending-stress",
       "type": "numeric",
       "prompt": "A rectangular beam section (width 0.050 m, depth 0.100 m) carries a bending moment of 500 N·m. Calculate the maximum bending stress σ = M c / I. Enter a value and unit.",
@@ -209,6 +300,74 @@
         "solution": "I = 0.050 × 0.100³ / 12 = 4.167×10⁻⁶ m⁴, c = 0.050 m, so σ = 500 × 0.050 ÷ 4.167×10⁻⁶ = 6.00 MPa at the extreme fibers.",
         "lesson_ids": [
           "statics-materials-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-3:torsion-stress",
+      "type": "numeric",
+      "prompt": "A solid circular shaft of diameter 20 mm carries a torque of 10 N·m. Under the elastic circular-shaft model, calculate the maximum shear stress at its outer surface. Enter a value in MPa.",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-3-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 6.37,
+        "unit": "MPa",
+        "tolerance": 0.05,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use J=πd⁴/32 and τmax=Tc/J. Convert 10 N·m to 10,000 N·mm, or convert the diameter to meters.",
+        "solution": "J=π(20 mm)⁴/32=15,708 mm⁴ and c=10 mm. Thus τmax=(10,000 N·mm)(10 mm)/(15,708 mm⁴)=6.37 N/mm²=6.37 MPa.",
+        "lesson_ids": [
+          "statics-materials-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-4:failure-criteria",
+      "type": "multiple_select",
+      "prompt": "Which statements correctly distinguish common failure criteria? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "statics-materials-4-objective-1"
+      ],
+      "options": [
+        "Yield is the onset of permanent deformation under the stated material condition and test convention.",
+        "Ultimate strength is the maximum engineering stress reached on a tensile-test curve.",
+        "Fatigue damage can accumulate under repeated loading even when each peak is below monotonic yield.",
+        "A functional failure can occur when a required stiffness or flow is lost, even without fracture.",
+        "A factor of safety of 3 means the probability of failure is exactly one-third."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "feedback": {
+        "hint": "Separate permanent deformation, maximum tensile-test stress, cycle-dependent damage, and failure to perform the required function.",
+        "solution": "Yield, ultimate tensile strength, fatigue, and functional limits describe different events. A deterministic factor-of-safety ratio is not a probability; probability requires uncertainty and reliability models.",
+        "lesson_ids": [
+          "statics-materials-4"
         ],
         "misconception_ids": []
       },
@@ -3263,6 +3422,595 @@
         "misconception_ids": [
           "static-test-is-service-test"
         ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-14:reactions",
+      "type": "numeric",
+      "prompt": "A simply supported 6 m beam carries a uniform downward load of 2 kN/m over the full span. What is the reaction at the right support?",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 6,
+        "unit": "kN",
+        "tolerance": 0.05,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Replace the uniform load by its resultant and take moments about the left support.",
+        "solution": "The resultant is 12 kN at 3 m. Moment balance gives RB·6=12·3, hence RB=6 kN; force balance gives RA=6 kN.",
+        "lesson_ids": [
+          "statics-materials-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-14:shear-at-two",
+      "type": "numeric",
+      "prompt": "For that beam, using V(x)=6−2x kN on 0<x<6 m, what is V at x=2 m?",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 2,
+        "unit": "kN",
+        "tolerance": 0.03,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Evaluate the stated shear function at x=2 m.",
+        "solution": "V(2)=6−2(2)=2 kN. The shear decreases with slope −w=−2 kN/m.",
+        "lesson_ids": [
+          "statics-materials-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-14:maximum-moment",
+      "type": "numeric",
+      "prompt": "For that beam, what is the maximum positive bending moment?",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 9,
+        "unit": "kN·m",
+        "tolerance": 0.1,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "An interior moment extremum occurs where dM/dx=V=0.",
+        "solution": "V=6−2x is zero at x=3 m. M(3)=6(3)−3²=9 kN·m, which exceeds the zero end moments.",
+        "lesson_ids": [
+          "statics-materials-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-14:point-load-shear",
+      "type": "numeric",
+      "prompt": "A simply supported 6 m beam carries a 4 kN downward point load 2 m from the left support. What is the shear just to the right of the point load?",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": -1.3333333333333333,
+        "unit": "kN",
+        "tolerance": 0.03,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "First find RA from moment balance, then subtract the point load at its downward jump.",
+        "solution": "RB=4·2/6=4/3 kN and RA=4−RB=8/3 kN. The shear just right of the load is RA−4=−4/3 kN.",
+        "lesson_ids": [
+          "statics-materials-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-14:point-load-moment",
+      "type": "numeric",
+      "prompt": "For the point-load beam in the previous question, what is the bending moment at the point load?",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 5.333333333333333,
+        "unit": "kN·m",
+        "tolerance": 0.04,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use the left-segment expression M(x)=RA·x at x=2 m.",
+        "solution": "M(2)=(8/3)(2)=16/3 kN·m. The moment is continuous across a finite point force.",
+        "lesson_ids": [
+          "statics-materials-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-14:bending-stress",
+      "type": "numeric",
+      "prompt": "The uniform-load beam has maximum moment 9 kN·m. Its rectangular section is 0.10 m wide and 0.20 m deep. Under the elementary elastic bending model, what is the extreme-fiber stress magnitude?",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 13.5,
+        "unit": "MPa",
+        "tolerance": 0.15,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Compute I=bh³/12 and c=h/2, convert the moment to N·m, then use Mc/I.",
+        "solution": "I=0.10(0.20³)/12=6.667×10⁻⁵ m⁴ and c=0.10 m. Thus (9000)(0.10)/I=13.5 MPa.",
+        "lesson_ids": [
+          "statics-materials-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-14:diagram-rules",
+      "type": "multiple_select",
+      "prompt": "For the sign convention in this lesson, which diagram rules are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "statics-materials-14-objective-2"
+      ],
+      "options": [
+        "On an interval with downward distributed load w, the shear slope is dV/dx=−w.",
+        "On an interval with no distributed load or point force, shear is constant.",
+        "The slope of the bending-moment diagram equals the shear.",
+        "A downward point force produces a downward shear jump equal to its magnitude.",
+        "A finite point force makes the bending-moment diagram discontinuous."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "feedback": {
+        "hint": "Use the differential equilibrium relations and distinguish a shear jump from a moment jump.",
+        "solution": "The relations are dV/dx=−w and dM/dx=V. A point force changes shear abruptly, while the moment remains continuous across that force.",
+        "lesson_ids": [
+          "statics-materials-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-14:consistency-checks",
+      "type": "multiple_select",
+      "prompt": "Which checks support a simply supported beam diagram with no applied end couples? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "statics-materials-14-objective-3"
+      ],
+      "options": [
+        "The reactions balance the total applied vertical load.",
+        "The support reactions also satisfy moment equilibrium about a support.",
+        "The bending moment is zero at both simple supports.",
+        "A candidate interior maximum or minimum of M occurs where V=0.",
+        "The shear and moment diagrams have the same units."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "feedback": {
+        "hint": "Check global equilibrium, support conditions, the derivative relation, and units.",
+        "solution": "All but the final statement are valid: V has units of force, while M has units of force times length. These checks can expose reaction, integration-constant, sign, and unit errors.",
+        "lesson_ids": [
+          "statics-materials-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-15:biaxial-strain",
+      "type": "numeric",
+      "prompt": "Assume a synthetic isotropic, linear-elastic material. With E = 100 GPa and ν = 0.25, a plate carries σ_x = 60 MPa, σ_y = −40 MPa and σ_z = 0. What is ε_x, in units of 10⁻⁴? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 7.0,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "ε_x = [σ_x − ν(σ_y + σ_z)]/E; watch the sign of σ_y.",
+        "solution": "(60 − 0.25 × (−40))/100 000 = 70/100 000 = 7.0 × 10⁻⁴. The compressive σ_y adds to the x-extension.",
+        "lesson_ids": [
+          "statics-materials-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-15:lateral-diameter-change",
+      "type": "numeric",
+      "prompt": "Assume a synthetic isotropic, linear-elastic material. A rod of diameter 10 mm with E = 200 GPa and ν = 0.30 carries an axial tensile stress of 150 MPa. What is the change in diameter, in μm (negative for a decrease)? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": -2.25,
+        "unit": "",
+        "tolerance": 0.005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Find the axial strain, multiply by −ν, then by the diameter.",
+        "solution": "ε_axial = 7.5 × 10⁻⁴, ε_lateral = −2.25 × 10⁻⁴, so Δd = −2.25 × 10⁻⁴ × 10 mm = −2.25 μm.",
+        "lesson_ids": [
+          "statics-materials-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-15:constrained-thermal-stress",
+      "type": "numeric",
+      "prompt": "Assume a synthetic isotropic, linear-elastic material. A bar with E = 70 GPa and α = 23 × 10⁻⁶ K⁻¹ is held between rigid walls and heated by 40 K. What is its axial stress, in MPa (negative for compression)? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": -64.4,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Total strain is zero, so the mechanical strain cancels αΔT.",
+        "solution": "σ = −EαΔT = −70 000 × 23 × 10⁻⁶ × 40 = −64.4 MPa, independent of the bar's length and area.",
+        "lesson_ids": [
+          "statics-materials-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-15:gap-thermal-stress",
+      "type": "numeric",
+      "prompt": "Assume a synthetic isotropic, linear-elastic material. A 2.000 m bar with E = 200 GPa and α = 12 × 10⁻⁶ K⁻¹ has a 0.80 mm gap to a rigid wall and is heated by 60 K. What is its axial stress after heating, in MPa (negative for compression)? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": -64.0,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Compare the free expansion with the gap; only the excess is suppressed.",
+        "solution": "Free expansion = 2000 × 12 × 10⁻⁶ × 60 = 1.44 mm. The suppressed 0.64 mm gives σ = −200 000 × 0.64/2000 = −64 MPa.",
+        "lesson_ids": [
+          "statics-materials-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-15:lateral-constraint-stress",
+      "type": "numeric",
+      "prompt": "Assume a synthetic isotropic, linear-elastic material. With ν = 0.30, a plate is prevented from straining in y (ε_y = 0, σ_z = 0) while σ_x = 80 MPa is applied. What stress σ_y does the constraint develop, in MPa? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 24.0,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Set ε_y = [σ_y − ν σ_x]/E = 0.",
+        "solution": "σ_y = νσ_x = 0.30 × 80 = 24 MPa, tensile, which makes the plate stiffer in x than a free bar.",
+        "lesson_ids": [
+          "statics-materials-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-15:hoop-stress",
+      "type": "numeric",
+      "prompt": "Assume a synthetic isotropic, linear-elastic material. A thin-walled closed cylinder has mean radius 0.40 m and wall thickness 8.0 mm and holds 1.2 MPa gauge pressure. What is the hoop stress, in MPa? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 60.0,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Cut the cylinder lengthwise: pressure on 2rL balances stress on two walls of area tL.",
+        "solution": "σ_θ = pr/t = 1.2 × 0.40/0.0080 = 60 MPa; r/t = 50, so the thin-wall model applies.",
+        "lesson_ids": [
+          "statics-materials-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-15:sphere-stress",
+      "type": "numeric",
+      "prompt": "Assume a synthetic isotropic, linear-elastic material. A thin-walled sphere has mean radius 0.40 m and wall thickness 8.0 mm and holds 1.2 MPa gauge pressure. What is its membrane stress, in MPa? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 30.0,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Every cut through the centre of a sphere looks the same.",
+        "solution": "σ = pr/(2t) = 30 MPa, half the hoop stress of a cylinder with the same radius and wall.",
+        "lesson_ids": [
+          "statics-materials-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-15:vessel-radius-growth",
+      "type": "numeric",
+      "prompt": "Assume a synthetic isotropic, linear-elastic material. A thin-walled closed cylinder has mean radius 0.40 m and wall thickness 8.0 mm and holds 1.2 MPa gauge pressure. With E = 200 GPa and ν = 0.30, by how much does its mean radius increase, in mm? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0.102,
+        "unit": "",
+        "tolerance": 0.0005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Find hoop and axial stresses, then ε_θ = (σ_θ − νσ_z)/E and Δr = rε_θ.",
+        "solution": "σ_θ = 60 MPa and σ_z = 30 MPa, so ε_θ = (60 − 9)/200 000 = 2.55 × 10⁻⁴ and Δr = 400 mm × 2.55 × 10⁻⁴ = 0.102 mm.",
+        "lesson_ids": [
+          "statics-materials-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-15:free-thermal-expansion",
+      "type": "single_choice",
+      "prompt": "A bar resting freely on rollers is heated uniformly by 80 K. What thermal stress develops?",
+      "options": [
+        "None; it expands freely by αΔT, and stress appears only if the expansion is constrained",
+        "σ = EαΔT in tension",
+        "σ = EαΔT in compression",
+        "It depends on the bar's length"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Stress requires a mismatch between free and allowed strain.",
+        "solution": "Unconstrained, uniform heating produces strain αΔT and no stress. A constraint that suppresses the strain produces −Eα times the suppressed temperature strain.",
+        "lesson_ids": [
+          "statics-materials-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-15:cylinder-crack-direction",
+      "type": "single_choice",
+      "prompt": "A thin-walled closed cylinder under internal pressure fails by rupture. Along which direction would a crack most likely run, and why?",
+      "options": [
+        "Lengthwise, because the hoop stress pr/t is twice the axial stress and opens a longitudinal crack",
+        "Around the circumference, because the axial stress is larger",
+        "In any direction equally, because the wall is in pure shear",
+        "Radially through the thickness only, because the radial stress dominates"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Compare σ_θ and σ_z and ask which stress pulls a longitudinal crack open.",
+        "solution": "The hoop stress acts circumferentially, so it pulls apart a crack running along the length. It is twice the axial stress, and the radial stress is small for a thin wall.",
+        "lesson_ids": [
+          "statics-materials-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-15:thin-wall-validity",
+      "type": "single_choice",
+      "prompt": "Which vessel can be analysed with the thin-wall formulas σ_θ = pr/t and σ_z = pr/(2t) with little error?",
+      "options": [
+        "r = 0.20 m and t = 5 mm (r/t = 40)",
+        "r = 30 mm and t = 10 mm (r/t = 3)",
+        "r = 10 mm and t = 8 mm (r/t = 1.25)",
+        "Any vessel, because the formulas are exact"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "The usual guide is r/t ≥ 10.",
+        "solution": "Only r/t = 40 meets the guide. At small r/t the stress varies through the wall and the radial stress is not negligible, so thick-wall theory is needed.",
+        "lesson_ids": [
+          "statics-materials-15"
+        ],
+        "misconception_ids": []
       },
       "visibility": "public-practice-authoring",
       "provenance": {

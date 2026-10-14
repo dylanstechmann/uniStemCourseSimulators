@@ -42,6 +42,8 @@ For one RNA species, a simple bookkeeping model is
 
 `dM/dt = r_prod − k_decay M`,
 
+**In words:** the rate of change of measured RNA abundance equals its effective production rate minus its first-order decay constant multiplied by its current abundance.
+
 where `M` is the measured abundance, `r_prod` is its effective production rate into the measured RNA pool, and `k_decay` is an effective first-order loss constant. At steady state, `M = r_prod / k_decay`. A lower steady-state signal could therefore reflect lower transcription, less efficient processing into the measured species, faster degradation, reduced recovery, or fewer cells contributing that RNA. Conversely, unchanged total signal can hide a large shift in the mixture of isoforms.
 
 The measured quantity and denominator must be named. Total RNA per culture, RNA per viable cell, normalized qPCR signal, and sequencing read fractions answer different questions. For an isoform claim, report the junction or read definition, the total or reference used for normalization, independent biological replicates, and how ambiguous reads are handled. Technical PCR wells improve measurement precision but do not create independent biological samples.

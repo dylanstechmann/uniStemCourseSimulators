@@ -93,6 +93,34 @@ def expected_answers():
             "rse": math.sqrt(1 / 6),
             "exact-spacing": math.nextafter(1e8, math.inf) - 1e8,
         },
+        14: {
+            "matrix-norm": max(abs(1) + abs(1), abs(1) + abs(1.0001)),
+            "inverse-norm": max(abs(1.0001) + abs(-1), abs(-1) + abs(1)) / (1 * 1.0001 - 1 * 1),
+            "condition-number": max(2, 2.0001)
+            * max(abs(1.0001) + abs(-1), abs(-1) + abs(1))
+            / (1.0001 - 1),
+            "forward-error": max(abs(0.5 - 1), abs(1.5 - 1)) / 1,
+            "residual-norm": max(abs(2 - (0.5 + 1.5)), abs(2.0001 - (0.5 + 1.0001 * 1.5))),
+            "rhs-relative-perturbation": abs(2.00015 - 2.0001) / 2.0001,
+        },
+        15: {
+            "true-value": 1 / (1 + 0.5**2),
+            # Lagrange form built from the table, independent of the stated coefficients.
+            "interpolated-value": sum(
+                fy * math.prod((0.5 - xj) / (xi - xj) for xj in (0, 1, 2) if xj != xi)
+                for xi, fy in ((0, 1), (1, 0.5), (2, 0.2))
+            ),
+            "signed-error": sum(
+                fy * math.prod((0.5 - xj) / (xi - xj) for xj in (0, 1, 2) if xj != xi)
+                for xi, fy in ((0, 1), (1, 0.5), (2, 0.2))
+            )
+            - 1 / (1 + 0.5**2),
+            "basis-value": (0.5 - 0) * (0.5 - 1) / ((2 - 0) * (2 - 1)),
+            "extrapolated-value": sum(
+                fy * math.prod((4 - xj) / (xi - xj) for xj in (0, 1, 2) if xj != xi)
+                for xi, fy in ((0, 1), (1, 0.5), (2, 0.2))
+            ),
+        },
         13: {
             "sensitivity": 2 / 3,
             "precision": 2 / 5,
@@ -125,7 +153,7 @@ EXPECTED = expected_answers()
 
 def test_every_numeric_item_has_a_separate_calculation():
     assert set(EXPECTED) == {key for key, q in BANK.items() if q["type"] == "numeric"}
-    assert len(EXPECTED) == 54
+    assert len(EXPECTED) == 65
 
 
 @pytest.mark.parametrize("key", sorted(EXPECTED))
@@ -384,6 +412,7 @@ def test_preprocessing_and_majority_case_counterexamples():
 
 
 def test_weekly_sequence_references_and_partial_labels():
+    assert MANIFEST["version"] == MANIFEST["history"][-1]["version"]
     weeks = MANIFEST["duration"]["weeks"]
     lessons = [lesson["id"] for m in MANIFEST["modules"] for lesson in m["lessons"]]
     assert [w["week"] for w in weeks] == list(range(1, 15))
@@ -398,3 +427,150 @@ def test_weekly_sequence_references_and_partial_labels():
     )
     assert MANIFEST["grading_policy"]["mode"] == "formative-only"
     assert all(a["mode"] != "graded" for a in MANIFEST["assessments"])
+    syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8")
+    cards = len(
+        json.loads(
+            (COURSE / "question-banks/retrieval-cards.json").read_text(encoding="utf-8")
+        )["cards"]
+    )
+    assert (
+        f"The package has {len(lessons)} readings, {len(BANK)} public practice items and {cards} retrieval cards"
+        in syllabus
+    )
+
+
+def test_unit_conversion_contract_and_provenance_reading():
+    lesson = next(
+        lesson
+        for module in MANIFEST["modules"]
+        for lesson in module["lessons"]
+        if lesson["id"] == "programming-1"
+    )
+    text = (COURSE / lesson["reading"]).read_text(encoding="utf-8")
+    assert "Missing is not zero" in text
+    assert "A pure function has explicit inputs" in text
+    assert "Keep raw input files unchanged" in text
+
+    volume_ml = 500 / 1000
+    concentration_mg_per_ml = 1.5 / volume_ml
+    assert volume_ml == pytest.approx(0.5)
+    assert concentration_mg_per_ml == pytest.approx(3)
+
+
+def test_quadrature_comparison_and_euler_stability_limits():
+    lesson = next(
+        lesson
+        for module in MANIFEST["modules"]
+        for lesson in module["lessons"]
+        if lesson["id"] == "programming-2"
+    )
+    text = (COURSE / lesson["reading"]).read_text(encoding="utf-8")
+    assert "Euler instead multiplies the state at each step" in text
+    assert r"0<\lambda h<2" in text
+
+    left, midpoint, right = 0.0, 1.0, 2.0
+    def quadratic(t):
+        return t**2
+
+    trapezoid = (right - left) * (quadratic(left) + quadratic(right)) / 2
+    simpson = (
+        (right - left)
+        * (quadratic(left) + 4 * quadratic(midpoint) + quadratic(right))
+        / 6
+    )
+    exact_integral = right**3 / 3 - left**3 / 3
+    assert trapezoid == pytest.approx(4)
+    assert simpson == pytest.approx(8 / 3)
+    assert simpson == pytest.approx(exact_integral)
+
+    lam, unstable_step, stable_step, value = 4.0, 0.6, 0.4, 1.0
+    unstable_factor = 1 - lam * unstable_step
+    next_value = unstable_factor * value
+    assert unstable_factor == pytest.approx(-1.4)
+    assert abs(next_value) > abs(value)
+    stable_factor = 1 - lam * stable_step
+    assert stable_factor == pytest.approx(-0.6)
+    assert abs(stable_factor) < 1
+
+
+def test_residual_error_and_group_aware_validation_reading():
+    lesson = next(
+        lesson
+        for module in MANIFEST["modules"]
+        for lesson in module["lessons"]
+        if lesson["id"] == "programming-3"
+    )
+    text = (COURSE / lesson["reading"]).read_text(encoding="utf-8")
+    assert "not the standard error of every coefficient" in text
+    assert "keep all rows from a donor together" in text
+
+    residuals = [0.1, -0.2, 0.1, 0.0, 0.0]
+    residual_sum_squares = sum(value**2 for value in residuals)
+    degrees_of_freedom = 5 - 2
+    residual_standard_error = math.sqrt(residual_sum_squares / degrees_of_freedom)
+    assert residual_sum_squares == pytest.approx(0.06)
+    assert degrees_of_freedom == 3
+    assert residual_standard_error == pytest.approx(0.1414, abs=0.0001)
+    assert BANK["programming-3:residual-standard-error"]["solution_spec"][
+        "answer"
+    ] == pytest.approx(0.1414)
+
+
+def test_paired_plot_uncertainty_interval_and_independent_unit():
+    lesson = next(
+        lesson
+        for module in MANIFEST["modules"]
+        for lesson in module["lessons"]
+        if lesson["id"] == "programming-4"
+    )
+    text = (COURSE / lesson["reading"]).read_text(encoding="utf-8")
+    assert "The independent sample size is four donors" in text
+    assert "A standard error instead describes precision" in text
+    assert "does not show where 95% of individual donor responses lie" in text
+
+    changes = [1.0, 0.0, 2.0, 1.0]
+    mean = sum(changes) / len(changes)
+    sample_sd = math.sqrt(sum((value - mean) ** 2 for value in changes) / 3)
+    standard_error = sample_sd / math.sqrt(len(changes))
+    margin = 3.182446305 * standard_error
+    interval = (mean - margin, mean + margin)
+    assert mean == pytest.approx(1)
+    assert sample_sd == pytest.approx(math.sqrt(2 / 3))
+    assert interval == pytest.approx((-0.299, 2.299), abs=0.001)
+    assert BANK["programming-4:check"]["solution_spec"]["answer"] == 0
+    assert BANK["programming-4:show-observations"]["solution_spec"]["answer"] == 0
+
+
+def test_original_lesson_objectives_link_to_matching_course_outcomes():
+    expected = {
+        "programming-1-objective-1": ["programming-outcome-4"],
+        "programming-1-objective-2": ["programming-outcome-1"],
+        "programming-2-objective-1": ["programming-outcome-2"],
+        "programming-2-objective-2": ["programming-outcome-2"],
+        "programming-3-objective-1": ["programming-outcome-3"],
+        "programming-3-objective-2": ["programming-outcome-3"],
+        "programming-4-objective-1": ["programming-outcome-4"],
+        "programming-4-objective-2": ["programming-outcome-4"],
+    }
+    objectives = {item["id"]: item for item in MANIFEST["lesson_objectives"]}
+    for objective_id, outcome_ids in expected.items():
+        assert objectives[objective_id]["course_outcome_ids"] == outcome_ids
+
+    for lesson_number, outcome_ids in (
+        (1, ["programming-outcome-1", "programming-outcome-4"]),
+        (2, ["programming-outcome-2"]),
+        (3, ["programming-outcome-3"]),
+        (4, ["programming-outcome-4"]),
+    ):
+        assessment = next(
+            item for item in MANIFEST["assessments"]
+            if item["id"] == f"programming-{lesson_number}-practice"
+        )
+        assert set(outcome_ids).issubset(assessment["objective_ids"])
+        lesson = next(
+            lesson
+            for module in MANIFEST["modules"]
+            for lesson in module["lessons"]
+            if lesson["id"] == f"programming-{lesson_number}"
+        )
+        assert set(assessment["question_ids"]) == set(lesson["question_ids"])

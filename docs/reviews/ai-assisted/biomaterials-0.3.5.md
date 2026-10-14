@@ -1,0 +1,5 @@
+# Biomaterials & Tissue Engineering 0.3.5 — outcome mapping and direct design practice
+
+All eight objectives in the first four lesson pairs now link to their supported course outcomes. The scaffold mass-loss calculation now maps to the degradation objective, and the functional-cartilage evidence item maps to the tissue-strategy/readout objective. That objective now names functional readouts, and outcome 4 includes application-specific failure modes. New public items directly test pore transport/load-bearing/fabrication tradeoffs and conditional cell-source tradeoffs. Existing questions and numeric keys are unchanged. The course remains partial, unreviewed, and formative-only.
+
+Checks: five focused Biomaterials regressions passed; Ruff passed; full content validation passed (25 courses, 384 lessons, 2,252 questions, 1,276 cards, 25 cases, zero errors and zero depth warnings); assessment-candidate and course-gap report drift checks passed. These same-AI checks are not independent biomaterials, clinical, or accessibility review.

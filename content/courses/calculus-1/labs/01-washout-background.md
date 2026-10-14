@@ -1,6 +1,6 @@
 # Virtual lab 1: washout signals, background and semilog estimates
 
-**Status:** open formative practice, with public answers and unlimited retries. Points are learning feedback, not a course grade. The exercise uses 21 constructed observations, not measured clearance data. Prerequisites are the lessons on logarithmic growth and numerical calculus; the background model is introduced below. The washout capstone follows in week 14.
+**Status:** open formative practice, with public answers and unlimited retries. Points are learning feedback, not a course grade. The exercise uses 21 constructed observations, not measured clearance data. Prerequisites are the lessons on logarithmic growth and numerical calculus; the background model is introduced below. A separate paper-only washout project draft extends these ideas but is inactive, unscheduled and ungraded.
 
 ## Learning objectives
 

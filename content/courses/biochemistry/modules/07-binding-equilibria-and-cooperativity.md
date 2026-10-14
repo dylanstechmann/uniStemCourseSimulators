@@ -20,11 +20,17 @@ K_d is the free ligand concentration at which half the receptors are occupied. W
 
 ## Ligand depletion
 
-The equation uses free ligand. In many experiments only the total amount added is known. If the receptor concentration is much smaller than K_d, binding barely depletes the ligand and free ≈ total. If not, the exact solution comes from mass balance and the quadratic formula:
+The equation uses free ligand. In many experiments only the total amount added is known. Near the midpoint of a titration, a receptor concentration much smaller than K_d usually makes depletion modest. The more direct check is whether the predicted bound amount is small relative to the total ligand added; if not, use mass balance and the quadratic solution:
 
 **[RL] = {(R_T + L_T + K_d) − √[(R_T + L_T + K_d)² − 4 R_T L_T]} / 2.**
 
 With R_T = L_T = 50 nM and K_d = 10 nM: [RL] = (110 − √(12100 − 10000))/2 = 32.1 nM. Assuming free = total would predict 41.7 nM, an overestimate of 30%. Ligand depletion also distorts apparent K_d values measured by titration. A practical rule: keep the receptor concentration well below K_d (by tenfold or more) or use the quadratic.
+
+**Check the model against the amounts.** Let R_T = 20 nM, L_T = 60 nM and K_d = 15 nM. If x = [RL], then [R]_free = R_T − x and [L]_free = L_T − x. Substituting those mass balances into K_d = [R]_free[L]_free/x gives x² − (R_T + L_T + K_d)x + R_TL_T = 0. The physically possible root is the smaller one:
+
+**x = (95 − √(95² − 4·20·60))/2 = (95 − 65)/2 = 15 nM.**
+
+The mass-balance check gives 5 nM free receptor and 45 nM free ligand, and (5 × 45)/15 = 15 nM recovers the stated K_d. Occupancy is 15/20 = 0.75, while replacing free ligand with the 60 nM total would predict 20 × 60/(15 + 60) = 16 nM bound. That is a 1 nM, or 6.7%, overestimate relative to the exact 15 nM. The result also passes a quick bound check: complex cannot exceed the smaller total, 20 nM. This quadratic assumes a single 1:1 equilibrium, known active totals, negligible competing or nonspecific binding, and an equilibrated sample; violating those assumptions calls for a different model, not just a different root.
 
 ## Cooperative binding and the Hill equation
 

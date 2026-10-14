@@ -1,0 +1,360 @@
+{
+  "candidate_id": "biochemistry-homework-04-candidate-v1",
+  "course_id": "biochemistry",
+  "content_version": "0.4.85",
+  "state": "inactive-review-candidate",
+  "title": "Homework 4 review candidate: enzyme-kinetics data analysis",
+  "points": 50,
+  "lesson_ids": [
+    "biochemistry-lab-01"
+  ],
+  "objective_ids": [
+    "biochemistry-lab-01-objective-1",
+    "biochemistry-lab-01-objective-2",
+    "biochemistry-lab-01-objective-3"
+  ],
+  "course_outcome_ids": [
+    "biochemistry-outcome-2",
+    "biochemistry-outcome-1",
+    "biochemistry-outcome-4"
+  ],
+  "objective_link_occurrences": 11,
+  "objective_evidence": [
+    {
+      "question_id": "biochemistry-homework-04-candidate-v1:case-01",
+      "field_id": "control-mean-rate",
+      "objective_ids": [
+        "biochemistry-lab-01-objective-1"
+      ],
+      "points": 5,
+      "evidence_type": "numeric"
+    },
+    {
+      "question_id": "biochemistry-homework-04-candidate-v1:case-01",
+      "field_id": "inhibitor-mean-rate",
+      "objective_ids": [
+        "biochemistry-lab-01-objective-1"
+      ],
+      "points": 5,
+      "evidence_type": "numeric"
+    },
+    {
+      "question_id": "biochemistry-homework-04-candidate-v1:case-02",
+      "field_id": "control-vmax",
+      "objective_ids": [
+        "biochemistry-lab-01-objective-2"
+      ],
+      "points": 5,
+      "evidence_type": "numeric"
+    },
+    {
+      "question_id": "biochemistry-homework-04-candidate-v1:case-02",
+      "field_id": "control-km",
+      "objective_ids": [
+        "biochemistry-lab-01-objective-2"
+      ],
+      "points": 5,
+      "evidence_type": "numeric"
+    },
+    {
+      "question_id": "biochemistry-homework-04-candidate-v1:case-03",
+      "field_id": "inhibited-km",
+      "objective_ids": [
+        "biochemistry-lab-01-objective-2"
+      ],
+      "points": 5,
+      "evidence_type": "numeric"
+    },
+    {
+      "question_id": "biochemistry-homework-04-candidate-v1:case-03",
+      "field_id": "inhibition-constant",
+      "objective_ids": [
+        "biochemistry-lab-01-objective-2"
+      ],
+      "points": 5,
+      "evidence_type": "numeric"
+    },
+    {
+      "question_id": "biochemistry-homework-04-candidate-v1:case-04",
+      "field_id": "mode-diagnosis",
+      "objective_ids": [
+        "biochemistry-lab-01-objective-3"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    },
+    {
+      "question_id": "biochemistry-homework-04-candidate-v1:case-04",
+      "field_id": "fit-limitation",
+      "objective_ids": [
+        "biochemistry-lab-01-objective-3"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    },
+    {
+      "question_id": "biochemistry-homework-04-candidate-v1:case-05",
+      "field_id": "initial-rate-window",
+      "objective_ids": [
+        "biochemistry-lab-01-objective-3"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    },
+    {
+      "question_id": "biochemistry-homework-04-candidate-v1:case-05",
+      "field_id": "replicate-unit",
+      "objective_ids": [
+        "biochemistry-lab-01-objective-1",
+        "biochemistry-lab-01-objective-3"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    }
+  ],
+  "instruction_path": "assessment-specs/homework-04-candidate.md",
+  "dataset_path": "assessment-specs/homework-04-candidate-data.csv",
+  "prerequisite_sha256": {
+    "labs/01-enzyme-kinetics-and-inhibition-from-data.md": "c019753567c768388283ad7038dbf3343b0437604a469f63b31b402ba6afa1e6"
+  },
+  "questions": [
+    {
+      "id": "biochemistry-homework-04-candidate-v1:case-01",
+      "type": "structured",
+      "prompt": "Use the paired replicate initial-rate observations in the dataset and keep substrate concentrations grouped by condition.",
+      "options": [],
+      "unit": null,
+      "significant_figures": null,
+      "points": 10,
+      "selection": "single",
+      "partial_credit_policy": null,
+      "response_fields": [
+        {
+          "id": "control-mean-rate",
+          "type": "numeric",
+          "prompt": "Calculate the mean control initial rate at 40 µM substrate.",
+          "options": [],
+          "unit": "µmol/min",
+          "points": 5,
+          "significant_figures": 3
+        },
+        {
+          "id": "inhibitor-mean-rate",
+          "type": "numeric",
+          "prompt": "Calculate the mean inhibitor-condition initial rate at 40 µM substrate.",
+          "options": [],
+          "unit": "µmol/min",
+          "points": 5,
+          "significant_figures": 3
+        }
+      ],
+      "graph_spec": null,
+      "accepted_media_types": [],
+      "max_upload_bytes": null,
+      "variant_id": null,
+      "variant_token": null,
+      "learning_objective_ids": [
+        "biochemistry-lab-01-objective-1"
+      ],
+      "assessment_role": "graded"
+    },
+    {
+      "id": "biochemistry-homework-04-candidate-v1:case-02",
+      "type": "structured",
+      "prompt": "Fit the untransformed control replicate means to v = Vmax[S]/(Km + [S]) by minimizing squared rate residuals; do not use a reciprocal plot.",
+      "options": [],
+      "unit": null,
+      "significant_figures": null,
+      "points": 10,
+      "selection": "single",
+      "partial_credit_policy": null,
+      "response_fields": [
+        {
+          "id": "control-vmax",
+          "type": "numeric",
+          "prompt": "Estimate Vmax for the control series.",
+          "options": [],
+          "unit": "µmol/min",
+          "points": 5,
+          "significant_figures": 3
+        },
+        {
+          "id": "control-km",
+          "type": "numeric",
+          "prompt": "Estimate Km for the control series.",
+          "options": [],
+          "unit": "µM",
+          "points": 5,
+          "significant_figures": 3
+        }
+      ],
+      "graph_spec": null,
+      "accepted_media_types": [],
+      "max_upload_bytes": null,
+      "variant_id": null,
+      "variant_token": null,
+      "learning_objective_ids": [
+        "biochemistry-lab-01-objective-2"
+      ],
+      "assessment_role": "graded"
+    },
+    {
+      "id": "biochemistry-homework-04-candidate-v1:case-03",
+      "type": "structured",
+      "prompt": "Compare the inhibitor series with control at matched substrate concentrations.",
+      "options": [],
+      "unit": null,
+      "significant_figures": null,
+      "points": 10,
+      "selection": "single",
+      "partial_credit_policy": null,
+      "response_fields": [
+        {
+          "id": "inhibited-km",
+          "type": "numeric",
+          "prompt": "Estimate apparent Km under the inhibitor condition.",
+          "options": [],
+          "unit": "µM",
+          "points": 5,
+          "significant_figures": 3
+        },
+        {
+          "id": "inhibition-constant",
+          "type": "numeric",
+          "prompt": "Estimate the inhibition constant using the simple competitive model and supplied inhibitor concentration.",
+          "options": [],
+          "unit": "µM",
+          "points": 5,
+          "significant_figures": 3
+        }
+      ],
+      "graph_spec": null,
+      "accepted_media_types": [],
+      "max_upload_bytes": null,
+      "variant_id": null,
+      "variant_token": null,
+      "learning_objective_ids": [
+        "biochemistry-lab-01-objective-2"
+      ],
+      "assessment_role": "graded"
+    },
+    {
+      "id": "biochemistry-homework-04-candidate-v1:case-04",
+      "type": "structured",
+      "prompt": "Interpret the fitted parameter pattern without treating a model fit as a molecular structure determination.",
+      "options": [],
+      "unit": null,
+      "significant_figures": null,
+      "points": 10,
+      "selection": "single",
+      "partial_credit_policy": null,
+      "response_fields": [
+        {
+          "id": "mode-diagnosis",
+          "type": "single_choice",
+          "prompt": "Which simple inhibition mode is consistent with an increased apparent Km and approximately unchanged Vmax?",
+          "options": [
+            "Competitive inhibition.",
+            "Pure noncompetitive inhibition.",
+            "No inhibition is possible."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        },
+        {
+          "id": "fit-limitation",
+          "type": "single_choice",
+          "prompt": "Which limitation should be reported for a double-reciprocal estimate?",
+          "options": [
+            "It guarantees an unbiased estimate from any number of points.",
+            "It can overweight low-rate points and should be compared with the data range and assay quality.",
+            "It removes the need for replicate observations."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        }
+      ],
+      "graph_spec": null,
+      "accepted_media_types": [],
+      "max_upload_bytes": null,
+      "variant_id": null,
+      "variant_token": null,
+      "learning_objective_ids": [
+        "biochemistry-lab-01-objective-3"
+      ],
+      "assessment_role": "graded"
+    },
+    {
+      "id": "biochemistry-homework-04-candidate-v1:case-05",
+      "type": "structured",
+      "prompt": "Use the assay context stated in the candidate instructions.",
+      "options": [],
+      "unit": null,
+      "significant_figures": null,
+      "points": 10,
+      "selection": "single",
+      "partial_credit_policy": null,
+      "response_fields": [
+        {
+          "id": "initial-rate-window",
+          "type": "single_choice",
+          "prompt": "Which condition best supports an initial-rate interpretation?",
+          "options": [
+            "An endpoint after substantial substrate depletion.",
+            "Rates measured at different temperatures without recording the change.",
+            "A linear early-time interval with little substrate depletion and product buildup."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        },
+        {
+          "id": "replicate-unit",
+          "type": "single_choice",
+          "prompt": "What is the replicate unit in this dataset?",
+          "options": [
+            "The separately labeled replicate observation at a matched substrate and condition.",
+            "Every time the same row is copied into a graph.",
+            "Each concentration value, regardless of how measurements were obtained."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        }
+      ],
+      "graph_spec": null,
+      "accepted_media_types": [],
+      "max_upload_bytes": null,
+      "variant_id": null,
+      "variant_token": null,
+      "learning_objective_ids": [
+        "biochemistry-lab-01-objective-3",
+        "biochemistry-lab-01-objective-1"
+      ],
+      "assessment_role": "graded"
+    }
+  ],
+  "review": {
+    "status": "unreviewed",
+    "reviewers": []
+  },
+  "activation_gates": [
+    "independent-recalculation",
+    "grader-mutation-review",
+    "qualified-biochemical-review",
+    "assessment-blueprint-review",
+    "accessibility-and-fairness-review",
+    "measured-workload",
+    "candidate-specific-protected-delivery-verification",
+    "operator-release-and-retake-policy"
+  ],
+  "key_status": "An unreviewed private key/grader draft is stored outside the public package. It is not approved or active and requires candidate-specific hash checks, independent recalculation and mutation review.",
+  "provenance": {
+    "kind": "original",
+    "license": "CC-BY-4.0",
+    "ai_assistance": "Codex authored an answer-free draft; no independent or qualified review occurred.",
+    "source_scope": "Existing course lessons and synthetic observations authored for this candidate; no external assessment or dataset was copied."
+  }
+}

@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from uuid import uuid4
 
 from sqlalchemy import (
@@ -9,6 +9,7 @@ from sqlalchemy import (
     Float,
     ForeignKey,
     Index,
+    LargeBinary,
     String,
     Text,
     UniqueConstraint,
@@ -20,7 +21,7 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, sessionmaker
 
 def now() -> datetime:
     """Database timestamps are timezone-naive UTC for portable deterministic tests."""
-    return datetime.utcnow()
+    return datetime.now(timezone.utc).replace(tzinfo=None)
 
 
 def identifier() -> str:
@@ -101,6 +102,43 @@ class AssessmentInstance(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime, default=now)
 
 
+class AssessmentSourceArchive(Base):
+    """Private immutable-by-application source bytes for historical graded review."""
+    __tablename__ = "assessment_source_archives"
+    __table_args__ = (
+        UniqueConstraint(
+            "course_id", "content_version", "assessment_id", "source_sha256",
+            name="uq_assessment_source_archive_version_digest",
+        ),
+        Index("ix_assessment_source_archives_lookup", "course_id", "content_version", "assessment_id"),
+    )
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=identifier)
+    course_id: Mapped[str] = mapped_column(String(100))
+    content_version: Mapped[str] = mapped_column(String(100))
+    assessment_id: Mapped[str] = mapped_column(String(120))
+    source_sha256: Mapped[str] = mapped_column(String(64))
+    source_bytes: Mapped[bytes] = mapped_column(LargeBinary)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=now)
+
+
+class CourseContentArchive(Base):
+    """Immutable-by-application snapshot of one public course package version."""
+    __tablename__ = "course_content_archives"
+    __table_args__ = (
+        UniqueConstraint(
+            "course_id", "content_version", name="uq_course_content_archive_version"
+        ),
+        Index("ix_course_content_archives_lookup", "course_id", "content_version"),
+    )
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=identifier)
+    course_id: Mapped[str] = mapped_column(String(100))
+    content_version: Mapped[str] = mapped_column(String(100))
+    archive_sha256: Mapped[str] = mapped_column(String(64))
+    archive_bytes: Mapped[bytes] = mapped_column(LargeBinary)
+    files_sha256_json: Mapped[dict] = mapped_column(JSON)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=now)
+
+
 class GradedSubmission(Base):
     """Append-only, enrollment-scoped submission for a pinned graded activity."""
     __tablename__ = "graded_submissions"
@@ -129,6 +167,29 @@ class GradedSubmission(Base):
     score: Mapped[float] = mapped_column(Float)
     max_score: Mapped[float] = mapped_column(Float)
     submitted_at: Mapped[datetime] = mapped_column(DateTime, default=now)
+
+
+class GradedAssessmentAssignment(Base):
+    """Persist the exact authored form delivered for one graded attempt."""
+    __tablename__ = "graded_assessment_assignments"
+    __table_args__ = (
+        UniqueConstraint(
+            "enrollment_id", "assessment_instance_id", "attempt_number",
+            name="uq_graded_assessment_assignment_attempt",
+        ),
+        CheckConstraint("attempt_number >= 1", name="ck_graded_assessment_assignment_attempt_positive"),
+    )
+    id: Mapped[str] = mapped_column(String(64), primary_key=True)
+    enrollment_id: Mapped[str] = mapped_column(ForeignKey("enrollments.id", ondelete="CASCADE"), index=True)
+    assessment_instance_id: Mapped[str] = mapped_column(
+        ForeignKey("assessment_instances.id", ondelete="CASCADE"), index=True
+    )
+    attempt_number: Mapped[int] = mapped_column()
+    content_version: Mapped[str] = mapped_column(String(100))
+    source_sha256: Mapped[str] = mapped_column(String(64))
+    variant_ids_json: Mapped[dict] = mapped_column(JSON)
+    question_spec_sha256: Mapped[str] = mapped_column(String(64))
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=now)
 
 
 class GradedSubmissionAppeal(Base):
@@ -196,6 +257,27 @@ class Note(Base):
     course_id: Mapped[str] = mapped_column(String(100))
     lesson_id: Mapped[str] = mapped_column(String(100))
     body: Mapped[str] = mapped_column(Text, default="")
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=now)
+
+
+class CaseDraft(Base):
+    """Mutable private draft, isolated by learner, version, and authored case digest."""
+    __tablename__ = "case_drafts"
+    __table_args__ = (
+        UniqueConstraint("user_id", "course_id", "case_id", "content_version", "case_sha256",
+                         name="uq_case_draft_source"),
+        CheckConstraint("revision >= 1", name="ck_case_draft_revision_positive"),
+    )
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=identifier)
+    user_id: Mapped[str] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"), index=True)
+    course_id: Mapped[str] = mapped_column(String(100))
+    case_id: Mapped[str] = mapped_column(String(120))
+    content_version: Mapped[str] = mapped_column(String(100))
+    case_sha256: Mapped[str] = mapped_column(String(64))
+    case_snapshot_json: Mapped[dict] = mapped_column(JSON)
+    response: Mapped[str] = mapped_column(Text, default="")
+    checked_criteria_json: Mapped[list] = mapped_column(JSON, default=list)
+    revision: Mapped[int] = mapped_column(default=1)
     updated_at: Mapped[datetime] = mapped_column(DateTime, default=now)
 
 

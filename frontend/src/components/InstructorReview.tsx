@@ -321,7 +321,9 @@ function GradedReviewCard({
           <span className="eyebrow">
             {appeal.course_id} · {appeal.assessment_id} · attempt{" "}
             {appeal.attempt_number}
-            {!appeal.content_is_current && " · saved content unavailable"}
+            {appeal.specification_verified
+              ? " · archived source verified"
+              : " · saved source unavailable"}
           </span>
           <h3>
             {appeal.assessment_title} · request from {appeal.learner}
@@ -331,10 +333,10 @@ function GradedReviewCard({
           {appeal.original_score} / {appeal.max_score} automatic
         </span>
       </div>
-      {!appeal.content_is_current || !appeal.questions ? (
+      {!appeal.specification_verified || !appeal.questions ? (
         <p className="notice">
-          The saved assignment source or grading digest no longer matches. Only
-          a decline explaining this limitation can be recorded.
+          The archived assignment source or grading digest cannot be verified.
+          Only a decline explaining this limitation can be recorded.
         </p>
       ) : null}
       {appeal.questions?.map((question) => {
@@ -409,7 +411,7 @@ function GradedReviewCard({
               name={`graded-decision-${appeal.id}`}
               checked={decision === "adjusted"}
               onChange={() => setDecision("adjusted")}
-              disabled={!appeal.content_is_current}
+              disabled={!appeal.specification_verified}
             />
             Adjust graded score
           </label>
@@ -419,7 +421,7 @@ function GradedReviewCard({
               name={`graded-decision-${appeal.id}`}
               checked={decision === "upheld"}
               onChange={() => setDecision("upheld")}
-              disabled={!appeal.content_is_current}
+              disabled={!appeal.specification_verified}
             />
             Uphold automatic score
           </label>

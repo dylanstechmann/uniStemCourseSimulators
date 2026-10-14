@@ -1,12 +1,12 @@
 # Programming & Numerical Methods for Bioengineering
 
-**Maturity: partial. Version: 0.4.0.** Personal hobby and learning project with substantial AI assistance; no university equivalence or institutional credit.
+**Maturity: partial. Version: 0.4.9.**
 
-Original instruction develops explicit contracts, finite-value parsing, pure functions, array axes and memory, root brackets, quadrature error, solver stability, least-squares rank and grouped validation. Preserved lessons on testing/provenance, scaling and floating-point behavior remain.
+A practical introduction to reproducible scientific code, numerical methods, model fitting, validation and communication for bioengineering data.
 
 ## Prerequisites
 
-Algebra; familiarity with one programming language is helpful. Manifest relationships are provisional and establish no university prerequisite equivalency.
+Algebra, introductory calculus and basic probability; linear algebra and differential equations are useful. Structured course relations remain subject to author review, and this package establishes no university prerequisite equivalency.
 
 ## Authored outcomes
 
@@ -14,36 +14,41 @@ Algebra; familiarity with one programming language is helpful. Manifest relation
 - Select numerical methods and diagnose error.
 - Fit models without confusing interpolation and validation.
 - Make reproducible plots and document data provenance.
+- Interpolate a value from tabulated data and assess the error and domain limits.
 
 ## Proposed 14-week schedule
 
-This is planning scope, not measured workload or a reviewed semester. Compact readings remain in weeks 1,7,10,12. Week 14 is a synthetic contract-filtering and held-out-donor lab, revisiting the preserved 99%-accuracy classifier case. All activities are public formative practice.
+This is a proposed scope, not a measured or reviewed semester. The interpolation reading is grouped with regression in week 10 to compare methods within the same approximation unit.
 
-| Week | Reading | Items | Cards |
-|---|---|---:|---:|
-| 1 | Data structures, units, and reproducible code | 2 | 2 |
-| 2 | Input contracts, parsing and pure scientific functions | 9 | 4 |
-| 3 | Testing a scientific function: known answers, tolerances, seeds and provenance | 6 | 4 |
-| 4 | How long will it take? Algorithmic cost, scaling and choosing data structures for research code | 6 | 4 |
-| 5 | Array shapes, broadcasting and memory-aware reductions | 9 | 4 |
-| 6 | Floating-point arithmetic in scientific code: rounding, cancellation and comparing numbers safely | 6 | 4 |
-| 7 | Numerical integration and differential models | 2 | 2 |
-| 8 | Root brackets, residuals and conditioning | 9 | 4 |
-| 9 | Quadrature, step error and stability checks | 9 | 4 |
-| 10 | Regression, uncertainty, and validation | 2 | 2 |
-| 11 | Least squares, rank and scaled coordinates | 9 | 4 |
-| 12 | Visualization and uncertainty communication | 2 | 2 |
-| 13 | Grouped validation, thresholds and reproducible reports | 9 | 4 |
-| 14 | Virtual lab 1: contract checks and held-out donor reports | 8 | 4 |
+| Week | Theme | Readings |
+|---|---|---|
+| 1 | Data structures, units and reproducible code | Data structures, units and provenance |
+| 2 | Input contracts and pure functions | Parsing and validated scientific functions |
+| 3 | Testing scientific functions | Known answers, tolerances, seeds and provenance |
+| 4 | Algorithmic cost and scaling | Cost, scaling and data structures |
+| 5 | Array shapes and memory-aware reductions | Broadcasting and safe reductions |
+| 6 | Floating-point arithmetic | Rounding, cancellation and safe comparisons |
+| 7 | Numerical integration and differential models | Numerical integration and differential models |
+| 8 | Root brackets, residuals and conditioning | Root solving and scale-aware stopping |
+| 9 | Quadrature and stability checks | Quadrature, step error and stability |
+| 10 | Interpolation, regression, uncertainty and validation | Interpolation: exact fit at nodes and error between them; regression, uncertainty and validation |
+| 11 | Linear systems, conditioning, least squares and scaled coordinates | Linear-system conditioning and least-squares geometry |
+| 12 | Visualization and uncertainty communication | Reproducible visualization |
+| 13 | Grouped validation and reproducible reports | Thresholds and held-out reporting |
+| 14 | Virtual lab | Contract checks and held-out donor reports |
 
-## Assessment policy
+## Assessment and study policy
 
-The package has 14 readings, 88 public practice items and 48 retrieval cards, plus the preserved case. Each new lesson has six numeric and three conceptual choices. The lab adds CSV summaries, count and metric calculations, structured choices and multiple-select interpretation. Two preserved numeric items require units; new items request bare numbers in explicit scales. Significant figures, dimensions, code implementations, exceptions, essays and plots are not automatically scored. Learner code execution remains disabled. Unlimited retries provide study feedback, not course grades. Outcome links remain subject to qualified review.
+The package has 16 readings, 106 public practice items and 56 retrieval cards. Every lesson has open formative items mapped to provisional objectives, and the synthetic-data lab has a public data file. Learner code execution is disabled; the checks assess method selection, calculations and interpretation, not submitted implementations. Nothing is graded for university credit. Workload has not been measured.
+
+## Inactive project
+
+The [sensor-calibration project](assessment-specs/integrative-sensor-calibration-project.md) is an inactive, ungraded draft. It is not part of the assessment schedule and makes no claim about real sensors, donors or classifier performance.
 
 ## Current limitations
 
-Four compact prototype readings remain. One toy data lab is not a laboratory sequence; graded homework, exams and a cumulative graded project remain absent. Workload and qualified subject/code/accessibility review are outstanding. The lab has no fitted classifier: labels and scores are supplied synthetic values. The stipulated complete-record filtering policy is not a universal or unbiased evaluation rule. Repeated donor rows do not establish independent donors or external validation. The preserved float-spacing key estimates |x| times epsilon; new lesson 12 distinguishes the exact binade value without changing that key. The package stays partial, unreviewed and formative-only.
+The proposed schedule is unmeasured and unreviewed; graded homework, exams, full labs and a cumulative graded project remain absent. Interpolation coverage consists of one hand-worked quadratic comparison; implemented barycentric and piecewise interpolation algorithms and a systematic stability study remain outside the sequence. Direct, iterative and sparse solver comparisons and eigenvalue algorithms also remain limited. All data and functions are synthetic examples. Qualified subject, code, accessibility and workload review remain open.
 
 ## Sources and licensing
 
-Existing numerical-methods and engineering-mathematics links remain scope comparators. Retrieved official Python CSV, NumPy broadcasting and least-squares, SciPy bisection and scikit-learn cross-validation pages are link-only references; metadata and relevant behavior were checked directly. No new DOI, PMID, NCT or paper link was introduced. No prose, code example, figure or dataset was copied. Original readings, code snippets and synthetic CSV are CC BY 4.0 instructional content with substantial AI assistance. See source-map.json and content/SOURCES_AND_LICENSES.md for rights and the software/content boundary. Links establish no endorsement or review.
+MIT OCW 2.086 Fall 2014 is an undergraduate numerical-computation comparator. Its calendar places interpolation in the opening numerical-calculus unit and later lists least-squares model fitting; its syllabus also includes interpolation, regression, integration, differentiation, equation solving and deterministic/probabilistic methods. The local lesson is an original, narrow comparison. MIT material is linked only and none was copied or adapted. See [content/SOURCES_AND_LICENSES.md](../../SOURCES_AND_LICENSES.md). No affiliation or equivalency is implied.

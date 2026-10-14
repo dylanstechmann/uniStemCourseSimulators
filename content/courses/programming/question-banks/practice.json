@@ -3177,6 +3177,565 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "programming-14:matrix-norm",
+      "type": "numeric",
+      "prompt": "For A=[[1,1],[1,1.0001]], what is the infinity norm ‖A‖∞? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "programming-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 2.0001,
+        "unit": "",
+        "tolerance": 2e-07,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Take the largest absolute row sum.",
+        "solution": "The row sums are 2 and 2.0001, so ‖A‖∞=2.0001.",
+        "lesson_ids": [
+          "programming-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "programming-14:inverse-norm",
+      "type": "numeric",
+      "prompt": "For A=[[1,1],[1,1.0001]], its inverse is [[10001,−10000],[−10000,10000]]. What is ‖A⁻¹‖∞? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "programming-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 20001,
+        "unit": "",
+        "tolerance": 2.0001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Take the largest absolute row sum of the inverse.",
+        "solution": "The row sums are 20001 and 20000, so ‖A⁻¹‖∞=20001.",
+        "lesson_ids": [
+          "programming-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "programming-14:condition-number",
+      "type": "numeric",
+      "prompt": "Using ‖A‖∞=2.0001 and ‖A⁻¹‖∞=20001, what condition number κ∞ follows? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "programming-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 40004.0001,
+        "unit": "",
+        "tolerance": 4.0005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Multiply the matrix norm and inverse norm.",
+        "solution": "κ∞=2.0001×20001=40004.0001.",
+        "lesson_ids": [
+          "programming-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "programming-14:residual-norm",
+      "type": "numeric",
+      "prompt": "For b=[2,2.0001]ᵀ and x̂=[0.5,1.5]ᵀ, calculate ‖b−Ax̂‖∞ for A=[[1,1],[1,1.0001]]. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "programming-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 5e-05,
+        "unit": "",
+        "tolerance": 5e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Multiply A by x̂, subtract from b, and take the largest magnitude.",
+        "solution": "Ax̂=[2,2.00015]ᵀ, so the residual is [0,−0.00005]ᵀ and its infinity norm is 0.00005.",
+        "lesson_ids": [
+          "programming-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "programming-14:forward-error",
+      "type": "numeric",
+      "prompt": "For reference x=[1,1]ᵀ and computed x̂=[0.5,1.5]ᵀ, what relative infinity-norm forward error ‖x̂−x‖∞/‖x‖∞ results? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "programming-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.5,
+        "unit": "",
+        "tolerance": 5e-05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Find the largest componentwise absolute difference, then divide by ‖x‖∞.",
+        "solution": "The largest absolute difference is 0.5 and ‖x‖∞=1, so relative forward error is 0.5.",
+        "lesson_ids": [
+          "programming-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "programming-14:rhs-relative-perturbation",
+      "type": "numeric",
+      "prompt": "For b=[2,2.0001]ᵀ and b̃=[2,2.00015]ᵀ, what is ‖b̃−b‖∞/‖b‖∞? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "programming-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 2.4998750062496874e-05,
+        "unit": "",
+        "tolerance": 2.5e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Compare the largest change in the right-hand side with its largest magnitude.",
+        "solution": "The perturbation norm is 0.00005 and ‖b‖∞=2.0001, giving approximately 2.499875×10⁻⁵.",
+        "lesson_ids": [
+          "programming-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "programming-14:residual-interpretation",
+      "type": "single_choice",
+      "prompt": "A computed vector has a small residual for an ill-conditioned system. Which conclusion is justified?",
+      "points": 1,
+      "objective_ids": [
+        "programming-14-objective-3"
+      ],
+      "options": [
+        "The forward error must also be small.",
+        "The vector solves a nearby system, but its forward accuracy still depends on conditioning and input perturbations.",
+        "The model is validated because the residual is small.",
+        "The solver must be unstable."
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "A residual describes how closely the vector satisfies the stated equations.",
+        "solution": "The residual supports a nearby-system interpretation; high problem sensitivity can still produce large forward error.",
+        "lesson_ids": [
+          "programming-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "programming-14:condition-v-stability",
+      "type": "single_choice",
+      "prompt": "Which statement correctly distinguishes conditioning from algorithm stability?",
+      "points": 1,
+      "objective_ids": [
+        "programming-14-objective-3"
+      ],
+      "options": [
+        "Conditioning measures the problem response to input changes; stability concerns the algorithm’s behavior relative to nearby problems.",
+        "Conditioning measures runtime; stability measures memory use.",
+        "They are two names for the residual.",
+        "A well-conditioned problem guarantees every algorithm is stable."
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "One property belongs to the mathematical problem, the other to the method used.",
+        "solution": "Conditioning is a property of the problem under a chosen norm; stability describes the algorithm’s numerical behavior.",
+        "lesson_ids": [
+          "programming-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "programming-14:identity-perturbation",
+      "type": "single_choice",
+      "prompt": "For A=I, applying δb=[0,0.00005]ᵀ gives which relative solution change when b=[2,2.0001]ᵀ?",
+      "points": 1,
+      "objective_ids": [
+        "programming-14-objective-2"
+      ],
+      "options": [
+        "About 0.5, because every small residual is amplified equally.",
+        "Exactly zero, because A is the identity.",
+        "About 2.5×10⁻⁵, because δx=δb and ‖x‖∞≈2.0001.",
+        "About 20001, because that is the inverse norm of the other matrix."
+      ],
+      "solution_spec": {
+        "answer": 2
+      },
+      "feedback": {
+        "hint": "For the identity matrix, the solution change equals the right-hand-side change.",
+        "solution": "With A=I, δx=δb, so the relative change is 0.00005/2.0001≈2.5×10⁻⁵.",
+        "lesson_ids": [
+          "programming-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "programming-15:interpolated-value",
+      "type": "numeric",
+      "prompt": "For the table f(0)=1, f(1)=0.5, f(2)=0.2, evaluate the quadratic interpolant p₂(x)=1−0.6x+0.1x² at x=0.5.",
+      "points": 1,
+      "objective_ids": [
+        "programming-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.725,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Substitute x=0.5 into the polynomial.",
+        "solution": "p₂(0.5)=1−0.3+0.025=0.725.",
+        "lesson_ids": [
+          "programming-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "programming-15:true-value",
+      "type": "numeric",
+      "prompt": "For f(x)=1/(1+x²), what is the known function value f(0.5)?",
+      "points": 1,
+      "objective_ids": [
+        "programming-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.8,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Compute 1/(1+0.5²).",
+        "solution": "f(0.5)=1/1.25=0.8.",
+        "lesson_ids": [
+          "programming-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "programming-15:signed-error",
+      "type": "numeric",
+      "prompt": "Using signed error p₂(0.5)−f(0.5), what is the error?",
+      "points": 1,
+      "objective_ids": [
+        "programming-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": -0.075,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Subtract the known function value from the interpolant.",
+        "solution": "0.725−0.800=−0.075.",
+        "lesson_ids": [
+          "programming-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "programming-15:extrapolated-value",
+      "type": "numeric",
+      "prompt": "The same polynomial is p₂(x)=1−0.6x+0.1x². What does it predict at x=4, outside the nodes [0,2]?",
+      "points": 1,
+      "objective_ids": [
+        "programming-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.2,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Evaluate the polynomial at x=4.",
+        "solution": "p₂(4)=1−2.4+1.6=0.2.",
+        "lesson_ids": [
+          "programming-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "programming-15:basis-value",
+      "type": "numeric",
+      "prompt": "For nodes 0, 1 and 2, what is the Lagrange basis value L₂(0.5)?",
+      "points": 1,
+      "objective_ids": [
+        "programming-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": -0.125,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "L₂(x)=x(x−1)/2 for these nodes.",
+        "solution": "L₂(0.5)=0.5(−0.5)/2=−0.125.",
+        "lesson_ids": [
+          "programming-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "programming-15:interpolation-vs-regression",
+      "type": "single_choice",
+      "prompt": "A calibration table contains noisy measured values, and the goal is to estimate an overall trend rather than reproduce each measurement exactly. Which method is generally suited to that goal?",
+      "points": 1,
+      "objective_ids": [
+        "programming-15-objective-3"
+      ],
+      "options": [
+        "Regression with a stated model and loss function",
+        "A global interpolant that is forced through every noisy measurement",
+        "Extrapolation from the first two points",
+        "The interpolation remainder formula alone"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Ask whether every observation must be matched exactly or whether the trend should summarize noise.",
+        "solution": "Regression estimates the trend under the chosen model/loss; interpolation would reproduce each noisy value exactly.",
+        "lesson_ids": [
+          "programming-15"
+        ],
+        "misconception_ids": [
+          "interpolation-regression-confusion"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "programming-15:extrapolation-definition",
+      "type": "single_choice",
+      "prompt": "What is extrapolation in this example?",
+      "points": 1,
+      "objective_ids": [
+        "programming-15-objective-2"
+      ],
+      "options": [
+        "Evaluating a fitted or interpolated function outside the range of its tabulated nodes",
+        "Evaluating the interpolant at one of its nodes",
+        "Calculating the residual at a measured point",
+        "Using more nodes inside the interval"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Compare the evaluation x-coordinate with the node interval [0,2].",
+        "solution": "x=4 lies outside [0,2], so evaluating there is extrapolation.",
+        "lesson_ids": [
+          "programming-15"
+        ],
+        "misconception_ids": [
+          "interpolation-extrapolation-confusion"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "programming-15:remainder-assumption",
+      "type": "single_choice",
+      "prompt": "What does the interpolation remainder formula require for its usual derivative-based statement?",
+      "points": 1,
+      "objective_ids": [
+        "programming-15-objective-2"
+      ],
+      "options": [
+        "The required (n+1) derivative exists on an interval containing the nodes and evaluation point.",
+        "The interpolant has zero residual at every point in the interval.",
+        "All y-values are measured without noise.",
+        "The polynomial degree can be increased without changing node geometry."
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "The error statement uses a derivative of the underlying function at some point in the interval.",
+        "solution": "The standard remainder uses f^(n+1)(ξ) for ξ within the interval spanned by the nodes and evaluation point.",
+        "lesson_ids": [
+          "programming-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "programming-15:interpolation-claims",
+      "type": "multiple_select",
+      "prompt": "Which statements about the quadratic interpolant are justified? Select all that apply.",
+      "points": 1,
+      "objective_ids": [
+        "programming-15-objective-3"
+      ],
+      "options": [
+        "It passes exactly through the three supplied table nodes.",
+        "Exact node matches guarantee small error at every point between or outside the nodes.",
+        "The known function value at x=0.5 can be used to evaluate between-node error.",
+        "For noisy measurements, regression may be more suitable if the goal is an overall trend.",
+        "Adding a node always improves every between-node estimate."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "feedback": {
+        "hint": "Separate guaranteed interpolation properties from claims about approximation quality.",
+        "solution": "The polynomial matches all nodes by construction. A known function permits a between-node error check, and regression can summarize noisy observations. Neither node fit nor a higher degree guarantees accuracy everywhere.",
+        "lesson_ids": [
+          "programming-15"
+        ],
+        "misconception_ids": [
+          "exact-fit-overclaim"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
     }
   ]
 }

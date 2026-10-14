@@ -15,14 +15,16 @@ PACKETS = COURSE / "assessment-specs"
 
 
 def test_cumulative_forms_use_actual_lesson_objectives_including_reused_water_objective():
-    course = json.loads((COURSE / "course.json").read_text())
+    course = json.loads((COURSE / "course.json").read_text(encoding="utf-8"))
     lessons = {
         lesson["id"]: lesson
         for module in course["modules"]
         for lesson in module["lessons"]
     }
     for name, count, points in [("midterm", 16, 100), ("final", 28, 150)]:
-        candidate = json.loads((PACKETS / f"{name}-candidate.json").read_text())
+        candidate = json.loads(
+            (PACKETS / f"{name}-candidate.json").read_text(encoding="utf-8")
+        )
         assert len(candidate["lesson_ids"]) == count
         expected = {
             o for lid in candidate["lesson_ids"] for o in lessons[lid]["objectives"]
@@ -40,7 +42,9 @@ def test_cumulative_forms_use_actual_lesson_objectives_including_reused_water_ob
 
 def test_final_case_stems_are_distinct_from_midterm_stems():
     packets = [
-        json.loads((PACKETS / f"{name}-candidate.json").read_text())
+        json.loads(
+            (PACKETS / f"{name}-candidate.json").read_text(encoding="utf-8")
+        )
         for name in ("midterm", "final")
     ]
     stems = []
@@ -95,7 +99,9 @@ def test_project_generator_reproduces_tables_and_retains_culture_time_units(tmp_
             )
             == 1
         )
-    candidate = json.loads((PACKETS / "integrative-project-candidate.json").read_text())
+    candidate = json.loads(
+        (PACKETS / "integrative-project-candidate.json").read_text(encoding="utf-8")
+    )
     assert candidate["machine_score_is_project_grade"] is False
     assert (COURSE / candidate["human_portfolio_path"]).is_file()
 
@@ -109,7 +115,66 @@ def test_membrane_example_temperature_matches_si_constant_derivation():
     assert math.isclose(coefficients[1], 61.540, abs_tol=0.001)
     text = (
         COURSE / "modules/02-membranes-transport-and-compartmentalization.md"
-    ).read_text()
+    ).read_text(encoding="utf-8")
     assert "59.16 mV" in text and "61.54 mV" in text
     assert "37 °C" in text
     assert "61.5 / z" not in text or "25 °C" not in text.split("61.5 / z")[0][-30:]
+
+
+def test_remaining_cell_biology_numeric_keys_are_recalculated():
+    questions = {
+        q["id"]: q
+        for q in json.loads(
+            (COURSE / "question-banks/practice.json").read_text(encoding="utf-8")
+        )["questions"]
+    }
+
+    vmax, km, substrate = 120.0, 3.0, 6.0
+    predicted_rate = vmax * substrate / (km + substrate)
+    rate = questions["cell-biology-3:check"]["solution_spec"]
+    assert predicted_rate == 80.0
+    assert abs(rate["answer"] - predicted_rate) <= rate["tolerance"]
+    assert rate["unit"] == "μmol/min"
+
+    gas_constant, temperature, equilibrium_constant = 8.314, 298.0, 10.0
+    standard_delta_g = -gas_constant * temperature * math.log(equilibrium_constant) / 1000
+    energy = questions["cell-biology-3:delta-g-from-k"]["solution_spec"]
+    assert math.isclose(standard_delta_g, -5.7048204, abs_tol=1e-6)
+    assert abs(energy["answer"] - standard_delta_g) <= energy["tolerance"]
+    assert energy["unit"] == "kJ/mol"
+
+
+def test_cell_biology_numeric_recalculation_inventory_is_complete():
+    # The week-specific calculations live mainly in test_content_validation.py;
+    # the two week-3 calculations above were added here. Pin the audited key set
+    # so a new numeric practice item requires an explicit recalculation check.
+    expected_ids = {
+        "cell-biology-3:check",
+        "cell-biology-3:delta-g-from-k",
+        "cell-biology-9:coupling-energy",
+        "cell-biology-9:rate-at-km",
+        "cell-biology-9:rate-at-twice-km",
+        "cell-biology-10:rate-prediction",
+        "cell-biology-11:resolution-estimate",
+        "cell-biology-12:er-marker-recovery",
+        "cell-biology-12:image-quantification-contrast",
+        "cell-biology-13:hybrid-fraction",
+        "cell-biology-16:chip-percent-input",
+        "cell-biology-17:isoform-fraction",
+        "cell-biology-18:protein-half-life",
+        "cell-biology-19:affected-child-risk",
+        "cell-biology-21:occupancy-model",
+        "cell-biology-21:relative-response",
+        "cell-biology-24:uniform-stress",
+        "cell-biology-24:yap-relative-increase",
+        "cell-biology-25:phase-snapshot",
+        "cell-biology-25:edu-relative-reduction",
+        "cell-biology-27:functional-fraction",
+    }
+    bank = json.loads(
+        (COURSE / "question-banks/practice.json").read_text(encoding="utf-8")
+    )
+    actual_ids = {
+        q["id"] for q in bank["questions"] if q["type"] == "numeric"
+    }
+    assert actual_ids == expected_ids

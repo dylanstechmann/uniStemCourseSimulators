@@ -1,0 +1,5 @@
+# Programming & Numerical Methods for Bioengineering 0.4.5 — outcome alignment
+
+The first four lesson pairs now map to their directly supported course outcomes: data and provenance objectives to reproducibility/provenance, testable functions to modular code, integration and numerical constraints to method selection/error diagnosis, model fitting and validation to fit/validation, and plot interpretation to reproducible visualization. The existing formative questions and answer keys are unchanged. All four former compact prototype readings had already been expanded; this increment improves traceability and does not change the course's partial maturity.
+
+Checks: the focused Programming regression suite passed 108 tests; Ruff passed; full content validation passed (25 courses, 384 lessons, 2,245 questions, 1,276 cards, 25 cases, zero errors and zero depth warnings); assessment-candidate and course-gap report drift checks passed. These same-AI checks are not independent programming or accessibility review.

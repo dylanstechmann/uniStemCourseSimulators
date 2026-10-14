@@ -60,6 +60,37 @@ def trapezoid(function, lower, upper, steps=2000):
     )
 
 
+G_STIPULATED = 6.67e-11
+GM_PLANET = G_STIPULATED * 6.0e24
+R_PLANET = 6.4e6
+
+
+def potential_per_mass(r):
+    """Minus the work per mass to reach infinity: integrate GM/s^2 with s = r e^t, ds = s dt."""
+    return -trapezoid(lambda t: GM_PLANET / (r * math.exp(t)), 0.0, 40.0, 4000)
+
+
+def field_strength(r, h=1.0):
+    return (potential_per_mass(r + h) - potential_per_mass(r - h)) / (2 * h)
+
+
+def orbit_radius_after(r, v, fraction=0.25, steps=400):
+    """RK4 point-mass orbit from (r, 0) with tangential speed v, run for a fraction of 2 pi r / v."""
+
+    def rhs(s):
+        x, y, vx, vy = s
+        d3 = (x * x + y * y) ** 1.5
+        return [vx, vy, -GM_PLANET * x / d3, -GM_PLANET * y / d3]
+
+    x, y, _, _ = integrate(rhs, [r, 0.0, 0.0, v], fraction * 2 * math.pi * r / v, steps)
+    return math.hypot(x, y)
+
+
+def circular_speed(r):
+    """Tangential speed whose simulated quarter-turn keeps the radius unchanged."""
+    return bisect(lambda v: orbit_radius_after(r, v) - r, 0.7 * math.sqrt(GM_PLANET / r), 1.3 * math.sqrt(GM_PLANET / r))
+
+
 def lab_data():
     with (COURSE / "labs/compliance-reports.csv").open(
         encoding="utf-8", newline=""
@@ -210,7 +241,33 @@ def expected_answers():
         corrected_modulus=1000 * 0.02 / 0.000001 / 1_000_000,
         apparent_modulus=500 * 0.02 / 0.000001 / 1_000_000,
     )
+    # Lesson 14: momentum conservation and a stepwise mass-ejection sum for delta-v.
+    mass, speed, dm = 600.0, 0.0, 0.001
+    while mass - dm >= 450.0 - 1e-9:
+        speed += 800 * dm / (mass - dm / 2)
+        mass -= dm
+    add(
+        14,
+        capture_speed=20 * 10 / (20 + 5),
+        rocket_acceleration=(4 * 300 + (-200)) / 500,
+        rocket_delta_v=speed,
+    )
     intercept, machine = lab_fit("ref")
+    v12 = circular_speed(1.2e7)
+    add(
+        15,
+        sphere_attraction=G_STIPULATED * 50 * 80 / 0.5**2 * 1e6,
+        field_at_altitude=field_strength(R_PLANET + 2.0e6),
+        orbital_speed=v12 / 1e3,
+        orbital_period=2 * math.pi * 1.2e7 / v12 / 60,
+        radius_for_period=bisect(
+            lambda r: 2 * math.pi * math.sqrt(r / field_strength(r)) - 43_200, 1e7, 5e7
+        )
+        / 1e6,
+        escape_from_orbit=math.sqrt(-2 * potential_per_mass(1.2e7)) / 1e3,
+        orbital_total_energy=200 * (0.5 * v12**2 + potential_per_mass(1.2e7)) / 1e9,
+        period_ratio=(4 * 1.2e7 / circular_speed(4 * 1.2e7)) / (1.2e7 / v12),
+    )
     add(
         "lab-01",
         offset=intercept,
@@ -232,7 +289,50 @@ def test_numeric_key_matches_separate_calculation(item_id, expected):
 
 def test_all_numeric_keys_are_recalculated():
     numeric = {q["id"] for q in BANK.values() if q["type"] == "numeric"}
-    assert set(EXPECTED) == numeric and len(numeric) == 63
+    assert set(EXPECTED) == numeric and len(numeric) == 74
+
+
+def test_gravitation_lesson_statements_match_simulated_orbits():
+    text = (
+        COURSE / "modules/15-universal-gravitation-circular-orbits-and-orbital-energy.md"
+    ).read_text(encoding="utf-8")
+    assert round(field_strength(R_PLANET), 2) == 9.77
+    assert round(field_strength(2 * R_PLANET), 2) == 2.44
+    assert round(field_strength(7.0e6) / field_strength(R_PLANET), 2) == 0.84
+    v7 = circular_speed(7.0e6)
+    assert round(v7 / 1e3, 2) == 7.56 and round(2 * math.pi * 7.0e6 / v7) == 5817
+    assert orbit_radius_after(7.0e6, v7, fraction=1.0, steps=2000) == pytest.approx(7.0e6, rel=1e-6)
+    day = bisect(lambda r: 2 * math.pi * math.sqrt(r / field_strength(r)) - 86_400, 1e7, 1e8)
+    assert round(day / 1e7, 2) == 4.23 and round(day / R_PLANET, 1) == 6.6
+    lift = 1000 * (potential_per_mass(7.0e6) - potential_per_mass(R_PLANET))
+    kinetic = 0.5 * 1000 * v7**2
+    assert round(lift / 1e9, 1) == 5.4 and round(kinetic / 1e10, 2) == 2.86
+    assert round((lift + kinetic) / 1e10, 2) == 3.39
+    naive = 1000 * field_strength(R_PLANET) * (7.0e6 - R_PLANET)
+    assert round(naive / 1e9, 1) == 5.9 and round(naive / lift - 1, 2) == 0.09
+    assert round(math.sqrt(-2 * potential_per_mass(R_PLANET)) / 1e3, 1) == 11.2
+    v8 = circular_speed(8.0e6)
+    assert round(v8 / 1e3, 2) == 7.07 and round(2 * math.pi * 8.0e6 / v8) == 7107
+    assert round(500 * (0.5 * v8**2 + potential_per_mass(8.0e6)) / 1e10, 2) == -1.25
+    reach = 500 * (0.5 * v8**2 + potential_per_mass(8.0e6) - potential_per_mass(R_PLANET))
+    assert round(reach / 1e10, 2) == 1.88
+    assert round((math.sqrt(-2 * potential_per_mass(8.0e6)) - v8) / 1e3, 2) == 2.93
+    assert round(G_STIPULATED * 100 * 100 / 1.0**2 * 1e7, 1) == 6.7
+    for phrase in (
+        "**g = GM/R² = 9.77 m/s².**",
+        "a quarter, **2.44 m/s²**",
+        "v = **7.56 km/s**",
+        "T = 2πr/v = **5817 s**",
+        "r = (GM T²/4π²)^(1/3) = **4.23 × 10⁷ m**",
+        "about 84% of its surface value",
+        "GMm(1/R − 1/(2r)) = **3.39 × 10¹⁰ J**",
+        "Only 5.4 × 10⁹ J",
+        "about 9% too large",
+        "= 11.2 km/s**",
+        "T = 2πr/v = 7107 s",
+        "a further 2.93 km/s",
+    ):
+        assert phrase in text, phrase
 
 
 CHECKS = BANK["physics-mechanics-lab-01:summary"]["solution_spec"]["validation_spec"][

@@ -11,6 +11,8 @@ import { AccountPanel } from "./components/AccountPanel";
 import { CourseCatalog } from "./components/CourseCatalog";
 import { CourseWorkspace } from "./components/CourseWorkspace";
 import { InstructorReview } from "./components/InstructorReview";
+import { NotebookView } from "./components/NotebookView";
+import { StudyTools } from "./components/StudyTools";
 
 function currentRoute() {
   return window.location.hash.slice(1) || "/courses";
@@ -115,16 +117,44 @@ export default function App() {
   }
   const segments = route.split("/").filter(Boolean);
   const courseId = segments[0] === "course" ? decode(segments[1]) : undefined;
-  const lessonId = segments[2] === "lesson" ? decode(segments[3]) : undefined;
+  const archivedVersion =
+    segments[2] === "version" ? decode(segments[3]) : undefined;
+  const lessonSegment = archivedVersion ? 4 : 2;
+  const lessonId =
+    segments[lessonSegment] === "lesson"
+      ? decode(segments[lessonSegment + 1])
+      : undefined;
+  const assessmentId =
+    segments[2] === "gradebook" && segments[3] === "assessment"
+      ? decode(segments[4])
+      : undefined;
   const page = courseId
     ? "course"
-    : segments[0] === "account"
-      ? "account"
-      : segments[0] === "instructor"
-        ? "instructor"
-        : segments[0] === "learning"
-          ? "learning"
-          : "courses";
+    : segments[0] === "tools"
+      ? "tools"
+      : segments[0] === "account"
+        ? "account"
+        : segments[0] === "notebook"
+          ? "notebook"
+          : segments[0] === "instructor"
+            ? "instructor"
+            : segments[0] === "learning"
+              ? "learning"
+              : "courses";
+  const currentEnrollments = enrollments.filter((enrollment) =>
+    courses.some(
+      (course) =>
+        course.id === enrollment.course_id &&
+        course.version === enrollment.content_version,
+    ),
+  );
+  const needsNotebookReview = enrollments.some((enrollment) =>
+    courses.some(
+      (course) =>
+        course.id === enrollment.course_id &&
+        course.version !== enrollment.content_version,
+    ),
+  );
   return (
     <div
       className={`app-shell${largeText ? " large-text" : ""}${highContrast ? " high-contrast" : ""}`}
@@ -163,6 +193,14 @@ export default function App() {
           >
             My learning <span className="nav-count">{enrollments.length}</span>
           </a>
+          {session.user ? (
+            <a
+              href="#/notebook"
+              aria-current={page === "notebook" ? "page" : undefined}
+            >
+              My notes
+            </a>
+          ) : null}
           {session.can_review ? (
             <a
               href="#/instructor"
@@ -171,6 +209,12 @@ export default function App() {
               Instructor review
             </a>
           ) : null}
+          <a
+            href="#/tools"
+            aria-current={page === "tools" ? "page" : undefined}
+          >
+            Study tools
+          </a>
           <a
             href="#/account"
             aria-current={page === "account" ? "page" : undefined}
@@ -245,13 +289,28 @@ export default function App() {
             <AccountPanel session={session} onSession={setSession} />
           ) : page === "instructor" ? (
             <InstructorReview />
+          ) : page === "tools" ? (
+            <StudyTools toolId={decode(segments[1])} courses={courses} />
+          ) : page === "notebook" ? (
+            <NotebookView
+              hasSession={sessionReady && !!session.user}
+              courses={courses.filter((course) =>
+                currentEnrollments.some(
+                  (enrollment) => enrollment.course_id === course.id,
+                ),
+              )}
+              needsVersionReview={needsNotebookReview}
+            />
           ) : courseId ? (
             <CourseWorkspace
-              key={courseId}
+              key={`${courseId}:${archivedVersion || "current"}`}
               id={courseId}
+              archivedVersion={archivedVersion}
               lessonId={lessonId}
+              assessmentId={assessmentId}
               showGradebook={segments[2] === "gradebook"}
               showReview={segments[2] === "review"}
+              showCases={segments[lessonSegment] === "cases"}
               catalog={courses}
               enrollmentVersion={
                 enrollments.find((item) => item.course_id === courseId)

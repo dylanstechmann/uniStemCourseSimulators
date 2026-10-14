@@ -9,6 +9,7 @@ By the end of this lesson, you should be able to:
 1. Determine gene order and interval recombination fractions from three-point testcross progeny counts.
 2. Calculate expected double crossovers, the coefficient of coincidence and interference.
 3. Evaluate why observed recombination underestimates map distance for distant loci and apply a map function to correct it.
+4. Estimate recombination from unordered tetrad classes and distinguish linkage evidence from gene-order evidence.
 
 ## The cross
 
@@ -54,6 +55,12 @@ Looking only at the outer loci, a and c appear recombinant in the single-crossov
 
 **Map functions** convert an observed fraction into an additive distance under a model of crossover distribution. Haldane's function assumes no interference: d = −½ ln(1 − 2r) Morgans. For r = 0.210, d = 27.2 cM. It overcorrects here, because Haldane assumes no interference while this cross shows substantial interference; Kosambi's function, d = ¼ ln[(1 + 2r)/(1 − 2r)], allows for interference and gives 22.4 cM, close to the 22.6 cM sum of the two intervals. The choice of function is a modeling assumption that should be stated with the map.
 
+## Tetrad classes provide a second view of recombination
+
+In a fungus that packages the four products of one meiosis together, an **unordered tetrad** records all four haploid spores from that meiosis. For two loci, classify each tetrad as a parental ditype (PD), a nonparental ditype (NPD), or a tetratype (T). A PD contains only the two parental allele combinations. An NPD contains only the two nonparental combinations. A tetratype contains all four combinations, two parental and two recombinant.
+
+Because all four meiotic products are observed, the recombinant fraction can be computed directly: each NPD contributes four recombinant spores, each tetratype contributes two, and each PD contributes none. Therefore, r = (NPD + T/2) / total tetrads. If an experiment has 60 PD, 4 NPD and 36 T tetrads, then r = (4 + 36/2) / 100 = 0.22, or 22%. Under the standard assumptions for unordered tetrads, a clear excess of PD over NPD is evidence that the loci are linked; similar PD and NPD counts are expected for independently assorting loci. Tetrad classes can estimate recombination, but this two-locus comparison alone does not establish the order of three genes. It also does not identify a causal gene for a phenotype. Ordered tetrads can answer additional questions about crossover position relative to a centromere, but those analyses are outside this lesson.
+
 ## Common mistakes
 
 - Calling the two most frequent classes recombinant; they are the parental classes.
@@ -61,6 +68,7 @@ Looking only at the outer loci, a and c appear recombinant in the single-crossov
 - Leaving the double crossovers out of an interval's recombination fraction.
 - Adding observed recombination fractions over long distances as if they were additive.
 - Using Haldane's map function without noting that it assumes no interference.
+- Treating tetrad spores from one meiosis as four independent meioses, or using PD-versus-NPD counts to claim a three-gene order.
 
 ## Worked example
 
@@ -74,4 +82,4 @@ Looking only at the outer loci, a and c appear recombinant in the single-crossov
 
 ## Limits of this lesson
 
-All counts are synthetic. Real mapping uses many markers and likelihood methods, accounts for genotyping error and segregation distortion, and in humans relies on pedigrees or population data rather than designed testcrosses.
+All counts are synthetic. Real mapping uses many markers and likelihood methods, accounts for genotyping error and segregation distortion, and in humans relies on pedigrees or population data rather than designed testcrosses. The tetrad method here covers unordered two-locus classes, not ordered tetrad analysis or a full fungal-genetics laboratory.

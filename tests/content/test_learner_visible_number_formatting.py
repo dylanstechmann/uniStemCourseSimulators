@@ -9,6 +9,7 @@ what that package teaches.
 from __future__ import annotations
 
 import json
+import math
 import re
 from pathlib import Path
 
@@ -43,6 +44,21 @@ def test_readings_have_no_raw_exponents_or_float_artifacts_outside_code():
         if bad:
             found[str(path.relative_to(COURSES))] = bad
     assert not found, found
+
+
+def test_calculus_taylor_remainder_uses_a_rounded_up_visible_bound():
+    lesson = (COURSES / "calculus-1/modules/01-limits-continuity-and-approximation.md").read_text(
+        encoding="utf-8"
+    )
+    exact_second_derivative_bound = 1 / (4 * 75 ** 1.5)
+    displayed_bound = 3.850e-4
+    actual_error_at_20 = abs(math.sqrt(120) - (10 + 0.05 * 20))
+    remainder_bound_at_20 = 0.5 * displayed_bound * 20 ** 2
+
+    assert displayed_bound >= exact_second_derivative_bound
+    assert actual_error_at_20 <= remainder_bound_at_20
+    assert r"3.850\times10^{-4}" in lesson
+    assert "0.07700" in lesson
 
 
 def _walk(value, where, out):

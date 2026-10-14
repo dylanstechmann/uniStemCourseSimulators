@@ -7,7 +7,7 @@
   "domain": "Life sciences",
   "level": "Year 3",
   "maturity": "partial",
-  "version": "0.5.2",
+  "version": "0.5.9",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -15,7 +15,11 @@
     "source_sha256": "a77a7cb7f5be2ffa12068877042ac775c6d9b79b83ac2f316fe4f26a0d3d783b",
     "migration_version": "1.0",
     "modifications": [
-      "2026-10-07: added four original lessons (survival and healthspan endpoints; senescent-cell causality; clonal hematopoiesis and circulating factors; aging clocks and partial reprogramming) beside the preserved legacy units; retagged the four legacy checks to the objectives they assess."
+      "2026-10-07: added four original lessons (survival and healthspan endpoints; senescent-cell causality; clonal hematopoiesis and circulating factors; aging clocks and partial reprogramming) beside the preserved legacy units; retagged the four legacy checks to the objectives they assess.",
+      "Expanded the original week-1 prototype reading with interacting damage, maintenance, and adaptation models, a synthetic biomarker/function comparison, and limits on causal and translational claims.",
+      "Expanded the original week-5 prototype reading with a multi-feature operational definition of senescence, a synthetic single-marker classification example, context-dependent SASP functions, and tissue-specific interpretation limits.",
+      "Expanded the original week-8 prototype reading with stem-cell function and niche concepts, a synthetic cell-age-by-environment comparison, assay selection guidance, and limits on rejuvenation claims; reused a registered link-only primary mouse study.",
+      "Expanded the original week-11 prototype reading with an endpoint-to-claim evidence ladder, synthetic survival/target-engagement/function/toxicity interpretation, causal mechanism tests, and translational limits; reused a registered link-only primary mouse study."
     ]
   },
   "prerequisites": {
@@ -438,20 +442,54 @@
         "geroscience-outcome-3",
         "geroscience-outcome-4"
       ]
+    },
+    {
+      "id": "geroscience-13-objective-4",
+      "description": "Compare the mechanistic reach and measured outcomes of distinct mouse longevity interventions without treating them as a head-to-head trial or evidence of human benefit.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "geroscience-outcome-3"
+      ]
+    },
+    {
+      "id": "geroscience-17-objective-1",
+      "description": "Explain why the force of natural selection declines with age, and calculate survival and relative selection strength under a constant extrinsic hazard.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "geroscience-outcome-1"
+      ]
+    },
+    {
+      "id": "geroscience-17-objective-2",
+      "description": "Distinguish mutation accumulation, antagonistic pleiotropy and the disposable-soma idea, and use a mutation–selection balance to compare early- and late-acting alleles.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "geroscience-outcome-1"
+      ]
+    },
+    {
+      "id": "geroscience-17-objective-3",
+      "description": "Calculate lifetime reproduction for a toy pleiotropic allele in high- and low-mortality environments, and state what evolutionary theory does not establish about mechanisms or interventions.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "geroscience-outcome-1"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week undergraduate scope only. Weeks 1 to 12 pair the compact prototype units with original lessons on mechanisms, measurement, regeneration and evidence appraisal; week 13 is a synthetic-data lifespan lab and week 14 a study-design lesson with the course case. All activities are open, ungraded practice. There are no graded homework sets, exams or project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week undergraduate scope only. The expanded prototype readings in weeks 1, 5, 8 and 11 sit beside original lessons on survival and healthspan, molecular mechanisms, regeneration, intervention evidence and study design; week 11 now includes an original comparison of two primary mouse intervention studies without adding a week; week 13 is a synthetic-data lifespan lab and week 14 a study-design lesson with the course case. All activities are open, ungraded practice. There are no graded homework sets, exams or project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
-        "title": "Aging as a systems process",
+        "title": "Aging as a systems process and why aging evolves",
         "lesson_ids": [
-          "geroscience-1"
+          "geroscience-1",
+          "geroscience-17"
         ],
         "assessment_ids": [
-          "geroscience-1-practice"
+          "geroscience-1-practice",
+          "geroscience-17-practice"
         ]
       },
       {
@@ -605,7 +643,10 @@
       "source_ids": [
         "biology",
         "molecular",
-        "biochemistry"
+        "biochemistry",
+        "lopez-otin-2013-hallmarks",
+        "lopez-otin-2023-hallmarks",
+        "higgins-chen-2022-clock-reliability"
       ],
       "lessons": [
         {
@@ -616,7 +657,7 @@
             "geroscience-1-objective-1",
             "geroscience-1-objective-2"
           ],
-          "worked_example": "A change in an epigenetic clock after intervention does not by itself show that tissue function or healthspan improved; both should be measured independently.",
+          "worked_example": "In a synthetic study, an intervention lowers a tissue marker from 20 to 12 units while the prespecified function score remains 100 in both groups. The marker changed by 40%, but the study does not show functional improvement, longer healthspan, or that the marker mediates an effect.",
           "question_ids": [
             "geroscience-1:check",
             "geroscience-1:damage-maintenance-adaptation"
@@ -667,7 +708,9 @@
       "source_ids": [
         "biology",
         "molecular",
-        "biochemistry"
+        "biochemistry",
+        "baker-2016-p16-cells-healthy-lifespan",
+        "demaria-2014-senescence-wound-healing"
       ],
       "lessons": [
         {
@@ -678,7 +721,7 @@
             "geroscience-2-objective-1",
             "geroscience-2-objective-2"
           ],
-          "worked_example": "A senescence-associated β-galactosidase-positive cell is not conclusive alone; a panel plus evidence of persistent arrest and appropriate controls is stronger.",
+          "worked_example": "In a synthetic sample of 100 cells, 30 are positive for one lysosomal marker. Only 18 also show persistent arrest and a DNA-damage response; the other 12 resume proliferation. Single-marker positivity is 30%, but that observation does not establish that every positive cell meets the operational senescence definition.",
           "question_ids": [
             "geroscience-2:check",
             "geroscience-2:operational-senescence"
@@ -734,7 +777,8 @@
       "source_ids": [
         "biology",
         "molecular",
-        "biochemistry"
+        "biochemistry",
+        "conboy-2005-heterochronic-parabiosis"
       ],
       "lessons": [
         {
@@ -745,7 +789,7 @@
             "geroscience-3-objective-1",
             "geroscience-3-objective-2"
           ],
-          "worked_example": "An expanded progenitor population after injury may reflect compensatory proliferation; it does not establish durable self-renewal or restoration of organ function.",
+          "worked_example": "In a synthetic transplantation study, 28 of 40 young-cell attempts succeed in young recipients and 16 of 40 in aged recipients; aged-cell attempts succeed 19 of 40 in young recipients and 9 of 40 in aged recipients. The pattern is compatible with both environment and cell-associated effects, but transplantation, injury, engraftment, and donor variation limit causal interpretation.",
           "question_ids": [
             "geroscience-3:check",
             "geroscience-3:niche-and-stem-cell-function"
@@ -801,7 +845,8 @@
       "source_ids": [
         "biology",
         "molecular",
-        "biochemistry"
+        "biochemistry",
+        "harrison-2009-rapamycin-itp"
       ],
       "lessons": [
         {
@@ -812,7 +857,7 @@
             "geroscience-4-objective-1",
             "geroscience-4-objective-2"
           ],
-          "worked_example": "If a senolytic improves function only in animals that tolerate a high dose, reporting survivors alone can exaggerate benefit; intent-to-treat and toxicity analyses are essential.",
+          "worked_example": "In a fully synthetic randomized study, 20 of 100 treated mice and 30 of 100 controls die by month 24; target inhibition appears in 70% of treated samples, survivor motor scores are 74 versus 75, and serious adverse events occur in 12 versus 4 animals. These endpoints support distinct claims and raise censoring, selection, safety, and mechanism questions.",
           "question_ids": [
             "geroscience-4:check",
             "geroscience-4:intervention-mechanism-vs-endpoints"
@@ -976,7 +1021,8 @@
         "poss-2002-zebrafish-heart",
         "porrello-2011-neonatal-heart",
         "lopez-otin-2023-hallmarks",
-        "kennedy-2014-geroscience"
+        "kennedy-2014-geroscience",
+        "mit-2-787j-regeneration"
       ],
       "lessons": [
         {
@@ -1010,7 +1056,8 @@
       "title": "Reading an aging-intervention paper",
       "source_ids": [
         "harrison-2009-rapamycin-itp",
-        "kennedy-2014-geroscience"
+        "kennedy-2014-geroscience",
+        "baker-2016-p16-cells-healthy-lifespan"
       ],
       "lessons": [
         {
@@ -1020,7 +1067,8 @@
           "objectives": [
             "geroscience-13-objective-1",
             "geroscience-13-objective-2",
-            "geroscience-13-objective-3"
+            "geroscience-13-objective-3",
+            "geroscience-13-objective-4"
           ],
           "worked_example": "For d = 0.5 at α = 0.05 and 80% power, n = 2 × (1.96 + 0.84)² / 0.25 = 62.72, so 63 per group; twelve independent endpoints at α = 0.05 give a 0.460 chance of at least one false positive with no true effects.",
           "question_ids": [
@@ -1028,13 +1076,25 @@
             "geroscience-13:sample-size-d08",
             "geroscience-13:multiplicity",
             "geroscience-13:headline-evaluation",
-            "geroscience-13:significance-vs-importance"
+            "geroscience-13:significance-vs-importance",
+            "geroscience-13:baker-intervention",
+            "geroscience-13:baker-supported-claim",
+            "geroscience-13:rapamycin-statistic",
+            "geroscience-13:mechanism-from-survival",
+            "geroscience-13:two-study-comparison",
+            "geroscience-13:stronger-mechanism-test",
+            "geroscience-13:baker-control-arms",
+            "geroscience-13:human-evidence-tier"
           ],
           "card_ids": [
             "geroscience-13-card-1",
             "geroscience-13-card-2",
             "geroscience-13-card-3",
-            "geroscience-13-card-4"
+            "geroscience-13-card-4",
+            "geroscience-13-card-5",
+            "geroscience-13-card-6",
+            "geroscience-13-card-7",
+            "geroscience-13-card-8"
           ]
         }
       ]
@@ -1140,6 +1200,47 @@
             "geroscience-16-card-2",
             "geroscience-16-card-3",
             "geroscience-16-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "geroscience-module-17",
+      "title": "Why aging evolves: the selection shadow, antagonistic pleiotropy and trade-offs",
+      "source_ids": [
+        "williams-1957-pleiotropy-senescence",
+        "hamilton-1966-moulding-senescence",
+        "kirkwood-1977-evolution-ageing"
+      ],
+      "lessons": [
+        {
+          "id": "geroscience-17",
+          "title": "Why aging evolves: the selection shadow, antagonistic pleiotropy and trade-offs",
+          "reading": "modules/13-why-aging-evolves-selection-shadow-and-trade-offs.md",
+          "objectives": [
+            "geroscience-17-objective-1",
+            "geroscience-17-objective-2",
+            "geroscience-17-objective-3"
+          ],
+          "worked_example": "With annual survival p = 0.8 and one offspring per year from age 1, baseline lifetime reproduction is 4.0. An allele that adds 20% at ages 1–2 but causes death after age 8 gains 0.288 and loses 4.0 × 0.8⁸ = 0.671, for 3.617, so it is disfavoured; it would be neutral with a 47% early boost, against only 11% when p = 0.7.",
+          "question_ids": [
+            "geroscience-17:extrinsic-survival",
+            "geroscience-17:mean-extrinsic-lifespan",
+            "geroscience-17:relative-selection-strength",
+            "geroscience-17:late-allele-frequency",
+            "geroscience-17:baseline-lifetime-reproduction",
+            "geroscience-17:late-share",
+            "geroscience-17:pleiotropic-total",
+            "geroscience-17:break-even-boost",
+            "geroscience-17:which-explanation",
+            "geroscience-17:extrinsic-mortality-prediction",
+            "geroscience-17:what-theory-does-not-show"
+          ],
+          "card_ids": [
+            "geroscience-17-card-1",
+            "geroscience-17-card-2",
+            "geroscience-17-card-3",
+            "geroscience-17-card-4"
           ]
         }
       ]
@@ -1430,6 +1531,7 @@
         "geroscience-13-objective-1",
         "geroscience-13-objective-2",
         "geroscience-13-objective-3",
+        "geroscience-13-objective-4",
         "geroscience-outcome-3",
         "geroscience-outcome-4"
       ],
@@ -1438,9 +1540,17 @@
         "geroscience-13:sample-size-d08",
         "geroscience-13:multiplicity",
         "geroscience-13:headline-evaluation",
-        "geroscience-13:significance-vs-importance"
+        "geroscience-13:significance-vs-importance",
+        "geroscience-13:baker-intervention",
+        "geroscience-13:baker-supported-claim",
+        "geroscience-13:rapamycin-statistic",
+        "geroscience-13:mechanism-from-survival",
+        "geroscience-13:two-study-comparison",
+        "geroscience-13:stronger-mechanism-test",
+        "geroscience-13:baker-control-arms",
+        "geroscience-13:human-evidence-tier"
       ],
-      "points": 5
+      "points": 14
     },
     {
       "id": "geroscience-14-practice",
@@ -1544,6 +1654,33 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "geroscience-17-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Evolutionary theories of aging practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "geroscience-17-objective-1",
+        "geroscience-17-objective-2",
+        "geroscience-17-objective-3",
+        "geroscience-outcome-1"
+      ],
+      "question_ids": [
+        "geroscience-17:extrinsic-survival",
+        "geroscience-17:mean-extrinsic-lifespan",
+        "geroscience-17:relative-selection-strength",
+        "geroscience-17:late-allele-frequency",
+        "geroscience-17:baseline-lifetime-reproduction",
+        "geroscience-17:late-share",
+        "geroscience-17:pleiotropic-total",
+        "geroscience-17:break-even-boost",
+        "geroscience-17:which-explanation",
+        "geroscience-17:extrinsic-mortality-prediction",
+        "geroscience-17:what-theory-does-not-show"
+      ],
+      "points": 11
     }
   ],
   "grading_policy": {
@@ -1608,20 +1745,56 @@
       "version": "0.5.2",
       "date": "2026-10-08",
       "summary": "Added a common-mistakes section to 10 original lessons that lacked one (geroscience-5, geroscience-6, geroscience-7, geroscience-8, geroscience-9, geroscience-10, geroscience-11, geroscience-12, geroscience-13, geroscience-14); each bullet names a mistake that the lesson's own text addresses. No answer key, tolerance or objective changed. The package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.5.3",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-1 aging-systems reading with damage-input, maintenance, and adaptation models; a synthetic biomarker/function example; and explicit limits on causal and translational claims. Existing objectives, questions, answer keys, and cards are unchanged. The course remains partial, unreviewed, and formative-only."
+    },
+    {
+      "version": "0.5.4",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-5 senescence reading with multi-feature operational classification, a synthetic marker-specificity example, context-dependent secretory functions, and limits on tissue and human generalization; reused two registered link-only primary references. Existing objectives, practice items, keys and cards are unchanged. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.5.5",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-8 stem-cell reading with niche and cell-intrinsic reasoning, a synthetic factorial transplantation example, assay selection guidance, and limits on rejuvenation claims; reused one registered link-only primary mouse reference. Existing objectives, practice items, keys and cards are unchanged. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.5.6",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-11 intervention reading with claim-matched endpoints, a synthetic survival/target-engagement/function/toxicity example, causal mechanism tests, and cross-species translation limits; reused one registered link-only primary mouse reference. Existing objectives, practice items, keys and cards are unchanged. All four compact legacy prototype readings now have expanded instruction; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.5.7",
+      "date": "2026-10-11",
+      "summary": "Added an inactive, ungraded synthetic evidence-dossier draft on age association, marker response, tissue function and survival; linked it from the syllabus and kept platform activation off. No existing lesson, practice item, answer key or retrieval card changed. The course remains partial, unreviewed and formative-only; the examples make no claim about real interventions or human aging."
+    },
+    {
+      "version": "0.5.8",
+      "date": "2026-10-11",
+      "summary": "Added an original Week 11 primary-study comparison of inducible p16-positive cell clearance and late-life rapamycin in mice, distinguishing intervention, mechanistic reach, survival/function endpoints and cross-study limits. Eight formative items and four retrieval cards extend the existing aging-intervention paper lesson without adding a week. The local exercise is narrower than the selective graduate MIT regeneration comparator; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.5.9",
+      "date": "2026-10-13",
+      "summary": "Grouped an original evolutionary-theory reading with the week-1 systems lesson: the declining force of selection under extrinsic mortality, mutation accumulation, antagonistic pleiotropy and the disposable soma, and a toy pleiotropic allele compared across environments, with link-only references to Williams (1957), Hamilton (1966) and Kirkwood (1977) resolved by DOI. Added three objectives, eleven formative items and four cards, with no week added. The course remains partial, unreviewed and formative-only and makes no claim about human aging or interventions."
     }
   ],
   "limitations": [
-    "Four compact legacy units are preserved beside 13 original readings, including one synthetic-data virtual lab; this package is not equivalent to a full university semester.",
-    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm, cumulative final, or graded integrative project.",
-    "Practice items are short formative checks (two per prototype unit and three to six per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
+    "The four compact legacy prototype readings in weeks 1, 5, 8 and 11 now have expanded instruction alongside the course’s other original lessons and synthetic-data virtual lab; this package is not equivalent to a full university semester.",
+    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab, no substantive homework sequence, laboratory sequence, midterm, cumulative final, or active graded integrative project; the new evidence dossier is an inactive authoring draft only.",
+    "Practice items are short formative checks (two per prototype unit and generally three to six per original lesson; the Week 11 paper-reading lesson now has thirteen and the Week 1 evolutionary-theory lesson eleven); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
     "Bloom labels, objective-to-outcome links, and structured prerequisite edges are authoring classifications awaiting subject-matter review.",
-    "All data tables in the new lessons are synthetic teaching data; cited studies are summarized qualitatively from link-only references and are not reproduced.",
+    "Numerical teaching data in original exercises are synthetic; the selected published-study claims are summarized qualitatively from link-only primary references, and no study data are reproduced.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
-    "Of the 31 numerical answers in this package, one requires a unit, five check significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
+    "Of the 39 numerical answers in this package, one requires a unit, five check significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
     "Total workload and weekly duration are unknown; former nominal credit values and hardcoded reading times do not establish workload."
   ],
   "intentionally_omitted": [
     "Graded assessments and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package.",
-    "No dosing, treatment, supplement, or clinical-test recommendations are given; intervention content is limited to evidence appraisal."
+    "No dosing, treatment, supplement, or clinical-test recommendations are given; intervention content is limited to evidence appraisal.",
+    "The synthetic surrogate-endpoint evidence dossier is an inactive, ungraded paper-exercise draft and is not activated or mapped to course completion."
   ]
 }

@@ -406,6 +406,9 @@ export function GradedAssessment({
   const [loading, setLoading] = useState(true);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const [submittedAssignmentToken, setSubmittedAssignmentToken] = useState<
+    string | null
+  >(null);
 
   useEffect(() => {
     let active = true;
@@ -414,6 +417,7 @@ export function GradedAssessment({
     setAssessment(null);
     setAnswers({});
     setLocalSubmissions([]);
+    setSubmittedAssignmentToken(null);
     api
       .gradedAssessment(courseId, assessmentId)
       .then((data) => {
@@ -470,8 +474,12 @@ export function GradedAssessment({
         courseId,
         assessmentId,
         answers,
+        assessment.assignment_token,
       );
       setAnswers({});
+      if (assessment.assignment_token) {
+        setSubmittedAssignmentToken(assessment.assignment_token);
+      }
       setLocalSubmissions((previous) => [...previous, submission]);
       // Count the saved attempt so the header and the attempt limit match the server.
       setAssessment((current) =>
@@ -488,6 +496,21 @@ export function GradedAssessment({
       await onSubmitted(submission);
     } catch (submitError) {
       setError(errorMessage(submitError));
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function loadNextAttempt() {
+    setBusy(true);
+    setError("");
+    try {
+      const next = await api.gradedAssessment(courseId, assessmentId);
+      setAssessment(next);
+      setAnswers({});
+      setSubmittedAssignmentToken(null);
+    } catch (loadError) {
+      setError(errorMessage(loadError));
     } finally {
       setBusy(false);
     }
@@ -522,43 +545,71 @@ export function GradedAssessment({
               onAppeal={onAppeal}
             />
           ))}
-          {assessment.schedule_status === "open" && (
-            <form onSubmit={submit} className="stack">
-              <fieldset
-                disabled={!enabled || busy || limitReached}
-                className="stack"
+          {assessment.assignment_token &&
+            submittedAssignmentToken === assessment.assignment_token &&
+            !limitReached &&
+            assessment.schedule_status === "open" && (
+              <button
+                type="button"
+                onClick={loadNextAttempt}
+                disabled={!enabled || busy}
               >
-                <legend>Submit answers</legend>
-                {assessment.questions.map((question) => (
-                  <GradedQuestion
-                    key={question.id}
-                    question={question}
-                    answer={answers[question.id]}
-                    disabled={!enabled || busy || limitReached}
-                    onChange={(answer) => setAnswer(question, answer)}
-                  />
-                ))}
-                {error && (
-                  <p role="alert" className="error">
-                    {error}
-                  </p>
-                )}
-                {limitReached ? (
-                  <p className="notice">
-                    The configured attempt limit has been reached.
-                  </p>
-                ) : (
-                  <button
-                    className="primary"
-                    type="submit"
-                    disabled={!enabled || busy}
-                  >
-                    {busy ? "Saving and grading…" : "Submit assignment"}
-                  </button>
-                )}
-              </fieldset>
-            </form>
-          )}
+                {busy ? "Loading next attempt…" : "Load next attempt"}
+              </button>
+            )}
+          {assessment.assignment_token &&
+            submittedAssignmentToken === assessment.assignment_token &&
+            limitReached && (
+              <p className="notice">
+                The configured attempt limit has been reached.
+              </p>
+            )}
+          {assessment.assignment_token &&
+            submittedAssignmentToken === assessment.assignment_token &&
+            error && (
+              <p role="alert" className="error">
+                {error}
+              </p>
+            )}
+          {assessment.schedule_status === "open" &&
+            (!assessment.assignment_token ||
+              submittedAssignmentToken !== assessment.assignment_token) && (
+              <form onSubmit={submit} className="stack">
+                <fieldset
+                  disabled={!enabled || busy || limitReached}
+                  className="stack"
+                >
+                  <legend>Submit answers</legend>
+                  {assessment.questions.map((question) => (
+                    <GradedQuestion
+                      key={question.id}
+                      question={question}
+                      answer={answers[question.id]}
+                      disabled={!enabled || busy || limitReached}
+                      onChange={(answer) => setAnswer(question, answer)}
+                    />
+                  ))}
+                  {error && (
+                    <p role="alert" className="error">
+                      {error}
+                    </p>
+                  )}
+                  {limitReached ? (
+                    <p className="notice">
+                      The configured attempt limit has been reached.
+                    </p>
+                  ) : (
+                    <button
+                      className="primary"
+                      type="submit"
+                      disabled={!enabled || busy}
+                    >
+                      {busy ? "Saving and grading…" : "Submit assignment"}
+                    </button>
+                  )}
+                </fieldset>
+              </form>
+            )}
           <p className="muted">
             Original scores are deterministic. A learner may request one human
             review per saved attempt; adjustments remain separate and auditable.

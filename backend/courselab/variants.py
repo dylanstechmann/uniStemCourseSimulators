@@ -18,9 +18,9 @@ class VariantTokenError(ValueError):
 
 
 def variant_ids(question: dict) -> list[str]:
-    config = question.get("randomization")
-    if config is None:
+    if "randomization" not in question:
         return []
+    config = question["randomization"]
     if (
         not isinstance(config, dict)
         or config.get("seeded") is not True
@@ -37,6 +37,20 @@ def variant_ids(question: dict) -> list[str]:
     if len(identifiers) != len(set(identifiers)):
         raise VariantTokenError("Authored variant identifiers must be unique")
     return identifiers
+
+
+def assignment_form_ids(questions: list[dict]) -> list[str]:
+    """Return the shared form IDs for a graded assessment, if it has variants."""
+    shared: list[str] | None = None
+    for question in questions:
+        identifiers = variant_ids(question)
+        if not identifiers:
+            continue
+        if shared is None:
+            shared = identifiers
+        elif set(identifiers) != set(shared):
+            raise VariantTokenError("Graded assessment questions must share the same authored form IDs")
+    return shared or []
 
 
 def resolve_variant(question: dict, variant_id: str | None) -> dict:

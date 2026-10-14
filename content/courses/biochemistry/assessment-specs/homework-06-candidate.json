@@ -1,0 +1,365 @@
+{
+  "candidate_id": "biochemistry-homework-06-candidate-v1",
+  "course_id": "biochemistry",
+  "content_version": "0.4.85",
+  "state": "inactive-review-candidate",
+  "title": "Homework 6 review candidate: glycolysis, energy charge and gluconeogenesis",
+  "points": 50,
+  "lesson_ids": [
+    "biochemistry-10",
+    "biochemistry-gluconeogenesis"
+  ],
+  "objective_ids": [
+    "biochemistry-10-objective-1",
+    "biochemistry-10-objective-2",
+    "biochemistry-10-objective-3",
+    "biochemistry-gluconeogenesis-objective-1",
+    "biochemistry-gluconeogenesis-objective-2"
+  ],
+  "course_outcome_ids": [
+    "biochemistry-outcome-3",
+    "biochemistry-outcome-4"
+  ],
+  "objective_link_occurrences": 10,
+  "objective_evidence": [
+    {
+      "question_id": "biochemistry-homework-06-candidate-v1:case-01",
+      "field_id": "amp",
+      "objective_ids": [
+        "biochemistry-10-objective-1"
+      ],
+      "points": 5,
+      "evidence_type": "numeric"
+    },
+    {
+      "question_id": "biochemistry-homework-06-candidate-v1:case-01",
+      "field_id": "energy-charge",
+      "objective_ids": [
+        "biochemistry-10-objective-1"
+      ],
+      "points": 5,
+      "evidence_type": "numeric"
+    },
+    {
+      "question_id": "biochemistry-homework-06-candidate-v1:case-02",
+      "field_id": "glycolytic-atp",
+      "objective_ids": [
+        "biochemistry-10-objective-2"
+      ],
+      "points": 5,
+      "evidence_type": "numeric"
+    },
+    {
+      "question_id": "biochemistry-homework-06-candidate-v1:case-02",
+      "field_id": "glucose-demand",
+      "objective_ids": [
+        "biochemistry-10-objective-2"
+      ],
+      "points": 5,
+      "evidence_type": "numeric"
+    },
+    {
+      "question_id": "biochemistry-homework-06-candidate-v1:case-03",
+      "field_id": "pfk-control",
+      "objective_ids": [
+        "biochemistry-10-objective-3"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    },
+    {
+      "question_id": "biochemistry-homework-06-candidate-v1:case-03",
+      "field_id": "pool-flux",
+      "objective_ids": [
+        "biochemistry-10-objective-3"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    },
+    {
+      "question_id": "biochemistry-homework-06-candidate-v1:case-04",
+      "field_id": "gluconeogenic-cost",
+      "objective_ids": [
+        "biochemistry-gluconeogenesis-objective-1"
+      ],
+      "points": 5,
+      "evidence_type": "numeric"
+    },
+    {
+      "question_id": "biochemistry-homework-06-candidate-v1:case-04",
+      "field_id": "bypass",
+      "objective_ids": [
+        "biochemistry-gluconeogenesis-objective-1"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    },
+    {
+      "question_id": "biochemistry-homework-06-candidate-v1:case-05",
+      "field_id": "reciprocal-regulation",
+      "objective_ids": [
+        "biochemistry-gluconeogenesis-objective-2"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    },
+    {
+      "question_id": "biochemistry-homework-06-candidate-v1:case-05",
+      "field_id": "carbon-source",
+      "objective_ids": [
+        "biochemistry-gluconeogenesis-objective-2"
+      ],
+      "points": 5,
+      "evidence_type": "single_choice"
+    }
+  ],
+  "instruction_path": "assessment-specs/homework-06-candidate.md",
+  "dataset_path": "assessment-specs/homework-06-candidate-data.csv",
+  "prerequisite_sha256": {
+    "modules/10-glycolysis-energy-charge-and-amp-signal.md": "70c1e6a8df92355859c3a61cb378325ea775ff2b89aa428884479fdeefd5ff07",
+    "modules/16-gluconeogenesis-bypass-and-reciprocal-control.md": "1ecdd1661d79acd23beb3b4443096baa198521a65260122b1280d5225bd4e89a"
+  },
+  "questions": [
+    {
+      "id": "biochemistry-homework-06-candidate-v1:case-01",
+      "type": "structured",
+      "prompt": "Use the adenylate kinase equilibrium inputs supplied for the stated model.",
+      "options": [],
+      "unit": null,
+      "significant_figures": null,
+      "points": 10,
+      "selection": "single",
+      "partial_credit_policy": null,
+      "response_fields": [
+        {
+          "id": "amp",
+          "type": "numeric",
+          "prompt": "Calculate AMP from the stated adenylate kinase relation and ATP/ADP concentrations.",
+          "options": [],
+          "unit": "mM",
+          "points": 5,
+          "significant_figures": 3
+        },
+        {
+          "id": "energy-charge",
+          "type": "numeric",
+          "prompt": "Calculate adenylate energy charge from ATP, ADP and AMP.",
+          "options": [],
+          "unit": "",
+          "points": 5,
+          "significant_figures": 3
+        }
+      ],
+      "graph_spec": null,
+      "accepted_media_types": [],
+      "max_upload_bytes": null,
+      "variant_id": null,
+      "variant_token": null,
+      "learning_objective_ids": [
+        "biochemistry-10-objective-1"
+      ],
+      "assessment_role": "graded"
+    },
+    {
+      "id": "biochemistry-homework-06-candidate-v1:case-02",
+      "type": "structured",
+      "prompt": "Use the specified glucose-to-lactate accounting boundary and ATP demand.",
+      "options": [],
+      "unit": null,
+      "significant_figures": null,
+      "points": 10,
+      "selection": "single",
+      "partial_credit_policy": null,
+      "response_fields": [
+        {
+          "id": "glycolytic-atp",
+          "type": "numeric",
+          "prompt": "How many ATP equivalents per glucose are produced when one glucose is converted to two lactate molecules under the stated model? Enter a dimensionless number.",
+          "options": [],
+          "unit": "",
+          "points": 5,
+          "significant_figures": 3
+        },
+        {
+          "id": "glucose-demand",
+          "type": "numeric",
+          "prompt": "Calculate the glucose amount needed to meet the listed ATP demand using that net yield.",
+          "options": [],
+          "unit": "mmol",
+          "points": 5,
+          "significant_figures": 3
+        }
+      ],
+      "graph_spec": null,
+      "accepted_media_types": [],
+      "max_upload_bytes": null,
+      "variant_id": null,
+      "variant_token": null,
+      "learning_objective_ids": [
+        "biochemistry-10-objective-2"
+      ],
+      "assessment_role": "graded"
+    },
+    {
+      "id": "biochemistry-homework-06-candidate-v1:case-03",
+      "type": "structured",
+      "prompt": "Interpret the stipulated metabolite pool and flux observations.",
+      "options": [],
+      "unit": null,
+      "significant_figures": null,
+      "points": 10,
+      "selection": "single",
+      "partial_credit_policy": null,
+      "response_fields": [
+        {
+          "id": "pfk-control",
+          "type": "single_choice",
+          "prompt": "Which listed regulator pattern is consistent with allosteric control of phosphofructokinase?",
+          "options": [
+            "Energy charge and metabolite effectors can alter enzyme activity rapidly.",
+            "A larger metabolite pool always means larger pathway flux.",
+            "Flux can only change after new protein synthesis."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        },
+        {
+          "id": "pool-flux",
+          "type": "single_choice",
+          "prompt": "Which statement correctly separates a pool from a flux?",
+          "options": [
+            "A pool is a rate per time.",
+            "A steady pool can coexist with changing throughput when input and output change together.",
+            "A flux is the concentration measured at one instant."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        }
+      ],
+      "graph_spec": null,
+      "accepted_media_types": [],
+      "max_upload_bytes": null,
+      "variant_id": null,
+      "variant_token": null,
+      "learning_objective_ids": [
+        "biochemistry-10-objective-3"
+      ],
+      "assessment_role": "graded"
+    },
+    {
+      "id": "biochemistry-homework-06-candidate-v1:case-04",
+      "type": "structured",
+      "prompt": "Use the stated pyruvate-to-glucose pathway accounting and count ATP, GTP and reducing equivalents separately.",
+      "options": [],
+      "unit": null,
+      "significant_figures": null,
+      "points": 10,
+      "selection": "single",
+      "partial_credit_policy": null,
+      "response_fields": [
+        {
+          "id": "gluconeogenic-cost",
+          "type": "numeric",
+          "prompt": "Calculate the listed amount of ATP molecules, in mmol, for the stated pyruvate amount.",
+          "options": [],
+          "unit": "mmol",
+          "points": 5,
+          "significant_figures": 3
+        },
+        {
+          "id": "bypass",
+          "type": "single_choice",
+          "prompt": "Which reaction set captures the purpose of gluconeogenic bypasses?",
+          "options": [
+            "Reverse every glycolytic step with the same enzyme.",
+            "Convert acetyl-CoA directly into glucose.",
+            "Use distinct enzymes to bypass strongly exergonic glycolytic steps."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        }
+      ],
+      "graph_spec": null,
+      "accepted_media_types": [],
+      "max_upload_bytes": null,
+      "variant_id": null,
+      "variant_token": null,
+      "learning_objective_ids": [
+        "biochemistry-gluconeogenesis-objective-1"
+      ],
+      "assessment_role": "graded"
+    },
+    {
+      "id": "biochemistry-homework-06-candidate-v1:case-05",
+      "type": "structured",
+      "prompt": "Compare the supplied glycolytic and gluconeogenic conditions and the listed carbon sources.",
+      "options": [],
+      "unit": null,
+      "significant_figures": null,
+      "points": 10,
+      "selection": "single",
+      "partial_credit_policy": null,
+      "response_fields": [
+        {
+          "id": "reciprocal-regulation",
+          "type": "single_choice",
+          "prompt": "Which regulatory pattern helps limit simultaneous high glycolytic and gluconeogenic flux?",
+          "options": [
+            "Reciprocal regulation of opposing pathway steps.",
+            "Activation of every step in both directions at once.",
+            "Only changing the total ATP pool."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        },
+        {
+          "id": "carbon-source",
+          "type": "single_choice",
+          "prompt": "Which carbon-source conclusion is consistent with mammalian net-glucose accounting?",
+          "options": [
+            "Even-chain fatty-acid acetyl-CoA yields net glucose without another carbon input.",
+            "Propionate-derived carbon can contribute through a net-glucose intermediate; acetyl-CoA alone cannot.",
+            "All amino-acid carbon is ketogenic."
+          ],
+          "unit": null,
+          "points": 5,
+          "significant_figures": null
+        }
+      ],
+      "graph_spec": null,
+      "accepted_media_types": [],
+      "max_upload_bytes": null,
+      "variant_id": null,
+      "variant_token": null,
+      "learning_objective_ids": [
+        "biochemistry-gluconeogenesis-objective-2"
+      ],
+      "assessment_role": "graded"
+    }
+  ],
+  "review": {
+    "status": "unreviewed",
+    "reviewers": []
+  },
+  "activation_gates": [
+    "independent-recalculation",
+    "grader-mutation-review",
+    "qualified-biochemical-review",
+    "assessment-blueprint-review",
+    "accessibility-and-fairness-review",
+    "measured-workload",
+    "candidate-specific-protected-delivery-verification",
+    "operator-release-and-retake-policy"
+  ],
+  "key_status": "An unreviewed private key/grader draft is stored outside the public package. It is not approved or active and requires candidate-specific hash checks, independent recalculation and mutation review.",
+  "provenance": {
+    "kind": "original",
+    "license": "CC-BY-4.0",
+    "ai_assistance": "Codex authored an answer-free draft; no independent or qualified review occurred.",
+    "source_scope": "Existing course lessons and synthetic observations authored for this candidate; no external assessment or dataset was copied."
+  }
+}

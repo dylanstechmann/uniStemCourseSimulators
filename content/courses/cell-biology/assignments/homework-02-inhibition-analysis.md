@@ -1,10 +1,10 @@
 # Homework 2 practice: initial rates and reversible inhibition
 
 **Status:** open formative practice; this packet and its answer specifications are public and are not suitable for a protected or summative exam. It does not contribute to a course grade.
-**Course package:** Foundations of Cell and Molecular Biology, version 0.19.0
-**Suggested time:** 2–3 hours
+**Course package:** Foundations of Cell and Molecular Biology, version 0.61.0
+**Suggested time (unvalidated author estimate):** 2–3 hours
 **Prerequisite lessons:** [Enzyme catalysis, reaction mechanisms, and free energy](../modules/04a-enzyme-catalysis-and-free-energy.md) and [Initial-rate evidence and reversible enzyme inhibition](../modules/04b-initial-rates-and-enzyme-inhibition.md).
-**Dataset:** [synthetic initial-rate measurements](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/cell-biology/assignments/homework-02-inhibition-rates.csv).
+**Dataset:** [synthetic initial-rate measurements](homework-02-inhibition-rates.csv).
 
 ## Purpose
 

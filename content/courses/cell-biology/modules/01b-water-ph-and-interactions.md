@@ -14,6 +14,8 @@ Many functional groups can gain or lose a proton. For the pair HA ⇌ H⁺ + A�
 
 `pH = pKa + log10([A⁻]/[HA])`
 
+**In words:** pH equals the pKa plus the base-10 logarithm of the deprotonated-to-protonated concentration ratio.
+
 When pH equals pKa, the two forms are present in equal amounts in the model. One pH unit above pKa gives a tenfold excess of deprotonated form; one unit below gives a tenfold excess of protonated form. This is an equilibrium relationship, not a claim that every molecule has a fixed half-charge or that pKa never changes with environment.
 
 ### Worked calculation: a histidine-like group

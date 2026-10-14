@@ -7,14 +7,17 @@
   "domain": "Mathematics",
   "level": "Year 1",
   "maturity": "partial",
-  "version": "0.4.0",
+  "version": "0.4.9",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
     "source_path": "src/data/courses.js",
     "source_sha256": "a77a7cb7f5be2ffa12068877042ac775c6d9b79b83ac2f316fe4f26a0d3d783b",
     "migration_version": "1.0",
-    "modifications": []
+    "modifications": [
+      "Linked the first four lesson pairs to course outcomes, corrected the introductory derivative item association, and added a direct limit check.",
+      "Added an original Mean Value Theorem sequence with hypothesis checks and monotonicity, uniqueness and finite-change consequences."
+    ]
   },
   "prerequisites": {
     "course_ids": [],
@@ -45,6 +48,11 @@
       "id": "calculus-1-outcome-4",
       "description": "Interpret definite integrals as accumulated change.",
       "bloom": "analyze"
+    },
+    {
+      "id": "calculus-1-outcome-5",
+      "description": "Apply Rolle's and Mean Value Theorems and their consequences to justify monotonicity, uniqueness, and rate bounds.",
+      "bloom": "analyze"
     }
   ],
   "lesson_objectives": [
@@ -52,49 +60,65 @@
       "id": "calculus-1-1-objective-1",
       "description": "Evaluate limits using algebraic and graphical reasoning.",
       "bloom": "evaluate",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "calculus-1-outcome-1"
+      ]
     },
     {
       "id": "calculus-1-1-objective-2",
       "description": "Use a local linear approximation and estimate its domain of validity.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "calculus-1-outcome-1"
+      ]
     },
     {
       "id": "calculus-1-2-objective-1",
       "description": "Differentiate products, quotients, and nested functions.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "calculus-1-outcome-2"
+      ]
     },
     {
       "id": "calculus-1-2-objective-2",
       "description": "Keep variables and units attached to a model's rate of change.",
       "bloom": "understand",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "calculus-1-outcome-2"
+      ]
     },
     {
       "id": "calculus-1-3-objective-1",
       "description": "Use critical points and endpoints to optimize a continuous model.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "calculus-1-outcome-3"
+      ]
     },
     {
       "id": "calculus-1-3-objective-2",
       "description": "Translate geometric or physical constraints before differentiating.",
       "bloom": "understand",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "calculus-1-outcome-3"
+      ]
     },
     {
       "id": "calculus-1-4-objective-1",
       "description": "Interpret an integral as signed accumulation.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "calculus-1-outcome-4"
+      ]
     },
     {
       "id": "calculus-1-4-objective-2",
       "description": "Use integration to recover a state from its rate.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "calculus-1-outcome-4"
+      ]
     },
     {
       "id": "calculus-1-5-objective-1",
@@ -349,11 +373,60 @@
         "calculus-1-outcome-3",
         "calculus-1-outcome-4"
       ]
+    },
+    {
+      "id": "calculus-1-14-objective-1",
+      "description": "Verify interval hypotheses and apply Rolle's Theorem or the Mean Value Theorem.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "calculus-1-outcome-5"
+      ]
+    },
+    {
+      "id": "calculus-1-14-objective-2",
+      "description": "Use the Mean Value Theorem to justify monotonicity and uniqueness, distinguishing these claims from root existence.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-1-outcome-5"
+      ]
+    },
+    {
+      "id": "calculus-1-14-objective-3",
+      "description": "Use a derivative bound to bound finite-interval change and identify where the bound applies.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "calculus-1-outcome-5"
+      ]
+    },
+    {
+      "id": "calculus-1-15-objective-1",
+      "description": "Apply the inverse-function rule, including where the inverse has no formula, and state when the inverse is differentiable.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "calculus-1-outcome-2"
+      ]
+    },
+    {
+      "id": "calculus-1-15-objective-2",
+      "description": "Differentiate ln x, logarithms in other bases, aˣ, arcsine and arctangent, and combine them with the chain rule.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "calculus-1-outcome-2"
+      ]
+    },
+    {
+      "id": "calculus-1-15-objective-3",
+      "description": "Use logarithmic differentiation for products, quotients and variable exponents, evaluate the limit that defines e, and estimate a sensitivity from a logarithmic derivative.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-1-outcome-2",
+        "calculus-1-outcome-3"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week scope, with four compact prototype readings in weeks 1, 3, 6 and 9. All activities are formative; workload and human review are absent, so this is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week scope, with four compact prototype readings in weeks 1, 3, 6 and 9. The Mean Value Theorem sequence is integrated with derivative-sign analysis in week 7. Week 4 pairs implicit differentiation with inverse, exponential and logarithmic derivatives. All activities are formative; workload and human review are absent, so this is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
@@ -387,12 +460,14 @@
       },
       {
         "week": 4,
-        "title": "Composite functions, implicit curves and related rates",
+        "title": "Composite functions, implicit curves, related rates, and inverse, exponential and logarithmic derivatives",
         "lesson_ids": [
-          "calculus-1-8"
+          "calculus-1-8",
+          "calculus-1-15"
         ],
         "assessment_ids": [
-          "calculus-1-8-practice"
+          "calculus-1-8-practice",
+          "calculus-1-15-practice"
         ]
       },
       {
@@ -417,12 +492,14 @@
       },
       {
         "week": 7,
-        "title": "Curve shape, critical points and constrained optimization",
+        "title": "Curve shape, constrained optimization, and the Mean Value Theorem",
         "lesson_ids": [
-          "calculus-1-9"
+          "calculus-1-9",
+          "calculus-1-14"
         ],
         "assessment_ids": [
-          "calculus-1-9-practice"
+          "calculus-1-9-practice",
+          "calculus-1-14-practice"
         ]
       },
       {
@@ -520,10 +597,11 @@
             "calculus-1-1-objective-1",
             "calculus-1-1-objective-2"
           ],
-          "worked_example": "For f(x) = x² near x = 3, the linear approximation is f(3+h) ≈ 9 + 6h; at h = 0.1 the approximation is 9.6 versus the exact 9.61.",
+          "worked_example": "For f(u)=sqrt(100+u), the tangent at u=0 gives L(u)=10+0.05u. At u=20, L=11 while the exact value sqrt(120) is about 10.954451, so the error is 0.045549. The Taylor remainder bound on |u|≤25 is about 0.076980.",
           "question_ids": [
             "calculus-1-1:check",
-            "calculus-1-1:linearization"
+            "calculus-1-1:linearization",
+            "calculus-1-1:limit-factor-cancel"
           ],
           "card_ids": [
             "calculus-1-0-0",
@@ -548,7 +626,7 @@
             "calculus-1-2-objective-1",
             "calculus-1-2-objective-2"
           ],
-          "worked_example": "If response R(c) = 100c/(2+c) and concentration c(t) changes in time, dR/dt = (200/(2+c)²)·dc/dt.",
+          "worked_example": "For R(c)=100c/(2 mM+c), quotient differentiation gives dR/dc=200 mM/(2 mM+c)². If c(t)=4 exp(−0.1 h⁻¹·t) mM, then at t=0, dc/dt=−0.4 mM/h and dR/dt=−2.22 percentage points/h. The mM factors cancel in the product, leaving response per hour.",
           "question_ids": [
             "calculus-1-2:check",
             "calculus-1-2:symbolic-quotient-derivative",
@@ -577,7 +655,7 @@
             "calculus-1-3-objective-1",
             "calculus-1-3-objective-2"
           ],
-          "worked_example": "A scaffold design minimizes a cost function over 0 ≤ porosity ≤ 1; an unconstrained stationary point outside that interval is infeasible and must be discarded.",
+          "worked_example": "A 20 cm perimeter gives A(x)=x(10−x) on 0<x<10; the feasible critical point x=5 cm gives maximum area 25 cm². If width increases at 0.2 cm/s while length stays 10 cm, area grows at 2 cm²/s.",
           "question_ids": [
             "calculus-1-3:check",
             "calculus-1-3:constrained-optimization"
@@ -605,7 +683,7 @@
             "calculus-1-4-objective-1",
             "calculus-1-4-objective-2"
           ],
-          "worked_example": "If a constant infusion adds 2 mg/L per hour for 3 hours with no clearance, concentration rises by 6 mg/L.",
+          "worked_example": "For the synthetic rate r(t)=4−t mg/min on 0≤t≤6 min, the net change is 6 mg, total transfer is 10 mg, and an initial state of 12 mg ends at 18 mg.",
           "question_ids": [
             "calculus-1-4:check",
             "calculus-1-4:state-from-rate"
@@ -764,6 +842,45 @@
       ]
     },
     {
+      "id": "calculus-1-module-15",
+      "title": "Derivatives of inverse functions, exponentials and logarithms",
+      "source_ids": [
+        "calculus"
+      ],
+      "lessons": [
+        {
+          "id": "calculus-1-15",
+          "title": "Derivatives of inverse functions, exponentials and logarithms",
+          "reading": "modules/15-inverse-functions-exponentials-and-logarithms.md",
+          "objectives": [
+            "calculus-1-15-objective-1",
+            "calculus-1-15-objective-2",
+            "calculus-1-15-objective-3"
+          ],
+          "worked_example": "For the synthetic f(x) = x³ + 2x with f(1) = 3, the inverse slope is g′(3) = 1/f′(1) = 0.2. For y = xˣ, logarithmic differentiation gives y′ = xˣ(ln x + 1) = 56.66 at x = 3. A 25% concentration increase lowers pH by about 0.109 in the linear estimate against 0.097 exactly.",
+          "question_ids": [
+            "calculus-1-15:inverse-slope",
+            "calculus-1-15:arcsine-slope",
+            "calculus-1-15:general-exponential",
+            "calculus-1-15:log-chain",
+            "calculus-1-15:variable-power",
+            "calculus-1-15:log-product-quotient",
+            "calculus-1-15:e-limit-fifty",
+            "calculus-1-15:ph-sensitivity",
+            "calculus-1-15:log-chain-constant",
+            "calculus-1-15:exponential-not-power",
+            "calculus-1-15:arcsine-branch"
+          ],
+          "card_ids": [
+            "calculus-1-15-card-1",
+            "calculus-1-15-card-2",
+            "calculus-1-15-card-3",
+            "calculus-1-15-card-4"
+          ]
+        }
+      ]
+    },
+    {
       "id": "calculus-1-module-9",
       "title": "Curve shape, critical points and constrained optimization",
       "source_ids": [
@@ -797,6 +914,43 @@
             "calculus-1-9-card-2",
             "calculus-1-9-card-3",
             "calculus-1-9-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "calculus-1-module-14",
+      "title": "Rolle's Theorem, the Mean Value Theorem and consequences",
+      "source_ids": [
+        "calculus-mvt"
+      ],
+      "lessons": [
+        {
+          "id": "calculus-1-14",
+          "title": "Rolle's Theorem, the Mean Value Theorem and consequences",
+          "reading": "modules/14-rolle-mean-value-theorem-and-consequences.md",
+          "objectives": [
+            "calculus-1-14-objective-1",
+            "calculus-1-14-objective-2",
+            "calculus-1-14-objective-3"
+          ],
+          "worked_example": "For f(x)=x² on [1,3], the secant slope is (9-1)/(3-1)=4. Since f'(x)=2x, c=2 is an interior point with f'(c)=4. For p(x)=x³+x-1 on [0,1], a sign change gives existence and p'(x)=3x²+1>0 gives strict increase, hence uniqueness.",
+          "question_ids": [
+            "calculus-1-14:hypotheses",
+            "calculus-1-14:continuity-failure",
+            "calculus-1-14:differentiability-failure",
+            "calculus-1-14:monotonicity",
+            "calculus-1-14:unique-root",
+            "calculus-1-14:nonunique-c",
+            "calculus-1-14:mvt-c",
+            "calculus-1-14:rolle-c",
+            "calculus-1-14:rate-bound"
+          ],
+          "card_ids": [
+            "calculus-1-14-card-1",
+            "calculus-1-14-card-2",
+            "calculus-1-14-card-3",
+            "calculus-1-14-card-4"
           ]
         }
       ]
@@ -999,13 +1153,15 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "calculus-1-1-objective-1",
-        "calculus-1-1-objective-2"
+        "calculus-1-1-objective-2",
+        "calculus-1-outcome-1"
       ],
       "question_ids": [
         "calculus-1-1:check",
-        "calculus-1-1:linearization"
+        "calculus-1-1:linearization",
+        "calculus-1-1:limit-factor-cancel"
       ],
-      "points": 2
+      "points": 3
     },
     {
       "id": "calculus-1-2-practice",
@@ -1014,7 +1170,8 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "calculus-1-2-objective-1",
-        "calculus-1-2-objective-2"
+        "calculus-1-2-objective-2",
+        "calculus-1-outcome-2"
       ],
       "question_ids": [
         "calculus-1-2:check",
@@ -1030,7 +1187,8 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "calculus-1-3-objective-1",
-        "calculus-1-3-objective-2"
+        "calculus-1-3-objective-2",
+        "calculus-1-outcome-3"
       ],
       "question_ids": [
         "calculus-1-3:check",
@@ -1045,7 +1203,8 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "calculus-1-4-objective-1",
-        "calculus-1-4-objective-2"
+        "calculus-1-4-objective-2",
+        "calculus-1-outcome-4"
       ],
       "question_ids": [
         "calculus-1-4:check",
@@ -1174,6 +1333,31 @@
         "calculus-1-9:stationary",
         "calculus-1-9:endpoints",
         "calculus-1-9:design"
+      ],
+      "points": 9
+    },
+    {
+      "id": "calculus-1-14-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Mean Value Theorem and consequences practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "calculus-1-14-objective-1",
+        "calculus-1-14-objective-2",
+        "calculus-1-14-objective-3",
+        "calculus-1-outcome-5"
+      ],
+      "question_ids": [
+        "calculus-1-14:hypotheses",
+        "calculus-1-14:continuity-failure",
+        "calculus-1-14:differentiability-failure",
+        "calculus-1-14:monotonicity",
+        "calculus-1-14:unique-root",
+        "calculus-1-14:nonunique-c",
+        "calculus-1-14:mvt-c",
+        "calculus-1-14:rolle-c",
+        "calculus-1-14:rate-bound"
       ],
       "points": 9
     },
@@ -1319,6 +1503,34 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "calculus-1-15-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Inverse, exponential and logarithmic derivatives practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "calculus-1-15-objective-1",
+        "calculus-1-15-objective-2",
+        "calculus-1-15-objective-3",
+        "calculus-1-outcome-2",
+        "calculus-1-outcome-3"
+      ],
+      "question_ids": [
+        "calculus-1-15:inverse-slope",
+        "calculus-1-15:arcsine-slope",
+        "calculus-1-15:general-exponential",
+        "calculus-1-15:log-chain",
+        "calculus-1-15:variable-power",
+        "calculus-1-15:log-product-quotient",
+        "calculus-1-15:e-limit-fifty",
+        "calculus-1-15:ph-sensitivity",
+        "calculus-1-15:log-chain-constant",
+        "calculus-1-15:exponential-not-power",
+        "calculus-1-15:arcsine-branch"
+      ],
+      "points": 11
     }
   ],
   "grading_policy": {
@@ -1378,19 +1590,64 @@
       "version": "0.4.0",
       "date": "2026-10-09",
       "summary": "Added seven original lessons on limits and derivative definitions, composite and implicit rates, constrained optimization, accumulation and substitution, numerical calculus and error, local approximations and Newton steps, and the semilog washout case; a synthetic washout-background lab; and a proposed 14-week schedule. Developed with Codex assistance, using existing scope references only. Still partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.1",
+      "date": "2026-10-10",
+      "summary": "Expanded the introductory limits, continuity and local-approximation reading with a removable-hole example, one-sided limits and a Taylor remainder bound. Existing questions, keys, objectives, and schedule are unchanged. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.2",
+      "date": "2026-10-10",
+      "summary": "Expanded the derivative-rules reading with product, quotient and chain rules, exponential decay and unit-aware composition of a concentration response. Existing questions, keys and objectives are unchanged. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.3",
+      "date": "2026-10-10",
+      "summary": "Expanded the optimization reading with a fixed-perimeter rectangle, explicit open-versus-closed feasible domains, endpoint comparison and a unit-aware area rate. Existing questions, keys and objectives are unchanged. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.4",
+      "date": "2026-10-10",
+      "summary": "Expanded the definite-integral reading with signed versus total accumulation, both parts of the Fundamental Theorem, and a rate-to-state example with units. Existing questions, keys and objectives are unchanged. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.5",
+      "date": "2026-10-10",
+      "summary": "Linked the first four lesson pairs to outcomes 1–4, corrected the introductory derivative item association, and added direct formative practice for a removable-factor limit. Existing numeric prompts and keys are unchanged; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.6",
+      "date": "2026-10-10",
+      "summary": "Added an inactive washout model portfolio using a separate constructed biexponential signal, with derivative and Newton-threshold analysis, exact accumulation, composite-Simpson error and blank-sensitivity calculations. The paper-only project has an unweighted review rubric and is not scheduled or graded; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.7",
+      "date": "2026-10-11",
+      "summary": "Added an original Mean Value Theorem sequence on interval hypotheses, Rolle's Theorem, monotonicity, uniqueness, and finite-change bounds in week 7; included nine formative items and four retrieval cards. The course remains partial and unreviewed."
+    },
+    {
+      "version": "0.4.8",
+      "date": "2026-10-13",
+      "summary": "The syllabus outcome list now quotes the manifest's course outcomes exactly; the newest outcome had been paraphrased. The week-7 schedule row now lists both lesson titles exactly. No lesson, item, key or card changed. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.9",
+      "date": "2026-10-13",
+      "summary": "Grouped an original reading on derivatives of inverse functions, exponentials and logarithms with the week-4 implicit-differentiation lesson: the inverse-function rule, ln x, aˣ and log_a x, arcsine and arctangent, logarithmic differentiation, the limit defining e, and logarithmic derivatives as sensitivities. Added three objectives, eleven formative items and four cards, with no week added, and corrected a stale limitation count (fifteen scheduled readings before this release, not fourteen). The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "Four compact legacy units remain beside ten original readings, including one synthetic-data virtual lab; this package is not equivalent to a full university semester.",
-    "The proposed 14-week schedule is unmeasured and unreviewed. One synthetic lab is not a laboratory sequence; graded homework, exams and an integrative project are not authored.",
+    "All sixteen scheduled readings now contain expanded or original instructional text, including one synthetic-data virtual lab; this package is not equivalent to a full university semester.",
+    "The proposed 14-week schedule is unmeasured and unreviewed. One synthetic lab is not a laboratory sequence; graded homework and exams are not authored. An inactive integrative project draft is not scheduled or graded.",
     "Formative items and provisional objective associations do not establish comprehensive coverage or mastery.",
     "Bloom labels, prerequisite edges and mathematical accessibility await qualified review.",
     "Answers and feedback are intentionally public practice authoring specifications, not restricted exam keys.",
-    "Of the 64 numeric item answers, 9 require a unit; none checks significant figures or dimensions. New bare-number prompts state the relevant output scale. CSV checks use explicit tolerances.",
+    "Of the 75 numeric item answers, 9 require a unit; none checks significant figures or dimensions. New bare-number prompts state the relevant output scale. CSV checks use explicit tolerances.",
     "Total and weekly workload are unknown. The proposed schedule is planning scope only.",
     "All new functions, concentrations and observations are synthetic teaching examples. No real clearance rate, biological mechanism, dosing advice, device specification or experimental protocol is established."
   ],
   "intentionally_omitted": [
-    "Graded assessments, a laboratory sequence, cumulative project, measured workload, accessibility review and qualified human content review remain outstanding."
+    "Graded assessments, a laboratory sequence, an activated cumulative project, measured workload, accessibility review and qualified human content review remain outstanding."
   ]
 }

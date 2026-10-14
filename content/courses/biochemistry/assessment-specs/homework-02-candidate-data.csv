@@ -1,0 +1,29 @@
+case_id,variable,value,unit,notes
+case-01,delta_g_unfold,4.8,kJ/mol,stipulated standard-state model input
+case-01,temperature,298.15,K,stipulated model temperature
+case-01,gas_constant,0.008314,kJ/(mol K),stipulated model constant
+case-02,delta_g_water,5.1,kJ/mol,linear extrapolation intercept
+case-02,denaturant_slope,3.2,kJ/(mol M),stipulated positive m-value
+case-02,denaturant_concentration,1.0,M,synthetic assay condition
+case-03,construct_A_delta_g_water,4.5,kJ/mol,fictional construct and condition
+case-03,construct_B_delta_g_water,3.7,kJ/mol,fictional construct under the stated perturbation
+case-03,construct_A_m,2.8,kJ/(mol M),stipulated model slope
+case-03,construct_B_m,2.8,kJ/(mol M),stipulated model slope
+case-04,free_ligand,40,nM,free concentration supplied directly
+case-04,kd,20,nM,stipulated dissociation constant
+case-04,receptor_total,50,nM,total receptor for depletion calculation
+case-04,ligand_total,60,nM,total ligand for depletion calculation
+case-05,hill_n,2.4,none,fictional cooperative model parameter
+case-05,p50,26,mmHg,fictional half-saturation pressure
+case-05,oxygen_pressure_low,12,mmHg,comparison point
+case-05,oxygen_pressure_high,60,mmHg,comparison point
+case-06,crude_volume,12,mL,fictional starting fraction
+case-06,crude_protein_concentration,5,mg/mL,synthetic measured value
+case-06,crude_activity_per_ml,10,U/mL,synthetic measured value
+case-06,fraction_volume,3,mL,fictional collected fraction
+case-06,fraction_protein_concentration,2,mg/mL,synthetic measured value
+case-06,fraction_activity_per_ml,28,U/mL,synthetic measured value
+case-07,first_step,ion exchange,none,charge-based separation property
+case-07,target_pI,6.4,pH,fictional stipulated target property
+case-07,buffer_pH,8.0,pH,stipulated separation condition
+case-07,orthogonal_step,size exclusion,none,size-based separation property

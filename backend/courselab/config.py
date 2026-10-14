@@ -59,6 +59,8 @@ class Settings:
                     "ALLOWED_ORIGINS", "http://localhost:8080,http://127.0.0.1:8080"
                 ).split(",") if origin.strip()
             ),
+            rate_limit=int(os.getenv("RATE_LIMIT", "120")),
+            auth_rate_limit=int(os.getenv("AUTH_RATE_LIMIT", "30")),
             cookie_secure=os.getenv("COOKIE_SECURE", "true").lower() == "true",
             variant_token_secret=(
                 variant_secret.encode("utf-8") if variant_secret is not None else secrets.token_bytes(32)

@@ -40,7 +40,7 @@ def test_unit_field_conflict_rejected():
     assert not grade(numeric(), AttemptRequest(response="80 kg", unit="μmol/min")).correct
 
 
-@pytest.mark.parametrize("expected,wrong", [("mV", "MV"), ("ms", "mS"), ("mM", "mm"), ("M", "m")])
+@pytest.mark.parametrize("expected,wrong", [("mV", "MV"), ("ms", "mS"), ("mM", "mm"), ("M", "m"), ("kHz", "KHz")])
 def test_si_units_and_prefixes_remain_case_sensitive(expected, wrong):
     item = numeric()
     item["solution_spec"]["unit"] = expected
@@ -126,6 +126,7 @@ def test_maximum_significant_figure_requirement_is_enforceable():
     ("mmol/(L·h)", 60, "1", "μmol/(mL·min)"),
     ("m/s²", 9.81, "981", "cm/s^2"),
     ("%", 80, "0.8", "fraction"),
+    ("kHz", 400, "400000", "Hz"),
 ])
 def test_supported_units_convert_before_absolute_tolerance(authored_unit, answer, response, unit):
     item = numeric()
@@ -172,6 +173,24 @@ def test_compound_units_compare_dimensions_and_preserve_prefix_case():
     item["solution_spec"].update(answer=2, unit="N", tolerance=0)
     assert grade(item, AttemptRequest(response="2 kg·m/s²")).correct
     assert grade(item, AttemptRequest(response="2 mV")).feedback.diagnosis == "unit_mistake"
+    item["solution_spec"].update(answer=1, unit="kW", tolerance=0)
+    assert grade(item, AttemptRequest(response="1000 W")).correct
+
+
+def test_enzyme_activity_and_specific_activity_units_convert_consistently():
+    item = numeric()
+    item["solution_spec"].update(answer=1, unit="U", tolerance=0)
+    assert grade(item, AttemptRequest(response="1 μmol/min")).correct
+
+    item["solution_spec"].update(answer=1, unit="U/mg", tolerance=0)
+    assert grade(item, AttemptRequest(response="1 mol/(min·kg)")).correct
+
+
+def test_fold_change_is_contextual_and_only_matches_its_authored_label():
+    item = numeric()
+    item["solution_spec"].update(answer=6, unit="fold", tolerance=0)
+    assert grade(item, AttemptRequest(response="6 fold")).correct
+    assert grade(item, AttemptRequest(response="6 fraction")).feedback.diagnosis == "unit_mistake"
 
 
 def test_dimension_spec_is_checked_against_authored_unit():
@@ -190,7 +209,7 @@ def test_unknown_authored_or_affine_units_fail_closed():
         grade(item, AttemptRequest(response="20 °C"))
 
 
-@pytest.mark.parametrize("unit,value", [("pH", 7.2), ("units", 12), ("mol ATP", 3)])
+@pytest.mark.parametrize("unit,value", [("pH", 7.2), ("units", 12), ("mol ATP", 3), ("fold", 6)])
 def test_legacy_context_units_are_supported_only_in_their_authored_scale(unit, value):
     item = numeric()
     item["solution_spec"].update(unit=unit, answer=value, tolerance=0)
@@ -199,11 +218,22 @@ def test_legacy_context_units_are_supported_only_in_their_authored_scale(unit, v
     assert grade(item, AttemptRequest(response=f"{value} {cross_unit}")).feedback.diagnosis == "unit_mistake"
 
 
-def test_context_unit_cannot_be_composed_or_given_an_exponent():
+def test_percentage_point_unit_is_distinct_from_relative_percent():
     item = numeric()
-    item["solution_spec"].update(unit="pH/s", answer=7, tolerance=0)
+    item["solution_spec"].update(answer=9, unit="pp", tolerance=0.01)
+
+    assert grade(item, AttemptRequest(response="9", unit="pp")).correct
+    percent = grade(item, AttemptRequest(response="9", unit="%"))
+    assert not percent.correct
+    assert percent.feedback.diagnosis == "unit_mistake"
+
+
+@pytest.mark.parametrize("unit", ["pH/s", "pp/s"])
+def test_context_unit_cannot_be_composed_or_given_an_exponent(unit):
+    item = numeric()
+    item["solution_spec"].update(unit=unit, answer=7, tolerance=0)
     with pytest.raises(ValueError, match="Authored unit is unsupported"):
-        grade(item, AttemptRequest(response="7 pH/s"))
+        grade(item, AttemptRequest(response=f"7 {unit}"))
 
 
 def test_equivalent_explicit_and_inline_units_are_not_a_conflict():

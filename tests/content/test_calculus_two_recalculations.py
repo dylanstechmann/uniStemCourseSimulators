@@ -36,6 +36,10 @@ def integral(f, a, b, panels=1000):
     )
 
 
+def derivative(f, x, step=1e-5):
+    return (f(x + step) - f(x - step)) / (2 * step)
+
+
 def interpolate(nodes, values, x):
     result = 0
     for j, value in enumerate(values):
@@ -212,6 +216,30 @@ def expected_answers():
         radial_total=radial,
         radial_average=radial / disk_area,
     )
+    # Lesson 14: evaluate each limit numerically near the limit point (no L'Hopital step).
+    add(
+        14,
+        lhopital_exp=(math.exp(2e-6) - 1) / math.sin(3e-6),
+        lhopital_rational=(5 * 1e6**2 + 2) / (2 * 1e6**2 - 1),
+        lhopital_repeat=(1e-3 - math.sin(1e-3)) / 1e-3**3,
+        transform_power=(1 + 1e-9) ** (1 / 1e-9),
+        transform_product=1e-12 * math.log(1e-12),
+    )
+    # Lesson 15: Simpson quadrature of each original integrand (no antiderivative). The secant item's
+    # endpoint singularity is removed with x = 3 + t^2 rather than a trigonometric substitution.
+    add(
+        15,
+        odd_power=integral(lambda x: math.sin(x) ** 5, 0, math.pi / 2),
+        even_power=integral(lambda x: math.sin(x) ** 4, 0, math.pi / 2),
+        tangent_integral=integral(math.tan, 0, math.pi / 3),
+        sine_substitution=integral(lambda x: math.sqrt(4 - x * x), 0, 1),
+        tangent_substitution=integral(lambda x: (1 + x * x) ** -1.5, 0, math.sqrt(3)),
+        secant_substitution=integral(
+            lambda t: 2 / ((3 + t * t) * math.sqrt(6 + t * t)), 0, math.sqrt(3)
+        ),
+        completed_square_arctangent=integral(lambda x: 1 / (x * x - 2 * x + 10), 1, 4),
+        completed_square_arcsine=integral(lambda x: (3 + 2 * x - x * x) ** -0.5, 1, 2.5),
+    )
     _, _, _, nodes, force = lab_data()
     add(
         "lab-01",
@@ -238,7 +266,7 @@ def test_all_numeric_keys_with_separate_calculations(question_id):
 
 def test_numeric_calculation_inventory_is_exhaustive():
     assert set(EXPECTED) == {key for key, q in BANK.items() if q["type"] == "numeric"}
-    assert len(EXPECTED) == 62
+    assert len(EXPECTED) == 75
 
 
 CSV_CHECKS = BANK["calculus-2-lab-01:summary"]["solution_spec"]["validation_spec"][
@@ -279,6 +307,87 @@ def test_method_primitives_and_internal_singularity():
     assert "ordinary improper integral diverges" in correct_option(
         "calculus-2-8:principal-value"
     )
+
+
+def test_intro_integration_method_choices_and_improper_limits():
+    text = (COURSE / "modules/01-integration-techniques-and-improper-integrals.md").read_text(
+        encoding="utf-8"
+    )
+    assert "converges exactly when $p>1$" in text
+    assert "finite limit when $p<1$" in text
+    assert "tends to zero is insufficient" in text
+
+    substitution_integral = integral(lambda x: 2 * x / (x * x + 3), 0, 2)
+    assert substitution_integral == pytest.approx(math.log(7 / 3), abs=1e-9)
+
+    def parts_primitive(x):
+        return x * x * math.log(x) / 2 - x * x / 4
+
+    def parts_integrand(x):
+        return x * math.log(x)
+
+    for x in (0.1, 0.5, 1.0):
+        assert derivative(parts_primitive, x) == pytest.approx(
+            parts_integrand(x), abs=1e-8
+        )
+    assert math.exp(-200) * -100 == pytest.approx(0, abs=1e-80)
+    assert integral(lambda x: 1 / ((x + 1) * (x + 3)), 0, 1) == pytest.approx(
+        0.5 * math.log(3 / 2), abs=1e-9
+    )
+
+    # x=1/u transforms the convergent p=2 tail to a unit-interval integral.
+    assert integral(lambda u: 1, 0, 1) == pytest.approx(1)
+    assert math.log(1000) > math.log(10)  # the p=1 cutoff keeps growing
+    assert integral(lambda t: 4 * math.exp(-2 * t), 0, 20) == pytest.approx(2)
+
+
+def test_variable_force_work_accumulation_and_direction():
+    text = (COURSE / "modules/03-applications-of-integration-work-and-accumulation.md").read_text(
+        encoding="utf-8"
+    )
+    assert "force component along the displacement" in text
+    assert "newtons multiplied by metres are joules" in text
+    assert integral(lambda x: 4 * x, 0, 3) == pytest.approx(18)
+    assert integral(lambda x: 4 * x, 1, 1.1) == pytest.approx(0.42)
+    assert integral(lambda x: -4 * x, 0, 3) == pytest.approx(-18)
+    # Multiplying the maximum endpoint force by the full distance overcounts.
+    assert 12 * 3 == 36 > integral(lambda x: 4 * x, 0, 3)
+
+
+def test_sequence_series_distinction_and_geometric_error_bound():
+    text = (COURSE / "modules/02-sequences-series-and-approximation-error.md").read_text(
+        encoding="utf-8"
+    )
+    assert "necessary condition is not sufficient" in text
+    assert "tail after including terms through index $N$" in text
+    assert "not a universal error bound" in text
+    partial = math.fsum(0.2**n for n in range(3))
+    total = 1 / (1 - 0.2)
+    tail = 0.2**3 / (1 - 0.2)
+    assert partial == pytest.approx(1.24)
+    assert total == pytest.approx(1.25)
+    assert total - partial == pytest.approx(tail)
+    actual_taylor_error = math.exp(0.5) - (1 + 0.5 + 0.5**2 / 2)
+    lagrange_bound = math.exp(0.5) * 0.5**3 / math.factorial(3)
+    assert actual_taylor_error == pytest.approx(0.0237212707)
+    assert 0 < actual_taylor_error < lagrange_bound < 0.0344
+
+
+def test_taylor_polynomial_error_bound_is_interval_specific():
+    text = (COURSE / "modules/04-power-series-and-taylor-error.md").read_text(
+        encoding="utf-8"
+    )
+    assert "$M$ must bound the derivative everywhere" in text
+    assert "separate convergence argument" in text
+    def polynomial(x):
+        return 1 + x + x * x / 2
+
+    for x in (0.2, 0.5):
+        actual_error = abs(math.exp(x) - polynomial(x))
+        bound = math.exp(x) * abs(x) ** 3 / math.factorial(3)
+        assert actual_error <= bound
+    assert polynomial(0.2) == pytest.approx(1.22)
+    assert polynomial(0.5) == pytest.approx(1.625)
 
 
 def test_power_criteria_and_zero_term_limit():
@@ -381,7 +490,7 @@ def test_lab_data_construction_offset_and_error_separation():
 
 def test_schedule_and_partial_status():
     manifest = load(COURSE / "course.json")
-    assert manifest["version"] == "0.4.0"
+    assert manifest["version"] == manifest["history"][-1]["version"]
     assert (
         manifest["maturity"] == "partial"
         and manifest["review"]["status"] == "unreviewed"
@@ -397,7 +506,36 @@ def test_schedule_and_partial_status():
         "calculus-2-week14-force-lab",
         "calculus-2-case",
     ]
-    assert len(lessons) == 14 and len(BANK) == 91
+    assert len(lessons) == 16 and len(BANK) == 113
+    cards = len(load(COURSE / "question-banks/retrieval-cards.json")["cards"])
     syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8")
-    assert "14 readings, 91 practice items and 48 retrieval cards" in syllabus
-    assert "Weeks 1, 4, 7 and 10 retain compact prototype readings" in syllabus
+    assert (
+        f"There are {len(lessons)} readings, {len(BANK)} public practice items and {cards} retrieval cards"
+        in syllabus
+    )
+    assert "Weeks 1, 4, 7 and 10 also have expanded readings" in syllabus
+
+
+def test_trigonometric_integration_lesson_statements_match_quadrature():
+    text = (COURSE / "modules/15-trigonometric-integrals-substitution-and-completing-the-square.md").read_text(
+        encoding="utf-8"
+    )
+    statements = {
+        "**2/15 ≈ 0.1333**": integral(lambda x: math.sin(x) ** 3 * math.cos(x) ** 2, 0, math.pi / 2),
+        "**π/16 ≈ 0.1963**": integral(lambda x: (math.sin(x) * math.cos(x)) ** 2, 0, math.pi / 2),
+        "ln √2 ≈ 0.3466": integral(math.tan, 0, math.pi / 4),
+        "ln(1 + √2) ≈ **0.8814**": integral(lambda x: 1 / math.cos(x), 0, math.pi / 4),
+        "**9π/4 ≈ 7.069**": integral(lambda x: math.sqrt(max(0.0, 9 - x * x)), 0, 3, panels=200000),
+        "**√2/2 ≈ 0.7071**": integral(lambda x: (1 + x * x) ** -1.5, 0, 1),
+        "2/√2 ≈ 1.414": integral(lambda x: (1 + x * x) ** -1.5, -1, 1),
+        "**π/6 ≈ 0.5236**": integral(lambda t: 2 / ((2 + t * t) * math.sqrt(4 + t * t)), 0, math.sqrt(2)),
+        "**π/12 ≈ 0.2618**": integral(lambda x: 1 / (x * x + 4 * x + 13), -2, 1),
+        "9 (π/12 − √3/8) ≈ **0.4076**": integral(lambda x: x * x / math.sqrt(9 - x * x), 0, 1.5),
+    }
+    for fragment, value in statements.items():
+        assert fragment in text, fragment
+        stated = float(fragment.replace("**", "").split("≈")[-1].strip())
+        assert stated == pytest.approx(value, abs=6e-4), (fragment, value)
+    assert integral(lambda x: (5 + 4 * x - x * x) ** -0.5, 2, 3.5) == pytest.approx(math.pi / 6, abs=1e-9)
+    assert integral(lambda x: math.sin(x) ** 2, 0, math.pi) == pytest.approx(math.pi / 2, abs=1e-9)
+    assert integral(lambda x: math.tan(x) / math.cos(x) ** 2, 0, math.pi / 4) == pytest.approx(0.5, abs=1e-9)

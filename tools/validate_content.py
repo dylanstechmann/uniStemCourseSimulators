@@ -8,9 +8,11 @@ import json
 import math
 import re
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from collections import Counter
 from dataclasses import dataclass, field
 from hashlib import sha256
+from itertools import pairwise
 from pathlib import Path, PureWindowsPath
 from typing import Any
 from urllib.error import HTTPError, URLError
@@ -44,6 +46,10 @@ PLACEHOLDER = re.compile(
     re.IGNORECASE,
 )
 PRIVATE_ASSESSMENT_PREFIX = "private://"
+MARKDOWN_DESTINATION_PATTERNS = (
+    re.compile(r"\]\(\s*<?(?P<url>https?://[^)\s>]+)>?"),
+    re.compile(r"(?m)^\s*\[[^\]]+\]:\s*<?(?P<url>https?://[^\s>]+)>?"),
+)
 
 
 @dataclass
@@ -793,13 +799,21 @@ def validate_course(
     questions = []
     private_question_ids = set()
     # Repeated references to a bank share one authoring source, not duplicate items.
+    practice_bank_reference = manifest.get(
+        "practice_question_bank", "question-banks/practice.json"
+    )
+    practice_bank_path = safe_file(course_root, practice_bank_reference, report)
     bank_paths = {
         assessment["path"]
         for assessment in manifest["assessments"]
         if assessment["question_ids"]
     }
+    if practice_bank_path:
+        bank_paths.add(practice_bank_reference)
     for reference in sorted(bank_paths):
-        bank_path = assessment_paths.get(reference)
+        bank_path = assessment_paths.get(reference) or (
+            practice_bank_path if reference == practice_bank_reference else None
+        )
         if not bank_path:
             continue
         bank = load_json(bank_path, report)
@@ -1300,7 +1314,6 @@ def validate_course(
         for objective in manifest["lesson_objectives"]
     }
     question_objectives = {question["id"]: question["objective_ids"] for question in questions}
-    variant_question_ids = {question["id"] for question in questions if "randomization" in question}
     for assessment in manifest["assessments"]:
         check_refs(
             assessment["objective_ids"], objective_ids, "objective", course_path, report
@@ -1311,11 +1324,6 @@ def validate_course(
             and assessment["path"].startswith(PRIVATE_ASSESSMENT_PREFIX)
         )
         if not source_unavailable:
-            if assessment["mode"] == "graded" and variant_question_ids.intersection(assessment["question_ids"]):
-                report.error(
-                    "graded-variant-unsupported", course_path,
-                    f"Assessment {assessment['id']} selects authored variants, which graded assignment delivery does not support.",
-                )
             check_refs(
                 assessment["question_ids"], question_ids, "question", course_path, report
             )
@@ -1343,15 +1351,20 @@ def validate_course(
             course_path,
             f"{len(uncovered)} objective(s) have no authored assessment mapping; this is not demonstrated comprehensive coverage.",
         )
-    for week in manifest["duration"]["weeks"]:
+    weeks = manifest["duration"]["weeks"]
+    for week in weeks:
         check_refs(week["lesson_ids"], lesson_ids, "lesson", course_path, report)
         check_refs(
             week["assessment_ids"], assessment_ids, "assessment", course_path, report
         )
-    week_numbers = [week["week"] for week in manifest["duration"]["weeks"]]
+    week_numbers = [week["week"] for week in weeks]
     if len(week_numbers) != len(set(week_numbers)):
         report.error(
             "duplicate-week", course_path, "Instructional week numbers must be unique."
+        )
+    if any(current <= previous for previous, current in pairwise(week_numbers)):
+        report.error(
+            "week-order", course_path, "Instructional week numbers must be strictly increasing."
         )
     cards_path = safe_file(course_root, manifest["retrieval_cards"], report)
     cards = []
@@ -1538,6 +1551,40 @@ def validate_course(
                     source_map_path,
                     "Every authored module must have exactly one source-map identity.",
                 )
+    learner_resources = manifest.get("learner_resources", [])
+    if not isinstance(learner_resources, list):
+        report.error(
+            "learner-resource",
+            course_path,
+            "Learner resources must be a list of package-relative CSV paths.",
+        )
+    else:
+        seen_resources: set[str] = set()
+        for reference in learner_resources:
+            if (
+                not isinstance(reference, str)
+                or not reference
+                or reference.startswith("/")
+                or "\\" in reference
+                or ":" in reference
+                or not reference.lower().endswith(".csv")
+                or any(part in {"", ".", ".."} for part in reference.split("/"))
+            ):
+                report.error(
+                    "learner-resource",
+                    course_path,
+                    f"Unsafe learner resource path: {reference!r}.",
+                )
+                continue
+            if reference in seen_resources:
+                report.error(
+                    "learner-resource",
+                    course_path,
+                    f"Learner resource is listed more than once: {reference}.",
+                )
+                continue
+            seen_resources.add(reference)
+            safe_file(course_root, reference, report)
     syllabus_path = safe_file(course_root, manifest["syllabus"], report)
     if syllabus_path:
         syllabus_text = syllabus_path.read_text(encoding="utf-8")
@@ -1663,21 +1710,87 @@ def validate_repository(
                     registry_path,
                     report,
                 )
-    if check_links and source_document and sources:
-        for source in source_document["sources"]:
-            try:
-                request = Request(
-                    source["url"],
-                    headers={"User-Agent": "uniStemCourseSimulators-content-validation/1.0"},
-                )
-                with urlopen(request, timeout=12) as response:
-                    if response.status >= 400:
-                        report.error(
-                            "broken-link", source["url"], f"HTTP {response.status}"
-                        )
-            except (HTTPError, URLError, TimeoutError, OSError) as exc:
-                report.error("broken-link", source["url"], str(exc))
+    if check_links:
+        link_origins: dict[str, set[str]] = {}
+        if source_document and isinstance(source_document, dict):
+            for source in source_document.get("sources", []):
+                if isinstance(source, dict) and isinstance(source.get("url"), str):
+                    link_origins.setdefault(source["url"], set()).add(source["url"])
+        for url, origins in _markdown_link_origins(root, report).items():
+            link_origins.setdefault(url, set()).update(origins)
+
+        targets = []
+        for url, origins in sorted(link_origins.items()):
+            markdown_origins = sorted(origin for origin in origins if origin != url)
+            if markdown_origins:
+                location = markdown_origins[0]
+                if len(markdown_origins) > 1:
+                    location += f" (+{len(markdown_origins) - 1} more occurrences)"
+                report_path = f"{location} -> {url}"
+            else:
+                report_path = url
+            targets.append((url, report_path))
+
+        with ThreadPoolExecutor(max_workers=8) as executor:
+            results = executor.map(_probe_link, (url for url, _ in targets))
+            for (url, report_path), (status, detail) in zip(targets, results):
+                if status is None:
+                    report.error("broken-link", report_path, detail or "Link probe failed")
+                elif status >= 400:
+                    _record_link_status(report, report_path, status, detail)
     return report
+
+
+def _markdown_link_origins(root: Path, report: Report) -> dict[str, set[str]]:
+    """Collect public course-package Markdown destinations without following symlinks."""
+    origins: dict[str, set[str]] = {}
+    course_root = root / "content/courses"
+    if not course_root.is_dir():
+        return origins
+    resolved_course_root = course_root.resolve()
+    for path in sorted(course_root.rglob("*.md")):
+        if path.is_symlink():
+            continue
+        try:
+            resolved_path = path.resolve()
+            resolved_path.relative_to(resolved_course_root)
+            markdown = path.read_text(encoding="utf-8")
+        except (OSError, UnicodeError, ValueError) as exc:
+            report.error("link-source", path, f"Cannot inspect public Markdown links: {exc}")
+            continue
+        location = path.relative_to(root).as_posix()
+        for pattern in MARKDOWN_DESTINATION_PATTERNS:
+            for match in pattern.finditer(markdown):
+                url = match.group("url")
+                line = markdown.count("\n", 0, match.start()) + 1
+                origins.setdefault(url, set()).add(f"{location}:{line}")
+    return origins
+
+
+def _probe_link(url: str) -> tuple[int | None, str | None]:
+    try:
+        request = Request(
+            url,
+            headers={"User-Agent": "uniStemCourseSimulators-content-validation/1.0"},
+        )
+        with urlopen(request, timeout=12) as response:
+            return response.status, None
+    except HTTPError as exc:
+        return exc.code, str(exc.reason)
+    except (URLError, TimeoutError, OSError) as exc:
+        return None, str(exc)
+
+
+def _record_link_status(
+    report: Report, url: str, status: int, reason: str | None = None
+) -> None:
+    detail = f"HTTP {status}"
+    if reason:
+        detail = f"{detail}: {reason}"
+    if status in {401, 403}:
+        report.warn("link-access-denied", url, detail)
+    else:
+        report.error("broken-link", url, detail)
 
 
 def main() -> int:

@@ -64,3 +64,7 @@ The mean scar area is 3.2% after day-1 resection and 18.4% after day-7 resection
 ## Limits of this lesson
 
 The numbers are synthetic and the model-organism findings are summarized, not reproduced. The lesson does not claim that any cell therapy, drug or procedure regenerates tissue in people, and it gives no clinical advice.
+
+## Course comparison
+
+MIT OpenCourseWare [2.787J syllabus](https://ocw.mit.edu/courses/2-787j-tissue-engineering-and-organ-regeneration-fall-2024/pages/syllabus/) and [calendar](https://ocw.mit.edu/courses/2-787j-tissue-engineering-and-organ-regeneration-fall-2024/pages/calendar/) are graduate-level comparators for the regeneration strand. The calendar covers regeneration, scarring, biomaterials, cells and regulators; it does not match this course's broader aging-mechanism and longevity-intervention scope. The comparison is link-only and no course material is reproduced.

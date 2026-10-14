@@ -19,6 +19,8 @@ For a simplified percent-input calculation with ideal doubling efficiency, let `
 
 `% input = 100 × f × 2^(Cq_input − Cq_IP)`
 
+**In words:** percent input equals 100 times the input-dilution fraction times two raised to the input-minus-IP threshold-cycle difference, under the stated near-100-percent amplification-efficiency assumption.
+
 If a 1% input aliquot (`f = 0.01`) reaches threshold at cycle 25 and the ChIP sample at cycle 22, the estimate is `100 × 0.01 × 2^3 = 8% input`. This simplified comparison assumes near-100% amplification efficiency and the same well-behaved amplicon in both samples. Real analyses must document input dilution, primer efficiency, DNA recovery, and their chosen normalization; a percent-input value is not an absolute count of bound molecules or a direct measure of transcription.
 
 Controls have distinct roles. **Input chromatin** is a pre-immunoprecipitation aliquot that helps normalize the amount and representation of starting material. A matched **IgG or mock immunoprecipitation** estimates nonspecific recovery under that pull-down procedure. A known positive locus checks whether the antibody and assay can detect an expected target; a negative locus tests locus specificity. A no-template qPCR control detects reagent contamination or primer artifacts. None substitutes for the others. Antibody validation, matched chromatin preparation, DNA fragment quality, biological replicates, and transparent reporting are also needed. Multiple PCR wells from one culture are technical replicates, not independent biological samples.

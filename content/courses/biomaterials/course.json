@@ -3,11 +3,11 @@
   "id": "biomaterials",
   "legacy_code": "BME 350",
   "title": "Biomaterials & Tissue Engineering",
-  "description": "Design and evaluate cell-material systems through degradation, protein adsorption, immune response, scaffold transport, and functional regeneration.",
+  "description": "A partial, application-focused undergraduate sequence in biomaterials and cell-material interactions. Core instruction covers material properties, protein adsorption, scaffold transport/degradation, host-response evidence, and failure; selected tissue-engineering applications connect those foundations to cells, signals, and function.",
   "domain": "Bioengineering",
   "level": "Year 3",
   "maturity": "partial",
-  "version": "0.3.0",
+  "version": "0.3.10",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -15,7 +15,10 @@
     "source_sha256": "a77a7cb7f5be2ffa12068877042ac775c6d9b79b83ac2f316fe4f26a0d3d783b",
     "migration_version": "1.0",
     "modifications": [
-      "Replaced 'initial mass' with 'remaining mass' to make constant fractional loss agree with the stated first-order model."
+      "Replaced 'initial mass' with 'remaining mass' to make constant fractional loss agree with the stated first-order model.",
+      "Linked the four original lesson pairs to outcomes 1–4. Corrected the preserved scaffold-degradation and cartilage-evidence item associations, clarified the tissue-strategy objective to include functional readouts, broadened outcome 4 to include application-specific failure modes, and added direct practice for pore-architecture tradeoffs and cell-source choices. Existing question prompts and numeric keys are unchanged. The course remains partial, unreviewed and formative-only.",
+      "Added an original comparative primer linking metal, ceramic, polymer and hydrogel classes to surface characterization, protein adsorption and application-specific host-response evidence; added eight formative items and four cards. All tabulated values are synthetic; course remains partial, unreviewed and formative-only.",
+      "Clarified that biomaterials are the instructional core and tissue engineering is a selected application strand, then mapped the local sequence against undergraduate MIT OCW 3.051J and the selective graduate 20.441J comparator. The title remains, but comprehensive tissue regeneration, fabrication, clinical translation and implant design are not claimed; no lesson, item or card changed."
     ]
   },
   "prerequisites": {
@@ -49,7 +52,7 @@
     },
     {
       "id": "biomaterials-outcome-4",
-      "description": "Interpret evidence across in-vitro and in-vivo models.",
+      "description": "Interpret in-vitro and in-vivo evidence and identify application-specific failure modes.",
       "bloom": "analyze"
     }
   ],
@@ -58,49 +61,66 @@
       "id": "biomaterials-1-objective-1",
       "description": "Connect surface chemistry to protein adsorption and cell response.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "biomaterials-outcome-1"
+      ]
     },
     {
       "id": "biomaterials-1-objective-2",
       "description": "Distinguish bulk properties from surface properties.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "biomaterials-outcome-1"
+      ]
     },
     {
       "id": "biomaterials-2-objective-1",
       "description": "Balance pore architecture with load-bearing and fabrication constraints.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "biomaterials-outcome-2"
+      ]
     },
     {
       "id": "biomaterials-2-objective-2",
       "description": "Model degradation as a time-varying material property.",
       "bloom": "understand",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "biomaterials-outcome-2"
+      ]
     },
     {
       "id": "biomaterials-3-objective-1",
       "description": "Compare autologous, allogeneic, and progenitor-cell tradeoffs.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "biomaterials-outcome-3"
+      ]
     },
     {
       "id": "biomaterials-3-objective-2",
-      "description": "Map cells, scaffold, biochemical cues, and mechanical conditions to a tissue goal.",
+      "description": "Map cells, scaffold, biochemical cues, mechanical conditions, and functional readouts to a tissue goal.",
       "bloom": "understand",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "biomaterials-outcome-3",
+        "biomaterials-outcome-4"
+      ]
     },
     {
       "id": "biomaterials-4-objective-1",
       "description": "Distinguish biocompatibility from an absence of any biological response.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "biomaterials-outcome-1"
+      ]
     },
     {
       "id": "biomaterials-4-objective-2",
       "description": "Use case studies to identify clinical failure modes.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "biomaterials-outcome-4"
+      ]
     },
     {
       "id": "biomaterials-5-objective-1",
@@ -363,20 +383,73 @@
         "biomaterials-outcome-3",
         "biomaterials-outcome-4"
       ]
+    },
+    {
+      "id": "biomaterials-14-objective-1",
+      "description": "Compare bulk and surface tradeoffs across metal, ceramic, polymer and hydrogel classes without treating class labels as compatibility rankings.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biomaterials-outcome-1"
+      ]
+    },
+    {
+      "id": "biomaterials-14-objective-2",
+      "description": "Select surface-characterization methods for chemical state, topography, wetting and biological response, and state each method’s limits.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "biomaterials-outcome-1",
+        "biomaterials-outcome-4"
+      ]
+    },
+    {
+      "id": "biomaterials-14-objective-3",
+      "description": "Interpret protein-adsorption and host-response evidence for a stated application while separating blood-contact assays, tissue response and causal claims.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biomaterials-outcome-1",
+        "biomaterials-outcome-4"
+      ]
+    },
+    {
+      "id": "biomaterials-15-objective-1",
+      "description": "Calculate the constant release rate from a membrane-controlled reservoir and identify when zero-order release ends.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "biomaterials-outcome-2"
+      ]
+    },
+    {
+      "id": "biomaterials-15-objective-2",
+      "description": "Apply the Higuchi model and the early-time Fickian slab solution, including estimating a diffusion coefficient from a release fraction.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "biomaterials-outcome-2"
+      ]
+    },
+    {
+      "id": "biomaterials-15-objective-3",
+      "description": "Compare release profiles, fit a release exponent from two points, and explain burst release and the limits of exponent-based mechanism claims.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biomaterials-outcome-2",
+        "biomaterials-outcome-4"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week undergraduate scope only. The four compact prototype units sit in weeks 1, 3, 9 and 13 beside original lessons on protein adsorption, hydrogel networks, porous scaffolds, degradation and release, chain scission and erosion, vascular scaffold mechanics, cell numbers and expansion, and biocompatibility evidence; week 12 is a synthetic-data lab on a degradation time course and week 14 a lesson on reading a failure in a degrading vascular scaffold, which prepares the course case. All activities are open, ungraded practice. There are no graded homework sets, exams or project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week undergraduate scope only. Biomaterials properties, interfaces, scaffold mechanics/transport/degradation, host-response evidence and failure analysis form the core; selected cell, signal and tissue-engineering applications appear in weeks 9–14. Week 1 links the material-properties primer to material classes, surface characterization, adsorption and host-response evidence; week 6 pairs degradation time scales with controlled-release kinetics; week 12 is a synthetic degradation lab and week 14 reads a failure in a degrading vascular scaffold. The 3.051J/20.441J crosswalk identifies substantial omitted topics. All activities are open, ungraded practice; there are no graded homework sets, exams or project, and workload is unmeasured, so the schedule is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
-        "title": "Material properties at the biological interface",
+        "title": "Material properties, material classes, and surface characterization",
         "lesson_ids": [
-          "biomaterials-1"
+          "biomaterials-1",
+          "biomaterials-14"
         ],
         "assessment_ids": [
-          "biomaterials-1-practice"
+          "biomaterials-1-practice",
+          "biomaterials-14-practice"
         ]
       },
       {
@@ -421,12 +494,14 @@
       },
       {
         "week": 6,
-        "title": "Degradation and release from hydrogels: half-lives and diffusion times",
+        "title": "Degradation and release: half-lives, diffusion times and controlled-release kinetics",
         "lesson_ids": [
-          "biomaterials-5"
+          "biomaterials-5",
+          "biomaterials-15"
         ],
         "assessment_ids": [
-          "biomaterials-5-practice"
+          "biomaterials-5-practice",
+          "biomaterials-15-practice"
         ]
       },
       {
@@ -534,7 +609,7 @@
             "biomaterials-1-objective-1",
             "biomaterials-1-objective-2"
           ],
-          "worked_example": "A hydrophilic surface may resist some nonspecific adsorption, yet specific ligands can be introduced to promote controlled adhesion; protein amount alone does not report conformation or activity.",
+          "worked_example": "For an ideal surface with liquid tension 72 mN/m and solid-tension difference 36 mN/m, Young's relation gives cos θ = 0.5 and θ = 60°. A treatment that raises the difference to 54 mN/m gives θ about 41.4° and greater wetting in this model; neither angle establishes protein activity or cell compatibility, which require separate measurements.",
           "question_ids": [
             "biomaterials-1:check",
             "biomaterials-1:bulk-vs-surface"
@@ -562,10 +637,11 @@
             "biomaterials-2-objective-1",
             "biomaterials-2-objective-2"
           ],
-          "worked_example": "If scaffold stiffness falls faster than new matrix stiffness rises, total construct support can drop before regenerated tissue is load-bearing.",
+          "worked_example": "In a simple parallel load-sharing illustration, scaffold stiffness falls from 80 to 50 N/mm while new tissue contributes 20 N/mm; under the same displacement, combined stiffness falls from 80 to 70 N/mm despite tissue growth. This constructed example shows why both trajectories matter but is not a prediction for a real construct.",
           "question_ids": [
             "biomaterials-2:check",
-            "biomaterials-2:degradation-modulus"
+            "biomaterials-2:degradation-modulus",
+            "biomaterials-2:architecture-tradeoff"
           ],
           "card_ids": [
             "biomaterials-1-0",
@@ -590,10 +666,11 @@
             "biomaterials-3-objective-1",
             "biomaterials-3-objective-2"
           ],
-          "worked_example": "A cartilage construct should be evaluated for matrix composition, mechanical properties, integration, and load-bearing function, not only a single chondrogenic marker.",
+          "worked_example": "For a constructed cartilage target, specify cells with relevant matrix-forming capacity, a hydrated scaffold with a stated stiffness range, a time-bounded biochemical cue, and a controlled loading regimen. Measure matrix composition, compressive mechanics, and integration; a marker alone cannot establish functional tissue. This is an in-vitro design map, not a claim about clinical performance.",
           "question_ids": [
             "biomaterials-3:check",
-            "biomaterials-3:design-mapping"
+            "biomaterials-3:design-mapping",
+            "biomaterials-3:cell-source-tradeoffs"
           ],
           "card_ids": [
             "biomaterials-2-0",
@@ -618,7 +695,7 @@
             "biomaterials-4-objective-1",
             "biomaterials-4-objective-2"
           ],
-          "worked_example": "A degradable implant can be biocompatible only when degradation rate, products, local tissue response, and intended function are evaluated together.",
+          "worked_example": "In a synthetic case, a degradable implant loses modulus, releases acidic products, and develops a thicker fibrous capsule while function declines. These are separate candidate mechanisms: track wet mechanics and degradation products over time, and characterize host response against matched controls before assigning a cause. No single endpoint resolves the event, and the example describes no real device or person.",
           "question_ids": [
             "biomaterials-4:check",
             "biomaterials-4:failure-mode"
@@ -661,6 +738,45 @@
             "biomaterials-5-card-2",
             "biomaterials-5-card-3",
             "biomaterials-5-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biomaterials-module-15",
+      "title": "Controlled-release kinetics: reservoirs, matrices, burst and release exponents",
+      "source_ids": [
+        "biomaterials-materials-3-051j"
+      ],
+      "lessons": [
+        {
+          "id": "biomaterials-15",
+          "title": "Controlled-release kinetics: reservoirs, matrices, burst and release exponents",
+          "reading": "modules/15-controlled-release-reservoirs-matrices-and-release-exponents.md",
+          "objectives": [
+            "biomaterials-15-objective-1",
+            "biomaterials-15-objective-2",
+            "biomaterials-15-objective-3"
+          ],
+          "worked_example": "A synthetic reservoir with A = 3.0 cm², D = 5.0 × 10⁻⁸ cm²/s, K = 0.40, C_s = 8.0 mg/mL and h = 0.020 cm releases 0.0864 mg/h while saturated. A matrix releasing 30% at 1 h and 45% at 3 h has n = 0.37, below the slab Fickian 0.5, so a burst should be checked on a √t plot before inferring mechanism.",
+          "question_ids": [
+            "biomaterials-15:reservoir-rate",
+            "biomaterials-15:reservoir-duration",
+            "biomaterials-15:higuchi-amount",
+            "biomaterials-15:higuchi-time-factor",
+            "biomaterials-15:slab-diffusivity",
+            "biomaterials-15:first-order-percent",
+            "biomaterials-15:first-order-half-time",
+            "biomaterials-15:release-exponent",
+            "biomaterials-15:zero-order-end",
+            "biomaterials-15:burst-identification",
+            "biomaterials-15:exponent-limits"
+          ],
+          "card_ids": [
+            "biomaterials-15-card-1",
+            "biomaterials-15-card-2",
+            "biomaterials-15-card-3",
+            "biomaterials-15-card-4"
           ]
         }
       ]
@@ -994,6 +1110,43 @@
           ]
         }
       ]
+    },
+    {
+      "id": "biomaterials-module-14",
+      "title": "Material classes, surface characterization, and host response",
+      "source_ids": [
+        "biomaterials-materials-3-051j",
+        "biomaterials"
+      ],
+      "lessons": [
+        {
+          "id": "biomaterials-14",
+          "title": "Material classes, surface characterization, and host response",
+          "reading": "modules/14-material-classes-surface-characterization-and-host-response.md",
+          "objectives": [
+            "biomaterials-14-objective-1",
+            "biomaterials-14-objective-2",
+            "biomaterials-14-objective-3"
+          ],
+          "worked_example": "In the synthetic comparison, fibrinogen rises from 0.44 to 0.61 μg/cm², a 39% increase, while the separate C3a assay and contact-angle results do not establish overall compatibility or a causal mechanism.",
+          "question_ids": [
+            "biomaterials-14:class-tradeoffs",
+            "biomaterials-14:xps-purpose",
+            "biomaterials-14:fibrinogen-change",
+            "biomaterials-14:wettability-limit",
+            "biomaterials-14:host-pathways",
+            "biomaterials-14:afm-limit",
+            "biomaterials-14:comparison-design",
+            "biomaterials-14:c3a-interpretation"
+          ],
+          "card_ids": [
+            "biomaterials-14-card-1",
+            "biomaterials-14-card-2",
+            "biomaterials-14-card-3",
+            "biomaterials-14-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -1004,7 +1157,8 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "biomaterials-1-objective-1",
-        "biomaterials-1-objective-2"
+        "biomaterials-1-objective-2",
+        "biomaterials-outcome-1"
       ],
       "question_ids": [
         "biomaterials-1:check",
@@ -1019,13 +1173,15 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "biomaterials-2-objective-1",
-        "biomaterials-2-objective-2"
+        "biomaterials-2-objective-2",
+        "biomaterials-outcome-2"
       ],
       "question_ids": [
         "biomaterials-2:check",
-        "biomaterials-2:degradation-modulus"
+        "biomaterials-2:degradation-modulus",
+        "biomaterials-2:architecture-tradeoff"
       ],
-      "points": 2
+      "points": 3
     },
     {
       "id": "biomaterials-3-practice",
@@ -1034,13 +1190,16 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "biomaterials-3-objective-1",
-        "biomaterials-3-objective-2"
+        "biomaterials-3-objective-2",
+        "biomaterials-outcome-3",
+        "biomaterials-outcome-4"
       ],
       "question_ids": [
         "biomaterials-3:check",
-        "biomaterials-3:design-mapping"
+        "biomaterials-3:design-mapping",
+        "biomaterials-3:cell-source-tradeoffs"
       ],
-      "points": 2
+      "points": 3
     },
     {
       "id": "biomaterials-4-practice",
@@ -1049,7 +1208,9 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "biomaterials-4-objective-1",
-        "biomaterials-4-objective-2"
+        "biomaterials-4-objective-2",
+        "biomaterials-outcome-1",
+        "biomaterials-outcome-4"
       ],
       "question_ids": [
         "biomaterials-4:check",
@@ -1321,6 +1482,59 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "biomaterials-14-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Material classes, surface evidence, and host response practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "biomaterials-14-objective-1",
+        "biomaterials-14-objective-2",
+        "biomaterials-14-objective-3",
+        "biomaterials-outcome-1",
+        "biomaterials-outcome-4"
+      ],
+      "question_ids": [
+        "biomaterials-14:class-tradeoffs",
+        "biomaterials-14:xps-purpose",
+        "biomaterials-14:fibrinogen-change",
+        "biomaterials-14:wettability-limit",
+        "biomaterials-14:host-pathways",
+        "biomaterials-14:afm-limit",
+        "biomaterials-14:comparison-design",
+        "biomaterials-14:c3a-interpretation"
+      ],
+      "points": 10
+    },
+    {
+      "id": "biomaterials-15-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Controlled-release kinetics practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "biomaterials-15-objective-1",
+        "biomaterials-15-objective-2",
+        "biomaterials-15-objective-3",
+        "biomaterials-outcome-2",
+        "biomaterials-outcome-4"
+      ],
+      "question_ids": [
+        "biomaterials-15:reservoir-rate",
+        "biomaterials-15:reservoir-duration",
+        "biomaterials-15:higuchi-amount",
+        "biomaterials-15:higuchi-time-factor",
+        "biomaterials-15:slab-diffusivity",
+        "biomaterials-15:first-order-percent",
+        "biomaterials-15:first-order-half-time",
+        "biomaterials-15:release-exponent",
+        "biomaterials-15:zero-order-end",
+        "biomaterials-15:burst-identification",
+        "biomaterials-15:exponent-limits"
+      ],
+      "points": 11
     }
   ],
   "grading_policy": {
@@ -1380,19 +1594,71 @@
       "version": "0.3.0",
       "date": "2026-10-08",
       "summary": "Added a proposed 14-week schedule; seven original lessons (protein adsorption, wettability and surface coverage; hydrogel networks, modulus and mesh size; polymer chain scission, molecular weight and erosion mode; vascular scaffold wall stress, buckling, flow and wall shear stress; cells for a scaffold, seeding and expansion; biocompatibility evidence and the unit of analysis; and reading a failure in a degrading vascular scaffold, which prepares the course case); and a synthetic-data degradation time-course lab. No new references were added. All activities remain ungraded practice; the package remains partial and unreviewed, gives no laboratory protocol or medical advice, and makes no claim about any material, device, cell line or person."
+    },
+    {
+      "version": "0.3.1",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-1 material-properties reading with bulk/surface distinctions, ideal contact-angle interpretation, protein-interface dynamics, unit-aware elastic modulus and time-dependent characterization. Existing questions, keys and objectives are unchanged. Three compact prototype readings remain in weeks 3, 9 and 13; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.3.2",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-3 scaffold reading with architecture and transport, relative-density mechanics, distinct degradation clocks, first-order mass/modulus examples and load sharing with tissue growth. Existing questions, keys and objectives are unchanged. Two compact prototype readings remain in weeks 9 and 13; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.3.3",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-9 tissue-strategy reading with a function-led cell/scaffold/signal/mechanics framework, time-dependent cues and loading, tissue-specific readouts and evidence limits. Existing questions, keys and objectives are unchanged. One compact prototype reading remains in week 13; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.3.4",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-13 translation reading with application-specific biocompatibility, evidence scope, failure-mode classification, causal comparisons and manufacturing/time considerations. Existing questions, keys and objectives are unchanged. All four original compact prototype readings now have expanded primers; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.3.5",
+      "date": "2026-10-10",
+      "summary": "Linked the first four lesson pairs to outcomes 1–4. Reassociated the preserved scaffold-degradation and cartilage-evidence checks, clarified the tissue-strategy objective to include functional readouts, and refined outcome 4 to include application-specific failure modes. Added direct formative practice for scaffold architecture and cell-source tradeoffs; existing prompts and numeric keys are unchanged. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.3.6",
+      "date": "2026-10-10",
+      "summary": "Added an inactive scaffold-property comparison portfolio using constructed porosity, permeability, modulus and modulus half-life values. The draft applies explicit teaching thresholds at two time horizons without making real material or implant recommendations; the course remains partial and formative-only."
+    },
+    {
+      "version": "0.3.7",
+      "date": "2026-10-11",
+      "summary": "Added an original week-1 comparison of metal, ceramic, polymer and hydrogel design tradeoffs; XPS, ToF-SIMS, AFM, contact-angle and biological assay scope; and the application-dependent path from the protein layer to blood or tissue response. Eight formative items and four cards use an explicitly synthetic coupon comparison. Compared directly with undergraduate MIT OCW 3.051J and selectively with graduate 20.441J. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.3.8",
+      "date": "2026-10-11",
+      "summary": "Clarified biomaterials as the instructional core and tissue engineering as a selected application strand in a link-only crosswalk against undergraduate MIT OCW 3.051J and selective graduate 20.441J. The title remains; comprehensive tissue-regeneration mechanisms, fabrication training, clinical translation and implant design are not claimed. Lesson IDs, questions, cards and candidate artifacts are unchanged; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.3.9",
+      "date": "2026-10-13",
+      "summary": "Corrected the syllabus week-1 reading list so the material-classes lesson appears under its exact title. No lesson, item, key or card changed. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.3.10",
+      "date": "2026-10-13",
+      "summary": "Grouped an original controlled-release kinetics reading with the week-6 degradation and release lesson: membrane-reservoir zero-order release, Higuchi matrix release, the early-time Fickian slab solution, first-order release, release-exponent fitting and burst identification, with synthetic devices only. Added three objectives, eleven formative items and four cards, with no week added, updated the scope crosswalk, and corrected a stale limitation count (61 rather than 60 numerical answers before this release). The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "Four compact legacy units are preserved beside ten original readings, including one synthetic-data virtual lab; this package is not equivalent to a full university semester.",
-    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm, cumulative final, or graded integrative project.",
-    "Practice items are short formative checks (two per prototype unit and six to eight per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
+    "The four original legacy units remain short primers despite their expansion; the package includes one synthetic-data virtual lab and one comparative primer, and is not equivalent to a full university semester. Tissue engineering is a selected application strand, not comprehensive training in regeneration mechanisms, scaffold fabrication, clinical translation or implant design; see scope-crosswalk.md.",
+    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm or cumulative final. An inactive integrative project draft is not scheduled or graded.",
+    "Practice items are short formative checks (two to three per expanded prototype unit and six to eleven per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
-    "Of the 60 numerical answers in this package, 23 require a unit, one checks significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
+    "Of the 69 numerical answers in this package, 23 require a unit, one checks significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
     "Total workload and weekly duration are unknown; former nominal credit values and hardcoded reading times do not establish workload.",
-    "All materials, cells, animals and numbers are synthetic teaching examples; this package gives no laboratory protocols or medical advice and says nothing about any real material, device, cell line or person. The formulas are first-order textbook estimates, not design methods."
+    "All materials, cells, animals and numbers are synthetic teaching examples; this package gives no laboratory protocols or medical advice and says nothing about any real material, device, cell line or person. The formulas are first-order textbook estimates, not design methods.",
+    "The material-class comparison and host-response sequence is introductory. It does not cover the breadth of metals, ceramics, polymers, surface-modification techniques, complement/coagulation mechanisms, tissue-specific healing or device standards in the official comparators; its synthetic table is not material-performance data."
   ],
   "intentionally_omitted": [
-    "Graded assessments and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package."
+    "Graded assessments, an activated integrative project and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package.",
+    "Detailed surface-analysis theory, comprehensive immune signaling, broad device-class coverage and graded laboratory or exam assessment remain outside this bounded primer."
   ]
 }

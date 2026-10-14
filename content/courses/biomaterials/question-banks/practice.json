@@ -41,7 +41,7 @@
       "prompt": "A scaffold loses 15% of its remaining mass each week under a simplified first-order model. If initial mass is 100 mg and the same fraction is lost each week, what mass remains after one week?",
       "points": 1,
       "objective_ids": [
-        "biomaterials-2-objective-1"
+        "biomaterials-2-objective-2"
       ],
       "solution_spec": {
         "answer": 85,
@@ -80,7 +80,7 @@
       ],
       "points": 1,
       "objective_ids": [
-        "biomaterials-3-objective-1"
+        "biomaterials-3-objective-2"
       ],
       "solution_spec": {
         "answer": 1
@@ -3426,6 +3426,690 @@
           "diameter-as-flow",
           "no-control"
         ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biomaterials-2:architecture-tradeoff",
+      "type": "single_choice",
+      "prompt": "A printed scaffold needs interconnected pores for nutrient transport while maintaining compressive load-bearing. Which design approach best handles the trade-off?",
+      "options": [
+        "Increase porosity without checking strut geometry because transport and compressive stiffness are independent.",
+        "Select pore and strut dimensions against transport and compression targets, then test the fabricated scaffold because architecture and manufacturing limits affect both.",
+        "Minimize pore size and maximize solid fraction to improve transport and cell entry simultaneously.",
+        "Treat nominal CAD dimensions as proof of the realized pore structure and stiffness."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biomaterials-2-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Pore connectivity supports transport, while solid fraction and strut geometry contribute to load-bearing; fabrication can change the realized structure.",
+        "solution": "The architecture must meet both transport and mechanical targets, and the fabricated scaffold must be measured because manufacturing limits affect realized pores and struts.",
+        "lesson_ids": [
+          "biomaterials-2"
+        ],
+        "misconception_ids": [
+          "scaffold-architecture-tradeoff"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct formative practice balancing pore transport with structural and fabrication constraints."
+        ]
+      }
+    },
+    {
+      "id": "biomaterials-3:cell-source-tradeoffs",
+      "type": "single_choice",
+      "prompt": "Which comparison of cell-source tradeoffs for a cartilage construct is the most defensible?",
+      "options": [
+        "Autologous cells may reduce donor-mismatch concerns but require patient-specific harvest; allogeneic cells may improve availability but need compatibility controls; progenitor cells can expand but require evidence of stable differentiation and function.",
+        "Allogeneic cells have no host-response risk, so they are always preferable to patient-specific cells.",
+        "Autologous cells expand indefinitely and eliminate the need to test scaffold or culture conditions.",
+        "Progenitor cells require no lineage controls because their starting state guarantees cartilage formation."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biomaterials-3-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Compare sourcing and compatibility constraints with expansion potential and evidence of the intended cell function.",
+        "solution": "Each source has tradeoffs: autologous sourcing is patient-specific, allogeneic availability brings compatibility questions, and progenitor expansion requires controlled differentiation and functional evidence. None is universally best.",
+        "lesson_ids": [
+          "biomaterials-3"
+        ],
+        "misconception_ids": [
+          "cell-source-universal-best"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct formative practice comparing cell-source tradeoffs."
+        ]
+      }
+    },
+    {
+      "id": "biomaterials-14:class-tradeoffs",
+      "type": "single_choice",
+      "prompt": "Which statement is the most defensible when choosing a material class for a tissue-facing device?",
+      "options": [
+        "Class tendencies help frame bulk and processing tradeoffs, but the actual surface state and application-specific tests are needed to assess the interface.",
+        "A ceramic surface is always more compatible because it is chemically stable.",
+        "A polymer is always preferable because its chemistry can be modified.",
+        "A metal’s bulk modulus predicts its protein adsorption and cell response."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biomaterials-14-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Separate class-level design tendencies from measurements on the processed, intended surface.",
+        "solution": "Material classes suggest different bulk and processing tradeoffs, but neither class name nor bulk mechanics establishes surface chemistry or host response.",
+        "lesson_ids": [
+          "biomaterials-14"
+        ],
+        "misconception_ids": [
+          "class-label-as-compatibility"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biomaterials-14:xps-purpose",
+      "type": "single_choice",
+      "prompt": "A plasma treatment is intended to change the outer-surface chemistry of a polymer coupon. Which method most directly tests whether the near-surface elemental composition or chemical states changed?",
+      "options": [
+        "X-ray photoelectron spectroscopy (XPS)",
+        "Bulk tensile testing",
+        "A water contact-angle measurement alone",
+        "A cell count without a surface measurement"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biomaterials-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Choose a surface-sensitive chemical measurement rather than a bulk mechanical or downstream biological endpoint.",
+        "solution": "XPS provides near-surface elemental and chemical-state evidence. It does not establish the full hydrated interface or biological function.",
+        "lesson_ids": [
+          "biomaterials-14"
+        ],
+        "misconception_ids": [
+          "bulk-test-as-surface-chemistry"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biomaterials-14:fibrinogen-change",
+      "type": "numeric",
+      "prompt": "In the synthetic table, coupon A has 0.44 μg/cm² adsorbed fibrinogen and coupon B has 0.61 μg/cm². What is the percentage increase from A to B? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "biomaterials-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 38.636,
+        "unit": "%",
+        "tolerance": 0.6,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Compute (B − A) / A × 100%.",
+        "solution": "(0.61 − 0.44) / 0.44 × 100% = 38.6%. This is a difference in measured mass per area, not a difference in protein activity or cell response.",
+        "lesson_ids": [
+          "biomaterials-14"
+        ],
+        "misconception_ids": [
+          "adsorbed-mass-as-activity"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biomaterials-14:wettability-limit",
+      "type": "single_choice",
+      "prompt": "A surface treatment lowers a polymer coupon’s measured water contact angle from 94° to 58°. What conclusion is supported by this result alone?",
+      "options": [
+        "The apparent wetting changed under the stated measurement conditions; protein presentation and cell response still require separate measurements.",
+        "The treatment improved biocompatibility for every implant application.",
+        "The protein layer now has more active cell-binding sites.",
+        "The treatment changed the polymer’s bulk modulus by a known amount."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biomaterials-14-objective-2",
+        "biomaterials-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Contact angle describes an apparent wetting measurement, not a biological endpoint.",
+        "solution": "The contact angle documents changed apparent wetting. It does not establish protein activity, cell function, compatibility, or a bulk mechanical change.",
+        "lesson_ids": [
+          "biomaterials-14"
+        ],
+        "misconception_ids": [
+          "contact-angle-as-compatibility"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biomaterials-14:host-pathways",
+      "type": "multiple_select",
+      "prompt": "Which statements distinguish early interface events and host responses appropriately? Select all that apply.",
+      "options": [
+        "Adsorbed proteins form an interface that cells and blood components encounter before the pristine material.",
+        "Coagulation and complement are the same pathway and one assay measures both completely.",
+        "Complement is a distinct innate immune cascade; its activation markers answer a specific assay question.",
+        "Persistent tissue implants can involve macrophages and later fibrous-tissue formation.",
+        "A protein-adsorption measurement alone establishes the long-term tissue response."
+      ],
+      "points": 2,
+      "objective_ids": [
+        "biomaterials-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "feedback": {
+        "hint": "Keep the conditioning layer, blood-contact responses, innate immunity and later tissue remodeling distinct.",
+        "solution": "The protein layer conditions the interface; coagulation and complement are distinct systems; persistent implants can elicit macrophage participation and fibrous remodeling. One adsorption assay cannot establish that full response.",
+        "lesson_ids": [
+          "biomaterials-14"
+        ],
+        "misconception_ids": [
+          "host-response-as-single-pathway"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biomaterials-14:afm-limit",
+      "type": "single_choice",
+      "prompt": "An AFM height map shows a larger root-mean-square roughness after coating. Which follow-up is most directly needed to determine whether the coating also changed surface chemical composition?",
+      "options": [
+        "XPS on matched, conditioned specimens",
+        "A second AFM scan at the same size only",
+        "A bulk density measurement",
+        "A cell-adhesion assay by itself"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biomaterials-14-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "AFM topography and surface chemistry are different measurement targets.",
+        "solution": "XPS can provide near-surface elemental and chemical-state evidence. Matched conditioning matters because coating and handling can alter the measured surface.",
+        "lesson_ids": [
+          "biomaterials-14"
+        ],
+        "misconception_ids": [
+          "topography-as-chemical-identity"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biomaterials-14:comparison-design",
+      "type": "multiple_select",
+      "prompt": "Which choices strengthen a comparison of a surface treatment’s effect on host-response evidence? Select all that apply.",
+      "options": [
+        "Use process-matched coupons from the same substrate batch and vary the intended surface treatment.",
+        "Characterize matched specimens after sterilization and storage, not only before processing.",
+        "Count multiple wells from one cell preparation as independent biological replicates.",
+        "Measure adsorbed amount and a relevant protein or cell-function endpoint separately.",
+        "Use contact angle as the sole endpoint for overall compatibility.",
+        "Repeat across independent material batches and report the model, medium and exposure time."
+      ],
+      "points": 2,
+      "objective_ids": [
+        "biomaterials-14-objective-2",
+        "biomaterials-14-objective-3"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3,
+          5
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "feedback": {
+        "hint": "Control processing, measure at the relevant sample state, separate assay targets and identify true independent units.",
+        "solution": "Matched, replicated samples and separate surface/protein/function measurements help interpret the effect. Technical wells are not independent biological replicates, and contact angle alone is not an overall compatibility endpoint.",
+        "lesson_ids": [
+          "biomaterials-14"
+        ],
+        "misconception_ids": [
+          "technical-wells-as-independent",
+          "single-assay-compatibility"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biomaterials-14:c3a-interpretation",
+      "type": "single_choice",
+      "prompt": "In the synthetic comparison, coupon C has a C3a assay ratio of 1.5 and coupon B has 0.9. What does that result support?",
+      "options": [
+        "The C3a marker was higher for C than B in this stipulated assay; other host responses, causes and device performance remain untested.",
+        "Coupon C is universally less biocompatible than coupon B.",
+        "The calcium-phosphate surface caused complement activation because its contact angle is lower.",
+        "Coupon B will have better cell function in every tissue."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biomaterials-14-objective-3",
+        "biomaterials-outcome-4"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "State the assay result narrowly and separate an association from a causal or clinical conclusion.",
+        "solution": "Only the difference in this synthetic C3a assay is supported. It does not establish overall compatibility, a cause, cell function, or device performance.",
+        "lesson_ids": [
+          "biomaterials-14"
+        ],
+        "misconception_ids": [
+          "single-marker-as-compatibility-ranking"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biomaterials-15:reservoir-rate",
+      "type": "numeric",
+      "prompt": "A synthetic membrane reservoir has area 1.5 cm², membrane thickness 0.015 cm, drug diffusion coefficient in the membrane 2.0 × 10⁻⁷ cm²/s, partition coefficient 0.30 and a saturated core at 6.0 mg/mL, with a perfect sink outside. What is the zero-order release rate, in mg/h? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "biomaterials-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0.1296,
+        "unit": "",
+        "tolerance": 0.0005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "dM/dt = A D K C_s/h, then convert seconds to hours.",
+        "solution": "1.5 × 2.0 × 10⁻⁷ × 0.30 × 6.0/0.015 = 3.6 × 10⁻⁵ mg/s = 0.130 mg/h.",
+        "lesson_ids": [
+          "biomaterials-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biomaterials-15:reservoir-duration",
+      "type": "numeric",
+      "prompt": "A synthetic membrane reservoir has area 1.5 cm², membrane thickness 0.015 cm, drug diffusion coefficient in the membrane 2.0 × 10⁻⁷ cm²/s, partition coefficient 0.30 and a saturated core at 6.0 mg/mL, with a perfect sink outside. At most how many hours could 20 mg of releasable drug sustain that constant rate? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "biomaterials-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 154.3,
+        "unit": "",
+        "tolerance": 0.3,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Divide the amount by the hourly rate; the real constant phase ends sooner once the core desaturates.",
+        "solution": "20/0.1296 = 154 h, an upper bound for the zero-order phase.",
+        "lesson_ids": [
+          "biomaterials-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biomaterials-15:higuchi-amount",
+      "type": "numeric",
+      "prompt": "A synthetic non-degrading planar matrix holds drug at 40 mg/cm³, above its matrix solubility of 1.0 mg/cm³, with D = 2.0 × 10⁻⁶ cm²/s and a perfect sink. Using the Higuchi model, what amount per area is released after 2.0 days, in mg/cm²? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "biomaterials-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 5.225,
+        "unit": "",
+        "tolerance": 0.005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Q = √[D(2A_L − C_s)C_s t] with t in seconds.",
+        "solution": "t = 172 800 s, so Q = √(2.0 × 10⁻⁶ × 79 × 1.0 × 172 800) = 5.23 mg/cm².",
+        "lesson_ids": [
+          "biomaterials-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biomaterials-15:higuchi-time-factor",
+      "type": "numeric",
+      "prompt": "Under the Higuchi model, by what factor must the release time increase to release three times as much drug per area? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "biomaterials-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 9,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Q is proportional to √t.",
+        "solution": "Q ∝ √t, so tripling Q needs 3² = 9 times as long.",
+        "lesson_ids": [
+          "biomaterials-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biomaterials-15:slab-diffusivity",
+      "type": "numeric",
+      "prompt": "A synthetic slab 0.20 cm thick releases from both faces and loses 30% of its dissolved drug in 2.0 h. Using M_t/M_∞ ≈ 4√[Dt/(πL²)], what is D in units of 10⁻⁸ cm²/s? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "biomaterials-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 9.817,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Rearrange: D = πL²(M_t/M_∞ ÷ 4)²/t, with t in seconds.",
+        "solution": "D = π × 0.04 × 0.075²/7200 = 9.82 × 10⁻⁸ cm²/s; 30% is within the early-time range.",
+        "lesson_ids": [
+          "biomaterials-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biomaterials-15:first-order-percent",
+      "type": "numeric",
+      "prompt": "A synthetic device follows first-order release with k = 0.050 h⁻¹. What percentage has been released after 24 h? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "biomaterials-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 69.88,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "M_t/M_∞ = 1 − e^(−kt).",
+        "solution": "1 − e^(−1.2) = 0.699, or 69.9%.",
+        "lesson_ids": [
+          "biomaterials-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biomaterials-15:first-order-half-time",
+      "type": "numeric",
+      "prompt": "For the same first-order device with k = 0.050 h⁻¹, how many hours until half the drug is released? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "biomaterials-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 13.86,
+        "unit": "",
+        "tolerance": 0.02,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Set 1 − e^(−kt) = 0.5.",
+        "solution": "t = ln 2/k = 13.9 h.",
+        "lesson_ids": [
+          "biomaterials-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biomaterials-15:release-exponent",
+      "type": "numeric",
+      "prompt": "A synthetic slab releases 10% of its drug at 1.0 h and 30% at 4.0 h, both early in release. Fitting M_t/M_∞ = k tⁿ through these two points, what is n? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "biomaterials-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0.7925,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "n = log(f₂/f₁)/log(t₂/t₁).",
+        "solution": "n = log 3/log 4 = 0.79, between the Fickian 0.5 and zero-order 1.0 values for a slab: anomalous transport, or an artefact worth checking.",
+        "lesson_ids": [
+          "biomaterials-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biomaterials-15:zero-order-end",
+      "type": "single_choice",
+      "prompt": "A membrane reservoir releases at a constant rate for several days and then its rate declines. What is the most likely reason in the ideal model?",
+      "options": [
+        "The excess solid drug has dissolved, so the core concentration falls below saturation and release becomes first-order",
+        "The membrane suddenly becomes thicker",
+        "Zero-order release always lasts exactly half the device lifetime",
+        "The sink outside became saturated with polymer"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biomaterials-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "What keeps the driving concentration constant?",
+        "solution": "Constant flux needs a saturated core. Once the solid reserve is gone, the core concentration falls with the drug remaining, giving a first-order decline.",
+        "lesson_ids": [
+          "biomaterials-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biomaterials-15:burst-identification",
+      "type": "single_choice",
+      "prompt": "Cumulative release from a synthetic matrix, plotted against √t, is a straight line with a clearly positive intercept. What does this suggest?",
+      "options": [
+        "A burst from drug at or near the surface, followed by diffusion-controlled release",
+        "Perfect zero-order release",
+        "A first-order process with no diffusion",
+        "An error, because Higuchi lines must pass through zero"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biomaterials-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "What does the √t line describe, and what would add a constant offset?",
+        "solution": "The linear √t part is consistent with matrix diffusion; the intercept is an early release in excess of that trend. Report it separately and fit the rest of the curve.",
+        "lesson_ids": [
+          "biomaterials-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biomaterials-15:exponent-limits",
+      "type": "single_choice",
+      "prompt": "Why is a fitted release exponent n = 0.5 not, on its own, proof that release is diffusion-controlled?",
+      "options": [
+        "Different mechanisms and geometries can give similar exponents, and bursts or fitting beyond 60% release bias n",
+        "Because n = 0.5 always means zero-order release",
+        "Because exponents can only be fitted to in vivo data",
+        "Because diffusion always gives n = 1"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "biomaterials-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "What else could produce the same log–log slope?",
+        "solution": "The exponent summarizes a curve. Geometry changes the diagnostic values, and bursts or late data shift n, so mechanism claims need independent evidence.",
+        "lesson_ids": [
+          "biomaterials-15"
+        ],
+        "misconception_ids": []
       },
       "visibility": "public-practice-authoring",
       "provenance": {

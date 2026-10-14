@@ -465,6 +465,86 @@
         "signals-control-13-objective-3"
       ],
       "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-14-card-1",
+      "lesson_id": "signals-control-14",
+      "front": "First-order difference equation",
+      "back": "y[k]=a y[k−1]+b x[k] updates the output one sample at a time; with a unit step and |a|<1, y[k]=b(1−a^(k+1))/(1−a).",
+      "objective_ids": [
+        "signals-control-14-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-14-card-2",
+      "lesson_id": "signals-control-14",
+      "front": "Impulse response and Z-transform",
+      "back": "From rest h[k]=b a^k for k≥0 and H(z)=b/(1−a z⁻¹); the pole is z=a.",
+      "objective_ids": [
+        "signals-control-14-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-14-card-3",
+      "lesson_id": "signals-control-14",
+      "front": "Discrete-time pole stability",
+      "back": "A causal first-order mode decays for |a|<1, persists at |a|=1 for a simple pole, and grows for |a|>1; a negative stable pole alternates.",
+      "objective_ids": [
+        "signals-control-14-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-14-card-4",
+      "lesson_id": "signals-control-14",
+      "front": "Close the loop, then check poles",
+      "back": "Feedback changes the characteristic denominator; assess the closed-loop poles and keep saturation, delay, sampling and noise limits separate.",
+      "objective_ids": [
+        "signals-control-14-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-15-card-1",
+      "lesson_id": "signals-control-15",
+      "front": "Routh first column",
+      "back": "Sign changes in the Routh first column count right-half-plane roots; all entries positive means every pole is in the left half-plane.",
+      "objective_ids": [
+        "signals-control-15-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-15-card-2",
+      "lesson_id": "signals-control-15",
+      "front": "Coefficient test",
+      "back": "Same-sign coefficients are necessary for stability but not sufficient above second order.",
+      "objective_ids": [
+        "signals-control-15-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-15-card-3",
+      "lesson_id": "signals-control-15",
+      "front": "Root-locus rules",
+      "back": "Branches start at open-loop poles and end at zeros or infinity; real-axis segments lie left of an odd count; asymptotes meet at the centroid.",
+      "objective_ids": [
+        "signals-control-15-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-15-card-4",
+      "lesson_id": "signals-control-15",
+      "front": "Stability limit and margin",
+      "back": "With proportional gain, GM = K_limit/K₀; Routh's limit matches the frequency-response gain margin, but neither handles a pure delay directly.",
+      "objective_ids": [
+        "signals-control-15-objective-3"
+      ],
+      "license": "CC-BY-4.0"
     }
   ]
 }

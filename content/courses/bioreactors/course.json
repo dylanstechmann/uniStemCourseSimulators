@@ -3,18 +3,21 @@
   "id": "bioreactors",
   "legacy_code": "BME 370",
   "title": "Bioreactors & Tissue Culture Engineering",
-  "description": "Scale cell culture and tissue maturation through mass transfer, shear, process monitoring, control, sterility, and design-of-experiments principles.",
+  "description": "Scale cell culture and tissue maturation through mass transfer, shear, process monitoring, control, sterility-boundary reasoning, and design-of-experiments principles.",
   "domain": "Bioengineering",
   "level": "Year 3",
   "maturity": "partial",
-  "version": "0.4.0",
+  "version": "0.4.9",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
     "source_path": "src/data/courses.js",
     "source_sha256": "a77a7cb7f5be2ffa12068877042ac775c6d9b79b83ac2f316fe4f26a0d3d783b",
     "migration_version": "1.0",
-    "modifications": []
+    "modifications": [
+      "Broadened outcome 2 to state scale-up constraints explicitly and linked the four original lesson pairs to outcomes 2–4. Corrected the oxygen-demand and mixing-scale question associations; added direct impeller Reynolds-number practice. Existing questions and numeric keys are unchanged. The course remains partial, unreviewed and formative-only.",
+      "Added bounded sterile-boundary and contamination-evidence reasoning to existing week 12, with one synthetic log-reduction calculation, two distinct formative checks and three retrieval cards. No process settings, sterilization procedures or real-process claims are provided; the schedule remains 14 weeks and the package remains partial, unreviewed and formative-only."
+    ]
   },
   "prerequisites": {
     "course_ids": [
@@ -36,7 +39,7 @@
     },
     {
       "id": "bioreactors-outcome-2",
-      "description": "Estimate oxygen-transfer and shear constraints.",
+      "description": "Estimate oxygen-transfer, mixing, shear, and scale-up constraints.",
       "bloom": "apply"
     },
     {
@@ -55,49 +58,74 @@
       "id": "bioreactors-1-objective-1",
       "description": "Fit a simple exponential growth model over its valid phase.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "bioreactors-outcome-3"
+      ]
     },
     {
       "id": "bioreactors-1-objective-2",
       "description": "Calculate doubling time and identify when exponential assumptions fail.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "bioreactors-outcome-3"
+      ]
     },
     {
       "id": "bioreactors-2-objective-1",
       "description": "Apply an oxygen transfer balance.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "bioreactors-outcome-2"
+      ]
     },
     {
       "id": "bioreactors-2-objective-2",
       "description": "Compare oxygen transfer capacity to cellular demand.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "bioreactors-outcome-2"
+      ]
     },
     {
       "id": "bioreactors-3-objective-1",
       "description": "Estimate Reynolds number and mixing-time tradeoffs.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "bioreactors-outcome-2"
+      ]
     },
     {
       "id": "bioreactors-3-objective-2",
       "description": "Use dimensionless similarity only when the relevant constraints are preserved.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "bioreactors-outcome-2"
+      ]
     },
     {
       "id": "bioreactors-4-objective-1",
       "description": "Choose critical process parameters and quality attributes.",
       "bloom": "evaluate",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "bioreactors-outcome-4"
+      ]
     },
     {
       "id": "bioreactors-4-objective-2",
       "description": "Separate process drift from assay variation.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "bioreactors-outcome-3",
+        "bioreactors-outcome-4"
+      ]
+    },
+    {
+      "id": "bioreactors-4-objective-3",
+      "description": "Map contamination entry routes and interpret sterility evidence within its limits.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "bioreactors-outcome-4"
+      ]
     },
     {
       "id": "bioreactors-5-objective-1",
@@ -358,11 +386,62 @@
         "bioreactors-outcome-3",
         "bioreactors-outcome-4"
       ]
+    },
+    {
+      "id": "bioreactors-14-objective-1",
+      "description": "Solve a declared synthetic biomass/product reaction using separate elemental balances.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "bioreactors-outcome-1"
+      ]
+    },
+    {
+      "id": "bioreactors-14-objective-2",
+      "description": "Calculate biomass and product yields and verify carbon recovery from a balanced reaction.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "bioreactors-outcome-1",
+        "bioreactors-outcome-3"
+      ]
+    },
+    {
+      "id": "bioreactors-14-objective-3",
+      "description": "Distinguish stoichiometric yields from Monod kinetics and state limitations of the synthetic reaction.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "bioreactors-outcome-3"
+      ]
+    },
+    {
+      "id": "bioreactors-15-objective-1",
+      "description": "Write fed-batch balances with a changing volume and explain why a dilution term D = F/V appears in the concentration equations without any outflow.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "bioreactors-outcome-1"
+      ]
+    },
+    {
+      "id": "bioreactors-15-objective-2",
+      "description": "Calculate an exponential feed that holds a substrate at a set point, the cumulative feed volume and the time at which the vessel reaches its working volume.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "bioreactors-outcome-1",
+        "bioreactors-outcome-3"
+      ]
+    },
+    {
+      "id": "bioreactors-15-objective-3",
+      "description": "Compare batch, fed-batch and continuous operation for cell concentration, product titer and dilution, and state what a single-substrate feed model omits.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "bioreactors-outcome-3",
+        "bioreactors-outcome-4"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week undergraduate scope only. The four compact prototype units sit in weeks 1, 5, 9 and 12 beside original lessons on growth kinetics, the culture mass balance, continuous and perfused culture, oxygen supply and its control, scale-up, shear, and design of experiments; week 7 is a synthetic-data lab on measuring kLa and week 14 a lesson on designing a scale-down experiment, which prepares the course case. All activities are open, ungraded practice. There are no graded homework sets, exams or project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week undergraduate scope only. Three compact prototype units remain in weeks 5, 9 and 12 beside the expanded week-1 growth and balance primer and original lessons on growth kinetics, the culture mass balance, continuous and perfused culture, oxygen supply and its control, scale-up, shear, and design of experiments; week 7 is a synthetic-data lab on measuring kLa and week 14 a lesson on designing a scale-down experiment, which prepares the course case. All activities are open, ungraded practice. There are no graded homework sets, exams or project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
@@ -376,12 +455,14 @@
       },
       {
         "week": 2,
-        "title": "Growth kinetics: Monod saturation, yield and what limits a batch",
+        "title": "Monod growth and element-balanced biomass/product yields",
         "lesson_ids": [
-          "bioreactors-7"
+          "bioreactors-7",
+          "bioreactors-14"
         ],
         "assessment_ids": [
-          "bioreactors-7-practice"
+          "bioreactors-7-practice",
+          "bioreactors-14-practice"
         ]
       },
       {
@@ -396,11 +477,13 @@
       },
       {
         "week": 4,
-        "title": "Continuous and perfused culture: chemostat steady states, washout and cell-specific perfusion",
+        "title": "Fed-batch, continuous and perfused culture: changing volume, chemostat steady states, washout and cell-specific perfusion",
         "lesson_ids": [
+          "bioreactors-15",
           "bioreactors-8"
         ],
         "assessment_ids": [
+          "bioreactors-15-practice",
           "bioreactors-8-practice"
         ]
       },
@@ -529,7 +612,7 @@
             "bioreactors-1-objective-1",
             "bioreactors-1-objective-2"
           ],
-          "worked_example": "If viable cell count rises from 0.5 to 2 million cells/mL over 48 h in log phase, μ=ln(4)/48=0.0289 h⁻¹ and doubling time is 24 h.",
+          "worked_example": "If viable concentration rises from 0.5 to 2.0 million cells/mL over 48 h, the fourfold increase gives μ=ln(4)/48=0.0289 h⁻¹ and a doubling time of 24 h. In a synthetic fixed-volume balance, 2.0×10⁹ viable cells with μ=0.030 h⁻¹ and loss rate 0.005 h⁻¹ accumulate at 5.0×10⁷ cells/h when flows are absent. These are interval-specific estimates under stated assumptions, not universal cell-line rates.",
           "question_ids": [
             "bioreactors-1:check",
             "bioreactors-1:doubling-time"
@@ -557,7 +640,7 @@
             "bioreactors-2-objective-1",
             "bioreactors-2-objective-2"
           ],
-          "worked_example": "If kLa=20 h⁻¹, C*=0.20 mM, and C=0.05 mM, OTR=3 mM/h in the simplified bulk model.",
+          "worked_example": "A synthetic culture at 2×10⁶ viable cells/mL with qO₂=1×10⁻¹⁶ mol/(cell·s) has an uptake rate of 0.72 mmol/(L·h). Separately, kLa=10 h⁻¹ and a 0.10 mmol/L driving force give OTR=1.00 mmol/(L·h); if OUR is 1.50, the bulk oxygen balance is −0.50 mmol/(L·h).",
           "question_ids": [
             "bioreactors-2:check",
             "bioreactors-2:oxygen-supply-vs-demand"
@@ -585,10 +668,11 @@
             "bioreactors-3-objective-1",
             "bioreactors-3-objective-2"
           ],
-          "worked_example": "Maintaining constant tip speed while increasing impeller diameter changes rotational speed and may alter mixing and power density; the chosen criterion must match the process limitation.",
+          "worked_example": "For a geometrically similar 2 L to 200 L scale-up, the characteristic length factor is 100^(1/3)=4.64. Constant tip speed gives a rotational-speed ratio of 0.215, while idealized turbulent constant power per volume gives 0.359 and raises tip speed by about 1.67; the criteria cannot preserve every transport condition together.",
           "question_ids": [
             "bioreactors-3:check",
-            "bioreactors-3:similarity-constraints"
+            "bioreactors-3:similarity-constraints",
+            "bioreactors-3:reynolds-number"
           ],
           "card_ids": [
             "bioreactors-2-0",
@@ -602,7 +686,8 @@
       "title": "Process monitoring, control, and quality",
       "source_ids": [
         "transport",
-        "tissueEngineering"
+        "tissueEngineering",
+        "mit-10442-biochemical-engineering-calendar"
       ],
       "lessons": [
         {
@@ -611,16 +696,23 @@
           "reading": "modules/04-process-monitoring-control-and-quality.md",
           "objectives": [
             "bioreactors-4-objective-1",
-            "bioreactors-4-objective-2"
+            "bioreactors-4-objective-2",
+            "bioreactors-4-objective-3"
           ],
-          "worked_example": "A dissolved-oxygen probe that drifts low can trigger excessive agitation; a second calibrated measurement or reference check can distinguish sensor drift from true oxygen limitation.",
+          "worked_example": "A dissolved-oxygen probe that drifts low can trigger a control response that changes agitation even if the culture state has not changed. An independent calibrated measurement or reference check can help distinguish sensor bias from a true oxygen change, provided location and response time are considered. Separately, a reference assay staying within ±2% while batch titre falls 20% makes the represented assay variation an unlikely sole explanation, but does not establish the process cause. In a separate synthetic example, a stipulated 1.2×10⁶ starting count with a modeled four-log reduction leaves 120 modeled survivors, not a validated process result.",
           "question_ids": [
             "bioreactors-4:check",
-            "bioreactors-4:drift-vs-assay-variation"
+            "bioreactors-4:drift-vs-assay-variation",
+            "bioreactors-4:modeled-survivors",
+            "bioreactors-4:contamination-pathways",
+            "bioreactors-4:sterility-evidence-limits"
           ],
           "card_ids": [
             "bioreactors-3-0",
-            "bioreactors-3-1"
+            "bioreactors-3-1",
+            "bioreactors-4-card-1",
+            "bioreactors-4-card-2",
+            "bioreactors-4-card-3"
           ]
         }
       ]
@@ -697,10 +789,11 @@
     },
     {
       "id": "bioreactors-module-7",
-      "title": "Monod kinetics and yield",
+      "title": "Monod growth, yield and elemental stoichiometry",
       "source_ids": [
         "transport",
-        "tissueEngineering"
+        "tissueEngineering",
+        "mit-10442-biochemical-engineering-calendar"
       ],
       "lessons": [
         {
@@ -728,6 +821,34 @@
             "bioreactors-7-card-2",
             "bioreactors-7-card-3",
             "bioreactors-7-card-4"
+          ]
+        },
+        {
+          "id": "bioreactors-14",
+          "title": "Element-balanced biomass and product yields",
+          "reading": "modules/14-element-balanced-biomass-and-product-yields.md",
+          "objectives": [
+            "bioreactors-14-objective-1",
+            "bioreactors-14-objective-2",
+            "bioreactors-14-objective-3"
+          ],
+          "worked_example": "For one mole of glucose, the stipulated balance forms 2 C-mol biomass, 1 mol symbolic product, 2 mol CO2 and consumes 0.9 mol O2; C, H, O and N totals close exactly under the stated empirical formulas and fixed synthetic reaction coefficients.",
+          "question_ids": [
+            "bioreactors-14:nitrogen-balance",
+            "bioreactors-14:oxygen-balance",
+            "bioreactors-14:carbon-dioxide-balance",
+            "bioreactors-14:water-balance",
+            "bioreactors-14:carbon-recovery",
+            "bioreactors-14:biomass-yield",
+            "bioreactors-14:product-yield",
+            "bioreactors-14:kinetics-v-stoichiometry",
+            "bioreactors-14:balance-limit"
+          ],
+          "card_ids": [
+            "bioreactors-14-card-1",
+            "bioreactors-14-card-2",
+            "bioreactors-14-card-3",
+            "bioreactors-14-card-4"
           ]
         }
       ]
@@ -918,6 +1039,46 @@
       ]
     },
     {
+      "id": "bioreactors-module-15",
+      "title": "Fed-batch culture",
+      "source_ids": [
+        "transport",
+        "tissueEngineering",
+        "mit-10442-biochemical-engineering-calendar"
+      ],
+      "lessons": [
+        {
+          "id": "bioreactors-15",
+          "title": "Fed-batch culture: changing volume, dilution and feeding to hold a substrate",
+          "reading": "modules/15-fed-batch-culture-volume-change-and-feeding.md",
+          "objectives": [
+            "bioreactors-15-objective-1",
+            "bioreactors-15-objective-2",
+            "bioreactors-15-objective-3"
+          ],
+          "worked_example": "Starting from 5.0 × 10⁸ cells in 1.0 L with μ = 0.03 h⁻¹ and q_G = 2.0 × 10⁻¹⁰ mmol per cell per hour, a 500 mM feed holding glucose at 5 mM needs 0.202 mL/h at t = 0 and 1.75 mL/h at 72 h, adds 51.7 mL by 72 h and fills a 1.5 L vessel at 144 h. At 72 h the concentration is 4.12 × 10⁶ cells/mL rather than 4.34 × 10⁶ because of dilution (D = 1.67 × 10⁻³ h⁻¹), and q_P = 1.0 × 10⁻¹² g per cell per hour gives a titer of 0.122 g/L. A constant feed equal to the initial demand supplies only half of the demand by 24 h.",
+          "question_ids": [
+            "bioreactors-15:dilution-term",
+            "bioreactors-15:initial-feed",
+            "bioreactors-15:feed-at-60h",
+            "bioreactors-15:cumulative-feed",
+            "bioreactors-15:time-to-working-volume",
+            "bioreactors-15:concentration-at-60h",
+            "bioreactors-15:dilution-rate-at-60h",
+            "bioreactors-15:titer-at-60h",
+            "bioreactors-15:constant-feed",
+            "bioreactors-15:model-limits"
+          ],
+          "card_ids": [
+            "bioreactors-15-card-1",
+            "bioreactors-15-card-2",
+            "bioreactors-15-card-3",
+            "bioreactors-15-card-4"
+          ]
+        }
+      ]
+    },
+    {
       "id": "bioreactors-module-lab-01",
       "title": "Virtual laboratory: measuring kLa",
       "source_ids": [
@@ -1001,7 +1162,8 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "bioreactors-1-objective-1",
-        "bioreactors-1-objective-2"
+        "bioreactors-1-objective-2",
+        "bioreactors-outcome-3"
       ],
       "question_ids": [
         "bioreactors-1:check",
@@ -1016,7 +1178,8 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "bioreactors-2-objective-1",
-        "bioreactors-2-objective-2"
+        "bioreactors-2-objective-2",
+        "bioreactors-outcome-2"
       ],
       "question_ids": [
         "bioreactors-2:check",
@@ -1031,13 +1194,15 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "bioreactors-3-objective-1",
-        "bioreactors-3-objective-2"
+        "bioreactors-3-objective-2",
+        "bioreactors-outcome-2"
       ],
       "question_ids": [
         "bioreactors-3:check",
-        "bioreactors-3:similarity-constraints"
+        "bioreactors-3:similarity-constraints",
+        "bioreactors-3:reynolds-number"
       ],
-      "points": 2
+      "points": 3
     },
     {
       "id": "bioreactors-4-practice",
@@ -1046,13 +1211,19 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "bioreactors-4-objective-1",
-        "bioreactors-4-objective-2"
+        "bioreactors-4-objective-2",
+        "bioreactors-4-objective-3",
+        "bioreactors-outcome-3",
+        "bioreactors-outcome-4"
       ],
       "question_ids": [
         "bioreactors-4:check",
-        "bioreactors-4:drift-vs-assay-variation"
+        "bioreactors-4:drift-vs-assay-variation",
+        "bioreactors-4:modeled-survivors",
+        "bioreactors-4:contamination-pathways",
+        "bioreactors-4:sterility-evidence-limits"
       ],
-      "points": 2
+      "points": 5
     },
     {
       "id": "bioreactors-5-practice",
@@ -1317,6 +1488,60 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "bioreactors-14-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Element-balanced biomass and product yield practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "bioreactors-14-objective-1",
+        "bioreactors-14-objective-2",
+        "bioreactors-14-objective-3",
+        "bioreactors-outcome-1",
+        "bioreactors-outcome-3"
+      ],
+      "question_ids": [
+        "bioreactors-14:nitrogen-balance",
+        "bioreactors-14:oxygen-balance",
+        "bioreactors-14:carbon-dioxide-balance",
+        "bioreactors-14:water-balance",
+        "bioreactors-14:carbon-recovery",
+        "bioreactors-14:biomass-yield",
+        "bioreactors-14:product-yield",
+        "bioreactors-14:kinetics-v-stoichiometry",
+        "bioreactors-14:balance-limit"
+      ],
+      "points": 9
+    },
+    {
+      "id": "bioreactors-15-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Fed-batch culture practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "bioreactors-15-objective-1",
+        "bioreactors-15-objective-2",
+        "bioreactors-15-objective-3",
+        "bioreactors-outcome-1",
+        "bioreactors-outcome-3",
+        "bioreactors-outcome-4"
+      ],
+      "question_ids": [
+        "bioreactors-15:dilution-term",
+        "bioreactors-15:initial-feed",
+        "bioreactors-15:feed-at-60h",
+        "bioreactors-15:cumulative-feed",
+        "bioreactors-15:time-to-working-volume",
+        "bioreactors-15:concentration-at-60h",
+        "bioreactors-15:dilution-rate-at-60h",
+        "bioreactors-15:titer-at-60h",
+        "bioreactors-15:constant-feed",
+        "bioreactors-15:model-limits"
+      ],
+      "points": 11
     }
   ],
   "grading_policy": {
@@ -1376,19 +1601,65 @@
       "version": "0.4.0",
       "date": "2026-10-08",
       "summary": "Added a proposed 14-week schedule; seven original lessons (Monod growth and yield; chemostat steady states, washout and cell-specific perfusion; mixing and scale-up; shear, eddies and the Kolmogorov scale; dissolved-oxygen control and the capacity limit; factorial design of experiments; and designing a scale-down experiment that separates a mixing limitation from cell-line instability, which prepares the course case); and a synthetic-data lab on measuring kLa by dynamic gassing-out. No new references were added. All activities remain ungraded practice; the package remains partial and unreviewed, gives no laboratory protocol or process recipe, and makes no claim about any cell line, vessel or process."
+    },
+    {
+      "version": "0.4.1",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-1 growth reading with an interval-specific exponential model, viable-count versus total-cell balance, loss terms, substrate/product balances and unit-aware rate estimation. Existing questions, keys and objectives are unchanged. Three compact prototype readings remain in weeks 5, 9 and 12; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.2",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-5 oxygen reading with unit-aware transfer and uptake rates, a transient dissolved-oxygen balance, a target-concentration feasibility check and limits of bulk estimates. Existing questions, keys and objectives are unchanged. Two compact prototype readings remain in weeks 9 and 12; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.3",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-9 mixing reading with scale-up criteria, an idealized geometric-scaling comparison, links between gradients and cell exposure, and limits of scale-down inference. Existing questions, keys and objectives are unchanged. One compact prototype reading remains in week 12; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.4",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-12 process-monitoring reading with the parameter-to-quality chain, sensor/control distinctions, trend interpretation, predeclared acceptance criteria and traceable records. Existing questions, keys and objectives are unchanged. All four original compact prototype readings now have expanded primers; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.5",
+      "date": "2026-10-10",
+      "summary": "Broadened outcome 2 to include scale-up constraints and linked the first four lesson pairs to outcomes 2–4. Corrected the oxygen-demand and scale-up question associations and added direct impeller Reynolds-number practice; existing questions and numeric keys are unchanged. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.6",
+      "date": "2026-10-10",
+      "summary": "Added an inactive, normalized oxygen-capacity project draft that derives a transient deficit under a growing demand and compares quasi-steady capacity with the actual threshold crossing. It does not repeat the existing kLa fit or specify a real process; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.7",
+      "date": "2026-10-11",
+      "summary": "Added a week-2 synthetic C/H/O/N balance for stipulated biomass and product formation alongside Monod kinetics. The worked equation yields 2 C-mol biomass and 1 mol symbolic product per mol glucose, with independent atom checks; nine formative items and four retrieval cards support the lesson. The schedule remains 14 weeks and the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.8",
+      "date": "2026-10-11",
+      "summary": "Added sterile-boundary and contamination-evidence reasoning within the existing week-12 monitoring lesson. A synthetic log-reduction arithmetic example, two formative checks and three cards distinguish mapped entry routes from product attributes and state that neither a model nor a single negative sample proves batch sterility. No process instructions were added; the schedule remains 14 weeks and the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.9",
+      "date": "2026-10-13",
+      "summary": "Added an original fed-batch reading grouped with continuous culture in week 4: amount and concentration balances with changing volume, the dilution term D = F/V without outflow, an exponential feed that holds a substrate at a set point, cumulative feed and the working-volume limit, titer with retained product, and a batch/fed-batch/chemostat comparison. Three objectives, ten formative items and four cards. MIT OCW 10.442 Spring 2005 lists bioreactor design after continuous culture; it is a link-only comparator. No week was added. The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "Four compact legacy units are preserved beside ten original readings, including one synthetic-data virtual lab; this package is not equivalent to a full university semester.",
-    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm, cumulative final, or graded integrative project.",
-    "Practice items are short formative checks (two per prototype unit and six to nine per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
+    "All four former compact legacy units now have expanded primers beside the other readings, including one synthetic-data virtual lab; this package is not equivalent to a full university semester.",
+    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm or cumulative final. An inactive integrative project draft is not scheduled or graded.",
+    "Practice items are short formative checks (two to three per expanded prototype unit and six to nine per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
-    "Of the 66 numerical answers in this package, twelve require a unit, one checks significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
+    "Of the 67 numerical answers in this package, twelve require a unit, one checks significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
     "Total workload and weekly duration are unknown; former nominal credit values and hardcoded reading times do not establish workload.",
-    "All cultures, vessels, cell lines and numbers are synthetic teaching examples; this package gives no laboratory protocols, process recipes or medical advice and says nothing about any real cell line, vessel or process. The formulas are first-order textbook estimates, not design methods."
+    "All cultures, vessels, cell lines and numbers are synthetic teaching examples; this package gives no laboratory protocols, process recipes or medical advice and says nothing about any real cell line, vessel or process. The formulas are first-order textbook estimates, not design methods. The log-reduction example is only simplified arithmetic, not a validated sterilization condition or sterility claim.",
+    "The added elemental balance is a synthetic, fixed-coefficient example with a stipulated biomass formula and symbolic product; it does not predict a real cell composition, pathway, or yield."
   ],
   "intentionally_omitted": [
-    "Graded assessments and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package."
+    "Graded assessments, an activated integrative project and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package."
   ]
 }

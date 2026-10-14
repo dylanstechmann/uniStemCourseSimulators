@@ -1,8 +1,8 @@
 # Virtual lab 1: quantitative fluorescence image analysis
 
 **Activity type:** data-analysis lab with public, ungraded formative checks  
-**Course package:** Foundations of Cell and Molecular Biology, version 0.16.0  
-**Estimated learner time:** 2–3 hours  
+**Course package:** Foundations of Cell and Molecular Biology, version 0.61.0
+**Estimated learner time (unvalidated author estimate):** 2–3 hours
 **Data status:** wholly synthetic teaching data; no microscopy images or biological samples are provided.
 
 ## Question
@@ -24,7 +24,7 @@ These objectives practice the existing week 5 imaging objectives. The original i
 
 ## Synthetic data
 
-The [CSV file](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/cell-biology/labs/image-counts.csv) contains the same eight observations shown below. It is safe numeric teaching data. Each row is one independent culture preparation in the named condition; the 100 nuclei are nested observations, not 100 independent experiments.
+The [CSV file](image-counts.csv) contains the same eight observations shown below. It is a version-pinned learner resource in the course package. Each row is one independent culture preparation in the named condition; the 100 nuclei are nested observations, not 100 independent experiments.
 
 | Condition | Batch | Viable nuclei sampled | Marker-positive nuclei | Exposure (ms) | Saturated fields |
 | --- | --- | ---: | ---: | ---: | ---: |

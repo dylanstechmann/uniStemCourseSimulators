@@ -1,0 +1,22 @@
+# Genetics & Genomics course review handoff
+
+This handoff targets Genetics & Genomics, package version 0.5.6. The [review snapshot](GENETICS_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+
+## Review scope
+
+- Review the proposed schedule, prerequisites, objective/outcome associations and quantitative level.
+- Independently recalculate representative segregation, pedigree, linkage, gene-regulation, association, expression-normalization, Mendelian-randomization and virtual-lab work.
+- Check tetrad-class scoring, Hfr entry-time order, co-transduction interpretation, and the limits of plasmid-complementation claims.
+- Check predictions for lactose and glucose inputs, lacI/operator mutations, and negative versus positive prokaryotic control.
+- Check the new portfolio's parental and double-crossover classification, marker order, adjacent and outer recombination fractions, map distances, expected double crossovers, coefficient of coincidence, interference and Bayes calculation under incomplete penetrance.
+- Examine whether finite-sample uncertainty and the stipulated no-phenocopy model are explained at an appropriate level.
+- Confirm that linkage is not described as causation, the constructed family calculation is not framed as a personal risk estimate, and the project complements the association lab and variant-follow-up case.
+- Review notation, accessible alternatives, manual accessibility and likely weekly workload.
+
+## Author-side evidence and its limits
+
+The earlier focused Genetics suite passed 7 tests for version 0.5.5, including independent recomputation of the mapping and penetrance portfolio and snapshot identity. No test suite was run for version 0.5.6. The current content validator, objective-coverage report and assessment-candidate audit are structural author-side evidence; none establishes independent genetics review, accessible learner usability, semester workload, student learning or university equivalency. Graded homework, exams and a multi-session laboratory sequence remain absent; the project is inactive and ungraded.
+
+## Review record to complete only after review
+
+After a review actually occurs, record reviewer name and qualifications, date, package version and archive digest, artifacts examined, concrete findings and disposition. Keep separate decisions for genetic and mathematical correctness, instructional design, assessment, accessibility, workload and release. Do not infer approval from the package hash or test results.

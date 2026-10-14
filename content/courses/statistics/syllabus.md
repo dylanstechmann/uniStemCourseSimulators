@@ -1,6 +1,6 @@
 # Probability, Biostatistics & Experimental Design
 
-**Maturity: partial. Version: 0.4.0.**
+**Maturity: partial. Version: 0.4.8.**
 
 Probability, estimation, hypothesis testing, regression, and design principles for biological and engineering experiments, with reproducibility and uncertainty at the center.
 
@@ -15,36 +15,43 @@ Algebra; calculus recommended. Structured required, recommended, and concurrent 
 - Interpret confidence intervals, p-values, and effect sizes.
 - Design controls, replication, randomization, and blinding.
 - Create a labeled quantitative graph using an explicit scale and the units of the measured variables.
+- Use conditional probability and Bayes' rule to update an event probability from evidence.
+- Update a finite prior over model parameters with likelihoods, normalize a posterior, and compute posterior predictive probabilities distinct from p-values.
+- Update a continuous Beta prior with binomial observations and compute posterior predictive probabilities under stated assumptions.
 
 ## Proposed 14-week schedule
 
-This is a proposed scope, not a measured or reviewed semester. Each week lists its readings; the four short prototype readings (about 70 to 80 words each) sit in weeks 1, 4, 6 and 8 beside the original lessons, and every lesson has public formative items and retrieval cards.
+This is a proposed scope, not a measured or reviewed semester. Each week lists its readings; weeks 1, 4, 6, 8 and 13 combine focused instruction with related original lessons.
 
 | Week | Theme | Readings |
 |---|---|---|
 | 1 | Probability, distributions and sampling | Probability, distributions, and sampling |
-| 2 | Sources of variability: biological variation, technical error and the standard error | Sources of variability: biological variation, technical error and the standard error |
-| 3 | Descriptive differences and the limits of inference | Descriptive differences and inferential limits |
-| 4 | Estimation, confidence intervals, effect sizes and regression to the mean | Estimation, confidence intervals, and effect sizes; Effect sizes, confidence intervals and regression to the mean: reading a result for what it can support |
-| 5 | Comparing two groups: Welch and paired t statistics and intervals for a difference | Comparing two groups: the t statistic, Welch's test, paired designs and confidence intervals for a difference |
-| 6 | Hypothesis tests, multiple comparisons and the false discovery rate | Hypothesis tests and multiple comparisons; Many tests at once: family-wise error, Bonferroni and the false discovery rate |
-| 7 | Power and sample size: what an experiment can detect | Power and sample size: what an experiment can detect, and what a non-significant result means |
-| 8 | Experimental design, regression and reproducibility | Experimental design, regression, and reproducibility |
-| 9 | Least squares, calibration curves and inverse prediction | Regression and calibration: least squares, residuals, R² and prediction |
-| 10 | Resampling and rank-based methods: permutation tests, the bootstrap and the Mann–Whitney test | Resampling and rank-based methods: permutation tests, the bootstrap and the Mann–Whitney test |
-| 11 | Time-to-event data: censoring, Kaplan–Meier estimates and hazard ratios | Time-to-event data: censoring, Kaplan–Meier estimates and hazard ratios |
-| 12 | Virtual lab: pseudoreplication and nested designs | Virtual lab 1: pseudoreplication and nested designs |
-| 13 | From p-values to evidence: base rates, positive predictive value and replication | From p-values to evidence: base rates, positive predictive value and replication |
-| 14 | Planning a confirmatory study from a pilot | Planning a confirmatory study: what a pilot with one p = 0.04 can and cannot support |
+| 2 | Sources of variability: biological variation, technical error and the standard error | Sources of variability: technical error and pseudoreplication |
+| 3 | Descriptive differences and the limits of inference | Descriptive evidence and inferential limits |
+| 4 | Estimation, confidence intervals, effect sizes and regression to the mean | Estimation and intervals; effect sizes and regression to the mean |
+| 5 | Comparing two groups: Welch and paired t statistics and intervals for a difference | Comparing two groups, paired designs and confidence intervals |
+| 6 | Hypothesis tests, multiple comparisons and the false discovery rate | Hypothesis tests; family-wise error and false discovery rate |
+| 7 | Power and sample size: what an experiment can detect | Power, sample size and non-significant results |
+| 8 | Experimental design, regression and reproducibility | Experimental design, regression and reproducibility |
+| 9 | Least squares, calibration curves and inverse prediction | Regression and calibration |
+| 10 | Resampling and rank-based methods | Permutation tests, bootstrap and Mann–Whitney test |
+| 11 | Time-to-event data | Censoring, Kaplan–Meier estimates and hazard ratios |
+| 12 | Virtual lab: pseudoreplication and nested designs | Synthetic-data nested-design lab |
+| 13 | From p-values to evidence: base rates and Bayesian updating | Base rates and replication; finite-prior updating; Beta–Binomial conjugacy and prediction |
+| 14 | Planning a confirmatory study from a pilot | Planning a confirmatory study |
 
 ## Assessment and study policy
 
-Every lesson has public formative items (numeric, single-choice, multiple-select, data-interpretation, structured-response, CSV-upload and graph) mapped to its objectives, plus retrieval cards for the review queue; each practice assessment also lists the course outcomes its items assess. Week 12 is a synthetic-data virtual lab and week 14 pairs a lesson on planning a confirmatory study with the course case and its self-assessment checklist. These are practice activities with unlimited retries and no institutional grade, university credit or transferable credit. Workload has not been measured.
+The package has 18 readings, 106 public practice items and 63 retrieval cards. Lessons use short formative checks, including numeric, choice, structured-response, CSV-upload and graph items mapped to provisional objectives. Week 12 is a synthetic-data virtual lab; week 14 pairs the planning lesson with an inactive course-case draft. Activities are open, ungraded practice with no institutional or transferable credit. Workload has not been measured.
+
+## Inactive study-design project
+
+An [inactive confirmatory-study protocol draft](assessment-specs/confirmatory-study-protocol-project-draft.md) turns the week-14 planning lesson into a fuller protocol portfolio. It is not scheduled, submitted or graded; the pilot is synthetic, and the draft provides no real-world research guidance.
 
 ## Current limitations
 
-The schedule above is proposed, not measured, and has not been reviewed by a qualified instructor. There are no graded homework sets, midterm, final or graded project. The four prototype readings remain short. The package cites no papers: the lessons teach standard methods with synthetic data, and sample-size calculations use normal approximations with rounded critical values unless an exact calculation is stated. All data and numbers are synthetic; no lesson gives a laboratory protocol or medical advice, and nothing here says anything about any real compound, organism or person. Qualified human review is required before this course could meet the complete-course standard.
+The proposed schedule is unmeasured and unreviewed. There are no graded homework sets, midterm, cumulative final or graded integrative project. Bayesian coverage includes finite-prior updating and one Beta–Binomial conjugate model; normal conjugacy, broad maximum-likelihood theory and richer hierarchical or covariate models remain outside the authored sequence. The course cites no research papers, and its lessons use synthetic data. Sample-size calculations use normal approximations with rounded critical values unless an exact calculation is stated. No lesson gives a laboratory protocol or medical advice. Qualified human review is required before this course could meet the complete-course standard.
 
 ## Sources and licensing
 
-Read source-map.json for module provenance and content/SOURCES_AND_LICENSES.md for the software/content license boundary. Listed source courses are public curriculum comparators; no affiliation or equivalency is implied.
+The source map links MIT OCW 18.05 Spring 2022 as a curriculum comparator. Its Reading 15 is a link-only technical reference for the conjugate-prior topic; no source assets are copied or adapted. Read [content/SOURCES_AND_LICENSES.md](../../SOURCES_AND_LICENSES.md) for the software/content license boundary. No affiliation or equivalency is implied.

@@ -1,0 +1,7 @@
+# Probability, Biostatistics & Experimental Design 0.4.2 — estimation and interval interpretation
+
+Week 4 now defines the estimand and frequentist coverage procedure, derives a paired-mean t interval, and works a synthetic example with 25 independent differences (mean 4.0 mm, SD 2.0 mm, SE 0.40 mm, approximate 95% interval [3.17, 4.83] mm). It separates estimate magnitude, precision, accuracy, practical thresholds, raw and standardized effect-size scales, and uncertainty from bias. It also explains selection on extremes and regression to the mean without attributing the expected remeasurement shift to an intervention.
+
+Both existing lesson objectives now map to course outcome 3. The repeated-sampling and effect-size practice items remain unchanged in ID, prompt and key; their practice assessment maps to outcome 3. MIT OpenCourseWare 18.05 Reading 23a is registered as a link-only reference. No reading, figure, exercise, dataset or source wording was copied or adapted.
+
+Checks: the focused regression passed; Ruff passed; full content validation passed with zero errors; the assessment-candidate report drift check passed after regeneration. The calculation uses t*=2.064, SE=0.40 mm and unrounded bounds 3.1744 and 4.8256 mm before display rounding. These same-AI checks are not independent statistics, accessibility or domain review. Two compact prototype readings remain in weeks 6 and 8; the course remains partial, unreviewed and formative-only.

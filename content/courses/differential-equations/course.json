@@ -7,14 +7,18 @@
   "domain": "Mathematics",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.3.1",
+  "version": "0.4.1",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
     "source_path": "src/data/courses.js",
     "source_sha256": "a77a7cb7f5be2ffa12068877042ac775c6d9b79b83ac2f316fe4f26a0d3d783b",
     "migration_version": "1.0",
-    "modifications": []
+    "modifications": [
+      "Linked the four original lesson pairs to the course outcomes: first-order solution methods to outcome 1, equilibrium and mechanical response to outcome 2, local linearization and stability to outcome 2, and Euler stability and accuracy to outcome 4. Clarified the damping-ratio objective, reassociated the preserved coupled-system stability item with its eigenvalue objective, and added direct formative checks for damping regime and local linearization; existing numeric prompts and keys remain unchanged.",
+      "Added an original Laplace-transform initial-value lesson with shifted-step forcing, partial-fraction practice and direct solution checks; reorganized the proposed 14-week sequence and combined related logistic readings in one week without claiming measured workload or semester equivalence.",
+      "Extended the existing forced-first-order lesson with an original Fourier-series example for a synthetic periodic input, harmonic-by-harmonic filtering, convergence limits and four formative checks. The 14-week schedule remains unchanged and the package remains partial, unreviewed and formative-only."
+    ]
   },
   "prerequisites": {
     "course_ids": [
@@ -54,49 +58,65 @@
       "id": "differential-equations-1-objective-1",
       "description": "Solve separable and linear first-order ODEs.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "differential-equations-outcome-1"
+      ]
     },
     {
       "id": "differential-equations-1-objective-2",
       "description": "Interpret equilibrium and characteristic time.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "differential-equations-outcome-2"
+      ]
     },
     {
       "id": "differential-equations-2-objective-1",
-      "description": "Relate damping ratio to qualitative transient behavior.",
+      "description": "Relate natural frequency and damping ratio to qualitative transient behavior.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "differential-equations-outcome-2"
+      ]
     },
     {
       "id": "differential-equations-2-objective-2",
       "description": "Write a mechanical model from force balance.",
       "bloom": "create",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "differential-equations-outcome-1"
+      ]
     },
     {
       "id": "differential-equations-3-objective-1",
       "description": "Linearize a nonlinear system near an equilibrium.",
       "bloom": "understand",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "differential-equations-outcome-2"
+      ]
     },
     {
       "id": "differential-equations-3-objective-2",
       "description": "Use eigenvalues to classify local stability.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "differential-equations-outcome-2"
+      ]
     },
     {
       "id": "differential-equations-4-objective-1",
       "description": "Apply forward Euler and recognize its limitations.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "differential-equations-outcome-4"
+      ]
     },
     {
       "id": "differential-equations-4-objective-2",
       "description": "Choose a step size based on stability and accuracy, not convenience alone.",
       "bloom": "evaluate",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "differential-equations-outcome-4"
+      ]
     },
     {
       "id": "differential-equations-5-objective-1",
@@ -173,6 +193,15 @@
       "course_outcome_ids": [
         "differential-equations-outcome-1",
         "differential-equations-outcome-4"
+      ]
+    },
+    {
+      "id": "differential-equations-7-objective-4",
+      "description": "Resolve a simple periodic feed into Fourier harmonics and combine their first-order steady-state responses.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "differential-equations-outcome-1",
+        "differential-equations-outcome-2"
       ]
     },
     {
@@ -358,11 +387,60 @@
       "course_outcome_ids": [
         "differential-equations-outcome-4"
       ]
+    },
+    {
+      "id": "differential-equations-14-objective-1",
+      "description": "Transform first and second derivatives while retaining the initial values.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "differential-equations-outcome-1"
+      ]
+    },
+    {
+      "id": "differential-equations-14-objective-2",
+      "description": "Solve a constant-coefficient initial-value problem by algebra and partial fractions, then check it in the original equation.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "differential-equations-outcome-1"
+      ]
+    },
+    {
+      "id": "differential-equations-14-objective-3",
+      "description": "Represent a delayed step input and verify the response initial conditions and continuity at the delay.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "differential-equations-outcome-1",
+        "differential-equations-outcome-4"
+      ]
+    },
+    {
+      "id": "differential-equations-15-objective-1",
+      "description": "Represent an impulsive input with the delta function, find the unit impulse response of a first- or second-order constant-coefficient equation, and interpret an impulse as a velocity jump.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "differential-equations-outcome-1"
+      ]
+    },
+    {
+      "id": "differential-equations-15-objective-2",
+      "description": "Compute a response from rest as the convolution of the impulse response with the input, and check it with the convolution theorem.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "differential-equations-outcome-1"
+      ]
+    },
+    {
+      "id": "differential-equations-15-objective-3",
+      "description": "Form the transfer function, judge stability from its poles, and compute the gain, phase lag and peak-gain frequency of the steady sinusoidal response.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "differential-equations-outcome-2"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week undergraduate scope only. The four compact prototype units sit in weeks 1, 4, 6 and 11 beside original lessons on forced first-order systems, resonance and damping, phase portraits, logistic growth, linearization and bistability, and stiff equations; week 13 is a synthetic-data lab on fitting decay models and week 14 pairs a lesson on negative predicted counts with the course case. All activities are open, ungraded practice. There are no graded homework sets, exams or project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week sequence only, not a measured or reviewed semester. It covers first- and second-order methods, adds bounded Laplace initial-value and impulse-response/convolution/transfer-function units in one week after constant-coefficient response, groups related logistic equilibrium and solution readings in one week, and ends with a synthetic-data lab and a validation case. All activities are open, ungraded practice; there are no graded homework sets, exams or project, and workload has not been measured, so the sequence is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
@@ -416,6 +494,18 @@
       },
       {
         "week": 6,
+        "title": "Laplace transforms: initial-value problems, impulses, convolution and transfer functions",
+        "lesson_ids": [
+          "differential-equations-14",
+          "differential-equations-15"
+        ],
+        "assessment_ids": [
+          "differential-equations-14-practice",
+          "differential-equations-15-practice"
+        ]
+      },
+      {
+        "week": 7,
         "title": "Coupled systems, equilibria and stability",
         "lesson_ids": [
           "differential-equations-3"
@@ -425,7 +515,7 @@
         ]
       },
       {
-        "week": 7,
+        "week": 8,
         "title": "Phase portraits of linear systems: eigenvalues, eigenvectors and the flow",
         "lesson_ids": [
           "differential-equations-9"
@@ -435,22 +525,14 @@
         ]
       },
       {
-        "week": 8,
-        "title": "Equilibria and stability: harvesting a logistic population and coupled compartments",
-        "lesson_ids": [
-          "differential-equations-6"
-        ],
-        "assessment_ids": [
-          "differential-equations-6-practice"
-        ]
-      },
-      {
         "week": 9,
-        "title": "Logistic growth: the exact solution, fitting and extrapolation",
+        "title": "Logistic growth: equilibria, harvesting, exact solution and extrapolation",
         "lesson_ids": [
+          "differential-equations-6",
           "differential-equations-10"
         ],
         "assessment_ids": [
+          "differential-equations-6-practice",
           "differential-equations-10-practice"
         ]
       },
@@ -530,7 +612,7 @@
             "differential-equations-1-objective-1",
             "differential-equations-1-objective-2"
           ],
-          "worked_example": "A sensor response with τ=4 s reaches about 63% of its final step change after 4 s and about 95% after 3τ, under the first-order model.",
+          "worked_example": "For ẋ=−0.25x with x(0)=8, the time constant is 4 time units and x(4)=8e^(−1)≈2.94, leaving 36.8% of the initial distance to equilibrium. For ẋ=−0.5(x−4) in seconds, τ=2 s and a start at 10 gives x(2)≈6.21.",
           "question_ids": [
             "differential-equations-1:check",
             "differential-equations-1:characteristic-time"
@@ -538,93 +620,6 @@
           "card_ids": [
             "differential-equations-0-0",
             "differential-equations-0-1"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "differential-equations-module-2",
-      "title": "Second-order systems and mechanical response",
-      "source_ids": [
-        "diffeqs",
-        "engineeringMath",
-        "numerical"
-      ],
-      "lessons": [
-        {
-          "id": "differential-equations-2",
-          "title": "Second-order systems and mechanical response",
-          "reading": "modules/02-second-order-systems-and-mechanical-response.md",
-          "objectives": [
-            "differential-equations-2-objective-1",
-            "differential-equations-2-objective-2"
-          ],
-          "worked_example": "For m=1 kg and k=100 N/m, ωn=10 rad/s. Critical damping is ccrit=2√(km)=20 N·s/m.",
-          "question_ids": [
-            "differential-equations-2:check",
-            "differential-equations-2:force-balance-model"
-          ],
-          "card_ids": [
-            "differential-equations-1-0",
-            "differential-equations-1-1"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "differential-equations-module-3",
-      "title": "Coupled systems, equilibria, and stability",
-      "source_ids": [
-        "diffeqs",
-        "engineeringMath",
-        "numerical"
-      ],
-      "lessons": [
-        {
-          "id": "differential-equations-3",
-          "title": "Coupled systems, equilibria, and stability",
-          "reading": "modules/03-coupled-systems-equilibria-and-stability.md",
-          "objectives": [
-            "differential-equations-3-objective-1",
-            "differential-equations-3-objective-2"
-          ],
-          "worked_example": "In a two-state linear model with J=diag(−1,−3), perturbations decay independently with time constants 1 and 1/3 time units.",
-          "question_ids": [
-            "differential-equations-3:check",
-            "differential-equations-3:eigenvalue-stability"
-          ],
-          "card_ids": [
-            "differential-equations-2-0",
-            "differential-equations-2-1"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "differential-equations-module-4",
-      "title": "Numerical ODEs and error control",
-      "source_ids": [
-        "diffeqs",
-        "engineeringMath",
-        "numerical"
-      ],
-      "lessons": [
-        {
-          "id": "differential-equations-4",
-          "title": "Numerical ODEs and error control",
-          "reading": "modules/04-numerical-odes-and-error-control.md",
-          "objectives": [
-            "differential-equations-4-objective-1",
-            "differential-equations-4-objective-2"
-          ],
-          "worked_example": "For ẋ=−x, x₀=1, Euler with h=0.1 gives x₁=0.9; exact x(0.1)=e^(−0.1)≈0.905, showing a small first-step error.",
-          "question_ids": [
-            "differential-equations-4:check",
-            "differential-equations-4:euler-stability-limit"
-          ],
-          "card_ids": [
-            "differential-equations-3-0",
-            "differential-equations-3-1"
           ]
         }
       ]
@@ -667,43 +662,8 @@
       ]
     },
     {
-      "id": "differential-equations-module-6",
-      "title": "Equilibria, stability and coupled compartments",
-      "source_ids": [
-        "diffeqs",
-        "engineeringMath"
-      ],
-      "lessons": [
-        {
-          "id": "differential-equations-6",
-          "title": "Equilibria and stability: harvesting a logistic population and two coupled compartments",
-          "reading": "modules/06-equilibria-stability-and-coupled-compartments.md",
-          "objectives": [
-            "differential-equations-6-objective-1",
-            "differential-equations-6-objective-2",
-            "differential-equations-6-objective-3"
-          ],
-          "worked_example": "With r = 0.03, K = 10⁶ and h = 0.01, N* = 6.667×10⁵ cells, recovery τ = 50 h and maximum sustained yield rK/4 = 7500 cells/h; the two-compartment matrix has eigenvalues -0.0354 and -0.5646 h⁻¹, both negative, so it is stable.",
-          "question_ids": [
-            "differential-equations-6:equilibrium",
-            "differential-equations-6:recovery-tau",
-            "differential-equations-6:msy",
-            "differential-equations-6:slow-eigenvalue",
-            "differential-equations-6:washout",
-            "differential-equations-6:trace-det"
-          ],
-          "card_ids": [
-            "differential-equations-6-card-1",
-            "differential-equations-6-card-2",
-            "differential-equations-6-card-3",
-            "differential-equations-6-card-4"
-          ]
-        }
-      ]
-    },
-    {
       "id": "differential-equations-module-7",
-      "title": "Forced first-order systems",
+      "title": "Forced first-order systems and periodic harmonic response",
       "source_ids": [
         "diffeqs",
         "engineeringMath",
@@ -712,14 +672,15 @@
       "lessons": [
         {
           "id": "differential-equations-7",
-          "title": "Forced first-order systems: steps, ramps, sinusoids and decaying inputs in a perfused chamber",
+          "title": "Forced first-order systems: steps, ramps, periodic inputs and decaying inputs in a perfused chamber",
           "reading": "modules/07-forced-first-order-systems-in-a-perfused-chamber.md",
           "objectives": [
             "differential-equations-7-objective-1",
             "differential-equations-7-objective-2",
-            "differential-equations-7-objective-3"
+            "differential-equations-7-objective-3",
+            "differential-equations-7-objective-4"
           ],
-          "worked_example": "A synthetic chamber of 15 mL perfused at 0.4 mL/min has τ = 37.5 min, reaches 0.7364 of a feed step after 50 min, and attenuates a 90 min cycle to 0.3568 with a lag of 17.3 min; in the lesson, a 20 mL chamber at 0.5 mL/min has τ = 40 min and a 95% time of 119.8 min.",
+          "worked_example": "A synthetic chamber of 15 mL perfused at 0.4 mL/min has τ = 37.5 min, reaches 0.7364 of a feed step after 50 min, and attenuates a 90 min cycle to 0.3568 with a lag of 17.3 min. For an ideal square-wave input of amplitude 1 mM, period 120 min and τ = 40 min, the first harmonic is attenuated to about 0.549 mM and the third to 0.0667 mM; in the earlier step example, the same 20 mL chamber reaches 95% in 119.8 min.",
           "question_ids": [
             "differential-equations-7:chamber-tau",
             "differential-equations-7:step-fraction",
@@ -729,13 +690,50 @@
             "differential-equations-7:time-lag",
             "differential-equations-7:pulse-response",
             "differential-equations-7:peak-time",
-            "differential-equations-7:forced-statements"
+            "differential-equations-7:forced-statements",
+            "differential-equations-7:third-harmonic-coefficient",
+            "differential-equations-7:third-harmonic-gain",
+            "differential-equations-7:harmonic-superposition",
+            "differential-equations-7:fourier-jump-limit"
           ],
           "card_ids": [
             "differential-equations-7-card-1",
             "differential-equations-7-card-2",
             "differential-equations-7-card-3",
-            "differential-equations-7-card-4"
+            "differential-equations-7-card-4",
+            "differential-equations-7-card-5",
+            "differential-equations-7-card-6",
+            "differential-equations-7-card-7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "differential-equations-module-2",
+      "title": "Second-order systems and mechanical response",
+      "source_ids": [
+        "diffeqs",
+        "engineeringMath",
+        "numerical"
+      ],
+      "lessons": [
+        {
+          "id": "differential-equations-2",
+          "title": "Second-order systems and mechanical response",
+          "reading": "modules/02-second-order-systems-and-mechanical-response.md",
+          "objectives": [
+            "differential-equations-2-objective-1",
+            "differential-equations-2-objective-2"
+          ],
+          "worked_example": "For m=2 kg, k=50 N/m and c=3 N·s/m, the natural angular frequency is 5 rad/s and the damping ratio is 0.15, so the transient oscillates at about 4.94 rad/s with a decaying envelope. Initial displacement and velocity determine its amplitude and phase.",
+          "question_ids": [
+            "differential-equations-2:check",
+            "differential-equations-2:force-balance-model",
+            "differential-equations-2:damping-regime"
+          ],
+          "card_ids": [
+            "differential-equations-1-0",
+            "differential-equations-1-1"
           ]
         }
       ]
@@ -780,6 +778,111 @@
       ]
     },
     {
+      "id": "differential-equations-module-14",
+      "title": "Laplace transforms for initial-value problems",
+      "source_ids": [
+        "diffeqs",
+        "engineeringMath",
+        "numerical"
+      ],
+      "lessons": [
+        {
+          "id": "differential-equations-14",
+          "title": "Laplace transforms for initial-value problems: initial data and delayed steps",
+          "reading": "modules/14-laplace-transform-initial-value-problems.md",
+          "objectives": [
+            "differential-equations-14-objective-1",
+            "differential-equations-14-objective-2",
+            "differential-equations-14-objective-3"
+          ],
+          "worked_example": "For x'' + 3x' + 2x = H(t−2) from rest, X(s) = e^(−2s)/[s(s+1)(s+2)] and x(t) = H(t−2)[1/2 − e^(−(t−2)) + e^(−2(t−2))/2]; displacement and velocity are continuous at the switch, and substitution gives unit forcing afterward.",
+          "question_ids": [
+            "differential-equations-14:derivative-transform",
+            "differential-equations-14:nonzero-initial-data",
+            "differential-equations-14:first-order-step",
+            "differential-equations-14:delayed-step",
+            "differential-equations-14:constant-force",
+            "differential-equations-14:partial-fractions"
+          ],
+          "card_ids": [
+            "differential-equations-14-card-1",
+            "differential-equations-14-card-2",
+            "differential-equations-14-card-3",
+            "differential-equations-14-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "differential-equations-module-15",
+      "title": "Impulse response, convolution and transfer functions",
+      "source_ids": [
+        "diffeqs"
+      ],
+      "lessons": [
+        {
+          "id": "differential-equations-15",
+          "title": "Impulse response, convolution and transfer functions",
+          "reading": "modules/15-impulse-response-convolution-and-transfer-functions.md",
+          "objectives": [
+            "differential-equations-15-objective-1",
+            "differential-equations-15-objective-2",
+            "differential-equations-15-objective-3"
+          ],
+          "worked_example": "For x″ + 2x′ + 10x = f from rest, W(s) = 1/((s + 1)² + 9) has poles −1 ± 3i, so the system is stable and w(t) = (1/3)e^(−t) sin 3t, giving w(0.5) = 0.2017. At ω = 3, p(3i) = 1 + 6i gives gain 0.1644 and lag 80.5°; the gain peaks at ω_r = √8 = 2.828 with value 1/6.",
+          "question_ids": [
+            "differential-equations-15:first-order-impulse-response",
+            "differential-equations-15:velocity-jump",
+            "differential-equations-15:second-order-impulse-response",
+            "differential-equations-15:ramp-convolution",
+            "differential-equations-15:pulse-convolution",
+            "differential-equations-15:gain-at-four",
+            "differential-equations-15:phase-lag-at-four",
+            "differential-equations-15:peak-gain-frequency",
+            "differential-equations-15:pole-stability",
+            "differential-equations-15:convolution-conditions",
+            "differential-equations-15:impulse-position-or-velocity"
+          ],
+          "card_ids": [
+            "differential-equations-15-card-1",
+            "differential-equations-15-card-2",
+            "differential-equations-15-card-3",
+            "differential-equations-15-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "differential-equations-module-3",
+      "title": "Coupled systems, equilibria, and stability",
+      "source_ids": [
+        "diffeqs",
+        "engineeringMath",
+        "numerical"
+      ],
+      "lessons": [
+        {
+          "id": "differential-equations-3",
+          "title": "Coupled systems, equilibria, and stability",
+          "reading": "modules/03-coupled-systems-equilibria-and-stability.md",
+          "objectives": [
+            "differential-equations-3-objective-1",
+            "differential-equations-3-objective-2"
+          ],
+          "worked_example": "For J=[[0,1],[-2,-3]], the characteristic polynomial factors as (λ+1)(λ+2), so both local modes decay with time constants 1 and 0.5 time units. By contrast, eigenvalues −2 and +0.1 include a growing mode and make the equilibrium unstable.",
+          "question_ids": [
+            "differential-equations-3:check",
+            "differential-equations-3:eigenvalue-stability",
+            "differential-equations-3:linearization"
+          ],
+          "card_ids": [
+            "differential-equations-2-0",
+            "differential-equations-2-1"
+          ]
+        }
+      ]
+    },
+    {
       "id": "differential-equations-module-9",
       "title": "Phase portraits",
       "source_ids": [
@@ -814,6 +917,41 @@
             "differential-equations-9-card-2",
             "differential-equations-9-card-3",
             "differential-equations-9-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "differential-equations-module-6",
+      "title": "Equilibria, stability and coupled compartments",
+      "source_ids": [
+        "diffeqs",
+        "engineeringMath"
+      ],
+      "lessons": [
+        {
+          "id": "differential-equations-6",
+          "title": "Equilibria and stability: harvesting a logistic population and two coupled compartments",
+          "reading": "modules/06-equilibria-stability-and-coupled-compartments.md",
+          "objectives": [
+            "differential-equations-6-objective-1",
+            "differential-equations-6-objective-2",
+            "differential-equations-6-objective-3"
+          ],
+          "worked_example": "With r = 0.03, K = 10⁶ and h = 0.01, N* = 6.667×10⁵ cells, recovery τ = 50 h and maximum sustained yield rK/4 = 7500 cells/h; the two-compartment matrix has eigenvalues -0.0354 and -0.5646 h⁻¹, both negative, so it is stable.",
+          "question_ids": [
+            "differential-equations-6:equilibrium",
+            "differential-equations-6:recovery-tau",
+            "differential-equations-6:msy",
+            "differential-equations-6:slow-eigenvalue",
+            "differential-equations-6:washout",
+            "differential-equations-6:trace-det"
+          ],
+          "card_ids": [
+            "differential-equations-6-card-1",
+            "differential-equations-6-card-2",
+            "differential-equations-6-card-3",
+            "differential-equations-6-card-4"
           ]
         }
       ]
@@ -892,6 +1030,35 @@
             "differential-equations-11-card-2",
             "differential-equations-11-card-3",
             "differential-equations-11-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "differential-equations-module-4",
+      "title": "Numerical ODEs and error control",
+      "source_ids": [
+        "diffeqs",
+        "engineeringMath",
+        "numerical"
+      ],
+      "lessons": [
+        {
+          "id": "differential-equations-4",
+          "title": "Numerical ODEs and error control",
+          "reading": "modules/04-numerical-odes-and-error-control.md",
+          "objectives": [
+            "differential-equations-4-objective-1",
+            "differential-equations-4-objective-2"
+          ],
+          "worked_example": "For y′=−50y, explicit Euler multiplies each step by 1−50h. The strict decay interval is 0<h<0.04 s; the boundary answer 0.04 s has factor −1 and does not decay. Nonnegative steps require h≤0.02 s. For x′=2, x₀=3 and h=0.25, one Euler step gives 3.5.",
+          "question_ids": [
+            "differential-equations-4:check",
+            "differential-equations-4:euler-stability-limit"
+          ],
+          "card_ids": [
+            "differential-equations-3-0",
+            "differential-equations-3-1"
           ]
         }
       ]
@@ -1021,7 +1188,9 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "differential-equations-1-objective-1",
-        "differential-equations-1-objective-2"
+        "differential-equations-1-objective-2",
+        "differential-equations-outcome-1",
+        "differential-equations-outcome-2"
       ],
       "question_ids": [
         "differential-equations-1:check",
@@ -1036,13 +1205,16 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "differential-equations-2-objective-1",
-        "differential-equations-2-objective-2"
+        "differential-equations-2-objective-2",
+        "differential-equations-outcome-1",
+        "differential-equations-outcome-2"
       ],
       "question_ids": [
         "differential-equations-2:check",
-        "differential-equations-2:force-balance-model"
+        "differential-equations-2:force-balance-model",
+        "differential-equations-2:damping-regime"
       ],
-      "points": 2
+      "points": 3
     },
     {
       "id": "differential-equations-3-practice",
@@ -1051,13 +1223,15 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "differential-equations-3-objective-1",
-        "differential-equations-3-objective-2"
+        "differential-equations-3-objective-2",
+        "differential-equations-outcome-2"
       ],
       "question_ids": [
         "differential-equations-3:check",
-        "differential-equations-3:eigenvalue-stability"
+        "differential-equations-3:eigenvalue-stability",
+        "differential-equations-3:linearization"
       ],
-      "points": 2
+      "points": 3
     },
     {
       "id": "differential-equations-4-practice",
@@ -1066,7 +1240,8 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "differential-equations-4-objective-1",
-        "differential-equations-4-objective-2"
+        "differential-equations-4-objective-2",
+        "differential-equations-outcome-4"
       ],
       "question_ids": [
         "differential-equations-4:check",
@@ -1133,6 +1308,7 @@
         "differential-equations-7-objective-1",
         "differential-equations-7-objective-2",
         "differential-equations-7-objective-3",
+        "differential-equations-7-objective-4",
         "differential-equations-outcome-1",
         "differential-equations-outcome-2",
         "differential-equations-outcome-4"
@@ -1146,9 +1322,13 @@
         "differential-equations-7:time-lag",
         "differential-equations-7:pulse-response",
         "differential-equations-7:peak-time",
-        "differential-equations-7:forced-statements"
+        "differential-equations-7:forced-statements",
+        "differential-equations-7:third-harmonic-coefficient",
+        "differential-equations-7:third-harmonic-gain",
+        "differential-equations-7:harmonic-superposition",
+        "differential-equations-7:fourier-jump-limit"
       ],
-      "points": 10
+      "points": 14
     },
     {
       "id": "differential-equations-8-practice",
@@ -1346,6 +1526,57 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "differential-equations-14-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Laplace transforms for initial-value problems practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "differential-equations-14-objective-1",
+        "differential-equations-14-objective-2",
+        "differential-equations-14-objective-3",
+        "differential-equations-outcome-1",
+        "differential-equations-outcome-4"
+      ],
+      "question_ids": [
+        "differential-equations-14:derivative-transform",
+        "differential-equations-14:nonzero-initial-data",
+        "differential-equations-14:first-order-step",
+        "differential-equations-14:delayed-step",
+        "differential-equations-14:constant-force",
+        "differential-equations-14:partial-fractions"
+      ],
+      "points": 6
+    },
+    {
+      "id": "differential-equations-15-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Impulse response, convolution and transfer functions practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "differential-equations-15-objective-1",
+        "differential-equations-15-objective-2",
+        "differential-equations-15-objective-3",
+        "differential-equations-outcome-1",
+        "differential-equations-outcome-2"
+      ],
+      "question_ids": [
+        "differential-equations-15:first-order-impulse-response",
+        "differential-equations-15:velocity-jump",
+        "differential-equations-15:second-order-impulse-response",
+        "differential-equations-15:ramp-convolution",
+        "differential-equations-15:pulse-convolution",
+        "differential-equations-15:gain-at-four",
+        "differential-equations-15:phase-lag-at-four",
+        "differential-equations-15:peak-gain-frequency",
+        "differential-equations-15:pole-stability",
+        "differential-equations-15:convolution-conditions",
+        "differential-equations-15:impulse-position-or-velocity"
+      ],
+      "points": 11
     }
   ],
   "grading_policy": {
@@ -1405,19 +1636,69 @@
       "version": "0.3.1",
       "date": "2026-10-08",
       "summary": "Clarified three explicit Euler practice prompts and their feedback: the boundary permits zero, so they ask for a nonnegative result rather than a strictly positive one. Scoped the resonance statements item to the lesson's lightly damped, directly forced system. No answer key, tolerance, objective or option order changed. The package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.3.2",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-1 first-order reading with a separation-based solution, the integrating-factor form for linear equations, initial-condition role, equilibrium stability, time-constant interpretation and unit checks. Existing questions, keys and objectives are unchanged. Three compact prototype readings remain in weeks 4, 6 and 11; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.3.3",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-4 mechanical-response reading with a signed force-balance derivation, natural frequency and damping ratio, transient classifications, initial-condition roles and a forced-response qualification. Existing questions, keys and objectives are unchanged. Two compact prototype readings remain in weeks 6 and 11; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.3.4",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-6 coupled-systems reading with equilibrium linearization, Jacobian/eigenvalue interpretation, nullclines, local stability classifications and limits for nonhyperbolic or global conclusions. Existing questions, keys and objectives are unchanged. One compact prototype reading remains in week 11; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.3.5",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-11 numerical-methods reading with the forward-Euler derivation, stability versus accuracy, strict decay and positivity bounds, step refinement, and stiff-system considerations. Clarified the Euler practice prompt to ask for the stability boundary; its 0.04 s key, other keys and objectives are unchanged. All four original compact prototype readings now have expanded instruction; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.3.6",
+      "date": "2026-10-10",
+      "summary": "Linked the first four lesson pairs to outcomes 1, 2 and 4. Clarified the damping-ratio objective, reassociated the preserved eigenvalue-stability item with its matching objective, and added direct formative practice for damping regime and local linearization; existing numerical prompts and keys remain unchanged. All four original compact readings remain expanded, and the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.3.7",
+      "date": "2026-10-10",
+      "summary": "Added an inactive paper project for a normalized stiff two-compartment system, with an exact solution and peak, eigenvalue stability and positivity bounds, and explicit-versus-implicit Euler comparisons. The draft is ungraded and unreviewed; the package remains partial and formative-only."
+    },
+    {
+      "version": "0.3.8",
+      "date": "2026-10-11",
+      "summary": "Added original Laplace-transform IVP instruction with initial-value terms, partial fractions, delayed steps and direct checks. Reordered the proposed sequence and combined related logistic readings in one week; workload remains unmeasured, and the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.3.9",
+      "date": "2026-10-11",
+      "summary": "Corrected the proposed 14-week schedule so every lesson_ids and assessment_ids field uses the required array shape after grouping the two related logistic readings. No new instruction or assessment was added; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.0",
+      "date": "2026-10-11",
+      "summary": "Extended the existing forced-first-order lesson with Fourier-series decomposition of a synthetic square-wave input, harmonic-specific attenuation and phase, and limits near discontinuities. Four formative questions and three cards support the new objective; the schedule remains 14 weeks and the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.1",
+      "date": "2026-10-13",
+      "summary": "Grouped an original impulse-response, convolution and transfer-function reading with the week-6 Laplace lesson: the delta function and velocity jumps, first- and second-order impulse responses, convolution from rest and the convolution theorem, poles and stability, and steady sinusoidal gain, phase and peak-gain frequency. Added three objectives, eleven formative items and four cards, with no week added, and pointed the Laplace lesson limits at the companion reading. The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "Four compact legacy units are preserved beside ten original readings, including one synthetic-data virtual lab; this package is not equivalent to a full university semester.",
-    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm, cumulative final, or graded integrative project.",
-    "Practice items are short formative checks (two per prototype unit and six to nine per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
+    "The four former compact legacy readings now have expanded instruction beside the other content, and bounded Laplace initial-value and impulse/convolution/transfer-function units have been added. The package remains partial and is not equivalent to a full university semester.",
+    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm or cumulative final. An inactive integrative project draft is not scheduled or graded.",
+    "Most practice items are short formative checks; the two transform units have six and eleven checks but does not replace a substantive homework sequence or demonstrate comprehensive outcome coverage or mastery. Objective associations remain provisional.",
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
-    "Of the 75 numerical answers in this package, 27 require a unit, one checks significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
+    "Of the 88 numerical answers in this package, 27 require a unit, one checks significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
     "Total workload and weekly duration are unknown; former nominal credit values and hardcoded reading times do not establish workload.",
     "All populations, chambers, systems and numbers are synthetic teaching examples; this package gives no experimental protocols, parameter values for any real organism or process, or safety advice and says nothing about any real culture or device. The models are simplified textbook descriptions, not fitted models of real data."
   ],
   "intentionally_omitted": [
-    "Graded assessments and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package."
+    "Graded assessments, an activated integrative project and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package."
   ]
 }

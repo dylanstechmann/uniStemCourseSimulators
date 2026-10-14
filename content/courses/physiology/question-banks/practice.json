@@ -40,7 +40,7 @@
       "prompt": "A membrane has gNa = 4 nS, Vm = −50 mV, and ENa = +50 mV. Using I = g(Vm − E), what is INa in pA?",
       "points": 1,
       "objective_ids": [
-        "physiology-2-objective-1"
+        "physiology-2-objective-2"
       ],
       "solution_spec": {
         "answer": -400,
@@ -3029,6 +3029,610 @@
         "misconception_ids": [
           "resting-value-proves-reserve"
         ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physiology-1:feedback-loop-components",
+      "type": "single_choice",
+      "prompt": "In a homeostatic feedback loop, which statement correctly describes the sensor, controller, and effector?",
+      "options": [
+        "The sensor measures the regulated variable, the controller compares it with a reference, and the effector changes the variable.",
+        "The effector measures the variable, the sensor changes it, and the controller is the resulting output.",
+        "The sensor and effector are always the same tissue, and no reference value is involved.",
+        "A controller changes the regulated variable without receiving any information about it."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "physiology-1-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Follow information from measurement to comparison, then to the action that changes the state.",
+        "solution": "A sensor measures the regulated variable, a controller compares the measurement with a reference, and an effector produces the corrective or amplifying action.",
+        "lesson_ids": [
+          "physiology-1"
+        ],
+        "misconception_ids": [
+          "feedback-component-roles"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct formative practice for identifying sensor, controller, and effector roles."
+        ]
+      }
+    },
+    {
+      "id": "physiology-2:voltage-state-variable",
+      "type": "single_choice",
+      "prompt": "If membrane voltage is defined as Vm = Vinside − Voutside and Vm = −70 mV, which interpretation is correct?",
+      "options": [
+        "The inside is 70 mV more negative than the outside.",
+        "The outside is 70 mV more negative than the inside.",
+        "There is no voltage difference across the membrane.",
+        "The membrane carries an outward current of 70 pA."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "physiology-2-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Keep the authored subtraction order: inside potential minus outside potential.",
+        "solution": "A value of −70 mV means Vinside is 70 mV lower (more negative) than Voutside. Voltage is a state difference, not itself a current.",
+        "lesson_ids": [
+          "physiology-2"
+        ],
+        "misconception_ids": [
+          "voltage-current-confusion"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct formative practice interpreting membrane voltage as a state variable."
+        ]
+      }
+    },
+    {
+      "id": "physiology-3:ventilation-limitation",
+      "type": "single_choice",
+      "prompt": "Pulmonary blood flow and the alveolar-capillary barrier are adequate, but alveolar ventilation is low. Which change most directly addresses a ventilation-limited gas transfer?",
+      "options": [
+        "Increase alveolar ventilation to restore gas delivery to the exchange surface.",
+        "Increase blood flow even though the alveolar gas supply remains low.",
+        "Increase barrier thickness to slow diffusion.",
+        "Reduce alveolar ventilation further so blood remains longer in the capillary."
+      ],
+      "points": 1,
+      "objective_ids": [
+        "physiology-3-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Ventilation supplies gas to alveoli; perfusion supplies blood, while diffusion crosses the barrier.",
+        "solution": "When gas delivery by ventilation is limiting and perfusion/barrier are adequate, increasing alveolar ventilation addresses the limiting step.",
+        "lesson_ids": [
+          "physiology-3"
+        ],
+        "misconception_ids": [
+          "ventilation-perfusion-diffusion"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added direct formative practice distinguishing ventilation limitation from perfusion and diffusion limitations."
+        ]
+      }
+    },
+    {
+      "id": "physiology-10:pv-loop-stroke-volume",
+      "type": "numeric",
+      "prompt": "A synthetic ventricular pressure-volume loop has end-diastolic volume 120 mL and end-systolic volume 50 mL. What is its stroke volume? Enter the value and unit.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-10-objective-4"
+      ],
+      "solution_spec": {
+        "answer": 70,
+        "unit": "mL",
+        "tolerance": 0.7,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Stroke volume is the horizontal width: EDV−ESV.",
+        "solution": "SV=120−50=70 mL. The loop width gives the volume ejected per beat in this simplified interpretation.",
+        "lesson_ids": [
+          "physiology-10"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice for pressure-volume loop width and stroke volume."
+        ]
+      }
+    },
+    {
+      "id": "physiology-10:pv-loop-work-baseline",
+      "type": "numeric",
+      "prompt": "Use the rectangular approximation: average ejection pressure is 100 mmHg and stroke volume is 70 mL; treat filling pressure as negligible. What external stroke work is estimated per beat in joules? Use 1 mmHg·mL=1.33322×10⁻⁴ J. Enter the value and unit.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-10-objective-4"
+      ],
+      "solution_spec": {
+        "answer": 0.9333,
+        "unit": "J",
+        "tolerance": 0.001,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Estimate area as pressure×volume, then apply the stated conversion to joules.",
+        "solution": "100×70=7000 mmHg·mL; 7000×1.33322×10⁻⁴=0.933254 J, about 0.933 J per beat under the rectangular approximation.",
+        "lesson_ids": [
+          "physiology-10"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice estimating work from a stipulated pressure-volume rectangle."
+        ]
+      }
+    },
+    {
+      "id": "physiology-10:pv-loop-work-perturbed",
+      "type": "numeric",
+      "prompt": "In a stipulated perturbation, the rectangular mean ejection pressure is 120 mmHg and stroke volume is 50 mL; filling pressure is negligible. What external stroke work is estimated per beat in joules using 1 mmHg·mL=1.33322×10⁻⁴ J? Enter the value and unit.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-10-objective-4"
+      ],
+      "solution_spec": {
+        "answer": 0.7999,
+        "unit": "J",
+        "tolerance": 0.001,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use the perturbed pressure and volume together; neither changes alone determines the area.",
+        "solution": "120×50=6000 mmHg·mL; 6000×1.33322×10⁻⁴=0.799932 J, about 0.800 J per beat. This is one stipulated comparison, not a universal afterload response.",
+        "lesson_ids": [
+          "physiology-10"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice comparing work under a stipulated pressure-volume perturbation."
+        ]
+      }
+    },
+    {
+      "id": "physiology-10:pv-loop-cardiac-output",
+      "type": "numeric",
+      "prompt": "After the stipulated perturbation, stroke volume is 50 mL and heart rate remains 75 beats/min. What cardiac output follows in L/min? Enter the value and unit.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-10-objective-4"
+      ],
+      "solution_spec": {
+        "answer": 3.75,
+        "unit": "L/min",
+        "tolerance": 0.04,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Multiply beats/min by mL/beat, then convert mL to L.",
+        "solution": "75×50=3750 mL/min=3.75 L/min, conditional on the stipulated unchanged heart rate.",
+        "lesson_ids": [
+          "physiology-10"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added synthetic formative practice connecting perturbed stroke volume to cardiac output."
+        ]
+      }
+    },
+    {
+      "id": "physiology-10:pv-loop-width-area",
+      "type": "single_choice",
+      "prompt": "On a ventricular pressure-volume loop, which pair of geometric features is interpreted as stroke volume and external stroke work, respectively?",
+      "options": [
+        "Horizontal width (EDV−ESV); magnitude of the enclosed area",
+        "Vertical height; horizontal width",
+        "Enclosed area; vertical height only",
+        "The loop's starting point; its ending pressure"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "physiology-10-objective-4"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "The volume difference is the ejected amount; pressure integrated over volume change has work units.",
+        "solution": "The loop width is EDV−ESV, the stroke volume. The magnitude of its pressure-volume area estimates external stroke work per beat.",
+        "lesson_ids": [
+          "physiology-10"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added original conceptual practice on pressure-volume loop width and area."
+        ]
+      }
+    },
+    {
+      "id": "physiology-10:pv-loop-model-limit",
+      "type": "single_choice",
+      "prompt": "What is the main limitation of estimating work as average ejection pressure×stroke volume for the synthetic example?",
+      "options": [
+        "It replaces the actual pressure-volume path with a rectangle and omits dynamic and myocardial details, so it is not a clinical estimate",
+        "It exactly integrates the measured pressure-volume loop and proves ventricular efficiency",
+        "It predicts myocardial oxygen use and diagnosis from two values",
+        "It establishes that afterload always reduces stroke work"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "physiology-10-objective-4"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Compare the rectangle with a real time-varying pressure-volume trajectory.",
+        "solution": "The product approximates loop area under stipulated assumptions. It omits the real trajectory, chamber geometry, myocardial oxygen use and other physiology; it is neither a clinical estimate nor a universal response rule.",
+        "lesson_ids": [
+          "physiology-10"
+        ],
+        "misconception_ids": [
+          "synthetic-work-estimate-is-clinical-measurement"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Added original formative practice on pressure-volume model limits."
+        ]
+      }
+    },
+    {
+      "id": "physiology-15:time-constant",
+      "type": "numeric",
+      "prompt": "A synthetic membrane has R_m = 10 kΩ·cm² and C_m = 1 μF/cm². What is its time constant? Enter ms.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 10,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "τ_m = R_m C_m; area cancels.",
+        "solution": "τ_m = 10×10³ Ω·cm² × 1×10⁻⁶ F/cm² = 0.010 s = 10 ms.",
+        "lesson_ids": [
+          "physiology-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physiology-15:fraction-at-two-tau",
+      "type": "numeric",
+      "prompt": "After a current step into a compact cell, what percentage of the final voltage change has occurred at t = 2τ_m? Enter the percentage.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 86.466,
+        "unit": "",
+        "tolerance": 0.1,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "ΔV(t)/ΔV∞ = 1 − e^(−t/τ).",
+        "solution": "1 − e^(−2) = 0.8647, or 86.5%.",
+        "lesson_ids": [
+          "physiology-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physiology-15:input-resistance",
+      "type": "numeric",
+      "prompt": "A compact spherical cell of radius 5 μm has R_m = 10 kΩ·cm². What is its input resistance? Enter GΩ.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 3.1831,
+        "unit": "",
+        "tolerance": 0.02,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Divide R_m by the surface area 4πr², with r in cm.",
+        "solution": "Area = 4π(5×10⁻⁴ cm)² = 3.14×10⁻⁶ cm², so R_in = 10×10³/3.14×10⁻⁶ = 3.18×10⁹ Ω.",
+        "lesson_ids": [
+          "physiology-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physiology-15:time-constant-size",
+      "type": "single_choice",
+      "prompt": "Two compact cells are made of the same membrane, but one has ten times the surface area. How do their membrane time constants compare?",
+      "options": [
+        "They are equal",
+        "The larger cell's is ten times longer",
+        "The larger cell's is ten times shorter",
+        "The larger cell's is √10 times longer"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "physiology-15-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Write the total resistance and capacitance in terms of area.",
+        "solution": "Total resistance is R_m/A and total capacitance is C_m A, so their product R_m C_m does not depend on area. The larger cell has lower input resistance but the same τ_m.",
+        "lesson_ids": [
+          "physiology-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physiology-15:length-constant",
+      "type": "numeric",
+      "prompt": "A synthetic unmyelinated process has radius 2 μm, R_m = 10 kΩ·cm² and cytoplasmic resistivity R_i = 50 Ω·cm. What is its length constant? Enter mm.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 1.4142,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "λ = √(R_m a/(2R_i)) with a in cm.",
+        "solution": "λ = √(10×10³ × 2×10⁻⁴ /(2 × 50)) = √0.02 cm = 0.141 cm = 1.41 mm.",
+        "lesson_ids": [
+          "physiology-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physiology-15:electrotonic-decay",
+      "type": "numeric",
+      "prompt": "A synthetic unmyelinated process has radius 2 μm, R_m = 10 kΩ·cm² and cytoplasmic resistivity R_i = 50 Ω·cm. A steady 5 mV depolarization is held at one point. How much remains 1.0 mm away? Enter mV.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-15-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 2.4653,
+        "unit": "",
+        "tolerance": 0.02,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use V = V₀e^(−x/λ) with the length constant of this process.",
+        "solution": "5 mV × e^(−1.0/1.414) = 5 × 0.493 = 2.47 mV.",
+        "lesson_ids": [
+          "physiology-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physiology-15:radius-scaling",
+      "type": "numeric",
+      "prompt": "A passive cylinder's radius is increased ninefold with the same membrane and cytoplasm. By what factor does the length constant change? Enter the factor.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 3,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The length constant is √(R_m a/(2R_i)), so it grows with the square root of the radius.",
+        "solution": "λ ∝ √a, so a ninefold radius multiplies λ by √9 = 3, not by 9.",
+        "lesson_ids": [
+          "physiology-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physiology-15:unmyelinated-velocity",
+      "type": "numeric",
+      "prompt": "A synthetic unmyelinated fiber conducts at 0.8 m/s. Under the √a scaling, what is the conduction velocity of a similar fiber with four times the radius? Enter m/s.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 1.6,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "For unmyelinated fibers, velocity scales with the square root of radius.",
+        "solution": "0.8 × √4 = 1.6 m/s.",
+        "lesson_ids": [
+          "physiology-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physiology-15:myelin-mechanism",
+      "type": "single_choice",
+      "prompt": "Why does myelination increase conduction velocity in this model?",
+      "options": [
+        "It raises effective membrane resistance and lowers capacitance, so current spreads farther and charges the next node faster",
+        "It makes each action potential shorter",
+        "It lowers the cytoplasm's resistivity",
+        "It removes the need for voltage-gated channels anywhere on the axon"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "physiology-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Think about λ and the charge needed per length of membrane.",
+        "solution": "Many membrane wraps raise R_m (lengthening λ) and lower C_m, so less charge is needed and current reaches the next node quickly; the action potential is regenerated at the nodes (saltatory conduction).",
+        "lesson_ids": [
+          "physiology-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physiology-15:passive-versus-regenerative",
+      "type": "single_choice",
+      "prompt": "A synaptic potential decays as it spreads along a dendrite, but an action potential keeps its size along an axon. What explains the difference?",
+      "options": [
+        "The action potential is regenerated by voltage-gated channels wherever threshold is reached",
+        "Axons have no membrane resistance",
+        "Dendrites have no capacitance",
+        "The action potential travels outside the cell"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "physiology-15-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Separate passive spread from active regeneration.",
+        "solution": "Passive voltage changes decay with the length constant. An action potential is regenerated at each stretch of excitable membrane, so its amplitude does not decay with distance.",
+        "lesson_ids": [
+          "physiology-15"
+        ],
+        "misconception_ids": []
       },
       "visibility": "public-practice-authoring",
       "provenance": {

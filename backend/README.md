@@ -1,6 +1,6 @@
 # uniStemCourseSimulators learner API
 
-This milestone provides server-owned guest/account state, enrollment, course and lesson reading, notes, bookmarks, learner-marked progress, immutable attempts, deterministic formative checks, practice gradebook evidence, export and account deletion. PostgreSQL is the Docker deployment database; SQLite is used only by portable pytest fixtures and explicit local development fallback.
+This milestone provides server-owned guest/account state, enrollment, course and lesson reading, private notes with authenticated cross-course search, bookmarks, learner-marked progress, immutable attempts, deterministic formative checks, practice gradebook evidence, export and account deletion. PostgreSQL is the Docker deployment database; SQLite is used only by portable pytest fixtures and explicit local development fallback.
 
 Run migrations before serving from `/app` in the API image:
 
@@ -10,6 +10,8 @@ uvicorn courselab.main:app --host 0.0.0.0 --port 8000
 ```
 
 The root Docker Compose configuration wires this service to PostgreSQL and the frontend. `DATABASE_URL` overrides all database settings for CI. Otherwise `DATABASE_PASSWORD_FILE` points to a private secret file, and `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER` select the connection. Passwords are read at process start and escaped by SQLAlchemy rather than interpolated into an unescaped URL. Never print the resulting connection URL. `CONTENT_ROOT` selects a read-only content package directory (image default `/content`).
+
+`GET /api/v1/notes` returns a page of the signed-in learner's non-empty notes from current-version enrollments. It accepts a literal, case-insensitive `q` match (up to 200 characters), an optional enrolled `course_id`, and `offset`/`limit` pagination (maximum 100). Each result includes its course and lesson titles for navigation. Results are scoped by the authenticated user; a course filter requires a current enrollment version. Notes are returned as plain text for the frontend to render without HTML interpretation.
 
 `ALLOWED_ORIGINS` is a comma-separated exact origin list. Every mutation requires a permitted `Origin`. Private mutations also require `X-CSRF-Token` returned by `/api/v1/auth/session`. Cookies are HttpOnly, SameSite Lax, scoped to `/api`, and secure by default; set `COOKIE_SECURE=false` only for local HTTP. Session tokens are stored as SHA-256 hashes. Guest sessions last 30 days; accounts seven days. Guest-to-account registration preserves the same learner ID and data. Logout revokes the calling session. Account deletion removes all the learner's records and sessions. Expired guest records require an operator retention/cleanup policy before public deployment.
 
@@ -21,7 +23,7 @@ The enabled choice graders support zero-based single-choice indices and explicit
 
 All learner queries filter by the authenticated principal; request-supplied user IDs cannot select another learner. Attempts are append-only through the API and pinned to the enrollment's course version. If a package version changes, new version-dependent operations are blocked pending an explicit enrollment migration. The selected authored variant and its specification digest are pinned per attempt. Variant tokens expire after seven days; deployments that need tokens to survive API restarts must configure a stable `VARIANT_TOKEN_SECRET` of at least 32 bytes. Server responses label timestamps as UTC with `Z`. Concurrent conflicting writes return a safe 409 requiring a retry, rather than leaking database errors; atomic upsert and client retry policies remain production hardening work.
 
-The single-worker development rate limiter is in memory. A production deployment needs a shared rate limiter at the trusted reverse proxy, resource limits, guest-retention policy, email verification/recovery, operator monitoring, and regular backups. Request bodies are capped at 64 KiB and note/response fields are bounded. Response headers prevent caching learner data and disable MIME sniffing. No provider keys, database passwords or learner records are committed.
+The single-worker development rate limiter is in memory and defaults to 120 ordinary writes and 30 authentication writes per network peer per rolling minute. `RATE_LIMIT` and `AUTH_RATE_LIMIT` can override these thresholds; Compose exposes them as `COURSELAB_RATE_LIMIT` and `COURSELAB_AUTH_RATE_LIMIT`. A production deployment needs a shared rate limiter at the trusted reverse proxy, resource limits, guest-retention policy, email verification/recovery, operator monitoring, and regular backups. Request bodies are capped at 64 KiB and note/response fields are bounded. Response headers prevent caching learner data and disable MIME sniffing. No provider keys, database passwords or learner records are committed.
 
 Backend checks run through the workspace `dev` service:
 

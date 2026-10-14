@@ -1,4 +1,4 @@
-# Forced first-order systems: steps, ramps, sinusoids and decaying inputs in a perfused chamber
+# Forced first-order systems: steps, ramps, periodic inputs and decaying inputs in a perfused chamber
 
 A well-mixed chamber that is perfused with medium is a first-order system driven by whatever concentration is in the feed. In the earlier lesson the feed was constant, and the chamber relaxed to it with a time constant. Real feeds change: a new medium is switched in (a step), a nutrient is ramped up, the supply varies with a pump or a daily cycle (a sinusoid), or a bolus of drug is washed through (a pulse or a decay). The same linear equation covers all of these, and the answers come in a handful of closed forms that tell you how much of a feed change the culture actually sees, how late it sees it and how long it lasts. This lesson derives them by the integrating factor, checks the limiting cases and uses linearity to build a pulse from steps. All values are synthetic.
 
@@ -9,6 +9,7 @@ By the end of this lesson, you should be able to:
 1. Write the chamber equation for a time-varying feed and solve it by an integrating factor.
 2. Compute the response to a step, a ramp, a sinusoid and a decaying input, including the lag and attenuation.
 3. Use linearity to build the response to a pulse and to interpret how long a feed change takes to reach the culture.
+4. Resolve a simple periodic feed into Fourier harmonics and combine their first-order steady-state responses.
 
 ## The equation and the integrating factor
 
@@ -34,6 +35,20 @@ For c = a t, C = a (t − τ + τ e^(−t/τ)). Once the exponential has died aw
 
 For c = A sin ωt, after the transient has decayed, C = A sin(ωt − φ)/√(1 + (ωτ)²) with φ = atan(ωτ). The chamber attenuates the oscillation and delays it. For a feed that cycles with a period of 120 min, ω = 2π/120 = 0.05236 rad/min and ωτ = 2.094, so the amplitude is multiplied by **0.4309**, the phase lag is 64.5° and the time lag is φ/ω = **21.5 min**. Fast variations are filtered out much more strongly than slow ones; a cycle with a period of 10 min would be attenuated to 0.040 of its amplitude.
 
+## A periodic input with more than one frequency
+
+A sinusoid has one frequency. A periodic waveform with a sharper shape can be written as a sum of sinusoidal harmonics, which lets the same first-order response formula handle more than one frequency at a time. For an idealized square-wave feed that alternates between $+A$ and $-A$ with period $T$, its sine series is
+
+**c(t) = (4A/π)[sin(ωt) + sin(3ωt)/3 + sin(5ωt)/5 + …],  ω = 2π/T.**
+
+The first-order chamber is linear, so in steady state each term is attenuated and delayed using its own frequency $nω$. The odd $n$th harmonic has input amplitude $4A/(nπ)$, output amplitude
+
+**4A / [nπ √(1 + (nωτ)²)]**
+
+and phase lag $atan(nωτ)$. Add the resulting output harmonics to approximate the periodic chamber response. Do not apply the fundamental's gain or phase to every term: the third harmonic is evaluated at $3ω$, the fifth at $5ω$, and so on.
+
+**Synthetic example.** Let $A=1$ mM, $T=120$ min and $τ=40$ min. Then $ωτ=2π/3≈2.094$. The input fundamental has amplitude $4/π≈1.273$ mM; its output amplitude is $1.273/√(1+2.094²)≈0.549$ mM with a $64.5°$ lag. The third input harmonic has amplitude $4/(3π)≈0.424$ mM; after its stronger attenuation at $3ω$, its output amplitude is about $0.0667$ mM. Higher harmonics contribute progressively less in this example. The ideal square wave jumps, but the chamber concentration remains continuous. At a jump, the Fourier series itself converges to the midpoint of the two one-sided values; finite sums show oscillatory overshoot near the jump.
+
 ## A decaying input and a pulse
 
 When the feed concentration decays as c = c₀ e^(−t/T), for example a drug that is being cleared upstream, and T ≠ τ, the integral gives C = c₀ T/(T − τ) (e^(−t/T) − e^(−t/τ)). With T = 100 min the chamber concentration first rises, peaks at t = ln(T/τ)/(1/τ − 1/T) = **61.1 min** at 0.5429 c₀, then falls: the chamber never sees the full feed concentration, because the feed has already dropped.
@@ -47,6 +62,7 @@ Linearity gives pulses. A pulse of height c₀ lasting 30 min is a step at t = 0
 - Applying the sinusoidal steady-state formulas before the transient has decayed (about 3τ).
 - Forgetting that a ramp is followed with a constant lag aτ, not with a constant ratio.
 - Adding the responses of nonlinear terms by superposition; it holds only for linear equations.
+- Applying the fundamental-frequency response to every Fourier harmonic instead of evaluating each at its own frequency.
 - Reading the peak of the decaying-input response as the feed concentration.
 
 ## Worked example
@@ -63,4 +79,4 @@ Linearity gives pulses. A pulse of height c₀ lasting 30 min is a step at t = 0
 
 ## Limits of this lesson
 
-All numbers are synthetic. The lesson treats a perfectly mixed chamber with constant volume and flow and a linear first-order equation. Real chambers have mixing delays, dead volumes and consumption of the substance, and the amplitude and lag formulas hold only after the transient has decayed.
+All numbers are synthetic. The lesson treats a perfectly mixed chamber with constant volume and flow and a linear first-order equation. The Fourier example assumes an ideal periodic square input and a stable linear model; finite harmonic sums approximate the input near its jumps. Real chambers have mixing delays, dead volumes and consumption of the substance, and the amplitude and lag formulas hold only after the transient has decayed.

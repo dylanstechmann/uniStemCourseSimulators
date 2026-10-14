@@ -7,14 +7,16 @@
   "domain": "Mathematics",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.4.0",
+  "version": "0.4.9",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
     "source_path": "src/data/courses.js",
     "source_sha256": "a77a7cb7f5be2ffa12068877042ac775c6d9b79b83ac2f316fe4f26a0d3d783b",
     "migration_version": "1.0",
-    "modifications": []
+    "modifications": [
+      "Linked the first four lesson objective pairs to course outcomes, corrected three item-to-objective associations, and added direct practice for vector components, stationary-point classification, and line-integral work."
+    ]
   },
   "prerequisites": {
     "course_ids": [
@@ -30,7 +32,7 @@
   "outcomes": [
     {
       "id": "calculus-3-outcome-1",
-      "description": "Compute directional derivatives and interpret gradients.",
+      "description": "Represent vectors in frames, compute directional derivatives, and interpret gradients.",
       "bloom": "apply"
     },
     {
@@ -54,49 +56,65 @@
       "id": "calculus-3-1-objective-1",
       "description": "Represent vectors in coordinate frames.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "calculus-3-outcome-1"
+      ]
     },
     {
       "id": "calculus-3-1-objective-2",
       "description": "Compute gradients and directional derivatives.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "calculus-3-outcome-1"
+      ]
     },
     {
       "id": "calculus-3-2-objective-1",
       "description": "Classify stationary points using second derivatives.",
       "bloom": "understand",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "calculus-3-outcome-2"
+      ]
     },
     {
       "id": "calculus-3-2-objective-2",
       "description": "Use Lagrange multipliers for a smooth geometric constraint.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "calculus-3-outcome-2"
+      ]
     },
     {
       "id": "calculus-3-3-objective-1",
       "description": "Choose bounds for an area or volume integral.",
       "bloom": "evaluate",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "calculus-3-outcome-3"
+      ]
     },
     {
       "id": "calculus-3-3-objective-2",
       "description": "Include the Jacobian in a coordinate change.",
       "bloom": "understand",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "calculus-3-outcome-3"
+      ]
     },
     {
       "id": "calculus-3-4-objective-1",
       "description": "Interpret line integrals as work or circulation.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "calculus-3-outcome-4"
+      ]
     },
     {
       "id": "calculus-3-4-objective-2",
       "description": "Choose Green's, Stokes', or divergence theorem from the geometry.",
       "bloom": "evaluate",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "calculus-3-outcome-4"
+      ]
     },
     {
       "id": "calculus-3-5-objective-1",
@@ -348,11 +366,35 @@
         "calculus-3-outcome-1",
         "calculus-3-outcome-4"
       ]
+    },
+    {
+      "id": "calculus-3-14-objective-1",
+      "description": "Set up and solve the normal equations for a least-squares line and confirm the minimum with the second-derivative test.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "calculus-3-outcome-2"
+      ]
+    },
+    {
+      "id": "calculus-3-14-objective-2",
+      "description": "Fit an exponential model by a log-linear least-squares line and explain how it differs from a direct fit.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-3-outcome-2"
+      ]
+    },
+    {
+      "id": "calculus-3-14-objective-3",
+      "description": "Compute partial derivatives of constrained variables with the held variable stated, and check them with differentials or the triple-product rule.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "calculus-3-outcome-2"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week scope retaining compact prototype readings in weeks 1, 5, 8 and 10. Workload and qualified review are absent; this is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week scope with expanded or original instructional text for every scheduled lesson. Workload and qualified review are absent; this is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
@@ -406,12 +448,14 @@
       },
       {
         "week": 6,
-        "title": "Hessians, constraints and boundary optima",
+        "title": "Hessians, constraints, boundary optima and least squares",
         "lesson_ids": [
-          "calculus-3-9"
+          "calculus-3-9",
+          "calculus-3-14"
         ],
         "assessment_ids": [
-          "calculus-3-9-practice"
+          "calculus-3-9-practice",
+          "calculus-3-14-practice"
         ]
       },
       {
@@ -476,7 +520,7 @@
       },
       {
         "week": 13,
-        "title": "Stokes' theorem and spatial balances",
+        "title": "Stokes, region orientation and theorem selection",
         "lesson_ids": [
           "calculus-3-13"
         ],
@@ -519,10 +563,11 @@
             "calculus-3-1-objective-1",
             "calculus-3-1-objective-2"
           ],
-          "worked_example": "For f(x,y)=x²+3y², ∇f=(2x,6y), so ∂f/∂y at (1,−1) is −6.",
+          "worked_example": "For the constructed dimensionless field f(x,y)=x²y+sin(y), the gradient at (1,0) is (0,2). Along the unit direction (3/5,4/5), the directional derivative is 1.6. A displacement (0.02,0.03) has first-order predicted change 0.06, close to the exact 0.06121 rather than equal to it. Under a 90-degree orthonormal rotation, gradient components (4,-3) and direction components (0.8,-0.6) retain the directional derivative 5.",
           "question_ids": [
             "calculus-3-1:check",
-            "calculus-3-1:directional-derivative"
+            "calculus-3-1:directional-derivative",
+            "calculus-3-1:vector-frame-components"
           ],
           "card_ids": [
             "calculus-3-0-0",
@@ -547,10 +592,11 @@
             "calculus-3-2-objective-1",
             "calculus-3-2-objective-2"
           ],
-          "worked_example": "The maximum of f=x+y on the unit circle occurs at x=y=1/√2, so f=√2.",
+          "worked_example": "For F(x,y)=4−(x−1)²−2(y+2)², the stationary point (1,−2) has Hessian diag(−2,−4) and is a strict global maximum of 4. For f=xy subject to x+y=10, the multiplier equations give (5,5), value 25; substitution gives f(x,10−x)=25−(x−5)², proving the global bound.",
           "question_ids": [
             "calculus-3-2:check",
-            "calculus-3-2:lagrange-multiplier"
+            "calculus-3-2:lagrange-multiplier",
+            "calculus-3-2:stationary-classification"
           ],
           "card_ids": [
             "calculus-3-1-0",
@@ -575,7 +621,7 @@
             "calculus-3-3-objective-1",
             "calculus-3-3-objective-2"
           ],
-          "worked_example": "The area of the unit disk is ∫₀²π∫₀¹ r dr dθ=π.",
+          "worked_example": "For a radius-3 disk, polar integration with Jacobian r gives area 9π≈28.274, matching the Cartesian semicircle integral. A constructed density c(r)=2+r mg/cm² on a radius-2 disk integrates to 40π/3 mg; dividing by area 4π cm² gives mean density 10/3 mg/cm².",
           "question_ids": [
             "calculus-3-3:check",
             "calculus-3-3:jacobian-polar-area"
@@ -603,10 +649,11 @@
             "calculus-3-4-objective-1",
             "calculus-3-4-objective-2"
           ],
-          "worked_example": "For F=(x,y,z), div F=3. Its outward flux through the unit sphere is 3 times the sphere's volume, or 4π.",
+          "worked_example": "For F=(-y,x) on the counterclockwise unit circle, parameterization gives circulation 2π; Green's theorem independently gives the integral of curl 2 over disk area π. For F=(x,y,z), divergence 3 over the unit ball gives outward sphere flux 4π.",
           "question_ids": [
             "calculus-3-4:check",
-            "calculus-3-4:choose-the-theorem"
+            "calculus-3-4:choose-the-theorem",
+            "calculus-3-4:line-integral-work"
           ],
           "card_ids": [
             "calculus-3-3-0",
@@ -940,13 +987,61 @@
             "calculus-3-13:storage-rate",
             "calculus-3-13:stokes-orientation",
             "calculus-3-13:inference",
-            "calculus-3-13:singularity"
+            "calculus-3-13:singularity",
+            "calculus-3-13:planar-circulation-theorem",
+            "calculus-3-13:reverse-circulation",
+            "calculus-3-13:cylinder-theorem",
+            "calculus-3-13:cylinder-flux",
+            "calculus-3-13:cylinder-face-fluxes",
+            "calculus-3-13:open-cap-method"
           ],
           "card_ids": [
             "calculus-3-13-card-1",
             "calculus-3-13-card-2",
             "calculus-3-13-card-3",
-            "calculus-3-13-card-4"
+            "calculus-3-13-card-4",
+            "calculus-3-13-card-5",
+            "calculus-3-13-card-6",
+            "calculus-3-13-card-7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "calculus-3-module-14",
+      "title": "Least-squares fitting and partial derivatives with non-independent variables",
+      "source_ids": [
+        "multivariable"
+      ],
+      "lessons": [
+        {
+          "id": "calculus-3-14",
+          "title": "Least-squares fitting and partial derivatives with non-independent variables",
+          "reading": "modules/14-least-squares-and-constrained-partial-derivatives.md",
+          "objectives": [
+            "calculus-3-14-objective-1",
+            "calculus-3-14-objective-2",
+            "calculus-3-14-objective-3"
+          ],
+          "worked_example": "For synthetic points (0, 1), (1, 3), (2, 4) and (3, 6), the normal equations 14a + 6b = 29 and 6a + 4b = 14 give a = 1.6 and b = 1.1; the Hessian determinant 80 confirms the minimum, the residuals sum to zero and the minimum squared error is 0.20. For w = xyz with z = x + y at (1, 2, 3), differentials give (∂w/∂x)_y = 8 and (∂w/∂x)_z = 3.",
+          "question_ids": [
+            "calculus-3-14:line-slope",
+            "calculus-3-14:line-intercept",
+            "calculus-3-14:minimum-squared-error",
+            "calculus-3-14:squared-error-hessian",
+            "calculus-3-14:log-fit-rate",
+            "calculus-3-14:held-y-derivative",
+            "calculus-3-14:held-z-derivative",
+            "calculus-3-14:triple-product-factor",
+            "calculus-3-14:why-squared-residuals",
+            "calculus-3-14:log-fit-meaning",
+            "calculus-3-14:held-variable-notation"
+          ],
+          "card_ids": [
+            "calculus-3-14-card-1",
+            "calculus-3-14-card-2",
+            "calculus-3-14-card-3",
+            "calculus-3-14-card-4"
           ]
         }
       ]
@@ -997,13 +1092,15 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "calculus-3-1-objective-1",
-        "calculus-3-1-objective-2"
+        "calculus-3-1-objective-2",
+        "calculus-3-outcome-1"
       ],
       "question_ids": [
         "calculus-3-1:check",
-        "calculus-3-1:directional-derivative"
+        "calculus-3-1:directional-derivative",
+        "calculus-3-1:vector-frame-components"
       ],
-      "points": 2
+      "points": 3
     },
     {
       "id": "calculus-3-2-practice",
@@ -1012,13 +1109,15 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "calculus-3-2-objective-1",
-        "calculus-3-2-objective-2"
+        "calculus-3-2-objective-2",
+        "calculus-3-outcome-2"
       ],
       "question_ids": [
         "calculus-3-2:check",
-        "calculus-3-2:lagrange-multiplier"
+        "calculus-3-2:lagrange-multiplier",
+        "calculus-3-2:stationary-classification"
       ],
-      "points": 2
+      "points": 3
     },
     {
       "id": "calculus-3-3-practice",
@@ -1027,7 +1126,8 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "calculus-3-3-objective-1",
-        "calculus-3-3-objective-2"
+        "calculus-3-3-objective-2",
+        "calculus-3-outcome-3"
       ],
       "question_ids": [
         "calculus-3-3:check",
@@ -1042,13 +1142,15 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "calculus-3-4-objective-1",
-        "calculus-3-4-objective-2"
+        "calculus-3-4-objective-2",
+        "calculus-3-outcome-4"
       ],
       "question_ids": [
         "calculus-3-4:check",
-        "calculus-3-4:choose-the-theorem"
+        "calculus-3-4:choose-the-theorem",
+        "calculus-3-4:line-integral-work"
       ],
-      "points": 2
+      "points": 3
     },
     {
       "id": "calculus-3-5-practice",
@@ -1274,9 +1376,15 @@
         "calculus-3-13:storage-rate",
         "calculus-3-13:stokes-orientation",
         "calculus-3-13:inference",
-        "calculus-3-13:singularity"
+        "calculus-3-13:singularity",
+        "calculus-3-13:planar-circulation-theorem",
+        "calculus-3-13:reverse-circulation",
+        "calculus-3-13:cylinder-theorem",
+        "calculus-3-13:cylinder-flux",
+        "calculus-3-13:cylinder-face-fluxes",
+        "calculus-3-13:open-cap-method"
       ],
-      "points": 9
+      "points": 16
     },
     {
       "id": "calculus-3-week14-flux-lab",
@@ -1313,6 +1421,33 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "calculus-3-14-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Least squares and constrained partial derivatives practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "calculus-3-14-objective-1",
+        "calculus-3-14-objective-2",
+        "calculus-3-14-objective-3",
+        "calculus-3-outcome-2"
+      ],
+      "question_ids": [
+        "calculus-3-14:line-slope",
+        "calculus-3-14:line-intercept",
+        "calculus-3-14:minimum-squared-error",
+        "calculus-3-14:squared-error-hessian",
+        "calculus-3-14:log-fit-rate",
+        "calculus-3-14:held-y-derivative",
+        "calculus-3-14:held-z-derivative",
+        "calculus-3-14:triple-product-factor",
+        "calculus-3-14:why-squared-residuals",
+        "calculus-3-14:log-fit-meaning",
+        "calculus-3-14:held-variable-notation"
+      ],
+      "points": 11
     }
   ],
   "grading_policy": {
@@ -1367,17 +1502,63 @@
       "version": "0.4.0",
       "date": "2026-10-09",
       "summary": "Added seven original lessons on vector geometry, total multivariable change, Hessians and constrained boundaries, Jacobian measures, line integrals and Green, surface flux and divergence, and Stokes with spatial balances; one synthetic flux-balance lab and a proposed 14-week schedule. Developed with Codex assistance using existing scope references only. Still partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.1",
+      "date": "2026-10-10",
+      "summary": "Expanded the vectors and gradients reading with a first-order local model, unit-direction derivatives, level-curve geometry and a worked finite-change comparison. Existing public questions, keys and objectives are unchanged. Three compact prototype readings remain; the package stays partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.2",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-5 optimization reading with second-derivative classification, a negative-definite Hessian example, Lagrange multipliers and a direct global-bound check along the feasible set. Existing questions, keys and objectives are unchanged. Two compact prototype readings remain; the package stays partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.3",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-8 multiple-integral reading with change-of-variables Jacobians, polar area and a spatially varying density example with units. Existing questions, keys and objectives are unchanged. One compact prototype reading remains; the package stays partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.4",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-10 reading with parameterized line integrals, Green circulation and flux forms, and distinctions among Green, Stokes and divergence theorems. Existing questions, keys and objectives are unchanged. All scheduled lessons now have expanded or original instructional text; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.5",
+      "date": "2026-10-10",
+      "summary": "Linked the first four lesson objective pairs to outcomes 1–4, clarified outcome 1 to include vector-frame representation, corrected three item associations, and added direct formative checks for vector components, stationary-point classification, and line-integral work. Existing numeric prompts and keys are unchanged. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.6",
+      "date": "2026-10-10",
+      "summary": "Expanded the vector-and-gradient lesson with a worked orthonormal-frame rotation showing that a directional derivative is unchanged when the gradient and direction are represented consistently. Existing question prompts, answer keys, objectives and cards are unchanged. The package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.7",
+      "date": "2026-10-10",
+      "summary": "Added an inactive, ungraded integrative vector-field project draft with a circular concentration model, constrained extrema, polar area integration, oriented boundary flux, an independent divergence check and an unweighted human rubric. The project is not part of the scheduled assessment list. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.8",
+      "date": "2026-10-11",
+      "summary": "Integrated a multistep region, orientation and theorem-selection sequence into the existing week-13 Stokes lesson: planar circulation, a closed cylindrical flux with direct face checks, and an open-cap boundary. Added six formative items and three cards, and linked the recommended Linear Algebra frame/coordinate refresher. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.9",
+      "date": "2026-10-13",
+      "summary": "Grouped an original least-squares and held-variable reading with the week-6 Hessian lesson: normal equations and their second-derivative check, log-linear exponential fits compared with a direct fit, and partial derivatives of constrained variables by differentials and the triple-product rule. Added three objectives, eleven formative items and four cards, with no week added. The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "Four compact prototype units remain alongside ten original readings including one synthetic flux-balance lab; this package is not equivalent to a full university semester.",
+    "All scheduled lessons have expanded or original instructional text, alongside one synthetic flux-balance lab; this package is not equivalent to a full university semester.",
     "The proposed 14-week schedule is unmeasured and unreviewed. Graded homework, exams, a laboratory sequence and a cumulative graded project remain absent.",
     "Formative items and provisional objective associations do not establish comprehensive coverage or mastery.",
     "All numerical fields, observations and balance rates are synthetic. They establish no tissue oxygen demand, device specification, unique biological mechanism or experimental protocol.",
     "New numeric prompts state their scales and request a bare number. Existing unit-entry requirements are preserved; significant figures and dimensions are not automatically assessed.",
     "CSV summaries and structured choices check selected calculations and interpretations, not written proofs or causal model identification.",
     "Theorems and error bounds require their stated domains, smoothness, orientations, coordinate conventions and regularity conditions.",
-    "Qualified mathematical review, accessibility review and total/weekly workload measurement remain outstanding."
+    "Qualified mathematical review, accessibility review and total/weekly workload measurement remain outstanding.",
+    "The new theorem-selection sequence uses exact synthetic fields and canonical regions; its checks reinforce calculation and hypotheses but do not replace proofs or broad theorem applications."
   ],
   "intentionally_omitted": [
     "Graded assessments, a full laboratory sequence, a cumulative graded project, measured workload and qualified human review remain outstanding."

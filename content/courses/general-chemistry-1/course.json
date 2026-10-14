@@ -7,14 +7,19 @@
   "domain": "Chemistry",
   "level": "Year 1",
   "maturity": "partial",
-  "version": "0.4.0",
+  "version": "0.4.10",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
     "source_path": "src/data/courses.js",
     "source_sha256": "a77a7cb7f5be2ffa12068877042ac775c6d9b79b83ac2f316fe4f26a0d3d783b",
     "migration_version": "1.0",
-    "modifications": []
+    "modifications": [
+      "Expanded the module-2 stoichiometry and solution-concentration prototype with unit-tracked mole ratios, a limiting-reagent calculation, molarity and dilution derivations, reporting precision, and model limits.",
+      "Expanded the module-3/week-8 thermochemistry prototype with explicit system/work sign conventions, calorimetry heat balance, state-function reasoning, Hess-law scaling, and formation-enthalpy calculations.",
+      "Expanded the module-4/week-11 equilibrium prototype with dynamic-equilibrium reasoning, mass-action expressions, fixed-temperature Q/K comparisons, disturbance effects, and explicit kinetic and activity limits.",
+      "Refined outcome 2 to explicitly cover electronic structure as well as bonding and molecular geometry. Linked the module-1 electron-configuration/periodic-trend and Lewis/VSEPR objectives to that outcome. Reassociated the preserved trigonal-planar geometry item with the VSEPR objective and added direct practice comparing Period 3 atomic radii; the existing question prompt and key are unchanged. The course remains partial, unreviewed and formative-only."
+    ]
   },
   "prerequisites": {
     "course_ids": [],
@@ -34,7 +39,7 @@
     },
     {
       "id": "general-chemistry-1-outcome-2",
-      "description": "Relate bonding and molecular geometry to properties.",
+      "description": "Relate electronic structure, bonding, and molecular geometry to chemical properties.",
       "bloom": "analyze"
     },
     {
@@ -53,49 +58,67 @@
       "id": "general-chemistry-1-1-objective-1",
       "description": "Connect electron configuration to periodic trends.",
       "bloom": "analyze",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "general-chemistry-1-outcome-2"
+      ]
     },
     {
       "id": "general-chemistry-1-1-objective-2",
       "description": "Use Lewis structures and VSEPR as models with defined limits.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "general-chemistry-1-outcome-2"
+      ]
     },
     {
       "id": "general-chemistry-1-2-objective-1",
       "description": "Balance chemical equations before converting amounts.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "general-chemistry-1-outcome-1"
+      ]
     },
     {
       "id": "general-chemistry-1-2-objective-2",
       "description": "Use limiting-reagent and dilution relationships with units.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "general-chemistry-1-outcome-1",
+        "general-chemistry-1-outcome-4"
+      ]
     },
     {
       "id": "general-chemistry-1-3-objective-1",
-      "description": "Use the first law with a clear sign convention.",
+      "description": "Interpret reaction heat and enthalpy using a clear sign convention.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "general-chemistry-1-outcome-3"
+      ]
     },
     {
       "id": "general-chemistry-1-3-objective-2",
       "description": "Estimate reaction enthalpy from formation enthalpies.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "general-chemistry-1-outcome-3",
+        "general-chemistry-1-outcome-4"
+      ]
     },
     {
       "id": "general-chemistry-1-4-objective-1",
-      "description": "Write a reaction quotient from a balanced equation.",
+      "description": "Interpret the reaction quotient and equilibrium constant for a reaction at a stated temperature.",
       "bloom": "create",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "general-chemistry-1-outcome-3"
+      ]
     },
     {
       "id": "general-chemistry-1-4-objective-2",
       "description": "Predict direction of net change by comparing Q and K.",
       "bloom": "apply",
-      "course_outcome_ids": []
+      "course_outcome_ids": [
+        "general-chemistry-1-outcome-3"
+      ]
     },
     {
       "id": "general-chemistry-1-5-objective-1",
@@ -354,65 +377,83 @@
         "general-chemistry-1-outcome-3",
         "general-chemistry-1-outcome-4"
       ]
+    },
+    {
+      "id": "general-chemistry-1-8-objective-4",
+      "description": "Use a stated molecular-orbital ordering to calculate bond order and predict unpaired-electron magnetism.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "general-chemistry-1-outcome-2"
+      ]
+    },
+    {
+      "id": "general-chemistry-1-14-objective-1",
+      "description": "Assign sp, sp² or sp³ hybridization from a central atom's steric number and relate the hybrid set to VSEPR bond angles.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "general-chemistry-1-outcome-2"
+      ]
+    },
+    {
+      "id": "general-chemistry-1-14-objective-2",
+      "description": "Distinguish and count σ and π bonds, and explain restricted rotation and the illustrative energy of a π bond.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "general-chemistry-1-outcome-2"
+      ]
+    },
+    {
+      "id": "general-chemistry-1-14-objective-3",
+      "description": "Use cos θ = −1/λ² to estimate hybrid s-character from a bond angle, and explain where the hybrid model stops being useful.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "general-chemistry-1-outcome-2"
+      ]
     }
   ],
   "duration": {
-    "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week scope retaining compact prototype readings in weeks 1, 4, 8 and 11. Workload and qualified review are absent; this is not evidence of semester equivalence.",
+    "instructional_weeks": 10,
+    "equivalent_structure": "Proposed ten-week teaching sequence with compact foundations paired alongside their expanded treatments in weeks 1, 3, 6 and 8. It retains 14 readings and one synthetic-data lab, but does not measure workload or establish semester equivalence. Weeks 1–2 now distinguish electron configurations and periodic trends from Lewis/VSEPR, molecular-orbital and valence-bond/hybridization descriptions of bonding.",
     "weeks": [
       {
         "week": 1,
-        "title": "Atoms, bonding, and molecular shape",
+        "title": "Atoms, electron configuration and periodic trends",
         "lesson_ids": [
-          "general-chemistry-1-1"
-        ],
-        "assessment_ids": [
-          "general-chemistry-1-1-practice"
-        ]
-      },
-      {
-        "week": 2,
-        "title": "Atoms, amount and photon accounting",
-        "lesson_ids": [
+          "general-chemistry-1-1",
           "general-chemistry-1-7"
         ],
         "assessment_ids": [
+          "general-chemistry-1-1-practice",
           "general-chemistry-1-7-practice"
         ]
       },
       {
+        "week": 2,
+        "title": "Bonding, geometry, molecular properties, molecular orbitals and hybridization",
+        "lesson_ids": [
+          "general-chemistry-1-8",
+          "general-chemistry-1-14"
+        ],
+        "assessment_ids": [
+          "general-chemistry-1-8-practice",
+          "general-chemistry-1-14-practice"
+        ]
+      },
+      {
         "week": 3,
-        "title": "Bonding, geometry and molecular properties",
+        "title": "Stoichiometry, solution concentration and reaction extents",
         "lesson_ids": [
-          "general-chemistry-1-8"
-        ],
-        "assessment_ids": [
-          "general-chemistry-1-8-practice"
-        ]
-      },
-      {
-        "week": 4,
-        "title": "Stoichiometry and solution concentration",
-        "lesson_ids": [
-          "general-chemistry-1-2"
-        ],
-        "assessment_ids": [
-          "general-chemistry-1-2-practice"
-        ]
-      },
-      {
-        "week": 5,
-        "title": "Reaction extents and solution accounting",
-        "lesson_ids": [
+          "general-chemistry-1-2",
           "general-chemistry-1-9"
         ],
         "assessment_ids": [
+          "general-chemistry-1-2-practice",
           "general-chemistry-1-9-practice"
         ]
       },
       {
-        "week": 6,
-        "title": "Making solutions you can trust: mass, molarity, dilution and propagated error",
+        "week": 4,
+        "title": "Solutions, dilution and propagated error",
         "lesson_ids": [
           "general-chemistry-1-5"
         ],
@@ -421,7 +462,7 @@
         ]
       },
       {
-        "week": 7,
+        "week": 5,
         "title": "Gases, mixtures and model deviations",
         "lesson_ids": [
           "general-chemistry-1-10"
@@ -431,28 +472,20 @@
         ]
       },
       {
-        "week": 8,
-        "title": "Thermochemistry and state functions",
+        "week": 6,
+        "title": "Thermochemistry, state functions and Hess' law",
         "lesson_ids": [
-          "general-chemistry-1-3"
-        ],
-        "assessment_ids": [
-          "general-chemistry-1-3-practice"
-        ]
-      },
-      {
-        "week": 9,
-        "title": "Energy signs, Hess' law and calorimeter accounting",
-        "lesson_ids": [
+          "general-chemistry-1-3",
           "general-chemistry-1-11"
         ],
         "assessment_ids": [
+          "general-chemistry-1-3-practice",
           "general-chemistry-1-11-practice"
         ]
       },
       {
-        "week": 10,
-        "title": "Molecular shape, polarity and where a molecule goes: solubility, partitioning and the energy of dissolving",
+        "week": 7,
+        "title": "Molecular shape, polarity, partitioning and energy of dissolving",
         "lesson_ids": [
           "general-chemistry-1-6"
         ],
@@ -461,27 +494,19 @@
         ]
       },
       {
-        "week": 11,
-        "title": "Chemical equilibrium",
+        "week": 8,
+        "title": "Chemical equilibrium, reaction extents and activity conventions",
         "lesson_ids": [
-          "general-chemistry-1-4"
-        ],
-        "assessment_ids": [
-          "general-chemistry-1-4-practice"
-        ]
-      },
-      {
-        "week": 12,
-        "title": "Equilibrium extents, activities and conventions",
-        "lesson_ids": [
+          "general-chemistry-1-4",
           "general-chemistry-1-12"
         ],
         "assessment_ids": [
+          "general-chemistry-1-4-practice",
           "general-chemistry-1-12-practice"
         ]
       },
       {
-        "week": 13,
+        "week": 9,
         "title": "Acid–base buffers and discrepancy checks",
         "lesson_ids": [
           "general-chemistry-1-13"
@@ -491,7 +516,7 @@
         ]
       },
       {
-        "week": 14,
+        "week": 10,
         "title": "Virtual lab 1: buffer discrepancy, reference calibration and composition",
         "lesson_ids": [
           "general-chemistry-1-lab-01"
@@ -511,27 +536,27 @@
   "modules": [
     {
       "id": "general-chemistry-1-module-1",
-      "title": "Atoms, bonding, and molecular shape",
+      "title": "Electron configuration and periodic trends",
       "source_ids": [
         "chemistry"
       ],
       "lessons": [
         {
           "id": "general-chemistry-1-1",
-          "title": "Atoms, bonding, and molecular shape",
+          "title": "Electron configuration and periodic trends",
           "reading": "modules/01-atoms-bonding-and-molecular-shape.md",
           "objectives": [
-            "general-chemistry-1-1-objective-1",
-            "general-chemistry-1-1-objective-2"
+            "general-chemistry-1-1-objective-1"
           ],
-          "worked_example": "For water, two bonds and two lone pairs around oxygen give a bent molecular shape. Polar O–H bonds and the bent geometry produce a net dipole.",
+          "worked_example": "Oxygen has ground-state configuration 1s² 2s² 2p⁴ and six valence electrons. Across Period 3, the rising effective nuclear charge generally contracts atomic radius from Na toward Cl; down Group 1, the added shell generally increases radius from Na to K. Subshell and pairing effects qualify simple trend arrows.",
           "question_ids": [
-            "general-chemistry-1-1:check",
-            "general-chemistry-1-1:vsepr-water"
+            "general-chemistry-1-1:periodic-trend",
+            "general-chemistry-1-1:oxygen-valence",
+            "general-chemistry-1-1:effective-charge"
           ],
           "card_ids": [
-            "general-chemistry-1-0-0",
-            "general-chemistry-1-0-1"
+            "general-chemistry-1-1-card-1",
+            "general-chemistry-1-1-card-2"
           ]
         }
       ]
@@ -540,7 +565,10 @@
       "id": "general-chemistry-1-module-2",
       "title": "Stoichiometry and solution concentration",
       "source_ids": [
-        "chemistry"
+        "chemistry",
+        "openstax-chemistry-2e-molarity",
+        "openstax-chemistry-2e-stoichiometry",
+        "openstax-chemistry-2e-reaction-yields"
       ],
       "lessons": [
         {
@@ -551,7 +579,7 @@
             "general-chemistry-1-2-objective-1",
             "general-chemistry-1-2-objective-2"
           ],
-          "worked_example": "To prepare 100 mL of 0.20 M NaCl from a 2.0 M stock, use V₁ = C₂V₂/C₁ = 10 mL and dilute to a final volume of 100 mL.",
+          "worked_example": "For the balanced reaction 2 H2 + O2 -> 2 H2O, compare 4.0 g H2 and 32.0 g O2 by converting each mass to moles and dividing by its coefficient. H2 is limiting; it permits about 1.984 mol H2O, or 35.7 g at the supplied molar mass.",
           "question_ids": [
             "general-chemistry-1-2:check",
             "general-chemistry-1-2:limiting-reagent"
@@ -567,7 +595,9 @@
       "id": "general-chemistry-1-module-3",
       "title": "Thermochemistry and state functions",
       "source_ids": [
-        "chemistry"
+        "chemistry",
+        "openstax-chemistry-2e-calorimetry",
+        "openstax-chemistry-2e-enthalpy"
       ],
       "lessons": [
         {
@@ -578,7 +608,7 @@
             "general-chemistry-1-3-objective-1",
             "general-chemistry-1-3-objective-2"
           ],
-          "worked_example": "If a reaction's products have a total formation enthalpy of −500 kJ/mol and reactants total −300 kJ/mol, ΔH°rxn = −200 kJ/mol.",
+          "worked_example": "For the stated formation-enthalpy totals, products sum to -620 kJ/mol and reactants to -410 kJ/mol, so the reaction enthalpy is -210 kJ/mol. With the reaction as the system, the negative value indicates exothermic heat under the stated constant-pressure convention and does not predict the reaction rate.",
           "question_ids": [
             "general-chemistry-1-3:check",
             "general-chemistry-1-3:reaction-enthalpy"
@@ -594,7 +624,10 @@
       "id": "general-chemistry-1-module-4",
       "title": "Chemical equilibrium",
       "source_ids": [
-        "chemistry"
+        "chemistry",
+        "openstax-chemistry-2e-chemical-equilibria",
+        "openstax-chemistry-2e-equilibrium-constants",
+        "openstax-chemistry-2e-shifting-equilibria"
       ],
       "lessons": [
         {
@@ -605,7 +638,7 @@
             "general-chemistry-1-4-objective-1",
             "general-chemistry-1-4-objective-2"
           ],
-          "worked_example": "Adding reactant makes Q smaller while K remains fixed at constant temperature; the system then shifts toward products until Q = K.",
+          "worked_example": "At a fixed temperature, adding a reactant initially lowers Q while K stays fixed. If Q becomes smaller than K, net forward reaction consumes some reactant and forms products until Q again equals K; equilibrium remains dynamic, and this direction prediction says nothing about the rate.",
           "question_ids": [
             "general-chemistry-1-4:check",
             "general-chemistry-1-4:q-vs-k"
@@ -737,7 +770,9 @@
           "objectives": [
             "general-chemistry-1-8-objective-1",
             "general-chemistry-1-8-objective-2",
-            "general-chemistry-1-8-objective-3"
+            "general-chemistry-1-8-objective-3",
+            "general-chemistry-1-1-objective-2",
+            "general-chemistry-1-8-objective-4"
           ],
           "worked_example": "For NH₄⁺, start with 8 valence electrons, assign them to four N–H bonds and calculate nitrogen formal charge +1. Four bonding domains give tetrahedral geometry in the simple model. For water, the 8-electron budget instead includes two bonds and two lone pairs, giving bent molecular shape despite tetrahedral domain geometry. Finally, combine two assigned unit dipoles at 104.5° to obtain magnitude 1.224435. Electron budget, atom shape and dipole-vector sum are separate calculations that should agree with their own assumptions.",
           "question_ids": [
@@ -749,13 +784,68 @@
             "general-chemistry-1-8:bent-dipole",
             "general-chemistry-1-8:shape",
             "general-chemistry-1-8:polarity",
-            "general-chemistry-1-8:formal-charge"
+            "general-chemistry-1-8:formal-charge",
+            "general-chemistry-1-1:check",
+            "general-chemistry-1-1:vsepr-water",
+            "general-chemistry-1-8:mo-n2-electron-count",
+            "general-chemistry-1-8:mo-n2-bond-order",
+            "general-chemistry-1-8:mo-n2-magnetism",
+            "general-chemistry-1-8:mo-o2-bond-order",
+            "general-chemistry-1-8:mo-o2-unpaired",
+            "general-chemistry-1-8:mo-energy-order",
+            "general-chemistry-1-8:mo-model-claims",
+            "general-chemistry-1-8:mo-o2-plus-bond-order"
           ],
           "card_ids": [
             "general-chemistry-1-8-card-1",
             "general-chemistry-1-8-card-2",
             "general-chemistry-1-8-card-3",
-            "general-chemistry-1-8-card-4"
+            "general-chemistry-1-8-card-4",
+            "general-chemistry-1-0-0",
+            "general-chemistry-1-0-1",
+            "general-chemistry-1-8-card-5",
+            "general-chemistry-1-8-card-6",
+            "general-chemistry-1-8-card-7",
+            "general-chemistry-1-8-card-8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "general-chemistry-1-module-14",
+      "title": "Valence bond theory and hybridization",
+      "source_ids": [
+        "chemistry"
+      ],
+      "lessons": [
+        {
+          "id": "general-chemistry-1-14",
+          "title": "Valence bond theory and hybridization",
+          "reading": "modules/14-valence-bond-theory-and-hybridization.md",
+          "objectives": [
+            "general-chemistry-1-14-objective-1",
+            "general-chemistry-1-14-objective-2",
+            "general-chemistry-1-14-objective-3"
+          ],
+          "worked_example": "A synthetic bent AX₂ molecule with two bonds, two lone pairs and a 104.5° angle has steric number 4 (approximately sp³). Its bonding hybrids have λ² = −1/cos 104.5° = 3.99 and 20.0% s-character, leaving 30.0% s-character in each lone-pair hybrid, which explains the angle below 109.5°.",
+          "question_ids": [
+            "general-chemistry-1-14:sp2-angle",
+            "general-chemistry-1-14:sp3-s-character",
+            "general-chemistry-1-14:bent-lambda-squared",
+            "general-chemistry-1-14:bent-bond-s-character",
+            "general-chemistry-1-14:bent-lone-pair-s-character",
+            "general-chemistry-1-14:acrylonitrile-sigma",
+            "general-chemistry-1-14:propynal-pi",
+            "general-chemistry-1-14:pi-bond-estimate",
+            "general-chemistry-1-14:steric-three",
+            "general-chemistry-1-14:restricted-rotation",
+            "general-chemistry-1-14:model-limits"
+          ],
+          "card_ids": [
+            "general-chemistry-1-14-card-1",
+            "general-chemistry-1-14-card-2",
+            "general-chemistry-1-14-card-3",
+            "general-chemistry-1-14-card-4"
           ]
         }
       ]
@@ -993,13 +1083,15 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "general-chemistry-1-1-objective-1",
-        "general-chemistry-1-1-objective-2"
+        "general-chemistry-1-outcome-2"
       ],
       "question_ids": [
-        "general-chemistry-1-1:check",
-        "general-chemistry-1-1:vsepr-water"
+        "general-chemistry-1-1:periodic-trend",
+        "general-chemistry-1-1:oxygen-valence",
+        "general-chemistry-1-1:effective-charge"
       ],
-      "points": 2
+      "points": 3,
+      "title": "Electron configuration and periodic trends practice"
     },
     {
       "id": "general-chemistry-1-2-practice",
@@ -1008,7 +1100,9 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "general-chemistry-1-2-objective-1",
-        "general-chemistry-1-2-objective-2"
+        "general-chemistry-1-2-objective-2",
+        "general-chemistry-1-outcome-1",
+        "general-chemistry-1-outcome-4"
       ],
       "question_ids": [
         "general-chemistry-1-2:check",
@@ -1023,7 +1117,9 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "general-chemistry-1-3-objective-1",
-        "general-chemistry-1-3-objective-2"
+        "general-chemistry-1-3-objective-2",
+        "general-chemistry-1-outcome-3",
+        "general-chemistry-1-outcome-4"
       ],
       "question_ids": [
         "general-chemistry-1-3:check",
@@ -1038,7 +1134,8 @@
       "path": "question-banks/practice.json",
       "objective_ids": [
         "general-chemistry-1-4-objective-1",
-        "general-chemistry-1-4-objective-2"
+        "general-chemistry-1-4-objective-2",
+        "general-chemistry-1-outcome-3"
       ],
       "question_ids": [
         "general-chemistry-1-4:check",
@@ -1125,13 +1222,15 @@
       "id": "general-chemistry-1-8-practice",
       "type": "practice",
       "mode": "practice",
-      "title": "Bonding, geometry and molecular properties practice",
+      "title": "Bonding, geometry, molecular properties and molecular-orbital practice",
       "path": "question-banks/practice.json",
       "objective_ids": [
         "general-chemistry-1-8-objective-1",
         "general-chemistry-1-8-objective-2",
         "general-chemistry-1-8-objective-3",
-        "general-chemistry-1-outcome-2"
+        "general-chemistry-1-outcome-2",
+        "general-chemistry-1-1-objective-2",
+        "general-chemistry-1-8-objective-4"
       ],
       "question_ids": [
         "general-chemistry-1-8:co2-valence",
@@ -1142,9 +1241,19 @@
         "general-chemistry-1-8:bent-dipole",
         "general-chemistry-1-8:shape",
         "general-chemistry-1-8:polarity",
-        "general-chemistry-1-8:formal-charge"
+        "general-chemistry-1-8:formal-charge",
+        "general-chemistry-1-1:check",
+        "general-chemistry-1-1:vsepr-water",
+        "general-chemistry-1-8:mo-n2-electron-count",
+        "general-chemistry-1-8:mo-n2-bond-order",
+        "general-chemistry-1-8:mo-n2-magnetism",
+        "general-chemistry-1-8:mo-o2-bond-order",
+        "general-chemistry-1-8:mo-o2-unpaired",
+        "general-chemistry-1-8:mo-energy-order",
+        "general-chemistry-1-8:mo-model-claims",
+        "general-chemistry-1-8:mo-o2-plus-bond-order"
       ],
-      "points": 9
+      "points": 20
     },
     {
       "id": "general-chemistry-1-9-practice",
@@ -1314,6 +1423,33 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "general-chemistry-1-14-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Valence bond theory and hybridization practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "general-chemistry-1-14-objective-1",
+        "general-chemistry-1-14-objective-2",
+        "general-chemistry-1-14-objective-3",
+        "general-chemistry-1-outcome-2"
+      ],
+      "question_ids": [
+        "general-chemistry-1-14:sp2-angle",
+        "general-chemistry-1-14:sp3-s-character",
+        "general-chemistry-1-14:bent-lambda-squared",
+        "general-chemistry-1-14:bent-bond-s-character",
+        "general-chemistry-1-14:bent-lone-pair-s-character",
+        "general-chemistry-1-14:acrylonitrile-sigma",
+        "general-chemistry-1-14:propynal-pi",
+        "general-chemistry-1-14:pi-bond-estimate",
+        "general-chemistry-1-14:steric-three",
+        "general-chemistry-1-14:restricted-rotation",
+        "general-chemistry-1-14:model-limits"
+      ],
+      "points": 11
     }
   ],
   "grading_policy": {
@@ -1368,19 +1504,72 @@
       "version": "0.4.0",
       "date": "2026-10-09",
       "summary": "Added seven original lessons on atomic/amount/photon accounting, Lewis and geometry models, reaction extent, gases, energy and calorimetry, equilibrium conventions and activities, and buffer discrepancy interpretation; one synthetic calibration/composition buffer lab and a proposed 14-week schedule. Developed with Codex assistance. Two link-only factual references record SI constants and the pH definition, with direct-access limitations stated. Still partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.1",
+      "date": "2026-10-10",
+      "summary": "Expanded the week-1 atoms-and-bonding reading with electron-configuration trends, formal-charge bookkeeping, electron versus molecular geometry, bond-dipole vector reasoning, and Lewis/VSEPR/MO model limits. Existing questions, keys and objectives are unchanged. Three compact prototype readings remain in weeks 4, 8 and 11; the package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.2",
+      "date": "2026-10-10",
+      "summary": "Expanded the module-2/week-4 stoichiometry prototype with balanced-equation mole ratios, limiting-reagent reasoning, molarity, dilution, unit checks and reporting limits. The dilution item now maps to the dilution objective; the limiting-reagent item maps to both equation-stoichiometry and limiting-reagent objectives. Objectives and practice map to outcomes 1 and 4. Added three link-only OpenStax Chemistry 2e references; prompts, answer keys and IDs remain unchanged. Two compact readings remain in weeks 8 and 11. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.3",
+      "date": "2026-10-10",
+      "summary": "Expanded the module-3/week-8 thermochemistry prototype with first-law sign conventions, calorimetry heat balance, state functions, Hess-law scaling and formation-enthalpy calculations. Clarified the first objective as reaction-heat sign interpretation; the first question maps to that and enthalpy calculation, while the second maps to formation-enthalpy calculation. Objectives and practice map to outcomes 3 and 4. Two OpenStax Chemistry 2e sections are registered as link-only references. Question prompts, answer keys and IDs are unchanged; compact readings remain in weeks 4 and 11. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.4",
+      "date": "2026-10-10",
+      "summary": "Expanded the module-4/week-11 equilibrium prototype with dynamic equilibrium, mass-action expressions, Q/K direction, concentration and temperature effects, and catalyst and kinetics limits. Clarified the first objective as interpreting Q and K; the first unchanged question maps to both Q/K interpretation and direction prediction. Both objectives and practice map to outcome 3. Added three registered link-only OpenStax Chemistry 2e sections. Question prompts, IDs and answer keys are unchanged; all three compact legacy readings now have expanded instruction; no compact legacy-depth warnings remain for this course. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.5",
+      "date": "2026-10-10",
+      "summary": "Refined outcome 2 to explicitly cover electronic structure as well as bonding and molecular geometry. Linked the module-1 electron-configuration/periodic-trend and Lewis/VSEPR objectives to that outcome. Corrected the preserved trigonal-planar item association and added direct practice comparing Period 3 atomic radii; the existing prompt and answer key remain unchanged. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.6",
+      "date": "2026-10-10",
+      "summary": "Added an inactive abstract-gas equilibrium portfolio connecting atom balance, reaction extent, mass action, a quadratic equilibrium solution and reaction enthalpy. The paper exercise uses synthetic normalized inputs and is separate from the buffer-calibration lab; the course remains partial and formative-only."
+    },
+    {
+      "version": "0.4.7",
+      "date": "2026-10-11",
+      "summary": "Clarified the local boundary with General Chemistry II: foundational amount, structure, energy and equilibrium work stays in this package, while its buffer/calibration lesson is an introductory bridge to deeper solution speciation and later kinetics/redox/coordination topics. Both packages share one MIT 5.111SC comparator and do not claim two-course equivalence. No lesson, question, key or card changed; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.8",
+      "date": "2026-10-11",
+      "summary": "Consolidated four compact/expanded calendar repetitions into one ten-week sequence while preserving every existing lesson, question, objective and card ID. Narrowed the first reading to electronic structure and periodic trends, moved its Lewis/VSEPR checks and cards to the expanded bonding lesson, and added an original second-row molecular-orbital sequence for N2/O2 bond order and magnetism with eight formative items and four cards. Compared with MIT OCW 5.111SC Fall 2014 Units I–II and Lecture 13; no course asset was imported. The package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.9",
+      "date": "2026-10-13",
+      "summary": "Restored three-domain VSEPR instruction to the week-2 bonding lesson: multiple bonds count as one domain, trigonal planar electron-domain geometry with 120° ideal angles (BF₃ model), and a bent shape when one of three domains is a lone pair (SO₂ model). The narrowed week-1 reading had moved Lewis/VSEPR here without the three-domain case. The week-1 lesson page now also lists its oxygen-valence and effective-charge practice items, which were reachable only through the practice assessment. No item, key or card changed. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.10",
+      "date": "2026-10-13",
+      "summary": "Grouped an original valence-bond and hybridization reading with the week-2 bonding lesson: overlap bonding, sp/sp²/sp³ hybrid sets from steric number, σ and π bonds with counting and restricted rotation, illustrative π-bond enthalpy, and the equivalent-hybrid angle relation for s-character with Bent's rule. Added three objectives, eleven formative items and four cards, with no week added, and corrected a stale limitation count (64 numeric items before this release, not 59). The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "Four compact prototype units remain alongside ten original readings including one synthetic-data lab; this is not equivalent to a full university semester.",
-    "The proposed 14-week sequence is unmeasured and unreviewed. Graded homework, exams, a laboratory sequence and a cumulative graded project remain absent.",
+    "All three compact prototype readings have expanded instruction. The course has fourteen original lessons and one synthetic-data lab; this is not equivalent to a full university semester.",
+    "The proposed 14-week sequence is unmeasured and unreviewed. Graded homework, exams and a laboratory sequence remain absent. An inactive cumulative-project draft is not scheduled or graded.",
     "Formative items and provisional objective associations do not establish comprehensive coverage or mastery.",
     "All new amounts, properties, activity coefficients and observations are synthetic teaching examples; no chemical handling procedure, material recommendation or biological conclusion is supplied.",
-    "Of 59 numeric items, 12 require units and 6 check specified significant figures; none checks an explicit dimensions field. Other prompts state an output scale and use bare-number tolerances.",
+    "Of 72 numeric items, 12 require units and 6 check specified significant figures; none checks an explicit dimensions field. Other prompts state an output scale and use bare-number tolerances.",
     "CSV summaries and structured choices check selected calculations and interpretations, not written reasoning or causal identification.",
     "SI constants are checked against a primary NIST page. The IUPAC pH definition was verified from its official indexed entry; direct retrieval was blocked and no full-page access is claimed.",
-    "Approximation, ideality, stoichiometric completion, fixed-volume and calorimeter assumptions are required; qualified chemical and accessibility review and workload measurement remain outstanding."
+    "Approximation, ideality, stoichiometric completion, fixed-volume and calorimeter assumptions are required; qualified chemical and accessibility review and workload measurement remain outstanding.",
+    "In the local General Chemistry I/II sequence, the week-13 buffer lesson and calibration lab establish introductory buffer and measurement ideas; coupled speciation, kinetics, redox, coordination and complexation continue in General Chemistry II. The pair divides one MIT 5.111SC comparator locally and does not represent two MIT-equivalent courses.",
+    "The molecular-orbital extension uses stated qualitative second-row homonuclear orbital orderings to compare N2 and O2. It predicts simple bond order and spin occupancy, not quantitative orbital energies or bond-dissociation energies.",
+    "The valence bond lesson uses s/p hybrids and the equivalent-hybrid angle relation as a descriptive model with illustrative average bond enthalpies; it does not predict geometries independently, treat delocalized bonding, or use d-orbital hybrids for main-group atoms."
   ],
   "intentionally_omitted": [
-    "Graded assessments, a complete laboratory sequence, a cumulative graded project, measured workload and qualified human review remain outstanding."
+    "Graded assessments, a complete laboratory sequence, an activated cumulative project, measured workload and qualified human review remain outstanding."
   ]
 }

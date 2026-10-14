@@ -39,6 +39,36 @@ class NoteRequest(StrictModel):
     body: str = Field(max_length=20000)
 
 
+class CaseDraftRequest(StrictModel):
+    content_version: str = Field(min_length=1, max_length=100)
+    case_sha256: str = Field(pattern=r"^[a-f0-9]{64}$")
+    response: str = Field(max_length=20000)
+    checked_criteria: list[str] = Field(default_factory=list, max_length=40)
+    expected_revision: int = Field(ge=0, le=2147483646)
+
+    @field_validator("checked_criteria")
+    @classmethod
+    def unique_criteria(cls, value):
+        if len(set(value)) != len(value) or any(not item or len(item) > 120 for item in value):
+            raise ValueError("Self-check criteria must have unique, bounded IDs")
+        return value
+
+
+class CaseCriterion(BaseModel):
+    id: str = Field(min_length=1, max_length=120)
+    criterion: str = Field(min_length=1, max_length=4000)
+
+
+class PublicCaseStudy(BaseModel):
+    id: str = Field(min_length=1, max_length=120)
+    prompt: str = Field(min_length=1, max_length=20000)
+    mode: Literal["self-assessment"] = "self-assessment"
+    objective_ids: list[str] = Field(default_factory=list)
+    criteria: list[CaseCriterion] = Field(min_length=1, max_length=40)
+    limitations: list[str] = Field(default_factory=list)
+    case_sha256: str = Field(pattern=r"^[a-f0-9]{64}$")
+
+
 class BookmarkRequest(StrictModel):
     saved: bool
 
@@ -286,11 +316,32 @@ class PublicCurriculum(BaseModel):
     alignment_maps: list[CurriculumAlignment]
 
 
+class ScheduledLesson(BaseModel):
+    id: str
+    title: str
+
+
+class ScheduledAssessment(BaseModel):
+    id: str
+    title: str
+    type: str
+    mode: Literal["practice", "graded", "self-assessment"]
+
+
+class CourseWeek(BaseModel):
+    week: int = Field(ge=1, le=52)
+    title: str
+    lessons: list[ScheduledLesson] = Field(default_factory=list)
+    assessments: list[ScheduledAssessment] = Field(default_factory=list)
+
+
 class PublicCourse(CourseSummary):
     prerequisites: Prerequisites
     outcomes: list[Objective]
     lesson_objectives: list[Objective]
     modules: list[ModuleSummary]
+    weeks: list[CourseWeek] = Field(default_factory=list)
+    case_studies: list[PublicCaseStudy] = Field(default_factory=list)
     syllabus_markdown: str
     license: str
     review_status: str
@@ -360,6 +411,7 @@ class Feedback(BaseModel):
 
 class AssessmentSubmissionRequest(StrictModel):
     responses: dict[str, AttemptRequest]
+    assignment_token: str | None = Field(default=None, min_length=20, max_length=100)
 
     @field_validator("responses")
     @classmethod
@@ -385,6 +437,7 @@ class AssessmentQuestionsResponse(BaseModel):
     attempts_used: int = Field(ge=0)
     attempt_limit: int | None = Field(default=None, ge=1)
     schedule_status: Literal["open", "closed"]
+    assignment_token: str | None = Field(default=None, min_length=20, max_length=100)
 
 
 class PracticeAssessmentResponse(BaseModel):
@@ -400,6 +453,7 @@ class PracticeAssessmentResponse(BaseModel):
 
 class AssignmentQuestionResult(BaseModel):
     question_id: str
+    variant_id: str | None = None
     score: float = Field(ge=0)
     max_score: float = Field(gt=0)
     feedback: Feedback
@@ -441,7 +495,7 @@ class AssessmentSubmissionResponse(BaseModel):
 
 class InstructorGradedSubmissionAppealResponse(GradedSubmissionAppealResponse):
     learner: str
-    content_is_current: bool
+    specification_verified: bool
     assessment_title: str
     questions: list[PublicQuestion] | None
     responses: dict[str, AttemptRequest]

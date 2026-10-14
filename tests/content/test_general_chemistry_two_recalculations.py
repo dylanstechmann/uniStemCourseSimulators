@@ -79,6 +79,34 @@ def lab_data():
     return rows, groups, means
 
 
+def titration_ph(acid_ml, acid_m, base_ml, base_m=0.1, pkas=(), strong=False):
+    """Exact charge balance Na + h = (acid anion charge) + Kw/h for an acid titrated with NaOH."""
+    volume = acid_ml + base_ml
+    total, sodium = acid_m * acid_ml / volume, base_m * base_ml / volume
+    constants = [10 ** -pka for pka in pkas]
+
+    def residual(log_h):
+        h = 10**log_h
+        if strong:
+            anion = total
+        else:
+            terms = [1.0]
+            for k in constants:
+                terms.append(terms[-1] * k / h)
+            anion = total * sum(i * t for i, t in enumerate(terms)) / sum(terms)
+        return sodium + h - anion - 1e-14 / h
+
+    return -root(residual, -14, 0)
+
+
+def steepest_volume(curve, low, high, points=4001):
+    """Volume of maximum slope of a computed titration curve (the inflection used as the endpoint)."""
+    step = (high - low) / (points - 1)
+    volumes = [low + i * step for i in range(points)]
+    slopes = [(curve(v + 1e-4) - curve(v - 1e-4)) / 2e-4 for v in volumes]
+    return volumes[max(range(points), key=slopes.__getitem__)]
+
+
 def expected_answers():
     answers = {}
 
@@ -219,6 +247,22 @@ def expected_answers():
         complexed_total=complex_total,
         complexed_free=complex_total / 101,
     )
+    # Lesson 15: every pH from the exact charge balance; volumes from the steepest point of the curve.
+    add(
+        15,
+        equivalence_concentration=0.1
+        * steepest_volume(lambda v: titration_ph(20, 0.082, v, 0.1, (4.5,)), 15, 18)
+        / 20,
+        initial_weak_acid_ph=titration_ph(25, 0.05, 0, 0.1, (3.86,)),
+        buffer_region_ph=titration_ph(25, 0.1, 10, 0.1, (4.76,)),
+        half_equivalence_pka=titration_ph(25, 0.0736, 9.2, 0.1, (5.12,)),
+        equivalence_ph=titration_ph(20, 0.08, 16, 0.1, (4.2,)),
+        past_equivalence_ph=titration_ph(25, 0.1, 27, 0.1, (4.76,)),
+        strong_acid_before_equivalence=titration_ph(25, 0.1, 24.5, strong=True),
+        diprotic_second_equivalence=steepest_volume(
+            lambda v: titration_ph(20, 0.05, v, 0.1, (3.0, 7.0)), 17, 23
+        ),
+    )
     _, _, means = lab_data()
     offset = means["blank"]
     d0 = means["t00"] - offset - 0.2
@@ -248,7 +292,7 @@ def test_numeric_key_matches_separate_calculation(item_id, expected):
 def test_all_numeric_items_are_covered_without_silent_new_keys():
     numeric = {key for key, q in BANK.items() if q["type"] == "numeric"}
     assert numeric == set(EXPECTED)
-    assert len(numeric) == 64
+    assert len(numeric) == 72
     assert (
         sum(q["solution_spec"].get("unit_required", False) for q in BANK.values()) == 10
     )
@@ -412,14 +456,39 @@ def test_proposed_schedule_and_formative_limits():
         lesson["id"] for module in manifest["modules"] for lesson in module["lessons"]
     }
     weeks = manifest["duration"]["weeks"]
-    assert manifest["version"] == "0.4.0" and manifest["maturity"] == "partial"
-    assert len(weeks) == 14 and len(lessons) == 15
+    syllabus = (COURSE / manifest["syllabus"]).read_text(encoding="utf-8")
+    assert f"Version: {manifest['version']}." in syllabus and manifest["maturity"] == "partial"
+    assert len(weeks) == 11 and len(lessons) == 16
     assert sorted(lid for week in weeks for lid in week["lesson_ids"]) == sorted(
         lessons
     )
-    assert len(weeks[11]["lesson_ids"]) == 2
-    assert len(BANK) == 97
-    assert len(load(COURSE / "question-banks/retrieval-cards.json")["cards"]) == 52
+    # Four compact primers share a week with their expanded treatment; week 3 pairs speciation with titration.
+    assert sum(len(week["lesson_ids"]) == 2 for week in weeks) == 5
+    assert weeks[2]["lesson_ids"] == ["general-chemistry-2-9", "general-chemistry-2-15"]
+    assert "The 11-week sequence retains 16 readings, 109 public practice items and 56 retrieval cards" in syllabus
+    assert len(BANK) == 109
+    assert len(load(COURSE / "question-banks/retrieval-cards.json")["cards"]) == 56
     assert all(
         a["mode"] in ("practice", "self-assessment") for a in manifest["assessments"]
     )
+
+
+def test_titration_lesson_statements_match_exact_charge_balance():
+    text = (COURSE / "modules/15-acid-base-titration-curves-and-equivalence.md").read_text(encoding="utf-8")
+    weak = [titration_ph(25, 0.1, v, 0.1, (4.76,)) for v in (0, 12.5, 20, 25, 26)]
+    assert "pH 2.883, 4.761, 5.362, 8.730 and 11.292 at 0, 12.50, 20.00, 25.00 and 26.00 mL" in text
+    assert weak == pytest.approx([2.883, 4.761, 5.362, 8.730, 11.292], abs=6e-4)
+    for fragment, value in {"**pH 2.88**": weak[0], "**5.36**": weak[2], "**pH 8.73**": weak[3], "**pH 11.29**": weak[4]}.items():
+        assert fragment in text and float(fragment.strip("*").split()[-1]) == pytest.approx(value, abs=0.006)
+    assert "**pH 2.69**" in text and titration_ph(25, 0.1, 24, strong=True) == pytest.approx(2.69, abs=0.005)
+    assert titration_ph(25, 0.1, 25, strong=True) == pytest.approx(7.0, abs=1e-6)
+    # Indicator ranges 4-10 on the strong-acid curve span less than 0.1 mL around equivalence.
+    low = root(lambda v: titration_ph(25, 0.1, v, strong=True) - 4, 24, 25)
+    high = root(lambda v: titration_ph(25, 0.1, v, strong=True) - 10, 25, 26)
+    assert high - low < 0.11
+    assert "pH = **8.42**" in text and titration_ph(20, 0.08, 16, 0.1, (4.2,)) == pytest.approx(8.42, abs=0.005)
+    assert "**10.00 mL** and **20.00 mL**" in text
+    first = steepest_volume(lambda v: titration_ph(20, 0.05, v, 0.1, (3.0, 7.0)), 7, 13)
+    assert first == pytest.approx(10.0, abs=0.1)
+    for volume, pka in ((5.0, 3.0), (15.0, 7.0)):
+        assert titration_ph(20, 0.05, volume, 0.1, (3.0, 7.0)) == pytest.approx(pka, abs=0.35)
