@@ -3,16 +3,102 @@ on: [push, pull_request, workflow_dispatch]
 permissions:
   contents: read
 jobs:
+  production-images:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build hardened production images
+        run: |
+          docker build -f backend/Dockerfile -t uni-stem-course-simulators-api:ci .
+          docker build -t uni-stem-course-simulators-web:ci frontend
+      - name: Migrate and smoke-test the API image with disposable PostgreSQL
+        env:
+          CONTENT_ROOT: /content
+          COOKIE_SECURE: "false"
+          ALLOWED_ORIGINS: http://localhost:8080
+        run: |
+          # Disposable per-run passwords, passed only as files (the production path).
+          umask 077
+          openssl rand -hex 24 > /tmp/courselab-smoke-admin-password
+          openssl rand -hex 24 > /tmp/courselab-smoke-runtime-password
+          chmod 0444 /tmp/courselab-smoke-admin-password /tmp/courselab-smoke-runtime-password
+          docker network create --driver bridge --internal courselab-ci-smoke
+          docker run -d --rm --name courselab-ci-postgres \
+            --network courselab-ci-smoke --network-alias db \
+            --tmpfs /var/lib/postgresql/data:size=256m,noexec,nosuid \
+            -v /tmp/courselab-smoke-admin-password:/run/smoke/admin-password:ro \
+            -e POSTGRES_DB=courselab -e POSTGRES_USER=courselab \
+            -e POSTGRES_PASSWORD_FILE=/run/smoke/admin-password postgres:17-alpine
+          ready=0
+          for attempt in $(seq 1 30); do
+            if docker run --rm --network courselab-ci-smoke postgres:17-alpine \
+              pg_isready -h db -U courselab -d courselab; then
+              ready=1
+              break
+            fi
+            sleep 1
+          done
+          test "$ready" -eq 1
+          docker run --rm --network courselab-ci-smoke --read-only \
+            --tmpfs /tmp:size=16m,noexec,nosuid \
+            -v "${GITHUB_WORKSPACE}/deploy/provision-runtime-role.sh:/provision-runtime-role.sh:ro" \
+            -v "${GITHUB_WORKSPACE}/deploy/provision-runtime-role.sql:/provision-runtime-role.sql:ro" \
+            -v /tmp/courselab-smoke-admin-password:/run/smoke/admin-password:ro \
+            -v /tmp/courselab-smoke-runtime-password:/run/smoke/runtime-password:ro \
+            -e DB_HOST=db -e DB_NAME=courselab -e DB_ADMIN_USER=courselab \
+            -e DB_RUNTIME_USER=courselab_app \
+            -e DB_ADMIN_PASSWORD_FILE=/run/smoke/admin-password \
+            -e DB_RUNTIME_PASSWORD_FILE=/run/smoke/runtime-password \
+            postgres:17-alpine sh /provision-runtime-role.sh
+          docker run --rm --network courselab-ci-smoke --read-only \
+            --tmpfs /tmp:size=64m,noexec,nosuid \
+            -v /tmp/courselab-smoke-admin-password:/run/smoke/admin-password:ro \
+            -e DATABASE_PASSWORD_FILE=/run/smoke/admin-password \
+            -e DB_HOST=db -e DB_NAME=courselab -e DB_USER=courselab \
+            -e CONTENT_ROOT=/content -w /app uni-stem-course-simulators-api:ci \
+            alembic upgrade head
+          docker run --rm --network courselab-ci-smoke --read-only \
+            --tmpfs /tmp:size=128m,noexec,nosuid \
+            -v "${GITHUB_WORKSPACE}/tools/smoke_archive_container.py:/smoke_archive_container.py:ro" \
+            -v /tmp/courselab-smoke-runtime-password:/run/smoke/runtime-password:ro \
+            -e DATABASE_PASSWORD_FILE=/run/smoke/runtime-password \
+            -e DB_HOST=db -e DB_NAME=courselab -e DB_USER=courselab_app \
+            -e CONTENT_ROOT -e COOKIE_SECURE -e ALLOWED_ORIGINS \
+            -w /app uni-stem-course-simulators-api:ci \
+            sh -ec 'PYTHONPATH=/app python /smoke_archive_container.py'
+      - name: Verify the web image contains the built reader
+        run: >-
+          docker run --rm --network none uni-stem-course-simulators-web:ci
+          sh -ec 'test -s /usr/share/nginx/html/index.html && grep -q "Archived package" /usr/share/nginx/html/assets/index-*.js'
+      - name: Validate production Compose configuration
+        env:
+          COURSELAB_DOMAIN: example.invalid
+          VARIANT_TOKEN_SECRET: 01234567890123456789012345678901
+          DB_PASSWORD_FILE: /tmp/courselab-smoke-admin
+          DB_RUNTIME_PASSWORD_FILE: /tmp/courselab-smoke-runtime
+        run: docker compose -f compose.production.yaml config --quiet
+      - if: always()
+        name: Clean up disposable PostgreSQL
+        run: |
+          docker rm -f courselab-ci-postgres || true
+          docker network rm courselab-ci-smoke || true
+          rm -f /tmp/courselab-smoke-admin-password /tmp/courselab-smoke-runtime-password
   content-backend:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: {python-version: '3.12'}
+        with: { python-version: "3.12" }
       - uses: actions/setup-node@v4
-        with: {node-version: '24'}
+        with: { node-version: "24" }
       - run: pip install -r requirements-dev.txt -r backend/requirements.txt
       - run: python tools/validate_content.py
+      - run: python tools/assessment_candidates.py --check docs/ASSESSMENT_CANDIDATE_REPORT.md
+      - run: python tools/course_review_evidence.py --course-id cell-biology --check docs/reviews/cell-biology-review-evidence.json
+      - run: python tools/cell_biology_public_table_evidence.py --check docs/reviews/cell-biology-public-table-recalculation.json
+      - run: python tools/cell_biology_numeric_key_evidence.py --check docs/reviews/cell-biology-public-numeric-recalculation.json
+      - run: python tools/objective_coverage.py --check docs/COURSE_GAP_REPORT.md
+      - run: python tools/objective_response_modes.py --check docs/CELL_BIOLOGY_RESPONSE_MODE_AUDIT.md
       - run: python -m pytest tests -q
       - run: npm run test:legacy
       - run: python tools/check_security.py
@@ -23,15 +109,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: {node-version: '24'}
+        with: { node-version: "24" }
       - uses: actions/setup-python@v5
-        with: {python-version: '3.12'}
+        with: { python-version: "3.12" }
       - run: npm ci
         working-directory: frontend
       - run: npm run lint && npm test && npm run build
         working-directory: frontend
       - run: python tools/check_security.py --bundle frontend/dist
       - run: docker compose up --build -d --wait --wait-timeout 180
+        env:
+          COURSELAB_RATE_LIMIT: "1000"
+          COURSELAB_AUTH_RATE_LIMIT: "500"
       - run: npx playwright install --with-deps chromium
         working-directory: frontend
       - run: npm run test:e2e
