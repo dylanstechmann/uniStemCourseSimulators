@@ -7,7 +7,7 @@
   "domain": "Life sciences",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.5.7",
+  "version": "0.5.8",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -437,6 +437,38 @@
       ]
     },
     {
+      "id": "genetics-18-objective-1",
+      "description": "Describe how four-spore and eight-spore ordered asci record the products of one meiosis, and which spores are sister products.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "genetics-outcome-2"
+      ]
+    },
+    {
+      "id": "genetics-18-objective-2",
+      "description": "Classify a centromere-linked gene's ordered asci as first-division or second-division segregation.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "genetics-outcome-2"
+      ]
+    },
+    {
+      "id": "genetics-18-objective-3",
+      "description": "Convert a count of second-division asci into a recombination frequency and a centromere distance in centimorgans, predict expected counts from a known distance, and bound the distance when no second-division ascus is seen.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "genetics-outcome-2"
+      ]
+    },
+    {
+      "id": "genetics-18-objective-4",
+      "description": "Explain why the single-exchange estimate underestimates the distance of loci far from the centromere.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-2"
+      ]
+    },
+    {
       "id": "genetics-16-objective-1",
       "description": "Distinguish conjugation, transformation, generalized transduction and specialized transduction from transfer evidence.",
       "bloom": "analyze",
@@ -533,12 +565,14 @@
       },
       {
         "week": 5,
-        "title": "Three-point mapping, tetrad analysis and interference",
+        "title": "Three-point mapping, tetrad analysis, interference and centromere distance",
         "lesson_ids": [
-          "genetics-7"
+          "genetics-7",
+          "genetics-18"
         ],
         "assessment_ids": [
-          "genetics-7-practice"
+          "genetics-7-practice",
+          "genetics-18-practice"
         ]
       },
       {
@@ -1262,6 +1296,49 @@
           ]
         }
       ]
+    },
+    {
+      "id": "genetics-module-18",
+      "title": "Ordered tetrads and centromere distance",
+      "source_ids": [
+        "biology",
+        "molecular"
+      ],
+      "lessons": [
+        {
+          "id": "genetics-18",
+          "title": "Ordered tetrads and centromere distance: first- and second-division segregation",
+          "reading": "modules/18-ordered-tetrads-and-centromere-mapping.md",
+          "objectives": [
+            "genetics-18-objective-1",
+            "genetics-18-objective-2",
+            "genetics-18-objective-3",
+            "genetics-18-objective-4"
+          ],
+          "worked_example": "In 240 four-spore asci, 18 with spores 1 and 2 differing give an SDS fraction of 0.075, so r = 0.0375 and the centromere distance is 3.75 cM under the single-exchange model; the binomial standard error is about 0.85 cM, and unseen double exchanges would make the true distance slightly larger.",
+          "question_ids": [
+            "genetics-18:sister-products",
+            "genetics-18:four-spore-pattern",
+            "genetics-18:eight-spore-fds",
+            "genetics-18:sds-distance-300",
+            "genetics-18:four-spore-sds-400",
+            "genetics-18:expected-sds-12cm",
+            "genetics-18:expected-sds-15cm",
+            "genetics-18:expected-fds-20cm",
+            "genetics-18:zero-sds-bound-600",
+            "genetics-18:zero-sds",
+            "genetics-18:sds-underestimate",
+            "genetics-18:sds-plateau"
+          ],
+          "card_ids": [
+            "genetics-18-card-1",
+            "genetics-18-card-2",
+            "genetics-18-card-3",
+            "genetics-18-card-4",
+            "genetics-18-card-5"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -1402,6 +1479,35 @@
         "genetics-7:tetrad-linkage"
       ],
       "points": 8
+    },
+    {
+      "id": "genetics-18-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Ordered-tetrad and centromere-distance practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "genetics-18-objective-1",
+        "genetics-18-objective-2",
+        "genetics-18-objective-3",
+        "genetics-18-objective-4",
+        "genetics-outcome-2"
+      ],
+      "question_ids": [
+        "genetics-18:sister-products",
+        "genetics-18:four-spore-pattern",
+        "genetics-18:eight-spore-fds",
+        "genetics-18:sds-distance-300",
+        "genetics-18:four-spore-sds-400",
+        "genetics-18:expected-sds-12cm",
+        "genetics-18:expected-sds-15cm",
+        "genetics-18:expected-fds-20cm",
+        "genetics-18:zero-sds-bound-600",
+        "genetics-18:zero-sds",
+        "genetics-18:sds-underestimate",
+        "genetics-18:sds-plateau"
+      ],
+      "points": 12
     },
     {
       "id": "genetics-8-practice",
@@ -1765,19 +1871,24 @@
       "version": "0.5.7",
       "date": "2026-10-13",
       "summary": "Repaired the proposed schedule after the 0.5.6 re-sequencing: the association/variant-interpretation and heritability/polygenic-score lessons had dropped out of every week and the Mendelian-randomization lesson appeared twice. Week 12 again holds those two lessons, the synthetic association lab moves to week 13 (matching the syllabus and the lab's own framing), and week 14 keeps the optional extension. The syllabus now states microbial outcome 5 in its manifest wording and records that no compact prototype reading remains. No lesson, item, key or card changed. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.5.8",
+      "date": "2026-10-17",
+      "summary": "Added an ordered-tetrad reading to week 5: first- and second-division segregation in four- and eight-spore asci, the single-exchange centromere-distance estimate, a rule-of-three bound for zero counts, and why the estimate underestimates distant genes and levels off near 33 cM. Six numeric and six choice items, five retrieval cards, a practice assessment and independent recalculation tests were added. The package remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "The 18 readings include original instruction on microbial transfer, complementation and prokaryotic regulation plus a short tetrad-analysis extension; they do not establish equivalence to a complete university genetics course.",
+    "The 19 readings include original instruction on microbial transfer, complementation and prokaryotic regulation plus tetrad-analysis extensions for unordered and ordered asci; they do not establish equivalence to a complete university genetics course.",
     "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm, cumulative final, or graded integrative project; the new paper-only project draft is inactive.",
-    "Practice items are short formative checks (two per prototype unit and six to seven per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
+    "Practice items are short formative checks (two per prototype unit and six to twelve per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
-    "Of the 49 numerical answers in this package, one requires a unit, two check significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
+    "Of the 55 numerical answers in this package, one requires a unit, two check significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
     "Total workload and weekly duration are unknown; former nominal credit values and hardcoded reading times do not establish workload.",
     "Risk calculations for families are synthetic teaching examples; this package gives no genetic-counselling or medical advice and says nothing about any person's risk."
   ],
   "intentionally_omitted": [
-    "Graded assessments and a multi-session laboratory sequence are not authored yet (one synthetic-data virtual lab exists). The course gives only introductory unordered two-locus tetrad analysis; detailed transposition, broader phage and recombinant-DNA genetics, and comprehensive eukaryotic genome analysis remain outside scope. Mendelian randomization and variant-to-mechanism follow-up are optional advanced human-genetics applications."
+    "Graded assessments and a multi-session laboratory sequence are not authored yet (one synthetic-data virtual lab exists). The course gives introductory unordered two-locus tetrad analysis and a single-exchange centromere-distance estimate from ordered asci; two-locus ordered-tetrad analysis, multiple-exchange corrections, gene conversion, detailed transposition, broader phage and recombinant-DNA genetics, and comprehensive eukaryotic genome analysis remain outside scope. Mendelian randomization and variant-to-mechanism follow-up are optional advanced human-genetics applications."
   ]
 }

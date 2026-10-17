@@ -87,6 +87,13 @@ GENETICS_NUMERIC = {
     "genetics-15:ase-z": (140 - 100) / math.sqrt(200 * 0.25),
     "genetics-lab1:chi-square-syn1": (52 - 40) ** 2 / 40 + (48 - 60) ** 2 / 60 + (28 - 40) ** 2 / 40 + (72 - 60) ** 2 / 60,
     "genetics-lab1:bonferroni": 0.05 / 3,
+    # genetics 0.5.8: ordered-tetrad centromere distance, recomputed from the counts in each prompt
+    "genetics-18:sds-distance-300": 50 * 42 / 300,
+    "genetics-18:four-spore-sds-400": 50 * 60 / 400,
+    "genetics-18:expected-sds-12cm": 2 * 0.12 * 500,
+    "genetics-18:expected-sds-15cm": 2 * 0.15 * 600,
+    "genetics-18:expected-fds-20cm": 200 - 2 * 0.20 * 200,
+    "genetics-18:zero-sds-bound-600": 50 * 3 / 600,
 }
 
 

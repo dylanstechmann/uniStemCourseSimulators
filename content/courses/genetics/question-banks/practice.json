@@ -3553,6 +3553,372 @@
       }
     },
     {
+      "id": "genetics-18:sister-products",
+      "type": "single_choice",
+      "prompt": "Read a linear four-spore ascus in order from one end. Which spores are sister products of the same dyad?",
+      "options": [
+        "Spores 1 and 2, and spores 3 and 4",
+        "Spores 1 and 3, and spores 2 and 4",
+        "Spores 1 and 4, and spores 2 and 3",
+        "Spores 1 and 2 only; spores 3 and 4 came from a different meiosis"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "genetics-18-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Meiosis I sends each dyad to one end of the ascus, and meiosis II divides it in place.",
+        "solution": "The adjacent pairs 1–2 and 3–4 are the two products of each dyad. The other options split products of the same dyad or assume a second meiosis.",
+        "lesson_ids": [
+          "genetics-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-18:four-spore-pattern",
+      "type": "single_choice",
+      "prompt": "A centromere-linked gene gives four-spore asci, read in order from one end. Which arrangement shows second-division segregation?",
+      "options": [
+        "A A a a",
+        "a a A A",
+        "A a A a",
+        "None: ordered asci cannot show which division separated the alleles"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "genetics-18-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 2
+      },
+      "feedback": {
+        "hint": "Compare spores 1 and 2, the sister products of one dyad.",
+        "solution": "In A a A a, spores 1 and 2 differ, so each dyad was heterozygous and its alleles separated at meiosis II. A A a a and a a A A are first-division patterns; the fixed spore order is what lets ordered asci tell the two apart.",
+        "lesson_ids": [
+          "genetics-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-18:eight-spore-fds",
+      "type": "single_choice",
+      "prompt": "Eight-spore asci from a centromere-linked gene are read in order from one end. Which arrangement shows first-division segregation?",
+      "options": [
+        "A A a a A A a a",
+        "A A A A a a a a",
+        "a a A A A A a a",
+        "A A a a a a A A"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "genetics-18-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "First-division segregation puts one allele in each half of the ascus.",
+        "solution": "A A A A a a a a has one allele in each half, so the alleles separated at meiosis I. The other three have two of each allele in each half, the 2:2:2:2 pattern of second-division segregation.",
+        "lesson_ids": [
+          "genetics-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-18:sds-distance-300",
+      "type": "numeric",
+      "prompt": "In 300 eight-spore asci from a gene linked to its centromere, 42 show second-division segregation. Using the single-exchange estimate, what is the centromere distance in centimorgans? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "genetics-18-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 7.0,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Divide the SDS asci by all asci, halve that fraction to get the recombination frequency, then multiply by 100.",
+        "solution": "SDS fraction = 42 ÷ 300 = 0.14; r = ½ × 0.14 = 0.07; distance = 100 × 0.07 = 7.0 cM.",
+        "lesson_ids": [
+          "genetics-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-18:four-spore-sds-400",
+      "type": "numeric",
+      "prompt": "In 400 four-spore asci read in order, spores 1 and 2 differ in 60 asci. Using the single-exchange estimate, how far is the gene from its centromere in centimorgans? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "genetics-18-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 7.5,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Asci in which spores 1 and 2 differ are the second-division asci.",
+        "solution": "60 ÷ 400 = 0.15; r = ½ × 0.15 = 0.075; distance = 100 × 0.075 = 7.5 cM.",
+        "lesson_ids": [
+          "genetics-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-18:expected-sds-12cm",
+      "type": "numeric",
+      "prompt": "A gene lies 12 cM from its centromere. In 500 asci, how many second-division-segregation asci does the single-exchange model predict? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "genetics-18-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 120,
+        "unit": "",
+        "tolerance": 0.5,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The recombination frequency is half the SDS fraction, so the SDS fraction is twice the recombination frequency.",
+        "solution": "r = 0.12, so the SDS fraction is 2 × 0.12 = 0.24; 500 × 0.24 = 120 SDS asci.",
+        "lesson_ids": [
+          "genetics-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-18:expected-sds-15cm",
+      "type": "numeric",
+      "prompt": "A gene lies 15 cM from its centromere. Under the single-exchange model, how many of 600 eight-spore asci are expected to show second-division segregation? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "genetics-18-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 180,
+        "unit": "",
+        "tolerance": 0.5,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Convert the distance to a recombination frequency, double it to get the SDS fraction, then multiply by the number of asci.",
+        "solution": "r = 0.15, so the SDS fraction is 2 × 0.15 = 0.30; 600 × 0.30 = 180 SDS asci.",
+        "lesson_ids": [
+          "genetics-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-18:expected-fds-20cm",
+      "type": "numeric",
+      "prompt": "A gene lies 20 cM from its centromere. Under the single-exchange model, how many of 200 asci would show first-division segregation? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "genetics-18-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 120,
+        "unit": "",
+        "tolerance": 0.5,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Find the expected SDS asci first; the remaining asci are first-division.",
+        "solution": "r = 0.20, so the SDS fraction is 0.40 and 80 of 200 asci are expected to be SDS; 200 − 80 = 120 FDS asci.",
+        "lesson_ids": [
+          "genetics-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-18:zero-sds-bound-600",
+      "type": "numeric",
+      "prompt": "In 600 ordered asci, none shows second-division segregation for a gene linked to its centromere. Using the rule of three for the SDS fraction, what is the rough 95% upper bound on the centromere distance in centimorgans? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "genetics-18-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0.25,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "With no events in n trials, the rule of three bounds the fraction at about 3 ÷ n. Then apply d = 50 × (SDS fraction).",
+        "solution": "Upper bound on the SDS fraction ≈ 3 ÷ 600 = 0.005; distance bound = 50 × 0.005 = 0.25 cM. The point estimate is 0 cM, but distances up to about 0.25 cM remain compatible with the count.",
+        "lesson_ids": [
+          "genetics-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-18:zero-sds",
+      "type": "single_choice",
+      "prompt": "In 200 eight-spore asci from a gene linked to its centromere, none shows second-division segregation. What is the best interpretation?",
+      "options": [
+        "The gene sits exactly at the centromere, 0 cM away",
+        "The point estimate is 0 cM, but a short distance is not ruled out; the rule of three puts a rough 95% upper bound near 0.75 cM",
+        "The gene is unlinked to its centromere, so second-division asci cannot form",
+        "The gene is dominant, so second-division asci cannot form"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "genetics-18-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "A count of zero from a finite sample is an observation, not a measurement of exactly zero.",
+        "solution": "No second-division ascus was seen, so the point estimate is 0 cM. A short interval can still give no SDS ascus by chance: the rule of three bounds the SDS fraction at about 3 ÷ 200 = 0.015, or 50 × 0.015 = 0.75 cM. Dominance plays no part in haploid spores, and a gene far from its centromere gives many SDS asci, not none.",
+        "lesson_ids": [
+          "genetics-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-18:sds-underestimate",
+      "type": "single_choice",
+      "prompt": "Why does 50 × (SDS asci ÷ total asci) tend to underestimate the distance of a gene far from its centromere?",
+      "options": [
+        "Second-division asci are counted twice in the total",
+        "Some multiple exchanges between the gene and the centromere restore a first-division pattern, so those meioses are not counted",
+        "The centromere is not a genetic locus and cannot be mapped",
+        "Eight-spore asci always show a 4:4 pattern, so the SDS count is always zero"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "genetics-18-objective-4"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Think about what two exchanges in the same interval do to the arrangement of the alleles.",
+        "solution": "Two exchanges involving the same two chromatids, or all four chromatids, restore a first-division pattern, so the SDS count misses those meioses. Multiple exchanges become more common as the distance grows, so the shortfall grows too.",
+        "lesson_ids": [
+          "genetics-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-18:sds-plateau",
+      "type": "single_choice",
+      "prompt": "A gene lies far out on a chromosome arm. In 900 ordered asci, 600 show second-division segregation. Assume exchanges occur independently and involve chromatids at random. What does 50 × (SDS asci ÷ total asci) give, and how should it be read?",
+      "options": [
+        "About 67 cM, the gene's true distance from its centromere",
+        "About 33 cM, which is the ceiling of the single-exchange estimate, so the gene may lie much farther away",
+        "About 33 cM, an exact distance because multiple exchanges cancel out",
+        "None: an SDS fraction above one-half is impossible"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "genetics-18-objective-4"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Ask what fraction of asci would be second-division if the gene's alleles were placed at random among the four chromatids.",
+        "solution": "600 ÷ 900 = 0.67, so the formula gives about 33 cM. With random, independent exchanges the SDS fraction levels off near two-thirds for a distant gene, so about 33 cM is the most the formula returns; the gene could be much farther from its centromere.",
+        "lesson_ids": [
+          "genetics-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
       "id": "genetics-16:transfer-route",
       "type": "single_choice",
       "prompt": "A phage particle occasionally packages a random fragment of a donor bacterium's chromosome and carries it to another bacterium. Which route is described?",

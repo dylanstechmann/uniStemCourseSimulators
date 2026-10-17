@@ -20,7 +20,7 @@ No course or candidate is activated by this command. `--check` detects report dr
 | differential-equations | 0.4.1 | partial | unreviewed | formative-only | 0 |
 | general-chemistry-1 | 0.4.10 | partial | unreviewed | formative-only | 0 |
 | general-chemistry-2 | 0.4.8 | partial | unreviewed | formative-only | 0 |
-| genetics | 0.5.7 | partial | unreviewed | formative-only | 0 |
+| genetics | 0.5.8 | partial | unreviewed | formative-only | 0 |
 | geroscience | 0.5.9 | partial | unreviewed | formative-only | 0 |
 | linear-algebra | 0.3.7 | partial | unreviewed | formative-only | 0 |
 | organic-chemistry | 0.4.9 | partial | unreviewed | formative-only | 0 |

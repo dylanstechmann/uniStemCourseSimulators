@@ -5670,3 +5670,23 @@ Repairs: the stray cache was removed. `package_files` now skips `__pycache__` di
 To run the browser check, Chromium's system libraries were installed in the dev container with `sudo npx playwright install-deps chromium`.
 
 Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container; logs in `~/.cache/courselab-verify/20261017-142735/`. All packages remain partial, unreviewed and formative-only.
+
+## Ordered tetrads and centromere distance (2026-10-17)
+
+Genetics advances to 0.5.8 with an original reading in week 5, next to the three-point mapping and unordered-tetrad lesson. The MIT OCW 7.03 (Fall 2004) calendar lists L7 "Three-factor Crosses" and L8 "Tetrad Analysis" consecutively (titles only; checked 2026-10-17). The package keeps one module per lesson, so the reading is its own module, `genetics-module-18`, and `duration.weeks` schedules it in week 5 with its practice assessment. It adds four objectives, twelve items (six numeric, six choice), five cards and a practice assessment. The mapping lesson's statement that ordered tetrads lie outside the course now points to the new reading.
+
+`tests/content/test_genetics_ordered_tetrad_recalculations.py` recomputes the six numeric keys with exact fractions from the counts in each prompt. It also compares the rule-of-three bound with the exact binomial bound 1 − 0.05^(1/600), checks that each choice key points at the only option carrying its distinguishing phrase, and checks the assessment, lesson and card links. The repository-wide Genetics table in `test_ai_assisted_checks.py` now includes the six keys, so its every-numeric-item check still covers the whole bank.
+
+The scratch draft was corrected before it entered the package. Budding-yeast asci are unordered, so the ordered examples use *Neurospora* and *Sordaria*. A second-division ascus shows at least one exchange, not exactly one. Two-strand and four-strand double exchanges restore a first-division pattern, while three-strand doubles keep second-division segregation. Two expected-count prompts now state the single-exchange model. The reading also states the two-thirds ceiling (about 33 cM) under random, independent exchanges, and notes that Haldane's two-point correction from the mapping lesson is not the correction for second-division counts.
+
+| Actual command/check | Result |
+| --- | --- |
+| `tools/validate_content.py` | Passed: 25 courses, 444 lessons, 2,882 questions, 1,554 cards and 25 cases; 0 errors. Its first run rejected the reading as a second lesson in module 7 (one source-map identity per module), which led to the separate module. |
+| `tools/objective_coverage.py --check docs/COURSE_GAP_REPORT.md` | Passed after regeneration. Genetics: 19 lessons, 55 objectives, 108 items, 71 cards; no objective without an assessment mapping or practice item. |
+| `tools/assessment_candidates.py --check docs/ASSESSMENT_CANDIDATE_REPORT.md` | Passed after regeneration; no candidate was activated. |
+| `claims_scan.py --repo uniStemCourseSimulators` on the eight changed package and snapshot files | 0 findings. |
+| Full verify, run `20261017-164542` | Content, legacy (7), security (1,609 files, 0 findings) and ruff passed; backend 6,091 passed, 2 skipped (the 24 added cases are `test_authored_items.py` grading each of the twelve new keys for full credit and a deliberately wrong answer for none); frontend lint, 73 unit tests in 17 files and build passed. Root: 1 failed, 3,325 passed, 1 skipped. The failure was `test_genetics_schedule_places_every_lesson_once_and_stays_partial`, which hard-coded 18 Genetics lessons; it now expects 19. |
+| Root pytest rerun after that fix | 3,326 passed, 1 skipped: twelve more than before the batch, from the six new-file tests and the six new entries in the repository-wide Genetics table. |
+| Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file; these need the host or CI. |
+
+Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, then `python -m pytest tests -q -p no:cacheprovider` for the rerun; Python 3.12.3 and Node 24 in the dev container. All packages remain partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.

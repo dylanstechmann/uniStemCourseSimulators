@@ -1,6 +1,6 @@
 # Genetics & Genomics
 
-**Maturity: partial. Version: 0.5.7.**
+**Maturity: partial. Version: 0.5.8.**
 
 Move from Mendelian inheritance and recombination to microbial genetics, gene regulation and experimental inference. Advanced human causal-inference applications are optional extensions.
 
@@ -27,7 +27,7 @@ This is a proposed scope, not a measured or reviewed semester. MIT 7.03 Genetics
 | 2 | Gene interaction: epistasis, complementation and modified ratios | Gene interaction: epistasis, complementation and modified dihybrid ratios |
 | 3 | Sex linkage, pedigrees and Bayesian carrier risk | Sex-linked inheritance, pedigrees and Bayesian carrier risk |
 | 4 | Linkage and recombination mapping | Linkage and recombination mapping |
-| 5 | Three-point mapping, tetrad analysis, interference and map functions | Three-point mapping and unordered tetrad classes: gene order, recombination, interference and limits on distance estimates |
+| 5 | Three-point mapping, tetrad analysis, interference, map functions and centromere distance | Three-point mapping and unordered tetrad classes: gene order, recombination, interference and limits on distance estimates; Ordered tetrads and centromere distance: first- and second-division segregation |
 | 6 | Chromosome segregation errors: nondisjunction, aneuploidy and maternal age | Chromosome segregation errors: nondisjunction, aneuploidy and maternal age |
 | 7 | Allele frequencies and Hardy–Weinberg proportions | Allele frequencies, Hardy–Weinberg expectations and what a departure can mean |
 | 8 | Mutation rates, the fluctuation test and somatic mutation | Mutation rates, the fluctuation test and somatic mutation with age |
@@ -48,7 +48,7 @@ The [three-point mapping and penetrance portfolio](assessment-specs/three-point-
 
 ## Current limitations
 
-The schedule above is proposed, not measured, and has not been reviewed by a qualified instructor. All compact prototype readings now have expanded instruction. There are no graded homework sets, midterm or final; the new project draft is inactive and ungraded. The course now includes focused bacterial-transfer, operon-circuit and unordered-tetrad instruction, while broader tetrad genetics, transposition, phage genetics and eukaryotic genome topics remain incomplete; the package is still partial and unreviewed. References are link-only: their records were checked, six abstracts were read for the sentences they support, and one scanned paper was not read in full. All family, population, association and testcross data are synthetic; no lesson gives genetic-counselling or medical advice, and nothing here says anything about any person's risk. Qualified human review is required before this course could meet the complete-course standard.
+The schedule above is proposed, not measured, and has not been reviewed by a qualified instructor. All compact prototype readings now have expanded instruction. There are no graded homework sets, midterm or final; the new project draft is inactive and ungraded. The course now includes focused bacterial-transfer, operon-circuit and tetrad instruction (unordered two-locus classes and single-exchange centromere distance from ordered asci), while broader tetrad genetics, transposition, phage genetics and eukaryotic genome topics remain incomplete; the package is still partial and unreviewed. References are link-only: their records were checked, six abstracts were read for the sentences they support, and one scanned paper was not read in full. All family, population, association and testcross data are synthetic; no lesson gives genetic-counselling or medical advice, and nothing here says anything about any person's risk. Qualified human review is required before this course could meet the complete-course standard.
 
 ## Sources and licensing
 
