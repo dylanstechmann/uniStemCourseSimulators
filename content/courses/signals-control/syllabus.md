@@ -1,6 +1,6 @@
 # Signals, Systems & Feedback Control
 
-**Maturity: partial. Version: 0.4.8.**
+**Maturity: partial. Version: 0.4.9.**
 
 Continuous and discrete signals, linear systems, frequency response, feedback, stability, and controller design for sensors, actuators, and biological regulation.
 
@@ -25,7 +25,7 @@ This is a proposed scope, not a measured or reviewed semester. Week 13 now links
 | 2 | Convolution and impulse response: why a sensor blurs and delays what it measures | Convolution and impulse response: why a sensor blurs and delays what it measures |
 | 3 | From a transfer function to a time response: poles, zeros and the final value | From a transfer function to a time response: Laplace transforms, poles, zeros and the final value |
 | 4 | Frequency response and filtering | Frequency response and filtering |
-| 5 | Second-order systems: damping, overshoot and ringing | Second-order systems: damping, overshoot and ringing in a pressure transducer |
+| 5 | Second-order systems and impedance models | Second-order systems: damping, overshoot and ringing in a pressure transducer; From components to transfer functions: impedance models of electrical, mechanical and thermal plants |
 | 6 | Reading Bode plots: decibels, phase and the cost of a delay | Reading Bode plots: gain in decibels, phase, corner frequencies and the cost of a delay |
 | 7 | Proportional control of an incubator: steady-state error and saturation | Holding a culture at 37 °C: first-order plants, proportional control, steady-state error and saturation |
 | 8 | Feedback, stability, Routh–Hurwitz and the root locus | Feedback, stability, and robustness; Closed-loop poles as the gain changes: Routh–Hurwitz and the root locus |
@@ -48,7 +48,7 @@ The [sampled-loop design portfolio](assessment-specs/sampled-loop-project-draft.
 
 The schedule above is proposed, not measured, and has not been reviewed by a qualified instructor. There are no graded homework sets, midterm or final; the new project is inactive and ungraded. The discrete-time addition is a first-order foundation and does not cover the full Fourier, discrete-frequency-response or transform scope of MIT 6.003. The four original prototype readings now have expanded instruction, while the package remains incomplete and unreviewed. The package cites no new papers: the lessons teach standard methods with synthetic data, and the typical values they quote (tuning rules, margin targets, damping ratios, sampling rules of thumb) are textbook-level and vary between sources. All plants, signals, controllers and numbers are synthetic; no lesson gives controller settings, a safety procedure or a test protocol for any real device, and nothing here says anything about any real incubator, instrument or process. Qualified human review is required before this course could meet the complete-course standard.
 
-The title reflects a selected combination of signals/systems and feedback-control topics; the course does not replace MIT OCW 6.003 or 2.004. Week 8 now adds Routh–Hurwitz gain limits and root-locus sketching for proportional control, following the 2.004 lecture order; compensator design on the locus is not developed. Fourier analysis, substantial electrical/mechanical component modeling and hands-on lab implementation remain outside its developed sequence.
+The title reflects a selected combination of signals/systems and feedback-control topics; the course does not replace MIT OCW 6.003 or 2.004. Week 8 now adds Routh–Hurwitz gain limits and root-locus sketching for proportional control, following the 2.004 lecture order; compensator design on the locus is not developed. Week 5 now derives first- and second-order models from electrical, translational-mechanical and thermal impedances. Fourier analysis, rotational and two-port component modeling, operational amplifiers and hands-on lab implementation remain outside its developed sequence.
 
 ## Sources and licensing
 

@@ -63,4 +63,4 @@ At the natural frequency (r = 1), |G| = 1/(2ζ), which is **2.0** for ζ = 0.25:
 
 ## Limits of this lesson
 
-All numbers are synthetic. The lesson treats a linear second-order model with unit DC gain; it does not cover air bubbles or other changes in a real line that alter its damping, nonlinear damping, or higher-order dynamics, and a real measuring line must be tested (for example by a fast flush) to find its natural frequency and damping.
+All numbers are synthetic. The lesson treats a linear second-order model with unit DC gain; it does not cover air bubbles or other changes in a real line that alter its damping, nonlinear damping, or higher-order dynamics, and a real measuring line must be tested (for example by a fast flush) to find its natural frequency and damping. The companion reading this week derives ωn and ζ from component values.

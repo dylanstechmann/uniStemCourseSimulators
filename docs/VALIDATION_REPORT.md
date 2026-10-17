@@ -5690,3 +5690,34 @@ The scratch draft was corrected before it entered the package. Budding-yeast asc
 | Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file; these need the host or CI. |
 
 Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, then `python -m pytest tests -q -p no:cacheprovider` for the rerun; Python 3.12.3 and Node 24 in the dev container. All packages remain partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.
+
+## 2026-10-17: CI result for the repair and the Genetics batch
+
+The CI repair (`cd31475`) and the Genetics batch (`9f23ad6`) were pushed as a fast-forward of `main`. Before the push, a `git archive` export of `9f23ad6` passed the content validator, 477 targeted root tests (cell biology, genetics, snapshots and review registers) and the full backend suite (6,091 passed, 2 skipped). GitHub Actions run `39054270414` then passed both jobs: `content-backend` in 7 min 23 s and `frontend-e2e`. The `frontend-e2e` job runs the Docker Compose stack and the Playwright suite on the CI runner, which this container cannot; it is the first evidence that the Case Studio layout and screenshot-path repairs work there. The run used the workflow file from `0362e21`, because the local commit extending the workflow needs the `workflow` token scope and was not pushed.
+
+## Impedance models (2026-10-17)
+
+Signals & Control advances to 0.4.9 with an original reading grouped with the week-5 second-order lesson. The MIT OCW 2.004 (Spring 2008) calendar gives component modeling lectures 5–16 (checked 2026-10-17); the reading is a compact version of the electrical and translational impedance lectures 5–7 and 9–10, plus thermal elements for the course's incubator. The calendar lists no separate compensator-design lecture, so the audit row now names the modeling block as the gap this reading addresses. The reading is its own module, `signals-control-module-16`, scheduled in week 5 after the second-order lesson, whose response measures it uses. It adds three objectives, twelve items (eight numeric, four choice), four cards and a practice assessment. The second-order lesson's limits now point to it.
+
+`tests/content/test_signals_control_impedance_modeling_recalculations.py` recomputes the eight numeric keys without using the closed forms in their feedback:
+
+- time constants by RK4 simulation of the step response, timed to 1 − 1/e of the known final value;
+- the corner frequency by bisection on |H(j2πf)| = 1/√2;
+- natural frequencies and damping ratios from the complex poles of the derived characteristic polynomial;
+- the static deflection by simulating the mass–spring–damper to rest;
+- the thermal capacitance by bisection on a simulated heater-step response.
+
+The same helpers check every number the reading states, the worked example's 37.2% overshoot against a simulated step, and a three-node heater–chamber–sensor chain that rises without overshoot. The repository-wide Signals & Control table in `test_ai_assisted_checks.py` adds the eight keys as closed forms, so its every-numeric-item check still covers the bank.
+
+| Actual command/check | Result |
+| --- | --- |
+| `tools/validate_content.py` | Passed: 25 courses, 445 lessons, 2,894 questions, 1,558 cards and 25 cases; 0 errors. |
+| `tools/objective_coverage.py --check docs/COURSE_GAP_REPORT.md` | Passed after regeneration. Signals & Control: 17 lessons, 47 objectives, 122 items, 60 cards; no objective without an assessment mapping or practice item. |
+| `tools/assessment_candidates.py --check docs/ASSESSMENT_CANDIDATE_REPORT.md` | Passed after regeneration; no candidate was activated. |
+| `claims_scan.py --repo uniStemCourseSimulators` on the nine changed package and snapshot files | 0 findings. |
+| Targeted pytest (new file, snapshot, AI-assisted checks, schedule tests and the five Signals & Control regressions) | 1,434 passed. |
+| Full verify, run `20261017-174617` | Content, legacy (7), security (1,612 files, 0 findings) and ruff passed; root 3,341 passed, 1 skipped (fifteen more: seven new-file tests and eight table entries); backend 6,115 passed, 2 skipped (24 more: `test_authored_items.py` grades each of the twelve new keys for full credit and a deliberately wrong answer for none); frontend lint, 73 unit tests in 17 files and build passed. |
+| Registry update after the run | The 2.004 calendar entry in `content/sources/registry.json` now records the 2026-10-17 recheck (metadata only); `tools/validate_content.py` passed again. |
+| Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. |
+
+Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. All packages remain partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.

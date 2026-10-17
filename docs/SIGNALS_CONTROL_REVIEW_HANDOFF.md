@@ -1,6 +1,6 @@
 # Signals & Control course review handoff
 
-This handoff targets Signals, Systems & Feedback Control, package version 0.4.7. The [review snapshot](SIGNALS_CONTROL_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+This handoff targets Signals, Systems & Feedback Control, package version 0.4.9. The [review snapshot](SIGNALS_CONTROL_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
 
 ## Review scope
 
@@ -11,10 +11,12 @@ This handoff targets Signals, Systems & Feedback Control, package version 0.4.7.
 - Confirm anti-alias filtering is described before conversion, the held PI output is consistent with the actuator bound, and omitted delay/quantization/uncertainty effects are explicit.
 - Assess whether the project complements the step-identification lab and filter-retuning case; review accessible alternatives, manual accessibility and likely workload.
 - Review the new scope crosswalk's comparison of MIT OCW 6.003 Fall 2011 and 2.004 Dynamics and Control II Spring 2008, including the declared integration point and omissions.
+- Check the week-8 Routh–Hurwitz and root-locus reading: gain limits, crossing frequency, breakaway point and the ζ = 0.5 design gain.
+- Check the week-5 impedance-modeling reading: electrical, translational and thermal impedances, impedance division, ωn and ζ from component values, the force–voltage analogy, the thermal RC incubator and the claim that a passive thermal network cannot ring.
 
 ## Author-side evidence and its limits
 
-No tests were run for version 0.4.7. Content validation passed at 25 courses, 424 lessons, 2,644 questions, 1,461 cards and 25 cases, with zero errors or explicit depth warnings. Assessment-candidate and objective-coverage report checks passed; the package digest matches 24 files and 338,720 bytes. The new change adds no instruction or assessment keys. These checks do not establish independent engineering review, real-device safety, accessible learner usability, course workload, student learning or university equivalency. The project remains inactive and ungraded; graded homework, exams and a laboratory sequence remain absent.
+For version 0.4.9, a dedicated test recomputes every new impedance-modeling key by simulation, bisection or pole calculation, checks the lesson's stated numbers the same way and simulates a three-node thermal chain to confirm that it rises without overshoot; run results are recorded in [VALIDATION_REPORT.md](VALIDATION_REPORT.md). No tests were run for version 0.4.7. Content validation passed at 25 courses, 424 lessons, 2,644 questions, 1,461 cards and 25 cases, with zero errors or explicit depth warnings. Assessment-candidate and objective-coverage report checks passed; the package digest matches 24 files and 338,720 bytes. The new change adds no instruction or assessment keys. These checks do not establish independent engineering review, real-device safety, accessible learner usability, course workload, student learning or university equivalency. The project remains inactive and ungraded; graded homework, exams and a laboratory sequence remain absent.
 
 ## Review record to complete only after review
 

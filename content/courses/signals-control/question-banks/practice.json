@@ -4053,6 +4053,370 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "signals-control-16:impedance-forms",
+      "type": "single_choice",
+      "prompt": "Which list gives the Laplace-domain impedances (effort over flow, zero initial conditions) of a resistor, a capacitor and an inductor, and of a damper, a spring and a mass?",
+      "options": [
+        "R, 1/(sC), sL; and b, k/s, ms",
+        "R, sC, 1/(sL); and b, ks, m/s",
+        "R, 1/(sC), sL; and b, ks, m/s",
+        "1/R, sC, 1/(sL); and 1/b, s/k, 1/(ms)"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "signals-control-16-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Integrating elements (capacitor, spring) carry 1/s; elements that respond to a rate of change (inductor, mass) carry s.",
+        "solution": "V = I/(sC) for a capacitor and V = sL·I for an inductor. A spring gives F = (k/s)v because x = v/s, and a mass gives F = ms·v. The resistor and damper are simply R and b.",
+        "lesson_ids": [
+          "signals-control-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "signals-control-16:rc-time-constant",
+      "type": "numeric",
+      "prompt": "An RC low-pass filter has R = 20 kΩ and C = 4.7 µF, with the output taken across the capacitor. What is its time constant in milliseconds? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "signals-control-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 94,
+        "unit": "",
+        "tolerance": 0.5,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Impedance division gives 1/(RCs + 1), so τ = RC; convert kΩ and µF to ohms and farads first.",
+        "solution": "τ = RC = 20,000 Ω × 4.7 × 10⁻⁶ F = 0.094 s = 94 ms.",
+        "lesson_ids": [
+          "signals-control-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "signals-control-16:rc-corner-hz",
+      "type": "numeric",
+      "prompt": "An RC low-pass filter has R = 10 kΩ and C = 100 nF. At what frequency in hertz has its magnitude fallen to 1/√2 of the DC gain (the corner frequency)? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "signals-control-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 159.15,
+        "unit": "",
+        "tolerance": 0.5,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The corner is at ω = 1/(RC) rad/s; divide by 2π to convert to hertz.",
+        "solution": "RC = 10⁴ Ω × 10⁻⁷ F = 10⁻³ s, so ω = 1,000 rad/s and f = 1,000/(2π) = 159.2 Hz.",
+        "lesson_ids": [
+          "signals-control-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "signals-control-16:rlc-natural-frequency",
+      "type": "numeric",
+      "prompt": "A series RLC circuit with the output across the capacitor has L = 25 mH and C = 10 µF. What is its undamped natural frequency in rad/s? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "signals-control-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 2000,
+        "unit": "",
+        "tolerance": 1,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Match 1/(LCs² + RCs + 1) to the standard second-order form.",
+        "solution": "ωn = 1/√(LC) = 1/√(0.025 H × 10⁻⁵ F) = 1/√(2.5 × 10⁻⁷ s²) = 2,000 rad/s.",
+        "lesson_ids": [
+          "signals-control-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "signals-control-16:rlc-damping-ratio",
+      "type": "numeric",
+      "prompt": "A series RLC circuit with the output across the capacitor has R = 20 Ω, L = 25 mH and C = 10 µF. What is its damping ratio? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "signals-control-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.2,
+        "unit": "",
+        "tolerance": 0.005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Match RC to 2ζ/ωn, or use ζ = (R/2)√(C/L).",
+        "solution": "ζ = (20/2) × √(10⁻⁵/0.025) = 10 × √(4 × 10⁻⁴) = 10 × 0.02 = 0.2.",
+        "lesson_ids": [
+          "signals-control-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "signals-control-16:msd-static-deflection",
+      "type": "numeric",
+      "prompt": "A mass–spring–damper has m = 1.5 kg, b = 12 N·s/m and k = 300 N/m, with the spring and damper connecting the mass to the ground. A constant force of 6 N is applied. What is the final deflection in millimetres? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "signals-control-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 20,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Set s = 0 in X/F = 1/(ms² + bs + k).",
+        "solution": "At s = 0, X/F = 1/k = 1/300 m/N, so x = 6/300 = 0.02 m = 20 mm. The mass and the damper do not change the final value.",
+        "lesson_ids": [
+          "signals-control-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "signals-control-16:msd-natural-frequency",
+      "type": "numeric",
+      "prompt": "A mass–spring–damper has m = 4 kg, k = 900 N/m and b = 36 N·s/m. What is its undamped natural frequency in rad/s? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "signals-control-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 15,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "ωn = √(k/m).",
+        "solution": "ωn = √(900/4) = √225 = 15 rad/s.",
+        "lesson_ids": [
+          "signals-control-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "signals-control-16:msd-damping-ratio",
+      "type": "numeric",
+      "prompt": "A mass–spring–damper has m = 4 kg, k = 900 N/m and b = 36 N·s/m. What is its damping ratio? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "signals-control-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.3,
+        "unit": "",
+        "tolerance": 0.005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Compare ms² + bs + k with m(s² + 2ζωn s + ωn²).",
+        "solution": "ζ = b/(2√(km)) = 36/(2√3,600) = 36/120 = 0.3.",
+        "lesson_ids": [
+          "signals-control-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "signals-control-16:static-check",
+      "type": "single_choice",
+      "prompt": "A derived model of a mass–spring–damper is X/F = 1/(ms² + bs + k). Which check confirms its static behaviour?",
+      "options": [
+        "Setting s = 0 gives 1/k, the deflection per unit force of the spring alone",
+        "Letting s grow large gives 1/k",
+        "The damper sets the static deflection, so the static gain is 1/b",
+        "The mass sets the static deflection, so the static gain is 1/m"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "signals-control-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "A constant force means s = 0; ask which elements still carry force once the motion stops.",
+        "solution": "Once the motion stops, the mass needs no force and the damper carries none, so the spring carries the whole load and x = F/k. Setting s = 0 in the model gives the same 1/k.",
+        "lesson_ids": [
+          "signals-control-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "signals-control-16:thermal-capacitance",
+      "type": "numeric",
+      "prompt": "A synthetic incubator behaves as ΔT/U = R_th/(R_th C_th s + 1), with a DC gain of 0.8 °C/W and a time constant of 15 min. What thermal capacitance in J/K does this imply? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "signals-control-16-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 1125,
+        "unit": "",
+        "tolerance": 1,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The DC gain is R_th (1 °C/W is 1 K/W), and the time constant is R_th C_th in seconds.",
+        "solution": "C_th = τ/R_th = 900 s ÷ 0.8 K/W = 1,125 J/K.",
+        "lesson_ids": [
+          "signals-control-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "signals-control-16:spring-analog",
+      "type": "single_choice",
+      "prompt": "In the force–voltage analogy (force corresponds to voltage, velocity to current), which electrical element represents a spring of stiffness k?",
+      "options": [
+        "A capacitor with C = 1/k",
+        "A capacitor with C = k",
+        "An inductor with L = k",
+        "A resistor with R = k"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "signals-control-16-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Compare the spring's impedance k/s with a capacitor's 1/(sC).",
+        "solution": "k/s = 1/(sC) when C = 1/k, so a stiff spring corresponds to a small capacitor. The inductor represents a mass and the resistor a damper.",
+        "lesson_ids": [
+          "signals-control-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "signals-control-16:thermal-no-overshoot",
+      "type": "single_choice",
+      "prompt": "A lumped thermal model links a heater block, a chamber and a sensor through thermal resistances. With no controller, a step of heater power is applied. What does the model predict for the sensor temperature?",
+      "options": [
+        "It rises without overshoot, because the network's poles are real and heat flows only from hot to cold",
+        "It overshoots and rings, like an underdamped mass–spring system",
+        "It first dips and then rises, because each extra node adds a right-half-plane zero",
+        "It cannot be predicted without a controller in the loop"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "signals-control-16-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Ask which thermal element could play the part of a mass or an inductor.",
+        "solution": "A thermal network has resistances and capacitances but no inertia element, so its poles are real and negative and a heater step raises every node without overshoot. Overshoot in a temperature loop comes from feedback.",
+        "lesson_ids": [
+          "signals-control-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
     }
   ]
 }

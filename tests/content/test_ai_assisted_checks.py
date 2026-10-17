@@ -2499,6 +2499,15 @@ SIGNALS_CONTROL_NUMERIC = {
     "signals-control-15:breakaway-gain": _SC_KB,
     "signals-control-15:damping-gain": _bisect_gain(lambda k: _dominant_zeta(k) > 0.5, _SC_KB + 1e-3, _SC_KLIM),
     "signals-control-15:gain-margin": _SC_KLIM / 80,
+    # signals-control 0.4.9: impedance models, recomputed from the component values in each prompt
+    "signals-control-16:rc-time-constant": 20e3 * 4.7e-6 * 1000,
+    "signals-control-16:rc-corner-hz": 1 / (2 * math.pi * 10e3 * 100e-9),
+    "signals-control-16:rlc-natural-frequency": 1 / math.sqrt(25e-3 * 10e-6),
+    "signals-control-16:rlc-damping-ratio": 20 / 2 * math.sqrt(10e-6 / 25e-3),
+    "signals-control-16:msd-static-deflection": 6 / 300 * 1000,
+    "signals-control-16:msd-natural-frequency": math.sqrt(900 / 4),
+    "signals-control-16:msd-damping-ratio": 36 / (2 * math.sqrt(900 * 4)),
+    "signals-control-16:thermal-capacitance": 15 * 60 / 0.8,
 }
 
 

@@ -7,7 +7,7 @@
   "domain": "Electrical engineering",
   "level": "Year 3",
   "maturity": "partial",
-  "version": "0.4.8",
+  "version": "0.4.9",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -443,6 +443,31 @@
         "signals-control-outcome-3",
         "signals-control-outcome-4"
       ]
+    },
+    {
+      "id": "signals-control-16-objective-1",
+      "description": "Write the Laplace-domain impedances of resistors, capacitors and inductors and of dampers, springs and masses, and combine elements that share a flow or an effort.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "signals-control-outcome-1"
+      ]
+    },
+    {
+      "id": "signals-control-16-objective-2",
+      "description": "Derive a transfer function by impedance division or a force balance, read its time constant, natural frequency and damping ratio from component values, and check it at s = 0, at large s and by units.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "signals-control-outcome-1",
+        "signals-control-outcome-2"
+      ]
+    },
+    {
+      "id": "signals-control-16-objective-3",
+      "description": "Represent a thermal or mechanical plant by an electrical analog and explain why a passive thermal network cannot ring on its own.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-1"
+      ]
     }
   ],
   "duration": {
@@ -491,12 +516,14 @@
       },
       {
         "week": 5,
-        "title": "Second-order systems: damping, overshoot and ringing",
+        "title": "Second-order systems and impedance models: damping, overshoot and where ωn and ζ come from",
         "lesson_ids": [
-          "signals-control-8"
+          "signals-control-8",
+          "signals-control-16"
         ],
         "assessment_ids": [
-          "signals-control-8-practice"
+          "signals-control-8-practice",
+          "signals-control-16-practice"
         ]
       },
       {
@@ -1172,6 +1199,48 @@
           ]
         }
       ]
+    },
+    {
+      "id": "signals-control-module-16",
+      "title": "Impedance models of physical plants",
+      "source_ids": [
+        "signals",
+        "control",
+        "control-spring-2008"
+      ],
+      "lessons": [
+        {
+          "id": "signals-control-16",
+          "title": "From components to transfer functions: impedance models of electrical, mechanical and thermal plants",
+          "reading": "modules/16-impedance-models-of-electrical-mechanical-and-thermal-plants.md",
+          "objectives": [
+            "signals-control-16-objective-1",
+            "signals-control-16-objective-2",
+            "signals-control-16-objective-3"
+          ],
+          "worked_example": "A synthetic mount with m = 0.5 kg, k = 50 N/m and b = 3 N·s/m has X/F = 1/(0.5s² + 3s + 50): static gain 20 mm/N, ωn = 10 rad/s, ζ = 0.3 and about 37.2% step overshoot, the same poles as a series RLC circuit with L = 0.5 H, R = 3 Ω and C = 0.02 F.",
+          "question_ids": [
+            "signals-control-16:impedance-forms",
+            "signals-control-16:rc-time-constant",
+            "signals-control-16:rc-corner-hz",
+            "signals-control-16:rlc-natural-frequency",
+            "signals-control-16:rlc-damping-ratio",
+            "signals-control-16:msd-static-deflection",
+            "signals-control-16:msd-natural-frequency",
+            "signals-control-16:msd-damping-ratio",
+            "signals-control-16:static-check",
+            "signals-control-16:thermal-capacitance",
+            "signals-control-16:spring-analog",
+            "signals-control-16:thermal-no-overshoot"
+          ],
+          "card_ids": [
+            "signals-control-16-card-1",
+            "signals-control-16-card-2",
+            "signals-control-16-card-3",
+            "signals-control-16-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -1573,6 +1642,35 @@
         "signals-control-15:delay-limit"
       ],
       "points": 11
+    },
+    {
+      "id": "signals-control-16-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Impedance-modeling practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "signals-control-16-objective-1",
+        "signals-control-16-objective-2",
+        "signals-control-16-objective-3",
+        "signals-control-outcome-1",
+        "signals-control-outcome-2"
+      ],
+      "question_ids": [
+        "signals-control-16:impedance-forms",
+        "signals-control-16:rc-time-constant",
+        "signals-control-16:rc-corner-hz",
+        "signals-control-16:rlc-natural-frequency",
+        "signals-control-16:rlc-damping-ratio",
+        "signals-control-16:msd-static-deflection",
+        "signals-control-16:msd-natural-frequency",
+        "signals-control-16:msd-damping-ratio",
+        "signals-control-16:static-check",
+        "signals-control-16:thermal-capacitance",
+        "signals-control-16:spring-analog",
+        "signals-control-16:thermal-no-overshoot"
+      ],
+      "points": 12
     }
   ],
   "grading_policy": {
@@ -1667,19 +1765,24 @@
       "version": "0.4.8",
       "date": "2026-10-13",
       "summary": "Added an original Routh–Hurwitz and root-locus reading grouped with the week-8 feedback lesson, following MIT OCW 2.004 Spring 2008 lectures 25–29: the coefficient test as necessary only, Routh arrays and sign changes, proportional-gain limits and the auxiliary polynomial, root-locus construction rules, reading a damping-ratio gain, and the equivalence of the Routh limit with the gain margin, with delay stated as a limit. Three objectives, eleven formative items and four cards; the crosswalk and syllabus record the new coverage. No week was added. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.9",
+      "date": "2026-10-17",
+      "summary": "Added an impedance-modeling reading to week 5: Laplace-domain impedances of electrical, translational and thermal elements, transfer functions by impedance division and force balance, ωn and ζ from component values, the force–voltage analogy, the incubator as a thermal RC circuit and why passive thermal networks cannot ring. Eight numeric and four choice items, four retrieval cards, a practice assessment and independent recalculation tests were added; stale numeric-answer, significant-figure and item-range counts in the limitations were corrected. The package remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
     "All four preserved prototype readings now have expanded instruction beside original lessons and one synthetic-data virtual lab; this package is not equivalent to a full university semester.",
     "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm or cumulative final. An inactive integrative project draft is not scheduled or graded.",
-    "Practice items are short formative checks (two per prototype unit and six to nine per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
+    "Practice items are short formative checks (two per prototype unit and six to twelve per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
-    "Of the 74 numerical answers in this package, 18 require a unit, one checks significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
+    "Of the 93 numerical answers in this package, 18 require a unit and none checks significant figures or dimensions; the others accept a number within a stated tolerance, with the unit optional.",
     "Total workload and weekly duration are unknown; former nominal credit values and hardcoded reading times do not establish workload.",
     "All plants, signals, controllers and numbers are synthetic teaching examples; this package gives no controller settings, safety procedures or test protocols for any real device and says nothing about any real incubator, instrument or process. The models are simplified textbook descriptions, not design methods for real equipment.",
     "The new discrete-time unit is a first-order foundation with one proportional-feedback example; it does not add the Fourier, discrete-frequency-response, broad transform-property, controller-synthesis or nonlinear-system depth of MIT 6.003.",
-    "The local single-input/single-output sequence combines selected 6.003 signals-and-systems and 2.004 physical modeling/control topics. It does not cover the complete Fourier sequence, electrical/mechanical component modeling, root-locus design, hands-on implementation or lab depth of those comparators."
+    "The local single-input/single-output sequence combines selected 6.003 signals-and-systems and 2.004 physical modeling/control topics. It does not cover the complete Fourier sequence, rotational and two-port component modeling (one reading covers lumped electrical, translational and thermal impedances), compensator design on the root locus, hands-on implementation or lab depth of those comparators."
   ],
   "intentionally_omitted": [
     "Graded assessments, an activated integrative project and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package.",
