@@ -1,6 +1,6 @@
 # Human Physiology for Engineers
 
-**Maturity: partial. Version: 0.4.8.**
+**Maturity: partial. Version: 0.4.9.**
 
 Quantitative homeostasis across excitable, cardiovascular, respiratory, renal, and endocrine systems, with emphasis on feedback and transport.
 
@@ -23,7 +23,7 @@ This is a proposed scope, not a measured or reviewed semester. Each week lists i
 |---|---|---|
 | 1 | Homeostasis and feedback | Homeostasis and feedback |
 | 2 | Homeostasis as balance: mass balance, energy balance and feedback gain | Homeostasis as balance: mass balance, energy balance and the gain of negative feedback |
-| 3 | Excitable cells and electrophysiology | Excitable cells and electrophysiology |
+| 3 | Excitable cells: driving force, gating and the Hodgkin–Huxley action potential | Excitable cells and electrophysiology; Voltage-gated conductances and the action potential: the Hodgkin–Huxley model |
 | 4 | Membrane potential and passive cable properties | Membrane potential: the Nernst potential, the Goldman–Hodgkin–Katz equation and why extracellular potassium matters; Passive membrane and cable properties: time constant, length constant and conduction |
 | 5 | Cardiovascular and respiratory transport | Cardiovascular and respiratory transport |
 | 6 | Hemodynamics: pressure, flow, resistance, compliance and cardiac pump work | Hemodynamics: pressure, flow, resistance and compliance |

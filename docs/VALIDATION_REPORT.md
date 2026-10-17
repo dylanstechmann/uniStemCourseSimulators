@@ -5721,3 +5721,32 @@ The same helpers check every number the reading states, the worked example's 37.
 | Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. |
 
 Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. All packages remain partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.
+
+## Hodgkin–Huxley action potential (2026-10-17)
+
+Physiology advances to 0.4.9 with an original reading grouped with the week-3 excitable-cells lesson. The MIT OCW 6.021J (Fall 2004) calendar gives the Hodgkin–Huxley model lectures 20–25 and channel gating lectures 32–35 (checked 2026-10-17). The reading is its own module, `physiology-module-16`. It adds three objectives, twelve items (eight numeric, four choice), four cards and a practice assessment, and the excitable-cells lesson now points to it.
+
+The reading's spike, threshold and refractory numbers were computed for it by simulating the classic model (squid axon, 6.3 °C, −65 mV rest; fixed-step RK4), and they agree at 0.002 ms and 0.01 ms steps. `tests/content/test_physiology_hodgkin_huxley_recalculations.py` repeats that work at 0.01 ms:
+
+- the numeric keys by integrating each gating equation rather than using the closed forms;
+- the stated rest and clamp kinetics from the rate functions, and the worked example from an integrated gate;
+- the spike peak, timing, width, undershoot and gate values at the peak;
+- the 1-ms and 0.1-ms thresholds, with a pulse 2% below each failing and 2% above firing;
+- the two refractory intervals, with a second pulse failing 0.5 ms early and firing at the stated delay.
+
+The simulation corrected one draft figure: n at the peak is 0.515, which rounds to 0.51, not 0.52. The repository-wide Physiology table in `test_ai_assisted_checks.py` adds the eight keys as closed forms.
+
+Hodgkin and Huxley (1952) is a new link-only registry entry. Its DOI and PubMed record (12991237) were resolved with the citation-check script on 2026-10-17, and the title matches the claim it supports. The PMC copy is page images only, and both PMC and Europe PMC refused the PDF download, so the classic parameter values were not checked against the paper; the reading, source map and registry say so. The first citation scan misread the DOI because the link was wrapped in parentheses, so the sentence was rewritten and the scan resolves it.
+
+| Actual command/check | Result |
+| --- | --- |
+| `tools/validate_content.py` | Passed: 25 courses, 446 lessons, 2,906 questions, 1,562 cards and 25 cases; 0 errors. |
+| `tools/objective_coverage.py --check docs/COURSE_GAP_REPORT.md` | Passed after regeneration. Physiology: 17 lessons, 48 objectives, 114 items, 64 cards; no objective without an assessment mapping or practice item. |
+| `tools/assessment_candidates.py --check docs/ASSESSMENT_CANDIDATE_REPORT.md` | Passed after regeneration; no candidate was activated. |
+| `claims_scan.py --repo uniStemCourseSimulators` on the nine changed package, registry and snapshot files | 0 findings. |
+| `refcheck.py --scan` on the new reading | 1 identifier, resolves (after the sentence rewrite). |
+| Targeted pytest (new file, snapshot, AI-assisted checks, schedule tests and the six Physiology regressions) | 1,438 passed before the citation rewrite; the snapshot and new-file tests passed again after it (7 passed). |
+| Full verify, run `20261017-180811` | Content, legacy (7), security (1,615 files, 0 findings) and ruff passed; root 3,355 passed, 1 skipped (fourteen more: six new-file tests and eight table entries); backend 6,139 passed, 2 skipped (24 more: `test_authored_items.py` grades each of the twelve new keys for full credit and a deliberately wrong answer for none); frontend lint, 73 unit tests in 17 files and build passed. |
+| Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. |
+
+Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. All packages remain partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.

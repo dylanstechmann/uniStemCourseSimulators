@@ -221,6 +221,15 @@ PHYSIOLOGY_NUMERIC = {
     "physiology-15:electrotonic-decay": 5 * _ladder_decay(2e-4, 10e3, 50, 0.1),
     "physiology-15:radius-scaling": math.sqrt(9),
     "physiology-15:unmyelinated-velocity": 0.8 * math.sqrt(4),
+    # physiology 0.4.9: Hodgkin-Huxley gating, recomputed from the rates and states in each prompt
+    "physiology-16:dvdt-net": -(-250 + 40 + 3) / 1.0,
+    "physiology-16:n-inf-rest": 0.0582 / (0.0582 + 0.125),
+    "physiology-16:tau-n-rest": 1 / (0.0582 + 0.125),
+    "physiology-16:gk-rest": 36 * 0.318**4,
+    "physiology-16:n-after-step": 0.909 - (0.909 - 0.318) * math.exp(-1 / 1.65),
+    "physiology-16:gk-fold-rise": (0.587 / 0.318) ** 4,
+    "physiology-16:ina-instant": 120 * 0.9**3 * 0.3 * (0 - 50),
+    "physiology-16:h-recovery-time": 8.52 * math.log((0.596 - 0.10) / (0.596 - 0.40)),
 }
 
 

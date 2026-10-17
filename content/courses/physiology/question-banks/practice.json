@@ -3639,6 +3639,370 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "physiology-16:voltage-clamp",
+      "type": "single_choice",
+      "prompt": "Why does holding the membrane at a fixed voltage let an experimenter measure the ionic current?",
+      "options": [
+        "After the step dV/dt = 0, so no capacitive current flows and the injected current equals the ionic current",
+        "Holding the voltage fixed closes all voltage-gated channels, leaving only the leak",
+        "The clamp removes the membrane capacitance, so the voltage can be read without error",
+        "The clamp fixes the current, and the voltage is the quantity recorded"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "physiology-16-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "Look at the membrane equation when V does not change.",
+        "solution": "With V constant, C_m dV/dt = 0, so the clamp current that holds V must equal the total ionic current at that voltage. The channels keep gating, and the capacitance is still there; it just carries no current once V stops changing.",
+        "lesson_ids": [
+          "physiology-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physiology-16:dvdt-net",
+      "type": "numeric",
+      "prompt": "At one instant a membrane patch has I_Na = −250 μA/cm², I_K = +40 μA/cm² and I_L = +3 μA/cm² (outward positive), no stimulus current and C_m = 1 μF/cm². At what rate is its voltage changing? Enter mV/ms.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-16-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 207,
+        "unit": "",
+        "tolerance": 0.5,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "C_m dV/dt = −(I_Na + I_K + I_L); 1 μA/μF is 1 mV/ms.",
+        "solution": "dV/dt = −(−250 + 40 + 3)/1 = +207 mV/ms: the net current is inward, so the membrane depolarizes.",
+        "lesson_ids": [
+          "physiology-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physiology-16:n-inf-rest",
+      "type": "numeric",
+      "prompt": "At −65 mV the potassium activation gate has opening rate α_n = 0.0582 ms⁻¹ and closing rate β_n = 0.125 ms⁻¹. What is its steady-state value n∞? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.3177,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "At steady state the opening and closing fluxes balance: α(1 − n) = βn.",
+        "solution": "n∞ = α/(α + β) = 0.0582/0.1832 = 0.318.",
+        "lesson_ids": [
+          "physiology-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physiology-16:tau-n-rest",
+      "type": "numeric",
+      "prompt": "At −65 mV the potassium activation gate has α_n = 0.0582 ms⁻¹ and β_n = 0.125 ms⁻¹. What is its time constant τ_n? Enter ms.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 5.4585,
+        "unit": "",
+        "tolerance": 0.02,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The relaxation rate is the sum of the opening and closing rates.",
+        "solution": "τ_n = 1/(α + β) = 1/0.1832 ms⁻¹ = 5.46 ms.",
+        "lesson_ids": [
+          "physiology-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physiology-16:gk-rest",
+      "type": "numeric",
+      "prompt": "With ḡ_K = 36 mS/cm² and n = 0.318, what is the potassium conductance g_K = ḡ_K n⁴? Enter mS/cm².",
+      "points": 1,
+      "objective_ids": [
+        "physiology-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.3681,
+        "unit": "",
+        "tolerance": 0.003,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Raise n to the fourth power before multiplying.",
+        "solution": "g_K = 36 × 0.318⁴ = 36 × 0.01023 = 0.368 mS/cm².",
+        "lesson_ids": [
+          "physiology-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physiology-16:n-after-step",
+      "type": "numeric",
+      "prompt": "After a voltage-clamp step to 0 mV, the potassium gate has n∞ = 0.909 and τ_n = 1.65 ms. Starting from n = 0.318, what is n 1 ms after the step? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0.5866,
+        "unit": "",
+        "tolerance": 0.003,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use n(t) = n∞ − (n∞ − n₀) e^(−t/τ).",
+        "solution": "n(1 ms) = 0.909 − (0.909 − 0.318) e^(−1/1.65) = 0.909 − 0.591 × 0.5455 = 0.587.",
+        "lesson_ids": [
+          "physiology-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physiology-16:gk-fold-rise",
+      "type": "numeric",
+      "prompt": "Within 1 ms of a step, n rises from 0.318 to 0.587. By what factor does g_K = ḡ_K n⁴ rise? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 11.61,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The ratio of conductances is the fourth power of the ratio of n values.",
+        "solution": "(0.587/0.318)⁴ = 1.846⁴ = 11.6: n less than doubles, but g_K rises more than elevenfold.",
+        "lesson_ids": [
+          "physiology-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physiology-16:ina-instant",
+      "type": "numeric",
+      "prompt": "During an upstroke the membrane is at 0 mV with m = 0.9 and h = 0.3. With ḡ_Na = 120 mS/cm² and E_Na = +50 mV, what is I_Na under the outward-positive convention? Enter μA/cm².",
+      "points": 1,
+      "objective_ids": [
+        "physiology-16-objective-2"
+      ],
+      "solution_spec": {
+        "answer": -1312.2,
+        "unit": "",
+        "tolerance": 1,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "g_Na = ḡ_Na m³h, and I_Na = g_Na (V − E_Na); 1 mS/cm² × 1 mV = 1 μA/cm².",
+        "solution": "g_Na = 120 × 0.9³ × 0.3 = 26.24 mS/cm², and I_Na = 26.24 × (0 − 50) = −1,312 μA/cm²: a large inward current.",
+        "lesson_ids": [
+          "physiology-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physiology-16:h-recovery-time",
+      "type": "numeric",
+      "prompt": "After a spike the membrane is back at −65 mV with h = 0.10. There h∞ = 0.596 and τ_h = 8.52 ms. How long after that moment does h recover to 0.40? Enter ms.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-16-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 7.9105,
+        "unit": "",
+        "tolerance": 0.03,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Solve 0.40 = h∞ − (h∞ − h₀) e^(−t/τ_h) for t.",
+        "solution": "e^(−t/8.52) = (0.596 − 0.40)/(0.596 − 0.10) = 0.395, so t = 8.52 × ln(2.531) = 7.91 ms.",
+        "lesson_ids": [
+          "physiology-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physiology-16:upstroke-order",
+      "type": "single_choice",
+      "prompt": "Why does the sodium current rise before the potassium current during an action potential?",
+      "options": [
+        "E_K lies closer to rest than E_Na, so potassium current cannot flow until the peak",
+        "The m gates relax several times faster than the h and n gates, so sodium channels open before inactivation and potassium activation catch up",
+        "Potassium channels open only when sodium current flows through them",
+        "ḡ_K is smaller than ḡ_Na, so the potassium current is always smaller"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "physiology-16-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Compare τ_m with τ_h and τ_n at a depolarized voltage.",
+        "solution": "At 0 mV τ_m ≈ 0.24 ms, while τ_h ≈ 1.03 ms and τ_n ≈ 1.65 ms. Sodium activation therefore runs ahead, and the slower gates end the upstroke.",
+        "lesson_ids": [
+          "physiology-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physiology-16:refractory-gates",
+      "type": "single_choice",
+      "prompt": "Shortly after a spike, a stimulus that easily triggered the first spike fails. Which state of the gates explains this in the model?",
+      "options": [
+        "m is too low to respond to depolarization",
+        "h is still low and n still high: few sodium channels are available and extra potassium conductance opposes depolarization",
+        "The membrane capacitance is still fully charged",
+        "E_Na has fallen to the resting potential"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "physiology-16-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Which gates are slow to return to their resting values?",
+        "solution": "Inactivated sodium channels (low h) recover with τ_h of several milliseconds at rest, and the elevated n keeps potassium conductance high, so a standard stimulus cannot recruit enough inward current.",
+        "lesson_ids": [
+          "physiology-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physiology-16:threshold-balance",
+      "type": "single_choice",
+      "prompt": "Which statement about threshold in the Hodgkin–Huxley model is correct?",
+      "options": [
+        "It is a fixed voltage set by E_Na",
+        "It is reached when m equals 1",
+        "It is where the sodium current recruited by a depolarization outruns the potassium and leak currents, so it depends on how quickly the membrane is depolarized",
+        "It is the voltage at which h becomes zero"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "physiology-16-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 2
+      },
+      "feedback": {
+        "hint": "Compare the thresholds for a 1-ms and a 0.1-ms pulse in the reading.",
+        "solution": "Threshold is a balance between currents, not a fixed voltage: a 0.1-ms pulse needs about 65 μA/cm² and a 1-ms pulse about 6.9 μA/cm², with roughly the same charge.",
+        "lesson_ids": [
+          "physiology-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
     }
   ]
 }

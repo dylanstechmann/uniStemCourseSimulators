@@ -7,7 +7,7 @@
   "domain": "Life sciences",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.4.8",
+  "version": "0.4.9",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -436,6 +436,31 @@
         "physiology-outcome-3",
         "physiology-outcome-4"
       ]
+    },
+    {
+      "id": "physiology-16-objective-1",
+      "description": "Write the membrane equation for a uniformly polarized patch of membrane, and explain how a voltage clamp separates and measures the ionic currents.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "physiology-outcome-3"
+      ]
+    },
+    {
+      "id": "physiology-16-objective-2",
+      "description": "Compute a gating variable's steady state and time constant from its opening and closing rates, its relaxation after a voltage step, and the resulting conductance and current.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "physiology-outcome-3"
+      ]
+    },
+    {
+      "id": "physiology-16-objective-3",
+      "description": "Explain the upstroke, repolarization, undershoot, threshold and refractory period of an action potential from the different speeds of the m, h and n gates.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physiology-outcome-3",
+        "physiology-outcome-4"
+      ]
     }
   ],
   "duration": {
@@ -464,12 +489,14 @@
       },
       {
         "week": 3,
-        "title": "Excitable cells and electrophysiology",
+        "title": "Excitable cells: driving force, gating and the Hodgkin–Huxley action potential",
         "lesson_ids": [
-          "physiology-2"
+          "physiology-2",
+          "physiology-16"
         ],
         "assessment_ids": [
-          "physiology-2-practice"
+          "physiology-2-practice",
+          "physiology-16-practice"
         ]
       },
       {
@@ -1155,6 +1182,49 @@
           ]
         }
       ]
+    },
+    {
+      "id": "physiology-module-16",
+      "title": "The Hodgkin–Huxley action potential",
+      "source_ids": [
+        "biology",
+        "transport",
+        "mit-6-021j-cells-tissues-2004-calendar",
+        "hodgkin-huxley-1952-quantitative-description"
+      ],
+      "lessons": [
+        {
+          "id": "physiology-16",
+          "title": "Voltage-gated conductances and the action potential: the Hodgkin–Huxley model",
+          "reading": "modules/16-voltage-gated-conductances-and-the-hodgkin-huxley-action-potential.md",
+          "objectives": [
+            "physiology-16-objective-1",
+            "physiology-16-objective-2",
+            "physiology-16-objective-3"
+          ],
+          "worked_example": "After a clamp step to 0 mV with α_n = 0.552 and β_n = 0.0555 ms⁻¹, n relaxes from 0.318 toward 0.909 with τ_n = 1.65 ms; at 1 ms n = 0.587, g_K = 36 × 0.587⁴ ≈ 4.27 mS/cm² (about 11.6 times rest) and I_K ≈ 329 μA/cm² outward.",
+          "question_ids": [
+            "physiology-16:voltage-clamp",
+            "physiology-16:dvdt-net",
+            "physiology-16:n-inf-rest",
+            "physiology-16:tau-n-rest",
+            "physiology-16:gk-rest",
+            "physiology-16:n-after-step",
+            "physiology-16:gk-fold-rise",
+            "physiology-16:ina-instant",
+            "physiology-16:h-recovery-time",
+            "physiology-16:upstroke-order",
+            "physiology-16:refractory-gates",
+            "physiology-16:threshold-balance"
+          ],
+          "card_ids": [
+            "physiology-16-card-1",
+            "physiology-16-card-2",
+            "physiology-16-card-3",
+            "physiology-16-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -1546,6 +1616,35 @@
         "physiology-15:passive-versus-regenerative"
       ],
       "points": 10
+    },
+    {
+      "id": "physiology-16-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Hodgkin–Huxley action-potential practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "physiology-16-objective-1",
+        "physiology-16-objective-2",
+        "physiology-16-objective-3",
+        "physiology-outcome-3",
+        "physiology-outcome-4"
+      ],
+      "question_ids": [
+        "physiology-16:voltage-clamp",
+        "physiology-16:dvdt-net",
+        "physiology-16:n-inf-rest",
+        "physiology-16:tau-n-rest",
+        "physiology-16:gk-rest",
+        "physiology-16:n-after-step",
+        "physiology-16:gk-fold-rise",
+        "physiology-16:ina-instant",
+        "physiology-16:h-recovery-time",
+        "physiology-16:upstroke-order",
+        "physiology-16:refractory-gates",
+        "physiology-16:threshold-balance"
+      ],
+      "points": 12
     }
   ],
   "grading_policy": {
@@ -1645,15 +1744,20 @@
       "version": "0.4.8",
       "date": "2026-10-13",
       "summary": "Added an original passive membrane and cable-properties reading grouped with the week-4 membrane-potential lesson: the membrane as a parallel RC element, the size-independent time constant and compact-cell input resistance, the core-conductor length constant and electrotonic decay, conduction-velocity scaling with radius and myelination, and passive spread versus regenerated action potentials. MIT OCW 6.021J Fall 2004 (core-conductor, cable and myelinated-fiber lectures) is registered as a link-only comparator. Three objectives, ten formative items and four cards; no week was added. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.4.9",
+      "date": "2026-10-17",
+      "summary": "Added a Hodgkin–Huxley reading to week 3: the membrane equation, voltage clamp, gating variables and their kinetics, conductances from n⁴ and m³h, and threshold, spike shape and refractoriness explained by gate speeds, with numbers computed from the classic model. Eight numeric and four choice items, four retrieval cards, a practice assessment and independent recalculation tests were added; stale numeric-answer and significant-figure counts in the limitations were corrected. The package remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
     "The four original legacy units remain short primers despite their expansion; the package includes only one synthetic-data virtual lab and is not equivalent to a full university semester.",
     "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab, no substantive homework sequence, laboratory sequence, midterm, cumulative final, or active graded integrative project; the new renal-clearance ledger is an inactive authoring draft only.",
-    "Practice items are short formative checks (two per prototype unit and generally six to eight per expanded lesson); the hemodynamics week also includes a bounded cardiac pressure-volume addition. These items do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
+    "Practice items are short formative checks (two or three per prototype unit and six to twelve per expanded lesson); the hemodynamics lesson has thirteen because it also includes a bounded cardiac pressure-volume addition. These items do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
-    "Of the 64 numerical answers in this package, 36 require a unit, one checks significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
+    "Of the 78 numerical answers in this package, 35 require a unit and none checks significant figures or dimensions; the others accept a number within a stated tolerance, with the unit optional.",
     "Total workload and weekly duration are unknown; former nominal credit values and hardcoded reading times do not establish workload.",
     "All physiological scenarios, people and numbers are synthetic teaching examples; this package gives no medical advice, describes no real person's health and recommends no test or treatment."
   ],
