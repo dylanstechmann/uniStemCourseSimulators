@@ -110,7 +110,7 @@ test("learner drafts survive reload and protect against stale browser edits", as
   expect(accessibility.violations).toEqual([]);
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.screenshot({
-    path: "../.local/case-studio-desktop.png",
+    path: "test-results/case-studio-desktop.png",
     fullPage: true,
   });
 
@@ -144,7 +144,7 @@ test("case prompt and checklist fit a narrow screen", async ({ page }) => {
     ),
   ).toBe(true);
   await page.screenshot({
-    path: "../.local/case-studio-mobile.png",
+    path: "test-results/case-studio-mobile.png",
     fullPage: true,
   });
 });

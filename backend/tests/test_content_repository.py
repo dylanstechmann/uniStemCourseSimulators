@@ -482,6 +482,18 @@ def test_questions_use_manifest_bank_and_reject_unsafe_references(content_root):
         repository.questions("test-course")
 
 
+def test_package_archive_ignores_interpreter_caches(content_root):
+    package = content_root / "courses" / "test-course"
+    (package / "modules" / "__pycache__").mkdir()
+    (package / "modules" / "__pycache__" / "one.cpython-312.pyc").write_bytes(b"\x00bytecode")
+    (package / "modules" / "stale.pyc").write_bytes(b"\x00bytecode")
+
+    files = ContentRepository(content_root).package_files("test-course")
+
+    assert "modules/one.md" in files
+    assert not [name for name in files if "__pycache__" in name or name.endswith(".pyc")]
+
+
 def test_private_assessment_paths_are_confined_to_separate_read_root(tmp_path):
     public_root = tmp_path / "content"
     public_course = public_root / "courses" / "cell-biology"

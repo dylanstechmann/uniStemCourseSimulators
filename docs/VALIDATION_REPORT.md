@@ -5652,3 +5652,21 @@ Before committing, 352 working-copy text files had CRLF line endings, while `.gi
 | Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file. |
 
 Logs in `~/.cache/courselab-verify/20261014-002431/`. All packages remain partial, unreviewed and formative-only.
+
+## 2026-10-17: CI repair after the pushed commit
+
+GitHub run `39038660056` for `0362e21` failed in two jobs. In `content-backend`, eleven tests in the cell-biology digest, snapshot, recalculation and review-register checks expected the clean package digest `5761c217…`, while the pins held `03d27ea4…`. The local tree contained an ignored bytecode cache, `content/courses/cell-biology/assessment-specs/__pycache__/generate_project_dataset.cpython-312.pyc`. `ContentRepository.package_files` hashes every file in a package directory, so the cache changed the local digest; CI's clean checkout had no cache. In `frontend-e2e`, two Case Studio tests failed. Their screenshots were written to `../.local/`, which CI does not have, and the 390 px narrow-screen check found a horizontal overflow (scroll width 445 px) because the five course tabs in `.tabs` did not wrap.
+
+Repairs: the stray cache was removed. `package_files` now skips `__pycache__` directories and `.pyc` files, so interpreter caches cannot change a published digest, and `test_package_archive_ignores_interpreter_caches` covers this. The cell-biology digest was repinned in the snapshot (121 files, 2,076,971 bytes), the numeric and table recalculation reports, and the review register; the old value appeared only in those four files. `.tabs` now wraps. The Case Studio screenshots go to `frontend/test-results/`, which CI uploads as the browser-validation artifact.
+
+| Actual command/check | Result |
+| --- | --- |
+| Clean export of the working tree (tracked and untracked files, excluding `.local/`), root pytest | 3,314 passed, 1 skipped. |
+| Clean export, `tools/validate_content.py` | PASS: 25 courses, 443 lessons, 2,870 questions, 1,549 cards, 25 cases; 0 errors. |
+| Full verify, run `20261017-142735` | Content, legacy (7), security (1,606 files, 0 findings) and ruff passed; root 3,314 passed, 1 skipped; backend 6,067 passed, 2 skipped; frontend lint, 73 unit tests and build passed. |
+| Local Chromium layout check, built frontend with fixtures generated from the backend's public course DTO | Before the fix: scroll width 445 px at 390 px. After: scroll width equal to the viewport at 320, 390 and 1,280 px, with no overflowing element. This checks layout only. |
+| Not run | Docker Compose stack, the full Playwright suite (it needs the API stack) and the production compose file. |
+
+To run the browser check, Chromium's system libraries were installed in the dev container with `sudo npx playwright install-deps chromium`.
+
+Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container; logs in `~/.cache/courselab-verify/20261017-142735/`. All packages remain partial, unreviewed and formative-only.

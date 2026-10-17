@@ -105,6 +105,9 @@ class ContentRepository:
                 or any(part in {"", ".", ".."} for part in parts)
             ):
                 raise ContentInvalid("Unsafe content package path")
+            if "__pycache__" in parts or path.suffix == ".pyc":
+                # Interpreter caches are local build output, never course content.
+                continue
             payload = path.read_bytes()
             total_bytes += len(payload)
             if len(files) >= 10_000 or total_bytes > 64 * 1024 * 1024:
