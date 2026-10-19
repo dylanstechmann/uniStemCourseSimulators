@@ -1346,7 +1346,13 @@ test("the week-14 written-design studio is accessible and keyboard operable", as
   const objectiveLink = studio.getByRole("link", {
     name: "Variant mechanism and isogenic evidence",
   });
-  await studioLink.focus();
+  await expect(studioLink).toHaveAttribute("aria-current", "page");
+  // The Lessons navigation precedes the reader, so Tab from its last link enters the reading.
+  await page
+    .getByRole("navigation", { name: "Lessons" })
+    .getByRole("link")
+    .last()
+    .focus();
   await page.keyboard.press("Tab");
   await expect(objectiveLink).toBeFocused();
   await page.keyboard.press("Tab");

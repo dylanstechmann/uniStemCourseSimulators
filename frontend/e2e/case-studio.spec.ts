@@ -4,13 +4,25 @@ import AxeBuilder from "@axe-core/playwright";
 test("public case studios expose authored science and engineering checklists", async ({
   page,
 }) => {
+  // Cell Biology and Biochemistry list their preserved case first, then five project milestones.
+  const caseCounts: Record<string, number> = {
+    "cell-biology": 6,
+    circuits: 1,
+    biochemistry: 6,
+  };
   for (const course of ["cell-biology", "circuits", "biochemistry"]) {
     await page.goto(`/#/course/${course}/cases`);
     await expect(
       page.getByRole("heading", { name: "Case studio", exact: true }),
     ).toBeVisible();
+    const cases = page.getByRole("region", {
+      name: "Case response",
+      exact: true,
+    });
+    await expect(cases).toHaveCount(caseCounts[course]);
+    const firstCase = cases.first();
     await expect(
-      page.getByRole("heading", { name: "Case prompt", exact: true }),
+      firstCase.getByRole("heading", { name: "Case prompt", exact: true }),
     ).toBeVisible();
     const limitations = page.locator(
       'aside[aria-label="Course limitations"] details',
@@ -18,10 +30,12 @@ test("public case studios expose authored science and engineering checklists", a
     await page.getByText(/Read all .* course limitations/).click();
     await expect(limitations).toHaveAttribute("open", "");
     await page.getByText(/Read all .* course limitations/).click();
-    await expect(
-      page.getByRole("textbox", { name: "Your response" }),
-    ).toBeDisabled();
-    await expect(page.getByRole("checkbox")).toHaveCount(
+    for (const response of await page
+      .getByRole("textbox", { name: "Your response" })
+      .all()) {
+      await expect(response).toBeDisabled();
+    }
+    await expect(firstCase.getByRole("checkbox")).toHaveCount(
       course === "biochemistry" ? 6 : 3,
     );
     await expect(
@@ -54,46 +68,57 @@ test("learner drafts survive reload and protect against stale browser edits", as
   await page
     .getByRole("button", { name: "Enroll in partial course", exact: true })
     .click();
-  const response = page.getByRole("textbox", { name: "Your response" });
+  // The preserved case comes first; the project milestone self-checks follow it.
+  const firstCase = page
+    .getByRole("region", { name: "Case response", exact: true })
+    .first();
+  const response = firstCase.getByRole("textbox", { name: "Your response" });
   await expect(response).toBeEnabled();
   const text =
     "Compare matched surface abundance with transport in mutant, wild type, and a negative control. Test membrane potential and viability before attributing the loss to the pore.";
   await response.fill(text);
-  await page.getByRole("checkbox").first().focus();
+  await firstCase.getByRole("checkbox").first().focus();
   await page.keyboard.press("Space");
-  await page.getByRole("button", { name: "Save draft", exact: true }).focus();
+  await firstCase
+    .getByRole("button", { name: "Save draft", exact: true })
+    .focus();
   await page.keyboard.press("Enter");
   await expect(
-    page.getByRole("status").filter({ hasText: "Draft saved" }),
+    firstCase.getByRole("status").filter({ hasText: "Draft saved" }),
   ).toBeVisible();
   await page.reload();
   await expect(response).toHaveValue(text);
-  await expect(page.getByRole("checkbox").first()).toBeChecked();
+  await expect(firstCase.getByRole("checkbox").first()).toBeChecked();
 
   const otherTab = await context.newPage();
   await otherTab.goto("/#/course/cell-biology/cases");
+  const otherCase = otherTab
+    .getByRole("region", { name: "Case response", exact: true })
+    .first();
   await expect(
-    otherTab.getByRole("textbox", { name: "Your response" }),
+    otherCase.getByRole("textbox", { name: "Your response" }),
   ).toHaveValue(text);
   await response.fill("A newer saved response from the first tab.");
-  await page.getByRole("button", { name: "Save draft", exact: true }).click();
-  await expect(page.getByText(/revision 2/)).toBeVisible();
-  await otherTab
-    .getByRole("textbox", { name: "Your response" })
-    .fill("Unsaved text from the stale tab.");
-  await otherTab
+  await firstCase
     .getByRole("button", { name: "Save draft", exact: true })
     .click();
-  await expect(otherTab.getByRole("alert")).toContainText(
+  await expect(firstCase.getByText(/revision 2/)).toBeVisible();
+  await otherCase
+    .getByRole("textbox", { name: "Your response" })
+    .fill("Unsaved text from the stale tab.");
+  await otherCase
+    .getByRole("button", { name: "Save draft", exact: true })
+    .click();
+  await expect(otherCase.getByRole("alert")).toContainText(
     "saved draft changed",
   );
-  await expect(otherTab.getByRole("textbox")).toHaveValue(
+  await expect(otherCase.getByRole("textbox")).toHaveValue(
     "Unsaved text from the stale tab.",
   );
-  await otherTab
+  await otherCase
     .getByRole("button", { name: "Replace editor with saved draft" })
     .click();
-  await expect(otherTab.getByRole("textbox")).toHaveValue(
+  await expect(otherCase.getByRole("textbox")).toHaveValue(
     "A newer saved response from the first tab.",
   );
   await otherTab.close();
@@ -121,14 +146,19 @@ test("learner drafts survive reload and protect against stale browser edits", as
     `/#/course/cell-biology/version/${encodeURIComponent(course.version)}`,
   );
   await page.getByRole("link", { name: "Read archived case studio" }).click();
+  const archivedCase = page
+    .getByRole("region", { name: "Case response", exact: true })
+    .first();
   await expect(
-    page.getByRole("textbox", { name: "Your response" }),
+    archivedCase.getByRole("textbox", { name: "Your response" }),
   ).toHaveValue("A newer saved response from the first tab.");
   await expect(
-    page.getByRole("textbox", { name: "Your response" }),
+    archivedCase.getByRole("textbox", { name: "Your response" }),
   ).toBeDisabled();
   await expect(
-    page.getByText(/archived case and its saved response are read-only/),
+    archivedCase.getByText(
+      /archived case and its saved response are read-only/,
+    ),
   ).toBeVisible();
 });
 
