@@ -349,6 +349,11 @@ BIOCHEMISTRY_NUMERIC = {
     "biochemistry-lab2:ion-exchange-specific-activity": (10 * 300) / (10 * 0.80),
     "biochemistry-lab2:ion-exchange-recovery": (10 * 300) / (50 * 120) * 100,
     "biochemistry-lab2:sec-enrichment": (5 * 400 / (5 * 0.30)) / (50 * 120 / (50 * 2.00)),
+    # open homework and review practice (0.5.0), recomputed from the numbers in their prompts
+    "biochemistry-hw2:cooperative-switch": 100 * (20**2 / (10**2 + 20**2) - 5**2 / (10**2 + 5**2)),
+    "biochemistry-hw8:enzyme-turnover-time": 18 * math.log(1 / (1 - 0.75)) / math.log(2),
+    "biochemistry-midterm:active-enzyme-vmax": 0.85 * 40e-3 * 25 * 60,
+    "biochemistry-midterm:active-fraction-from-kcat": 100 * 96 / (1e-3 / 50_000 * 1e6 * 100 * 60),
 }
 
 

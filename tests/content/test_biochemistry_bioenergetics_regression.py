@@ -13,7 +13,7 @@ COURSE = ROOT / "content/courses/biochemistry"
 
 def test_carbon_redox_and_coupling_bookkeeping():
     manifest = json.loads((COURSE / "course.json").read_text(encoding="utf-8"))
-    assert manifest["version"].startswith("0.4.")
+    assert tuple(int(part) for part in manifest["version"].split(".")) >= (0, 4, 0)
     lesson = next(
         lesson
         for module in manifest["modules"]

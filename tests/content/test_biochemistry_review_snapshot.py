@@ -31,7 +31,7 @@ def test_biochemistry_review_snapshot_matches_public_package():
     )
 
     assert actual["course_id"] == "biochemistry"
-    assert actual["content_version"] == "0.4.85"
+    assert actual["content_version"] == "0.5.0"
     assert re.search(
         r"Public package archive SHA-256:\*\*\s*`([0-9a-f]{64})`", snapshot
     ).group(1) == actual["package_sha256"]
@@ -50,13 +50,14 @@ def test_biochemistry_kinetics_dataset_is_a_package_pinned_learner_resource():
         encoding="utf-8"
     )
 
-    assert manifest["learner_resources"] == ["labs/enzyme-kinetics-rates.csv"]
+    assert manifest["learner_resources"][0] == "labs/enzyme-kinetics-rates.csv"
     assert "[synthetic initial rates (CSV)](enzyme-kinetics-rates.csv)" in lesson
     assert "raw.githubusercontent.com" not in lesson
-    assert (course_root / manifest["learner_resources"][0]).is_file()
+    assert all((course_root / path).is_file() for path in manifest["learner_resources"])
+    # Inactive candidates stay bound to the released version they were drafted against.
+    history_versions = {entry["version"] for entry in manifest["history"]}
     assert all(
-        json.loads(candidate.read_text(encoding="utf-8"))["content_version"]
-        == manifest["version"]
+        json.loads(candidate.read_text(encoding="utf-8"))["content_version"] in history_versions
         for candidate in (course_root / "assessment-specs").glob("*-candidate.json")
     )
 

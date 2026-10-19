@@ -8,7 +8,7 @@ No course or candidate is activated by this command. `--check` detects report dr
 
 | Package | Version | Maturity | Declared review | Grading | Inactive drafts |
 | --- | --- | --- | --- | --- | ---: |
-| biochemistry | 0.4.85 | partial | unreviewed | formative-only | 11 |
+| biochemistry | 0.5.0 | partial | unreviewed | formative-only | 11 |
 | biomaterials | 0.3.10 | partial | unreviewed | formative-only | 0 |
 | bioreactors | 0.4.9 | partial | unreviewed | formative-only | 0 |
 | calculus-1 | 0.4.9 | partial | unreviewed | formative-only | 0 |

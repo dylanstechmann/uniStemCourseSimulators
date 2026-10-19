@@ -60,6 +60,195 @@
       "limitations": [
         "The checklist is an ungraded self-assessment, not an analytic grading rubric, collected response or institutional grade."
       ]
+    },
+    {
+      "id": "biochemistry:project-m1-charge",
+      "prompt": "Protein-state project milestone 1 (suggested week 5). Using the project condition table, calculate the fictional protein's net charge at pH 6 (condition A) and pH 8 (condition B) from the fractional ionization of its three group types. Explain the sign change and why charge alone does not determine K_d or folding stability.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "biochemistry-8-objective-1",
+        "biochemistry-8-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m1-charge-criterion-1",
+          "criterion": "I used the acid and base fraction formulas for each group type and kept the stated pKa values fixed.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-charge-criterion-2",
+          "criterion": "I reported both net charges with their signs and explained which groups change most between pH 6 and 8.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-charge-criterion-3",
+          "criterion": "I explained that the model treats stability and K_d as separate inputs, so charge does not determine them.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-charge-criterion-4",
+          "criterion": "I checked my method on the open rehearsal before applying it to conditions A and B.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the protein-state project. The response is saved privately and is never submitted, scored or graded; the separate inactive project candidate, its proposed rubric and its private worked solution remain unreviewed."
+      ]
+    },
+    {
+      "id": "biochemistry:project-m2-folding",
+      "prompt": "Protein-state project milestone 2 (suggested week 6). For conditions A and B, calculate ΔG_unfold at the stated denaturant concentration, K_u, the folded fraction and the active folded-protein total R_F, with units and intermediate values.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "biochemistry-9-objective-1",
+        "biochemistry-9-objective-2"
+      ],
+      "rubric": [
+        {
+          "id": "project-m2-folding-criterion-1",
+          "criterion": "I used ΔG_unfold = ΔG_H₂O − m[D] with the stated m-value and denaturant concentration for each condition.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-folding-criterion-2",
+          "criterion": "I converted with the stated R and T, reported K_u and the folded fraction, and kept intermediate values.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-folding-criterion-3",
+          "criterion": "I reported R_F in nM for each condition and named its denominator.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-folding-criterion-4",
+          "criterion": "I treated the stability parameters as supplied inputs, not values inferred from charge.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the protein-state project. The response is saved privately and is never submitted, scored or graded; the separate inactive project candidate, its proposed rubric and its private worked solution remain unreviewed."
+      ]
+    },
+    {
+      "id": "biochemistry:project-m3-binding",
+      "prompt": "Protein-state project milestone 3 (suggested week 7). For conditions A and B, calculate [RL] with the quadratic, the fraction of folded protein bound and the fraction of total protein both folded and bound. State each denominator.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "biochemistry-7-objective-1",
+        "biochemistry-7-objective-2"
+      ],
+      "rubric": [
+        {
+          "id": "project-m3-binding-criterion-1",
+          "criterion": "I used R_F rather than R_T in the quadratic and chose the physically possible root.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-binding-criterion-2",
+          "criterion": "I checked that [RL] is smaller than both R_F and L_T and that the stated K_d is recovered from free concentrations.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-binding-criterion-3",
+          "criterion": "I reported both fractions and named the denominator of each.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-binding-criterion-4",
+          "criterion": "I kept units in nM throughout and reported three significant figures.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the protein-state project. The response is saved privately and is never submitted, scored or graded; the separate inactive project candidate, its proposed rubric and its private worked solution remain unreviewed."
+      ]
+    },
+    {
+      "id": "biochemistry:project-m4-decision",
+      "prompt": "Protein-state project milestone 4 (suggested week 8). Compare the exact result with the free-ligand-equals-total approximation, state the direction of the approximation's error, and apply the fictional 0.70 target for total protein folded and bound to each condition.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "biochemistry-7-objective-2"
+      ],
+      "rubric": [
+        {
+          "id": "project-m4-decision-criterion-1",
+          "criterion": "I calculated the approximation for each condition and compared it with the exact value.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-decision-criterion-2",
+          "criterion": "I explained why the approximation overestimates binding when ligand depletion matters.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-decision-criterion-3",
+          "criterion": "I applied the 0.70 target to the total-protein fraction, not the folded-protein fraction.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-decision-criterion-4",
+          "criterion": "My decision says which condition meets the modeled threshold without claiming anything about a real protein.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the protein-state project. The response is saved privately and is never submitted, scored or graded; the separate inactive project candidate, its proposed rubric and its private worked solution remain unreviewed."
+      ]
+    },
+    {
+      "id": "biochemistry:project-m5-limitations",
+      "prompt": "Protein-state project milestone 5 (suggested week 8). Identify two assumptions whose failure would require a coupled or more detailed model, and explain what each failure would change. Do not interpret the calculation as evidence about any real protein, function or person.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "biochemistry-9-objective-3",
+        "biochemistry-7-objective-2"
+      ],
+      "rubric": [
+        {
+          "id": "project-m5-limitations-criterion-1",
+          "criterion": "I named at least two consequential assumptions, such as independent folding and binding, fixed pKa values, a single 1:1 site or equilibrium at measurement.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-limitations-criterion-2",
+          "criterion": "For each, I explained how its failure would change the calculation and what model would be needed.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-limitations-criterion-3",
+          "criterion": "I stated that all inputs are fictional and the result is not evidence about a real protein.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-limitations-criterion-4",
+          "criterion": "I disclosed any tools or AI assistance used.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the protein-state project. The response is saved privately and is never submitted, scored or graded; the separate inactive project candidate, its proposed rubric and its private worked solution remain unreviewed."
+      ]
     }
   ]
 }

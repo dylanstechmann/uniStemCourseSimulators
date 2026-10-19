@@ -1,12 +1,12 @@
 # Biochemistry workload pilot protocol
 
-**Status:** prospective protocol only. No learners have been recruited and no time data have been collected. This protocol is scoped to the public Biochemistry package 0.4.84, whose package archive SHA-256 is `b650c42d64a583e2828de5e588b646a0b9316b967332042a8d629b485fda28eb` and manifest SHA-256 is `cba02bb31072d88e073e4bf444771e5071743a2cc62a4b8c7f94d4fb82089751`. The course is partial, formative-only and unreviewed; this document is not workload evidence. Since version 0.4.38, the week-12 cholesterol/lipoprotein lesson adds a synthetic hepatocyte pool balance, two formative checks and a retrieval card; Homework 7 adds a ninth case, and the inactive cumulative final adds a distinct case for that objective. Version 0.4.44 adds a mixed-route nucleotide accounting objective, two formative checks and a card; Homework 5 adds an eighth case, and the cumulative final adds a fifteenth case. The week-2 urea-cycle stoichiometry and Homework 1 case, the week-13 PPP tracer lesson and Homework 8 case, and earlier expanded readings remain in this package target. This version-bound protocol supersedes the earlier target. Version 0.4.77 adds a bounded amino-acid tracer interpretation case to the inactive cumulative final; it does not make that case required learner work. The grading-policy proposal is inactive and does not define required learner work.
+**Status:** prospective protocol only. No learners have been recruited and no time data have been collected. This protocol is scoped to the public Biochemistry package 0.5.0, whose package archive SHA-256 is `a52e2b070fa41618c6b9d987b81508554e19f02b8c5d458cb1af743eb187d629` and manifest SHA-256 is `9d0c235ec2cc1ca6a52d8f595b8ee3a81ae1f5374e1607a072d5f1efb51b9020`. The course is partial, formative-only and unreviewed; this document is not workload evidence. Since version 0.4.38, the week-12 cholesterol/lipoprotein lesson adds a synthetic hepatocyte pool balance, two formative checks and a retrieval card; Homework 7 adds a ninth case, and the inactive cumulative final adds a distinct case for that objective. Version 0.4.44 adds a mixed-route nucleotide accounting objective, two formative checks and a card; Homework 5 adds an eighth case, and the cumulative final adds a fifteenth case. The week-2 urea-cycle stoichiometry and Homework 1 case, the week-13 PPP tracer lesson and Homework 8 case, and earlier expanded readings remain in this package target. This version-bound protocol supersedes the earlier target. Version 0.4.77 adds a bounded amino-acid tracer interpretation case to the inactive cumulative final; it does not make that case required learner work. The grading-policy proposal is inactive and does not define required learner work.
 
 ## Purpose and limits
 
 Estimate the time learners need for a frozen, owner-approved 14-week learner plan. Report required instruction and work separately from optional practice. The pilot estimates time for the tested version and sample. It does not establish learning effectiveness, academic credit equivalence, or workload for another version or learner population.
 
-The current package has no graded assignments, accepted list of required activities, due dates, weekly time targets, or selected credit/contact model. All practice is open and ungraded. Eight homework packets, the midterm, final and project are inactive drafts and cannot be counted as assigned work. Do not start recruitment until the course owner freezes the learner-facing plan and identifies which activities are required. If weekly target ranges and the contact-time rule are not set in advance, the study can describe observed time but cannot judge whether that time is appropriate.
+The current package has no graded assignments, accepted list of required activities, due dates, weekly time targets, or selected credit/contact model. All practice is open and ungraded. Since version 0.5.0, eight open homework practice sets, midterm and cumulative final review practice and an optional protein-state project with milestone self-checks are available; the owner may designate any of them as required or optional for a pilot. The separate inactive homework, exam and project candidates cannot be counted as assigned work. Do not start recruitment until the course owner freezes the learner-facing plan and identifies which activities are required. If weekly target ranges and the contact-time rule are not set in advance, the study can describe observed time but cannot judge whether that time is appropriate.
 
 ## Conditions before recruitment
 
@@ -22,39 +22,39 @@ Complete this target register after the owner freezes the learner plan. Blank en
 | --- | --- | --- | --- | --- | --- |
 | 1 | Protein structure and molecular recognition |  |  |  |  |
 | 2 | Amino-acid charge, nitrogen disposal and carbon metabolism |  |  |  |  |
-| 3 | Protein folding and stability |  |  |  |  |
-| 4 | Binding, purification and virtual purification lab |  |  |  |  |
+| 3 | Protein folding and stability: two-state thermodynamics and denaturant m-values |  |  |  |  |
+| 4 | Protein binding and purification: selectivity, depletion and activity evidence |  |  |  |  |
 | 5 | Enzyme mechanisms and inhibition |  |  |  |  |
-| 6 | Enzyme kinetics from data |  |  |  |  |
-| 7 | Virtual enzyme-kinetics lab |  |  |  |  |
-| 8 | Free energy and nucleotide biosynthesis |  |  |  |  |
-| 9 | Citric acid cycle and bioenergetics |  |  |  |  |
+| 6 | Enzyme kinetics from data: Vmax, Km, turnover and inhibition modes |  |  |  |  |
+| 7 | Virtual lab: enzyme kinetics and inhibition from replicate rates; midterm synthesis and review practice |  |  |  |  |
+| 8 | Free energy, nucleotide biosynthesis and salvage |  |  |  |  |
+| 9 | Central carbon metabolism: the citric acid cycle and bioenergetics |  |  |  |  |
 | 10 | Glycolysis, gluconeogenesis and reciprocal control |  |  |  |  |
 | 11 | Mitochondrial bioenergetics, fatty-acid oxidation and ketone bodies |  |  |  |  |
-| 12 | Glycogen, cholesterol and pathway regulation |  |  |  |  |
+| 12 | Glycogen, cholesterol metabolism and pathway regulation |  |  |  |  |
 | 13 | Flux control, pentose phosphate pathway and fatty-acid synthesis |  |  |  |  |
-| 14 | Metabolic perturbation and fed-to-fasting integration |  |  |  |  |
+| 14 | Metabolic perturbation and fed-to-fasting integration: ATP, carbon, redox and nitrogen; course synthesis and cumulative final review |  |  |  |  |
 
 The inventory below identifies currently published lessons and practice assessments for planning. It does not imply that any activity is required. Use the versioned manifest as the source of truth when filling the owner-approved plan.
 
 | Week | Current lesson IDs | Current formative assessment IDs |
 | --- | --- | --- |
 | 1 | `biochemistry-1` | `biochemistry-1-practice` |
-| 2 | `biochemistry-8`, `biochemistry-urea-cycle`, `biochemistry-amino-acid-carbon-skeletons` | `biochemistry-8-practice`, `biochemistry-urea-cycle-practice`, `biochemistry-amino-acid-carbon-skeletons-practice` |
+| 2 | `biochemistry-8`, `biochemistry-urea-cycle`, `biochemistry-amino-acid-carbon-skeletons`, `biochemistry-hw1` | `biochemistry-8-practice`, `biochemistry-urea-cycle-practice`, `biochemistry-amino-acid-carbon-skeletons-practice`, `biochemistry-hw1-practice` |
 | 3 | `biochemistry-9` | `biochemistry-9-practice` |
-| 4 | `biochemistry-7`, `biochemistry-protein-purification`, `biochemistry-lab-02` | `biochemistry-7-practice`, `biochemistry-protein-purification-practice`, `biochemistry-week4-purification-lab` |
-| 5 | `biochemistry-2` | `biochemistry-2-practice` |
-| 6 | `biochemistry-5` | `biochemistry-5-practice` |
-| 7 | `biochemistry-lab-01` | `biochemistry-week7-kinetics-lab` |
-| 8 | `biochemistry-6`, `biochemistry-nucleotide-biosynthesis` | `biochemistry-6-practice`, `biochemistry-nucleotide-biosynthesis-practice` |
-| 9 | `biochemistry-3`, `biochemistry-tca-cycle` | `biochemistry-3-practice`, `biochemistry-tca-cycle-practice` |
-| 10 | `biochemistry-10`, `biochemistry-gluconeogenesis` | `biochemistry-10-practice`, `biochemistry-gluconeogenesis-practice` |
+| 4 | `biochemistry-7`, `biochemistry-protein-purification`, `biochemistry-lab-02`, `biochemistry-hw2` | `biochemistry-7-practice`, `biochemistry-protein-purification-practice`, `biochemistry-week4-purification-lab`, `biochemistry-hw2-practice` |
+| 5 | `biochemistry-2`, `biochemistry-project-guide` | `biochemistry-2-practice`, `biochemistry-project-rehearsal-practice` |
+| 6 | `biochemistry-5`, `biochemistry-hw3` | `biochemistry-5-practice`, `biochemistry-hw3-practice` |
+| 7 | `biochemistry-lab-01`, `biochemistry-hw4`, `biochemistry-review-midterm-synthesis` | `biochemistry-week7-kinetics-lab`, `biochemistry-hw4-practice`, `biochemistry-week7-midterm-review-practice` |
+| 8 | `biochemistry-6`, `biochemistry-nucleotide-biosynthesis` | `biochemistry-6-practice`, `biochemistry-nucleotide-biosynthesis-practice`, `biochemistry-protein-state-project` |
+| 9 | `biochemistry-3`, `biochemistry-tca-cycle`, `biochemistry-hw5` | `biochemistry-3-practice`, `biochemistry-tca-cycle-practice`, `biochemistry-hw5-practice` |
+| 10 | `biochemistry-10`, `biochemistry-gluconeogenesis`, `biochemistry-hw6` | `biochemistry-10-practice`, `biochemistry-gluconeogenesis-practice`, `biochemistry-hw6-practice` |
 | 11 | `biochemistry-11`, `biochemistry-fatty-acid-oxidation`, `biochemistry-ketone-body-metabolism` | `biochemistry-11-practice`, `biochemistry-fatty-acid-oxidation-practice`, `biochemistry-ketone-body-metabolism-practice` |
-| 12 | `biochemistry-4`, `biochemistry-glycogen-metabolism`, `biochemistry-cholesterol-lipoproteins` | `biochemistry-4-practice`, `biochemistry-glycogen-metabolism-practice`, `biochemistry-cholesterol-lipoproteins-practice` |
+| 12 | `biochemistry-4`, `biochemistry-glycogen-metabolism`, `biochemistry-cholesterol-lipoproteins`, `biochemistry-hw7` | `biochemistry-4-practice`, `biochemistry-glycogen-metabolism-practice`, `biochemistry-cholesterol-lipoproteins-practice`, `biochemistry-hw7-practice` |
 | 13 | `biochemistry-12`, `biochemistry-pentose-phosphate`, `biochemistry-fatty-acid-synthesis` | `biochemistry-12-practice`, `biochemistry-pentose-phosphate-practice`, `biochemistry-fatty-acid-synthesis-practice` |
-| 14 | `biochemistry-13` | `biochemistry-13-practice`, `biochemistry-case` |
+| 14 | `biochemistry-13`, `biochemistry-hw8`, `biochemistry-review-final-synthesis` | `biochemistry-13-practice`, `biochemistry-case`, `biochemistry-hw8-practice`, `biochemistry-week14-final-review-practice` |
 
-The two virtual data-analysis labs use fictional datasets and contain no wet-lab protocol. The week-14 case is an ungraded self-check. Include either only if the course owner makes it part of the frozen required learner plan. Include optional retrieval cards, extra practice and retries in a separate optional-work total. If inactive candidates are later reviewed and assigned, update the frozen inventory and package hash before recruitment.
+The two virtual data-analysis labs use fictional datasets and contain no wet-lab protocol. The week-14 case is an ungraded self-check. Include either only if the course owner makes it part of the frozen required learner plan. The same applies to the open homework, review and project practice and the project milestone self-checks. Include optional retrieval cards, extra practice and retries in a separate optional-work total. If inactive candidates are later reviewed and assigned, update the frozen inventory and package hash before recruitment.
 
 ## Participants, logging and analysis
 
@@ -134,3 +134,5 @@ Version 0.4.82 expands the binding-equilibria reading with a derived ligand-depl
 
 Version 0.4.83 makes the reaction quotient's dimensionless standard-state normalization explicit and checks the displayed ATP, coupling, redox and equilibrium examples. It adds no required learner activity; the course remains unreviewed and formative-only.
 Version 0.4.84 aligns the kinetics-lab package label and verifies its displayed replicate means and reciprocal fits against the linked CSV. It adds no required learner activity; the course remains unreviewed and formative-only.
+
+Version 0.5.0 schedules eight open homework practice sets, week-7 midterm and week-14 cumulative final review practice, a week-5 project rehearsal and week-8 project milestone self-checks as ungraded practice. They add no required learner work until the owner freezes a plan; the inactive candidates remain outside the schedule.

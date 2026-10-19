@@ -179,8 +179,8 @@ def test_all_authored_courses_expose_their_existing_case_studies():
     repository = ContentRepository(root)
     courses = repository.catalog()
     assert len(courses) >= 25
-    # Cell Biology 0.62.0 adds five integrative-project milestone self-checks after its preserved case.
-    milestone_cases = {"cell-biology": 5}
+    # Cell Biology 0.62.0 and Biochemistry 0.5.0 each add five project milestone self-checks after the preserved case.
+    milestone_cases = {"cell-biology": 5, "biochemistry": 5}
     for summary in courses:
         course = repository.course(summary.id)
         assert len(course.case_studies) == 1 + milestone_cases.get(summary.id, 0)

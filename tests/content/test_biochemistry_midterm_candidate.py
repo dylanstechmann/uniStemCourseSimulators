@@ -17,6 +17,9 @@ SPEC = importlib.util.spec_from_file_location(
 )
 AUDIT = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(AUDIT)
+# Open homework, review and project lessons added in 0.5.0 revisit existing objectives; the inactive
+# candidate stays mapped to the topic lessons it was drafted against.
+OPEN_PRACTICE_LESSON_PREFIXES = ("biochemistry-hw", "biochemistry-review-", "biochemistry-project-")
 
 
 def test_midterm_candidate_is_answer_free_inactive_and_covers_first_seven_weeks():
@@ -27,6 +30,7 @@ def test_midterm_candidate_is_answer_free_inactive_and_covers_first_seven_weeks(
         for week in manifest["duration"]["weeks"]
         if week["week"] <= 7
         for lesson_id in week["lesson_ids"]
+        if not lesson_id.startswith(OPEN_PRACTICE_LESSON_PREFIXES)
     }
     lessons = {
         lesson["id"]: lesson

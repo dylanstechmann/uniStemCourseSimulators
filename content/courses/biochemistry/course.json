@@ -7,7 +7,7 @@
   "domain": "Biochemistry",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.4.85",
+  "version": "0.5.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -694,7 +694,7 @@
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week undergraduate sequence, not measured semester equivalence. It stages protein recognition before quantitative binding, thermodynamics before metabolic applications, and network perturbation before quantitative flux control. The schedule includes ungraded synthetic-data practice and two virtual data-analysis labs; there are no approved summative assessments or physical laboratory sequence.",
+    "equivalent_structure": "Proposed 14-week undergraduate sequence, not measured semester equivalence. It stages protein recognition before quantitative binding, thermodynamics before metabolic applications, and network perturbation before quantitative flux control. The schedule includes ungraded synthetic-data practice, two virtual data-analysis labs, eight open homework practice sets, midterm and cumulative final review practice and an optional protein-state project with Case studio self-checks; there are no approved summative assessments or physical laboratory sequence.",
     "weeks": [
       {
         "week": 1,
@@ -712,12 +712,14 @@
         "lesson_ids": [
           "biochemistry-8",
           "biochemistry-urea-cycle",
-          "biochemistry-amino-acid-carbon-skeletons"
+          "biochemistry-amino-acid-carbon-skeletons",
+          "biochemistry-hw1"
         ],
         "assessment_ids": [
           "biochemistry-8-practice",
           "biochemistry-urea-cycle-practice",
-          "biochemistry-amino-acid-carbon-skeletons-practice"
+          "biochemistry-amino-acid-carbon-skeletons-practice",
+          "biochemistry-hw1-practice"
         ]
       },
       {
@@ -736,42 +738,52 @@
         "lesson_ids": [
           "biochemistry-7",
           "biochemistry-protein-purification",
-          "biochemistry-lab-02"
+          "biochemistry-lab-02",
+          "biochemistry-hw2"
         ],
         "assessment_ids": [
           "biochemistry-7-practice",
           "biochemistry-protein-purification-practice",
-          "biochemistry-week4-purification-lab"
+          "biochemistry-week4-purification-lab",
+          "biochemistry-hw2-practice"
         ]
       },
       {
         "week": 5,
         "title": "Enzyme mechanisms and inhibition",
         "lesson_ids": [
-          "biochemistry-2"
+          "biochemistry-2",
+          "biochemistry-project-guide"
         ],
         "assessment_ids": [
-          "biochemistry-2-practice"
+          "biochemistry-2-practice",
+          "biochemistry-project-rehearsal-practice"
         ]
       },
       {
         "week": 6,
         "title": "Enzyme kinetics from data: Vmax, Km, turnover and inhibition modes",
         "lesson_ids": [
-          "biochemistry-5"
+          "biochemistry-5",
+          "biochemistry-hw3"
         ],
         "assessment_ids": [
-          "biochemistry-5-practice"
+          "biochemistry-5-practice",
+          "biochemistry-hw3-practice"
         ]
       },
       {
         "week": 7,
-        "title": "Virtual lab: enzyme kinetics and inhibition from replicate rates",
+        "title": "Virtual lab: enzyme kinetics and inhibition from replicate rates; midterm synthesis and review practice",
         "lesson_ids": [
-          "biochemistry-lab-01"
+          "biochemistry-lab-01",
+          "biochemistry-hw4",
+          "biochemistry-review-midterm-synthesis"
         ],
         "assessment_ids": [
-          "biochemistry-week7-kinetics-lab"
+          "biochemistry-week7-kinetics-lab",
+          "biochemistry-hw4-practice",
+          "biochemistry-week7-midterm-review-practice"
         ]
       },
       {
@@ -783,7 +795,8 @@
         ],
         "assessment_ids": [
           "biochemistry-6-practice",
-          "biochemistry-nucleotide-biosynthesis-practice"
+          "biochemistry-nucleotide-biosynthesis-practice",
+          "biochemistry-protein-state-project"
         ]
       },
       {
@@ -791,11 +804,13 @@
         "title": "Central carbon metabolism: the citric acid cycle and bioenergetics",
         "lesson_ids": [
           "biochemistry-3",
-          "biochemistry-tca-cycle"
+          "biochemistry-tca-cycle",
+          "biochemistry-hw5"
         ],
         "assessment_ids": [
           "biochemistry-3-practice",
-          "biochemistry-tca-cycle-practice"
+          "biochemistry-tca-cycle-practice",
+          "biochemistry-hw5-practice"
         ]
       },
       {
@@ -803,11 +818,13 @@
         "title": "Glycolysis, gluconeogenesis and reciprocal control",
         "lesson_ids": [
           "biochemistry-10",
-          "biochemistry-gluconeogenesis"
+          "biochemistry-gluconeogenesis",
+          "biochemistry-hw6"
         ],
         "assessment_ids": [
           "biochemistry-10-practice",
-          "biochemistry-gluconeogenesis-practice"
+          "biochemistry-gluconeogenesis-practice",
+          "biochemistry-hw6-practice"
         ]
       },
       {
@@ -830,12 +847,14 @@
         "lesson_ids": [
           "biochemistry-4",
           "biochemistry-glycogen-metabolism",
-          "biochemistry-cholesterol-lipoproteins"
+          "biochemistry-cholesterol-lipoproteins",
+          "biochemistry-hw7"
         ],
         "assessment_ids": [
           "biochemistry-4-practice",
           "biochemistry-glycogen-metabolism-practice",
-          "biochemistry-cholesterol-lipoproteins-practice"
+          "biochemistry-cholesterol-lipoproteins-practice",
+          "biochemistry-hw7-practice"
         ]
       },
       {
@@ -854,13 +873,17 @@
       },
       {
         "week": 14,
-        "title": "Metabolic perturbation and fed-to-fasting integration: ATP, carbon, redox and nitrogen",
+        "title": "Metabolic perturbation and fed-to-fasting integration: ATP, carbon, redox and nitrogen; course synthesis and cumulative final review",
         "lesson_ids": [
-          "biochemistry-13"
+          "biochemistry-13",
+          "biochemistry-hw8",
+          "biochemistry-review-final-synthesis"
         ],
         "assessment_ids": [
           "biochemistry-13-practice",
-          "biochemistry-case"
+          "biochemistry-case",
+          "biochemistry-hw8-practice",
+          "biochemistry-week14-final-review-practice"
         ]
       }
     ]
@@ -1903,6 +1926,356 @@
           ]
         }
       ]
+    },
+    {
+      "id": "biochemistry-module-hw-01",
+      "title": "Homework 1 practice: protein charge, nitrogen disposal and carbon fate",
+      "source_ids": [
+        "biochemistry",
+        "biology"
+      ],
+      "lessons": [
+        {
+          "id": "biochemistry-hw1",
+          "title": "Homework 1 practice: protein charge, nitrogen disposal and carbon fate (open, ungraded)",
+          "reading": "assignments/homework-01-charge-nitrogen-and-carbon.md",
+          "objectives": [
+            "biochemistry-8-objective-1",
+            "biochemistry-8-objective-3",
+            "biochemistry-urea-cycle-objective-1",
+            "biochemistry-urea-cycle-objective-3",
+            "biochemistry-urea-cycle-objective-2",
+            "biochemistry-amino-carbon-objective-2",
+            "biochemistry-amino-carbon-objective-3",
+            "biochemistry-1-objective-1",
+            "biochemistry-1-objective-2"
+          ],
+          "worked_example": "A culture that routes 20.0 μmol nitrogen to urea and contains 2.5 million viable cells forms 20.0/2 = 10.0 μmol urea, spends 30.0 μmol ATP molecules or 40.0 μmol high-energy phosphate equivalents, and has 10.0/2.5 = 4.00 μmol urea per million cells. Normalize each culture this way before averaging the cultures in a condition.",
+          "question_ids": [],
+          "card_ids": [
+            "biochemistry-hw1-1",
+            "biochemistry-hw1-2",
+            "biochemistry-hw1-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biochemistry-module-hw-02",
+      "title": "Homework 2 practice: stability, ligand depletion and replicate purification",
+      "source_ids": [
+        "biochemistry",
+        "biology"
+      ],
+      "lessons": [
+        {
+          "id": "biochemistry-hw2",
+          "title": "Homework 2 practice: stability, ligand depletion and replicate purification (open, ungraded)",
+          "reading": "assignments/homework-02-stability-binding-and-purification.md",
+          "objectives": [
+            "biochemistry-9-objective-1",
+            "biochemistry-9-objective-2",
+            "biochemistry-9-objective-3",
+            "biochemistry-7-objective-1",
+            "biochemistry-7-objective-2",
+            "biochemistry-protein-purification-objective-2",
+            "biochemistry-lab-02-objective-1",
+            "biochemistry-protein-purification-objective-1",
+            "biochemistry-lab-02-objective-2",
+            "biochemistry-7-objective-3"
+          ],
+          "worked_example": "A run with a 30 mL crude extract at 3.0 mg/mL and 100 U/mL and a 4 mL final pool at 0.30 mg/mL and 450 U/mL has crude totals of 90 mg and 3,000 U and final totals of 1.2 mg and 1,800 U. Recovery is 60% and fold enrichment is 1,500/33.3 = 45; compute both within each run before averaging runs.",
+          "question_ids": [],
+          "card_ids": [
+            "biochemistry-hw2-1",
+            "biochemistry-hw2-2",
+            "biochemistry-hw2-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biochemistry-module-hw-03",
+      "title": "Homework 3 practice: initial rates, efficiency and inhibition modes",
+      "source_ids": [
+        "biochemistry",
+        "biology"
+      ],
+      "lessons": [
+        {
+          "id": "biochemistry-hw3",
+          "title": "Homework 3 practice: initial rates, efficiency and inhibition modes (open, ungraded)",
+          "reading": "assignments/homework-03-initial-rates-and-inhibition.md",
+          "objectives": [
+            "biochemistry-5-objective-1",
+            "biochemistry-5-objective-3",
+            "biochemistry-2-objective-2",
+            "biochemistry-5-objective-2",
+            "biochemistry-2-objective-1"
+          ],
+          "worked_example": "An assay that forms 3.0 μM product in the first 5 minutes from 120 μM substrate has an early rate of 0.60 μM/min with 2.5% of the substrate used. A later window that gave a higher rate would signal a lag, activation or an assay artifact rather than an initial rate, so inspect the whole curve before choosing a window.",
+          "question_ids": [],
+          "card_ids": [
+            "biochemistry-hw3-1",
+            "biochemistry-hw3-2",
+            "biochemistry-hw3-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biochemistry-module-hw-04",
+      "title": "Homework 4 practice: fitting replicate rates without a reciprocal plot",
+      "source_ids": [
+        "biochemistry",
+        "biology"
+      ],
+      "lessons": [
+        {
+          "id": "biochemistry-hw4",
+          "title": "Homework 4 practice: fitting replicate rates without a reciprocal plot (open, ungraded)",
+          "reading": "assignments/homework-04-fitting-replicate-rates.md",
+          "objectives": [
+            "biochemistry-lab-01-objective-1",
+            "biochemistry-5-objective-3",
+            "biochemistry-lab-01-objective-2",
+            "biochemistry-lab-01-objective-3",
+            "biochemistry-5-objective-2"
+          ],
+          "worked_example": "For a fixed trial Km the best-fitting Vmax is Σ(v·x)/Σ(x²), with x = [S]/(Km + [S]) for each point. At Km = 4.0 μM the six control x values run from 0.200 to 0.889 and give Vmax ≈ 60.1 μM/min. Repeating this over nearby Km values and keeping the smallest residual sum of squares is a transparent check on a solver.",
+          "question_ids": [],
+          "card_ids": [
+            "biochemistry-hw4-1",
+            "biochemistry-hw4-2",
+            "biochemistry-hw4-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biochemistry-module-hw-05",
+      "title": "Homework 5 practice: free energy, redox, labeling and nucleotide links",
+      "source_ids": [
+        "biochemistry",
+        "biology"
+      ],
+      "lessons": [
+        {
+          "id": "biochemistry-hw5",
+          "title": "Homework 5 practice: free energy, redox, labeling and nucleotide links (open, ungraded)",
+          "reading": "assignments/homework-05-free-energy-redox-and-labeling.md",
+          "objectives": [
+            "biochemistry-6-objective-1",
+            "biochemistry-6-objective-2",
+            "biochemistry-6-objective-3",
+            "biochemistry-3-objective-2",
+            "biochemistry-tca-cycle-objective-3",
+            "biochemistry-tca-cycle-objective-1",
+            "biochemistry-nucleotide-objective-1",
+            "biochemistry-nucleotide-objective-2"
+          ],
+          "worked_example": "For a step with ΔG°′ = −4.0 kJ/mol and a product/substrate ratio of 8.0 at 37 °C, ΔG = −4.0 + 2.577 × ln 8.0 = +1.36 kJ/mol, so the step runs backward because K′eq = 4.72 is below 8.0. A culture with 60% M+0 citrate has a 40% labeled fraction, a property of the pool at harvest rather than a rate.",
+          "question_ids": [],
+          "card_ids": [
+            "biochemistry-hw5-1",
+            "biochemistry-hw5-2",
+            "biochemistry-hw5-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biochemistry-module-hw-06",
+      "title": "Homework 6 practice: energy charge, crossover and reciprocal control",
+      "source_ids": [
+        "biochemistry",
+        "biology"
+      ],
+      "lessons": [
+        {
+          "id": "biochemistry-hw6",
+          "title": "Homework 6 practice: energy charge, crossover and reciprocal control (open, ungraded)",
+          "reading": "assignments/homework-06-energy-charge-and-crossover.md",
+          "objectives": [
+            "biochemistry-10-objective-1",
+            "biochemistry-gluconeogenesis-objective-1",
+            "biochemistry-10-objective-3",
+            "biochemistry-12-objective-1",
+            "biochemistry-gluconeogenesis-objective-2"
+          ],
+          "worked_example": "With ATP 2.0 mM, ADP 0.40 mM and an adenylate kinase constant of 1, AMP = 0.16/2.0 = 0.080 mM and the energy charge is (2.0 + 0.20)/(2.0 + 0.40 + 0.080) = 0.887. In a crossover, the step whose substrate ratio rises above 1 while its product ratio falls below 1 is the candidate control site.",
+          "question_ids": [],
+          "card_ids": [
+            "biochemistry-hw6-1",
+            "biochemistry-hw6-2",
+            "biochemistry-hw6-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biochemistry-module-hw-07",
+      "title": "Homework 7 practice: fat and ketone fuels, proton leak and sterol feedback",
+      "source_ids": [
+        "biochemistry",
+        "biology"
+      ],
+      "lessons": [
+        {
+          "id": "biochemistry-hw7",
+          "title": "Homework 7 practice: fat and ketone fuels, proton leak and sterol feedback (open, ungraded)",
+          "reading": "assignments/homework-07-fuels-leak-and-sterol-feedback.md",
+          "objectives": [
+            "biochemistry-fatty-acid-objective-1",
+            "biochemistry-fatty-acid-objective-2",
+            "biochemistry-11-objective-2",
+            "biochemistry-ketone-objective-3",
+            "biochemistry-ketone-objective-2",
+            "biochemistry-11-objective-1",
+            "biochemistry-11-objective-3",
+            "biochemistry-cholesterol-objective-3",
+            "biochemistry-cholesterol-objective-1",
+            "biochemistry-glycogen-objective-2"
+          ],
+          "worked_example": "Lauroyl-CoA (C12:0) gives 5 turns and 6 acetyl-CoA, so 23 NADH, 11 FADH₂ and 6 GTP; from free laurate that is 23 × 2.5 + 11 × 1.5 + 6 − 2 = 78 ATP equivalents. A hepatocyte with synthesis 20, uptake 15, conversion 12 and export 8 μg/h gains 15 μg/h of cellular cholesterol, which is not a plasma LDL change.",
+          "question_ids": [],
+          "card_ids": [
+            "biochemistry-hw7-1",
+            "biochemistry-hw7-2",
+            "biochemistry-hw7-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biochemistry-module-hw-08",
+      "title": "Homework 8 practice: control, NADPH supply and a respiratory block",
+      "source_ids": [
+        "biochemistry",
+        "biology"
+      ],
+      "lessons": [
+        {
+          "id": "biochemistry-hw8",
+          "title": "Homework 8 practice: control, NADPH supply and a respiratory block (open, ungraded)",
+          "reading": "assignments/homework-08-control-nadph-and-respiratory-block.md",
+          "objectives": [
+            "biochemistry-12-objective-2",
+            "biochemistry-12-objective-3",
+            "biochemistry-fatty-synthesis-objective-1",
+            "biochemistry-ppp-objective-1",
+            "biochemistry-ppp-objective-2",
+            "biochemistry-13-objective-1",
+            "biochemistry-13-objective-2",
+            "biochemistry-13-objective-3"
+          ],
+          "worked_example": "With an ATP demand of 8.0 mmol/(L·h) and 85% oxidative supply, glucose uptake is 0.85 × 8.0/32 + 0.15 × 8.0/2 = 0.8125 mmol/(L·h), lactate output 1.20 and oxygen use 1.275. If glycolysis alone must meet the demand, uptake becomes 4.0 and lactate 8.0, a 4.9-fold rise in glucose uptake.",
+          "question_ids": [],
+          "card_ids": [
+            "biochemistry-hw8-1",
+            "biochemistry-hw8-2",
+            "biochemistry-hw8-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biochemistry-module-project",
+      "title": "Protein-state project guide (optional, ungraded)",
+      "source_ids": [
+        "biochemistry",
+        "biology"
+      ],
+      "lessons": [
+        {
+          "id": "biochemistry-project-guide",
+          "title": "Protein-state project guide: charge, folding and ligand binding (optional, ungraded)",
+          "reading": "assignments/protein-state-project-guide.md",
+          "objectives": [
+            "biochemistry-8-objective-1",
+            "biochemistry-8-objective-3",
+            "biochemistry-9-objective-1",
+            "biochemistry-9-objective-2",
+            "biochemistry-1-objective-2",
+            "biochemistry-7-objective-1",
+            "biochemistry-7-objective-2",
+            "biochemistry-9-objective-3"
+          ],
+          "worked_example": "For rehearsal protein C at 2.5 M denaturant, ΔG_unfold = 22 − 8 × 2.5 = 2.0 kJ/mol, K_u = 0.4463 and f_folded = 0.6914, so R_F = 34.6 nM. The quadratic with L_T = 100 nM and K_d = 15 nM gives [RL] = 28.6 nM: 0.826 of the folded protein and 0.571 of the total protein, below the fictional 0.70 target.",
+          "question_ids": [
+            "biochemistry-project:rehearsal-charge",
+            "biochemistry-project:rehearsal-folding",
+            "biochemistry-project:rehearsal-binding",
+            "biochemistry-project:rehearsal-assumptions"
+          ],
+          "card_ids": [
+            "biochemistry-project-1",
+            "biochemistry-project-2",
+            "biochemistry-project-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biochemistry-module-review-midterm",
+      "title": "Week 7 midterm synthesis and review (ungraded)",
+      "source_ids": [
+        "biochemistry",
+        "biology"
+      ],
+      "lessons": [
+        {
+          "id": "biochemistry-review-midterm-synthesis",
+          "title": "Midterm synthesis: one enzyme preparation from charge to rate (weeks 1–7)",
+          "reading": "modules/26-midterm-synthesis-proteins-binding-and-enzyme-evidence.md",
+          "objectives": [
+            "biochemistry-9-objective-1",
+            "biochemistry-7-objective-2",
+            "biochemistry-5-objective-1",
+            "biochemistry-protein-purification-objective-2",
+            "biochemistry-5-objective-3",
+            "biochemistry-lab-01-objective-3"
+          ],
+          "worked_example": "Enzyme E in 1.5 M urea has ΔG_unfold = 20 − 10 × 1.5 = 5.0 kJ/mol, so K_u = 0.133 and 0.883 of it is folded: 17.7 of 20 nM is active. With kcat = 30 s⁻¹, Vmax = 31.8 μM/min rather than 36.0. A competitive inhibitor at 4.0 μM that raises Km from 6.0 to 14.0 μM gives α = 2.33 and K_I = 3.0 μM.",
+          "question_ids": [],
+          "card_ids": [
+            "biochemistry-review-midterm-1",
+            "biochemistry-review-midterm-2",
+            "biochemistry-review-midterm-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biochemistry-module-review-final",
+      "title": "Week 14 course synthesis and final review (ungraded)",
+      "source_ids": [
+        "biochemistry",
+        "biology"
+      ],
+      "lessons": [
+        {
+          "id": "biochemistry-review-final-synthesis",
+          "title": "Final synthesis: ledgers for energy, carbon, redox and control (weeks 8–14)",
+          "reading": "modules/27-final-synthesis-energy-carbon-redox-and-control.md",
+          "objectives": [
+            "biochemistry-11-objective-2",
+            "biochemistry-12-objective-1",
+            "biochemistry-12-objective-3",
+            "biochemistry-gluconeogenesis-objective-2",
+            "biochemistry-ppp-objective-2",
+            "biochemistry-11-objective-3",
+            "biochemistry-13-objective-3"
+          ],
+          "worked_example": "A fasting hepatocyte model oxidizes 1.0 μmol palmitate to 8 acetyl-CoA (26 ATP equivalents after activation), oxidizes 2 acetyl-CoA in the cycle for 20 more and exports 3.0 μmol acetoacetate worth 57 ATP equivalents elsewhere. The total, 103, is three below complete oxidation in one place because SCOT bypasses one GTP-forming step per acetoacetate.",
+          "question_ids": [],
+          "card_ids": [
+            "biochemistry-review-final-1",
+            "biochemistry-review-final-2",
+            "biochemistry-review-final-3"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -2563,6 +2936,399 @@
         "biochemistry-lab2:enrichment-limit"
       ],
       "points": 7
+    },
+    {
+      "id": "biochemistry-hw1-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Homework 1: protein charge, nitrogen disposal and carbon fate (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 2,
+      "objective_ids": [
+        "biochemistry-8-objective-1",
+        "biochemistry-8-objective-3",
+        "biochemistry-urea-cycle-objective-1",
+        "biochemistry-urea-cycle-objective-3",
+        "biochemistry-urea-cycle-objective-2",
+        "biochemistry-amino-carbon-objective-2",
+        "biochemistry-amino-carbon-objective-3",
+        "biochemistry-1-objective-1",
+        "biochemistry-1-objective-2",
+        "biochemistry-outcome-1",
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ],
+      "question_ids": [
+        "biochemistry-hw1:charge-profile",
+        "biochemistry-hw1:nitrogen-ledger",
+        "biochemistry-hw1:urea-ledger-claims",
+        "biochemistry-hw1:carbon-fate-tracer",
+        "biochemistry-hw1:binding-variant"
+      ],
+      "points": 19
+    },
+    {
+      "id": "biochemistry-hw2-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Homework 2: stability, ligand depletion and replicate purification (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 4,
+      "objective_ids": [
+        "biochemistry-9-objective-1",
+        "biochemistry-9-objective-2",
+        "biochemistry-9-objective-3",
+        "biochemistry-7-objective-1",
+        "biochemistry-7-objective-2",
+        "biochemistry-protein-purification-objective-2",
+        "biochemistry-lab-02-objective-1",
+        "biochemistry-protein-purification-objective-1",
+        "biochemistry-lab-02-objective-2",
+        "biochemistry-7-objective-3",
+        "biochemistry-outcome-1",
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4",
+        "biochemistry-outcome-5"
+      ],
+      "question_ids": [
+        "biochemistry-hw2:stability-profile",
+        "biochemistry-hw2:ligand-depletion",
+        "biochemistry-hw2:replicate-purification",
+        "biochemistry-hw2:purification-claims",
+        "biochemistry-hw2:cooperative-switch"
+      ],
+      "points": 19
+    },
+    {
+      "id": "biochemistry-hw3-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Homework 3: initial rates, efficiency and inhibition modes (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 6,
+      "objective_ids": [
+        "biochemistry-5-objective-1",
+        "biochemistry-5-objective-3",
+        "biochemistry-2-objective-2",
+        "biochemistry-5-objective-2",
+        "biochemistry-2-objective-1",
+        "biochemistry-outcome-1",
+        "biochemistry-outcome-2"
+      ],
+      "question_ids": [
+        "biochemistry-hw3:progress-curve-summary",
+        "biochemistry-hw3:initial-rate-validity",
+        "biochemistry-hw3:efficiency-two-substrates",
+        "biochemistry-hw3:inhibition-modes",
+        "biochemistry-hw3:mechanism-claims"
+      ],
+      "points": 16
+    },
+    {
+      "id": "biochemistry-hw4-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Homework 4: fitting replicate rates without a reciprocal plot (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 7,
+      "objective_ids": [
+        "biochemistry-lab-01-objective-1",
+        "biochemistry-5-objective-3",
+        "biochemistry-lab-01-objective-2",
+        "biochemistry-lab-01-objective-3",
+        "biochemistry-5-objective-2",
+        "biochemistry-outcome-1",
+        "biochemistry-outcome-2",
+        "biochemistry-outcome-4"
+      ],
+      "question_ids": [
+        "biochemistry-hw4:replicate-means",
+        "biochemistry-hw4:nonlinear-fit",
+        "biochemistry-hw4:reciprocal-comparison",
+        "biochemistry-hw4:inhibition-constant",
+        "biochemistry-hw4:assay-claims"
+      ],
+      "points": 20
+    },
+    {
+      "id": "biochemistry-hw5-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Homework 5: free energy, redox, labeling and nucleotide links (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 9,
+      "objective_ids": [
+        "biochemistry-6-objective-1",
+        "biochemistry-6-objective-2",
+        "biochemistry-6-objective-3",
+        "biochemistry-3-objective-2",
+        "biochemistry-tca-cycle-objective-3",
+        "biochemistry-tca-cycle-objective-1",
+        "biochemistry-nucleotide-objective-1",
+        "biochemistry-nucleotide-objective-2",
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ],
+      "question_ids": [
+        "biochemistry-hw5:actual-delta-g",
+        "biochemistry-hw5:creatine-coupling",
+        "biochemistry-hw5:redox-ladder",
+        "biochemistry-hw5:citrate-labeling",
+        "biochemistry-hw5:labeling-claims",
+        "biochemistry-hw5:folate-and-nucleotides"
+      ],
+      "points": 21
+    },
+    {
+      "id": "biochemistry-hw6-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Homework 6: energy charge, crossover and reciprocal control (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 10,
+      "objective_ids": [
+        "biochemistry-10-objective-1",
+        "biochemistry-gluconeogenesis-objective-1",
+        "biochemistry-10-objective-3",
+        "biochemistry-12-objective-1",
+        "biochemistry-gluconeogenesis-objective-2",
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ],
+      "question_ids": [
+        "biochemistry-hw6:energy-charge",
+        "biochemistry-hw6:gluconeogenesis-from-lactate",
+        "biochemistry-hw6:crossover-means",
+        "biochemistry-hw6:crossover-step",
+        "biochemistry-hw6:reciprocal-control"
+      ],
+      "points": 20
+    },
+    {
+      "id": "biochemistry-hw7-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Homework 7: fat and ketone fuels, proton leak and sterol feedback (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 12,
+      "objective_ids": [
+        "biochemistry-fatty-acid-objective-1",
+        "biochemistry-fatty-acid-objective-2",
+        "biochemistry-11-objective-2",
+        "biochemistry-ketone-objective-3",
+        "biochemistry-ketone-objective-2",
+        "biochemistry-11-objective-1",
+        "biochemistry-11-objective-3",
+        "biochemistry-cholesterol-objective-3",
+        "biochemistry-cholesterol-objective-1",
+        "biochemistry-glycogen-objective-2",
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ],
+      "question_ids": [
+        "biochemistry-hw7:stearate-ledger",
+        "biochemistry-hw7:ketone-ledger",
+        "biochemistry-hw7:pmf-and-leak",
+        "biochemistry-hw7:cholesterol-ledger",
+        "biochemistry-hw7:liver-muscle-sterol"
+      ],
+      "points": 18
+    },
+    {
+      "id": "biochemistry-hw8-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Homework 8: control, NADPH supply and a respiratory block (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 14,
+      "objective_ids": [
+        "biochemistry-12-objective-2",
+        "biochemistry-12-objective-3",
+        "biochemistry-fatty-synthesis-objective-1",
+        "biochemistry-ppp-objective-1",
+        "biochemistry-ppp-objective-2",
+        "biochemistry-13-objective-1",
+        "biochemistry-13-objective-2",
+        "biochemistry-13-objective-3",
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ],
+      "question_ids": [
+        "biochemistry-hw8:control-coefficients",
+        "biochemistry-hw8:enzyme-turnover-time",
+        "biochemistry-hw8:nadph-supply",
+        "biochemistry-hw8:respiratory-block-means",
+        "biochemistry-hw8:respiratory-block-claims"
+      ],
+      "points": 18
+    },
+    {
+      "id": "biochemistry-project-rehearsal-practice",
+      "type": "data-analysis",
+      "mode": "practice",
+      "title": "Protein-state project rehearsal: condition C (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 5,
+      "objective_ids": [
+        "biochemistry-8-objective-1",
+        "biochemistry-8-objective-3",
+        "biochemistry-9-objective-1",
+        "biochemistry-9-objective-2",
+        "biochemistry-7-objective-2",
+        "biochemistry-7-objective-1",
+        "biochemistry-9-objective-3",
+        "biochemistry-outcome-1",
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ],
+      "question_ids": [
+        "biochemistry-project:rehearsal-charge",
+        "biochemistry-project:rehearsal-folding",
+        "biochemistry-project:rehearsal-binding",
+        "biochemistry-project:rehearsal-assumptions"
+      ],
+      "points": 12
+    },
+    {
+      "id": "biochemistry-week7-midterm-review-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Week 7 midterm review practice (ungraded; not a midterm exam)",
+      "path": "question-banks/practice.json",
+      "week": 7,
+      "objective_ids": [
+        "biochemistry-5-objective-1",
+        "biochemistry-9-objective-1",
+        "biochemistry-7-objective-2",
+        "biochemistry-5-objective-2",
+        "biochemistry-urea-cycle-objective-3",
+        "biochemistry-amino-carbon-objective-2",
+        "biochemistry-protein-purification-objective-2",
+        "biochemistry-7-objective-3",
+        "biochemistry-8-objective-3",
+        "biochemistry-9-objective-3",
+        "biochemistry-5-objective-3",
+        "biochemistry-2-objective-1",
+        "biochemistry-protein-purification-objective-1",
+        "biochemistry-lab-02-objective-2",
+        "biochemistry-lab-01-objective-3",
+        "biochemistry-1-objective-1",
+        "biochemistry-urea-cycle-objective-2",
+        "biochemistry-amino-carbon-objective-1",
+        "biochemistry-outcome-1",
+        "biochemistry-outcome-2",
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4",
+        "biochemistry-outcome-5"
+      ],
+      "question_ids": [
+        "biochemistry-midterm:active-enzyme-vmax",
+        "biochemistry-midterm:tight-binding-inhibitor",
+        "biochemistry-midterm:alanine-ledger",
+        "biochemistry-midterm:active-fraction-from-kcat",
+        "biochemistry-midterm:cross-week-statements",
+        "biochemistry-midterm:inhibition-or-inactivation",
+        "biochemistry-midterm:charge-and-separation",
+        "biochemistry-midterm:claim-levels",
+        "biochemistry-1:structure-levels",
+        "biochemistry-8:anion-exchange",
+        "biochemistry-urea-cycle:cps1-activator",
+        "biochemistry-amino-acid-carbon-skeletons:leucine-lysine",
+        "biochemistry-9:sign",
+        "biochemistry-7:hill-meaning",
+        "biochemistry-protein-purification:size-exclusion-order",
+        "biochemistry-lab2:orthogonal-step",
+        "biochemistry-2:check",
+        "biochemistry-5:double-reciprocal"
+      ],
+      "points": 30
+    },
+    {
+      "id": "biochemistry-week14-final-review-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Week 14 cumulative final review practice (ungraded; not a final exam)",
+      "path": "question-banks/practice.json",
+      "week": 14,
+      "objective_ids": [
+        "biochemistry-fatty-synthesis-objective-1",
+        "biochemistry-gluconeogenesis-objective-2",
+        "biochemistry-tca-cycle-objective-1",
+        "biochemistry-11-objective-2",
+        "biochemistry-fatty-acid-objective-2",
+        "biochemistry-ketone-objective-3",
+        "biochemistry-fatty-synthesis-objective-2",
+        "biochemistry-ketone-objective-1",
+        "biochemistry-11-objective-3",
+        "biochemistry-13-objective-3",
+        "biochemistry-6-objective-1",
+        "biochemistry-12-objective-3",
+        "biochemistry-12-objective-1",
+        "biochemistry-ppp-objective-1",
+        "biochemistry-ppp-objective-2",
+        "biochemistry-13-objective-2",
+        "biochemistry-nucleotide-objective-2",
+        "biochemistry-3-objective-3",
+        "biochemistry-10-objective-3",
+        "biochemistry-ketone-objective-2",
+        "biochemistry-4-objective-1",
+        "biochemistry-glycogen-objective-1",
+        "biochemistry-cholesterol-objective-2",
+        "biochemistry-12-objective-2",
+        "biochemistry-1-objective-2",
+        "biochemistry-8-objective-1",
+        "biochemistry-urea-cycle-objective-2",
+        "biochemistry-9-objective-2",
+        "biochemistry-7-objective-2",
+        "biochemistry-2-objective-2",
+        "biochemistry-lab-01-objective-2",
+        "biochemistry-outcome-1",
+        "biochemistry-outcome-2",
+        "biochemistry-outcome-3",
+        "biochemistry-outcome-4"
+      ],
+      "question_ids": [
+        "biochemistry-final:glucose-to-palmitate",
+        "biochemistry-final:atp-per-oxygen",
+        "biochemistry-final:fasting-signals",
+        "biochemistry-final:uncoupler-or-inhibitor",
+        "biochemistry-final:cross-week-statements",
+        "biochemistry-final:ppp-modes",
+        "biochemistry-final:claim-levels",
+        "biochemistry-6:positive-dg0-runs",
+        "biochemistry-nucleotide-biosynthesis:purine-salvage",
+        "biochemistry-3:pool-vs-turnover",
+        "biochemistry-tca-cycle:per-turn-output",
+        "biochemistry-10:pool-vs-flux",
+        "biochemistry-gluconeogenesis:net-glucose-carbon",
+        "biochemistry-fatty-acid-oxidation:malonyl-cpt1",
+        "biochemistry-ketone-body-metabolism:ketolysis-sequence",
+        "biochemistry-4:regulatory-layers",
+        "biochemistry-glycogen-metabolism:glycogen-phosphorylase",
+        "biochemistry-cholesterol-lipoproteins:ldl-receptor-ligand",
+        "biochemistry-12:rate-limiting",
+        "biochemistry-pentose-phosphate:no-direct-atp",
+        "biochemistry-fatty-acid-synthesis:citrate-shuttle",
+        "biochemistry-1:affinity-specificity-cooperativity",
+        "biochemistry-8:his-protonated",
+        "biochemistry-urea-cycle:fumarate-link",
+        "biochemistry-9:midpoint",
+        "biochemistry-7:depletion",
+        "biochemistry-2:catalytic-efficiency",
+        "biochemistry-lab1:inhibition-constant"
+      ],
+      "points": 42
+    },
+    {
+      "id": "biochemistry-protein-state-project",
+      "type": "project",
+      "mode": "self-assessment",
+      "title": "Protein-state project milestones M1–M5 in the Case studio (optional self-check; ungraded)",
+      "path": "rubrics/case-studio.json",
+      "week": 8,
+      "objective_ids": [],
+      "question_ids": [],
+      "points": 0
     }
   ],
   "grading_policy": {
@@ -2578,7 +3344,17 @@
   "source_map": "source-map.json",
   "syllabus": "syllabus.md",
   "learner_resources": [
-    "labs/enzyme-kinetics-rates.csv"
+    "labs/enzyme-kinetics-rates.csv",
+    "assignments/homework-01-nitrogen-ledger.csv",
+    "assignments/homework-02-replicate-purifications.csv",
+    "assignments/homework-03-progress-curves.csv",
+    "assignments/homework-04-replicate-rates.csv",
+    "assignments/homework-05-citrate-labeling.csv",
+    "assignments/homework-06-crossover.csv",
+    "assignments/homework-07-cholesterol-ledger.csv",
+    "assignments/homework-08-respiratory-block.csv",
+    "assignments/protein-state-rehearsal-condition.csv",
+    "assessment-specs/protein-state-binding-conditions.csv"
   ],
   "review": {
     "status": "unreviewed",
@@ -3050,20 +3826,28 @@
       "version": "0.4.85",
       "date": "2026-10-11",
       "summary": "Consolidated overlapping overview material: central-metabolism, free-energy and mitochondrial lessons now have distinct roles; pathway integration signposts the detailed flux-control treatment. Recorded the animal-cell scope and explicit photosynthesis boundary against MIT OCW 7.05 Spring 2020."
+    },
+    {
+      "version": "0.5.0",
+      "date": "2026-10-19",
+      "summary": "Made the planned homework, midterm and final review, and protein-state project usable by learners as ungraded practice. Eight open homework practice sets in weeks 2, 4, 6, 7, 9, 10, 12 and 14 pair original packets with synthetic CSV datasets and 41 new items. Week 7 adds a midterm synthesis reading and a 18-question midterm review practice set (8 new cross-week items plus 10 earlier items); week 14 adds a final synthesis reading and a 28-question cumulative final review practice set (7 new items plus 21 earlier items). Neither is an exam. Week 5 opens an optional protein-state project guide with a rehearsal condition and four open practice items, and five project milestones are Case studio self-checks. Inactive candidates, their private keys and prerequisite readings are unchanged; the course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
     "The proposed scope focuses on proteins, enzymes and heterotrophic animal-cell metabolism. Photosynthetic energy conversion and carbon assimilation, membrane transport mechanisms and translation are not taught as dedicated strands; MIT OCW 7.05 Spring 2020 includes them, so this package is narrower than that comparator.",
-    "A proposed 14-week schedule and inactive grading-policy proposal exist but are unmeasured and unreviewed. Two synthetic-data virtual labs provide a limited paper-only sequence, not a physical laboratory sequence; eight homework packets, two exams and a human-scored protein-state project remain inactive ungraded review candidates with private unreviewed solution/scoring drafts outside the public package. None is approved or active. Physical laboratory work is not authored.",
+    "A proposed 14-week schedule and inactive grading-policy proposal exist but are unmeasured and unreviewed. Two synthetic-data virtual labs provide a limited paper-only sequence, not a physical laboratory sequence. Eight homework packets, midterm and final review practice and an optional protein-state project are available as open, ungraded practice; the separate homework, exam and project candidates remain inactive with private unreviewed solution/scoring drafts outside the public package. None is approved or active as graded work. Physical laboratory work is not authored.",
     "Practice items are short formative checks; they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
-    "Of the 81 numerical practice answers in this package, 49 require a unit and 32 accept a number within a stated tolerance with the unit optional; none checks dimensions or significant figures.",
+    "Of the 90 numeric-type practice answers in this package, 56 require a unit and 34 accept a number within a stated tolerance with the unit optional; 3 also check significant figures, and none checks dimensions. The 63 numeric fields inside data-interpretation items check the stated significant figures, and the 9 CSV-upload items check fixed summary cells only.",
     "Total workload and weekly duration are unknown; former nominal credit values and hardcoded reading times do not establish workload.",
-    "All metabolic scenarios, cells and numbers are synthetic teaching examples; this package gives no laboratory protocols or medical advice and says nothing about any real compound, cell line or person."
+    "All metabolic scenarios, cells and numbers are synthetic teaching examples; this package gives no laboratory protocols or medical advice and says nothing about any real compound, cell line or person.",
+    "Homework 1 to 8 are openly licensed formative practice with publicly inspectable answer specifications; they are not suitable as protected assignments, do not contribute to a course grade and are not the inactive homework candidates. Their datasets are synthetic, and the software checks score deterministic numeric, table-cell and choice responses only.",
+    "The week-7 midterm review and week-14 cumulative final review combine new cross-week items with earlier public items. Their answers and feedback are public practice specifications, so neither can serve as a secure exam; scores are practice feedback and do not demonstrate mastery.",
+    "The protein-state project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice checks a separate synthetic condition C, and no software check evaluates a learner's condition A or B analysis or written interpretation. Milestone weeks are planning suggestions, not measured workload or deadlines."
   ],
   "intentionally_omitted": [
-    "No grading policy or summative assessment is approved, and a physical laboratory sequence is not authored; eight answer-free homework candidates, two exams, the human-scored project and two synthetic-data virtual labs remain ungraded drafts. All eleven homework/exam/project candidates have private unreviewed key or scoring drafts held outside the public package. The original lessons extend a partial package.",
+    "No grading policy or summative assessment is approved, and a physical laboratory sequence is not authored. Open homework, review and project practice is ungraded; the eight answer-free homework candidates, two exam candidates and the human-scored project candidate remain inactive drafts, each with a private unreviewed key or scoring draft held outside the public package. The original lessons extend a partial package.",
     "Photosystem light harvesting and electron transport, photophosphorylation, Calvin–Benson CO₂ assimilation, membrane transport mechanisms and translation are deliberately deferred from this animal-cell-focused partial sequence; MIT OCW 7.05 Spring 2020 includes these topics."
   ]
 }

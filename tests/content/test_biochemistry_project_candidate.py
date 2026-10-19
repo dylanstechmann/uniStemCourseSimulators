@@ -24,7 +24,9 @@ def test_project_is_mapped_human_review_candidate_without_public_solution():
     rubric = (COURSE / candidate["human_portfolio_path"]).read_text(encoding="utf-8")
 
     assert manifest["version"] == manifest["history"][-1]["version"]
-    assert candidate["content_version"] == manifest["version"]
+    # The candidate stays bound to the released version it was drafted against.
+    assert candidate["content_version"] == "0.4.85"
+    assert candidate["content_version"] in {entry["version"] for entry in manifest["history"]}
     assert candidate["assessment_kind"] == "human-portfolio"
     assert candidate["state"] == "inactive-review-candidate"
     assert candidate["review"] == {"status": "unreviewed", "reviewers": []}

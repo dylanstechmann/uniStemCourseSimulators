@@ -18,6 +18,9 @@ SPEC = importlib.util.spec_from_file_location(
 )
 AUDIT = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(AUDIT)
+# Version 0.5.0 schedules open homework, review and project lessons beside the topic lessons. They revisit
+# existing objectives; the inactive candidates stay mapped to the topic lessons they were drafted against.
+OPEN_PRACTICE_LESSON_PREFIXES = ("biochemistry-hw", "biochemistry-review-", "biochemistry-project-")
 
 
 def _candidate(number: int) -> dict:
@@ -49,7 +52,10 @@ def test_homework_candidates_cover_their_scheduled_objectives_without_live_polic
             if week["week"] in weeks
         ]
         expected_lessons = [
-            lesson_id for week in scheduled for lesson_id in week["lesson_ids"]
+            lesson_id
+            for week in scheduled
+            for lesson_id in week["lesson_ids"]
+            if not lesson_id.startswith(OPEN_PRACTICE_LESSON_PREFIXES)
         ]
         expected_objectives = {
             objective_id
