@@ -23,7 +23,7 @@ def test_generated_report_is_current_and_reports_are_not_maturity_evidence():
     assert report["grading_mode"] == "formative-only"
     assert report["evidence_scope"] == "public-practice-format-and-ungraded-writing-resource-inventory-only"
     assert len(report["objectives"]) == 69
-    assert report["questions"] == 166
+    assert report["questions"] == 183
     assert len(report["ungraded_written_response_lessons"]) == 2
     assert rendered == (ROOT / "docs/CELL_BIOLOGY_RESPONSE_MODE_AUDIT.md").read_text(encoding="utf-8")
     assert "does not score question quality" in rendered

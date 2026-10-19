@@ -99,4 +99,25 @@ describe("typed course schedule", () => {
       screen.getByRole("link", { name: "Transport case" }),
     ).toHaveAttribute("href", "#/course/cell-biology/version/0.61.0/cases");
   });
+
+  it("links self-assessed project milestones to the case studio, never to the gradebook", () => {
+    const projectWeek: CourseWeek = {
+      week: 14,
+      title: "Integration",
+      lessons: [],
+      assessments: [
+        {
+          id: "project",
+          title: "Integrative project milestones",
+          type: "project",
+          mode: "self-assessment",
+        },
+      ],
+    };
+    render(<CourseSchedule courseId="cell-biology" weeks={[projectWeek]} />);
+    expect(
+      screen.getByRole("link", { name: "Integrative project milestones" }),
+    ).toHaveAttribute("href", "#/course/cell-biology/cases");
+    expect(screen.getByText(/self assessment/)).toBeInTheDocument();
+  });
 });

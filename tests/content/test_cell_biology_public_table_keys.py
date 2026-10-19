@@ -2,6 +2,7 @@ import csv
 import json
 import math
 import re
+from fractions import Fraction
 from pathlib import Path
 
 
@@ -43,6 +44,12 @@ SOURCES = {
     "cell-biology-lab3:summary-table": (
         "labs/lineage-timecourse.csv", "condition", "culture", "day",
     ),
+    "cell-biology-final:clone-summary-table": (
+        "assignments/final-review-feedback-variant-clones.csv", "genotype", "clone", None,
+    ),
+    "cell-biology-project:rehearsal-summary": (
+        "assignments/project-rehearsal-cultures.csv", "condition", "culture", None,
+    ),
 }
 
 OUTPUT_TO_SOURCE_COLUMN = {
@@ -71,7 +78,26 @@ OUTPUT_TO_SOURCE_COLUMN = {
     "mean_lineage_pct": "lineage_marker_pct",
     "mean_pluripotency_pct": "pluripotency_marker_pct",
     "mean_cells_thousands": "cells_per_well_thousands",
+    "mean_f_half_life_h": "f_half_life_h",
+    "mean_perk_60_fold": "perk_60_fold",
 }
+
+
+def _rehearsal_value(row, column):
+    """Recompute the project-guide transformations from the CSV strings with exact arithmetic."""
+    value = {name: Fraction(text) for name, text in row.items() if name not in {"form", "condition", "culture"}}
+    per_thousand = value["viable_cells"] / 1000
+    if column == "mean_rna_per_1000_viable":
+        corrected = (value["rna_signal_eq"] - value["rna_background_eq"]) * value["spike_input_eq"] / value["spike_recovered_eq"]
+        return float(corrected / per_thousand)
+    if column == "mean_protein_ug_per_1000_viable":
+        corrected = (value["protein_signal_ug"] - value["protein_background_ug"]) / value["protein_recovery_fraction"]
+        return float(corrected / per_thousand)
+    if column == "mean_marker_pct":
+        return float(100 * value["marker_positive_viable"] / value["viable_cells"])
+    if column == "mean_function_pct":
+        return float(100 * value["functional_events_viable"] / value["viable_cells"])
+    raise AssertionError(f"No rehearsal transformation for {column}")
 
 
 def _load_csv(path):
@@ -108,7 +134,7 @@ def test_public_table_checks_reconcile_to_source_csvs_and_replicate_values():
         question for question in questions
         if question.get("solution_spec", {}).get("validation_spec", {}).get("checks")
     ]
-    assert len(table_questions) == 12
+    assert len(table_questions) == 14
 
     verified_checks = 0
     for question in table_questions:
@@ -142,6 +168,8 @@ def test_public_table_checks_reconcile_to_source_csvs_and_replicate_values():
                     100 * float(row["marker_positive_nuclei"]) / float(row["viable_nuclei"])
                     for row in selected
                 ]
+            elif question_id == "cell-biology-project:rehearsal-summary":
+                source_values = [_rehearsal_value(row, check["column"]) for row in selected]
             else:
                 source_column = OUTPUT_TO_SOURCE_COLUMN[check["column"]]
                 assert source_column is not None
@@ -173,7 +201,7 @@ def test_public_table_checks_reconcile_to_source_csvs_and_replicate_values():
             )
             verified_checks += 1
 
-    assert verified_checks == 114
+    assert verified_checks == 133
 
 
 def test_lineage_lab_distinguishes_culture_records_from_measured_values():

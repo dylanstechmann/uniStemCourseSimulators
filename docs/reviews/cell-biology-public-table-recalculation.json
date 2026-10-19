@@ -2,13 +2,17 @@
   "schema_version": "1.0",
   "evidence_scope": "author-side-public-formative-source-reconciliation",
   "course_id": "cell-biology",
-  "course_version": "0.61.1",
-  "public_package_sha256": "5761c21777360714834dfbcfee3f17928ee49fd3f8c058876fcfa553b593e91b",
+  "course_version": "0.62.0",
+  "public_package_sha256": "7a81c83a2b264e8f3b5da2266f0aed52245c220235a4c972b2eaf32718ca2e2a",
   "question_bank": {
     "path": "content/courses/cell-biology/question-banks/practice.json",
-    "sha256": "68b0e02f9e4c86515b642b0539c04d2cb0cf47f298dd05ff96d91326aa829ccd"
+    "sha256": "080ca088345266785819a78da51594b068fd8b6ed740ebd9825ad337f554fce1"
   },
   "public_sources": [
+    {
+      "path": "content/courses/cell-biology/assignments/final-review-feedback-variant-clones.csv",
+      "sha256": "eac42e87dff6faddd736e6683387c9b45085f0198f0d0bc140531c9c17118013"
+    },
     {
       "path": "content/courses/cell-biology/assignments/homework-01-m6p-sorting.csv",
       "sha256": "19c433e974d07554b6ba68a65ed49a744f856801d0c0755fc0c4668e5d81c6ec"
@@ -42,6 +46,10 @@
       "sha256": "94031363f5e735e0c2acc98196017dd653af3ff1299edc7da7e90c37db8baaea"
     },
     {
+      "path": "content/courses/cell-biology/assignments/project-rehearsal-cultures.csv",
+      "sha256": "bf520c6f48c4345c2f2af5f7327d9af2b2a6c7d4c9d61abbd0757336d9224c79"
+    },
+    {
       "path": "content/courses/cell-biology/labs/image-counts.csv",
       "sha256": "d737f6005a9265d002385f56f68c01fb5780c9820e42616d63fee2efddc17b73"
     },
@@ -60,9 +68,9 @@
     "qualified_reviewer_identity_verified": false,
     "release_authorized": false
   },
-  "question_count": 12,
-  "check_count": 114,
-  "passed_check_count": 114,
+  "question_count": 14,
+  "check_count": 133,
+  "passed_check_count": 133,
   "results": [
     {
       "question_id": "cell-biology-11:image-quantification-summary",
@@ -226,6 +234,195 @@
       "replicate_count": 4,
       "computed": 2.75,
       "authored_answer": 2.75,
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.005,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.005,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-final:clone-summary-table",
+      "check_id": "reference-clone_count",
+      "source": "content/courses/cell-biology/assignments/final-review-feedback-variant-clones.csv",
+      "row_id": "reference",
+      "operation": "count",
+      "replicate_values": [
+        5.8,
+        6.1,
+        6.2,
+        5.9
+      ],
+      "replicate_count": 4,
+      "computed": 4,
+      "authored_answer": 4.0,
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.0,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.0,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-final:clone-summary-table",
+      "check_id": "reference-mean_f_half_life_h",
+      "source": "content/courses/cell-biology/assignments/final-review-feedback-variant-clones.csv",
+      "row_id": "reference",
+      "operation": "mean",
+      "replicate_values": [
+        5.8,
+        6.1,
+        6.2,
+        5.9
+      ],
+      "replicate_count": 4,
+      "computed": 6.0,
+      "authored_answer": 6.0,
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.005,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.005,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-final:clone-summary-table",
+      "check_id": "reference-mean_perk_60_fold",
+      "source": "content/courses/cell-biology/assignments/final-review-feedback-variant-clones.csv",
+      "row_id": "reference",
+      "operation": "mean",
+      "replicate_values": [
+        3.3,
+        3.5,
+        3.4,
+        3.4
+      ],
+      "replicate_count": 4,
+      "computed": 3.4,
+      "authored_answer": 3.4,
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.005,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.005,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-final:clone-summary-table",
+      "check_id": "knock_in-clone_count",
+      "source": "content/courses/cell-biology/assignments/final-review-feedback-variant-clones.csv",
+      "row_id": "knock_in",
+      "operation": "count",
+      "replicate_values": [
+        2.1,
+        1.9,
+        2.0,
+        2.0
+      ],
+      "replicate_count": 4,
+      "computed": 4,
+      "authored_answer": 4.0,
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.0,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.0,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-final:clone-summary-table",
+      "check_id": "knock_in-mean_f_half_life_h",
+      "source": "content/courses/cell-biology/assignments/final-review-feedback-variant-clones.csv",
+      "row_id": "knock_in",
+      "operation": "mean",
+      "replicate_values": [
+        2.1,
+        1.9,
+        2.0,
+        2.0
+      ],
+      "replicate_count": 4,
+      "computed": 2.0,
+      "authored_answer": 2.0,
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.005,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.005,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-final:clone-summary-table",
+      "check_id": "knock_in-mean_perk_60_fold",
+      "source": "content/courses/cell-biology/assignments/final-review-feedback-variant-clones.csv",
+      "row_id": "knock_in",
+      "operation": "mean",
+      "replicate_values": [
+        5.1,
+        5.3,
+        5.2,
+        5.2
+      ],
+      "replicate_count": 4,
+      "computed": 5.2,
+      "authored_answer": 5.2,
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.005,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.005,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-final:clone-summary-table",
+      "check_id": "corrected-clone_count",
+      "source": "content/courses/cell-biology/assignments/final-review-feedback-variant-clones.csv",
+      "row_id": "corrected",
+      "operation": "count",
+      "replicate_values": [
+        5.7,
+        5.9,
+        5.8,
+        5.8
+      ],
+      "replicate_count": 4,
+      "computed": 4,
+      "authored_answer": 4.0,
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.0,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.0,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-final:clone-summary-table",
+      "check_id": "corrected-mean_f_half_life_h",
+      "source": "content/courses/cell-biology/assignments/final-review-feedback-variant-clones.csv",
+      "row_id": "corrected",
+      "operation": "mean",
+      "replicate_values": [
+        5.7,
+        5.9,
+        5.8,
+        5.8
+      ],
+      "replicate_count": 4,
+      "computed": 5.8,
+      "authored_answer": 5.8,
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.005,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.005,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-final:clone-summary-table",
+      "check_id": "corrected-mean_perk_60_fold",
+      "source": "content/courses/cell-biology/assignments/final-review-feedback-variant-clones.csv",
+      "row_id": "corrected",
+      "operation": "mean",
+      "replicate_values": [
+        3.5,
+        3.6,
+        3.4,
+        3.5
+      ],
+      "replicate_count": 4,
+      "computed": 3.5,
+      "authored_answer": 3.5,
       "absolute_error": 0.0,
       "absolute_tolerance": 0.005,
       "relative_tolerance": 0.0,
@@ -2452,6 +2649,216 @@
       "replicate_count": 4,
       "computed": 241.0,
       "authored_answer": 241.0,
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.005,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.005,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-project:rehearsal-summary",
+      "check_id": "control-culture_count",
+      "source": "content/courses/cell-biology/assignments/project-rehearsal-cultures.csv",
+      "row_id": "control",
+      "operation": "count",
+      "replicate_values": [
+        62.5,
+        50.0,
+        50.0,
+        60.0
+      ],
+      "replicate_count": 4,
+      "computed": 4,
+      "authored_answer": 4.0,
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.0,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.0,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-project:rehearsal-summary",
+      "check_id": "control-mean_rna_per_1000_viable",
+      "source": "content/courses/cell-biology/assignments/project-rehearsal-cultures.csv",
+      "row_id": "control",
+      "operation": "mean",
+      "replicate_values": [
+        62.5,
+        50.0,
+        50.0,
+        60.0
+      ],
+      "replicate_count": 4,
+      "computed": 55.625,
+      "authored_answer": 55.625,
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.006,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.006,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-project:rehearsal-summary",
+      "check_id": "control-mean_protein_ug_per_1000_viable",
+      "source": "content/courses/cell-biology/assignments/project-rehearsal-cultures.csv",
+      "row_id": "control",
+      "operation": "mean",
+      "replicate_values": [
+        0.0625,
+        0.08,
+        0.05,
+        0.08
+      ],
+      "replicate_count": 4,
+      "computed": 0.068125,
+      "authored_answer": 0.068125,
+      "absolute_error": 0.0,
+      "absolute_tolerance": 6e-05,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 6e-05,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-project:rehearsal-summary",
+      "check_id": "control-mean_marker_pct",
+      "source": "content/courses/cell-biology/assignments/project-rehearsal-cultures.csv",
+      "row_id": "control",
+      "operation": "mean",
+      "replicate_values": [
+        20.0,
+        22.0,
+        25.0,
+        17.0
+      ],
+      "replicate_count": 4,
+      "computed": 21.0,
+      "authored_answer": 21.0,
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.005,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.005,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-project:rehearsal-summary",
+      "check_id": "control-mean_function_pct",
+      "source": "content/courses/cell-biology/assignments/project-rehearsal-cultures.csv",
+      "row_id": "control",
+      "operation": "mean",
+      "replicate_values": [
+        5.0,
+        6.0,
+        5.0,
+        5.0
+      ],
+      "replicate_count": 4,
+      "computed": 5.25,
+      "authored_answer": 5.25,
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.005,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.005,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-project:rehearsal-summary",
+      "check_id": "signal_high-culture_count",
+      "source": "content/courses/cell-biology/assignments/project-rehearsal-cultures.csv",
+      "row_id": "signal_high",
+      "operation": "count",
+      "replicate_values": [
+        300.0,
+        200.0,
+        200.0,
+        250.0
+      ],
+      "replicate_count": 4,
+      "computed": 4,
+      "authored_answer": 4.0,
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.0,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.0,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-project:rehearsal-summary",
+      "check_id": "signal_high-mean_rna_per_1000_viable",
+      "source": "content/courses/cell-biology/assignments/project-rehearsal-cultures.csv",
+      "row_id": "signal_high",
+      "operation": "mean",
+      "replicate_values": [
+        300.0,
+        200.0,
+        200.0,
+        250.0
+      ],
+      "replicate_count": 4,
+      "computed": 237.5,
+      "authored_answer": 237.5,
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.006,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.006,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-project:rehearsal-summary",
+      "check_id": "signal_high-mean_protein_ug_per_1000_viable",
+      "source": "content/courses/cell-biology/assignments/project-rehearsal-cultures.csv",
+      "row_id": "signal_high",
+      "operation": "mean",
+      "replicate_values": [
+        0.16,
+        0.16,
+        0.15,
+        0.18
+      ],
+      "replicate_count": 4,
+      "computed": 0.1625,
+      "authored_answer": 0.1625,
+      "absolute_error": 0.0,
+      "absolute_tolerance": 6e-05,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 6e-05,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-project:rehearsal-summary",
+      "check_id": "signal_high-mean_marker_pct",
+      "source": "content/courses/cell-biology/assignments/project-rehearsal-cultures.csv",
+      "row_id": "signal_high",
+      "operation": "mean",
+      "replicate_values": [
+        50.0,
+        30.0,
+        45.0,
+        35.0
+      ],
+      "replicate_count": 4,
+      "computed": 40.0,
+      "authored_answer": 40.0,
+      "absolute_error": 0.0,
+      "absolute_tolerance": 0.005,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.005,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-project:rehearsal-summary",
+      "check_id": "signal_high-mean_function_pct",
+      "source": "content/courses/cell-biology/assignments/project-rehearsal-cultures.csv",
+      "row_id": "signal_high",
+      "operation": "mean",
+      "replicate_values": [
+        8.0,
+        7.0,
+        9.0,
+        8.0
+      ],
+      "replicate_count": 4,
+      "computed": 8.0,
+      "authored_answer": 8.0,
       "absolute_error": 0.0,
       "absolute_tolerance": 0.005,
       "relative_tolerance": 0.0,

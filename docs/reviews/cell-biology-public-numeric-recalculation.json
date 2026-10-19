@@ -2,11 +2,11 @@
   "schema_version": "1.0",
   "evidence_scope": "author-side-public-formative-numeric-key-recalculation",
   "course_id": "cell-biology",
-  "course_version": "0.61.1",
-  "public_package_sha256": "5761c21777360714834dfbcfee3f17928ee49fd3f8c058876fcfa553b593e91b",
+  "course_version": "0.62.0",
+  "public_package_sha256": "7a81c83a2b264e8f3b5da2266f0aed52245c220235a4c972b2eaf32718ca2e2a",
   "question_bank": {
     "path": "content/courses/cell-biology/question-banks/practice.json",
-    "sha256": "68b0e02f9e4c86515b642b0539c04d2cb0cf47f298dd05ff96d91326aa829ccd"
+    "sha256": "080ca088345266785819a78da51594b068fd8b6ed740ebd9825ad337f554fce1"
   },
   "scope_limits": {
     "inactive_candidate_answer_sources_read": false,
@@ -14,8 +14,8 @@
     "qualified_reviewer_identity_verified": false,
     "release_authorized": false
   },
-  "numeric_item_count": 21,
-  "passed_check_count": 21,
+  "numeric_item_count": 23,
+  "passed_check_count": 23,
   "results": [
     {
       "question_id": "cell-biology-10:rate-prediction",
@@ -399,6 +399,46 @@
       "unit": "nM/s",
       "rounding": "none",
       "absolute_error": 3.3333333334439885e-05,
+      "absolute_tolerance": 0.5,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 0.5,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-final:gel-modulus",
+      "formula": "(force / cross-sectional area) / (extension / original length), with SI unit conversion",
+      "inputs": {
+        "force_millinewtons": 1.2,
+        "width_mm": 2,
+        "thickness_mm": 1,
+        "extension_mm": 0.2,
+        "length_mm": 10
+      },
+      "prompt_anchor": "stretches by 0.20 mm under an axial force of 1.2 mN",
+      "calculated_value": 30000.0,
+      "authored_answer": 30000.0,
+      "unit": "Pa",
+      "rounding": "none",
+      "absolute_error": 0.0,
+      "absolute_tolerance": 50.0,
+      "relative_tolerance": 0.0,
+      "maximum_allowed_error": 50.0,
+      "passed": true
+    },
+    {
+      "question_id": "cell-biology-project:rehearsal-perk-area",
+      "formula": "trapezoidal area (y0 + y10)/2 × 10 + (y10 + y30)/2 × 20",
+      "inputs": {
+        "y0_au": 0,
+        "y10_au": 115,
+        "y30_au": 66
+      },
+      "prompt_anchor": "0, 115 and 66 arbitrary units at 0, 10 and 30 minutes",
+      "calculated_value": 2385.0,
+      "authored_answer": 2385.0,
+      "unit": "",
+      "rounding": "none",
+      "absolute_error": 0.0,
       "absolute_tolerance": 0.5,
       "relative_tolerance": 0.0,
       "maximum_allowed_error": 0.5,

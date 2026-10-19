@@ -1,6 +1,6 @@
 """Recompute public Cell Biology formative numeric keys into a review artifact.
 
-The calculator inventory is limited to the 21 numeric items in the public
+The calculator inventory is limited to the 23 numeric items in the public
 practice bank. It reads no inactive candidate answer source and does not
 establish independent review, course quality, or release readiness.
 """
@@ -207,6 +207,21 @@ def _numeric_specs() -> list[dict[str, Any]]:
             "means of 13% for vehicle and 22% for cue",
             lambda v: v["cue_mean_pct"] - v["vehicle_mean_pct"],
         ),
+        _spec(
+            "cell-biology-final:gel-modulus",
+            "(force / cross-sectional area) / (extension / original length), with SI unit conversion",
+            {"force_millinewtons": 1.2, "width_mm": 2, "thickness_mm": 1, "extension_mm": 0.20, "length_mm": 10},
+            "stretches by 0.20 mm under an axial force of 1.2 mN",
+            lambda v: ((v["force_millinewtons"] * 1e-3) / ((v["width_mm"] * 1e-3) * (v["thickness_mm"] * 1e-3)))
+            / (v["extension_mm"] / v["length_mm"]),
+        ),
+        _spec(
+            "cell-biology-project:rehearsal-perk-area",
+            "trapezoidal area (y0 + y10)/2 × 10 + (y10 + y30)/2 × 20",
+            {"y0_au": 0, "y10_au": 115, "y30_au": 66},
+            "0, 115 and 66 arbitrary units at 0, 10 and 30 minutes",
+            lambda v: (v["y0_au"] + v["y10_au"]) / 2 * 10 + (v["y10_au"] + v["y30_au"]) / 2 * 20,
+        ),
     ]
 
 
@@ -222,7 +237,7 @@ def build_evidence(root: Path = ROOT) -> dict[str, Any]:
     numeric_ids = {question_id for question_id, question in questions.items() if question.get("type") == "numeric"}
     specs = _numeric_specs()
     spec_ids = {spec["question_id"] for spec in specs}
-    if len(spec_ids) != len(specs) or numeric_ids != spec_ids or len(specs) != 21:
+    if len(spec_ids) != len(specs) or numeric_ids != spec_ids or len(specs) != 23:
         raise ValueError("Public numeric question inventory differs from the recalculation allowlist")
 
     results = []

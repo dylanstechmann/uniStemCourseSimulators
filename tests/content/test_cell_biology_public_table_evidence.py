@@ -25,8 +25,8 @@ def test_public_table_evidence_report_is_current_and_limited_to_formative_data()
     report = json.loads(expected)
     assert report["course_version"] == json.loads((ROOT / "content/courses/cell-biology/course.json").read_text(encoding="utf-8"))["version"]
     assert report["evidence_scope"] == "author-side-public-formative-source-reconciliation"
-    assert report["question_count"] == 12
-    assert report["check_count"] == report["passed_check_count"] == 114
+    assert report["question_count"] == 14
+    assert report["check_count"] == report["passed_check_count"] == 133
     assert all(result["passed"] for result in report["results"])
     assert report["scope_limits"] == {
         "protected_assessment_sources_read": False,

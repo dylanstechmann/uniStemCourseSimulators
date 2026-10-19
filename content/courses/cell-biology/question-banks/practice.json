@@ -14850,6 +14850,1910 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "cell-biology-final:clone-summary-table",
+      "type": "file_upload",
+      "prompt": "Final review open practice · Use the synthetic clone CSV linked in the week-14 synthesis reading. For each genotype, report the number of independently derived clones and the clone-level means of F protein half-life in hours and of pERK at 60 minutes as fold over time-matched vehicle. Upload exactly these ordered columns with one row per genotype (reference, knock_in, corrected): genotype,clone_count,mean_f_half_life_h,mean_perk_60_fold. This deterministic public check scores the summary cells only; it does not grade prose.",
+      "points": 9,
+      "objective_ids": [
+        "cell-biology-20-objective-2",
+        "cell-biology-18-objective-3",
+        "cell-biology-22-objective-1"
+      ],
+      "feedback": {
+        "hint": "Group the twelve rows by genotype. Each genotype has four independently derived clones; average the four clone values for each column.",
+        "solution": "Half-life means are 6.0 h (reference), 2.0 h (knock_in) and 5.8 h (corrected); pERK at 60 minutes averages 3.4-, 5.2- and 3.5-fold over vehicle. Each genotype has four independent clones; the four time points within one clone are repeated measurements of that clone, not extra clones.",
+        "lesson_ids": [
+          "cell-biology-review-14-synthesis",
+          "cell-biology-20",
+          "cell-biology-18"
+        ],
+        "misconception_ids": [
+          "technical-wells-as-biological-n"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "accepted_media_types": [
+          "text/csv"
+        ],
+        "max_bytes": 32768,
+        "validation_spec": {
+          "format": "csv-numeric-table-v1",
+          "delimiter": ",",
+          "key_column": "genotype",
+          "columns": [
+            "genotype",
+            "clone_count",
+            "mean_f_half_life_h",
+            "mean_perk_60_fold"
+          ],
+          "checks": [
+            {
+              "id": "reference-clone_count",
+              "row_id": "reference",
+              "column": "clone_count",
+              "type": "numeric",
+              "answer": 4.0,
+              "unit": "",
+              "tolerance": 0,
+              "relative_tolerance": 0,
+              "unit_required": false,
+              "calculation": {
+                "operation": "count",
+                "values": [
+                  5.8,
+                  6.1,
+                  6.2,
+                  5.9
+                ]
+              }
+            },
+            {
+              "id": "reference-mean_f_half_life_h",
+              "row_id": "reference",
+              "column": "mean_f_half_life_h",
+              "type": "numeric",
+              "answer": 6.0,
+              "unit": "h",
+              "tolerance": 0.005,
+              "relative_tolerance": 0,
+              "unit_required": false,
+              "calculation": {
+                "operation": "mean",
+                "values": [
+                  5.8,
+                  6.1,
+                  6.2,
+                  5.9
+                ]
+              }
+            },
+            {
+              "id": "reference-mean_perk_60_fold",
+              "row_id": "reference",
+              "column": "mean_perk_60_fold",
+              "type": "numeric",
+              "answer": 3.4,
+              "unit": "fold",
+              "tolerance": 0.005,
+              "relative_tolerance": 0,
+              "unit_required": false,
+              "calculation": {
+                "operation": "mean",
+                "values": [
+                  3.3,
+                  3.5,
+                  3.4,
+                  3.4
+                ]
+              }
+            },
+            {
+              "id": "knock_in-clone_count",
+              "row_id": "knock_in",
+              "column": "clone_count",
+              "type": "numeric",
+              "answer": 4.0,
+              "unit": "",
+              "tolerance": 0,
+              "relative_tolerance": 0,
+              "unit_required": false,
+              "calculation": {
+                "operation": "count",
+                "values": [
+                  2.1,
+                  1.9,
+                  2.0,
+                  2.0
+                ]
+              }
+            },
+            {
+              "id": "knock_in-mean_f_half_life_h",
+              "row_id": "knock_in",
+              "column": "mean_f_half_life_h",
+              "type": "numeric",
+              "answer": 2.0,
+              "unit": "h",
+              "tolerance": 0.005,
+              "relative_tolerance": 0,
+              "unit_required": false,
+              "calculation": {
+                "operation": "mean",
+                "values": [
+                  2.1,
+                  1.9,
+                  2.0,
+                  2.0
+                ]
+              }
+            },
+            {
+              "id": "knock_in-mean_perk_60_fold",
+              "row_id": "knock_in",
+              "column": "mean_perk_60_fold",
+              "type": "numeric",
+              "answer": 5.2,
+              "unit": "fold",
+              "tolerance": 0.005,
+              "relative_tolerance": 0,
+              "unit_required": false,
+              "calculation": {
+                "operation": "mean",
+                "values": [
+                  5.1,
+                  5.3,
+                  5.2,
+                  5.2
+                ]
+              }
+            },
+            {
+              "id": "corrected-clone_count",
+              "row_id": "corrected",
+              "column": "clone_count",
+              "type": "numeric",
+              "answer": 4.0,
+              "unit": "",
+              "tolerance": 0,
+              "relative_tolerance": 0,
+              "unit_required": false,
+              "calculation": {
+                "operation": "count",
+                "values": [
+                  5.7,
+                  5.9,
+                  5.8,
+                  5.8
+                ]
+              }
+            },
+            {
+              "id": "corrected-mean_f_half_life_h",
+              "row_id": "corrected",
+              "column": "mean_f_half_life_h",
+              "type": "numeric",
+              "answer": 5.8,
+              "unit": "h",
+              "tolerance": 0.005,
+              "relative_tolerance": 0,
+              "unit_required": false,
+              "calculation": {
+                "operation": "mean",
+                "values": [
+                  5.7,
+                  5.9,
+                  5.8,
+                  5.8
+                ]
+              }
+            },
+            {
+              "id": "corrected-mean_perk_60_fold",
+              "row_id": "corrected",
+              "column": "mean_perk_60_fold",
+              "type": "numeric",
+              "answer": 3.5,
+              "unit": "fold",
+              "tolerance": 0.005,
+              "relative_tolerance": 0,
+              "unit_required": false,
+              "calculation": {
+                "operation": "mean",
+                "values": [
+                  3.5,
+                  3.6,
+                  3.4,
+                  3.5
+                ]
+              }
+            }
+          ]
+        },
+        "rubric": [
+          {
+            "id": "reference-clone_count",
+            "criterion": "reference: clone_count",
+            "points": 1,
+            "evidence": [
+              "Recomputes clone_count for reference from the clone-level values."
+            ]
+          },
+          {
+            "id": "reference-mean_f_half_life_h",
+            "criterion": "reference: mean_f_half_life_h",
+            "points": 1,
+            "evidence": [
+              "Recomputes mean_f_half_life_h for reference from the clone-level values."
+            ]
+          },
+          {
+            "id": "reference-mean_perk_60_fold",
+            "criterion": "reference: mean_perk_60_fold",
+            "points": 1,
+            "evidence": [
+              "Recomputes mean_perk_60_fold for reference from the clone-level values."
+            ]
+          },
+          {
+            "id": "knock_in-clone_count",
+            "criterion": "knock_in: clone_count",
+            "points": 1,
+            "evidence": [
+              "Recomputes clone_count for knock_in from the clone-level values."
+            ]
+          },
+          {
+            "id": "knock_in-mean_f_half_life_h",
+            "criterion": "knock_in: mean_f_half_life_h",
+            "points": 1,
+            "evidence": [
+              "Recomputes mean_f_half_life_h for knock_in from the clone-level values."
+            ]
+          },
+          {
+            "id": "knock_in-mean_perk_60_fold",
+            "criterion": "knock_in: mean_perk_60_fold",
+            "points": 1,
+            "evidence": [
+              "Recomputes mean_perk_60_fold for knock_in from the clone-level values."
+            ]
+          },
+          {
+            "id": "corrected-clone_count",
+            "criterion": "corrected: clone_count",
+            "points": 1,
+            "evidence": [
+              "Recomputes clone_count for corrected from the clone-level values."
+            ]
+          },
+          {
+            "id": "corrected-mean_f_half_life_h",
+            "criterion": "corrected: mean_f_half_life_h",
+            "points": 1,
+            "evidence": [
+              "Recomputes mean_f_half_life_h for corrected from the clone-level values."
+            ]
+          },
+          {
+            "id": "corrected-mean_perk_60_fold",
+            "criterion": "corrected: mean_perk_60_fold",
+            "points": 1,
+            "evidence": [
+              "Recomputes mean_perk_60_fold for corrected from the clone-level values."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "cell-biology-final:knock-in-perk-trajectory",
+      "type": "graph",
+      "prompt": "Final review open practice · Plot the clone-mean pERK signal of the four knock-in clones at 10, 30 and 60 minutes on the supplied axes, using the per-clone values shown. The points are descriptive summaries of four independent clones; they do not display uncertainty or identify the cause of the trajectory.",
+      "points": 3,
+      "objective_ids": [
+        "cell-biology-22-objective-1"
+      ],
+      "graph_spec": {
+        "x_axis": {
+          "label": "Time after ligand addition (min)",
+          "minimum": 0,
+          "maximum": 60
+        },
+        "y_axis": {
+          "label": "pERK (fold over time-matched vehicle)",
+          "minimum": 0,
+          "maximum": 8
+        },
+        "points": [
+          {
+            "id": "t10",
+            "label": "10 min"
+          },
+          {
+            "id": "t30",
+            "label": "30 min"
+          },
+          {
+            "id": "t60",
+            "label": "60 min"
+          }
+        ],
+        "observations": [
+          {
+            "id": "t10",
+            "x": 10,
+            "values": [
+              6.0,
+              6.2,
+              5.9,
+              6.1
+            ]
+          },
+          {
+            "id": "t30",
+            "x": 30,
+            "values": [
+              5.6,
+              5.8,
+              5.5,
+              5.7
+            ]
+          },
+          {
+            "id": "t60",
+            "x": 60,
+            "values": [
+              5.1,
+              5.3,
+              5.2,
+              5.2
+            ]
+          }
+        ]
+      },
+      "solution_spec": {
+        "points": [
+          {
+            "id": "t10",
+            "x": 10,
+            "y": 6.05,
+            "x_tolerance": 0,
+            "y_tolerance": 0.01
+          },
+          {
+            "id": "t30",
+            "x": 30,
+            "y": 5.65,
+            "x_tolerance": 0,
+            "y_tolerance": 0.01
+          },
+          {
+            "id": "t60",
+            "x": 60,
+            "y": 5.2,
+            "x_tolerance": 0,
+            "y_tolerance": 0.01
+          }
+        ],
+        "rubric": [
+          {
+            "id": "t10_x",
+            "criterion": "10 min coordinate",
+            "points": 0.5,
+            "evidence": [
+              "10 min sits at the supplied x value."
+            ]
+          },
+          {
+            "id": "t10_y",
+            "criterion": "10 min clone-mean coordinate",
+            "points": 0.5,
+            "evidence": [
+              "The four clone values average to 6.05."
+            ]
+          },
+          {
+            "id": "t30_x",
+            "criterion": "30 min coordinate",
+            "points": 0.5,
+            "evidence": [
+              "30 min sits at the supplied x value."
+            ]
+          },
+          {
+            "id": "t30_y",
+            "criterion": "30 min clone-mean coordinate",
+            "points": 0.5,
+            "evidence": [
+              "The four clone values average to 5.65."
+            ]
+          },
+          {
+            "id": "t60_x",
+            "criterion": "60 min coordinate",
+            "points": 0.5,
+            "evidence": [
+              "60 min sits at the supplied x value."
+            ]
+          },
+          {
+            "id": "t60_y",
+            "criterion": "60 min clone-mean coordinate",
+            "points": 0.5,
+            "evidence": [
+              "The four clone values average to 5.2."
+            ]
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Average the four knock-in clone values at each time, then place each mean at its time.",
+        "solution": "The knock-in clone means are 6.05-, 5.65- and 5.2-fold over vehicle at 10, 30 and 60 minutes. The reference clones fall further, to 3.4-fold by 60 minutes, so the knock-in signal is more sustained. A trajectory describes the measured phospho-ERK state; it does not by itself identify feedback, receptor or ligand causes, or a later cell fate.",
+        "lesson_ids": [
+          "cell-biology-review-14-synthesis",
+          "cell-biology-22"
+        ],
+        "misconception_ids": [
+          "declining-signal-proves-feedback",
+          "phosphorylation-proves-fate"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cell-biology-final:turnover-steady-state",
+      "type": "data_interpretation",
+      "prompt": "Final review open practice · Use the clone means from the week-14 synthesis dataset: F half-life is 2.0 h in knock-in clones and 6.0 h in reference clones, and short-pulse F synthesis is 98 versus 100 relative units. Assume first-order removal, dP/dt = s − k_deg·P, and that each culture has reached steady state.",
+      "points": 3,
+      "objective_ids": [
+        "cell-biology-18-objective-2",
+        "cell-biology-18-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "k_deg_knock_in",
+          "type": "numeric",
+          "prompt": "Calculate the knock-in degradation constant k_deg = ln 2 / half-life, in h⁻¹, to three significant figures.",
+          "unit": "h^-1",
+          "points": 1
+        },
+        {
+          "id": "predicted_ratio_pct",
+          "type": "numeric",
+          "prompt": "Predict knock-in steady-state F protein as a percentage of reference, P_ss = s / k_deg, to three significant figures.",
+          "unit": "%",
+          "points": 1
+        },
+        {
+          "id": "interpretation",
+          "type": "single_choice",
+          "prompt": "Which term best accounts for the lower steady-state F protein in knock-in clones?",
+          "options": [
+            "Synthesis fell about threefold while k_deg stayed the same.",
+            "k_deg rose about threefold while synthesis per culture stayed similar.",
+            "Mature F mRNA fell threefold, so translation must have fallen threefold.",
+            "The steady-state measurement alone proves that F is degraded by the proteasome."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "k_deg_knock_in",
+            "type": "numeric",
+            "answer": 0.347,
+            "unit": "h^-1",
+            "tolerance": 0.001,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "predicted_ratio_pct",
+            "type": "numeric",
+            "answer": 32.7,
+            "unit": "%",
+            "tolerance": 0.1,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "interpretation",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "k_deg = ln 2 / t½. At steady state P_ss = s / k_deg, so the ratio is (s_ki/s_ref) × (k_ref/k_ki).",
+        "solution": "k_deg = 0.693/2.0 = 0.347 h⁻¹ (reference 0.693/6.0 = 0.1155 h⁻¹). The predicted ratio is 0.98 × (2.0/6.0) = 0.3267, or 32.7% of reference, close to the measured 33%. Faster removal with similar synthesis fits the pattern under the model; the decay curve does not identify the degradation route.",
+        "lesson_ids": [
+          "cell-biology-review-14-synthesis",
+          "cell-biology-18"
+        ],
+        "misconception_ids": [
+          "protein-abundance-equals-synthesis",
+          "half-life-measurement-proves-proteasome-route"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cell-biology-final:edu-denominators",
+      "type": "data_interpretation",
+      "prompt": "Final review open practice · In the week-14 clone dataset, the short-pulse EdU-positive fraction of recovered viable cells averages 30% in reference clones and 41% in knock-in clones; viable recovery is similar (93% and 92%). Report the absolute and relative differences, then choose the bounded interpretation.",
+      "points": 3,
+      "objective_ids": [
+        "cell-biology-25-objective-2",
+        "cell-biology-20-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "pp_difference",
+          "type": "numeric",
+          "prompt": "Knock-in minus reference, in percentage points, to two significant figures.",
+          "unit": "pp",
+          "points": 1
+        },
+        {
+          "id": "relative_increase",
+          "type": "numeric",
+          "prompt": "Increase relative to the reference fraction, as a percentage, to three significant figures.",
+          "unit": "%",
+          "points": 1
+        },
+        {
+          "id": "interpretation",
+          "type": "single_choice",
+          "prompt": "What does the higher EdU-positive fraction support?",
+          "options": [
+            "Knock-in cells divide 36.7% faster than reference cells, because the EdU fraction rose by that much.",
+            "The variant has transformed the clones, since an 11-point rise in DNA synthesis indicates uncontrolled growth.",
+            "More recovered viable knock-in cells synthesized DNA during the pulse; division rate and fate need other data.",
+            "F acts directly on the DNA replication machinery, because EdU incorporation changed with the F protein level."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "pp_difference",
+            "type": "numeric",
+            "answer": 11.0,
+            "unit": "pp",
+            "tolerance": 0.05,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 2,
+            "dimensions": null
+          },
+          {
+            "id": "relative_increase",
+            "type": "numeric",
+            "answer": 36.7,
+            "unit": "%",
+            "tolerance": 0.05,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "interpretation",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Absolute change = 41 − 30. Relative change divides that difference by the reference fraction.",
+        "solution": "The difference is 11 percentage points; relative to 30% it is 36.7%. With similar viable recovery, the pattern describes a higher fraction of recovered cells synthesizing DNA during the pulse. It does not measure each cell's division rate, establish transformation, or show a direct effect on DNA synthesis machinery.",
+        "lesson_ids": [
+          "cell-biology-review-14-synthesis",
+          "cell-biology-25"
+        ],
+        "misconception_ids": [
+          "percentage-points-confused-with-percent-change",
+          "phosphorylation-proves-fate"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cell-biology-final:variant-evidence-chain",
+      "type": "structured",
+      "prompt": "Final review open practice · Interpret the week-14 clone dataset across layers: reference, knock-in and corrected clones (four independently derived clones each) with F mRNA, short-pulse F synthesis, F half-life, steady-state F protein, a pERK time course under continued ligand, EdU incorporation and viable recovery. Select one response per criterion.",
+      "points": 4,
+      "objective_ids": [
+        "cell-biology-20-objective-1",
+        "cell-biology-20-objective-2",
+        "cell-biology-18-objective-2",
+        "cell-biology-22-objective-2"
+      ],
+      "feedback": {
+        "hint": "Work layer by layer: mRNA, synthesis, half-life and protein first; then the signaling trajectory; then the cell-cycle readout.",
+        "solution": "Similar mRNA and synthesis with a threefold shorter half-life place the change at F turnover. The sustained pERK trajectory fits reduced attenuation but does not exclude receptor or ligand explanations. Clones are the independent units, and correction supports reversibility in these clones rather than a direct mechanism or an organism-level effect.",
+        "lesson_ids": [
+          "cell-biology-review-14-synthesis",
+          "cell-biology-20",
+          "cell-biology-22",
+          "cell-biology-18"
+        ],
+        "misconception_ids": [
+          "protein-abundance-equals-synthesis",
+          "declining-signal-proves-feedback",
+          "rescue-proves-direct-catalysis",
+          "technical-wells-as-biological-n"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "response_fields": [
+        {
+          "id": "changed-layer",
+          "type": "single_choice",
+          "prompt": "Layer · Which F layer is most directly supported as changed in knock-in clones?",
+          "options": [
+            "Transcription of F, because lower F protein usually means that less F mRNA was made.",
+            "F protein turnover, because mRNA and synthesis match while the half-life is one third of reference.",
+            "F catalytic activity per molecule, because weaker pERK attenuation implies a less active enzyme.",
+            "Translation initiation on F mRNA, because the steady-state protein fell about threefold."
+          ],
+          "points": 1
+        },
+        {
+          "id": "signal-claim",
+          "type": "single_choice",
+          "prompt": "Signal · What does the pERK difference support?",
+          "options": [
+            "F directly dephosphorylates ERK in these cells, because pERK stays high when F is low.",
+            "Knock-in clones proliferate faster because of ERK, since pERK and EdU both rose.",
+            "pERK stays elevated longer in knock-in clones; receptor and ligand explanations remain untested.",
+            "No comparison is possible, because fold-over-vehicle values differ between genotypes."
+          ],
+          "points": 1
+        },
+        {
+          "id": "replicate-unit",
+          "type": "single_choice",
+          "prompt": "Replication · What is the independent unit for each genotype?",
+          "options": [
+            "Each of the four sampled time points in a clone's pERK time course.",
+            "Each EdU-scored cell, because thousands of cells were counted per clone.",
+            "Each independently derived, sequence-checked clone, four per genotype."
+          ],
+          "points": 1
+        },
+        {
+          "id": "correction-claim",
+          "type": "single_choice",
+          "prompt": "Correction · What does the corrected-clone result add?",
+          "options": [
+            "Reversibility: corrected clones move toward reference, supporting variant involvement in these clones.",
+            "Direct catalysis: restoring F proves that F dephosphorylates every measured substrate.",
+            "Organism-level causation: correction proves that the variant causes the phenotype in carriers."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "changed-layer",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "signal-claim",
+            "type": "single_choice",
+            "answer": 2
+          },
+          {
+            "id": "replicate-unit",
+            "type": "single_choice",
+            "answer": 2
+          },
+          {
+            "id": "correction-claim",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ],
+        "rubric": [
+          {
+            "id": "changed-layer",
+            "criterion": "Locate the changed layer",
+            "points": 1,
+            "evidence": [
+              "Uses matched mRNA, synthesis and half-life to place the change at turnover."
+            ]
+          },
+          {
+            "id": "signal-claim",
+            "criterion": "Bound the signaling claim",
+            "points": 1,
+            "evidence": [
+              "Describes the trajectory difference and keeps alternative explanations open."
+            ]
+          },
+          {
+            "id": "replicate-unit",
+            "criterion": "Use the correct replicate unit",
+            "points": 1,
+            "evidence": [
+              "Counts clones, not time points or cells, as independent units."
+            ]
+          },
+          {
+            "id": "correction-claim",
+            "criterion": "Interpret correction as reversibility",
+            "points": 1,
+            "evidence": [
+              "Treats correction as support for involvement in the tested clones, not direct mechanism or organism-level causation."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "cell-biology-final:causal-follow-up",
+      "type": "single_choice",
+      "prompt": "Final review open practice · Knock-in clones have about one third of reference F protein and a more sustained pERK response. Which next experiment best tests whether the lower F protein is required for the sustained pERK in these clones?",
+      "points": 1,
+      "objective_ids": [
+        "cell-biology-22-objective-3",
+        "cell-biology-20-objective-3"
+      ],
+      "options": [
+        "Count more cells per image in the existing EdU samples to increase the number of observations per clone.",
+        "Repeat the F mRNA assay in more technical wells from the same RNA preparations to tighten its estimate.",
+        "Treat knock-in clones with a MEK inhibitor and show that EdU falls, establishing that F acts through ERK.",
+        "Restore F to reference level in knock-in clones, with a vector control; track F, receptor, ligand and pERK."
+      ],
+      "solution_spec": {
+        "answer": 3
+      },
+      "feedback": {
+        "hint": "Choose the intervention that changes the proposed cause, checks that the change happened, and measures the competing explanations.",
+        "solution": "Restoring F to matched abundance tests whether its loss is required for the sustained trajectory. Measuring F confirms the restoration, and receptor and ligand measurements address the alternative explanations for a prolonged signal. A MEK inhibitor with an EdU readout asks whether DNA synthesis depends on ERK, not whether lower F causes the sustained signal; technical wells and more cells do not test the link at all.",
+        "lesson_ids": [
+          "cell-biology-review-14-synthesis",
+          "cell-biology-22"
+        ],
+        "misconception_ids": [
+          "declining-signal-proves-feedback",
+          "technical-wells-as-biological-n"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cell-biology-final:perk-area",
+      "type": "data_interpretation",
+      "prompt": "Final review open practice · Summarize each genotype's pERK trajectory with the trapezoidal area under the clone-mean curve from 0 to 60 minutes. Knock-in means are 1.0, 6.05, 5.65 and 5.2-fold at 0, 10, 30 and 60 minutes; reference means are 1.0, 5.75, 4.4 and 3.4-fold. Fold-change is dimensionless, so the area has units of minutes.",
+      "points": 3,
+      "objective_ids": [
+        "cell-biology-22-objective-1",
+        "cell-biology-21-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "area_knock_in",
+          "type": "numeric",
+          "prompt": "Knock-in trapezoidal area from 0 to 60 minutes, in minutes, to three significant figures.",
+          "unit": "min",
+          "points": 1
+        },
+        {
+          "id": "area_ratio",
+          "type": "numeric",
+          "prompt": "Knock-in area divided by reference area, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "area_meaning",
+          "type": "single_choice",
+          "prompt": "What does the larger knock-in area summarize?",
+          "options": [
+            "Cumulative pERK over the sampled 60 minutes under linear interpolation; not a cell-fate measure.",
+            "The fraction of knock-in cells that will later differentiate, scaled by the sampling time.",
+            "The receptor occupancy integrated over the experiment, which sets the size of the response."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "area_knock_in",
+            "type": "numeric",
+            "answer": 315.0,
+            "unit": "min",
+            "tolerance": 0.5,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "area_ratio",
+            "type": "numeric",
+            "answer": 1.25,
+            "unit": "",
+            "tolerance": 0.005,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "area_meaning",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Each interval contributes (left value + right value)/2 × interval width: 0–10, 10–30 and 30–60 minutes.",
+        "solution": "Knock-in: (1.0+6.05)/2×10 + (6.05+5.65)/2×20 + (5.65+5.2)/2×30 = 315.0 min. Reference: 252.25 min. Ratio 315.0/252.25 = 1.249. The area condenses the sampled trajectory; a different sampling schedule could change it, and it says nothing directly about later cell behaviour.",
+        "lesson_ids": [
+          "cell-biology-review-14-synthesis",
+          "cell-biology-22"
+        ],
+        "misconception_ids": [
+          "phosphorylation-proves-fate",
+          "occupancy-equals-response"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cell-biology-final:saturation-and-steady-state",
+      "type": "multiple_select",
+      "prompt": "Final review open practice · The course used two hyperbolic relations, v = Vmax[S]/(Km + [S]) and θ = [L]/(Kd + [L]), and one balance, dP/dt = s − k_deg·P. Which statements are correct? Select all that apply.",
+      "points": 3,
+      "objective_ids": [
+        "cell-biology-3-objective-1",
+        "cell-biology-21-objective-1",
+        "cell-biology-18-objective-3"
+      ],
+      "options": [
+        "A threefold lower steady-state protein level shows that translation fell threefold.",
+        "Under the single-site model, free ligand equal to Kd predicts half of the sites occupied, but the measured cell response need not be half-maximal.",
+        "An enzyme with a lower Km must also have a higher Vmax.",
+        "Km is a parameter of the initial-rate model and need not equal a substrate dissociation constant.",
+        "A receptor occupancy of 0.8 means that 80% of the cells will divide.",
+        "With first-order removal and unchanged synthesis, halving a protein's half-life halves its steady-state amount."
+      ],
+      "solution_spec": {
+        "answer": [
+          1,
+          3,
+          5
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "feedback": {
+        "hint": "Ask what each symbol measures: a rate parameter, a binding fraction, or a balance between production and removal.",
+        "solution": "Occupancy is a binding quantity, so θ = 0.5 at [L] = Kd need not mean a half-maximal response. Km is a kinetic parameter that equals a dissociation constant only under extra assumptions, and Km and Vmax are separate parameters. Because P_ss = s/k_deg and k_deg = ln 2/t½, halving the half-life halves P_ss. A lower steady state can come from synthesis or removal, and occupancy is not a division outcome. Score: max(0, correct − incorrect selections)/3 × 3 points.",
+        "lesson_ids": [
+          "cell-biology-review-14-synthesis",
+          "cell-biology-21",
+          "cell-biology-18",
+          "cell-biology-10"
+        ],
+        "misconception_ids": [
+          "occupancy-equals-response",
+          "km-always-equals-binding-affinity",
+          "protein-abundance-equals-synthesis"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cell-biology-final:matrix-cue-controls",
+      "type": "structured",
+      "prompt": "Final review open practice · A team reports that cells on a stiffer matrix with a soluble cue show more nuclear YAP and a higher lineage-marker-positive fraction, and that a pathway inhibitor lowers both readouts. Choose the control or measurement that best addresses each alternative explanation.",
+      "points": 4,
+      "objective_ids": [
+        "cell-biology-24-objective-3",
+        "cell-biology-23-objective-3",
+        "cell-biology-28-objective-2",
+        "cell-biology-22-objective-2"
+      ],
+      "feedback": {
+        "hint": "Match each alternative to the measurement that would distinguish it, not to a measurement that only adds more data.",
+        "solution": "Accessible ligand must be measured and matched to separate stiffness from presentation; recovery against the seeded number exposes selective loss; target engagement plus an orthogonal perturbation or rescue tests inhibitor specificity; and a calibrated function assay is needed before a marker change is called a functional gain.",
+        "lesson_ids": [
+          "cell-biology-review-14-synthesis",
+          "cell-biology-24",
+          "cell-biology-28",
+          "cell-biology-22"
+        ],
+        "misconception_ids": [
+          "stiffness-alone-determines-fate",
+          "inhibitor-response-proves-target",
+          "marker-equals-function-stem-cell"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "response_fields": [
+        {
+          "id": "ligand-presentation",
+          "type": "single_choice",
+          "prompt": "Ligand · The stiffer matrix may also present more adhesive ligand.",
+          "options": [
+            "Report the coating-solution concentration used for each matrix in the methods.",
+            "Measure accessible ligand density on both hydrated matrices and match it.",
+            "Image more fields per culture so that the nuclear YAP estimate is more precise."
+          ],
+          "points": 1
+        },
+        {
+          "id": "cell-loss",
+          "type": "single_choice",
+          "prompt": "Recovery · The marker fraction could rise because marker-negative cells were lost.",
+          "options": [
+            "Report viable recovery against the seeded number alongside the marker fraction.",
+            "Report only the marker fraction among recovered viable cells, which already corrects for loss.",
+            "Pool every image from one culture into a single percentage to increase the cell count."
+          ],
+          "points": 1
+        },
+        {
+          "id": "inhibitor-specificity",
+          "type": "single_choice",
+          "prompt": "Inhibitor · The inhibitor may have acted off-target.",
+          "options": [
+            "Raise the inhibitor dose until both readouts fall further, confirming the effect.",
+            "Use a vehicle containing a different solvent so that solvent effects average out.",
+            "Show target engagement at the dose used and repeat with an orthogonal genetic perturbation."
+          ],
+          "points": 1
+        },
+        {
+          "id": "marker-function",
+          "type": "single_choice",
+          "prompt": "Function · The marker shift may not reflect a gain of function.",
+          "options": [
+            "Measure the marker at more time points to confirm that the shift is stable.",
+            "Add a prespecified function assay with positive and negative controls and viable-cell counts.",
+            "Describe marker-positive cells as functional because the marker is lineage-associated."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "ligand-presentation",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "cell-loss",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "inhibitor-specificity",
+            "type": "single_choice",
+            "answer": 2
+          },
+          {
+            "id": "marker-function",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ],
+        "rubric": [
+          {
+            "id": "ligand-presentation",
+            "criterion": "Separate stiffness from ligand presentation",
+            "points": 1,
+            "evidence": [
+              "Measures and matches accessible ligand rather than relying on the nominal coating."
+            ]
+          },
+          {
+            "id": "cell-loss",
+            "criterion": "Expose the denominator",
+            "points": 1,
+            "evidence": [
+              "Pairs the fraction with recovery relative to the seeded population."
+            ]
+          },
+          {
+            "id": "inhibitor-specificity",
+            "criterion": "Test inhibitor specificity",
+            "points": 1,
+            "evidence": [
+              "Combines target engagement with an orthogonal perturbation or rescue."
+            ]
+          },
+          {
+            "id": "marker-function",
+            "criterion": "Separate marker from function",
+            "points": 1,
+            "evidence": [
+              "Adds a calibrated function assay rather than renaming a marker change."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "cell-biology-final:splice-decay-evidence",
+      "type": "single_choice",
+      "prompt": "Final review open practice · In a synthetic RNA study, an intronic variant near a 3′ splice site raises an exon-skipping junction signal 2.5-fold while a shared-exon signal falls by 20%. The skipped isoform carries a premature termination codon. Which measurement plan best separates increased skipping followed by translation-dependent decay from reduced transcription of the gene?",
+      "points": 1,
+      "objective_ids": [
+        "cell-biology-17-objective-2",
+        "cell-biology-17-objective-3"
+      ],
+      "options": [
+        "Measure the encoded protein's half-life by pulse-chase to see whether the protein is unstable.",
+        "Measure precursor or nascent RNA, and compare junction signals after a short, controlled translation block.",
+        "Repeat the shared-exon assay with more technical wells from the same RNA preparation.",
+        "Measure DNA content by flow cytometry to check whether the cells changed cycle phase."
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Ask which measurement reports production before processing, and which intervention would stabilize a transcript removed during translation.",
+        "solution": "A precursor or nascent RNA signal reports production upstream of splicing, so an unchanged signal argues against reduced transcription. Decay of premature-stop transcripts requires translation, so a short, controlled translation block should raise the skipped isoform if it is being degraded. Translation blocks also cause stress, so vehicle and viability controls are needed.",
+        "lesson_ids": [
+          "cell-biology-review-14-synthesis",
+          "cell-biology-17"
+        ],
+        "misconception_ids": [
+          "mature-rna-abundance-equals-transcription",
+          "rtqpcr-total-rna-resolves-isoforms"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cell-biology-final:penetrance-with-phenocopy",
+      "type": "data_interpretation",
+      "prompt": "Final review open practice · One parent is A/a and the other a/a. Under ordinary Mendelian segregation, carriers of A meet a defined phenotype by age 50 with probability 0.60, and noncarriers meet the same definition with probability 0.05. Calculate the probability that a child meets the definition by age 50, then choose what the number represents.",
+      "points": 2,
+      "objective_ids": [
+        "cell-biology-19-objective-1",
+        "cell-biology-19-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "phenotype_pct",
+          "type": "numeric",
+          "prompt": "Probability that the child meets the phenotype definition by age 50, as a percentage, to three significant figures.",
+          "unit": "%",
+          "points": 1
+        },
+        {
+          "id": "meaning",
+          "type": "single_choice",
+          "prompt": "What does the calculated probability represent?",
+          "options": [
+            "The probability that the child inherits allele A from the heterozygous parent.",
+            "A model-based probability under the stated assumptions, not a measured population risk.",
+            "The observed fraction of affected relatives expected in this particular family.",
+            "A clinical risk estimate that applies to any family carrying this allele."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "phenotype_pct",
+            "type": "numeric",
+            "answer": 32.5,
+            "unit": "%",
+            "tolerance": 0.05,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "meaning",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Add the carrier branch and the noncarrier branch: P = P(carrier)·P(phenotype|carrier) + P(noncarrier)·P(phenotype|noncarrier).",
+        "solution": "P = 0.5 × 0.60 + 0.5 × 0.05 = 0.325, or 32.5%. Transmission of A alone is 50%. The result holds only under the stated model; it is not a population or clinical risk estimate.",
+        "lesson_ids": [
+          "cell-biology-19"
+        ],
+        "misconception_ids": [
+          "penetrance-means-transmission",
+          "one-family-identifies-population-risk"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cell-biology-final:gel-modulus",
+      "type": "numeric",
+      "prompt": "Final review open practice · A synthetic hydrogel strip with an original length of 10 mm and a rectangular cross-section of 2 mm × 1 mm stretches by 0.20 mm under an axial force of 1.2 mN, within its stated small-strain linear range. Assuming uniform uniaxial loading, what is its Young modulus? Report the value in Pa.",
+      "points": 1,
+      "objective_ids": [
+        "cell-biology-24-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 30000.0,
+        "unit": "Pa",
+        "tolerance": 50,
+        "unit_required": true,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Convert to SI first: 1.2 mN = 1.2 × 10⁻³ N and 2 mm × 1 mm = 2 × 10⁻⁶ m². Then E = stress/strain.",
+        "solution": "Stress = 1.2 × 10⁻³ N / 2 × 10⁻⁶ m² = 600 Pa. Strain = 0.20 mm/10 mm = 0.02. E = 600/0.02 = 30000 Pa (30 kPa). One small-strain modulus does not describe relaxation, creep or remodeling.",
+        "lesson_ids": [
+          "cell-biology-24"
+        ],
+        "misconception_ids": [
+          "elastic-modulus-equals-all-mechanics"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cell-biology-final:claim-levels",
+      "type": "structured",
+      "prompt": "Final review open practice · Classify each statement about the week-14 clone dataset as an observation, a model-supported inference, or a claim beyond the data.",
+      "points": 3,
+      "objective_ids": [
+        "cell-biology-20-objective-1",
+        "cell-biology-4-objective-3",
+        "cell-biology-28-objective-3"
+      ],
+      "feedback": {
+        "hint": "An observation restates a measured summary; an inference adds a model or design assumption; a claim beyond the data needs evidence that was not collected.",
+        "solution": "Statement A restates measured clone means. Statement B uses the steady-state model to connect turnover to abundance, so it is an inference. Statement C extrapolates from cultured clones to people and to tissue growth, which these measurements cannot establish.",
+        "lesson_ids": [
+          "cell-biology-review-14-synthesis",
+          "cell-biology-20"
+        ],
+        "misconception_ids": [
+          "variant-prediction-equals-pathogenicity",
+          "single-cell-system-generalized-universally"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "response_fields": [
+        {
+          "id": "statement-half-life",
+          "type": "single_choice",
+          "prompt": "Statement A · Knock-in clones had a mean F half-life of 2.0 h, compared with 6.0 h in reference clones.",
+          "options": [
+            "A direct observation in the supplied data.",
+            "An inference supported under a stated model or design.",
+            "A claim beyond what these data can establish."
+          ],
+          "points": 1
+        },
+        {
+          "id": "statement-turnover",
+          "type": "single_choice",
+          "prompt": "Statement B · Under first-order removal, faster F turnover with similar synthesis accounts for most of the lower steady-state F protein.",
+          "options": [
+            "A direct observation in the supplied data.",
+            "An inference supported under a stated model or design.",
+            "A claim beyond what these data can establish."
+          ],
+          "points": 1
+        },
+        {
+          "id": "statement-tissue",
+          "type": "single_choice",
+          "prompt": "Statement C · The variant causes uncontrolled tissue growth in people who carry it.",
+          "options": [
+            "A direct observation in the supplied data.",
+            "An inference supported under a stated model or design.",
+            "A claim beyond what these data can establish."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "statement-half-life",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "statement-turnover",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "statement-tissue",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ],
+        "rubric": [
+          {
+            "id": "statement-half-life",
+            "criterion": "Recognize an observation",
+            "points": 1,
+            "evidence": [
+              "Classifies a reported summary of measured values as an observation."
+            ]
+          },
+          {
+            "id": "statement-turnover",
+            "criterion": "Recognize a model-based inference",
+            "points": 1,
+            "evidence": [
+              "Identifies the turnover account as an inference that depends on the steady-state model."
+            ]
+          },
+          {
+            "id": "statement-tissue",
+            "criterion": "Reject an unsupported extrapolation",
+            "points": 1,
+            "evidence": [
+              "Recognizes that clone measurements cannot establish an organism-level outcome."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "cell-biology-project:rehearsal-summary",
+      "type": "file_upload",
+      "prompt": "Project rehearsal open practice · Use the eight-culture rehearsal CSV linked in the integrative project guide. For each culture, subtract background, apply the spike or protein recovery correction, and divide by viable cells/1000; compute marker and function percentages with the viable-cell denominator. Then average the four cultures in each condition. Upload exactly these ordered columns with one row per condition (control, signal_high): condition,culture_count,mean_rna_per_1000_viable,mean_protein_ug_per_1000_viable,mean_marker_pct,mean_function_pct. Round RNA to two decimals and protein to four. This check scores the summary cells only.",
+      "points": 10,
+      "objective_ids": [
+        "cell-biology-4-objective-3",
+        "cell-biology-17-objective-2",
+        "cell-biology-18-objective-2"
+      ],
+      "feedback": {
+        "hint": "Normalize each culture first: (signal − background) × correction, then divide by viable cells/1000. Average the four per-culture values; do not pool raw counts across cultures.",
+        "solution": "Control averages 55.625 RNA-equivalent units and 0.068125 μg protein per 1000 viable cells, 21.0% marker and 5.25% function; signal_high averages 237.5, 0.1625 μg, 40.0% and 8.0%. Each condition has four independent cultures. These are rehearsal values, not the project's form A or B results.",
+        "lesson_ids": [
+          "cell-biology-project-guide",
+          "cell-biology-17",
+          "cell-biology-18"
+        ],
+        "misconception_ids": [
+          "technical-wells-as-biological-n",
+          "mature-rna-abundance-equals-transcription"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "accepted_media_types": [
+          "text/csv"
+        ],
+        "max_bytes": 32768,
+        "validation_spec": {
+          "format": "csv-numeric-table-v1",
+          "delimiter": ",",
+          "key_column": "condition",
+          "columns": [
+            "condition",
+            "culture_count",
+            "mean_rna_per_1000_viable",
+            "mean_protein_ug_per_1000_viable",
+            "mean_marker_pct",
+            "mean_function_pct"
+          ],
+          "checks": [
+            {
+              "id": "control-culture_count",
+              "row_id": "control",
+              "column": "culture_count",
+              "type": "numeric",
+              "answer": 4.0,
+              "unit": "",
+              "tolerance": 0,
+              "relative_tolerance": 0,
+              "unit_required": false,
+              "calculation": {
+                "operation": "count",
+                "values": [
+                  62.5,
+                  50.0,
+                  50.0,
+                  60.0
+                ]
+              }
+            },
+            {
+              "id": "control-mean_rna_per_1000_viable",
+              "row_id": "control",
+              "column": "mean_rna_per_1000_viable",
+              "type": "numeric",
+              "answer": 55.625,
+              "unit": "",
+              "tolerance": 0.006,
+              "relative_tolerance": 0,
+              "unit_required": false,
+              "calculation": {
+                "operation": "mean",
+                "values": [
+                  62.5,
+                  50.0,
+                  50.0,
+                  60.0
+                ]
+              }
+            },
+            {
+              "id": "control-mean_protein_ug_per_1000_viable",
+              "row_id": "control",
+              "column": "mean_protein_ug_per_1000_viable",
+              "type": "numeric",
+              "answer": 0.068125,
+              "unit": "μg",
+              "tolerance": 6e-05,
+              "relative_tolerance": 0,
+              "unit_required": false,
+              "calculation": {
+                "operation": "mean",
+                "values": [
+                  0.0625,
+                  0.08,
+                  0.05,
+                  0.08
+                ]
+              }
+            },
+            {
+              "id": "control-mean_marker_pct",
+              "row_id": "control",
+              "column": "mean_marker_pct",
+              "type": "numeric",
+              "answer": 21.0,
+              "unit": "%",
+              "tolerance": 0.005,
+              "relative_tolerance": 0,
+              "unit_required": false,
+              "calculation": {
+                "operation": "mean",
+                "values": [
+                  20.0,
+                  22.0,
+                  25.0,
+                  17.0
+                ]
+              }
+            },
+            {
+              "id": "control-mean_function_pct",
+              "row_id": "control",
+              "column": "mean_function_pct",
+              "type": "numeric",
+              "answer": 5.25,
+              "unit": "%",
+              "tolerance": 0.005,
+              "relative_tolerance": 0,
+              "unit_required": false,
+              "calculation": {
+                "operation": "mean",
+                "values": [
+                  5.0,
+                  6.0,
+                  5.0,
+                  5.0
+                ]
+              }
+            },
+            {
+              "id": "signal_high-culture_count",
+              "row_id": "signal_high",
+              "column": "culture_count",
+              "type": "numeric",
+              "answer": 4.0,
+              "unit": "",
+              "tolerance": 0,
+              "relative_tolerance": 0,
+              "unit_required": false,
+              "calculation": {
+                "operation": "count",
+                "values": [
+                  300.0,
+                  200.0,
+                  200.0,
+                  250.0
+                ]
+              }
+            },
+            {
+              "id": "signal_high-mean_rna_per_1000_viable",
+              "row_id": "signal_high",
+              "column": "mean_rna_per_1000_viable",
+              "type": "numeric",
+              "answer": 237.5,
+              "unit": "",
+              "tolerance": 0.006,
+              "relative_tolerance": 0,
+              "unit_required": false,
+              "calculation": {
+                "operation": "mean",
+                "values": [
+                  300.0,
+                  200.0,
+                  200.0,
+                  250.0
+                ]
+              }
+            },
+            {
+              "id": "signal_high-mean_protein_ug_per_1000_viable",
+              "row_id": "signal_high",
+              "column": "mean_protein_ug_per_1000_viable",
+              "type": "numeric",
+              "answer": 0.1625,
+              "unit": "μg",
+              "tolerance": 6e-05,
+              "relative_tolerance": 0,
+              "unit_required": false,
+              "calculation": {
+                "operation": "mean",
+                "values": [
+                  0.16,
+                  0.16,
+                  0.15,
+                  0.18
+                ]
+              }
+            },
+            {
+              "id": "signal_high-mean_marker_pct",
+              "row_id": "signal_high",
+              "column": "mean_marker_pct",
+              "type": "numeric",
+              "answer": 40.0,
+              "unit": "%",
+              "tolerance": 0.005,
+              "relative_tolerance": 0,
+              "unit_required": false,
+              "calculation": {
+                "operation": "mean",
+                "values": [
+                  50.0,
+                  30.0,
+                  45.0,
+                  35.0
+                ]
+              }
+            },
+            {
+              "id": "signal_high-mean_function_pct",
+              "row_id": "signal_high",
+              "column": "mean_function_pct",
+              "type": "numeric",
+              "answer": 8.0,
+              "unit": "%",
+              "tolerance": 0.005,
+              "relative_tolerance": 0,
+              "unit_required": false,
+              "calculation": {
+                "operation": "mean",
+                "values": [
+                  8.0,
+                  7.0,
+                  9.0,
+                  8.0
+                ]
+              }
+            }
+          ]
+        },
+        "rubric": [
+          {
+            "id": "control-culture_count",
+            "criterion": "control: culture_count",
+            "points": 1,
+            "evidence": [
+              "Recomputes culture_count for control from the culture-level values."
+            ]
+          },
+          {
+            "id": "control-mean_rna_per_1000_viable",
+            "criterion": "control: mean_rna_per_1000_viable",
+            "points": 1,
+            "evidence": [
+              "Recomputes mean_rna_per_1000_viable for control from the culture-level values."
+            ]
+          },
+          {
+            "id": "control-mean_protein_ug_per_1000_viable",
+            "criterion": "control: mean_protein_ug_per_1000_viable",
+            "points": 1,
+            "evidence": [
+              "Recomputes mean_protein_ug_per_1000_viable for control from the culture-level values."
+            ]
+          },
+          {
+            "id": "control-mean_marker_pct",
+            "criterion": "control: mean_marker_pct",
+            "points": 1,
+            "evidence": [
+              "Recomputes mean_marker_pct for control from the culture-level values."
+            ]
+          },
+          {
+            "id": "control-mean_function_pct",
+            "criterion": "control: mean_function_pct",
+            "points": 1,
+            "evidence": [
+              "Recomputes mean_function_pct for control from the culture-level values."
+            ]
+          },
+          {
+            "id": "signal_high-culture_count",
+            "criterion": "signal_high: culture_count",
+            "points": 1,
+            "evidence": [
+              "Recomputes culture_count for signal_high from the culture-level values."
+            ]
+          },
+          {
+            "id": "signal_high-mean_rna_per_1000_viable",
+            "criterion": "signal_high: mean_rna_per_1000_viable",
+            "points": 1,
+            "evidence": [
+              "Recomputes mean_rna_per_1000_viable for signal_high from the culture-level values."
+            ]
+          },
+          {
+            "id": "signal_high-mean_protein_ug_per_1000_viable",
+            "criterion": "signal_high: mean_protein_ug_per_1000_viable",
+            "points": 1,
+            "evidence": [
+              "Recomputes mean_protein_ug_per_1000_viable for signal_high from the culture-level values."
+            ]
+          },
+          {
+            "id": "signal_high-mean_marker_pct",
+            "criterion": "signal_high: mean_marker_pct",
+            "points": 1,
+            "evidence": [
+              "Recomputes mean_marker_pct for signal_high from the culture-level values."
+            ]
+          },
+          {
+            "id": "signal_high-mean_function_pct",
+            "criterion": "signal_high: mean_function_pct",
+            "points": 1,
+            "evidence": [
+              "Recomputes mean_function_pct for signal_high from the culture-level values."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "cell-biology-project:rehearsal-perk-area",
+      "type": "numeric",
+      "prompt": "Project rehearsal open practice · Rehearsal culture R-signal_high-03 has background-corrected pERK of 0, 115 and 66 arbitrary units at 0, 10 and 30 minutes. Using the project's trapezoidal formula, area = 5·y0 + 15·y10 + 10·y30, what is the area from 0 to 30 minutes? Enter the number in AU·min without a unit.",
+      "points": 1,
+      "objective_ids": [
+        "cell-biology-22-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 2385.0,
+        "unit": "",
+        "tolerance": 0.5,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The formula is the trapezoidal rule for samples at 0, 10 and 30 minutes: (y0+y10)/2×10 + (y10+y30)/2×20.",
+        "solution": "5 × 0 + 15 × 115 + 10 × 66 = 2385 AU·min. Compute one area per culture before averaging; the area summarizes a sampled trajectory and depends on stable detection.",
+        "lesson_ids": [
+          "cell-biology-project-guide",
+          "cell-biology-22"
+        ],
+        "misconception_ids": [
+          "phosphorylation-proves-fate"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cell-biology-project:rehearsal-pooled-versus-culture",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · For the four signal_high rehearsal cultures, marker-positive counts are 2500, 3000, 1800 and 2800 among 5000, 10000, 4000 and 8000 viable cells. Compare a pooled percentage with the equal-culture mean, then choose which summary the project asks for.",
+      "points": 3,
+      "objective_ids": [
+        "cell-biology-4-objective-3",
+        "cell-biology-25-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "pooled_pct",
+          "type": "numeric",
+          "prompt": "Pooled percentage: total marker-positive cells divided by total viable cells, to three significant figures.",
+          "unit": "%",
+          "points": 1
+        },
+        {
+          "id": "equal_culture_pct",
+          "type": "numeric",
+          "prompt": "Equal-culture mean of the four per-culture percentages, to three significant figures.",
+          "unit": "%",
+          "points": 1
+        },
+        {
+          "id": "summary_choice",
+          "type": "single_choice",
+          "prompt": "Which summary does the project request, and why do the two differ?",
+          "options": [
+            "The pooled value, because each counted cell is an independent replicate.",
+            "Either one, because the two summaries are always identical for the same cultures.",
+            "The equal-culture mean, because cultures are the unit; pooling weights them by cell number.",
+            "Neither, because percentages from different cultures can never be averaged."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "pooled_pct",
+            "type": "numeric",
+            "answer": 37.4,
+            "unit": "%",
+            "tolerance": 0.05,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "equal_culture_pct",
+            "type": "numeric",
+            "answer": 40.0,
+            "unit": "%",
+            "tolerance": 0.05,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "summary_choice",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Pooled: (2500+3000+1800+2800)/(5000+10000+4000+8000). Equal-culture: average 50%, 30%, 45% and 35%.",
+        "solution": "Pooled = 10100/27000 = 37.41%; equal-culture mean = 40.0%. The culture with the most viable cells has the lowest percentage, so pooling pulls the summary down. The project asks for equal-culture means because each culture is one independent unit.",
+        "lesson_ids": [
+          "cell-biology-project-guide",
+          "cell-biology-25"
+        ],
+        "misconception_ids": [
+          "technical-wells-as-biological-n"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cell-biology-project:rehearsal-layers-and-confounds",
+      "type": "structured",
+      "prompt": "Project rehearsal open practice · Interpret the rehearsal summaries and the project data dictionary. Viable recovery averages about 66% of seeded cells in signal_high cultures and 82% in control cultures. Select one response per criterion.",
+      "points": 4,
+      "objective_ids": [
+        "cell-biology-17-objective-2",
+        "cell-biology-23-objective-3",
+        "cell-biology-28-objective-1",
+        "cell-biology-4-objective-3"
+      ],
+      "feedback": {
+        "hint": "Ask which layer each column measures, which denominator it uses, and which conditions differ in more than one variable.",
+        "solution": "A corrected RNA signal per viable cell is an abundance measure, not a transcription rate or function. Lower viable recovery can enrich survivors for marker-positive cells, so report recovery with the fraction. The matrix_high comparison changes modulus and ligand together, and a culture followed over time remains one unit.",
+        "lesson_ids": [
+          "cell-biology-project-guide",
+          "cell-biology-17",
+          "cell-biology-28"
+        ],
+        "misconception_ids": [
+          "mature-rna-abundance-equals-transcription",
+          "stiffness-alone-determines-fate",
+          "technical-wells-as-biological-n"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "response_fields": [
+        {
+          "id": "rna-claim",
+          "type": "single_choice",
+          "prompt": "RNA · signal_high has a higher mean RNA-equivalent signal per 1000 viable cells. What does this support?",
+          "options": [
+            "A higher transcription rate of the gene, because the corrected RNA signal rose.",
+            "More functional protein in each cell, because the RNA and protein signals both rose.",
+            "More corrected RNA signal per viable cell; transcription rate and function are separate.",
+            "A change in stem-cell fate, because the marker and RNA rose together."
+          ],
+          "points": 1
+        },
+        {
+          "id": "viable-loss",
+          "type": "single_choice",
+          "prompt": "Recovery · Why does the lower viable recovery in signal_high matter for its marker percentage?",
+          "options": [
+            "It does not matter, because the percentage already uses the viable-cell denominator.",
+            "Loss of marker-negative cells could raise the survivors' percentage; report recovery too.",
+            "It shows that the marker assay failed in signal_high cultures and should be repeated."
+          ],
+          "points": 1
+        },
+        {
+          "id": "confound",
+          "type": "single_choice",
+          "prompt": "Confound · In the full project table, matrix_high differs from control in both modulus and accessible ligand. What can that comparison establish?",
+          "options": [
+            "A pure stiffness effect, because the matrix_high cultures differ in modulus.",
+            "Nothing at all, because confounded conditions cannot be summarized or compared.",
+            "An association with the combined matrix change; modulus and ligand are not separable."
+          ],
+          "points": 1
+        },
+        {
+          "id": "unit",
+          "type": "single_choice",
+          "prompt": "Units · A project culture measured at 0 h and 48 h contributes how many independent units to a condition summary?",
+          "options": [
+            "One culture followed over time.",
+            "Two, one per time point.",
+            "One per counted cell."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "rna-claim",
+            "type": "single_choice",
+            "answer": 2
+          },
+          {
+            "id": "viable-loss",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "confound",
+            "type": "single_choice",
+            "answer": 2
+          },
+          {
+            "id": "unit",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ],
+        "rubric": [
+          {
+            "id": "rna-claim",
+            "criterion": "Bound the RNA claim",
+            "points": 1,
+            "evidence": [
+              "Keeps a corrected abundance signal separate from transcription rate and function."
+            ]
+          },
+          {
+            "id": "viable-loss",
+            "criterion": "Expose selective loss",
+            "points": 1,
+            "evidence": [
+              "Recognizes that a viable-cell denominator does not account for cells that were lost."
+            ]
+          },
+          {
+            "id": "confound",
+            "criterion": "Name the confound",
+            "points": 1,
+            "evidence": [
+              "Limits the matrix comparison to the combined change it actually tests."
+            ]
+          },
+          {
+            "id": "unit",
+            "criterion": "Count the culture once",
+            "points": 1,
+            "evidence": [
+              "Treats repeated times as measurements within one culture."
+            ]
+          }
+        ]
+      }
     }
   ]
 }

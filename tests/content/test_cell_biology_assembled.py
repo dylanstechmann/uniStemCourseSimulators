@@ -170,6 +170,10 @@ def test_cell_biology_numeric_recalculation_inventory_is_complete():
         "cell-biology-25:phase-snapshot",
         "cell-biology-25:edu-relative-reduction",
         "cell-biology-27:functional-fraction",
+        # 0.62.0 final review and project rehearsal; recalculated in
+        # test_cell_biology_final_review_and_project.py.
+        "cell-biology-final:gel-modulus",
+        "cell-biology-project:rehearsal-perk-area",
     }
     bank = json.loads(
         (COURSE / "question-banks/practice.json").read_text(encoding="utf-8")

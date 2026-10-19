@@ -5750,3 +5750,28 @@ Hodgkin and Huxley (1952) is a new link-only registry entry. Its DOI and PubMed 
 | Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. |
 
 Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. All packages remain partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.
+
+## Cell Biology final review and integrative project for learners (2026-10-19)
+
+Cell Biology advances to 0.62.0 so that every component of its proposed 14-week plan can be worked through as ungraded practice. Week 14 gains `modules/13d-course-synthesis-and-final-review.md` and a 25-question, 53-point cumulative final review practice set; week 10 gains `assignments/integrative-project-guide.md`, an eight-culture rehearsal dataset with four open practice items (18 points), and five integrative-project milestones added to `rubrics/case-studio.json` as zero-point self-checks, with a `project` self-assessment record scheduled in week 14. Two new synthetic datasets are learner resources (`assignments/final-review-feedback-variant-clones.csv`, `assignments/project-rehearsal-cultures.csv`), and the existing project culture table becomes one. The syllabus restores its week-8 links to the two synthesis readings, and the schedule now links self-assessed project activities to the Case studio. Inactive candidates, their files and their external keys are unchanged.
+
+Key checks before publication:
+
+- A self-check script graded all 17 new items with the backend grader: authored keys earn full credit; deliberately wrong responses, wrong units, swapped fields, near misses and malformed text earn the stated partial or zero scores. It caught one defect, an unsupported `eq` unit on the rehearsal upload's RNA cells, which was fixed before the items were applied.
+- An option-length audit found the correct option conspicuously longest in 17 of 22 choice fields; the options were rewritten so the distractors are specific, plausible misconceptions of similar length.
+- `tests/content/test_cell_biology_final_review_and_project.py` (9 tests) recomputes every new key from the two CSV files and stated prompt values: the steady-state prediction from half-life and synthesis, trapezoidal pERK areas (mean of per-clone areas equals the area of the mean trajectory), EdU absolute and relative changes, penetrance with a noncarrier branch, the gel modulus, the rehearsal transformations, the pooled versus equal-culture marker percentage and the guide's worked example. It also checks the reading's clone-mean table against the CSV, catalogued misconception IDs, the separation of the rehearsal data from the candidate forms, and that the milestones remain zero-point self-checks.
+- The numeric-key and table-reconciliation tools now cover 23 numeric items and 133 table checks across 14 upload items; the table test recomputes the rehearsal transformations with exact fractions.
+- The 0.61.1 snapshot, review-evidence index, numeric and table reports and response-mode audit were archived with `-0.61.1` names before regeneration. The review-evidence index was regenerated from the current packet after confirming it held no review records; a 0.62.0 workload-pilot protocol repins the prospective protocol to the new digest and lists the new activities.
+
+| Actual command/check | Result |
+| --- | --- |
+| `tools/validate_content.py` | Passed: 25 courses, 448 lessons, 2,923 questions, 1,569 cards and 30 cases; 0 errors and 0 warnings. |
+| `tools/objective_coverage.py --check docs/COURSE_GAP_REPORT.md` | Passed after regeneration. Cell Biology: 45 lessons, 69 objectives, 183 items, 96 cards. |
+| `tools/assessment_candidates.py --check docs/ASSESSMENT_CANDIDATE_REPORT.md` | Passed after regeneration; no candidate was activated or changed. |
+| `tools/course_review_evidence.py --course-id cell-biology --check docs/reviews/cell-biology-review-evidence.json` | Passed: 15 candidates, 142 unresolved candidate-gate instances, 0 review records, release not authorized. |
+| `claims_scan.py --repo uniStemCourseSimulators` | 0 findings. |
+| Full verify, `verify.sh --frontend` (log `cb-verify-2`) | Content, legacy (7), security (1,628 files including the built bundle, 0 findings) and ruff passed; root 3,364 passed, 1 skipped (nine more, from the new test file); frontend lint, 74 unit tests in 17 files and build passed. The backend step reported one failure: `test_case_studio.py` still pinned exactly one case per course. |
+| Backend rerun after updating that pin to allow the five Cell Biology milestones | 6,174 passed, 2 skipped (35 more than before: 34 from grading the 17 new keys correct and wrong, and one new content-repository route test). |
+| Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
+
+Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.

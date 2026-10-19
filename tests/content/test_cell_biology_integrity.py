@@ -524,7 +524,7 @@ def test_review_snapshot_matches_deterministic_public_package_digest():
     digest = json.loads(result.stdout)
     course = json.loads((COURSE / "course.json").read_text(encoding="utf-8"))
 
-    assert digest["content_version"] == course["version"] == "0.61.1"
+    assert digest["content_version"] == course["version"] == "0.62.0"
     assert f'Public package archive SHA-256:** `{digest["package_sha256"]}`' in snapshot
     assert f'Manifest SHA-256:** `{digest["manifest_sha256"]}`' in snapshot
     assert f'{digest["file_count"]} files, {digest["archive_bytes"]:,} bytes' in snapshot

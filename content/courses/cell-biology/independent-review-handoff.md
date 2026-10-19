@@ -1,15 +1,15 @@
 # Independent review handoff
 
-**Package snapshot:** Foundations of Cell and Molecular Biology 0.61.1
-**Prepared:** 2026-10-11  
+**Package snapshot:** Foundations of Cell and Molecular Biology 0.62.0
+**Prepared:** 2026-10-19  
 **Disposition:** Review packet prepared; no independent review or course release has occurred. The course remains `partial`, `unreviewed`, and `formative-only`.
-**Public package snapshot:** [Version 0.61.1 archive digest](../../../docs/CELL_BIOLOGY_REVIEW_SNAPSHOT.md); reproduce with `python tools/course_package_digest.py --course-id cell-biology`.
+**Public package snapshot:** [Version 0.62.0 archive digest](../../../docs/CELL_BIOLOGY_REVIEW_SNAPSHOT.md); reproduce with `python tools/course_package_digest.py --course-id cell-biology`.
 
 ## Review scope
 
 This handoff gathers the evidence needed for qualified scientific, assessment, accessibility, workload, and operational review. Review the exact package version and archive digest recorded in the linked snapshot record. A later edit creates a new review target; prior dispositions should not be carried forward automatically.
 
-The package contains 43 lesson records, 69 lesson objectives, 166 public formative questions, 89 retrieval cards, and 28 assessment records, including eight open homework companions, three synthetic practice labs, and inactive authoring candidates. Version 0.61.1 clarifies the required cell/molecular core and optional mechanobiology/regenerative applications, and turns the week-8 evidence reading into a concise application matrix that refers back to the detailed week-4 control framework. Lesson IDs, questions, homework, lab data, and candidate artifacts remain intact. The full history remains in the course manifest. These materials still do not demonstrate mastery, qualified review, or measured semester workload.
+The package contains 45 lesson records, 69 lesson objectives, 183 public formative questions, 96 retrieval cards, and 31 assessment records, including eight open homework companions, three synthetic practice labs, an open integrative-project rehearsal, a cumulative final review practice set, a project-milestone self-assessment record, and inactive authoring candidates. Version 0.62.0 makes the planned final review and integrative project usable by learners: a week-14 course-synthesis reading and 25-question final review practice set (not a final exam), and a week-10 project guide with an eight-culture rehearsal dataset, four open practice items and five Case studio milestone self-checks. It also restores the week-8 syllabus links to the synthesis readings. Earlier lesson IDs, questions, homework, lab data, and candidate artifacts remain intact. The full history remains in the course manifest. These materials still do not demonstrate mastery, qualified review, or measured semester workload.
 
 ## Evidence to inspect
 
@@ -17,7 +17,7 @@ The package contains 43 lesson records, 69 lesson objectives, 166 public formati
 - [Course gap report](../../../docs/COURSE_GAP_REPORT.md) gives the generated objective-to-question mapping. [Validation report](../../../docs/VALIDATION_REPORT.md) records machine checks and their limits.
 - The [response-format inventory](../../../docs/CELL_BIOLOGY_RESPONSE_MODE_AUDIT.md) lists public item formats by objective for reviewer navigation; it does not prove objective alignment or free-response performance.
 - [Source map](source-map.json), lesson readings under `modules/`, and the [misconception catalog](misconceptions.md) support scientific and instructional review.
-- [Public table-key audit](../../../docs/reviews/cell-biology-public-table-key-audit-0.36.0.md) reconciles 114 summary cells across 12 public table-upload questions. The [0.36.0](../../../docs/reviews/cell-biology-numeric-key-audit-0.36.0.md) and [0.39.0](../../../docs/reviews/cell-biology-numeric-key-audit-0.39.0.md) author-side audits recalculate all 21 public numeric-question keys. These are author checks, not independent review.
+- [Public table-key audit](../../../docs/reviews/cell-biology-public-table-key-audit-0.36.0.md) reconciled 114 summary cells across 12 public table-upload questions at 0.36.0; the current [table reconciliation](../../../docs/reviews/cell-biology-public-table-recalculation.json) covers 133 checks across 14 items. The [0.36.0](../../../docs/reviews/cell-biology-numeric-key-audit-0.36.0.md) and [0.39.0](../../../docs/reviews/cell-biology-numeric-key-audit-0.39.0.md) author-side audits recalculated the first 21 public numeric-question keys, and the current [numeric-key report](../../../docs/reviews/cell-biology-public-numeric-recalculation.json) recomputes all 23. These are author checks, not independent review.
 - The current [review-evidence index](../../../docs/reviews/cell-biology-review-evidence.json) is pinned to the package and candidate artifact hashes. Its scaffold has no reviewer records and leaves 142 candidate-gate instances and four course-level gates unresolved; it cannot authenticate reviewer identity or qualifications.
 - [Assessment candidate index](assessment-specs/README.md) describes inactive packets. Their private keys remain outside the public repository and must be reviewed through the approved private workflow.
 

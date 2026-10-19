@@ -30,7 +30,7 @@ def test_numeric_key_evidence_report_matches_every_public_numeric_practice_item(
     results = {result["question_id"]: result for result in report["results"]}
 
     assert report["course_version"] == json.loads((ROOT / "content/courses/cell-biology/course.json").read_text(encoding="utf-8"))["version"]
-    assert report["numeric_item_count"] == report["passed_check_count"] == 21
+    assert report["numeric_item_count"] == report["passed_check_count"] == 23
     assert set(results) == expected_ids
     assert all(result["passed"] for result in results.values())
     assert all(result["prompt_anchor"] for result in results.values())

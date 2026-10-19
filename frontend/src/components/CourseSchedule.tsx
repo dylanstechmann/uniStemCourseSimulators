@@ -59,7 +59,8 @@ export function CourseSchedule({
                   {week.assessments.map((assessment) => (
                     <li key={assessment.id}>
                       <span className="tag">{assessment.type}</span>{" "}
-                      {assessment.type === "case" &&
+                      {(assessment.type === "case" ||
+                        assessment.type === "project") &&
                       assessment.mode === "self-assessment" ? (
                         <a href={`${courseLink}/cases`}>{assessment.title}</a>
                       ) : !readOnly &&

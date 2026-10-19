@@ -111,7 +111,8 @@ def independent_inventory(repository: Path) -> dict[str, int]:
         totals["lessons"] += sum(len(module["lessons"]) for module in manifest["modules"])
         totals["questions"] += len(read(banks / "practice.json")["questions"])
         totals["cards"] += len(read(banks / "retrieval-cards.json")["cards"])
-        totals["cases"] += sum(item["type"] == "case" for item in manifest["assessments"])
+        # Count every authored Case studio prompt; one rubric file can hold several self-check cases.
+        totals["cases"] += len(read(manifest_path.parent / manifest["case_rubrics"])["cases"])
     return totals
 
 
@@ -169,7 +170,8 @@ def test_preserved_inventory_is_honest_partial(repository):
     result = validate_repository(repository)
     assert result.ok, result.errors
     assert result.inventory == independent_inventory(repository)
-    assert result.inventory["courses"] == 25 and result.inventory["cases"] == 25
+    # 25 preserved course cases plus five Cell Biology project-milestone self-checks (0.62.0).
+    assert result.inventory["courses"] == 25 and result.inventory["cases"] == 30
     assert sum(warning["code"] == "legacy-depth" for warning in result.warnings) == 0
     # Assessments list the course outcomes their items assess, so no package has an unmapped outcome.
     assert not [warning for warning in result.warnings if warning["code"] == "objective-coverage"]
@@ -550,7 +552,7 @@ def test_structured_rubric_item_is_counted_while_course_remains_partial(reposito
 def test_learner_resource_references_must_be_safe_and_resolve(repository, course):
     manifest_path, manifest = course
     resources = manifest["learner_resources"]
-    assert len(resources) == 9
+    assert len(resources) == 12
     assert resources.count("labs/image-counts.csv") == 1
     assert all(reference.endswith(".csv") for reference in resources)
     assert all((manifest_path.parent / reference).is_file() for reference in resources)
@@ -1089,8 +1091,13 @@ def test_cell_biology_scope_does_not_claim_unwritten_weeks(repository):
     assert week9_practice["mode"] == "practice"
     assert len(week9_practice["question_ids"]) == 11
     assert week9_practice["points"] == 19
-    assert weeks[9]["lesson_ids"] == ["cell-biology-19", "cell-biology-20", "cell-biology-hw6"]
-    assert weeks[9]["assessment_ids"] == ["cell-biology-week10-practice", "cell-biology-hw6-practice"]
+    assert weeks[9]["lesson_ids"] == ["cell-biology-19", "cell-biology-20", "cell-biology-hw6", "cell-biology-project-guide"]
+    assert weeks[9]["assessment_ids"] == [
+        "cell-biology-week10-practice", "cell-biology-hw6-practice", "cell-biology-project-rehearsal-practice"
+    ]
+    rehearsal = next(item for item in manifest["assessments"] if item["id"] == "cell-biology-project-rehearsal-practice")
+    assert rehearsal["type"] == "data-analysis" and rehearsal["mode"] == "practice"
+    assert len(rehearsal["question_ids"]) == 4 and rehearsal["points"] == 18
     week10_practice = next(item for item in manifest["assessments"] if item["id"] == weeks[9]["assessment_ids"][0])
     assert week10_practice["mode"] == "practice"
     assert len(week10_practice["question_ids"]) == 10
@@ -1114,9 +1121,18 @@ def test_cell_biology_scope_does_not_claim_unwritten_weeks(repository):
     assert len(week13_practice["question_ids"]) == 8
     assert week13_practice["points"] == 14
     assert weeks[13]["lesson_ids"] == [
-        "cell-biology-27", "cell-biology-28", "cell-biology-lab-03", "cell-biology-review-design-studio"
+        "cell-biology-27", "cell-biology-28", "cell-biology-lab-03", "cell-biology-review-design-studio",
+        "cell-biology-review-14-synthesis",
     ]
-    assert weeks[13]["assessment_ids"] == ["cell-biology-week14-practice", "cell-biology-week14-lineage-lab"]
+    assert weeks[13]["assessment_ids"] == [
+        "cell-biology-week14-practice", "cell-biology-week14-lineage-lab",
+        "cell-biology-week14-final-review-practice", "cell-biology-integrative-project",
+    ]
+    final_review = next(item for item in manifest["assessments"] if item["id"] == "cell-biology-week14-final-review-practice")
+    assert final_review["mode"] == "practice" and "not a final exam" in final_review["title"]
+    assert len(final_review["question_ids"]) == 25 and final_review["points"] == 53
+    project = next(item for item in manifest["assessments"] if item["id"] == "cell-biology-integrative-project")
+    assert project["mode"] == "self-assessment" and project["points"] == 0 and not project["question_ids"]
     week14_practice = next(item for item in manifest["assessments"] if item["id"] == weeks[13]["assessment_ids"][0])
     assert week14_practice["mode"] == "practice"
     assert len(week14_practice["question_ids"]) == 9

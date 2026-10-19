@@ -14,6 +14,7 @@ import json
 import math
 import re
 import sys
+from fractions import Fraction
 from pathlib import Path
 from typing import Any
 
@@ -60,6 +61,12 @@ QUESTION_SOURCES = {
     "cell-biology-lab3:summary-table": (
         "labs/lineage-timecourse.csv", "condition", "culture", "day",
     ),
+    "cell-biology-final:clone-summary-table": (
+        "assignments/final-review-feedback-variant-clones.csv", "genotype", "clone", None,
+    ),
+    "cell-biology-project:rehearsal-summary": (
+        "assignments/project-rehearsal-cultures.csv", "condition", "culture", None,
+    ),
 }
 OUTPUT_TO_SOURCE_COLUMN = {
     "mean_marker_positive_percent": None,
@@ -87,6 +94,31 @@ OUTPUT_TO_SOURCE_COLUMN = {
     "mean_lineage_pct": "lineage_marker_pct",
     "mean_pluripotency_pct": "pluripotency_marker_pct",
     "mean_cells_thousands": "cells_per_well_thousands",
+    "mean_f_half_life_h": "f_half_life_h",
+    "mean_perk_60_fold": "perk_60_fold",
+}
+def _fraction(row: dict[str, str], column: str) -> Fraction:
+    return Fraction(row[column])
+
+
+def _per_1000_viable(row: dict[str, str], amount: Fraction) -> Fraction:
+    return amount / (_fraction(row, "viable_cells") / 1000)
+
+
+# Project-rehearsal outputs are per-culture transformations defined in the integrative project guide.
+DERIVED_OUTPUTS = {
+    "mean_rna_per_1000_viable": lambda row: _per_1000_viable(
+        row,
+        (_fraction(row, "rna_signal_eq") - _fraction(row, "rna_background_eq"))
+        * _fraction(row, "spike_input_eq") / _fraction(row, "spike_recovered_eq"),
+    ),
+    "mean_protein_ug_per_1000_viable": lambda row: _per_1000_viable(
+        row,
+        (_fraction(row, "protein_signal_ug") - _fraction(row, "protein_background_ug"))
+        / _fraction(row, "protein_recovery_fraction"),
+    ),
+    "mean_marker_pct": lambda row: 100 * _fraction(row, "marker_positive_viable") / _fraction(row, "viable_cells"),
+    "mean_function_pct": lambda row: 100 * _fraction(row, "functional_events_viable") / _fraction(row, "viable_cells"),
 }
 PROMPT_VALUES = re.compile(
     r"\b(?P<row>[A-Za-z0-9_-]+)\s*=\s*(?P<values>[0-9., ]+?)(?:;|\.(?=\s|$))"
@@ -196,6 +228,8 @@ def build_evidence(root: Path = ROOT) -> dict[str, Any]:
                     100 * float(row["marker_positive_nuclei"]) / float(row["viable_nuclei"])
                     for row in selected
                 ]
+            elif check["column"] in DERIVED_OUTPUTS:
+                source_values = [float(DERIVED_OUTPUTS[check["column"]](row)) for row in selected]
             else:
                 source_column = OUTPUT_TO_SOURCE_COLUMN.get(check["column"])
                 if source_column is None:
@@ -253,8 +287,8 @@ def build_evidence(root: Path = ROOT) -> dict[str, Any]:
                 "passed": True,
             })
 
-    if len(results) != 114:
-        raise ValueError(f"Expected 114 public table checks, found {len(results)}")
+    if len(results) != 133:
+        raise ValueError(f"Expected 133 public table checks, found {len(results)}")
 
     return {
         "schema_version": "1.0",

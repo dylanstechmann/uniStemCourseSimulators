@@ -4,6 +4,10 @@ The Cell Biology 0.61.0 package has a complete set of **inactive candidate draft
 
 The public candidate inventory and artifact hashes are in the generated [assessment candidate audit](../../../../docs/ASSESSMENT_CANDIDATE_REPORT.md). It records the exact public versions and the unresolved gates without reading private keys. Keep those hashes fixed during review. A content change requires a new candidate version and matching key binding.
 
+## Open learner routes are separate (0.62.0)
+
+Version 0.62.0 adds learner-facing practice for the final and the project without activating or changing any candidate. The week-14 [course-synthesis reading](../modules/13d-course-synthesis-and-final-review.md) and its cumulative final review practice set use a new synthetic isogenic-clone dataset and earlier public items, not the final candidate's observations or forms. The [integrative project guide](../assignments/integrative-project-guide.md) lets learners work the existing portfolio on the public form A or B culture table, rehearse the per-culture transformations on a separate eight-culture rehearsal table, and record milestone drafts as Case studio self-checks. No public item computes a value from the candidate observation file, and every candidate file, version, hash and external key binding is unchanged.
+
 ## Homework candidates
 
 | Candidate | Authored version | Public packet | Draft scope |

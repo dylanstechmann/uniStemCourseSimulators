@@ -40,6 +40,9 @@ def test_cell_biology_review_handoff_matches_pinned_public_package():
         ROOT / "docs/reviews/cell-biology-assessment-review-register-0.35.0.md"
     ).read_text(encoding="utf-8")
     workload_protocol = (
+        ROOT / "docs/reviews/cell-biology-workload-pilot-0.62.0.md"
+    ).read_text(encoding="utf-8")
+    historical_061_workload_protocol = (
         ROOT / "docs/reviews/cell-biology-workload-pilot-0.61.0.md"
     ).read_text(encoding="utf-8")
     historical_060_workload_protocol = (
@@ -54,7 +57,7 @@ def test_cell_biology_review_handoff_matches_pinned_public_package():
     historical_snapshot = (
         ROOT / "docs/CELL_BIOLOGY_REVIEW_SNAPSHOT-0.56.0.md"
     ).read_text(encoding="utf-8")
-    workload_log = ROOT / "docs/reviews/cell-biology-workload-log-template-0.61.0.csv"
+    workload_log = ROOT / "docs/reviews/cell-biology-workload-log-template-0.62.0.csv"
     manifest = json.loads(
         (ROOT / "content/courses/cell-biology/course.json").read_text(
             encoding="utf-8"
@@ -62,10 +65,10 @@ def test_cell_biology_review_handoff_matches_pinned_public_package():
     )
 
     assert actual["course_id"] == "cell-biology"
-    assert actual["content_version"] == "0.61.1"
-    assert "targets Cell Biology package version 0.61.1" in handoff
-    assert "Foundations of Cell and Molecular Biology 0.61.1" in embedded_handoff
-    assert "43 lesson records, 69 lesson objectives, 166 public formative questions" in embedded_handoff
+    assert actual["content_version"] == "0.62.0"
+    assert "targets Cell Biology package version 0.62.0" in handoff
+    assert "Foundations of Cell and Molecular Biology 0.62.0" in embedded_handoff
+    assert "45 lesson records, 69 lesson objectives, 183 public formative questions" in embedded_handoff
     assert "142 candidate-gate instances and four course-level gates" in embedded_handoff
     assert re.search(
         r"Public package archive SHA-256:\*\*\s*`([0-9a-f]{64})`", snapshot
@@ -85,20 +88,23 @@ def test_cell_biology_review_handoff_matches_pinned_public_package():
     assert "[table reconciliation](reviews/cell-biology-public-table-recalculation.json)" in handoff
     assert "No reviewer sign-off or release decision" in handoff
     assert "Current register state: **no reviewers assigned; no sign-offs" in review_register
-    assert "[0.61.0 workload-pilot protocol]" in handoff
+    assert "[0.62.0 workload-pilot protocol]" in handoff
     assert "homework and lab packet headers and syllabus week-5 and week-11 descriptions label the 2–3 hour values as unvalidated author estimates" in handoff
     assert "[blank log template]" in handoff
     assert "No participant recruitment, approved weekly time targets, learner logs, or workload results" in handoff
 
-    # The prospective protocol stays pinned to the 0.61.0 digest; the handoff says it must be repinned.
-    assert actual["package_sha256"] not in workload_protocol
+    # 0.62.0 repins the prospective protocol to the current digest; the 0.61.0 protocol stays historical.
+    assert actual["package_sha256"] in workload_protocol
+    assert actual["manifest_sha256"] in workload_protocol
     assert "Public package pin:** archive SHA-256" in workload_protocol
-    assert "must be repinned before use with 0.61.1" in handoff
-    assert "version 0.61.0" in workload_protocol
+    assert "pinned to the 0.62.0 package digest" in handoff
+    assert "version 0.62.0" in workload_protocol
+    assert "version 0.61.0" in historical_061_workload_protocol
+    assert actual["package_sha256"] not in historical_061_workload_protocol
     assert "No learners have been recruited" in workload_protocol
     assert "deliberately blank" in workload_protocol
     assert "not a midterm" in workload_protocol
-    assert "cell-biology-workload-log-template-0.61.0.csv" in workload_protocol
+    assert "cell-biology-workload-log-template-0.62.0.csv" in workload_protocol
     assert "version 0.60.0" in historical_060_workload_protocol
     assert "version 0.57.0" in historical_057_workload_protocol
     assert "a731447f4eb6d6bf596199480007484d152522b6ff4915654a8fdd501e1ad79e" in historical_057_workload_protocol
@@ -115,8 +121,8 @@ def test_cell_biology_review_handoff_matches_pinned_public_package():
         "| Week | Available lesson IDs (not assignments) |", maxsplit=1
     )[1].split("\n\n", maxsplit=1)[0]
     for week in duration_weeks:
-        # Titles are frozen at 0.61.0 until the protocol is repinned; week numbers and IDs are stable.
-        assert f"| {week['week']} | " in target_table
+        # The repinned protocol lists the current week titles and every available activity ID.
+        assert f"| {week['week']} | {week['title']} |" in target_table
         lesson_ids = ", ".join(f"`{value}`" for value in week["lesson_ids"])
         assessment_ids = ", ".join(
             f"`{value}`" for value in week["assessment_ids"]

@@ -32,7 +32,7 @@ def test_week14_design_studio_is_a_delivered_ungraded_lesson():
         "Experimental-design studio: mechanisms, controls, and follow-up"
     )
     assert all(activity.mode in {"practice", "self-assessment"} for activity in week14.assessments)
-    assert course.lesson_count == 43
+    assert course.lesson_count == 45
 
     lesson = repository.lesson("cell-biology", "cell-biology-review-design-studio")
     assert set(lesson.learning_objective_ids) == {
@@ -45,6 +45,46 @@ def test_week14_design_studio_is_a_delivered_ungraded_lesson():
     assert "### 1. Variant mechanism and independent controls" in lesson.markdown
     assert "### 4. Distinguish reduced proliferation" in lesson.markdown
     assert lesson.questions == []
+
+
+def test_final_review_and_project_routes_render_as_ungraded_learner_material():
+    content_root = Path(__file__).resolve().parents[2] / "content"
+    repository = ContentRepository(content_root)
+    course = repository.course("cell-biology")
+    weeks = {week.week: week for week in course.weeks}
+    assert "cell-biology-project-guide" in {lesson.id for lesson in weeks[10].lessons}
+    assert "cell-biology-review-14-synthesis" in {lesson.id for lesson in weeks[14].lessons}
+    assert all(activity.mode in {"practice", "self-assessment"} for activity in weeks[14].assessments)
+
+    guide = repository.lesson("cell-biology", "cell-biology-project-guide")
+    resource_prefix = "/api/v1/courses/cell-biology/resources/"
+    assert f"({resource_prefix}assignments/project-rehearsal-cultures.csv)" in guide.markdown
+    assert f"({resource_prefix}assessment-specs/integrative-project-candidate-cultures.csv)" in guide.markdown
+    assert "(#/course/cell-biology/lesson/cell-biology-28)" in guide.markdown
+    assert len(guide.questions) == 4
+    assert all("solution_spec" not in question.model_dump() for question in guide.questions)
+
+    synthesis = repository.lesson("cell-biology", "cell-biology-review-14-synthesis")
+    assert f"({resource_prefix}assignments/final-review-feedback-variant-clones.csv)" in synthesis.markdown
+    assert "(#/course/cell-biology/lesson/cell-biology-review-8-quantitative)" in synthesis.markdown
+    assert synthesis.questions == []
+    assert repository.learner_resource(
+        "cell-biology", "assignments/final-review-feedback-variant-clones.csv"
+    ).startswith(b"genotype,clone,")
+    with pytest.raises(ContentMissing, match="Learner resource not found"):
+        repository.learner_resource(
+            "cell-biology", "assessment-specs/integrative-project-candidate-observations.csv"
+        )
+
+    milestones = [case for case in repository.case_studies("cell-biology") if case.id.startswith("cell-biology:project-m")]
+    assert [case.id for case in milestones] == [
+        "cell-biology:project-m1-question",
+        "cell-biology:project-m2-plan",
+        "cell-biology:project-m3-evidence",
+        "cell-biology:project-m4-interpretation",
+        "cell-biology:project-m5-methods",
+    ]
+    assert all(case.mode == "self-assessment" and case.criteria for case in milestones)
 
 
 def test_markdown_lesson_links_resolve_to_current_and_archived_routes():
