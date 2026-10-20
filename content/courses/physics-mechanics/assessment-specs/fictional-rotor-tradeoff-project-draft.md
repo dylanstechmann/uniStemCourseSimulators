@@ -14,7 +14,7 @@ Treat each candidate as a uniform solid disk with the listed rotor mass and radi
 |---|---:|---:|---:|
 | A | 1.0 | 0.080 | 0.0005 |
 | B | 1.2 | 0.120 | 0.0005 |
-| C | 0.8 | 0.100 | 0.0010 |
+| C | 0.6 | 0.100 | 0.0010 |
 
 ## Learner task
 

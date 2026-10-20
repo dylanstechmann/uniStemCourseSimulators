@@ -20,7 +20,7 @@ Independently supplied specimen geometry is initial gauge length L=0.020 m and i
 
 ## Data dictionary and report construction
 
-[Download the synthetic CSV](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/physics-mechanics/labs/compliance-reports.csv). The file contains 27 rows. `sample` is the nine-group code, `orientation` is a, b or ref, `force_n` is the supplied force in newtons, `replicate` identifies a constructed report and `reported_displacement_mm` is raw displacement in millimetres.
+[Download the synthetic CSV](compliance-reports.csv). The file contains 27 rows. `sample` is the nine-group code, `orientation` is a, b or ref, `force_n` is the supplied force in newtons, `replicate` identifies a constructed report and `reported_displacement_mm` is raw displacement in millimetres.
 
 | Sample | Orientation | Force (N) | Mean raw displacement (mm) |
 |---|---|---:|---:|

@@ -7,7 +7,7 @@
   "domain": "Physics",
   "level": "Year 1",
   "maturity": "partial",
-  "version": "0.4.9",
+  "version": "0.5.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -420,7 +420,7 @@
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week undergraduate scope only. Week 6 now links the fixed-mass momentum/impulse foundation to a variable-mass momentum and mass-flow lesson; week 10 pairs centrifuge circular motion with universal gravitation and circular orbits; week 14 remains a synthetic machine-compliance/orientation lab. All activities are open, ungraded practice. There are no graded homework sets, exams or project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week undergraduate scope only. Week 6 now links the fixed-mass momentum/impulse foundation to a variable-mass momentum and mass-flow lesson; week 10 pairs centrifuge circular motion with universal gravitation and circular orbits; week 14 remains a synthetic machine-compliance/orientation lab. Weeks 11–12 add an optional rotor trade-off project with rehearsal practice and milestone self-checks. All activities are open, ungraded practice. There are no graded homework sets, exams or graded project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
@@ -528,12 +528,14 @@
       },
       {
         "week": 11,
-        "title": "Oscillations, damping and energy balance",
+        "title": "Oscillations, damping and energy balance; optional rotor trade-off project",
         "lesson_ids": [
-          "physics-mechanics-11"
+          "physics-mechanics-11",
+          "physics-mechanics-project-guide"
         ],
         "assessment_ids": [
-          "physics-mechanics-11-practice"
+          "physics-mechanics-11-practice",
+          "physics-mechanics-project-rehearsal-practice"
         ]
       },
       {
@@ -543,7 +545,8 @@
           "physics-mechanics-12"
         ],
         "assessment_ids": [
-          "physics-mechanics-12-practice"
+          "physics-mechanics-12-practice",
+          "physics-mechanics-rotor-project"
         ]
       },
       {
@@ -1153,6 +1156,40 @@
           ]
         }
       ]
+    },
+    {
+      "id": "physics-mechanics-module-project",
+      "title": "Rotor trade-off project guide (optional, ungraded)",
+      "source_ids": [
+        "mechanics",
+        "engineeringMath"
+      ],
+      "lessons": [
+        {
+          "id": "physics-mechanics-project-guide",
+          "title": "Rotor trade-off project guide: speed, rotational energy and imbalance at a shared target (optional, ungraded)",
+          "reading": "assignments/rotor-tradeoff-project-guide.md",
+          "objectives": [
+            "physics-mechanics-6-objective-1",
+            "physics-mechanics-6-objective-3",
+            "physics-mechanics-6-objective-2",
+            "physics-mechanics-10-objective-1",
+            "physics-mechanics-10-objective-3"
+          ],
+          "worked_example": "For an invented 2.0 kg disk of radius 0.050 m at 1,000 × g, ω²r = 9,810 m/s² gives ω² = 196,200 rad²/s², about 442.9 rad/s or 4,230 rpm. Then I = ½MR² = 0.0025 kg·m², K = ½Iω² = 245.25 J, and a 0.0002 kg point imbalance at the rim needs F = mω²r ≈ 1.962 N.",
+          "question_ids": [
+            "physics-mechanics-project:rehearsal-speed",
+            "physics-mechanics-project:rehearsal-energy",
+            "physics-mechanics-project:rehearsal-imbalance",
+            "physics-mechanics-project:rehearsal-comparison"
+          ],
+          "card_ids": [
+            "physics-mechanics-project-1",
+            "physics-mechanics-project-2",
+            "physics-mechanics-project-3"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -1543,6 +1580,42 @@
         "physics-mechanics-15:higher-orbit-energy"
       ],
       "points": 11
+    },
+    {
+      "id": "physics-mechanics-project-rehearsal-practice",
+      "type": "data-analysis",
+      "mode": "practice",
+      "title": "Rotor project rehearsal: speed, rotational energy and imbalance (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 11,
+      "objective_ids": [
+        "physics-mechanics-6-objective-1",
+        "physics-mechanics-6-objective-3",
+        "physics-mechanics-6-objective-2",
+        "physics-mechanics-10-objective-1",
+        "physics-mechanics-10-objective-3",
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-3",
+        "physics-mechanics-outcome-4"
+      ],
+      "question_ids": [
+        "physics-mechanics-project:rehearsal-speed",
+        "physics-mechanics-project:rehearsal-energy",
+        "physics-mechanics-project:rehearsal-imbalance",
+        "physics-mechanics-project:rehearsal-comparison"
+      ],
+      "points": 12
+    },
+    {
+      "id": "physics-mechanics-rotor-project",
+      "type": "project",
+      "mode": "self-assessment",
+      "title": "Rotor trade-off project milestones M1–M5 in the Case studio (optional self-check; ungraded)",
+      "path": "rubrics/case-studio.json",
+      "week": 12,
+      "objective_ids": [],
+      "question_ids": [],
+      "points": 0
     }
   ],
   "grading_policy": {
@@ -1642,21 +1715,32 @@
       "version": "0.4.9",
       "date": "2026-10-13",
       "summary": "Grouped an original universal-gravitation and circular-orbit reading with the week-10 circular-motion lesson: the inverse-square law and shell result, local field strength, orbital speed and period, Kepler's third law for circular orbits, gravitational potential energy, orbital energy and escape speed. Added three objectives, eleven formative items and four cards, with no week added, and corrected stale limitation counts (fourteen readings and 66 numeric items before this release, not thirteen and 63). The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.5.0",
+      "date": "2026-10-20",
+      "summary": "Made the planned rotor trade-off project usable by learners as ungraded practice. Week 11 gains an optional project guide with the project's candidates and tasks, a worked single-rotor example, two synthetic rehearsal candidates and 4 open rehearsal practice items; five project milestones are Case studio self-checks with a week-12 project record. The draft's table now lists candidate C's 0.6 kg disk mass, matching its CSV and reference calculations, and the project table becomes a learner resource. The compliance lab's dataset link now points to the package-pinned CSV instead of a mutable repository URL. The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
     "All 15 readings now have substantive instruction beside one synthetic data lab; this is not a full university semester.",
-    "The proposed 14-week sequence is unmeasured and unreviewed. Graded homework, exams, a full laboratory sequence and an active graded cumulative project remain absent; the new rotor portfolio is an inactive authoring draft only.",
+    "The proposed 14-week sequence is unmeasured and unreviewed. Graded homework, exams, a full laboratory sequence and an active graded cumulative project remain absent. An optional rotor trade-off project guide with rehearsal practice and Case studio milestone self-checks (weeks 11–12) is ungraded practice; the rotor portfolio itself remains an inactive authoring draft.",
     "All parameters and reports are synthetic; selected point-particle, rigid-body, contact and scalar material models provide no real equipment or specimen-testing procedure. In particular, ω²r and RCF determine acceleration only; they do not predict sedimentation or justify a speed, time or temperature protocol.",
-    "Of 74 numeric items, eight preserved items require units; none checks significant figures or dimensions. New numeric items ask for bare numbers in stated scales; choices assess selected force/constraint/evidence decisions, not free-body drawings or proof quality.",
+    "Of 74 numeric items, eight preserved items require units; none checks significant figures or dimensions. New numeric items ask for bare numbers in stated scales; choices assess selected force/constraint/evidence decisions, not free-body drawings or proof quality. The 6 numeric fields inside the project rehearsal's data-interpretation items check the stated significant figures.",
     "Public keys and feedback remain formative authoring specifications; practice points are not course grades.",
     "Subject-matter, accessibility and workload review remain outstanding; the original text free-body diagram has a verbal description but no assistive-technology review.",
     "Fifteen primary OpenStax University Physics Volume 1 sections are registered as link-only references; no teaching prose, problem, figure or dataset was imported.",
-    "The new variable-mass lesson is a one-dimensional point-body model with uniform stream velocities and stated external forces. It does not cover engine thermodynamics, pressure thrust, multidimensional flow, vehicle control or real propulsion design."
+    "The new variable-mass lesson is a one-dimensional point-body model with uniform stream velocities and stated external forces. It does not cover engine thermodynamics, pressure thrust, multidimensional flow, vehicle control or real propulsion design.",
+    "The rotor trade-off project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses separate invented candidates at a different target, and no software check evaluates a learner's project calculations or written comparison. Milestone weeks are planning suggestions, not measured workload or deadlines."
   ],
   "intentionally_omitted": [
     "Graded assessments, complete laboratory sequence, cumulative graded project, measured workload and qualified human review remain outstanding.",
     "The fictional rotor trade-off portfolio is an inactive, ungraded paper-exercise draft and is not activated or mapped to course completion.",
     "A full continuum/control-volume treatment of distributed momentum transport, propulsion design and snowplow or vehicle engineering applications remains outside this bounded lesson."
+  ],
+  "learner_resources": [
+    "labs/compliance-reports.csv",
+    "assessment-specs/fictional-rotor-candidates.csv",
+    "assignments/rotor-rehearsal-candidates.csv"
   ]
 }

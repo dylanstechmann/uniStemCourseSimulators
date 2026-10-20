@@ -25,7 +25,7 @@ No course or candidate is activated by this command. `--check` detects report dr
 | linear-algebra | 0.3.7 | partial | unreviewed | formative-only | 0 |
 | organic-chemistry | 0.4.9 | partial | unreviewed | formative-only | 0 |
 | physics-em | 0.4.8 | partial | unreviewed | formative-only | 0 |
-| physics-mechanics | 0.4.9 | partial | unreviewed | formative-only | 0 |
+| physics-mechanics | 0.5.0 | partial | unreviewed | formative-only | 0 |
 | physiology | 0.4.9 | partial | unreviewed | formative-only | 0 |
 | programming | 0.4.9 | partial | unreviewed | formative-only | 0 |
 | robotics | 0.4.8 | partial | unreviewed | formative-only | 0 |

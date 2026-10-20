@@ -17,7 +17,7 @@ def load(path: Path) -> dict:
 
 def test_kinematics_lesson_maps_objectives_and_preserves_force_keys():
     manifest = load(COURSE / "course.json")
-    assert manifest["version"].startswith("0.4.")
+    assert tuple(int(part) for part in manifest["version"].split(".")) >= (0, 4, 0)
     module = next(
         item
         for item in manifest["modules"]

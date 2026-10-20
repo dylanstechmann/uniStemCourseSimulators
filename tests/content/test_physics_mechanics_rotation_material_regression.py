@@ -17,7 +17,7 @@ def load(path: Path) -> dict:
 
 def test_rotation_material_reading_maps_objectives_and_preserves_keys():
     manifest = load(COURSE / "course.json")
-    assert manifest["version"].startswith("0.4.")
+    assert tuple(int(part) for part in manifest["version"].split(".")) >= (0, 4, 0)
     module = next(
         item
         for item in manifest["modules"]

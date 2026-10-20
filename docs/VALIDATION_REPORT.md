@@ -5861,3 +5861,28 @@ Key checks before publication:
 | Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
 
 Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.
+
+## Physics: Mechanics rotor trade-off project for learners (2026-10-20)
+
+Physics: Mechanics advances to 0.5.0. Week 11 gains `assignments/rotor-tradeoff-project-guide.md`, the synthetic `assignments/rotor-rehearsal-candidates.csv` (two candidates at 400 × g) and a four-item, 12-point rehearsal practice set; five project milestones are zero-point self-checks in `rubrics/case-studio.json`, with a `project` self-assessment record in week 12. The draft's candidate table now lists candidate C's 0.6 kg disk mass, which its CSV and reference calculations already used. The project table and the compliance lab's dataset become learner resources, and the lab's link now resolves to the package-pinned CSV.
+
+Key checks before publication:
+
+- A self-check script graded the four new items with the backend grader: keys earn full credit and wrong responses zero. Another 9 cases (too many significant figures, rev/s used for rad/s, the half left out of I, g left out of the force, an equal target taken as equal energy) earn the stated scores. An option-length audit flagged one field, which was rebalanced.
+- `tests/content/test_physics_mechanics_project_route.py` (5 tests) recomputes every rehearsal key from the CSV, finding each speed by bisection on ω²r instead of the closed form, checks the √2 radius scaling and the ¼ M R × target × g energy identity, compares the draft and guide tables with the project CSV, recomputes the guide's worked example and confirms that neither the guide nor the rehearsal states the project's own results. Writing it exposed a rounding ambiguity: the worked example's energy is exactly 245.25 J, which the guide now states instead of 245.3.
+- Pins updated: the Physics snapshot version, the global case count (45 to 50) and the backend per-course case map, both now with generic comments. Four regression tests pinned the version prefix `0.4.` and now require at least 0.4.0.
+- The syllabus statement that significant figures are never checked was qualified, and the numeric limitation names the 8 new significant-figure checks.
+- The 0.4.9 snapshot is archived as `docs/PHYSICS_MECHANICS_REVIEW_SNAPSHOT-0.4.9.md`.
+
+| Actual command/check | Result |
+| --- | --- |
+| Self-check script over the Physics item module (backend grader) | 4 items and 9 extra cases passed. |
+| `tools/validate_content.py` | Passed: 25 courses, 462 lessons, 2,997 questions, 1,611 cards and 50 cases; 0 errors and 0 warnings. |
+| `tools/objective_coverage.py --check docs/COURSE_GAP_REPORT.md` | Passed after regeneration. Physics: Mechanics: 17 lessons, 44 objectives, 114 items, 59 cards; no unmapped objective or outcome. |
+| `tools/assessment_candidates.py --check docs/ASSESSMENT_CANDIDATE_REPORT.md` | Passed after regeneration. |
+| `claims_scan.py --repo uniStemCourseSimulators` | The same false-positive `disclosure-removed` finding on the syllabus version line; the AI-assistance sentence is unchanged. |
+| Full verify, `verify.sh --frontend` (log `phys-verify-1`) | Content, legacy (7), security (1,662 files including the built bundle, 0 findings), ruff, backend (6,322 passed, 2 skipped) and frontend passed. Root: 3,392 passed, 1 skipped and 4 failed, the four version-prefix pins above. |
+| Physics tests after relaxing those pins | 123 passed; the full suite runs again in CI before main moves. |
+| Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
+
+Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.

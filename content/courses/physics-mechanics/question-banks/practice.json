@@ -3929,6 +3929,357 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "physics-mechanics-project:rehearsal-speed",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Use the rehearsal candidates linked in the project guide. Each candidate is a uniform solid disk, and the sample sits at the listed radius. Both must reach the same hypothetical target of 400 × g, with g = 9.81 m/s².",
+      "points": 3,
+      "objective_ids": [
+        "physics-mechanics-6-objective-1",
+        "physics-mechanics-6-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "omega_p",
+          "type": "numeric",
+          "prompt": "Angular speed candidate P needs, in rad/s, to four significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "rpm_p",
+          "type": "numeric",
+          "prompt": "The same speed in revolutions per minute, to four significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "radius_scaling",
+          "type": "single_choice",
+          "prompt": "At a fixed target, how does the required angular speed change if the sample radius is halved?",
+          "options": [
+            "It doubles, because the speed must make up for the smaller radius twice over.",
+            "It is unchanged, because the target acceleration ratio is the same.",
+            "It rises by a factor of √2, because ω² must double when r halves."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "omega_p",
+            "type": "numeric",
+            "answer": 208.8,
+            "unit": "",
+            "tolerance": 0.06,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "rpm_p",
+            "type": "numeric",
+            "answer": 1994,
+            "unit": "",
+            "tolerance": 0.6,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "radius_scaling",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "The target fixes ω²r/g, so ω = √(400 × 9.81/r); convert with rpm = 60ω/(2π).",
+        "solution": "For P, ω = √(3924/0.090) = 208.81 rad/s, or about 1,994 rpm. Since ω²r is fixed, halving r doubles ω², so ω grows by √2, not by 2.",
+        "lesson_ids": [
+          "physics-mechanics-project-guide",
+          "physics-mechanics-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-mechanics-project:rehearsal-energy",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · For rehearsal candidate Q at the same 400 × g target, treat the rotor as a uniform solid disk with I = ½MR², where R is the listed radius.",
+      "points": 3,
+      "objective_ids": [
+        "physics-mechanics-6-objective-2",
+        "physics-mechanics-10-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "inertia_q",
+          "type": "numeric",
+          "prompt": "Moment of inertia of Q, in kg·m², to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "energy_q",
+          "type": "numeric",
+          "prompt": "Rotational kinetic energy of Q at the target, in joules, to four significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "energy_scaling",
+          "type": "single_choice",
+          "prompt": "At a fixed target, how does the disk's rotational energy depend on its size?",
+          "options": [
+            "It depends only on ω, so two disks at equal targets store equal rotational energy.",
+            "With ω² = (target × g)/R, K = ¼ M R × target × g, so it grows with M and R.",
+            "It grows with R⁴, because I scales with R² and ω scales with R as well."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "inertia_q",
+            "type": "numeric",
+            "answer": 0.0169,
+            "unit": "",
+            "tolerance": 6e-05,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "energy_q",
+            "type": "numeric",
+            "answer": 220.7,
+            "unit": "",
+            "tolerance": 0.06,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "energy_scaling",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "K = ½Iω² with I = ½MR² and ω² = 400 × 9.81/R.",
+        "solution": "I = ½ × 1.50 × 0.150² = 0.016875 kg·m² and ω² = 3924/0.150 = 26,160 rad²/s², so K = ½ × 0.016875 × 26,160 = 220.73 J. The same result follows from K = ¼ M R × 400 × 9.81.",
+        "lesson_ids": [
+          "physics-mechanics-project-guide",
+          "physics-mechanics-6",
+          "physics-mechanics-10"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-mechanics-project:rehearsal-imbalance",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Treat each rehearsal candidate's imbalance as a point mass at the sample radius, rotating at the speed found for the 400 × g target.",
+      "points": 3,
+      "objective_ids": [
+        "physics-mechanics-6-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "force_p",
+          "type": "numeric",
+          "prompt": "Rotating imbalance force for P, in newtons, to four significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "force_q",
+          "type": "numeric",
+          "prompt": "Rotating imbalance force for Q, in newtons, to four significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "force_meaning",
+          "type": "single_choice",
+          "prompt": "Why does each force equal the imbalance mass × 400 × 9.81 here?",
+          "options": [
+            "Because the imbalance sits at the sample radius, where ω²r equals the target × g.",
+            "Because the rotor's moment of inertia cancels out of the rotating-load estimate.",
+            "Because an imbalance force never depends on the speed of the rotor."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "force_p",
+            "type": "numeric",
+            "answer": 3.139,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "force_q",
+            "type": "numeric",
+            "answer": 1.57,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "force_meaning",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "F = m ω² r for a point mass m at radius r.",
+        "solution": "With ω²r = 400 × 9.81 = 3924 m/s² at the sample radius, F_P = 0.0008 × 3924 = 3.1392 N and F_Q = 0.0004 × 3924 = 1.5696 N. The force depends on speed through ω²r; it is the shared target that makes the two radii irrelevant here.",
+        "lesson_ids": [
+          "physics-mechanics-project-guide",
+          "physics-mechanics-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-mechanics-project:rehearsal-comparison",
+      "type": "structured",
+      "prompt": "Project rehearsal open practice · Compare the two rehearsal candidates at the shared 400 × g target. Select one response per criterion.",
+      "points": 3,
+      "objective_ids": [
+        "physics-mechanics-6-objective-3",
+        "physics-mechanics-10-objective-3"
+      ],
+      "feedback": {
+        "hint": "Compare K = ¼ M R × target × g across candidates, ask what the model omits, and check m ω² r term by term.",
+        "solution": "Q stores more energy because M R is larger (0.225 against 0.081 kg·m). None of the calculations includes material strength, containment or speed ratings, so none identifies a safe rotor. Radians are dimensionless, so kg × (rad/s)² × m reduces to newtons.",
+        "lesson_ids": [
+          "physics-mechanics-project-guide",
+          "physics-mechanics-6",
+          "physics-mechanics-10"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "response_fields": [
+        {
+          "id": "larger_energy",
+          "type": "single_choice",
+          "prompt": "Energy · Which candidate stores more modelled rotational energy at the target?",
+          "options": [
+            "Candidate P",
+            "Candidate Q",
+            "Both equally, since they share one target"
+          ],
+          "points": 1
+        },
+        {
+          "id": "cannot_show",
+          "type": "single_choice",
+          "prompt": "Scope · What can these calculations not establish?",
+          "options": [
+            "Which candidate is safe to run; no strength, containment or rating was modelled.",
+            "Which candidate needs the higher angular speed to reach the shared target.",
+            "Which candidate experiences the larger rotating force from its imbalance."
+          ],
+          "points": 1
+        },
+        {
+          "id": "units",
+          "type": "single_choice",
+          "prompt": "Units · Which unit check confirms the imbalance force?",
+          "options": [
+            "kg × (rad/s) × m = kg·m/s, a momentum, so the formula must be wrong.",
+            "kg × m/s² × s = N·s, so the result is an impulse rather than a force.",
+            "kg × (rad/s)² × m = kg·m/s² = N, because radians are dimensionless."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "larger_energy",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "cannot_show",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "units",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ],
+        "rubric": [
+          {
+            "id": "larger_energy",
+            "criterion": "Compare stored energy",
+            "points": 1,
+            "evidence": [
+              "Uses K = ¼ M R × target × g, which is larger for Q."
+            ]
+          },
+          {
+            "id": "cannot_show",
+            "criterion": "Bound the comparison",
+            "points": 1,
+            "evidence": [
+              "Keeps an ideal-model comparison separate from a safety judgment."
+            ]
+          },
+          {
+            "id": "units",
+            "criterion": "Check dimensions",
+            "points": 1,
+            "evidence": [
+              "Confirms that m ω² r has units of force."
+            ]
+          }
+        ]
+      }
     }
   ]
 }
