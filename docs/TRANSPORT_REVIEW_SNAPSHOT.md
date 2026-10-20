@@ -2,11 +2,11 @@
 
 This record pins the current public course package for independent review. It does not imply acceptance or release.
 
-- **Course package:** `transport` 0.4.9
-- **Public package archive SHA-256:** `3e8d0f7e855322805c3da65e60ecaf4806273a023fc49f2b64d172d4fb67fd8d`
-- **Manifest SHA-256:** `013e1bc4f0dafc7ce38e48fde483054c067a4433050126ab6a198b49e14fdda4`
-- **Archive inventory:** 25 files, 361,799 bytes
-- **Calculated:** 2026-10-13
+- **Course package:** `transport` 0.5.0
+- **Public package archive SHA-256:** `8ce3f96b4e1f697d1de05927e9704e63243c0c49f0cbeccf37ba4d0980d3d968`
+- **Manifest SHA-256:** `5bfd59eab30d5b5258d3cb4b2d58fafd45525f36f79e937ae05205936b435358`
+- **Archive inventory:** 26 files, 401,355 bytes
+- **Calculated:** 2026-10-20
 - **Reproduce:** `uv run --project backend --locked python -B tools/course_package_digest.py --course-id transport`
 
-Version 0.4.8 corrected the syllabus outcome quotation and linked the inactive project draft. Version 0.4.9 groups a steady-flow energy-balance reading with the week-10 perfusion-tubing lesson, adding eleven items and four cards. The digest proves package identity only; it is not transport review, instructional approval or release evidence.
+Version 0.5.0 makes the planned heat-generation slab project usable by learners as ungraded practice. Week 13 gains an optional project guide with the project's slab, conditions and tasks and a worked example on a separate slab, a rehearsal slab and five open rehearsal practice items; five project milestones are Case studio self-checks with a week-14 project record. The oxygen-profile lab's dataset link now resolves to the package-pinned CSV instead of a mutable repository URL. The inactive project draft is unchanged. The digest proves package identity only; it is not transport review, instructional approval or release evidence.

@@ -30,9 +30,9 @@ comprehensive coverage. Every package is still `partial` and unreviewed.
 | signals-control | partial | 17 | 47 | 122 | 60 | 0 | 0 | 0 | 4 | 0 | 0 |
 | statics-materials | partial | 17 | 45 | 116 | 63 | 0 | 0 | 0 | 4 | 0 | 0 |
 | statistics | partial | 18 | 49 | 106 | 63 | 0 | 0 | 0 | 8 | 0 | 0 |
-| transport | partial | 17 | 47 | 114 | 60 | 0 | 0 | 0 | 6 | 0 | 0 |
+| transport | partial | 18 | 47 | 119 | 63 | 0 | 0 | 0 | 6 | 0 | 0 |
 
-Totals: 25 packages, 468 lessons, 1186 objectives, 3024 practice items, 0 lesson objectives with no assessment mapping, 0 with no practice item, 0 linked to no course outcome; 0 of 114 course outcomes that no lesson objective links to, 0 that no assessment lists.
+Totals: 25 packages, 469 lessons, 1186 objectives, 3029 practice items, 0 lesson objectives with no assessment mapping, 0 with no practice item, 0 linked to no course outcome; 0 of 114 course outcomes that no lesson objective links to, 0 that no assessment lists.
 
 Each assessment with items lists the course outcomes its own items assess (item, then its tagged lesson objective,
 then that objective's outcome links), and `tools/validate_content.py` rejects an outcome that none of the

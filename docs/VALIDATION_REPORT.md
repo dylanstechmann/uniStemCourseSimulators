@@ -6065,3 +6065,25 @@ Key checks before publication:
 | Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
 
 Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.
+
+## Thermodynamics & Transport heat-generation slab project for learners (2026-10-20)
+
+Thermodynamics & Transport advances to 0.5.0. Week 13 gains `assignments/heat-generation-slab-project-guide.md` and a five-item, 16-point rehearsal practice set on a separate synthetic slab with a Biot number of 0.05; five project milestones are zero-point self-checks in `rubrics/case-studio.json`, with a `project` self-assessment record in week 14. The oxygen-profile lab's dataset becomes a learner resource, and the lab's link now resolves to the package-pinned CSV. The inactive project draft is unchanged.
+
+Key checks before publication:
+
+- A self-check script graded the five new items with the backend grader: keys earn full credit and wrong responses zero. Ten further response cases (a dropped convective excess, too few significant figures, the arithmetic mean of center and surface, the full thickness in the Biot number, and fully correct responses) earn the stated scores. The grader treats "200" as ambiguous at three significant figures, so the surface flux is asked in kW/m². The validator rejected the first build for a four-word prompt and a scope prompt that duplicated Genetics' wording; both were reworded. An option-length audit flagged six fields, which were rebalanced.
+- `tests/content/test_transport_project_route.py` (5 tests) recomputes every rehearsal key from an exact rational finite-difference solution of the slab equation with ghost-node boundary conditions, and checks the average with an Euler–Maclaurin-corrected trapezoid rule, rather than from the closed form used to author the keys. It recomputes the guide's worked example the same way, checks the guide's restatement of the draft, and checks that neither the guide nor the rehearsal states the project's results. It also checks that the lab and guide links resolve and the dataset is served byte for byte.
+- The guide's two display equations parse in KaTeX. Pins updated: the snapshot version and lesson count (17 to 18), the syllabus counts, the global case count (80 to 85) and the backend per-course case map. Three regression tests that pinned the version prefix `0.4.` now require at least 0.4.0. The numeric-answer limitation now counts 91 answers, 28 requiring a unit and seven checking significant figures.
+- The 0.4.9 snapshot is archived as `docs/TRANSPORT_REVIEW_SNAPSHOT-0.4.9.md`.
+
+| Actual command/check | Result |
+| --- | --- |
+| Self-check script over the Transport item module (backend grader) | 5 items and 10 extra cases passed. |
+| `tools/validate_content.py` | Passed: 25 courses, 469 lessons, 3,029 questions, 1,632 cards and 85 cases; 0 errors and 0 warnings. |
+| `tools/objective_coverage.py --check` and `tools/assessment_candidates.py --check` | Passed after regeneration. |
+| `claims_scan.py --repo uniStemCourseSimulators` | 0 findings. |
+| Full verify, `verify.sh --frontend` (log `trans-verify-1`) | Content, legacy (7), security (1,699 files, 0 findings), ruff, root (3,434 passed, 1 skipped), backend (6,387 passed, 2 skipped) and frontend (77 tests) passed. |
+| Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
+
+Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.

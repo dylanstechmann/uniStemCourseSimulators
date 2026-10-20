@@ -4138,6 +4138,480 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "transport-project:rehearsal-profile",
+      "type": "structured",
+      "prompt": "Project rehearsal open practice · Rehearsal slab: −L ≤ x ≤ L with L = 0.010 m, conductivity k = 2.0 W/(m·K), uniform generation q‴ = 20,000 W/m³, and both faces convecting to fluid at T∞ = 22 °C with h = 10 W/(m²·K). Assume steady one-dimensional conduction with constant properties, so k T″ + q‴ = 0 on 0 ≤ x ≤ L, with T′(0) = 0 and −k T′(L) = h[T(L) − T∞]. Select one response per criterion.",
+      "points": 3,
+      "objective_ids": [
+        "transport-1-objective-1",
+        "transport-4-objective-2"
+      ],
+      "feedback": {
+        "hint": "Integrate k T″ = −q‴ twice; use T′(0) = 0 for the first constant and the convection condition for the second.",
+        "solution": "One integration with T′(0) = 0 gives T′ = −q‴x/k. At x = L the conducted flux q‴L must leave by convection, so T(L) = T∞ + q‴L/h. Integrating again gives T(x) = T∞ + q‴L/h + q‴(L² − x²)/(2k), a parabola that peaks at the center.",
+        "lesson_ids": [
+          "transport-project-guide",
+          "transport-4",
+          "transport-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "response_fields": [
+        {
+          "id": "first_integral",
+          "type": "single_choice",
+          "prompt": "Symmetry · What does the first integration give?",
+          "options": [
+            "T′(x) = −q‴x/(2k), because the slab has two symmetric halves.",
+            "T′(x) = −q‴x/k, because T′(0) = 0 removes the constant of integration.",
+            "T′(x) = q‴x/k, because generation raises the temperature toward the surface."
+          ],
+          "points": 1
+        },
+        {
+          "id": "surface",
+          "type": "single_choice",
+          "prompt": "Surface · What does the convection condition give for the surface temperature?",
+          "options": [
+            "T(L) = T∞ + q‴L/h, since the half-slab's heat all leaves by its face.",
+            "T(L) = T∞ − q‴L/h, because convection cools the surface below the fluid.",
+            "T(L) = T∞ + hL/q‴, because the Biot number sets the surface excess."
+          ],
+          "points": 1
+        },
+        {
+          "id": "profile",
+          "type": "single_choice",
+          "prompt": "Profile · Which temperature field satisfies both conditions?",
+          "options": [
+            "T(x) = T∞ + q‴L/(2h) + q‴(L² − x²)/(2k)",
+            "T(x) = T∞ + q‴L/h + q‴(L − x)²/(2k)",
+            "T(x) = T∞ + q‴L/h + q‴(L² − x²)/(2k)"
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "first_integral",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "surface",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "profile",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ],
+        "rubric": [
+          {
+            "id": "first_integral",
+            "criterion": "Apply the symmetry condition",
+            "points": 1,
+            "evidence": [
+              "Integrates once and uses T′(0) = 0."
+            ]
+          },
+          {
+            "id": "surface",
+            "criterion": "Apply the convection condition",
+            "points": 1,
+            "evidence": [
+              "Balances surface conduction with convection to the fluid."
+            ]
+          },
+          {
+            "id": "profile",
+            "criterion": "Assemble the profile",
+            "points": 1,
+            "evidence": [
+              "Combines the convective surface excess with the internal parabola."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "transport-project:rehearsal-temperatures",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Rehearsal slab: −L ≤ x ≤ L with L = 0.010 m, conductivity k = 2.0 W/(m·K), uniform generation q‴ = 20,000 W/m³, and both faces convecting to fluid at T∞ = 22 °C with h = 10 W/(m²·K). Assume steady one-dimensional conduction with constant properties, so k T″ + q‴ = 0 on 0 ≤ x ≤ L, with T′(0) = 0 and −k T′(L) = h[T(L) − T∞]. Report temperatures in °C and the flux in kW/m² as bare numbers, each to three significant figures.",
+      "points": 4,
+      "objective_ids": [
+        "transport-1-objective-1",
+        "transport-4-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "surface_temperature",
+          "type": "numeric",
+          "prompt": "Surface temperature T(L), in °C.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "center_temperature",
+          "type": "numeric",
+          "prompt": "Center temperature T(0), in °C.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "surface_flux",
+          "type": "numeric",
+          "prompt": "Heat flux leaving one face, in kW/m².",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "energy_check",
+          "type": "single_choice",
+          "prompt": "How do you check the surface flux independently?",
+          "options": [
+            "Compare it with h(T(L) − T∞), the convective flux at the same face.",
+            "Compare it with k × T(0), the conductivity times the center temperature.",
+            "Compare it with q‴ alone, because generation and flux share the same units."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "surface_temperature",
+            "type": "numeric",
+            "answer": 42.0,
+            "unit": "",
+            "tolerance": 0.06,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "center_temperature",
+            "type": "numeric",
+            "answer": 42.5,
+            "unit": "",
+            "tolerance": 0.06,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "surface_flux",
+            "type": "numeric",
+            "answer": 0.2,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "energy_check",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Evaluate the profile at x = L and x = 0; the flux through one face is the heat generated in the half-slab, q‴L.",
+        "solution": "T(L) = 22 + 20,000 × 0.010/10 = 42.0 °C and T(0) = 42.0 + 20,000 × 0.010²/(2 × 2.0) = 42.5 °C. The face carries q‴L = 200 W/m² (0.200 kW/m²), and convection gives h(T(L) − T∞) = 10 × 20 = 200 W/m², so the balance closes.",
+        "lesson_ids": [
+          "transport-project-guide",
+          "transport-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-project:rehearsal-average",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Rehearsal slab: −L ≤ x ≤ L with L = 0.010 m, conductivity k = 2.0 W/(m·K), uniform generation q‴ = 20,000 W/m³, and both faces convecting to fluid at T∞ = 22 °C with h = 10 W/(m²·K). Assume steady one-dimensional conduction with constant properties, so k T″ + q‴ = 0 on 0 ≤ x ≤ L, with T′(0) = 0 and −k T′(L) = h[T(L) − T∞]. Report temperatures in °C as bare numbers to four significant figures.",
+      "points": 3,
+      "objective_ids": [
+        "transport-1-objective-2",
+        "transport-11-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "exact_average",
+          "type": "numeric",
+          "prompt": "Half-slab average temperature from the profile.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "simpson_average",
+          "type": "numeric",
+          "prompt": "Composite Simpson estimate from the five nodes x/L = 0, 0.25, 0.50, 0.75 and 1.00.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "simpson_exact",
+          "type": "single_choice",
+          "prompt": "Why does Simpson's rule reproduce the exact average here?",
+          "options": [
+            "Because five nodes are always enough for any temperature profile.",
+            "Because the profile is quadratic, which Simpson's rule integrates exactly.",
+            "Because the center and surface temperatures differ by less than one degree."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "exact_average",
+            "type": "numeric",
+            "answer": 42.33,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "simpson_average",
+            "type": "numeric",
+            "answer": 42.33,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "simpson_exact",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Average the profile over 0 ≤ x ≤ L: the parabola's mean excess is two thirds of its center excess.",
+        "solution": "The average is T∞ + q‴L/h + q‴L²/(3k) = 42 + 0.3333 ≈ 42.333 °C. The nodes are 42.5, 42.46875, 42.375, 42.21875, 42 °C, and (0.25/3)(f₀ + 4f₁ + 2f₂ + 4f₃ + f₄) ≈ 42.333 °C, the same value, because the profile is a quadratic.",
+        "lesson_ids": [
+          "transport-project-guide",
+          "transport-11"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-project:rehearsal-biot",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Rehearsal slab: −L ≤ x ≤ L with L = 0.010 m, conductivity k = 2.0 W/(m·K), uniform generation q‴ = 20,000 W/m³, and both faces convecting to fluid at T∞ = 22 °C with h = 10 W/(m²·K). Assume steady one-dimensional conduction with constant properties, so k T″ + q‴ = 0 on 0 ≤ x ≤ L, with T′(0) = 0 and −k T′(L) = h[T(L) − T∞]. A lumped estimate puts the whole slab at T∞ + q‴L/h. Report bare numbers to three significant figures.",
+      "points": 3,
+      "objective_ids": [
+        "transport-11-objective-2",
+        "transport-11-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "biot",
+          "type": "numeric",
+          "prompt": "The Biot number hL/k for this slab.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "center_error",
+          "type": "numeric",
+          "prompt": "Center temperature minus the lumped estimate, in °C.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "screen",
+          "type": "single_choice",
+          "prompt": "What does the Biot screen suggest for this slab?",
+          "options": [
+            "The lumped estimate fails, because any internal gradient makes it unusable.",
+            "The Biot number cannot be used, because the slab generates heat internally.",
+            "Lumped is adequate: a 0.5 °C gradient is small beside the 20 °C rise."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "biot",
+            "type": "numeric",
+            "answer": 0.05,
+            "unit": "",
+            "tolerance": 6e-05,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "center_error",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "screen",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Compare internal conduction resistance with surface convection resistance, then compare the gradient with the surface excess.",
+        "solution": "Bi = 10 × 0.010/2.0 = 0.050, well below 0.1. The lumped estimate is 42.0 °C, so it misses the center by 0.5 °C against a 20 °C rise above the fluid: a small error here. The Biot number is a screen, not a proof, so the comparison is still worth making.",
+        "lesson_ids": [
+          "transport-project-guide",
+          "transport-11"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "transport-project:rehearsal-limits",
+      "type": "structured",
+      "prompt": "Project rehearsal open practice · Check the boundary conditions and omitted transport modes you will discuss in slab project milestone 5. Select one response per criterion.",
+      "points": 3,
+      "objective_ids": [
+        "transport-4-objective-1",
+        "transport-11-objective-3"
+      ],
+      "feedback": {
+        "hint": "Ask which boundary conditions were idealized, which modes were dropped, and what the numbers are about.",
+        "solution": "The model assumes the same uniform h and fluid temperature on both faces, leaves out radiation, edge effects, temperature-dependent properties and any perfusion heat sink, and describes only this synthetic slab, not a thermal or biological design.",
+        "lesson_ids": [
+          "transport-project-guide",
+          "transport-4",
+          "transport-11"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "response_fields": [
+        {
+          "id": "boundary",
+          "type": "single_choice",
+          "prompt": "Boundaries · Which boundary assumption most needs checking?",
+          "options": [
+            "That the slab is exactly 0.010 m thick at every point across its width.",
+            "That both faces see the same uniform h and fluid temperature.",
+            "That the center is the hottest point."
+          ],
+          "points": 1
+        },
+        {
+          "id": "omitted",
+          "type": "single_choice",
+          "prompt": "Omissions · Which transport modes does the model leave out?",
+          "options": [
+            "Radiation, edge effects, temperature-dependent properties and any perfusion heat sink.",
+            "Only conduction, which the model has replaced with convection at both faces of the slab.",
+            "Nothing, because a steady one-dimensional model is complete for any slab."
+          ],
+          "points": 1
+        },
+        {
+          "id": "scope",
+          "type": "single_choice",
+          "prompt": "Scope · What can the result support?",
+          "options": [
+            "A safe operating temperature for a tissue construct in an incubator.",
+            "A design rule for cooling any heat-generating device.",
+            "Only the temperature field of this idealized synthetic slab."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "boundary",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "omitted",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "scope",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ],
+        "rubric": [
+          {
+            "id": "boundary",
+            "criterion": "Question the boundary conditions",
+            "points": 1,
+            "evidence": [
+              "Identifies uniform, symmetric convection as an idealization."
+            ]
+          },
+          {
+            "id": "omitted",
+            "criterion": "Name omitted modes",
+            "points": 1,
+            "evidence": [
+              "Lists radiation, edges, variable properties and perfusion."
+            ]
+          },
+          {
+            "id": "scope",
+            "criterion": "Bound the claim",
+            "points": 1,
+            "evidence": [
+              "Keeps the result inside the stated model."
+            ]
+          }
+        ]
+      }
     }
   ]
 }

@@ -17,7 +17,7 @@ def load(path: Path) -> dict:
 
 def test_fluid_mechanics_reading_objectives_and_practice():
     manifest = load(COURSE / "course.json")
-    assert manifest["version"].startswith("0.4.")
+    assert tuple(int(part) for part in manifest["version"].split(".")) >= (0, 4, 0)
     module = next(item for item in manifest["modules"] if item["id"] == "transport-module-3")
     lesson = module["lessons"][0]
     text = (COURSE / lesson["reading"]).read_text(encoding="utf-8")

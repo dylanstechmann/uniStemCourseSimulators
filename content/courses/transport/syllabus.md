@@ -1,6 +1,6 @@
 # Thermodynamics & Transport in Bioengineering
 
-**Maturity: partial. Version: 0.4.9.**
+**Maturity: partial. Version: 0.5.0.**
 
 Conservation laws, thermodynamic driving forces, fluid mechanics, heat and mass transfer, and scaling applied to cells, tissues, and bioprocess equipment.
 
@@ -35,16 +35,20 @@ This is a proposed scope, not a measured or reviewed semester. Week 1 links cont
 | 10 | Perfusion tubing and energy balances | Control-volume balances, Reynolds number and pressure drop; Energy balances on flowing systems: the steady-flow first law, Bernoulli and friction losses |
 | 11 | Advection and diffusion together | Péclet number and mass-transfer coefficients |
 | 12 | Heat transfer and coupled transport | Thermal resistance and heat-transfer modes |
-| 13 | Lumped heat transfer | Biot number and thermal time scales |
+| 13 | Lumped heat transfer; optional heat-generation slab project | Biot number and thermal time scales; Slab project guide (optional, ungraded) |
 | 14 | A perfused construct with a hypoxic center | Advection supplies the channel; diffusion supplies the tissue |
 
 ## Assessment and study policy
 
-The package has 17 readings, 114 public practice items and 60 retrieval cards. Lessons use mapped formative checks, including numeric, choice, structured-response and CSV-upload items. Week 8 is a synthetic-data virtual lab; week 14 pairs an integrative transport lesson with an inactive course-case draft. These are open, ungraded activities with no institutional or transferable credit. Workload has not been measured.
+The package has 18 readings, 119 public practice items and 63 retrieval cards. Lessons use mapped formative checks, including numeric, choice, structured-response and CSV-upload items. Week 8 is a synthetic-data virtual lab; week 14 pairs an integrative transport lesson with an inactive course-case draft. These are open, ungraded activities with no institutional or transferable credit. Workload has not been measured.
+
+## Optional heat-generation slab project (ungraded)
+
+The [slab project guide](assignments/heat-generation-slab-project-guide.md) makes the project below usable as open practice. It restates the project's slab, conditions and tasks, works a separate slab, and pairs a rehearsal slab with open practice items in week 13. Five milestones, suggested for weeks 13–14, are Case studio self-checks whose responses are saved privately and never submitted, collected or scored.
 
 ## Inactive integrative project draft
 
-The [steady heat-generation slab portfolio](assessment-specs/heat-generation-slab-project-draft.md) derives a one-dimensional steady temperature field with internal generation, then checks boundary flux, the mean temperature and the lumped-model limit using synthetic thermal values. It is an authoring draft only: not scheduled, assigned, submitted, collected or graded. The course-case draft is self-assessed and inactive. It is not scheduled or graded and does not give design, laboratory or medical advice.
+The [steady heat-generation slab portfolio](assessment-specs/heat-generation-slab-project-draft.md) derives a one-dimensional steady temperature field with internal generation, then checks boundary flux, the mean temperature and the lumped-model limit using synthetic thermal values. The draft itself is an authoring draft only: not scheduled, assigned, submitted, collected or graded, and the open project guide above does not submit work to it. The course-case draft is self-assessed and inactive. It is not scheduled or graded and does not give design, laboratory or medical advice.
 
 ## Current limitations
 

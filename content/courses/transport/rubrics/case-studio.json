@@ -30,6 +30,196 @@
       "limitations": [
         "This preserved three-criterion checklist is self-assessment, not an analytic grading rubric or an institutional grade."
       ]
+    },
+    {
+      "id": "transport:project-m1-profile",
+      "prompt": "Slab project milestone 1 (suggested week 13). Integrate k T″ + q‴ = 0 twice and apply the center symmetry and surface convection conditions to derive T(x) (project task 1).",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "transport-1-objective-1",
+        "transport-4-objective-2"
+      ],
+      "rubric": [
+        {
+          "id": "project-m1-profile-criterion-1",
+          "criterion": "I used T′(0) = 0 to fix the first constant of integration.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-profile-criterion-2",
+          "criterion": "I applied −k T′(L) = h[T(L) − T∞] with consistent signs.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-profile-criterion-3",
+          "criterion": "I checked my profile by substituting it back into the equation and both conditions.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-profile-criterion-4",
+          "criterion": "I checked my method on the open rehearsal before using the project values.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the heat-generation slab project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "transport:project-m2-energy",
+      "prompt": "Slab project milestone 2 (suggested week 13). Calculate the surface and center temperatures, then verify the surface heat flux against the heat generated per unit area (project task 2).",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "transport-1-objective-1",
+        "transport-4-objective-1"
+      ],
+      "rubric": [
+        {
+          "id": "project-m2-energy-criterion-1",
+          "criterion": "I evaluated the profile at the surface and at the center.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-energy-criterion-2",
+          "criterion": "I computed the face flux as q‴L.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-energy-criterion-3",
+          "criterion": "I checked it against the convective flux h(T(L) − T∞).",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-energy-criterion-4",
+          "criterion": "I kept units of °C, W/m² and W/m³ consistent.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the heat-generation slab project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "transport:project-m3-average",
+      "prompt": "Slab project milestone 3 (suggested week 13). Derive the half-slab average temperature and check it independently with composite Simpson's rule at x/L = 0, 0.25, 0.50, 0.75 and 1.00 (project task 3).",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "transport-1-objective-2",
+        "transport-11-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m3-average-criterion-1",
+          "criterion": "I derived the average by integrating the profile over the half-slab.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-average-criterion-2",
+          "criterion": "I listed the five nodal temperatures used by Simpson's rule.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-average-criterion-3",
+          "criterion": "I applied the composite Simpson weights 1, 4, 2, 4, 1.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-average-criterion-4",
+          "criterion": "I explained why the two averages agree.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the heat-generation slab project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "transport:project-m4-biot",
+      "prompt": "Slab project milestone 4 (suggested week 14). Compute Bi = hL/k, compare the exact maximum and average temperatures with the uniform steady energy-balance estimate, and explain why the Biot screen matters for the lumped approximation (project task 4).",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "transport-11-objective-2",
+        "transport-11-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m4-biot-criterion-1",
+          "criterion": "I computed the Biot number with the half-thickness L.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-biot-criterion-2",
+          "criterion": "I compared the lumped estimate with both the center and the average temperature.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-biot-criterion-3",
+          "criterion": "I judged the size of the error against the rise above the fluid.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-biot-criterion-4",
+          "criterion": "I described the Biot number as a screen, not a proof of accuracy.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the heat-generation slab project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "transport:project-m5-limits",
+      "prompt": "Slab project milestone 5 (suggested week 14). State which boundary conditions and omitted transport modes make this result unsuitable as a real thermal or biological design (project task 5).",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "transport-4-objective-1",
+        "transport-11-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m5-limits-criterion-1",
+          "criterion": "I named the idealized boundary conditions.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-limits-criterion-2",
+          "criterion": "I listed omitted modes such as radiation, edge effects and variable properties.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-limits-criterion-3",
+          "criterion": "I kept the synthetic slab separate from any real tissue, device or process.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-limits-criterion-4",
+          "criterion": "I disclosed any tools or AI assistance used.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the heat-generation slab project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
     }
   ]
 }

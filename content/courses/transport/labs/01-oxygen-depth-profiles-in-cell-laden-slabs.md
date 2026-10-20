@@ -3,7 +3,7 @@
 **Activity type:** synthetic-data analysis with public, ungraded formative checks
 **Course package:** Thermodynamics & Transport in Bioengineering. **Estimated learner time:** 2–3 hours
 **Data status:** all measurements are constructed for instruction. They describe no real tissue, sensor or experiment, and nothing here is evidence about any construct or cell.
-**Dataset:** [synthetic oxygen profiles (CSV)](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/transport/labs/oxygen-depth-profiles.csv).
+**Dataset:** [synthetic oxygen profiles (CSV)](oxygen-depth-profiles.csv).
 
 ## Experimental question
 
