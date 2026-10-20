@@ -576,6 +576,36 @@
         "differential-equations-15-objective-3"
       ],
       "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-project-1",
+      "lesson_id": "differential-equations-project-guide",
+      "front": "Forward Euler on a fast mode",
+      "back": "For y′ = −λy, forward Euler multiplies by 1 − λh: stable for 0 < h < 2/λ, and nonnegative updates need h ≤ 1/λ.",
+      "objective_ids": [
+        "differential-equations-12-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-project-2",
+      "lesson_id": "differential-equations-project-guide",
+      "front": "Stiffness",
+      "back": "A linear system is stiff when its eigenvalues differ widely: the fast mode limits the explicit step long after it has decayed.",
+      "objective_ids": [
+        "differential-equations-12-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-project-3",
+      "lesson_id": "differential-equations-project-guide",
+      "front": "Positive is not accurate",
+      "back": "Backward Euler keeps positive states positive at any step size, but its time-discretization error remains and must still be checked.",
+      "objective_ids": [
+        "differential-equations-4-objective-2"
+      ],
+      "license": "CC-BY-4.0"
     }
   ]
 }

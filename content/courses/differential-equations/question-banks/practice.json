@@ -4114,6 +4114,481 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "differential-equations-project:rehearsal-exact",
+      "type": "structured",
+      "prompt": "Project rehearsal open practice · Rehearsal system in dimensionless time: x′ = −2x, y′ = 2x − 50y, with x(0) = 1 and y(0) = 0, a normalized mathematical model with no physical interpretation. Select one response per criterion.",
+      "points": 3,
+      "objective_ids": [
+        "differential-equations-7-objective-1",
+        "differential-equations-12-objective-1"
+      ],
+      "feedback": {
+        "hint": "Solve x first, then y′ + 50y = 2e^(−2t) with the factor e^(50t); the fast eigenvalue sets the Euler limits.",
+        "solution": "x = e^(−2t), and the integrating factor gives y = (2/48)(e^(−2t) − e^(−50t)) = (e^(−2t) − e^(−50t))/24. The matrix is triangular, so its eigenvalues are −2 and −50. Forward Euler multiplies the fast mode by 1 − 50h: it is stable for |1 − 50h| < 1, that is 0 < h < 0.04, and keeps y's coefficient nonnegative only for h ≤ 0.02.",
+        "lesson_ids": [
+          "differential-equations-project-guide",
+          "differential-equations-12",
+          "differential-equations-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "response_fields": [
+        {
+          "id": "solution",
+          "type": "single_choice",
+          "prompt": "Solution · Which formula solves the y equation with y(0) = 0?",
+          "options": [
+            "y(t) = (e^(−2t) − e^(−50t))/48",
+            "y(t) = (e^(−2t) − e^(−50t))/24",
+            "y(t) = (e^(−50t) − e^(−2t))/24"
+          ],
+          "points": 1
+        },
+        {
+          "id": "eigenvalues",
+          "type": "single_choice",
+          "prompt": "Eigenvalues · What are the eigenvalues of the system matrix?",
+          "options": [
+            "−2 and −50, the diagonal entries of a triangular matrix",
+            "2 and 50, the rate constants without their signs",
+            "−2 and −48, the slow rate and the difference of the rates"
+          ],
+          "points": 1
+        },
+        {
+          "id": "limits",
+          "type": "single_choice",
+          "prompt": "Step limits · Which statement about forward Euler is correct?",
+          "options": [
+            "Stability and positivity both require h < 0.02, since they are the same condition.",
+            "It is stable only for h < 0.02, and positivity needs h ≤ 0.04.",
+            "It is stable for 0 < h < 0.04, but positive updates need h ≤ 0.02."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "solution",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "eigenvalues",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "limits",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ],
+        "rubric": [
+          {
+            "id": "solution",
+            "criterion": "Solve with an integrating factor",
+            "points": 1,
+            "evidence": [
+              "Uses x = e^(−2t) and the factor e^(50t), then applies y(0) = 0."
+            ]
+          },
+          {
+            "id": "eigenvalues",
+            "criterion": "Find the eigenvalues",
+            "points": 1,
+            "evidence": [
+              "Reads the eigenvalues from the triangular system matrix."
+            ]
+          },
+          {
+            "id": "limits",
+            "criterion": "Separate stability from positivity",
+            "points": 1,
+            "evidence": [
+              "Distinguishes |1 − 50h| < 1 from 1 − 50h ≥ 0."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "differential-equations-project:rehearsal-peak",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Rehearsal system in dimensionless time: x′ = −2x, y′ = 2x − 50y, with x(0) = 1 and y(0) = 0, a normalized mathematical model with no physical interpretation. Give bare numbers to four significant figures.",
+      "points": 3,
+      "objective_ids": [
+        "differential-equations-9-objective-2",
+        "differential-equations-6-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "peak_time",
+          "type": "numeric",
+          "prompt": "The time at which y reaches its maximum.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "peak_value",
+          "type": "numeric",
+          "prompt": "The maximum value of y.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "check",
+          "type": "single_choice",
+          "prompt": "How do you confirm that this stationary point is a maximum?",
+          "options": [
+            "y′ changes sign from positive to negative as 2x falls below 50y.",
+            "y′ is zero at every time, so any stationary point of y is a maximum.",
+            "The value of x is largest at that same time, so y must be largest too."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "peak_time",
+            "type": "numeric",
+            "answer": 0.06706,
+            "unit": "",
+            "tolerance": 6e-06,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "peak_value",
+            "type": "numeric",
+            "answer": 0.03498,
+            "unit": "",
+            "tolerance": 6e-06,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "check",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Set y′ = 0, which means 2x = 50y; with the exact formulas this is e^(48t) = 25.",
+        "solution": "y′ = 0 when e^(48t) = 25, at t* = ln(25)/48 ≈ 0.06706. There y = (24/25)e^(−2t*)/24 = 0.04e^(−2t*) ≈ 0.03498. Before t*, 2x exceeds 50y and y rises; after it, y falls, so t* is a maximum.",
+        "lesson_ids": [
+          "differential-equations-project-guide",
+          "differential-equations-9"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-project:rehearsal-forward",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Rehearsal system in dimensionless time: x′ = −2x, y′ = 2x − 50y, with x(0) = 1 and y(0) = 0, a normalized mathematical model with no physical interpretation. Take four forward-Euler steps of size h = 0.03 from (1, 0), using x_{n+1} = (1 − 2h)x_n and y_{n+1} = 2h x_n + (1 − 50h)y_n. Give bare numbers.",
+      "points": 4,
+      "objective_ids": [
+        "differential-equations-4-objective-1",
+        "differential-equations-12-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "y_two",
+          "type": "numeric",
+          "prompt": "y after two steps (t = 0.06), to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "y_four",
+          "type": "numeric",
+          "prompt": "y after four steps (t = 0.12), to four significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "y_exact",
+          "type": "numeric",
+          "prompt": "The exact y(0.12), to four significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "pattern",
+          "type": "single_choice",
+          "prompt": "Why does the forward-Euler y go up and down from step to step?",
+          "options": [
+            "Because h = 0.03 is unstable, so the iterates grow without bound over time.",
+            "Because 1 − 50h = −0.5: the fast mode is damped but flips sign each step.",
+            "Because the exact y oscillates in time, and Euler follows it closely."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "y_two",
+            "type": "numeric",
+            "answer": 0.0264,
+            "unit": "",
+            "tolerance": 6e-05,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "y_four",
+            "type": "numeric",
+            "answer": 0.02993,
+            "unit": "",
+            "tolerance": 6e-06,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "y_exact",
+            "type": "numeric",
+            "answer": 0.03267,
+            "unit": "",
+            "tolerance": 6e-06,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "pattern",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Update x and y together from the previous step's values; the y coefficient is 1 − 50 × 0.03 = −0.5.",
+        "solution": "The y iterates are 0.06000, 0.02640, 0.03982, 0.02993: they alternate around the exact curve but stay positive, because the fast mode's factor −0.5 has magnitude below 1. The exact y(0.12) is ≈ 0.03267, so the four-step result is about 0.0027 too low.",
+        "lesson_ids": [
+          "differential-equations-project-guide",
+          "differential-equations-12",
+          "differential-equations-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-project:rehearsal-implicit",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Rehearsal system in dimensionless time: x′ = −2x, y′ = 2x − 50y, with x(0) = 1 and y(0) = 0, a normalized mathematical model with no physical interpretation. Backward Euler uses x_{n+1} = x_n/(1 + 2h) and y_{n+1} = (y_n + 2h x_{n+1})/(1 + 50h). Give bare numbers to four significant figures.",
+      "points": 3,
+      "objective_ids": [
+        "differential-equations-12-objective-2",
+        "differential-equations-4-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "backward_y",
+          "type": "numeric",
+          "prompt": "y after four backward-Euler steps of size 0.03 (t = 0.12).",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "fine_forward_y",
+          "type": "numeric",
+          "prompt": "y after twelve forward-Euler steps of size 0.01 (t = 0.12).",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "lesson",
+          "type": "single_choice",
+          "prompt": "What do the two results show?",
+          "options": [
+            "Backward Euler is exact for this linear system at any step size whatsoever.",
+            "Positive is not the same as accurate; the smaller explicit step is closer.",
+            "Forward Euler is always more accurate than backward Euler at the same time."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "backward_y",
+            "type": "numeric",
+            "answer": 0.03194,
+            "unit": "",
+            "tolerance": 6e-06,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "fine_forward_y",
+            "type": "numeric",
+            "answer": 0.03269,
+            "unit": "",
+            "tolerance": 6e-06,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "lesson",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Backward Euler divides by 1 + 50h, which is always positive, so positive states stay positive at any h.",
+        "solution": "Backward Euler at h = 0.03 gives y ≈ 0.03194 and forward Euler at h = 0.01 gives ≈ 0.03269, against the exact 0.03267. The implicit result is positive but still in error; the smaller explicit step, inside both limits, is closer at this time.",
+        "lesson_ids": [
+          "differential-equations-project-guide",
+          "differential-equations-12"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-project:rehearsal-limits",
+      "type": "structured",
+      "prompt": "Project rehearsal open practice · Check the interpretation you will give in stiff project milestone 7. Select one response per criterion.",
+      "points": 3,
+      "objective_ids": [
+        "differential-equations-13-objective-1",
+        "differential-equations-12-objective-2"
+      ],
+      "feedback": {
+        "hint": "Ask whether a feature comes from the equations or from the method, and what a real application would need.",
+        "solution": "A negative iterate is a numerical artifact, since the exact solution is nonnegative; a real system would need measured rates and states, a reason to expect linear behavior and validation on independent data; and the system is stiff because its time scales differ by a factor of 25, so explicit steps are limited by stability.",
+        "lesson_ids": [
+          "differential-equations-project-guide",
+          "differential-equations-13",
+          "differential-equations-12"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "response_fields": [
+        {
+          "id": "negative",
+          "type": "single_choice",
+          "prompt": "Negative values · What does a negative numerical y mean for this model?",
+          "options": [
+            "A numerical artifact of the step; the exact solution stays nonnegative.",
+            "That the compartment really empties below zero for a short moment of time.",
+            "That the model must be replaced by a nonlinear one before it can be used."
+          ],
+          "points": 1
+        },
+        {
+          "id": "evidence",
+          "type": "single_choice",
+          "prompt": "Evidence · What would a real system need before using such a model?",
+          "options": [
+            "Only a smaller step size, so that every computed number stays positive.",
+            "Measured rates and states, a case for linearity, and validation.",
+            "A stiffer system, so that implicit methods become necessary."
+          ],
+          "points": 1
+        },
+        {
+          "id": "stiffness",
+          "type": "single_choice",
+          "prompt": "Stiffness · What makes this system stiff?",
+          "options": [
+            "That the solution is not positive for some choices of the step size.",
+            "That backward Euler needs a matrix inverse at every single step.",
+            "Time scales 25 times apart, so stability limits the explicit step."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "negative",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "evidence",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "stiffness",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ],
+        "rubric": [
+          {
+            "id": "negative",
+            "criterion": "Separate numerics from the model",
+            "points": 1,
+            "evidence": [
+              "Attributes a negative iterate to the method."
+            ]
+          },
+          {
+            "id": "evidence",
+            "criterion": "Ask for real evidence",
+            "points": 1,
+            "evidence": [
+              "Requires measurements and validation, not only better numerics."
+            ]
+          },
+          {
+            "id": "stiffness",
+            "criterion": "Explain stiffness",
+            "points": 1,
+            "evidence": [
+              "Links widely separated eigenvalues to the explicit step limit."
+            ]
+          }
+        ]
+      }
     }
   ]
 }

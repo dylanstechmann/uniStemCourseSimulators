@@ -30,6 +30,196 @@
       "limitations": [
         "This preserved three-criterion checklist is self-assessment, not an analytic grading rubric or an institutional grade."
       ]
+    },
+    {
+      "id": "differential-equations:project-m1-exact",
+      "prompt": "Stiff project milestone 1 (suggested week 12). Solve x′ = −x, then use an integrating factor for y′ = x − 100y with x(0) = 1 and y(0) = 0. Check both initial conditions and substitute the formulas back into the equations (project task 1).",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "differential-equations-7-objective-1",
+        "differential-equations-9-objective-2"
+      ],
+      "rubric": [
+        {
+          "id": "project-m1-exact-criterion-1",
+          "criterion": "I solved for x first and used it as the forcing in the y equation.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-exact-criterion-2",
+          "criterion": "I applied the integrating factor and the initial condition y(0) = 0.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-exact-criterion-3",
+          "criterion": "I substituted both formulas back into the equations.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-exact-criterion-4",
+          "criterion": "I checked my method on the open rehearsal before using the project system.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the stiff two-compartment project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "differential-equations:project-m2-stiffness",
+      "prompt": "Stiff project milestone 2 (suggested week 12). Find the eigenvalues, explain why the two time scales make the system stiff, determine the explicit-Euler stability restriction from the fast eigenvalue, and find when y reaches its maximum and its peak value (project tasks 2 and 3).",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "differential-equations-12-objective-2",
+        "differential-equations-12-objective-1"
+      ],
+      "rubric": [
+        {
+          "id": "project-m2-stiffness-criterion-1",
+          "criterion": "I found both eigenvalues and the ratio of the time scales.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-stiffness-criterion-2",
+          "criterion": "I derived the stability bound from the fast mode's amplification factor.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-stiffness-criterion-3",
+          "criterion": "I found the peak time from y′ = 0 and verified it is a maximum.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-stiffness-criterion-4",
+          "criterion": "I reported the peak value to sensible precision.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the stiff two-compartment project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "differential-equations:project-m3-forward",
+      "prompt": "Stiff project milestone 3 (suggested week 12). Write the forward-Euler recurrence, take four steps of size h = 0.025 from (1, 0) to t = 0.1, compare with the exact solution, and explain any negative component (project task 4).",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "differential-equations-4-objective-1",
+        "differential-equations-12-objective-1"
+      ],
+      "rubric": [
+        {
+          "id": "project-m3-forward-criterion-1",
+          "criterion": "I updated x and y together from the previous step's values.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-forward-criterion-2",
+          "criterion": "I compared my step-four values with the exact state at t = 0.1.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-forward-criterion-3",
+          "criterion": "I explained any negative value with the fast mode's amplification factor.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-forward-criterion-4",
+          "criterion": "I distinguished the numerical result from the behavior of the exact model.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the stiff two-compartment project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "differential-equations:project-m4-implicit",
+      "prompt": "Stiff project milestone 4 (suggested week 13). Derive the backward-Euler recurrence, repeat at h = 0.025, and compare positivity and error with the exact state; then repeat forward Euler with ten steps of size h = 0.01 and connect the step size with the stability threshold and the positivity bound (project tasks 5 and 6).",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "differential-equations-12-objective-2",
+        "differential-equations-4-objective-2"
+      ],
+      "rubric": [
+        {
+          "id": "project-m4-implicit-criterion-1",
+          "criterion": "I derived backward Euler by solving each step's linear equations.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-implicit-criterion-2",
+          "criterion": "I explained why backward Euler keeps positive states positive here.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-implicit-criterion-3",
+          "criterion": "I compared both methods' errors at t = 0.1.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-implicit-criterion-4",
+          "criterion": "I explained why positivity alone does not establish accuracy.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the stiff two-compartment project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "differential-equations:project-m5-evidence",
+      "prompt": "Stiff project milestone 5 (suggested week 13). State what evidence would be needed before this type of simplified model could describe a real system, without inventing experimental parameters or procedures (project task 7).",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "differential-equations-13-objective-1",
+        "differential-equations-12-objective-2"
+      ],
+      "rubric": [
+        {
+          "id": "project-m5-evidence-criterion-1",
+          "criterion": "I named evidence a real application would need, such as measured rates and validation data.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-evidence-criterion-2",
+          "criterion": "I separated numerical artifacts from claims about the modeled system.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-evidence-criterion-3",
+          "criterion": "I did not attach real parameter values or procedures to the normalized model.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-evidence-criterion-4",
+          "criterion": "I disclosed any tools or AI assistance used.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the stiff two-compartment project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
     }
   ]
 }

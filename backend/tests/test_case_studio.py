@@ -186,6 +186,7 @@ def test_all_authored_courses_expose_their_existing_case_studies():
             "cell-biology", "biochemistry", "genetics", "calculus-1", "physics-mechanics", "statics-materials",
             "general-chemistry-2", "programming", "biomaterials", "bioreactors",
             "cellular-biomechanics", "transport", "calculus-2", "calculus-3",
+            "differential-equations",
         )
     }
     for summary in courses:

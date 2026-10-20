@@ -173,8 +173,8 @@ def test_preserved_inventory_is_honest_partial(repository):
     # 25 preserved course cases plus five project-milestone self-checks for each course whose project
     # has a learner route: Cell Biology, Biochemistry, Genetics, Calculus I, Physics I, Statics,
     # General Chemistry II, Programming, Biomaterials, Bioreactors, Cellular Biomechanics, Transport, Calculus II and
-    # Calculus III.
-    assert result.inventory["courses"] == 25 and result.inventory["cases"] == 95
+    # Calculus III and Differential Equations.
+    assert result.inventory["courses"] == 25 and result.inventory["cases"] == 100
     assert sum(warning["code"] == "legacy-depth" for warning in result.warnings) == 0
     # Assessments list the course outcomes their items assess, so no package has an unmapped outcome.
     assert not [warning for warning in result.warnings if warning["code"] == "objective-coverage"]

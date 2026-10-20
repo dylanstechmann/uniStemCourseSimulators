@@ -3,7 +3,7 @@
 **Activity type:** synthetic-data analysis with public, ungraded formative checks
 **Course package:** Differential Equations for Living & Engineered Systems. **Estimated learner time:** 2–3 hours
 **Data status:** all measurements are constructed for instruction. They describe no real cells, medium or growth factor, and nothing here is evidence about any culture.
-**Dataset:** [synthetic cell counts (CSV)](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/differential-equations/labs/cell-counts-after-growth-factor-removal.csv).
+**Dataset:** [synthetic cell counts (CSV)](cell-counts-after-growth-factor-removal.csv).
 
 ## Experimental question
 

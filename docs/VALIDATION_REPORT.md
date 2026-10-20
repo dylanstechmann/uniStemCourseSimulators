@@ -6129,3 +6129,25 @@ Key checks before publication:
 | Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
 
 Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.
+
+## Differential Equations stiff two-compartment project for learners (2026-10-20)
+
+Differential Equations advances to 0.5.0. Week 12 gains `assignments/stiff-two-compartment-project-guide.md` and a five-item, 16-point rehearsal practice set on x′ = −2x, y′ = 2x − 50y; five project milestones are zero-point self-checks in `rubrics/case-studio.json`, with a `project` self-assessment record in week 13. The fitting lab's dataset becomes a learner resource, and the lab's link now resolves to the package-pinned CSV. The inactive project draft is unchanged.
+
+Key checks before publication:
+
+- A self-check script graded the five new items with the backend grader: keys earn full credit and wrong responses zero. Seven further response cases (a wrong constant with swapped step limits, a single step reported as unstable, and fully correct responses) earn the stated scores. An option-length audit flagged seven fields, which were rebalanced.
+- `tests/content/test_differential_equations_project_route.py` (5 tests) recomputes the rehearsal keys with exact rational Euler iterates and a fine RK4 integration of the system, finding the peak by bisection on the RK4 slope, rather than from the closed forms used to author the keys. It checks that the rehearsal's explicit step is stable with a negative fast factor and oscillating but positive iterates, recomputes the guide's worked example, checks the guide's restatement of the draft, and checks that neither the guide nor the rehearsal states the project's results. It also checks that the lab and guide links resolve and the dataset is served byte for byte.
+- The guide's display equations parse in KaTeX. Pins updated: the snapshot version and lesson count (16 to 17), the global case count (95 to 100) and the backend per-course case map. The numeric-answer limitation, which still counted 88 answers, now counts 97, 27 requiring a unit and eight checking significant figures.
+- The 0.4.1 snapshot is archived as `docs/DIFFERENTIAL_EQUATIONS_REVIEW_SNAPSHOT-0.4.1.md`.
+
+| Actual command/check | Result |
+| --- | --- |
+| Self-check script over the Differential Equations item module (backend grader) | 5 items and 7 extra cases passed. |
+| `tools/validate_content.py` | Passed: 25 courses, 472 lessons, 3,042 questions, 1,641 cards and 100 cases; 0 errors and 0 warnings. |
+| `tools/objective_coverage.py --check` and `tools/assessment_candidates.py --check` | Passed after regeneration. |
+| `claims_scan.py --repo uniStemCourseSimulators` | 0 findings. |
+| Full verify, `verify.sh --frontend` (log `de-verify-1`) | Content, legacy (7), security (1,708 files, 0 findings), ruff, root (3,448 passed, 1 skipped), backend (6,415 passed, 2 skipped) and frontend (77 tests) passed. |
+| Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
+
+Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.
