@@ -30,6 +30,196 @@
       "limitations": [
         "This preserved three-criterion checklist is self-assessment, not an analytic grading rubric or an institutional grade."
       ]
+    },
+    {
+      "id": "biomaterials:project-m1-modulus",
+      "prompt": "Scaffold project milestone 1 (suggested week 12). Recalculate E(42) and E(56) for candidates A, B and C, keeping at least four significant digits during calculations and reporting MPa to three decimals.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "biomaterials-2-objective-2",
+        "biomaterials-5-objective-1"
+      ],
+      "rubric": [
+        {
+          "id": "project-m1-modulus-criterion-1",
+          "criterion": "I used E(t) = E₀ × 2^(−t/t½) with the half-time in days.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-modulus-criterion-2",
+          "criterion": "I kept at least four significant digits until the final rounding.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-modulus-criterion-3",
+          "criterion": "I reported each modulus in MPa to three decimals.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-modulus-criterion-4",
+          "criterion": "I checked my method on the open rehearsal before using the project table.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the scaffold-property project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "biomaterials:project-m2-matrix",
+      "prompt": "Scaffold project milestone 2 (suggested week 12). Build a pass/fail matrix for the four criteria at day 42 and identify which candidates fail architecture, transport, initial mechanics or the time-dependent modulus requirement, without averaging criteria into a single score.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "biomaterials-2-objective-1",
+        "biomaterials-6-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m2-matrix-criterion-1",
+          "criterion": "My matrix has one column per criterion and one row per candidate.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-matrix-criterion-2",
+          "criterion": "I named the specific criterion each failing candidate misses.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-matrix-criterion-3",
+          "criterion": "I did not let a strong property compensate for a failed one.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-matrix-criterion-4",
+          "criterion": "I used the permeability column in its stated scaled units.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the scaffold-property project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "biomaterials:project-m3-support-time",
+      "prompt": "Scaffold project milestone 3 (suggested week 12). Derive the time at which each modeled modulus reaches 0.8 MPa, compare the support horizons, and identify the maximum horizon that meets every stipulated criterion.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "biomaterials-2-objective-2",
+        "biomaterials-5-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m3-support-time-criterion-1",
+          "criterion": "I solved E₀ × 2^(−t/t½) = 0.8 MPa with a base-2 logarithm.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-support-time-criterion-2",
+          "criterion": "I compared the support horizons with each candidate's structural pass or fail.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-support-time-criterion-3",
+          "criterion": "I explained which candidate sets the maximum horizon and why.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-support-time-criterion-4",
+          "criterion": "I reported days with sensible precision.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the scaffold-property project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "biomaterials:project-m4-day56",
+      "prompt": "Scaffold project milestone 4 (suggested week 13). Repeat the feasibility decision at day 56 and explain why a candidate that passes at day 42 can fail under the longer horizon.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "biomaterials-5-objective-3",
+        "biomaterials-2-objective-2"
+      ],
+      "rubric": [
+        {
+          "id": "project-m4-day56-criterion-1",
+          "criterion": "I recomputed the time-dependent criterion at day 56 rather than assuming the day-42 result.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-day56-criterion-2",
+          "criterion": "I explained the change using the candidate's support time.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-day56-criterion-3",
+          "criterion": "I kept the structural criteria unchanged between horizons.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-day56-criterion-4",
+          "criterion": "I stated the day-56 decision for every candidate.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the scaffold-property project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "biomaterials:project-m5-evidence",
+      "prompt": "Scaffold project milestone 5 (suggested week 13). List the important missing evidence that prevents the table from supporting a real material decision, including uncertainty, degradation modes, geometry, loading, cell response, biological evidence and application-specific acceptance criteria.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "biomaterials-4-objective-1",
+        "biomaterials-lab-01-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m5-evidence-criterion-1",
+          "criterion": "I named at least four kinds of missing evidence and why each matters.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-evidence-criterion-2",
+          "criterion": "I explained that the thresholds are teaching numbers, not acceptance criteria.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-evidence-criterion-3",
+          "criterion": "I did not present any candidate as a real material recommendation.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-evidence-criterion-4",
+          "criterion": "I disclosed any tools or AI assistance used.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the scaffold-property project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
     }
   ]
 }

@@ -3,7 +3,7 @@
 **Activity type:** synthetic-data analysis with public, ungraded formative checks
 **Course package:** Biomaterials & Tissue Engineering. **Estimated learner time:** 2–3 hours
 **Data status:** all measurements are constructed for instruction. They describe no real polymer, scaffold or experiment, and nothing here is evidence about any material or implant.
-**Dataset:** [synthetic time course (CSV)](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/biomaterials/labs/scaffold-degradation-time-course.csv).
+**Dataset:** [synthetic time course (CSV)](scaffold-degradation-time-course.csv).
 
 ## Experimental question
 

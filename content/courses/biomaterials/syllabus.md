@@ -1,6 +1,6 @@
 # Biomaterials & Tissue Engineering
 
-**Maturity: partial. Version: 0.3.10.**
+**Maturity: partial. Version: 0.4.0.**
 
 This partial, application-focused undergraduate course develops core biomaterials and cell-material reasoning through material properties, protein adsorption, scaffold transport/degradation, host-response evidence and failure. Tissue engineering is a selected application thread in weeks 9–14, not comprehensive training in regeneration mechanisms, scaffold fabrication, clinical translation or implant design.
 
@@ -34,21 +34,25 @@ This is a proposed scope, not a measured or reviewed semester. Week 1 links the 
 | 9 | Cells, signals and tissue-specific strategies | Cells, signals, and tissue-specific strategies |
 | 10 | Cells for a scaffold: how many are needed and what expansion costs | Cells for a scaffold: how many are needed, how much expansion that costs and whether it fits |
 | 11 | Biocompatibility evidence: extract tests, the host response and the unit of analysis | Biocompatibility evidence: extract tests, the host response and the unit of analysis |
-| 12 | Virtual lab: degradation time course of a synthetic scaffold | Virtual lab 1: degradation time course of a synthetic scaffold |
+| 12 | Virtual lab: degradation time course of a synthetic scaffold; optional scaffold-property project | Virtual lab 1: degradation time course of a synthetic scaffold; Scaffold project guide (optional, ungraded) |
 | 13 | Translation, biocompatibility and failure analysis | Translation, biocompatibility, and failure analysis |
 | 14 | Reading a failure in a degrading vascular scaffold | Reading a failure: mechanics, chemistry and biology in a degrading vascular scaffold |
 
 ## Assessment and study policy
 
-Every lesson has public formative items (numeric, single-choice, multiple-select, data-interpretation, structured-response and CSV-upload) mapped to its objectives, plus retrieval cards for the review queue; each practice assessment also lists the course outcomes its items assess. Week 1 uses explicitly synthetic coupon data to practice comparing material classes and interpreting surface and host-response measurements. Week 12 is a synthetic-data virtual lab and week 14 pairs a lesson on reading a failure in a degrading vascular scaffold with the course case and its self-assessment checklist. These are practice activities with unlimited retries and no institutional grade, university credit or transferable credit. Workload has not been measured.
+Every lesson has public formative items (numeric, single-choice, multiple-select, data-interpretation, structured-response and CSV-upload) mapped to its objectives, plus retrieval cards for the review queue; each practice assessment also lists the course outcomes its items assess. Week 1 uses explicitly synthetic coupon data to practice comparing material classes and interpreting surface and host-response measurements. Week 12 is a synthetic-data virtual lab with an optional scaffold-property project guide and rehearsal practice, and week 14 pairs a lesson on reading a failure in a degrading vascular scaffold with the course case and its self-assessment checklist. These are practice activities with unlimited retries and no institutional grade, university credit or transferable credit. Workload has not been measured.
+
+## Optional scaffold-property project (ungraded)
+
+The [scaffold project guide](assignments/scaffold-property-project-guide.md) makes the project below usable as open practice. It restates the project's candidates, criteria and tasks, works a separate synthetic candidate, and pairs two rehearsal candidates with open practice items in week 12. Five milestones, suggested for weeks 12–13, are Case studio self-checks whose responses are saved privately and never submitted, collected or scored.
 
 ## Inactive integrative project draft
 
-The [scaffold-property portfolio](assessment-specs/scaffold-property-project-draft.md) compares synthetic porosity, permeability and modulus trajectories against explicit teaching thresholds at two time horizons. It extends the degradation lab into a multi-constraint evidence exercise, not a material-selection recommendation. It is not scheduled, assigned, submitted or graded; review of assumptions, workload and accessibility remains open.
+The [scaffold-property portfolio](assessment-specs/scaffold-property-project-draft.md) compares synthetic porosity, permeability and modulus trajectories against explicit teaching thresholds at two time horizons. It extends the degradation lab into a multi-constraint evidence exercise, not a material-selection recommendation. The draft itself is not scheduled, assigned, submitted or graded, and the open project guide above does not submit work to it; review of assumptions, workload and accessibility remains open.
 
 ## Current limitations
 
-The schedule above is proposed, not measured, and has not been reviewed by a qualified instructor. There are no graded homework sets, midterm or final; the new project is inactive and ungraded. The package covers selected tissue-engineering applications but not the undergraduate comparator's surface modification, quantitative cell assays, drug delivery, biosensors, organ replacement or regulatory topics, or the graduate comparator's detailed wound-healing, ECM and tissue-regeneration sequence. All numerical coupon data, materials, cells, animals and other values are synthetic; no lesson gives a laboratory protocol or medical advice, and nothing here says anything about any real material, device, cell line or person. Qualified human review is required before this course could meet the complete-course standard.
+The schedule above is proposed, not measured, and has not been reviewed by a qualified instructor. There are no graded homework sets, midterm or final; the optional project guide and its rehearsal are ungraded practice, and the project draft remains inactive. The package covers selected tissue-engineering applications but not the undergraduate comparator's surface modification, quantitative cell assays, drug delivery, biosensors, organ replacement or regulatory topics, or the graduate comparator's detailed wound-healing, ECM and tissue-regeneration sequence. All numerical coupon data, materials, cells, animals and other values are synthetic; no lesson gives a laboratory protocol or medical advice, and nothing here says anything about any real material, device, cell line or person. Qualified human review is required before this course could meet the complete-course standard.
 ## Sources and licensing
 
 Read source-map.json for module provenance and content/SOURCES_AND_LICENSES.md for the software/content license boundary. The scope crosswalk maps the week-1 comparison and selected tissue-application weeks against undergraduate MIT OCW 3.051J (Spring 2006), with graduate MIT OCW 20.441J (Fall 2009) used selectively for deeper tissue-response scope. Listed source courses are public curriculum comparators; no affiliation or equivalency is implied.

@@ -4116,6 +4116,398 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "biomaterials-project:rehearsal-modulus",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Use the rehearsal table scaffold-rehearsal-candidates.csv: P has porosity 0.72, initial modulus 2.4 MPa, permeability index 6 and modulus half-time 30 days; Q has 0.67, 2.6 MPa, 5 and 60 days. Assume E(t) = E₀ × 2^(−t/t½). Report each modulus in MPa to three significant figures.",
+      "points": 4,
+      "objective_ids": [
+        "biomaterials-2-objective-2",
+        "biomaterials-5-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "p_day30",
+          "type": "numeric",
+          "prompt": "Modeled modulus of P at day 30.",
+          "unit": "MPa",
+          "points": 1
+        },
+        {
+          "id": "p_day45",
+          "type": "numeric",
+          "prompt": "Modeled modulus of P at day 45.",
+          "unit": "MPa",
+          "points": 1
+        },
+        {
+          "id": "q_day30",
+          "type": "numeric",
+          "prompt": "Modeled modulus of Q at day 30.",
+          "unit": "MPa",
+          "points": 1
+        },
+        {
+          "id": "half_time",
+          "type": "single_choice",
+          "prompt": "What does each additional half-time do to the modeled modulus?",
+          "options": [
+            "It subtracts a fixed number of megapascals, the same amount every time.",
+            "It halves the modulus that remained at the start of that interval.",
+            "It reduces the modulus to zero once two half-times have passed."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "p_day30",
+            "type": "numeric",
+            "answer": 1.2,
+            "unit": "MPa",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "p_day45",
+            "type": "numeric",
+            "answer": 0.849,
+            "unit": "MPa",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "q_day30",
+            "type": "numeric",
+            "answer": 1.84,
+            "unit": "MPa",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "half_time",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Divide the day by the half-time, raise 2 to minus that power and multiply by E₀.",
+        "solution": "P: 2.4 × 2^(−30/30) = 1.20 MPa and 2.4 × 2^(−45/30) ≈ 0.849 MPa. Q: 2.6 × 2^(−30/60) ≈ 1.838 MPa. Each half-time halves whatever modulus remained, so the loss in MPa shrinks over time while the fraction lost per half-time stays the same.",
+        "lesson_ids": [
+          "biomaterials-project-guide",
+          "biomaterials-5",
+          "biomaterials-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biomaterials-project:rehearsal-support-time",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Use the rehearsal table scaffold-rehearsal-candidates.csv: P has porosity 0.72, initial modulus 2.4 MPa, permeability index 6 and modulus half-time 30 days; Q has 0.67, 2.6 MPa, 5 and 60 days. Assume E(t) = E₀ × 2^(−t/t½). Find the day at which each modeled modulus falls to 1.0 MPa, to three significant figures.",
+      "points": 3,
+      "objective_ids": [
+        "biomaterials-2-objective-2",
+        "biomaterials-5-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "p_time",
+          "type": "numeric",
+          "prompt": "Day at which P reaches 1.0 MPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "q_time",
+          "type": "numeric",
+          "prompt": "Day at which Q reaches 1.0 MPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "formula",
+          "type": "single_choice",
+          "prompt": "Which expression gives that day?",
+          "options": [
+            "t = t½ × log₂(E₀ / threshold)",
+            "t = t½ × (E₀ − threshold) / E₀",
+            "t = t½ / log₂(E₀ / threshold)"
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "p_time",
+            "type": "numeric",
+            "answer": 37.9,
+            "unit": "",
+            "tolerance": 0.06,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "q_time",
+            "type": "numeric",
+            "answer": 82.7,
+            "unit": "",
+            "tolerance": 0.06,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "formula",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Set E₀ × 2^(−t/t½) equal to the threshold and solve for t with a base-2 logarithm.",
+        "solution": "P: 30 × log₂(2.4) ≈ 37.89 days. Q: 60 × log₂(2.6) ≈ 82.71 days. A longer half-time and a higher starting modulus both extend the modeled support period.",
+        "lesson_ids": [
+          "biomaterials-project-guide",
+          "biomaterials-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "biomaterials-project:rehearsal-constraints",
+      "type": "structured",
+      "prompt": "Project rehearsal open practice · Use the rehearsal table scaffold-rehearsal-candidates.csv: P has porosity 0.72, initial modulus 2.4 MPa, permeability index 6 and modulus half-time 30 days; Q has 0.67, 2.6 MPa, 5 and 60 days. Assume E(t) = E₀ × 2^(−t/t½). Rehearsal criteria: porosity ≥ 0.70, permeability index ≥ 5, E₀ ≥ 2.0 MPa and E(t) ≥ 1.0 MPa at the horizon. Select one response per criterion.",
+      "points": 3,
+      "objective_ids": [
+        "biomaterials-2-objective-1",
+        "biomaterials-6-objective-3"
+      ],
+      "feedback": {
+        "hint": "Build a pass/fail matrix: one column per criterion, one row per candidate and horizon, with no averaging.",
+        "solution": "At day 30, P meets every criterion (its modulus is 1.20 MPa) and Q fails porosity at 0.67 < 0.70. At day 45, P's modulus is about 0.849 MPa, below 1.0 MPa, and Q still fails porosity, so neither passes.",
+        "lesson_ids": [
+          "biomaterials-project-guide",
+          "biomaterials-6",
+          "biomaterials-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "response_fields": [
+        {
+          "id": "p_day30",
+          "type": "single_choice",
+          "prompt": "P at day 30 · What is P's outcome?",
+          "options": [
+            "P fails, because its permeability index of 6 is too far above the minimum.",
+            "P passes all four criteria; its modulus of 1.20 MPa clears 1.0 MPa.",
+            "P passes only if its strong porosity is averaged with its weaker modulus."
+          ],
+          "points": 1
+        },
+        {
+          "id": "q_day30",
+          "type": "single_choice",
+          "prompt": "Q at day 30 · What is Q's outcome?",
+          "options": [
+            "Q passes, because its high modulus compensates for slightly low porosity.",
+            "Q passes, because three of its four criteria are met by a wide margin.",
+            "Q fails on porosity, and no margin elsewhere can make up for it."
+          ],
+          "points": 1
+        },
+        {
+          "id": "day45",
+          "type": "single_choice",
+          "prompt": "Day 45 · Which candidates pass all four criteria?",
+          "options": [
+            "Neither: P's modeled modulus has fallen below 1.0 MPa and Q still fails porosity.",
+            "Only P, because a candidate that passed at day 30 keeps passing at later horizons.",
+            "Only Q, because its modulus is now the higher of the two candidates."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "p_day30",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "q_day30",
+            "type": "single_choice",
+            "answer": 2
+          },
+          {
+            "id": "day45",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ],
+        "rubric": [
+          {
+            "id": "p_day30",
+            "criterion": "Apply every criterion to P",
+            "points": 1,
+            "evidence": [
+              "Checks porosity, permeability, E₀ and E(30) separately."
+            ]
+          },
+          {
+            "id": "q_day30",
+            "criterion": "Refuse compensation",
+            "points": 1,
+            "evidence": [
+              "Keeps a single failed criterion decisive."
+            ]
+          },
+          {
+            "id": "day45",
+            "criterion": "Repeat the decision at the longer horizon",
+            "points": 1,
+            "evidence": [
+              "Re-evaluates the time-dependent criterion."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "biomaterials-project:rehearsal-evidence",
+      "type": "structured",
+      "prompt": "Project rehearsal open practice · Check the evidence limits you will discuss in project milestone 5. Select one response per criterion.",
+      "points": 3,
+      "objective_ids": [
+        "biomaterials-4-objective-1",
+        "biomaterials-lab-01-objective-3"
+      ],
+      "feedback": {
+        "hint": "Ask what the model omits, where the thresholds come from and what a pass can and cannot show.",
+        "solution": "A single exponential with one half-time omits uncertainty, degradation mode, geometry and loading; the thresholds are arbitrary teaching numbers; and a pass shows only that a synthetic candidate meets stipulated criteria.",
+        "lesson_ids": [
+          "biomaterials-project-guide",
+          "biomaterials-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "response_fields": [
+        {
+          "id": "model",
+          "type": "single_choice",
+          "prompt": "Model · What does the exponential modulus model leave out?",
+          "options": [
+            "Nothing important, because a single half-time fully describes how any degrading scaffold behaves.",
+            "Uncertainty, degradation mode, geometry and loading, which can change the time course.",
+            "Only the porosity, which the model already includes through E₀."
+          ],
+          "points": 1
+        },
+        {
+          "id": "thresholds",
+          "type": "single_choice",
+          "prompt": "Thresholds · What are the rehearsal and project thresholds?",
+          "options": [
+            "Arbitrary teaching numbers chosen for transparent arithmetic, not acceptance criteria.",
+            "Published acceptance criteria for scaffolds intended for load-bearing tissues in patients.",
+            "Values derived from the cell-response data in the earlier lessons."
+          ],
+          "points": 1
+        },
+        {
+          "id": "claim",
+          "type": "single_choice",
+          "prompt": "Claim · What may a passing candidate support?",
+          "options": [
+            "A recommendation to use that material in a tissue-engineering product.",
+            "Evidence that the scaffold is biocompatible and safe in vivo.",
+            "Only that it meets the stipulated criteria under this synthetic model."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "model",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "thresholds",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "claim",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ],
+        "rubric": [
+          {
+            "id": "model",
+            "criterion": "Name model limits",
+            "points": 1,
+            "evidence": [
+              "Lists assumptions behind the single-exponential decay."
+            ]
+          },
+          {
+            "id": "thresholds",
+            "criterion": "Bound the criteria",
+            "points": 1,
+            "evidence": [
+              "Treats thresholds as stipulated teaching values."
+            ]
+          },
+          {
+            "id": "claim",
+            "criterion": "Limit the claim",
+            "points": 1,
+            "evidence": [
+              "Keeps the conclusion inside the synthetic exercise."
+            ]
+          }
+        ]
+      }
     }
   ]
 }

@@ -5980,3 +5980,25 @@ Key checks before publication:
 | Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
 
 Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.
+
+## Biomaterials scaffold-property project for learners (2026-10-20)
+
+Biomaterials & Tissue Engineering advances to 0.4.0. Week 12 gains `assignments/scaffold-property-project-guide.md`, the synthetic `assignments/scaffold-rehearsal-candidates.csv` (two candidates judged against different criteria at days 30 and 45) and a four-item, 13-point rehearsal practice set; five project milestones are zero-point self-checks in `rubrics/case-studio.json`, with a `project` self-assessment record in week 13. The project table and the degradation lab's dataset become learner resources, and the lab's link now resolves to the package-pinned CSV. The inactive project draft is unchanged.
+
+Key checks before publication:
+
+- A self-check script graded the four new items with the backend grader: keys earn full credit and wrong responses zero. Eight further response cases (too few significant figures, a linear loss model, a natural logarithm in place of log₂, compensation across criteria, a stale horizon, and fully correct responses) earn the stated scores. An option-length audit flagged five fields, which were rebalanced.
+- `tests/content/test_biomaterials_project_route.py` (5 tests) recomputes the rehearsal keys by counting elapsed half-times and finding support times by bisection, independent of the closed forms used to author the keys. It recomputes the pass/fail outcomes, the guide's restatement of the draft and its worked example, and checks that neither the guide nor the rehearsal states the project's own results. That check caught a rehearsal porosity of 0.66 matching a project modulus at two decimals; the porosity became 0.67, which still fails the 0.70 criterion. It also checks that every guide and lab link resolves and that each learner resource is served byte for byte.
+- Pins updated: the Biomaterials snapshot version and lesson count (16 to 17), the global case count (65 to 70) and the backend per-course case map. Four regression tests that pinned the version prefix `0.3.` now require at least 0.3.0. The numeric-answer limitation now counts 74 answers, 23 requiring a unit and six checking significant figures.
+- The 0.3.10 snapshot is archived as `docs/BIOMATERIALS_REVIEW_SNAPSHOT-0.3.10.md`.
+
+| Actual command/check | Result |
+| --- | --- |
+| Self-check script over the Biomaterials item module (backend grader) | 4 items and 8 extra cases passed. |
+| `tools/validate_content.py` | Passed: 25 courses, 466 lessons, 3,015 questions, 1,623 cards and 70 cases; 0 errors and 0 warnings. |
+| `tools/objective_coverage.py --check` and `tools/assessment_candidates.py --check` | Passed after regeneration. |
+| `claims_scan.py --repo uniStemCourseSimulators` | 0 findings. |
+| Full verify, `verify.sh --frontend` (log `biomat-verify-1`) | Content, legacy (7), security (1,688 files, 0 findings), ruff, root (3,419 passed, 1 skipped), backend (6,359 passed, 2 skipped) and frontend (75 tests) passed. |
+| Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
+
+Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.

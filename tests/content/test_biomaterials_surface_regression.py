@@ -14,7 +14,7 @@ COURSE = ROOT / "content/courses/biomaterials"
 
 def test_surface_wetting_and_bulk_modulus_examples():
     manifest = json.loads((COURSE / "course.json").read_text(encoding="utf-8"))
-    assert manifest["version"].startswith("0.3.")
+    assert tuple(int(part) for part in manifest["version"].split(".")) >= (0, 3, 0)
     lesson = next(
         lesson
         for module in manifest["modules"]
