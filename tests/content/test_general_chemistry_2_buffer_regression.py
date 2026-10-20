@@ -14,7 +14,7 @@ COURSE = ROOT / "content/courses/general-chemistry-2"
 
 def test_weak_acid_buffer_ratio_capacity_and_legacy_keys():
     manifest = json.loads((COURSE / "course.json").read_text(encoding="utf-8"))
-    assert manifest["version"].startswith("0.4.")
+    assert tuple(int(part) for part in manifest["version"].split(".")) >= (0, 4, 0)
     lesson = next(
         lesson
         for module in manifest["modules"]

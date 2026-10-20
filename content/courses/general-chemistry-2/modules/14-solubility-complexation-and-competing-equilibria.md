@@ -26,7 +26,7 @@ At fixed free X=0.0100 mol/L, a metal with the stipulated MX constant reaches sa
 
 ## Complexation changes free metal
 
-Now suppose dissolved M⁺ also binds neutral L to form ML⁺, with K_f=[ML]/([M][L]) in the ideal concentration model. If free ligand l is externally held fixed, total dissolved metal is S=[M](1+K_fl). At solid saturation in pure-water MX with no initial X, free X equals total dissolved metal S because each dissolved formula unit releases one X. Therefore K_sp,c=S²/(1+K_fl).
+Now suppose dissolved M⁺ also binds neutral L to form ML⁺, with K_f=[ML]/([M][L]) in the ideal concentration model. If free ligand l is externally held fixed, total dissolved metal is S=[M]·(1+K_fl). At solid saturation in pure-water MX with no initial X, free X equals total dissolved metal S because each dissolved formula unit releases one X. Therefore K_sp,c=S²/(1+K_fl).
 
 Take the same MX constant 10⁻⁸ (mol/L)², K_f=10⁴ L/mol and stipulated free ligand l=0.0100 mol/L. Then K_fl=100 and S=√(101×10⁻⁸)≈1.00499 × 10⁻³ mol/L. Free metal is S/101≈9.95037 × 10⁻⁶ mol/L, while most dissolved metal is complexed. Increased total solubility can coexist with lower free metal concentration.
 

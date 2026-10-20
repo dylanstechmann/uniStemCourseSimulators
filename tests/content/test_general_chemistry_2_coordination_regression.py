@@ -11,7 +11,7 @@ COURSE = ROOT / "content/courses/general-chemistry-2"
 
 def test_coordination_primer_maps_outcomes_and_preserves_legacy_choices():
     manifest = json.loads((COURSE / "course.json").read_text(encoding="utf-8"))
-    assert manifest["version"].startswith("0.4.")
+    assert tuple(int(part) for part in manifest["version"].split(".")) >= (0, 4, 0)
     module = next(
         module
         for module in manifest["modules"]

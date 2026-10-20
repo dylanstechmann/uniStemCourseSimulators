@@ -183,7 +183,8 @@ def test_all_authored_courses_expose_their_existing_case_studies():
     milestone_cases = {
         course_id: 5
         for course_id in (
-            "cell-biology", "biochemistry", "genetics", "calculus-1", "physics-mechanics", "statics-materials"
+            "cell-biology", "biochemistry", "genetics", "calculus-1", "physics-mechanics", "statics-materials",
+            "general-chemistry-2",
         )
     }
     for summary in courses:

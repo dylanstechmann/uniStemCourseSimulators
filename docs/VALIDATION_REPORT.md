@@ -5910,3 +5910,27 @@ Key checks before publication:
 | Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
 
 Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.
+
+## General Chemistry II redox-cell project for learners (2026-10-20)
+
+General Chemistry II advances to 0.5.0. Week 8 gains `assignments/redox-cell-project-guide.md` and a five-item, 16-point rehearsal practice set on a separate fictional cell (tokens C and D); five project milestones are zero-point self-checks in `rubrics/case-studio.json`, with a `project` self-assessment record in week 9. The relaxation lab's dataset becomes a learner resource, and the lab's link now resolves to the package-pinned CSV. The week-10 solubility expression `S=[M](1+K_fl)`, which Markdown parsed as a link, now reads `S=[M]·(1+K_fl)`. The inactive project draft is unchanged.
+
+Key checks before publication:
+
+- A self-check script graded the five new items with the backend grader: keys earn full credit and wrong responses zero. Thirteen further response cases (n = 1 used, potentials added, J/mol entered as kJ/mol, too few significant figures, a coefficient not used as a power, minutes not converted, n not applied, and fully correct responses) earn the stated scores. An option-length audit flagged two fields, which were rebalanced. During authoring the rehearsal potentials were changed so that its standard-state values no longer repeat the week-8 reading's worked example.
+- `tests/content/test_general_chemistry_two_project_route.py` (5 tests) recomputes every rehearsal key independently: electron counts from a least common multiple, exact rational potentials and free energies, the Nernst potential by bisection on −nFE = −nFE° + RT ln Q rather than the rearranged equation, and exact charge amounts. It also recomputes the guide's worked example and checks the guide's restatement of the draft. It checks that the guide, worked example, cards and rehearsal do not state the project's own results, and that the lab, guide and week-10 lesson links resolve in the application.
+- Pins updated: the General Chemistry II snapshot version, lesson count (16 to 17), two-reading weeks (5 to 6), syllabus counts (109 to 114 items, 56 to 59 cards), the global case count (55 to 60) and the backend per-course case map. Four regression tests that pinned the version prefix `0.4.` now require at least 0.4.0.
+- Manifest corrections: one limitation named a 14-week scope and the structure note named 14 lessons; both now match the 11-week, 15-lesson sequence. The numeric-answer limitation now counts 80 answers (72 numeric items and eight rehearsal fields), ten requiring a unit and eight checking significant figures, and the syllabus says which fields check significant figures.
+- The 0.4.8 snapshot is archived as `docs/GENERAL_CHEMISTRY_2_REVIEW_SNAPSHOT-0.4.8.md`.
+
+| Actual command/check | Result |
+| --- | --- |
+| Self-check script over the General Chemistry II item module (backend grader) | 5 items and 13 extra cases passed. |
+| `tools/validate_content.py` | Passed: 25 courses, 464 lessons, 3,006 questions, 1,617 cards and 60 cases; 0 errors and 0 warnings. |
+| `tools/objective_coverage.py --check docs/COURSE_GAP_REPORT.md` | Passed after regeneration. General Chemistry II: 17 lessons, 44 objectives, 114 items, 59 cards; no unmapped objective or outcome. |
+| `tools/assessment_candidates.py --check docs/ASSESSMENT_CANDIDATE_REPORT.md` | Passed after regeneration. |
+| `claims_scan.py --repo uniStemCourseSimulators` | 2 HIGH "disclosure-removed" findings, both false positives: the syllabus version line and one handoff paragraph changed, and each still carries its unchanged AI-assistance statement. |
+| Full verify, `verify.sh --frontend` (log `chem2-verify-3`) | Content, legacy (7), security (1,669 files including the built bundle, 0 findings), ruff, root (3,406 passed, 1 skipped), backend (6,340 passed, 2 skipped) and frontend (75 tests) passed. |
+| Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
+
+Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.

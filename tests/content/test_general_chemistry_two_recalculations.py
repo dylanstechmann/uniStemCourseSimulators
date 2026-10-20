@@ -458,16 +458,19 @@ def test_proposed_schedule_and_formative_limits():
     weeks = manifest["duration"]["weeks"]
     syllabus = (COURSE / manifest["syllabus"]).read_text(encoding="utf-8")
     assert f"Version: {manifest['version']}." in syllabus and manifest["maturity"] == "partial"
-    assert len(weeks) == 11 and len(lessons) == 16
+    # 16 topic and lab lessons plus the optional redox project guide added in 0.5.0.
+    assert len(weeks) == 11 and len(lessons) == 17
     assert sorted(lid for week in weeks for lid in week["lesson_ids"]) == sorted(
         lessons
     )
-    # Four compact primers share a week with their expanded treatment; week 3 pairs speciation with titration.
-    assert sum(len(week["lesson_ids"]) == 2 for week in weeks) == 5
+    # Four compact primers share a week with their expanded treatment; week 3 pairs speciation with titration,
+    # and week 8 adds the project guide.
+    assert sum(len(week["lesson_ids"]) == 2 for week in weeks) == 6
     assert weeks[2]["lesson_ids"] == ["general-chemistry-2-9", "general-chemistry-2-15"]
-    assert "The 11-week sequence retains 16 readings, 109 public practice items and 56 retrieval cards" in syllabus
-    assert len(BANK) == 109
-    assert len(load(COURSE / "question-banks/retrieval-cards.json")["cards"]) == 56
+    assert weeks[7]["lesson_ids"] == ["general-chemistry-2-12", "general-chemistry-2-project-guide"]
+    assert "The 11-week sequence retains 17 readings, 114 public practice items and 59 retrieval cards" in syllabus
+    assert len(BANK) == 114
+    assert len(load(COURSE / "question-banks/retrieval-cards.json")["cards"]) == 59
     assert all(
         a["mode"] in ("practice", "self-assessment") for a in manifest["assessments"]
     )

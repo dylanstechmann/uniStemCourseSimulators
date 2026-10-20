@@ -18,7 +18,7 @@ The balanced repeats make the arithmetic mean equal to each rounded central repo
 
 ## Data dictionary
 
-[Download the synthetic CSV](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/general-chemistry-2/labs/relaxation-reports.csv). `sample` identifies the group; `time_min` is elapsed model time, blank for the reference; `replicate` identifies one of three constructed reports; `reported_a_mm` is raw reported A in millimolar, including background. No column supplies an actual learner or experimental record.
+[Download the synthetic CSV](relaxation-reports.csv). `sample` identifies the group; `time_min` is elapsed model time, blank for the reference; `replicate` identifies one of three constructed reports; `reported_a_mm` is raw reported A in millimolar, including background. No column supplies an actual learner or experimental record.
 
 | Sample | Time (min) | Mean reported A (mM) | Mean after blank correction (mM) |
 |---|---:|---:|---:|

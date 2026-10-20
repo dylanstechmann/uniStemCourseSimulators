@@ -3772,6 +3772,483 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "general-chemistry-2-project:rehearsal-balance",
+      "type": "structured",
+      "prompt": "Project rehearsal open practice · Fictional tokens C and D have the formal reductions C⁺ + e⁻ ⇌ C(s), E° = +0.250 V, and D²⁺ + 2e⁻ ⇌ D(s), E° = −0.150 V. They are bookkeeping symbols, not real elements. Build the galvanic cell. Select one response per criterion.",
+      "points": 3,
+      "objective_ids": [
+        "general-chemistry-2-3-objective-2",
+        "general-chemistry-2-7-objective-2",
+        "general-chemistry-2-12-objective-2"
+      ],
+      "feedback": {
+        "hint": "Reduce the higher-potential couple, oxidize the other, and scale so the electrons cancel.",
+        "solution": "C⁺/C has the higher E°, so it is reduced; D is oxidized, D(s) → D²⁺ + 2e⁻. Doubling the C reduction balances the electrons: D(s) + 2C⁺ → D²⁺ + 2C(s), with n = 2 and a net charge of +2 on each side. Scaling a half-reaction never scales its potential.",
+        "lesson_ids": [
+          "general-chemistry-2-project-guide",
+          "general-chemistry-2-3",
+          "general-chemistry-2-12"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "response_fields": [
+        {
+          "id": "cathode",
+          "type": "single_choice",
+          "prompt": "Cathode · Which couple is reduced at the cathode?",
+          "options": [
+            "The D couple, because its reduction gives up the larger number of electrons.",
+            "The C couple, because its standard reduction potential is the higher of the two.",
+            "Either couple, because a cell can run in both directions under standard conditions."
+          ],
+          "points": 1
+        },
+        {
+          "id": "net_reaction",
+          "type": "single_choice",
+          "prompt": "Net reaction · Which balanced equation describes the cell?",
+          "options": [
+            "D(s) + C⁺ → D²⁺ + C(s)",
+            "2D(s) + C⁺ → 2D²⁺ + C(s)",
+            "D(s) + 2C⁺ → D²⁺ + 2C(s)"
+          ],
+          "points": 1
+        },
+        {
+          "id": "electrons",
+          "type": "single_choice",
+          "prompt": "Electrons · How many electrons does one unit of the net reaction transfer?",
+          "options": [
+            "Two, the electrons released by one D atom and taken up by two C⁺ ions.",
+            "One, because each C⁺ ion accepts a single electron at the cathode surface.",
+            "Three, the sum of the electrons named in the two half-reactions as written."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "cathode",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "net_reaction",
+            "type": "single_choice",
+            "answer": 2
+          },
+          {
+            "id": "electrons",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ],
+        "rubric": [
+          {
+            "id": "cathode",
+            "criterion": "Choose the cathode",
+            "points": 1,
+            "evidence": [
+              "Reduces the couple with the higher standard reduction potential."
+            ]
+          },
+          {
+            "id": "net_reaction",
+            "criterion": "Balance electrons",
+            "points": 1,
+            "evidence": [
+              "Doubles the one-electron reduction to match the two-electron oxidation."
+            ]
+          },
+          {
+            "id": "electrons",
+            "criterion": "Count the electrons transferred",
+            "points": 1,
+            "evidence": [
+              "Identifies n = 2 for the balanced net reaction."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-2-project:rehearsal-thermodynamics",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Fictional tokens C and D have the formal reductions C⁺ + e⁻ ⇌ C(s), E° = +0.250 V, and D²⁺ + 2e⁻ ⇌ D(s), E° = −0.150 V. They are bookkeeping symbols, not real elements. Use the net reaction D(s) + 2C⁺ → D²⁺ + 2C(s) with n = 2, T = 298.15 K, R = 8.314 J/(mol·K) and F = 96,485 C/mol e⁻. Use a hyphen-minus for negative values.",
+      "points": 4,
+      "objective_ids": [
+        "general-chemistry-2-3-objective-1",
+        "general-chemistry-2-8-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "e_cell",
+          "type": "numeric",
+          "prompt": "Standard cell potential E°cell, in volts, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "delta_g",
+          "type": "numeric",
+          "prompt": "ΔG° for the reaction as written, in kJ/mol, to three significant figures.",
+          "unit": "kJ/mol",
+          "points": 1
+        },
+        {
+          "id": "ln_k",
+          "type": "numeric",
+          "prompt": "ln K, to four significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "k_meaning",
+          "type": "single_choice",
+          "prompt": "Why is a large K consistent with the sign of ΔG°?",
+          "options": [
+            "Because ΔG° = −RT ln K, so a negative ΔG° requires ln K > 0 and K > 1.",
+            "Because a large K means the reaction is fast, which lowers its Gibbs energy.",
+            "Because K and ΔG° are unrelated, so any combination of signs is possible."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "e_cell",
+            "type": "numeric",
+            "answer": 0.4,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "delta_g",
+            "type": "numeric",
+            "answer": -77.2,
+            "unit": "kJ/mol",
+            "tolerance": 0.06,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "ln_k",
+            "type": "numeric",
+            "answer": 31.14,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "k_meaning",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "E°cell = E°(cathode) − E°(anode); ΔG° = −nFE°cell; ln K = nFE°cell/(RT).",
+        "solution": "E°cell = 0.250 − (−0.150) = 0.400 V. ΔG° = −2 × 96,485 × 0.400 = −77,188 J/mol, or −77.2 kJ/mol to three significant figures. ln K = 2 × 96,485 × 0.400/(8.314 × 298.15) ≈ 31.139, so log₁₀ K ≈ 13.5: a negative ΔG° and a K far above 1 describe the same strongly product-favored standard state.",
+        "lesson_ids": [
+          "general-chemistry-2-project-guide",
+          "general-chemistry-2-3",
+          "general-chemistry-2-8"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-2-project:rehearsal-nernst",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Fictional tokens C and D have the formal reductions C⁺ + e⁻ ⇌ C(s), E° = +0.250 V, and D²⁺ + 2e⁻ ⇌ D(s), E° = −0.150 V. They are bookkeeping symbols, not real elements. For a nonstandard cell running D(s) + 2C⁺ → D²⁺ + 2C(s) at 298.15 K, use dimensionless activities a(D²⁺) = 0.0500 and a(C⁺) = 0.0200; pure solids have activity one.",
+      "points": 3,
+      "objective_ids": [
+        "general-chemistry-2-12-objective-1",
+        "general-chemistry-2-8-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "quotient",
+          "type": "numeric",
+          "prompt": "Reaction quotient Q, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "e_nonstandard",
+          "type": "numeric",
+          "prompt": "Cell potential from the Nernst equation, in volts, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "q_effect",
+          "type": "single_choice",
+          "prompt": "How does this Q change the cell potential relative to E°cell?",
+          "options": [
+            "It raises E, because a larger Q means more products are available to react.",
+            "It leaves E unchanged, because pure solids do not appear in the quotient.",
+            "It lowers E, because Q > 1 makes the logarithmic correction term subtract."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "quotient",
+            "type": "numeric",
+            "answer": 125.0,
+            "unit": "",
+            "tolerance": 0.6,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "e_nonstandard",
+            "type": "numeric",
+            "answer": 0.338,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "q_effect",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Omit the solids and raise each activity to its coefficient: Q = a(D²⁺)/a(C⁺)². Then E = E°cell − (RT/nF) ln Q.",
+        "solution": "Q = 0.0500/0.0200² = 125. With RT/(2F) ≈ 0.012846 V, E = 0.400 − 0.012846 × ln 125 ≈ 0.338 V: still positive, but below E°cell because the mixture already holds more product relative to reactant than the standard state.",
+        "lesson_ids": [
+          "general-chemistry-2-project-guide",
+          "general-chemistry-2-12",
+          "general-chemistry-2-8"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-2-project:rehearsal-charge",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Fictional tokens C and D have the formal reductions C⁺ + e⁻ ⇌ C(s), E° = +0.250 V, and D²⁺ + 2e⁻ ⇌ D(s), E° = −0.150 V. They are bookkeeping symbols, not real elements. Stipulate a current of 0.250 A for 15.0 min with 100% Faradaic efficiency, for the net reaction D(s) + 2C⁺ → D²⁺ + 2C(s).",
+      "points": 3,
+      "objective_ids": [
+        "general-chemistry-2-12-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "charge",
+          "type": "numeric",
+          "prompt": "Total charge passed, in coulombs, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "mol_electrons",
+          "type": "numeric",
+          "prompt": "Moles of electrons transferred, to three significant figures.",
+          "unit": "mol",
+          "points": 1
+        },
+        {
+          "id": "d_consumed",
+          "type": "numeric",
+          "prompt": "Moles of D consumed, to three significant figures.",
+          "unit": "mol",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "charge",
+            "type": "numeric",
+            "answer": 225.0,
+            "unit": "",
+            "tolerance": 0.6,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "mol_electrons",
+            "type": "numeric",
+            "answer": 0.00233,
+            "unit": "mol",
+            "tolerance": 6e-06,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "d_consumed",
+            "type": "numeric",
+            "answer": 0.00117,
+            "unit": "mol",
+            "tolerance": 6e-06,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Charge = current × time in seconds; mol e⁻ = charge/F; divide by n for the reaction extent.",
+        "solution": "Charge = 0.250 A × 900 s = 225 C, or 225/96,485 ≈ 0.002332 mol e⁻. Each D gives two electrons, so about 0.001166 mol D is consumed and 0.002332 mol C⁺ is reduced.",
+        "lesson_ids": [
+          "general-chemistry-2-project-guide",
+          "general-chemistry-2-12"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "general-chemistry-2-project:rehearsal-scope",
+      "type": "structured",
+      "prompt": "Project rehearsal open practice · Check the assumptions you will discuss in project milestone 5. Select one response per criterion.",
+      "points": 3,
+      "objective_ids": [
+        "general-chemistry-2-12-objective-3",
+        "general-chemistry-2-12-objective-1"
+      ],
+      "feedback": {
+        "hint": "Ask what each idealization replaces: activity measurement, side reactions, and the identity of the species.",
+        "solution": "Activities are effective concentrations that need a model or measurement; 100% Faradaic efficiency assigns every electron to the stated reaction; and C and D are fictional tokens, so no conclusion about a real material follows.",
+        "lesson_ids": [
+          "general-chemistry-2-project-guide",
+          "general-chemistry-2-12"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "response_fields": [
+        {
+          "id": "activities",
+          "type": "single_choice",
+          "prompt": "Activities · What do the dimensionless activities stand for in a real solution?",
+          "options": [
+            "Exactly the molar concentrations, so no model or measurement is ever needed for them.",
+            "Effective concentrations that need an activity model or measurement for a real solution.",
+            "Fixed constants that apply unchanged to every solution containing the same dissolved ions."
+          ],
+          "points": 1
+        },
+        {
+          "id": "efficiency",
+          "type": "single_choice",
+          "prompt": "Charge · What does 100% Faradaic efficiency assume?",
+          "options": [
+            "That every electron passed drives the stated reaction and no side reaction.",
+            "That the cell runs at its standard potential for the whole of the experiment.",
+            "That the current stays constant only during the first minute of operation."
+          ],
+          "points": 1
+        },
+        {
+          "id": "tokens",
+          "type": "single_choice",
+          "prompt": "Scope · What can these calculations say about a real material?",
+          "options": [
+            "That a real metal with similar potentials would behave identically in a laboratory.",
+            "That the fictional cell is a safe design for a battery prototype at room temperature.",
+            "Nothing directly: C and D are bookkeeping tokens with stipulated potentials."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "activities",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "efficiency",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "tokens",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ],
+        "rubric": [
+          {
+            "id": "activities",
+            "criterion": "Qualify activities",
+            "points": 1,
+            "evidence": [
+              "Treats activities as modeled effective concentrations."
+            ]
+          },
+          {
+            "id": "efficiency",
+            "criterion": "Name the charge assumption",
+            "points": 1,
+            "evidence": [
+              "Recognizes that all charge is assigned to the stated reaction."
+            ]
+          },
+          {
+            "id": "tokens",
+            "criterion": "Bound the claim",
+            "points": 1,
+            "evidence": [
+              "Keeps fictional tokens separate from real chemical claims."
+            ]
+          }
+        ]
+      }
     }
   ]
 }
