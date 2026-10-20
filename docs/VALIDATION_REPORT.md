@@ -5826,3 +5826,15 @@ Key checks before publication:
 | Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
 
 Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.
+
+## Markdown tables render in lesson readings (2026-10-19)
+
+The lesson reader now passes `remark-gfm` 4.0.1 to `react-markdown`, so the 254 tables in served readings and syllabi render as tables instead of raw pipe text. Before the change, a component render check confirmed that a Markdown table produced no `table` element. A scan of every served reading found no bare URLs, footnotes or strikethrough that the plugin would newly change, no table row whose cell count differs from its header, and no header-only table or empty column (two tables have an empty top-left header cell, a best-practice finding only). `MarkdownReader.test.tsx` gains a test for header cells, row count and an escaped pipe inside a cell. The dependency was installed in the cached node copy; `package.json` and `package-lock.json` were copied back.
+
+| Actual command/check | Result |
+| --- | --- |
+| Frontend in the node copy before the full run | Prettier, ESLint, `tsc -b`, 75 unit tests in 17 files and the build passed; the bundle security scan found 0 findings. |
+| Full verify, `verify.sh --frontend` (log `gen-verify-1`) | Frontend `npm ci` from the new lockfile, lint, 75 unit tests and build passed, with the rest of the suite as recorded above. |
+| Not run | The Playwright end-to-end suite, which covers lesson accessibility in a browser, runs only in CI; no manual browser check was performed here. |
+
+These checks were run by an AI coding agent (Claude Code) at the owner's request.
