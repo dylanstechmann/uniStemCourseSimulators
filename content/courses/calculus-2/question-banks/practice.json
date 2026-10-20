@@ -3808,6 +3808,413 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "calculus-2-project:rehearsal-improper",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Rehearsal function: q(x) = e^(−x/2) for x ≥ 0, a dimensionless teaching model. On [0, 1] use the degree-three Maclaurin polynomial P₃(x) = 1 − x/2 + x²/8 − x³/48. Give bare numbers.",
+      "points": 4,
+      "objective_ids": [
+        "calculus-2-8-objective-1",
+        "calculus-2-5-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "total",
+          "type": "numeric",
+          "prompt": "Q = ∫₀^∞ q(x) dx, from the limit definition, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "tail_at_4",
+          "type": "numeric",
+          "prompt": "The omitted tail ∫₄^∞ q(x) dx, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "cutoff",
+          "type": "numeric",
+          "prompt": "The smallest cutoff T for which the tail is at most 0.01, to four significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "direction",
+          "type": "single_choice",
+          "prompt": "Why is the answer the smallest T rather than the largest?",
+          "options": [
+            "Because the tail shrinks as T grows, so every larger cutoff also works.",
+            "Because the tail grows with T, so only small cutoffs keep it below 0.01.",
+            "Because the improper integral diverges beyond a certain cutoff."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "total",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "tail_at_4",
+            "type": "numeric",
+            "answer": 0.271,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "cutoff",
+            "type": "numeric",
+            "answer": 10.6,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "direction",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Integrate to a finite b, take the limit, and solve 2e^(−T/2) ≤ 0.01 with a logarithm.",
+        "solution": "∫₀^b e^(−x/2) dx = 2(1 − e^(−b/2)) → 2 as b → ∞. The tail after T is 2e^(−T/2), which is 2e^(−2) ≈ 0.2707 at T = 4. It is at most 0.01 when T ≥ 2 ln 200 ≈ 10.597; any larger cutoff works too.",
+        "lesson_ids": [
+          "calculus-2-project-guide",
+          "calculus-2-8"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-2-project:rehearsal-taylor",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Rehearsal function: q(x) = e^(−x/2) for x ≥ 0, a dimensionless teaching model. On [0, 1] use the degree-three Maclaurin polynomial P₃(x) = 1 − x/2 + x²/8 − x³/48. Give bare numbers; use a hyphen-minus for a negative value.",
+      "points": 4,
+      "objective_ids": [
+        "calculus-2-12-objective-1",
+        "calculus-2-12-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "polynomial_integral",
+          "type": "numeric",
+          "prompt": "∫₀¹ P₃(x) dx, to four significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "exact_integral",
+          "type": "numeric",
+          "prompt": "∫₀¹ q(x) dx, to four significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "signed_error",
+          "type": "numeric",
+          "prompt": "Signed error ∫₀¹ P₃ dx − ∫₀¹ q dx, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "sign",
+          "type": "single_choice",
+          "prompt": "Why is the polynomial integral slightly too small?",
+          "options": [
+            "Because Taylor polynomials always overestimate the function they approximate.",
+            "Because the first omitted term, x⁴/384, is positive on (0, 1].",
+            "Because the integral of e^(−x/2) is negative on [0, 1]."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "polynomial_integral",
+            "type": "numeric",
+            "answer": 0.7865,
+            "unit": "",
+            "tolerance": 6e-05,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "exact_integral",
+            "type": "numeric",
+            "answer": 0.7869,
+            "unit": "",
+            "tolerance": 6e-05,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "signed_error",
+            "type": "numeric",
+            "answer": -0.00048,
+            "unit": "",
+            "tolerance": 6e-07,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "sign",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Integrate term by term: 1 − 1/4 + 1/24 − 1/192. The exact part is 2(1 − e^(−1/2)).",
+        "solution": "∫₀¹ P₃ dx = 151/192 ≈ 0.786458 and ∫₀¹ e^(−x/2) dx = 2(1 − e^(−1/2)) ≈ 0.786939, so the signed error is about −0.0004803. The next term of the series, +x⁴/384, is positive, so dropping it leaves the polynomial below the function.",
+        "lesson_ids": [
+          "calculus-2-project-guide",
+          "calculus-2-12",
+          "calculus-2-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-2-project:rehearsal-certificate",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Rehearsal function: q(x) = e^(−x/2) for x ≥ 0, a dimensionless teaching model. On [0, 1] use the degree-three Maclaurin polynomial P₃(x) = 1 − x/2 + x²/8 − x³/48. Use the Lagrange remainder R₄(x) = q⁽⁴⁾(ξ) x⁴/4! with ξ between 0 and x. Give bare numbers.",
+      "points": 4,
+      "objective_ids": [
+        "calculus-2-6-objective-2",
+        "calculus-2-12-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "derivative_bound",
+          "type": "numeric",
+          "prompt": "The largest value of |q⁽⁴⁾(ξ)| for ξ in [0, 1], to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "integrated_bound",
+          "type": "numeric",
+          "prompt": "The resulting bound on |∫₀¹ P₃ dx − ∫₀¹ q dx|, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "combined",
+          "type": "numeric",
+          "prompt": "∫₀¹ P₃ dx plus the exact tail ∫₁^∞ q dx, an approximation to Q, to five significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "compare",
+          "type": "single_choice",
+          "prompt": "How does the certificate compare with the actual error?",
+          "options": [
+            "The actual error is larger than the bound, so the bound is wrong.",
+            "The bound equals the actual error exactly, as Lagrange bounds always do.",
+            "The actual error is just below the bound, as a valid certificate needs."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "derivative_bound",
+            "type": "numeric",
+            "answer": 0.0625,
+            "unit": "",
+            "tolerance": 6e-05,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "integrated_bound",
+            "type": "numeric",
+            "answer": 0.000521,
+            "unit": "",
+            "tolerance": 6e-07,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "combined",
+            "type": "numeric",
+            "answer": 1.9995,
+            "unit": "",
+            "tolerance": 6e-05,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 5,
+            "dimensions": null
+          },
+          {
+            "id": "compare",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Every derivative of e^(−x/2) carries a factor (−1/2)ⁿ, and e^(−ξ/2) ≤ 1 on [0, 1].",
+        "solution": "|q⁽⁴⁾(ξ)| = e^(−ξ/2)/16 ≤ 1/16, so |R₄(x)| ≤ x⁴/384 and the integrated error is at most ∫₀¹ x⁴/384 dx = 1/1920 ≈ 0.000521. The actual error, about 0.000480 in size, is below it. Adding the exact tail 2e^(−1/2) gives ≈ 1.99952, so the whole approximation error comes from [0, 1].",
+        "lesson_ids": [
+          "calculus-2-project-guide",
+          "calculus-2-6",
+          "calculus-2-12"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-2-project:rehearsal-interpretation",
+      "type": "structured",
+      "prompt": "Project rehearsal open practice · Check the interpretation you will give in project milestone 5. Select one response per criterion.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-2-10-objective-3",
+        "calculus-2-12-objective-2"
+      ],
+      "feedback": {
+        "hint": "Ask what the bound is about, which part of the estimate was approximated, and where the derivative bound holds.",
+        "solution": "A remainder bound certifies the approximation to the stipulated function, not that the function models anything. The tail beyond 1 is exact, so all the error is the Taylor truncation on [0, 1], and the derivative bound e^(−ξ/2) ≤ 1 holds only on that interval.",
+        "lesson_ids": [
+          "calculus-2-project-guide",
+          "calculus-2-10",
+          "calculus-2-12"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "response_fields": [
+        {
+          "id": "certificate",
+          "type": "single_choice",
+          "prompt": "Certificate · What does a small remainder bound establish?",
+          "options": [
+            "That the stipulated function is the right model for an external system.",
+            "That the approximation is close to the given function on that interval.",
+            "That every Taylor polynomial of higher degree is unnecessary."
+          ],
+          "points": 1
+        },
+        {
+          "id": "sources",
+          "type": "single_choice",
+          "prompt": "Sources · Where does the combined estimate's error come from?",
+          "options": [
+            "Only from the Taylor truncation on [0, 1]; the tail beyond 1 is exact.",
+            "Only from the tail, because the polynomial integral is exact on [0, 1].",
+            "From rounding alone, because both pieces are computed exactly."
+          ],
+          "points": 1
+        },
+        {
+          "id": "domain",
+          "type": "single_choice",
+          "prompt": "Domain · What does the derivative bound depend on?",
+          "options": [
+            "Nothing, because Lagrange bounds hold on any interval.",
+            "Only on the degree of the polynomial, not on the interval.",
+            "The interval [0, 1]; another interval needs a new bound."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "certificate",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "sources",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "domain",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ],
+        "rubric": [
+          {
+            "id": "certificate",
+            "criterion": "Read the certificate correctly",
+            "points": 1,
+            "evidence": [
+              "Limits the bound to approximating the given function."
+            ]
+          },
+          {
+            "id": "sources",
+            "criterion": "Separate the error sources",
+            "points": 1,
+            "evidence": [
+              "Attributes the error to the truncated piece only."
+            ]
+          },
+          {
+            "id": "domain",
+            "criterion": "Respect the interval",
+            "points": 1,
+            "evidence": [
+              "Ties the bound to the interval it was derived on."
+            ]
+          }
+        ]
+      }
     }
   ]
 }

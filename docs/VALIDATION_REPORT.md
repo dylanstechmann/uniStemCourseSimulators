@@ -6087,3 +6087,24 @@ Key checks before publication:
 | Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
 
 Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.
+
+## Calculus II exponential-tail project for learners (2026-10-20)
+
+Calculus II advances to 0.5.0. Week 13 gains `assignments/exponential-tail-project-guide.md` and a four-item, 15-point rehearsal practice set on q(x) = e^(−x/2) with a degree-three polynomial; five project milestones are zero-point self-checks in `rubrics/case-studio.json`, with a `project` self-assessment record in week 14. The force lab's dataset becomes a learner resource, and the lab's link now resolves to the package-pinned CSV. The inactive project draft is unchanged.
+
+Key checks before publication:
+
+- A self-check script graded the four new items with the backend grader: keys earn full credit and wrong responses zero. Seven further response cases (a dropped factor of two, a reversed error sign, an ignored derivative factor, and fully correct responses) earn the stated scores; one authored case first used −0.000481 for the signed error, which is −0.000480, and was corrected. An option-length audit flagged five fields, which were rebalanced.
+- `tests/content/test_calculus_two_project_route.py` (5 tests) recomputes the rehearsal keys by Simpson quadrature on long finite intervals and bisection for the cutoff, builds the Taylor coefficients from derivatives at 0 with exact fractions, and integrates the remainder bound exactly. It recomputes the guide's worked example, checks the guide's restatement of the draft, and checks that neither the guide nor the rehearsal states the project's results; small values are compared at higher precision so that 1/720 rounding to 0.001 does not match a stated tolerance. It also checks that the lab and guide links resolve and the dataset is served byte for byte.
+- The guide's display equation parses in KaTeX. Pins updated: the snapshot version, the lesson and item counts (16 to 17 and 113 to 117), the week-14 assessment list, the global case count (85 to 90) and the backend per-course case map. The structure note, which counted 15 readings, now counts 17, and the significant-figure limitation names the nine rehearsal fields that check them.
+- `claims_scan.py` reported one HIGH "disclosure-removed" finding, a false positive: the syllabus version line changed and still carries its unchanged AI-assistance statement. The 0.4.8 snapshot is archived as `docs/CALCULUS_2_REVIEW_SNAPSHOT-0.4.8.md`.
+
+| Actual command/check | Result |
+| --- | --- |
+| Self-check script over the Calculus II item module (backend grader) | 4 items and 7 extra cases passed. |
+| `tools/validate_content.py` | Passed: 25 courses, 470 lessons, 3,033 questions, 1,635 cards and 90 cases; 0 errors and 0 warnings. |
+| `tools/objective_coverage.py --check` and `tools/assessment_candidates.py --check` | Passed after regeneration. |
+| Full verify, `verify.sh --frontend` (log `calc2-verify-1`) | Content, legacy (7), security (1,702 files, 0 findings), ruff, root (3,439 passed, 1 skipped), backend (6,395 passed, 2 skipped) and frontend (77 tests) passed. |
+| Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
+
+Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.

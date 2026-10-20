@@ -30,6 +30,196 @@
       "limitations": [
         "This preserved three-criterion checklist is self-assessment, not an analytic grading rubric or an institutional grade."
       ]
+    },
+    {
+      "id": "calculus-2:project-m1-improper",
+      "prompt": "Tail project milestone 1 (suggested week 13). Evaluate Q = ∫₀^∞ e^(−x) dx from the limit definition, find the omitted tail after a cutoff T, evaluate it at T = 3, and find the smallest cutoff for which the tail is at most 0.01 (project tasks 1 and 2).",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "calculus-2-8-objective-1",
+        "calculus-2-5-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m1-improper-criterion-1",
+          "criterion": "I integrated to a finite upper limit and then took the limit.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-improper-criterion-2",
+          "criterion": "I wrote the tail as a function of T before evaluating it.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-improper-criterion-3",
+          "criterion": "I solved the tolerance inequality with the correct direction.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-improper-criterion-4",
+          "criterion": "I checked my method on the open rehearsal before using the project function.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the exponential-tail project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "calculus-2:project-m2-taylor",
+      "prompt": "Tail project milestone 2 (suggested week 13). Integrate the degree-four Maclaurin polynomial P₄(x) = 1 − x + x²/2 − x³/6 + x⁴/24 exactly on [0, 1] (project task 3).",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "calculus-2-12-objective-1",
+        "calculus-2-11-objective-2"
+      ],
+      "rubric": [
+        {
+          "id": "project-m2-taylor-criterion-1",
+          "criterion": "I integrated all five terms.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-taylor-criterion-2",
+          "criterion": "I kept the result as an exact fraction before converting to a decimal.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-taylor-criterion-3",
+          "criterion": "I compared it with the exact integral of the function on [0, 1].",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-taylor-criterion-4",
+          "criterion": "I noted whether the polynomial integral is too large or too small.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the exponential-tail project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "calculus-2:project-m3-certificate",
+      "prompt": "Tail project milestone 3 (suggested week 13). Use the Lagrange remainder for e^(−x) to bound the absolute error in ∫₀¹ P₄(x) dx, and compare the bound with the actual error (project task 4).",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "calculus-2-6-objective-2",
+        "calculus-2-12-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m3-certificate-criterion-1",
+          "criterion": "I bounded the fifth derivative on the interval [0, 1].",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-certificate-criterion-2",
+          "criterion": "I integrated the pointwise remainder bound over the interval.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-certificate-criterion-3",
+          "criterion": "I computed the actual error and checked that it is within the bound.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-certificate-criterion-4",
+          "criterion": "I reported the bound and the actual error to sensible precision.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the exponential-tail project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "calculus-2:project-m4-combined",
+      "prompt": "Tail project milestone 4 (suggested week 14). Combine the degree-four approximation over [0, 1] with the exact tail over [1, ∞), and report the approximation to Q, its signed error and the separate sources of error (project task 5).",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "calculus-2-12-objective-2",
+        "calculus-2-10-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m4-combined-criterion-1",
+          "criterion": "I added the exact tail rather than another approximation.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-combined-criterion-2",
+          "criterion": "I reported the signed error with its sign.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-combined-criterion-3",
+          "criterion": "I attributed the error to its source and noted which part is exact.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-combined-criterion-4",
+          "criterion": "I compared the result with the exact value of Q.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the exponential-tail project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "calculus-2:project-m5-interpretation",
+      "prompt": "Tail project milestone 5 (suggested week 14). Explain why a small Taylor remainder certifies approximation to the stipulated function but does not validate that function as a model for any external system (project task 6).",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "calculus-2-10-objective-3",
+        "calculus-2-2-objective-2"
+      ],
+      "rubric": [
+        {
+          "id": "project-m5-interpretation-criterion-1",
+          "criterion": "I distinguished approximation error from model error.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-interpretation-criterion-2",
+          "criterion": "I named the conditions under which my remainder bound holds.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-interpretation-criterion-3",
+          "criterion": "I did not attach a biological, mechanical or experimental meaning to the function.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-interpretation-criterion-4",
+          "criterion": "I disclosed any tools or AI assistance used.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the exponential-tail project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
     }
   ]
 }

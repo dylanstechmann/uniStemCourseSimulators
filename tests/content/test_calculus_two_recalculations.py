@@ -505,8 +505,10 @@ def test_schedule_and_partial_status():
     assert weeks[-1]["assessment_ids"] == [
         "calculus-2-week14-force-lab",
         "calculus-2-case",
+        "calculus-2-tail-project",  # 0.5.0: the optional project's milestone record
     ]
-    assert len(lessons) == 16 and len(BANK) == 113
+    # 16 topic and lab lessons plus the optional exponential-tail project guide added in 0.5.0.
+    assert len(lessons) == 17 and len(BANK) == 117
     cards = len(load(COURSE / "question-banks/retrieval-cards.json")["cards"])
     syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8")
     assert (

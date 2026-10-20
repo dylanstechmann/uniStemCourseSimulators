@@ -2,11 +2,11 @@
 
 This record pins the current public course package for independent review. It is regenerated with the read-only command below and does not imply acceptance or release.
 
-- **Course package:** `calculus-2` 0.4.8
-- **Public package archive SHA-256:** `3b6d4f7928ebdfa6a6f6fb2dbca5a45f26b229043c38bb9c1eca1d8e8df017b1`
-- **Manifest SHA-256:** `e66303aa29e34ea97ea7ac9f55239ffb07899fc7c21036377fe04324cb611a5e`
-- **Archive inventory:** 24 files, 309,597 bytes
-- **Calculated:** 2026-10-13
+- **Course package:** `calculus-2` 0.5.0
+- **Public package archive SHA-256:** `75866766e7062d53807dedb38954f2e2a5af21db266b4ef2194d6e93ee81ac09`
+- **Manifest SHA-256:** `d5e766686df056af943a329d3e4e11c3a58347d658600a605b62e6043a6fefdb`
+- **Archive inventory:** 25 files, 345,547 bytes
+- **Calculated:** 2026-10-20
 - **Reproduce:** `uv run --project backend --locked python -B tools/course_package_digest.py --course-id calculus-2`
 
-The archive digest includes the week-2 trigonometric-integration reading and all public course files. It confirms file identity only; it is not mathematical review or release evidence.
+Version 0.5.0 makes the planned exponential-tail project usable by learners as ungraded practice. Week 13 gains an optional project guide with the project's function, polynomial and tasks and a worked example on a separate function, a rehearsal function and four open rehearsal practice items; five project milestones are Case studio self-checks with a week-14 project record. The force lab's dataset link now resolves to the package-pinned CSV instead of a mutable repository URL. The inactive project draft is unchanged. The digest proves package identity only; it is not mathematical review, instructional approval or release evidence.

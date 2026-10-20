@@ -12,7 +12,7 @@
 
 An abstract actuator model has force F(x)=10x/(1−0.2x) N on 0≤x≤2 m, with x entered numerically in metres. The coefficient 10 represents 10 N/m and 0.2 represents 0.2 m⁻¹; hence the denominator is dimensionless. A synthetic sensor adds a known constant 1 N offset. At each of five positions, F(x)+1 is rounded to four decimal places and three readings are placed at this central value minus 0.05 N, the central value itself and the central value plus 0.05 N. The offsets deliberately balance; they are not random independent observations or evidence for a real noise law.
 
-[Download the synthetic CSV](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/calculus-2/labs/force-samples.csv). Column `position` is the stable group code p0 through p4, `metres` is displacement, `replicate` identifies a constructed reading, `force_N` is force including offset, and `offset_N` is the independently supplied exact offset. Repeated replicate identifiers do not establish independent experiments. CSV values define the sampled numerical-rule answers; the exact generating formula defines the separate mathematical series answers.
+[Download the synthetic CSV](force-samples.csv). Column `position` is the stable group code p0 through p4, `metres` is displacement, `replicate` identifies a constructed reading, `force_N` is force including offset, and `offset_N` is the independently supplied exact offset. Repeated replicate identifiers do not establish independent experiments. CSV values define the sampled numerical-rule answers; the exact generating formula defines the separate mathematical series answers.
 
 | Position | Metres | Readings | Mean raw force (N) | Mean minus offset (N) |
 |---|---:|---:|---:|---:|

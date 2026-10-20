@@ -1,6 +1,6 @@
 # Calculus II: Integration, Series & Applications
 
-**Maturity: partial. Version: 0.4.8.** This personal hobby and learning project is developed with substantial AI assistance and is not an accredited university course.
+**Maturity: partial. Version: 0.5.0.** This personal hobby and learning project is developed with substantial AI assistance and is not an accredited university course.
 
 Integration and infinite series describe accumulated quantities and controlled approximations. Synthetic examples connect mathematical structure with rates, work, geometric area and radial amounts.
 
@@ -34,20 +34,24 @@ This sequence is planning scope, not measured workload or a reviewed semester. W
 | 10 | Power series and Taylor error | 2 | 2 |
 | 11 | Power series, radius and endpoints | 9 | 4 |
 | 12 | Taylor approximations with an error bound: when "approximately" is good enough | 6 | 4 |
-| 13 | Taylor polynomials and integrated error | 9 | 4 |
+| 13 | Taylor polynomials and integrated error; optional exponential-tail project guide | 13 | 7 |
 | 14 | Virtual lab 1: force integration, geometric tails and sensor offset | 8 | 4 |
 
 ## Assessment policy
 
-There are 16 readings, 113 public practice items and 56 retrieval cards, plus the preserved self-assessment case. Numeric, single-choice, CSV-upload, structured-choice and multiple-select items provide selected feedback with unlimited retries. Points are practice feedback, with no institutional grade or credit. Written derivations and discussion criteria are not automatically graded prose. Assessment outcome lists reflect the lesson objectives assessed by their items; prototype associations remain provisional.
+There are 17 readings, 117 public practice items and 59 retrieval cards, plus the preserved self-assessment case and five project-milestone self-checks. Numeric, single-choice, CSV-upload, structured-choice and multiple-select items provide selected feedback with unlimited retries. Points are practice feedback, with no institutional grade or credit. Written derivations and discussion criteria are not automatically graded prose. Assessment outcome lists reflect the lesson objectives assessed by their items; prototype associations remain provisional.
+
+## Optional exponential-tail project (ungraded)
+
+The [tail project guide](assignments/exponential-tail-project-guide.md) makes the project below usable as open practice. It restates the project's function, polynomial and tasks, works a separate function, and pairs a rehearsal function with open practice items in week 13. Five milestones, suggested for weeks 13–14, are Case studio self-checks whose responses are saved privately and never submitted, collected or scored.
 
 ## Inactive project draft
 
-The [tail-and-error portfolio](assessment-specs/exponential-tail-project-draft.md) combines an improper-integral limit, a tolerance-based cutoff, a Taylor approximation and an integrated remainder certificate. It uses a normalized mathematical response and has no real-world interpretation. The paper-only draft is not scheduled, assigned, submitted or graded; the calculations and unweighted review rubric need independent mathematical, workload and accessibility review.
+The [tail-and-error portfolio](assessment-specs/exponential-tail-project-draft.md) combines an improper-integral limit, a tolerance-based cutoff, a Taylor approximation and an integrated remainder certificate. It uses a normalized mathematical response and has no real-world interpretation. The paper-only draft itself is not scheduled, assigned, submitted or graded, and the open project guide above does not submit work to it; the calculations and unweighted review rubric need independent mathematical, workload and accessibility review.
 
 ## Current limitations
 
-Selected indeterminate limits and standard trigonometric substitutions are now included, but coverage is not exhaustive. One synthetic lab is not a laboratory sequence. There is no graded homework sequence, midterm, final or activated cumulative project; the new draft is inactive. Workload, accessibility and mathematical quality await qualified review. Mathematical bounds apply only under their stated conditions and control neither measurement uncertainty nor model discrepancy. All force and density examples are constructed and establish no device specification or tissue behavior. The course remains partial, unreviewed and formative-only.
+Selected indeterminate limits and standard trigonometric substitutions are now included, but coverage is not exhaustive. One synthetic lab is not a laboratory sequence. There is no graded homework sequence, midterm, final or activated cumulative project; the optional project guide and its rehearsal are ungraded practice, and the project draft remains inactive. Workload, accessibility and mathematical quality await qualified review. Mathematical bounds apply only under their stated conditions and control neither measurement uncertainty nor model discrepancy. All force and density examples are constructed and establish no device specification or tissue behavior. The course remains partial, unreviewed and formative-only.
 
 ## Sources and licensing
 
