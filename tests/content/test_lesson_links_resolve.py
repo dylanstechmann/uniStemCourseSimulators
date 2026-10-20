@@ -31,7 +31,6 @@ REPOSITORY_ONLY = {("cell-biology", lesson_id, target) for lesson_id, target in 
 # Learner-facing gaps queued for each course's own batch: the dataset or lesson exists but the app cannot open it
 # from this link. Remove an entry when its link is fixed; the exact-set comparison fails until the list matches.
 QUEUED = {
-    ("calculus-3", "calculus-3-13", "../../linear-algebra/modules/02-vector-spaces-bases-and-coordinate-transforms.md"),
     ("robotics", "robotics-lab-01", "near-extension-reports.csv"),
 }
 
@@ -49,6 +48,11 @@ def repository():
 
 
 def test_source_links_open_a_lesson_or_learner_resource_unless_listed():
+    # A link into another course, such as ../../linear-algebra/modules/02-x.md, opens that course's lesson.
+    other_course_readings = {
+        f"../{manifest['id']}/{posixpath.normpath(lesson['reading'])}"
+        for _, manifest in manifests() for module in manifest["modules"] for lesson in module["lessons"]
+    }
     unserved = set()
     for course_dir, manifest in manifests():
         lessons = {lesson["reading"]: lesson["id"] for module in manifest["modules"] for lesson in module["lessons"]}
@@ -59,7 +63,7 @@ def test_source_links_open_a_lesson_or_learner_resource_unless_listed():
                 if parsed.scheme or parsed.netloc or parsed.path.startswith("/") or not parsed.path:
                     continue
                 target = posixpath.normpath(posixpath.join(posixpath.dirname(reading), unquote(parsed.path)))
-                if target not in lessons and target not in resources:
+                if target not in lessons and target not in resources and target not in other_course_readings:
                     unserved.add((manifest["id"], lesson_id, destination))
     assert unserved == REPOSITORY_ONLY | QUEUED
 

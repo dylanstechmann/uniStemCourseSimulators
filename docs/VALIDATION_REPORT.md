@@ -6108,3 +6108,24 @@ Key checks before publication:
 | Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
 
 Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.
+
+## Calculus III concentration-and-flux field project for learners (2026-10-20)
+
+Calculus III advances to 0.5.0. Week 13 gains `assignments/integrative-field-project-guide.md` and a four-item, 13-point rehearsal practice set on c(x, y) = 9 − 2(x² + y²) over a disk of radius 1.5 m with D = 0.4 m²/s; five project milestones are zero-point self-checks in `rubrics/case-studio.json`, with a `project` self-assessment record in week 14. The guide repeats the draft's published construction checks, which the draft labels visible self-checks. The boundary-flux lab's dataset becomes a learner resource, and the lab's link now resolves to the package-pinned CSV. `backend/courselab/content.py` now resolves a lesson link into another course's folder, such as `../../linear-algebra/modules/02-…md`, to that course's lesson route, so the week-13 reading's Linear Algebra link opens in the application. The inactive project draft is unchanged.
+
+Key checks before publication:
+
+- A self-check script graded the four new items with the backend grader: keys earn full credit and wrong responses zero. Six further response cases (a dropped Jacobian, an inward normal, and fully correct responses) earn the stated scores. An option-length audit flagged six fields, which were rebalanced.
+- `tests/content/test_calculus_three_project_route.py` (4 tests) recomputes the rehearsal keys, the guide's worked example and the project's published construction checks numerically: a Cartesian midpoint sum for each total, a parameterized boundary sum with central-difference gradients for each outward flux, and a numerical divergence over the disk. It also checks that the cross-course link and the lab dataset resolve in the application. Two backend tests cover the cross-course rule: a real Calculus III reading links Linear Algebra's lesson, and links to a missing course or outside the courses folder render as text. The link test's queued gaps drop Calculus III, leaving only Robotics.
+- The guide's display equations parse in KaTeX. Pins updated: the snapshot version, the lesson and item counts (15 to 16 and 111 to 115), the week-14 assessment list, the global case count (90 to 95) and the backend per-course case map. The significant-figure limitation now names the seven rehearsal fields that check them.
+- `claims_scan.py` reported one HIGH "disclosure-removed" finding, a false positive on the syllabus version line, whose AI-assistance statement is unchanged. The 0.4.9 snapshot is archived as `docs/CALCULUS_3_REVIEW_SNAPSHOT-0.4.9.md`.
+
+| Actual command/check | Result |
+| --- | --- |
+| Self-check script over the Calculus III item module (backend grader) | 4 items and 6 extra cases passed. |
+| `tools/validate_content.py` | Passed: 25 courses, 471 lessons, 3,037 questions, 1,638 cards and 95 cases; 0 errors and 0 warnings. |
+| `tools/objective_coverage.py --check` and `tools/assessment_candidates.py --check` | Passed after regeneration. |
+| Full verify, `verify.sh --frontend` (log `calc3-verify-1`) | Content, legacy (7), security (1,705 files, 0 findings), ruff, root (3,443 passed, 1 skipped), backend (6,405 passed, 2 skipped) and frontend (77 tests) passed. |
+| Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
+
+Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.

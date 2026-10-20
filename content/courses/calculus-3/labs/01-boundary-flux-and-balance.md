@@ -18,7 +18,7 @@ At each face the true outward-normal component is constant. A synthetic reportin
 
 ## Data dictionary and geometry
 
-[Download the synthetic CSV](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/calculus-3/labs/boundary-flux.csv). Column `face` is the stable group code. `nx,ny,nz` give the outward unit normal. `area_m2` is face area in m²; `replicate` identifies a constructed reading; `normal_flux` is the signed reported normal density in amount/(m²·s), including calibration offset; `offset` is that known offset in the same units. These are already normal components, so do not apply an additional normal-vector sign to them.
+[Download the synthetic CSV](boundary-flux.csv). Column `face` is the stable group code. `nx,ny,nz` give the outward unit normal. `area_m2` is face area in m²; `replicate` identifies a constructed reading; `normal_flux` is the signed reported normal density in amount/(m²·s), including calibration offset; `offset` is that known offset in the same units. These are already normal components, so do not apply an additional normal-vector sign to them.
 
 | Face | Outward normal | Area (m²) | Raw mean density | Corrected density | Corrected transfer (amount/s) |
 |---|---|---:|---:|---:|---:|

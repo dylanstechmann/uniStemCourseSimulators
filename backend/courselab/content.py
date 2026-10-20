@@ -358,6 +358,26 @@ class ContentRepository:
         if self.archived_version:
             route_prefix += f"/version/{quote(self.archived_version, safe='')}"
 
+        def cross_course_route(target_path: str) -> str | None:
+            # A reading may link a lesson in another course package, such as
+            # ../../linear-algebra/modules/02-x.md. That works on GitHub; in the app it becomes the other
+            # course's current lesson route. Archived single-package snapshots cannot see other courses.
+            parts = target_path.split("/")
+            if self.package_snapshot is not None or len(parts) < 3 or parts[0] != ".." or ".." in parts[1:]:
+                return None
+            other_id, other_reading = parts[1], "/".join(parts[2:])
+            if other_id == course_id:
+                return None
+            try:
+                other = self.manifest(other_id)
+            except (ContentMissing, ContentInvalid, OSError, ValueError):
+                return None
+            for module in other.get("modules", []):
+                for item in module.get("lessons", []):
+                    if posixpath.normpath(item.get("reading", "")) == other_reading:
+                        return f"#/course/{quote(other_id, safe='')}/lesson/{quote(item['id'], safe='')}"
+            return None
+
         def rewrite_link(match: re.Match[str]) -> str:
             raw_destination = match.group(1)
             destination_match = re.match(r"^(?:<([^>]*)>|([^\s]+))(.*)$", raw_destination)
@@ -383,6 +403,9 @@ class ContentRepository:
             if target_id is not None:
                 target = f"{route_prefix}/lesson/{quote(target_id, safe='')}"
                 return f"]({target}{suffix})"
+            other_course_lesson = cross_course_route(target_path)
+            if other_course_lesson is not None:
+                return f"]({other_course_lesson}{suffix})"
             if target_path not in learner_resources:
                 return match.group(0)
             resource_prefix = f"/api/v1/courses/{quote(course_id, safe='')}"
@@ -412,7 +435,11 @@ class ContentRepository:
             target_path = posixpath.normpath(
                 posixpath.join(posixpath.dirname(source_path), unquote(parsed.path))
             )
-            if target_path in reading_to_id or target_path in learner_resources:
+            if (
+                target_path in reading_to_id
+                or target_path in learner_resources
+                or cross_course_route(target_path) is not None
+            ):
                 return match.group(0)
             return text
 

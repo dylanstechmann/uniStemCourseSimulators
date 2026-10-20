@@ -3791,6 +3791,377 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "calculus-3-project:rehearsal-field",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Rehearsal field: c(x, y) = 9 − 2(x² + y²), in amount/m² with x and y in metres, on the disk x² + y² ≤ 2.25 m² (radius 1.5 m). The diffusivity is D = 0.4 m²/s and the flux is J = −D∇c. Give bare numbers; the units are stated in each field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-3-6-objective-3",
+        "calculus-3-10-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "boundary_value",
+          "type": "numeric",
+          "prompt": "The value of c on the boundary circle, in amount/m², to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "total_amount",
+          "type": "numeric",
+          "prompt": "The total amount ∬ c dA over the disk, in amount, to four significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "measure",
+          "type": "single_choice",
+          "prompt": "Which area element and bounds give that total in polar coordinates?",
+          "options": [
+            "dA = dr dθ, with 0 ≤ r ≤ 1.5 and 0 ≤ θ ≤ 2π",
+            "dA = r dr dθ, with 0 ≤ r ≤ 1.5 and 0 ≤ θ ≤ 2π",
+            "dA = r dr dθ, with 0 ≤ r ≤ 2.25 and 0 ≤ θ ≤ π"
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "boundary_value",
+            "type": "numeric",
+            "answer": 4.5,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "total_amount",
+            "type": "numeric",
+            "answer": 47.71,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "measure",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "In polar coordinates c = 9 − 2r² and dA = r dr dθ; integrate r from 0 to 1.5 and θ over a full turn.",
+        "solution": "On the boundary r² = 2.25, so c = 9 − 4.5 = 4.5 amount/m². The total is the integral of (9 − 2r²) r dr dθ over 0 ≤ r ≤ 1.5 and 0 ≤ θ ≤ 2π, which is 2π[9r²/2 − r⁴/2] at r = 1.5 = 15.1875π ≈ 47.71 amount.",
+        "lesson_ids": [
+          "calculus-3-project-guide",
+          "calculus-3-6",
+          "calculus-3-10"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-3-project:rehearsal-flux",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Rehearsal field: c(x, y) = 9 − 2(x² + y²), in amount/m² with x and y in metres, on the disk x² + y² ≤ 2.25 m² (radius 1.5 m). The diffusivity is D = 0.4 m²/s and the flux is J = −D∇c. Orient the boundary circle counterclockwise, with outward unit normal n. Give bare numbers.",
+      "points": 4,
+      "objective_ids": [
+        "calculus-3-12-objective-1",
+        "calculus-3-5-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "normal_flux",
+          "type": "numeric",
+          "prompt": "J·n on the boundary, in amount/(m·s), to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "boundary_transfer",
+          "type": "numeric",
+          "prompt": "The outward boundary integral ∮ J·n ds, in amount/s, to four significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "divergence",
+          "type": "numeric",
+          "prompt": "∇·J, in amount/(m²·s), to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "normal",
+          "type": "single_choice",
+          "prompt": "Which outward unit normal applies on the boundary?",
+          "options": [
+            "n = (x, y)/1.5, pointing away from the center",
+            "n = (−y, x)/1.5, tangent along the boundary circle",
+            "n = −(x, y)/1.5, pointing toward the center"
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "normal_flux",
+            "type": "numeric",
+            "answer": 2.4,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "boundary_transfer",
+            "type": "numeric",
+            "answer": 22.62,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "divergence",
+            "type": "numeric",
+            "answer": 3.2,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "normal",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "∇c = (−4x, −4y), so J = −D∇c = (1.6x, 1.6y); on the circle use n = (x, y)/1.5 and ds over a length 3π.",
+        "solution": "J·n = 1.6(x² + y²)/1.5 = 1.6 × 1.5 = 2.40 amount/(m·s) everywhere on the circle, so the outward transfer is 2.4 × 3π = 7.2π ≈ 22.62 amount/s. The divergence is 1.6 + 1.6 = 3.2 amount/(m²·s).",
+        "lesson_ids": [
+          "calculus-3-project-guide",
+          "calculus-3-12",
+          "calculus-3-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-3-project:rehearsal-theorem-check",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Rehearsal field: c(x, y) = 9 − 2(x² + y²), in amount/m² with x and y in metres, on the disk x² + y² ≤ 2.25 m² (radius 1.5 m). The diffusivity is D = 0.4 m²/s and the flux is J = −D∇c. Give bare numbers to four significant figures.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-3-12-objective-2",
+        "calculus-3-4-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "divergence_integral",
+          "type": "numeric",
+          "prompt": "∬ ∇·J dA over the disk, in amount/s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "transfer_high_d",
+          "type": "numeric",
+          "prompt": "The outward transfer if D is changed to 0.6 m²/s, in amount/s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "scaling",
+          "type": "single_choice",
+          "prompt": "Why does the transfer change in that proportion?",
+          "options": [
+            "Because J = −D∇c is proportional to D while the field c is unchanged.",
+            "Because a larger diffusivity also enlarges the disk in the same proportion.",
+            "Because the divergence theorem only holds for one value of D."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "divergence_integral",
+            "type": "numeric",
+            "answer": 22.62,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "transfer_high_d",
+            "type": "numeric",
+            "answer": 33.93,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "scaling",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Multiply the constant divergence by the disk's area, 2.25π m², and compare with the boundary integral.",
+        "solution": "∬ ∇·J dA = 3.2 × 2.25π = 7.2π ≈ 22.62 amount/s, matching the boundary integral. With D = 0.6 m²/s every flux scales by 0.6/0.4, giving 10.8π ≈ 33.93 amount/s.",
+        "lesson_ids": [
+          "calculus-3-project-guide",
+          "calculus-3-12"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-3-project:rehearsal-reasoning",
+      "type": "structured",
+      "prompt": "Project rehearsal open practice · Check the reasoning you will give in field project milestones 1, 4 and 5. Select one response per criterion.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-3-9-objective-2",
+        "calculus-3-12-objective-3"
+      ],
+      "feedback": {
+        "hint": "Ask what a stationary point alone can show, which hypotheses the theorem needs, and what agreement proves.",
+        "solution": "A zero gradient needs classification and a boundary comparison before it is a global maximum; the divergence theorem needs a smooth flux on the closed disk and an outward-oriented, piecewise-smooth boundary; and matching integrals show internal consistency for this synthetic field, not a fact about any tissue.",
+        "lesson_ids": [
+          "calculus-3-project-guide",
+          "calculus-3-9",
+          "calculus-3-12"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "response_fields": [
+        {
+          "id": "stationary",
+          "type": "single_choice",
+          "prompt": "Extrema · Why is a zero gradient at the center not enough on its own?",
+          "options": [
+            "It could be a saddle or minimum; the boundary must be compared too.",
+            "Because a zero gradient always marks a minimum of the field.",
+            "Because the gradient of c is never zero anywhere inside the closed disk."
+          ],
+          "points": 1
+        },
+        {
+          "id": "conditions",
+          "type": "single_choice",
+          "prompt": "Theorem · Which conditions make the divergence theorem apply here?",
+          "options": [
+            "Only that the field stays positive everywhere inside the closed disk.",
+            "That the boundary be traversed clockwise, whatever the normal.",
+            "A smooth flux on the closed disk and an outward-oriented boundary."
+          ],
+          "points": 1
+        },
+        {
+          "id": "scope",
+          "type": "single_choice",
+          "prompt": "Scope · What does the agreement of the two integrals show?",
+          "options": [
+            "That the field describes oxygen levels in a real slice of tissue.",
+            "That the calculation is consistent for this synthetic field.",
+            "That diffusion in any disk follows this exact field."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "stationary",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "conditions",
+            "type": "single_choice",
+            "answer": 2
+          },
+          {
+            "id": "scope",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ],
+        "rubric": [
+          {
+            "id": "stationary",
+            "criterion": "Justify the global extremum",
+            "points": 1,
+            "evidence": [
+              "Combines classification with a boundary comparison."
+            ]
+          },
+          {
+            "id": "conditions",
+            "criterion": "State the theorem conditions",
+            "points": 1,
+            "evidence": [
+              "Names smoothness, a closed region and outward orientation."
+            ]
+          },
+          {
+            "id": "scope",
+            "criterion": "Bound the conclusion",
+            "points": 1,
+            "evidence": [
+              "Keeps the result a mathematical consequence of the chosen field."
+            ]
+          }
+        ]
+      }
     }
   ]
 }

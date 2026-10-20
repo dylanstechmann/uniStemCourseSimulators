@@ -540,6 +540,24 @@ def test_links_the_application_cannot_serve_render_as_text(content_root):
     assert "`handlers[name](event)`" in markdown and "![a figure](plot.png)" in markdown
 
 
+def test_links_into_another_course_route_to_that_course_lesson():
+    root = Path(__file__).resolve().parents[2] / "content"
+    markdown = ContentRepository(root).lesson("calculus-3", "calculus-3-13").markdown
+    assert "#/course/linear-algebra/lesson/linear-algebra-2" in markdown
+    assert "../../linear-algebra/" not in markdown
+
+
+def test_links_to_a_missing_course_render_as_text(content_root):
+    reading = content_root / "courses" / "test-course" / "modules" / "one.md"
+    reading.write_text(
+        "# Experiment\n\nSee [another course](../../missing-course/modules/one.md) and "
+        "[an escape](../../../outside/modules/one.md).\n",
+        encoding="utf-8",
+    )
+    markdown = ContentRepository(content_root).lesson("test-course", "lesson-one").markdown
+    assert "See another course and an escape." in markdown
+
+
 def test_package_archive_ignores_interpreter_caches(content_root):
     package = content_root / "courses" / "test-course"
     (package / "modules" / "__pycache__").mkdir()
