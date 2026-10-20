@@ -100,7 +100,7 @@ def fit_reciprocal(substrates, rates):
 
 
 def test_open_routes_are_scheduled_ungraded_and_linked():
-    assert MANIFEST["version"] == "0.5.0" and MANIFEST["maturity"] == "partial"
+    assert tuple(int(part) for part in MANIFEST["version"].split(".")) >= (0, 5, 0) and MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"] == {"status": "unreviewed", "reviewed_version": None, "reviewers": []}
     assert MANIFEST["grading_policy"]["mode"] == "formative-only" and MANIFEST["grading_policy"]["categories"] == []
     for number, week in HOMEWORK_WEEKS.items():

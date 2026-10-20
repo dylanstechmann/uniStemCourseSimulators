@@ -1,9 +1,9 @@
 # Independent review handoff
 
-**Package snapshot:** Foundations of Cell and Molecular Biology 0.62.0
+**Package snapshot:** Foundations of Cell and Molecular Biology 0.62.1
 **Prepared:** 2026-10-19  
 **Disposition:** Review packet prepared; no independent review or course release has occurred. The course remains `partial`, `unreviewed`, and `formative-only`.
-**Public package snapshot:** [Version 0.62.0 archive digest](../../../docs/CELL_BIOLOGY_REVIEW_SNAPSHOT.md); reproduce with `python tools/course_package_digest.py --course-id cell-biology`.
+**Public package snapshot:** [Version 0.62.1 archive digest](../../../docs/CELL_BIOLOGY_REVIEW_SNAPSHOT.md); reproduce with `python tools/course_package_digest.py --course-id cell-biology`.
 
 ## Review scope
 

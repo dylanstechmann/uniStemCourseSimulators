@@ -5934,3 +5934,25 @@ Key checks before publication:
 | Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
 
 Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.
+
+## Lesson links that the application could not open (2026-10-20)
+
+Cell Biology advances to 0.62.1 and Biochemistry to 0.5.1. Each adds to `learner_resources` the lab datasets its readings already linked (Cell Biology `labs/signaling-timecourse.csv` and `labs/lineage-timecourse.csv`; Biochemistry `labs/protein-purification-fractions.csv`); no reading, item, key, card, case or schedule changed. `backend/courselab/content.py` now renders a relative link to a package file that is neither a lesson nor a learner resource as its link text; destinations without a file extension are untouched.
+
+Key checks before publication:
+
+- A scan of every delivered lesson listed 20 unresolved links in five courses: the three datasets above, twelve Cell Biology provenance links to `source-map.json` and `content/sources/registry.json`, two links to compact readings that are no longer lessons, and three gaps queued for their own batches (the Programming and Robotics lab datasets and a Calculus III link into Linear Algebra).
+- Editing the six provenance readings failed `tools/assessment_candidates.py`, because the inactive Cell Biology midterm and final candidates pin those readings by digest. The readings were restored byte for byte and the renderer change was used instead.
+- `tests/content/test_lesson_links_resolve.py` (3 tests) checks that every source link resolves or is listed, that no delivered lesson contains a relative link, and that every declared learner resource is served byte for byte. A backend test checks the renderer on a fixture: repository-only links become text, lesson links still route, external links and images are unchanged, and `handlers[name](event)` in code is untouched.
+- Records regenerated for the new digests, with the previous versions archived: both review snapshots (plus a frozen `CELL_BIOLOGY_REVIEW_SNAPSHOT-0.62.1.md`), both review-evidence registers, the Biochemistry workload protocol, a new Cell Biology 0.62.1 workload protocol and log template, the Cell Biology numeric and table recalculation evidence and response-format audit, and both handoffs.
+- Pins updated: Cell Biology version pins in the integrity and handoff tests, the Cell Biology learner-resource count (12 to 14), the Biochemistry snapshot version, and a Biochemistry route-test version check, which now requires at least 0.5.0. The backend repository test now expects the provenance note as text.
+
+| Actual command/check | Result |
+| --- | --- |
+| `tools/validate_content.py` | Passed: 25 courses, 464 lessons, 3,006 questions, 1,617 cards and 60 cases; 0 errors and 0 warnings. |
+| Record checks run in CI (`assessment_candidates`, `course_review_evidence` for both courses, Cell Biology table and numeric evidence, `objective_response_modes`, `objective_coverage`) | All `--check` runs passed after regeneration. |
+| `claims_scan.py --repo uniStemCourseSimulators` | 0 findings. |
+| Full verify, `verify.sh --frontend` (log `links-verify-1`) | Content, legacy (7), security (1,680 files, 0 findings), ruff, backend (6,341 passed, 2 skipped) and frontend (75 tests) passed. Root: 3,408 passed, 1 skipped, 1 failed; the failure was the learner-resource count pin (12), now 14, after which `tests/content/test_content_validation.py` passed (101 tests). |
+| Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser walkthrough was performed here. |
+
+Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The packages remain partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.

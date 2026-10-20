@@ -122,7 +122,9 @@ def test_markdown_lesson_links_resolve_to_current_and_archived_routes():
 
     linked_reading = repository.lesson("cell-biology", "cell-biology-2")
     assert "https://www.nist.gov/pml/special-publication-330/sp-330-section-2" in linked_reading.markdown
-    assert "[source map](../source-map.json)" in linked_reading.markdown
+    # The source map is a repository file the app does not serve, so the reading shows its text without a dead link.
+    assert "See the package source map and the repository source registry." in linked_reading.markdown
+    assert "../source-map.json" not in linked_reading.markdown
     image_lab = repository.lesson("cell-biology", "cell-biology-lab-01")
     assert (
         "[CSV file](/api/v1/courses/cell-biology/resources/labs/image-counts.csv)"
@@ -520,6 +522,22 @@ def test_questions_use_manifest_bank_and_reject_unsafe_references(content_root):
     manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
     with pytest.raises(ContentInvalid, match="Unsafe practice question-bank reference"):
         repository.questions("test-course")
+
+
+def test_links_the_application_cannot_serve_render_as_text(content_root):
+    reading = content_root / "courses" / "test-course" / "modules" / "one.md"
+    reading.write_text(
+        "# Experiment\n\nSee the [source map](../source-map.json), [this lesson](one.md), [data](data.csv) "
+        "and [a site](https://example.org/page.md).\n\nCode keeps `handlers[name](event)`, and ![a figure](plot.png) "
+        "stays an image.\n",
+        encoding="utf-8",
+    )
+    markdown = ContentRepository(content_root).lesson("test-course", "lesson-one").markdown
+    assert (
+        "See the source map, [this lesson](#/course/test-course/lesson/lesson-one), data "
+        "and [a site](https://example.org/page.md)." in markdown
+    )
+    assert "`handlers[name](event)`" in markdown and "![a figure](plot.png)" in markdown
 
 
 def test_package_archive_ignores_interpreter_caches(content_root):

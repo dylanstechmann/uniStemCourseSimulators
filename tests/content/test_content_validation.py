@@ -554,8 +554,10 @@ def test_structured_rubric_item_is_counted_while_course_remains_partial(reposito
 def test_learner_resource_references_must_be_safe_and_resolve(repository, course):
     manifest_path, manifest = course
     resources = manifest["learner_resources"]
-    assert len(resources) == 12
+    # 0.62.1 adds the week-11 and week-14 lab datasets that their readings already linked.
+    assert len(resources) == 14
     assert resources.count("labs/image-counts.csv") == 1
+    assert {"labs/signaling-timecourse.csv", "labs/lineage-timecourse.csv"} <= set(resources)
     assert all(reference.endswith(".csv") for reference in resources)
     assert all((manifest_path.parent / reference).is_file() for reference in resources)
     manifest["learner_resources"] = ["../outside.md"]

@@ -8,7 +8,7 @@ That list records authored objective links only; it does not assess prompt quali
 Structured items may contain only selected-response fields. This is not a free-response performance audit.
 No maturity, grading, review, or release status is changed by this report.
 
-**Package:** `cell-biology` 0.62.0 · `partial` · review `unreviewed` · grading `formative-only`
+**Package:** `cell-biology` 0.62.1 · `partial` · review `unreviewed` · grading `formative-only`
 **Scope:** 183 distinct public practice items mapped to 69 lesson objectives.
 
 | Objective | Bloom label | Public items | Mapped response formats | Objective description |

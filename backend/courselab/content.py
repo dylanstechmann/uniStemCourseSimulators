@@ -393,6 +393,30 @@ class ContentRepository:
             target = f"{resource_prefix}/resources/{quote(target_path, safe='/')}"
             return f"]({target}{suffix})"
 
+        def unlink_unserved(match: re.Match[str]) -> str:
+            # A link to a repository file that the application does not serve (a JSON source map, a
+            # compact reading that is no longer a lesson) works on GitHub but is dead in the app, so the
+            # app shows its text instead. Destinations without a file extension are left alone, so code
+            # such as handlers[name](event) is never rewritten.
+            text, destination = match.group(1), match.group(2)
+            parsed = urlsplit(destination)
+            if (
+                parsed.scheme
+                or parsed.netloc
+                or parsed.query
+                or parsed.fragment
+                or parsed.path.startswith("/")
+                or not posixpath.splitext(parsed.path)[1]
+            ):
+                return match.group(0)
+            target_path = posixpath.normpath(
+                posixpath.join(posixpath.dirname(source_path), unquote(parsed.path))
+            )
+            if target_path in reading_to_id or target_path in learner_resources:
+                return match.group(0)
+            return text
+
+        markdown = re.sub(r"(?<![!\\])\[([^\[\]\n]*)\]\(([^()\s]+)\)", unlink_unserved, markdown)
         return re.sub(r"(?<!!)\]\(([^)]+)\)", rewrite_link, markdown)
 
     def _learner_resource_paths(

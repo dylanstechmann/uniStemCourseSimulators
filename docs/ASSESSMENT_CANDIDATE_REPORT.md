@@ -8,13 +8,13 @@ No course or candidate is activated by this command. `--check` detects report dr
 
 | Package | Version | Maturity | Declared review | Grading | Inactive drafts |
 | --- | --- | --- | --- | --- | ---: |
-| biochemistry | 0.5.0 | partial | unreviewed | formative-only | 11 |
+| biochemistry | 0.5.1 | partial | unreviewed | formative-only | 11 |
 | biomaterials | 0.3.10 | partial | unreviewed | formative-only | 0 |
 | bioreactors | 0.4.9 | partial | unreviewed | formative-only | 0 |
 | calculus-1 | 0.5.0 | partial | unreviewed | formative-only | 0 |
 | calculus-2 | 0.4.8 | partial | unreviewed | formative-only | 0 |
 | calculus-3 | 0.4.9 | partial | unreviewed | formative-only | 0 |
-| cell-biology | 0.62.0 | partial | unreviewed | formative-only | 15 |
+| cell-biology | 0.62.1 | partial | unreviewed | formative-only | 15 |
 | cellular-biomechanics | 0.3.9 | partial | unreviewed | formative-only | 0 |
 | circuits | 0.4.8 | partial | unreviewed | formative-only | 0 |
 | differential-equations | 0.4.1 | partial | unreviewed | formative-only | 0 |

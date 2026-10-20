@@ -1,6 +1,6 @@
 # Foundations of Cell and Molecular Biology
 
-**Maturity: partial. Version: 0.62.0.**
+**Maturity: partial. Version: 0.62.1.**
 
 This original course package develops mechanistic reasoning from molecular structure to cell behavior. Every component of its proposed 14-week plan can now be worked through as ungraded practice: weeks 1–7 have two original topic lessons each, while weeks 4 and 7 retain short prototype readings in addition; weeks 5, 11 and 14 include three original virtual data-analysis labs; week 2 offers an optional written-response rehearsal and week 8 has two synthesis readings plus an ungraded cumulative practice set; weeks 9–14 have original lesson pairs and formative practice; week 10 opens an optional integrative project; and week 14 closes with a course-synthesis reading and an ungraded cumulative final review. It is still not a completed or reviewed university course: nothing is graded, workload is unmeasured, and no qualified reviewer has examined it. No semester equivalency, university credit, or prerequisite equivalency is claimed.
 

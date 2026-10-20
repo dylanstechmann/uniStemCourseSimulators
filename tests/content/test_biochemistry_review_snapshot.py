@@ -31,7 +31,7 @@ def test_biochemistry_review_snapshot_matches_public_package():
     )
 
     assert actual["course_id"] == "biochemistry"
-    assert actual["content_version"] == "0.5.0"
+    assert actual["content_version"] == "0.5.1"
     assert re.search(
         r"Public package archive SHA-256:\*\*\s*`([0-9a-f]{64})`", snapshot
     ).group(1) == actual["package_sha256"]
@@ -73,6 +73,12 @@ def test_biochemistry_kinetics_dataset_is_a_package_pinned_learner_resource():
     assert repository.learner_resource(
         "biochemistry", "labs/enzyme-kinetics-rates.csv"
     ) == (course_root / "labs/enzyme-kinetics-rates.csv").read_bytes()
+    # 0.5.1: the week-4 purification lab's dataset was linked but not served before.
+    assert "labs/protein-purification-fractions.csv" in manifest["learner_resources"]
+    assert (
+        "/api/v1/courses/biochemistry/resources/labs/protein-purification-fractions.csv"
+        in repository.lesson("biochemistry", "biochemistry-lab-02").markdown
+    )
 
 
 def test_kinetics_lab_duration_is_labeled_as_an_unvalidated_estimate():
