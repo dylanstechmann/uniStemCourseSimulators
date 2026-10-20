@@ -2,7 +2,7 @@
 
 This is a personal hobby and learning project. Code and educational drafts were developed with substantial assistance from AI coding tools.
 
-Repository: [dylanstechmann/uniStemCourseSimulators](https://github.com/dylanstechmann/uniStemCourseSimulators). See the [progress review](docs/PROGRESS_REVIEW.md) for delivered features, material findings and prioritized remaining work. The software includes local study tools and a graded-assignment prototype; the requested semester-depth courses are still unfinished. Foundations of Cell and Molecular Biology (0.62.0) and Biochemistry I (0.5.0) are the first packages whose whole proposed 14-week plans can be worked through end to end as ungraded practice; both remain partial and unreviewed. Instructor access is granted to registered accounts by an operator after out-of-band identity verification. Practice score changes are blocked unless the saved question and variant digest still match.
+Repository: [dylanstechmann/uniStemCourseSimulators](https://github.com/dylanstechmann/uniStemCourseSimulators). See the [progress review](docs/PROGRESS_REVIEW.md) for delivered features, material findings and prioritized remaining work. The software includes local study tools and a graded-assignment prototype; the requested semester-depth courses are still unfinished. Foundations of Cell and Molecular Biology (0.62.0) and Biochemistry I (0.5.0) are the first packages whose whole proposed 14-week plans can be worked through end to end as ungraded practice. Genetics & Genomics (0.6.0) now has learner routes for every component it lays out, including its project, but it has no homework or exam sequence. All three remain partial and unreviewed. Instructor access is granted to registered accounts by an operator after out-of-band identity verification. Practice score changes are blocked unless the saved question and variant digest still match.
 
 Interactive, source-grounded courses across science, mathematics, engineering, computing, and biomedicine.
 
@@ -19,7 +19,7 @@ An independent open-source learning platform under development. It does **not co
 | complete | 0 | All full-course gates satisfied |
 | externally reviewed | 0 | Qualified named reviewer examined a specified version |
 
-**No current package meets the complete-course standard.** The repository contains 25 partial packages with 459 lessons, 2,983 formative questions, 1,602 retrieval cards and 35 self-assessed case prompts. These counts measure authored material; they do not establish semester depth, measured workload, scientific review or university equivalence.
+**No current package meets the complete-course standard.** The repository contains 25 partial packages with 460 lessons, 2,988 formative questions, 1,605 retrieval cards and 40 self-assessed case prompts. These counts measure authored material; they do not establish semester depth, measured workload, scientific review or university equivalence.
 
 The packages span life sciences, chemistry, mathematics, physics, statistics, computing and engineering. Original readings, worked examples, synthetic datasets and practice are available in each subject, with uneven coverage and depth. See the [package inventory](#package-inventory), [measured content gaps](docs/COURSE_GAP_REPORT.md), and [MIT OpenCourseWare scope audit](docs/COURSE_SCOPE_AUDIT.md) for the current boundaries and priorities. Detailed development history belongs in the [progress review](docs/PROGRESS_REVIEW.md).
 

@@ -5802,3 +5802,27 @@ Key checks before publication:
 | Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
 
 Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.
+
+## Genetics three-point mapping project for learners (2026-10-19)
+
+Genetics advances to 0.6.0. Week 6 gains `assignments/three-point-mapping-project-guide.md`, the synthetic `assignments/three-point-rehearsal-counts.csv` (800 offspring, listed order E, F, G and map order F–E–G) and a five-item, 17-point rehearsal practice set; five project milestones are zero-point self-checks in `rubrics/case-studio.json`, with a `project` self-assessment record in week 7. The association lab's dataset link now resolves to `labs/case-control-genotypes.csv`, which becomes a learner resource with the rehearsal counts. The inactive project draft and its data are unchanged.
+
+Key checks before publication:
+
+- A self-check script graded the five new items with the backend grader: keys earn full credit and wrong responses zero. Another 12 cases (listed order taken as map order, double crossovers left out of the intervals, too few significant figures, coincidence computed from the rounded expectation, the interval sum used as the outer fraction, an unnormalized or inverted Bayes term) earn the stated partial or full scores. An option-length audit flagged no field, and correct answers were spread across option positions.
+- `tests/content/test_genetics_project_route.py` (5 tests) recomputes every rehearsal key from the CSV by phase logic alone: it infers the parental and double-crossover classes and the middle marker from counts, then recomputes the interval, outer-marker, coincidence, interference and Bayes keys. It checks the guide's project table against the draft CSV and its worked recap against the lesson's own counts, and confirms that neither the guide nor the rehearsal states the project's fractions, expectation, coincidence, interference, posterior, gene order or double-crossover pair. It also checks that the lab's delivered link resolves to the pinned resource and that every guide link resolves to a lesson route or resource.
+- Pins updated: the Genetics snapshot version, the Genetics lesson count (19 to 20), the global case count (35 to 40) and the per-course case map in the backend case-studio test.
+- The manifest's numeric-answer limitation now states 55 numeric-type answers (one unit-required, none checking significant figures) and 10 data-interpretation numeric fields that check them; it had said two numeric answers check significant figures.
+- The 0.5.8 snapshot is archived as `docs/GENETICS_REVIEW_SNAPSHOT-0.5.8.md`; the handoff lists the guide, rehearsal and lab-link checks for review.
+
+| Actual command/check | Result |
+| --- | --- |
+| Self-check script over the Genetics item module (backend grader) | 5 items and 12 extra cases passed. |
+| `tools/validate_content.py` | Passed: 25 courses, 460 lessons, 2,988 questions, 1,605 cards and 40 cases; 0 errors and 0 warnings. |
+| `tools/objective_coverage.py --check docs/COURSE_GAP_REPORT.md` | Passed after regeneration. Genetics: 20 lessons, 55 objectives, 113 items, 74 cards; no unmapped objective or outcome. |
+| `tools/assessment_candidates.py --check docs/ASSESSMENT_CANDIDATE_REPORT.md` | Passed after regeneration. |
+| `claims_scan.py --repo uniStemCourseSimulators` | 0 findings. |
+| Full verify, `verify.sh --frontend` (log `gen-verify-1`, run with the table change below) | Content, legacy (7), security (1,654 files including the built bundle, 0 findings), ruff, root (3,386 passed, 1 skipped), backend (6,304 passed, 2 skipped) and frontend passed. |
+| Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
+
+Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.

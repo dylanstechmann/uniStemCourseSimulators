@@ -3,7 +3,7 @@
 **Activity type:** synthetic-data analysis with public, ungraded formative checks
 **Course package:** Genetics & Genomics. **Estimated learner time:** 2–3 hours
 **Data status:** all genotypes are constructed for instruction. They describe no real people, variants, trait or study, and nothing here is evidence about any gene or about human health.
-**Dataset:** [synthetic genotypes (CSV)](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/genetics/labs/case-control-genotypes.csv).
+**Dataset:** [synthetic genotypes (CSV)](case-control-genotypes.csv).
 
 ## Experimental question
 

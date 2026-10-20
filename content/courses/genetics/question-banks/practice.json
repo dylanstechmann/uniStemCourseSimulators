@@ -4288,6 +4288,499 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "genetics-project:rehearsal-order",
+      "type": "structured",
+      "prompt": "Project rehearsal open practice · Use the rehearsal gamete counts linked in the project guide. A phase-known EFG/efg heterozygote was testcrossed to efg/efg, so each offspring class reports the gamete its heterozygous parent transmitted. The table lists the markers as E, F and G, which need not be their map order. Select one response per criterion.",
+      "points": 3,
+      "objective_ids": [
+        "genetics-7-objective-1"
+      ],
+      "feedback": {
+        "hint": "The two most frequent classes are parental and the two rarest are double crossovers. Compare each double crossover with the parental class it most resembles.",
+        "solution": "EFG (301) and efg (297) are parental; eFG and Efg (3 each) are double crossovers. eFG differs from EFG only at E, and Efg differs from efg only at E, so E is the middle marker and the order is F–E–G, not the listed E–F–G.",
+        "lesson_ids": [
+          "genetics-project-guide",
+          "genetics-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "response_fields": [
+        {
+          "id": "parental",
+          "type": "single_choice",
+          "prompt": "Parental classes · Which pair are the non-recombinant classes?",
+          "options": [
+            "eFg and EfG",
+            "EFG and efg",
+            "eFG and Efg"
+          ],
+          "points": 1
+        },
+        {
+          "id": "double",
+          "type": "single_choice",
+          "prompt": "Double crossovers · Which pair are the double-crossover classes?",
+          "options": [
+            "EFg and efG",
+            "eFg and EfG",
+            "eFG and Efg"
+          ],
+          "points": 1
+        },
+        {
+          "id": "order",
+          "type": "single_choice",
+          "prompt": "Gene order · Which map order do these classes support?",
+          "options": [
+            "F–E–G, with E in the middle",
+            "E–F–G, with F in the middle",
+            "F–G–E, with G in the middle"
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "parental",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "double",
+            "type": "single_choice",
+            "answer": 2
+          },
+          {
+            "id": "order",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ],
+        "rubric": [
+          {
+            "id": "parental",
+            "criterion": "Identify the parental classes",
+            "points": 1,
+            "evidence": [
+              "Picks the two most frequent classes."
+            ]
+          },
+          {
+            "id": "double",
+            "criterion": "Identify the double crossovers",
+            "points": 1,
+            "evidence": [
+              "Picks the two least frequent classes."
+            ]
+          },
+          {
+            "id": "order",
+            "criterion": "Infer the middle marker",
+            "points": 1,
+            "evidence": [
+              "Finds the marker that a double crossover swaps relative to a parental class."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "genetics-project:rehearsal-intervals",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · With the order F–E–G established, calculate the recombination fraction for each adjacent interval from the 800 rehearsal offspring. Count a class as recombinant in an interval when the alleles at the two markers bounding that interval came from different parental chromosomes.",
+      "points": 3,
+      "objective_ids": [
+        "genetics-7-objective-1",
+        "genetics-2-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "r_fe",
+          "type": "numeric",
+          "prompt": "Recombination fraction between F and E, as a decimal, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "r_eg",
+          "type": "numeric",
+          "prompt": "Recombination fraction between E and G, as a decimal, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "dco_counting",
+          "type": "single_choice",
+          "prompt": "Why are the 6 double-crossover offspring counted in both intervals?",
+          "options": [
+            "They are counted twice so that the two fractions add up to the outer-marker fraction.",
+            "Each has one exchange in each interval, so both intervals' recombinant counts include them.",
+            "They are parental classes, so they belong to every interval's total as well."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "r_fe",
+            "type": "numeric",
+            "answer": 0.18,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "r_eg",
+            "type": "numeric",
+            "answer": 0.08,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "dco_counting",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "F–E recombinants: eFg, EfG and both double crossovers. E–G recombinants: EFg, efG and both double crossovers.",
+        "solution": "F–E: (70 + 68 + 6)/800 = 144/800 = 0.180, or 18.0 cM. E–G: (30 + 28 + 6)/800 = 64/800 = 0.0800, or 8.0 cM. Leaving the double crossovers out would give 0.1725 and 0.0725.",
+        "lesson_ids": [
+          "genetics-project-guide",
+          "genetics-7",
+          "genetics-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-project:rehearsal-interference",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Compare the outer markers with the two intervals, then measure interference for the rehearsal cross (order F–E–G, interval fractions 0.180 and 0.0800).",
+      "points": 5,
+      "objective_ids": [
+        "genetics-7-objective-2",
+        "genetics-7-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "r_fg",
+          "type": "numeric",
+          "prompt": "Recombination fraction between the outer markers F and G, counted directly from the classes, as a decimal, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "expected_dco",
+          "type": "numeric",
+          "prompt": "Expected double-crossover offspring under independence, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "coincidence",
+          "type": "numeric",
+          "prompt": "Coefficient of coincidence, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "interference",
+          "type": "numeric",
+          "prompt": "Interference, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "outer_shortfall",
+          "type": "single_choice",
+          "prompt": "Why is the outer-marker fraction smaller than the sum of the two interval fractions?",
+          "options": [
+            "The outer markers are on different chromosomes, so their recombination is capped at 0.5.",
+            "Interference removes single crossovers from the outer interval before they are counted.",
+            "Double crossovers restore the parental F–G combination, so they are not F–G recombinants."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "r_fg",
+            "type": "numeric",
+            "answer": 0.245,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "expected_dco",
+            "type": "numeric",
+            "answer": 11.5,
+            "unit": "",
+            "tolerance": 0.06,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "coincidence",
+            "type": "numeric",
+            "answer": 0.521,
+            "unit": "",
+            "tolerance": 0.0015,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "interference",
+            "type": "numeric",
+            "answer": 0.479,
+            "unit": "",
+            "tolerance": 0.0015,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "outer_shortfall",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Outer recombinants are the four single-crossover classes. Expected double crossovers = r(F–E) × r(E–G) × total.",
+        "solution": "F–G: (70 + 68 + 30 + 28)/800 = 196/800 = 0.245, which is 0.015 below the interval sum of 0.260: twice the double-crossover fraction 6/800. Expected double crossovers = 0.180 × 0.0800 × 800 = 11.52; coincidence = 6/11.52 = 0.521 and interference = 1 − 0.521 = 0.479. With only 6 observed double crossovers, the estimate is imprecise.",
+        "lesson_ids": [
+          "genetics-project-guide",
+          "genetics-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-project:rehearsal-penetrance",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · In a separate fictional family model, one parent is D/d and the other is d/d. Only D/d offspring can show the phenotype, with penetrance 0.60; d/d offspring are always unaffected, and there are no phenocopies. Keep this model separate from the marker map.",
+      "points": 3,
+      "objective_ids": [
+        "genetics-11-objective-2",
+        "genetics-11-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "p_affected",
+          "type": "numeric",
+          "prompt": "Probability that an offspring is affected, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "p_het_unaffected",
+          "type": "numeric",
+          "prompt": "P(D/d | unaffected), to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "unaffected_meaning",
+          "type": "single_choice",
+          "prompt": "What does an unaffected phenotype do to this offspring's probability of being D/d?",
+          "options": [
+            "It rules D/d out, because only D/d offspring can be affected in this model.",
+            "It lowers it from 0.5 but cannot rule D/d out, because penetrance is below 1.",
+            "It leaves it at 0.5, because phenotype gives no information about genotype here."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "p_affected",
+            "type": "numeric",
+            "answer": 0.3,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "p_het_unaffected",
+            "type": "numeric",
+            "answer": 0.286,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "unaffected_meaning",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Prior × likelihood: D/d gives 0.5 × (1 − 0.60); d/d gives 0.5 × 1. Divide the D/d term by their sum.",
+        "solution": "P(affected) = 0.5 × 0.60 = 0.300. P(unaffected) = 0.5 × 0.40 + 0.5 = 0.70, so P(D/d | unaffected) = 0.20/0.70 = 0.286. The unaffected phenotype lowers the probability from 0.5 but does not remove it.",
+        "lesson_ids": [
+          "genetics-project-guide",
+          "genetics-11",
+          "genetics-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "genetics-project:rehearsal-scope",
+      "type": "structured",
+      "prompt": "Project rehearsal open practice · Check the limits you will discuss in project milestone 5. Select one response per criterion.",
+      "points": 3,
+      "objective_ids": [
+        "genetics-2-objective-2",
+        "genetics-7-objective-2",
+        "genetics-11-objective-3"
+      ],
+      "feedback": {
+        "hint": "Ask what each calculation is about: co-inheritance in these meioses, one sample of crossovers, or a stated model.",
+        "solution": "Linkage shows co-inheritance, not which variant is causal. One cross with 6 double crossovers gives an imprecise interference estimate, not a mechanism. The family probability follows from fictional inputs and describes no real person.",
+        "lesson_ids": [
+          "genetics-project-guide",
+          "genetics-7",
+          "genetics-11"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "response_fields": [
+        {
+          "id": "causation",
+          "type": "single_choice",
+          "prompt": "Linkage · What does tight linkage between a marker and a trait locus show?",
+          "options": [
+            "That the marker allele itself causes the trait in every family that carries it.",
+            "That the loci tend to be co-inherited in these meioses, not which variant is causal.",
+            "That the trait locus lies exactly at the marker, since recombination is never zero."
+          ],
+          "points": 1
+        },
+        {
+          "id": "sample",
+          "type": "single_choice",
+          "prompt": "Interference · What does an interference estimate from one cross of 800 offspring show?",
+          "options": [
+            "A sample estimate for this cross, uncertain because only 6 double crossovers occurred.",
+            "The molecular mechanism that spaces crossovers along every chromosome of this species.",
+            "That crossovers in the two intervals are independent, since some double crossovers occurred."
+          ],
+          "points": 1
+        },
+        {
+          "id": "risk",
+          "type": "single_choice",
+          "prompt": "Family model · What does the conditional probability in the family model describe?",
+          "options": [
+            "The measured risk for real families who carry a D allele at this marker.",
+            "Proof that the D allele is linked to marker E on the mapped chromosome.",
+            "A probability under the stated model, not the risk of any real person."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "causation",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "sample",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "risk",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ],
+        "rubric": [
+          {
+            "id": "causation",
+            "criterion": "Separate linkage from causation",
+            "points": 1,
+            "evidence": [
+              "Limits linkage to co-inheritance in the observed meioses."
+            ]
+          },
+          {
+            "id": "sample",
+            "criterion": "Bound the interference estimate",
+            "points": 1,
+            "evidence": [
+              "Treats the value as a finite-sample estimate for one cross."
+            ]
+          },
+          {
+            "id": "risk",
+            "criterion": "Bound the probability",
+            "points": 1,
+            "evidence": [
+              "Keeps the modeled probability separate from any real person's risk."
+            ]
+          }
+        ]
+      }
     }
   ]
 }
