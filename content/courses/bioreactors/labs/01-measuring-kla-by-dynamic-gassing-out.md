@@ -3,7 +3,7 @@
 **Activity type:** synthetic-data analysis with public, ungraded formative checks
 **Course package:** Bioreactors & Tissue Culture Engineering. **Estimated learner time:** 2–3 hours
 **Data status:** all measurements are constructed for instruction. They describe no real vessel, probe or experiment, and nothing here is evidence about any culture or process.
-**Dataset:** [synthetic gassing-out curves (CSV)](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/bioreactors/labs/gassing-out-do-curves.csv).
+**Dataset:** [synthetic gassing-out curves (CSV)](gassing-out-do-curves.csv).
 
 ## Experimental question
 

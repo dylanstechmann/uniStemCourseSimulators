@@ -3879,6 +3879,435 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "bioreactors-project:rehearsal-deficit",
+      "type": "structured",
+      "prompt": "Project rehearsal open practice · Rehearsal model in normalized units: C(t) is a dissolved-oxygen index with saturation C* = 1 and C(0) = 1, the transfer coefficient is k = 0.5 per time unit, and demand grows as OUR(t) = 0.08 e^(0.25t), so dC/dt = k(C* − C) − 0.08 e^(0.25t). The control threshold is Ccrit = 0.5. Work with the deficit D = C* − C. Select one response per criterion.",
+      "points": 3,
+      "objective_ids": [
+        "bioreactors-2-objective-1",
+        "bioreactors-6-objective-2"
+      ],
+      "feedback": {
+        "hint": "Substitute C = 1 − D, then multiply the linear equation by e^(kt) and integrate from 0.",
+        "solution": "With C = 1 − D, the balance becomes D′ + kD = OUR₀ e^(μt) with D(0) = 0. Multiplying by e^(kt) and integrating gives D(t) = OUR₀/(k + μ) × (e^(μt) − e^(−kt)) = 0.08/0.75 × (e^(0.25t) − e^(−0.5t)). Both terms of D′ are positive, so D rises steadily and the threshold is crossed once.",
+        "lesson_ids": [
+          "bioreactors-project-guide",
+          "bioreactors-6",
+          "bioreactors-11"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "response_fields": [
+        {
+          "id": "balance",
+          "type": "single_choice",
+          "prompt": "Balance · Which equation and initial condition does the deficit satisfy?",
+          "options": [
+            "D′ + kD = OUR₀ e^(μt), with D(0) = 0",
+            "D′ − kD = OUR₀ e^(μt), with D(0) = 1",
+            "D′ + kD = −OUR₀ e^(μt), with D(0) = 0"
+          ],
+          "points": 1
+        },
+        {
+          "id": "solution",
+          "type": "single_choice",
+          "prompt": "Solution · What does the integrating factor e^(kt) give?",
+          "options": [
+            "D(t) = OUR₀/(k − μ) × (e^(μt) − e^(−kt))",
+            "D(t) = OUR₀/k × (1 − e^(−kt))",
+            "D(t) = OUR₀/(k + μ) × (e^(μt) − e^(−kt))"
+          ],
+          "points": 1
+        },
+        {
+          "id": "monotone",
+          "type": "single_choice",
+          "prompt": "Crossing · Why can C reach the threshold only once?",
+          "options": [
+            "Because the exponential demand eventually overwhelms any transfer coefficient.",
+            "Because D′ = OUR₀/(k + μ) × (μe^(μt) + ke^(−kt)), which is always positive.",
+            "Because C starts at saturation and the threshold lies below saturation."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "balance",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "solution",
+            "type": "single_choice",
+            "answer": 2
+          },
+          {
+            "id": "monotone",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ],
+        "rubric": [
+          {
+            "id": "balance",
+            "criterion": "Write the deficit balance",
+            "points": 1,
+            "evidence": [
+              "Rewrites the oxygen balance for D with the correct sign and start."
+            ]
+          },
+          {
+            "id": "solution",
+            "criterion": "Solve the linear equation",
+            "points": 1,
+            "evidence": [
+              "Integrates the forced first-order equation and applies D(0) = 0."
+            ]
+          },
+          {
+            "id": "monotone",
+            "criterion": "Show monotonicity",
+            "points": 1,
+            "evidence": [
+              "Uses the sign of D′ to rule out a second crossing."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "bioreactors-project:rehearsal-capacity",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Rehearsal model in normalized units: C(t) is a dissolved-oxygen index with saturation C* = 1 and C(0) = 1, the transfer coefficient is k = 0.5 per time unit, and demand grows as OUR(t) = 0.08 e^(0.25t), so dC/dt = k(C* − C) − 0.08 e^(0.25t). The control threshold is Ccrit = 0.5. Compare transfer at the threshold with demand. Give bare numbers in the model's normalized units.",
+      "points": 4,
+      "objective_ids": [
+        "bioreactors-2-objective-2",
+        "bioreactors-11-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "capacity",
+          "type": "numeric",
+          "prompt": "Transfer capacity at the threshold, k(C* − Ccrit), to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "margin",
+          "type": "numeric",
+          "prompt": "Initial margin, capacity minus OUR(0), to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "quasi_steady_time",
+          "type": "numeric",
+          "prompt": "Time at which OUR(t) equals that capacity, to three decimal places.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "meaning",
+          "type": "single_choice",
+          "prompt": "What does that quasi-steady time mark?",
+          "options": [
+            "When demand equals what transfer could supply with C held at the threshold.",
+            "The moment the dissolved-oxygen index actually falls to the threshold.",
+            "The moment the transfer coefficient starts to decrease as the culture grows."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "capacity",
+            "type": "numeric",
+            "answer": 0.25,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "margin",
+            "type": "numeric",
+            "answer": 0.17,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "quasi_steady_time",
+            "type": "numeric",
+            "answer": 4.558,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "meaning",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Capacity at the threshold is k(1 − Ccrit); solve OUR₀ e^(μt) = capacity with a natural logarithm.",
+        "solution": "Capacity is 0.5 × (1 − 0.5) = 0.250, and the initial margin is 0.250 − 0.08 = 0.170. Demand reaches the capacity when 0.08 e^(0.25t) = 0.250, so t = ln(3.125)/0.25 ≈ 4.558. This is a capacity check, not the time at which C itself reaches the threshold.",
+        "lesson_ids": [
+          "bioreactors-project-guide",
+          "bioreactors-11",
+          "bioreactors-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "bioreactors-project:rehearsal-crossing",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Rehearsal model in normalized units: C(t) is a dissolved-oxygen index with saturation C* = 1 and C(0) = 1, the transfer coefficient is k = 0.5 per time unit, and demand grows as OUR(t) = 0.08 e^(0.25t), so dC/dt = k(C* − C) − 0.08 e^(0.25t). The control threshold is Ccrit = 0.5. Use D(t) = 0.08/0.75 × (e^(0.25t) − e^(−0.5t)); the threshold is reached when D = 0.5.",
+      "points": 5,
+      "objective_ids": [
+        "bioreactors-11-objective-2",
+        "bioreactors-11-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "d_at_6",
+          "type": "numeric",
+          "prompt": "D(6), to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "d_at_7",
+          "type": "numeric",
+          "prompt": "D(7), to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "crossing_time",
+          "type": "numeric",
+          "prompt": "Time at which C first reaches 0.5, to three decimal places.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "c_at_quasi_steady",
+          "type": "numeric",
+          "prompt": "C at the quasi-steady time from the previous item, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "delay",
+          "type": "single_choice",
+          "prompt": "Why does the transient crossing come later than the quasi-steady time?",
+          "options": [
+            "Because the transfer coefficient rises once demand exceeds the threshold capacity.",
+            "Because rounding the quasi-steady time to three decimals moves it earlier.",
+            "Because oxygen stored above the threshold takes time to be drawn down."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "d_at_6",
+            "type": "numeric",
+            "answer": 0.473,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "d_at_7",
+            "type": "numeric",
+            "answer": 0.611,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "crossing_time",
+            "type": "numeric",
+            "answer": 6.218,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "c_at_quasi_steady",
+            "type": "numeric",
+            "answer": 0.678,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "delay",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Bracket the root of D(t) = 0.5 between two whole times, then bisect; evaluate C = 1 − D at the earlier time.",
+        "solution": "D(6) ≈ 0.4727 and D(7) ≈ 0.6106 bracket 0.5, and bisection gives t ≈ 6.218. At the quasi-steady time C ≈ 0.6776, still above 0.5: the stored oxygen takes time to run down, so the state lags the capacity check.",
+        "lesson_ids": [
+          "bioreactors-project-guide",
+          "bioreactors-11"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "bioreactors-project:rehearsal-limits",
+      "type": "structured",
+      "prompt": "Project rehearsal open practice · Check the model limits you will discuss in project milestone 6. Select one response per criterion.",
+      "points": 3,
+      "objective_ids": [
+        "bioreactors-5-objective-3",
+        "bioreactors-11-objective-3"
+      ],
+      "feedback": {
+        "hint": "Ask where the mathematics stays meaningful, what the numbers are, and what a real process would have to measure.",
+        "solution": "The solution is meaningful only up to the first crossing; the parameters are stipulated, normalized values; and a real process would need measured kLa, uptake rates, saturation and probe dynamics before any such balance informed a decision.",
+        "lesson_ids": [
+          "bioreactors-project-guide",
+          "bioreactors-11",
+          "bioreactors-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "response_fields": [
+        {
+          "id": "range",
+          "type": "single_choice",
+          "prompt": "Range · Where should the solution stop being interpreted?",
+          "options": [
+            "At the first threshold crossing, before C heads toward negative values.",
+            "Nowhere, because the exact solution is valid for every positive time.",
+            "Only at t = 0, because the initial condition is the one measured value."
+          ],
+          "points": 1
+        },
+        {
+          "id": "units",
+          "type": "single_choice",
+          "prompt": "Units · What do the normalized parameters represent?",
+          "options": [
+            "Measured rates for a mammalian culture in a stirred production vessel.",
+            "Stipulated values chosen to make the calculation transparent.",
+            "Typical design values from the oxygen-sizing lesson."
+          ],
+          "points": 1
+        },
+        {
+          "id": "evidence",
+          "type": "single_choice",
+          "prompt": "Evidence · What would a real process need before using a balance like this?",
+          "options": [
+            "Only a faster computer, so that the bisection can run to many more decimal places.",
+            "A single dissolved-oxygen reading taken at the start of the culture.",
+            "Measured kLa, uptake rates, saturation and probe dynamics for that process."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "range",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "units",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "evidence",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ],
+        "rubric": [
+          {
+            "id": "range",
+            "criterion": "Bound the solution",
+            "points": 1,
+            "evidence": [
+              "Stops interpretation at the first threshold crossing."
+            ]
+          },
+          {
+            "id": "units",
+            "criterion": "Name the normalization",
+            "points": 1,
+            "evidence": [
+              "Treats every parameter as a stipulated teaching value."
+            ]
+          },
+          {
+            "id": "evidence",
+            "criterion": "Ask for process evidence",
+            "points": 1,
+            "evidence": [
+              "Lists the measurements a real application would require."
+            ]
+          }
+        ]
+      }
     }
   ]
 }

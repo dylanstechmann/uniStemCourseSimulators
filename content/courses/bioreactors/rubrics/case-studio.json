@@ -30,6 +30,196 @@
       "limitations": [
         "This preserved three-criterion checklist is self-assessment, not an analytic grading rubric or an institutional grade."
       ]
+    },
+    {
+      "id": "bioreactors:project-m1-deficit",
+      "prompt": "Oxygen project milestone 1 (suggested week 8). Define the deficit D = C* − C, derive its differential equation and initial condition, and solve it with an integrating factor, checking the result at t = 0 and by substitution (project tasks 1 and 2).",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "bioreactors-2-objective-1",
+        "bioreactors-6-objective-2"
+      ],
+      "rubric": [
+        {
+          "id": "project-m1-deficit-criterion-1",
+          "criterion": "I rewrote the balance for D with a consistent sign and D(0) = 0.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-deficit-criterion-2",
+          "criterion": "I multiplied by e^(kt), integrated from 0 and applied the initial condition.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-deficit-criterion-3",
+          "criterion": "I checked my solution at t = 0 and by substituting it back into the equation.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-deficit-criterion-4",
+          "criterion": "I checked my method on the open rehearsal before using the project values.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the oxygen-capacity project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "bioreactors:project-m2-capacity",
+      "prompt": "Oxygen project milestone 2 (suggested week 8). Compute the initial transfer-minus-demand margin at Ccrit, then find when an instantaneous quasi-steady capacity check first predicts demand equal to transfer at that threshold (project task 3).",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "bioreactors-2-objective-2",
+        "bioreactors-11-objective-2"
+      ],
+      "rubric": [
+        {
+          "id": "project-m2-capacity-criterion-1",
+          "criterion": "I computed transfer capacity at the threshold as k(C* − Ccrit).",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-capacity-criterion-2",
+          "criterion": "I compared it with the initial demand and reported the margin.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-capacity-criterion-3",
+          "criterion": "I solved the demand equality with a natural logarithm.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-capacity-criterion-4",
+          "criterion": "I described this time as a capacity check, not a state crossing.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the oxygen-capacity project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "bioreactors:project-m3-crossing",
+      "prompt": "Oxygen project milestone 3 (suggested week 8). Show that D(t) is strictly increasing, bracket the time at which the transient state first reaches Ccrit, and calculate it numerically to three decimals (project task 4).",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "bioreactors-11-objective-2",
+        "bioreactors-1-objective-2"
+      ],
+      "rubric": [
+        {
+          "id": "project-m3-crossing-criterion-1",
+          "criterion": "I showed from D′ that the threshold is crossed at most once.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-crossing-criterion-2",
+          "criterion": "I bracketed the crossing between two times where D is below and above the threshold value.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-crossing-criterion-3",
+          "criterion": "I narrowed the bracket by bisection or another checked method to three decimals.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-crossing-criterion-4",
+          "criterion": "I verified the reported time by evaluating C there.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the oxygen-capacity project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "bioreactors:project-m4-comparison",
+      "prompt": "Oxygen project milestone 4 (suggested week 9). Compare the quasi-steady time with the transient crossing time, evaluate C at the quasi-steady time, and explain why stored dissolved oxygen delays the crossing in this constructed model (project task 5).",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "bioreactors-11-objective-3",
+        "bioreactors-11-objective-2"
+      ],
+      "rubric": [
+        {
+          "id": "project-m4-comparison-criterion-1",
+          "criterion": "I reported both times and their difference.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-comparison-criterion-2",
+          "criterion": "I evaluated C at the quasi-steady time and compared it with Ccrit.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-comparison-criterion-3",
+          "criterion": "I explained the delay with the oxygen stored above the threshold.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-comparison-criterion-4",
+          "criterion": "I linked the delay to the oxygen time constant 1/k.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the oxygen-capacity project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "bioreactors:project-m5-limits",
+      "prompt": "Oxygen project milestone 5 (suggested week 9). State where the model should stop being interpreted and list the evidence required before applying a balance like this to a real process, without inventing operating conditions or safety advice (project task 6).",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "bioreactors-5-objective-3",
+        "bioreactors-11-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m5-limits-criterion-1",
+          "criterion": "I stopped interpreting the solution at the first threshold crossing.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-limits-criterion-2",
+          "criterion": "I named measurements a real process would need, such as kLa, uptake rates and probe dynamics.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-limits-criterion-3",
+          "criterion": "I kept the normalized model separate from any real vessel, culture or control setting.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-limits-criterion-4",
+          "criterion": "I disclosed any tools or AI assistance used.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the oxygen-capacity project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
     }
   ]
 }

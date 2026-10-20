@@ -1,6 +1,6 @@
 # Bioreactors & Tissue Culture Engineering
 
-**Maturity: partial. Version: 0.4.9.**
+**Maturity: partial. Version: 0.5.0.**
 
 Scale cell culture and tissue maturation through mass transfer, shear, process monitoring, control, sterile-boundary reasoning, and design-of-experiments principles.
 
@@ -28,7 +28,7 @@ This is a proposed scope, not a measured or reviewed semester. Each week lists i
 | 5 | Oxygen transfer and consumption | Oxygen transfer and consumption |
 | 6 | Sizing oxygen supply: kLa, driving force and the cell density a reactor can support | Sizing oxygen supply in a culture: kLa, driving force and the cell density a reactor can support |
 | 7 | Virtual lab: measuring kLa by dynamic gassing-out | Virtual lab 1: measuring kLa by dynamic gassing-out |
-| 8 | Controlling dissolved oxygen: the required kLa, the capacity limit and the control cascade | Controlling dissolved oxygen: the required kLa, the capacity limit and the control cascade |
+| 8 | Controlling dissolved oxygen: the required kLa, the capacity limit and the control cascade | Controlling dissolved oxygen: the required kLa, the capacity limit and the control cascade; Oxygen project guide (optional, ungraded) |
 | 9 | Mixing, shear and scale-up | Mixing, shear, and scale-up |
 | 10 | Mixing and scale-up: power, tip speed and what cannot be kept constant | Mixing and scale-up: power, tip speed and what cannot be kept constant |
 | 11 | Shear, eddies and cells: the Kolmogorov scale and when stirring becomes damage | Shear, eddies and cells: the Kolmogorov scale and when stirring becomes damage |
@@ -38,15 +38,19 @@ This is a proposed scope, not a measured or reviewed semester. Each week lists i
 
 ## Assessment and study policy
 
-Every lesson has public formative items (numeric, single-choice, multiple-select, data-interpretation, structured-response and CSV-upload) mapped to its objectives, plus retrieval cards for the review queue; each practice assessment also lists the course outcomes its items assess. Week 7 is a synthetic-data virtual lab and week 14 pairs a lesson on designing a scale-down experiment with the course case and its self-assessment checklist. These are practice activities with unlimited retries and no institutional grade, university credit or transferable credit. Workload has not been measured.
+Every lesson has public formative items (numeric, single-choice, multiple-select, data-interpretation, structured-response and CSV-upload) mapped to its objectives, plus retrieval cards for the review queue; each practice assessment also lists the course outcomes its items assess. Week 7 is a synthetic-data virtual lab, week 8 adds an optional oxygen-capacity project guide with rehearsal practice, and week 14 pairs a lesson on designing a scale-down experiment with the course case and its self-assessment checklist. These are practice activities with unlimited retries and no institutional grade, university credit or transferable credit. Workload has not been measured.
+
+## Optional oxygen-capacity project (ungraded)
+
+The [oxygen project guide](assignments/oxygen-capacity-project-guide.md) makes the project below usable as open practice. It restates the project's model, parameters and tasks, works a separate normalized model, and pairs a rehearsal model with open practice items in week 8. Five milestones, suggested for weeks 8–9, are Case studio self-checks whose responses are saved privately and never submitted, collected or scored.
 
 ## Inactive integrative project draft
 
-The [oxygen-capacity portfolio](assessment-specs/oxygen-capacity-project-draft.md) uses a normalized growing-demand model to compare initial transfer capacity, a quasi-steady threshold and the transient dissolved-oxygen threshold crossing. It extends the course's mass-balance and control lessons without repeating the existing gassing-out `kLa` fit. All parameters are synthetic; the paper-only draft is not scheduled, assigned, submitted or graded and gives no real process specification.
+The [oxygen-capacity portfolio](assessment-specs/oxygen-capacity-project-draft.md) uses a normalized growing-demand model to compare initial transfer capacity, a quasi-steady threshold and the transient dissolved-oxygen threshold crossing. It extends the course's mass-balance and control lessons without repeating the existing gassing-out `kLa` fit. All parameters are synthetic; the paper-only draft itself is not scheduled, assigned, submitted or graded, the open project guide above does not submit work to it, and the draft gives no real process specification.
 
 ## Current limitations
 
-The schedule above is proposed, not measured, and has not been reviewed by a qualified instructor. There are no graded homework sets, midterm or final; the new project is inactive and ungraded. The former compact prototype readings have expanded primers, but that does not resolve the broader workload, assessment, laboratory, and review gaps. The package cites no new papers: the lessons teach standard first-order relations with synthetic data, and the typical values they quote (power numbers, dimensionless mixing times, saturation concentrations, specific uptake rates) are textbook-level and vary between sources. All cultures, vessels, cell lines and numbers are synthetic; the new biomass formula and product are stipulated bookkeeping surrogates, not measured compositions or yields. No lesson gives a laboratory protocol, process recipe or medical advice, and nothing here asserts anything about a real cell line, vessel or process. Qualified human review is required before this course could meet the complete-course standard.
+The schedule above is proposed, not measured, and has not been reviewed by a qualified instructor. There are no graded homework sets, midterm or final; the optional project guide and its rehearsal are ungraded practice, and the project draft remains inactive. The former compact prototype readings have expanded primers, but that does not resolve the broader workload, assessment, laboratory, and review gaps. The package cites no new papers: the lessons teach standard first-order relations with synthetic data, and the typical values they quote (power numbers, dimensionless mixing times, saturation concentrations, specific uptake rates) are textbook-level and vary between sources. All cultures, vessels, cell lines and numbers are synthetic; the new biomass formula and product are stipulated bookkeeping surrogates, not measured compositions or yields. No lesson gives a laboratory protocol, process recipe or medical advice, and nothing here asserts anything about a real cell line, vessel or process. Qualified human review is required before this course could meet the complete-course standard.
 
 ## Sources and licensing
 

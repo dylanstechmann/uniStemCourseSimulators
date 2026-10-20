@@ -2,11 +2,11 @@
 
 This record pins the current public course package for independent review. It is regenerated with the read-only command below and does not imply acceptance or release.
 
-- **Course package:** `bioreactors` 0.4.9
-- **Public package archive SHA-256:** `56053cef00acf0e6ecb290dc777593308b43840767565dac09afa798e88c245a`
-- **Manifest SHA-256:** `ba5d45a2f97958bb1fc633cf93260f75f4f062d1a3d93535ab8aae1d5af5b6a3`
-- **Archive inventory:** 24 files, 341,955 bytes
-- **Calculated:** 2026-10-13
+- **Course package:** `bioreactors` 0.5.0
+- **Public package archive SHA-256:** `7df4985ab1ca40f076cba5f238423b87b6fc7c480acfc22a46449f1b03e7dada`
+- **Manifest SHA-256:** `8b866acce514767cb209520cc186181152dcae2185e429f1b551586a743bb46a`
+- **Archive inventory:** 25 files, 379,514 bytes
+- **Calculated:** 2026-10-20
 - **Reproduce:** `uv run --project backend python tools/course_package_digest.py --course-id bioreactors`
 
-Version 0.4.9 adds an original fed-batch reading grouped with continuous culture in week 4. It covers changing-volume balances, the dilution term without outflow, an exponential substrate-holding feed, the working-volume limit and retained-product titer, with ten formative items and four cards. MIT OCW [10.442 Spring 2005 calendar](https://ocw.mit.edu/courses/10-442-biochemical-engineering-spring-2005/pages/calendar/) is a link-only comparator. Every numeric key is recomputed by RK4 integration of the amount balances. The digest proves package identity only; it is not bioprocess review, instructional approval or release evidence. The course remains partial, unreviewed and formative-only.
+Version 0.5.0 makes the planned oxygen-capacity project usable by learners as ungraded practice. Week 8 gains an optional project guide with the project's model, parameters and tasks and a worked example on a separate normalized model, a rehearsal model and four open rehearsal practice items; five project milestones are Case studio self-checks with a week-9 project record. The kLa lab's dataset link now resolves to the package-pinned CSV instead of a mutable repository URL. The inactive project draft is unchanged. The digest proves package identity only; it is not bioprocess review, instructional approval or release evidence.
