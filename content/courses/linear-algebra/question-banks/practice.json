@@ -3536,6 +3536,536 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "linear-algebra-project:rehearsal-rank",
+      "type": "structured",
+      "prompt": "Project rehearsal open practice · Rehearsal readouts in rehearsal-readouts.csv: four channels mix two abstract states P and Q with weight rows (1, 0), (0, 1), (1, 1) and (1, 0), and readouts b = (0.41, 0.58, 1.02, 0.39). Fit b ≈ A x by unweighted least squares. Select one response per criterion.",
+      "points": 3,
+      "objective_ids": [
+        "linear-algebra-7-objective-1",
+        "linear-algebra-7-objective-3"
+      ],
+      "feedback": {
+        "hint": "Check whether one column is a multiple of the other, then apply rank + nullity = number of columns.",
+        "solution": "The columns (1, 0, 1, 1) and (0, 1, 1, 0) are not multiples of each other, so the rank is 2 and the nullity is 0. The least-squares estimate is therefore unique even though four noisy equations cannot all hold. The summed channel makes AᵀA non-diagonal, coupling the two weights.",
+        "lesson_ids": [
+          "linear-algebra-project-guide",
+          "linear-algebra-3",
+          "linear-algebra-11"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "response_fields": [
+        {
+          "id": "rank",
+          "type": "single_choice",
+          "prompt": "Rank · What are the rank and nullity of the 4 × 2 weight matrix A?",
+          "options": [
+            "Rank 2 and nullity 0, because its two columns are linearly independent.",
+            "Rank 4 and nullity 0, because it has four rows, one for each readout channel.",
+            "Rank 1 and nullity 1, because the third row is a sum of the others."
+          ],
+          "points": 1
+        },
+        {
+          "id": "identifiable",
+          "type": "single_choice",
+          "prompt": "Identifiability · Can both state weights be recovered?",
+          "options": [
+            "No, because four equations in two unknowns can never have any solution at all.",
+            "Yes: the nullity is 0, so no nonzero x gives Ax = 0 and the fit is unique.",
+            "Only if the readouts are exact, with no error in any channel."
+          ],
+          "points": 1
+        },
+        {
+          "id": "row_three",
+          "type": "single_choice",
+          "prompt": "Row three · What does the (1, 1) channel add?",
+          "options": [
+            "Nothing, because it repeats information already in the other rows.",
+            "It makes the matrix singular, so the fit cannot be computed.",
+            "A check on the sum of the two weights, which couples them in AᵀA."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "rank",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "identifiable",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "row_three",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ],
+        "rubric": [
+          {
+            "id": "rank",
+            "criterion": "Find rank and nullity",
+            "points": 1,
+            "evidence": [
+              "Uses column independence, not the row count."
+            ]
+          },
+          {
+            "id": "identifiable",
+            "criterion": "Connect nullity to uniqueness",
+            "points": 1,
+            "evidence": [
+              "Links a trivial null space to a unique least-squares estimate."
+            ]
+          },
+          {
+            "id": "row_three",
+            "criterion": "Read the design",
+            "points": 1,
+            "evidence": [
+              "Sees the summed channel as extra, coupling information."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "linear-algebra-project:rehearsal-least-squares",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Rehearsal readouts in rehearsal-readouts.csv: four channels mix two abstract states P and Q with weight rows (1, 0), (0, 1), (1, 1) and (1, 0), and readouts b = (0.41, 0.58, 1.02, 0.39). Fit b ≈ A x by unweighted least squares. Solve the normal equations AᵀA x = Aᵀb. Give bare numbers to three significant figures.",
+      "points": 4,
+      "objective_ids": [
+        "linear-algebra-4-objective-1",
+        "linear-algebra-5-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "x_p",
+          "type": "numeric",
+          "prompt": "The estimated weight of state P.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "x_q",
+          "type": "numeric",
+          "prompt": "The estimated weight of state Q.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "residual_sq",
+          "type": "numeric",
+          "prompt": "The squared residual norm ‖b − A x̂‖².",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "orthogonal",
+          "type": "single_choice",
+          "prompt": "Which check confirms that x̂ is the least-squares solution?",
+          "options": [
+            "Every component of the residual vector is exactly zero after fitting.",
+            "Aᵀ(b − A x̂) = 0: the residual is orthogonal to both columns of A.",
+            "The two estimated weights add up to exactly one."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "x_p",
+            "type": "numeric",
+            "answer": 0.408,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "x_q",
+            "type": "numeric",
+            "answer": 0.596,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "residual_sq",
+            "type": "numeric",
+            "answer": 0.00084,
+            "unit": "",
+            "tolerance": 6e-07,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "orthogonal",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "AᵀA = [[3, 1], [1, 2]] and Aᵀb = (1.82, 1.60); solve the 2 × 2 system, then compute the residual.",
+        "solution": "det(AᵀA) = 5, so x̂ = ((2 × 1.82 − 1.60)/5, (3 × 1.60 − 1.82)/5) = (0.408, 0.596). The residual is +0.002, −0.016, +0.016, −0.018, its squared norm ≈ 0.00084, and Aᵀr = (0, 0), which certifies the least-squares solution.",
+        "lesson_ids": [
+          "linear-algebra-project-guide",
+          "linear-algebra-11"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "linear-algebra-project:rehearsal-conditioning",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Rehearsal readouts in rehearsal-readouts.csv: four channels mix two abstract states P and Q with weight rows (1, 0), (0, 1), (1, 1) and (1, 0), and readouts b = (0.41, 0.58, 1.02, 0.39). Fit b ≈ A x by unweighted least squares. The singular values of A are the square roots of the eigenvalues of AᵀA. Give bare numbers to four significant figures.",
+      "points": 4,
+      "objective_ids": [
+        "linear-algebra-10-objective-1",
+        "linear-algebra-11-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "sigma_max",
+          "type": "numeric",
+          "prompt": "The largest singular value of A.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "sigma_min",
+          "type": "numeric",
+          "prompt": "The smallest singular value of A.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "condition",
+          "type": "numeric",
+          "prompt": "The 2-norm condition number κ₂(A).",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "residual_meaning",
+          "type": "single_choice",
+          "prompt": "Why is a nonzero residual compatible with a unique estimate?",
+          "options": [
+            "Full column rank fixes x̂ uniquely; the residual only measures misfit.",
+            "Because a nonzero residual means the condition number must be infinite.",
+            "Because the residual and the estimate are always equal in size and sign."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "sigma_max",
+            "type": "numeric",
+            "answer": 1.902,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "sigma_min",
+            "type": "numeric",
+            "answer": 1.176,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "condition",
+            "type": "numeric",
+            "answer": 1.618,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "residual_meaning",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "The eigenvalues of [[3, 1], [1, 2]] solve λ² − 5λ + 5 = 0; take square roots for the singular values.",
+        "solution": "λ = (5 ± √5)/2 ≈ 3.6180 and 1.3820, so σ ≈ 1.9021 and 1.1756 and κ₂ ≈ 1.6180. The condition number describes sensitivity of the estimate to perturbations; the nonzero residual describes misfit, and neither makes the full-rank estimate non-unique.",
+        "lesson_ids": [
+          "linear-algebra-project-guide",
+          "linear-algebra-14",
+          "linear-algebra-11"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "linear-algebra-project:rehearsal-dynamics",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · For a separate synthetic two-state chain with column vectors, T = [[0.85, 0.30], [0.15, 0.70]] and p_{k+1} = T p_k, start at p₀ = (0.40, 0.60). Give bare numbers to three significant figures.",
+      "points": 5,
+      "objective_ids": [
+        "linear-algebra-6-objective-1",
+        "linear-algebra-6-objective-2",
+        "linear-algebra-6-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "p1_first",
+          "type": "numeric",
+          "prompt": "The first component of p₁.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "p1_second",
+          "type": "numeric",
+          "prompt": "The second component of p₁.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second_eigenvalue",
+          "type": "numeric",
+          "prompt": "The eigenvalue of T other than 1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "stationary_first",
+          "type": "numeric",
+          "prompt": "The first component of the stationary vector.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "convergence",
+          "type": "single_choice",
+          "prompt": "Why does p_k approach the stationary vector?",
+          "options": [
+            "Because T has two eigenvalues that are both exactly equal to 1.",
+            "Because the starting vector already equals the stationary vector of T.",
+            "Because the other eigenvalue is below 1 in size, so that mode decays."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "p1_first",
+            "type": "numeric",
+            "answer": 0.52,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "p1_second",
+            "type": "numeric",
+            "answer": 0.48,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "second_eigenvalue",
+            "type": "numeric",
+            "answer": 0.55,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "stationary_first",
+            "type": "numeric",
+            "answer": 0.667,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "convergence",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Multiply T by p₀; the eigenvalues of a 2 × 2 column-stochastic matrix are 1 and trace − 1.",
+        "solution": "p₁ = (0.85 × 0.40 + 0.30 × 0.60, 0.15 × 0.40 + 0.70 × 0.60) = (0.52, 0.48). The eigenvalues are 1 and 0.85 + 0.70 − 1 = 0.55. The stationary vector solves 0.15π₁ = 0.30π₂, so π = (2/3, 1/3) ≈ (0.667, 0.333), and the other mode shrinks by 0.55 per step.",
+        "lesson_ids": [
+          "linear-algebra-project-guide",
+          "linear-algebra-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "linear-algebra-project:rehearsal-limits",
+      "type": "structured",
+      "prompt": "Project rehearsal open practice · Check the interpretation you will give in hidden-state project milestone 5. Select one response per criterion.",
+      "points": 3,
+      "objective_ids": [
+        "linear-algebra-4-objective-2",
+        "linear-algebra-5-objective-3"
+      ],
+      "feedback": {
+        "hint": "Ask which constraints and weights the fit assumed, and what the synthetic numbers can and cannot show.",
+        "solution": "An unconstrained fit need not return a valid mixture, so any constraint must be stated and imposed; equal weighting assumes equal error variance across channels; and the result is arithmetic on a synthetic model, not a claim about any real population.",
+        "lesson_ids": [
+          "linear-algebra-project-guide",
+          "linear-algebra-11",
+          "linear-algebra-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "response_fields": [
+        {
+          "id": "constraints",
+          "type": "single_choice",
+          "prompt": "Constraints · The estimated weights need not sum to one. What follows?",
+          "options": [
+            "Nothing, because least squares always returns a valid mixture.",
+            "Any sum-to-one or sign constraint must be stated and imposed.",
+            "The fit is wrong and should be discarded before anything else is done."
+          ],
+          "points": 1
+        },
+        {
+          "id": "weighting",
+          "type": "single_choice",
+          "prompt": "Weights · What does equal weighting of the rows assume?",
+          "options": [
+            "That every channel has the same error variance.",
+            "That every channel reads exactly the same value.",
+            "That the two states have equal weights in the mixture."
+          ],
+          "points": 1
+        },
+        {
+          "id": "scope",
+          "type": "single_choice",
+          "prompt": "Scope · What does this calculation show about a real population?",
+          "options": [
+            "That two cell types are present in the stated proportions.",
+            "That the transition matrix describes how cells change state.",
+            "Nothing: it is arithmetic on a synthetic linear model."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "constraints",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "weighting",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "scope",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ],
+        "rubric": [
+          {
+            "id": "constraints",
+            "criterion": "State constraints explicitly",
+            "points": 1,
+            "evidence": [
+              "Keeps unstated constraints out of an unconstrained fit."
+            ]
+          },
+          {
+            "id": "weighting",
+            "criterion": "Name the weighting assumption",
+            "points": 1,
+            "evidence": [
+              "Identifies equal error variance behind unweighted least squares."
+            ]
+          },
+          {
+            "id": "scope",
+            "criterion": "Bound the claim",
+            "points": 1,
+            "evidence": [
+              "Keeps the result inside the synthetic model."
+            ]
+          }
+        ]
+      }
     }
   ]
 }

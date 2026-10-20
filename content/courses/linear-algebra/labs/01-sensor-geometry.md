@@ -12,7 +12,7 @@
 
 The reference displacement is x = (2, 3), in common arbitrary displacement units. Each signal pair follows b = Ax + ε. Poor geometry uses A = [[1, 0.99], [0.99, 1]]; improved geometry uses G = [[1, 0.2], [0.2, 1]]. Their weak-direction gains are 0.01 and 0.8. Both matrices are full rank. Signals use the same arbitrary calibrated scale for the comparison.
 
-[Download the synthetic CSV](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/linear-algebra/labs/sensor-pairs.csv). The complete data also appear below. Columns a11 through a22 give each row's matrix entries; b1 and b2 are its supplied signals; reference_x1 and reference_x2 are the known teaching reference. Replicate identifies a constructed pair, not an independent experimental replicate. The deliberate error sequence is d = −0.02, −0.01, 0, 0.01, 0.02 with ε = (d, −d). These perfectly opposed errors target the vulnerable difference direction. They are not independent equal-variance sensor errors.
+[Download the synthetic CSV](sensor-pairs.csv). The complete data also appear below. Columns a11 through a22 give each row's matrix entries; b1 and b2 are its supplied signals; reference_x1 and reference_x2 are the known teaching reference. Replicate identifies a constructed pair, not an independent experimental replicate. The deliberate error sequence is d = −0.02, −0.01, 0, 0.01, 0.02 with ε = (d, −d). These perfectly opposed errors target the vulnerable difference direction. They are not independent equal-variance sensor errors.
 
 | Geometry | Replicate | b1 | b2 |
 |---|---:|---:|---:|

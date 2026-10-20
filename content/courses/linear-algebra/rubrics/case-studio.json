@@ -30,6 +30,196 @@
       "limitations": [
         "This preserved three-criterion checklist is self-assessment, not an analytic grading rubric or an institutional grade."
       ]
+    },
+    {
+      "id": "linear-algebra:project-m1-rank",
+      "prompt": "Hidden-state project milestone 1 (suggested week 13). Inspect the columns of the project's 5 × 3 weight matrix, find its rank and nullity, and explain whether the three components are identifiable from these channels.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "linear-algebra-7-objective-1",
+        "linear-algebra-7-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m1-rank-criterion-1",
+          "criterion": "I checked the columns for linear dependence.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-rank-criterion-2",
+          "criterion": "I stated rank and nullity and how they relate.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-rank-criterion-3",
+          "criterion": "I connected the nullity to whether the estimate is unique.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-rank-criterion-4",
+          "criterion": "I checked my method on the open rehearsal before using the project data.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the hidden-state reconstruction project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "linear-algebra:project-m2-least-squares",
+      "prompt": "Hidden-state project milestone 2 (suggested week 13). Form AᵀA and Aᵀb, solve the normal equations, and verify the estimate by a QR-based solve or by showing that the residual is orthogonal to every column of A.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "linear-algebra-4-objective-1",
+        "linear-algebra-8-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m2-least-squares-criterion-1",
+          "criterion": "I formed AᵀA and Aᵀb from the data file.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-least-squares-criterion-2",
+          "criterion": "I solved the normal equations and reported the estimate.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-least-squares-criterion-3",
+          "criterion": "I verified the estimate independently, by QR or by residual orthogonality.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-least-squares-criterion-4",
+          "criterion": "I did not impose a nonnegativity or sum-to-one constraint silently.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the hidden-state reconstruction project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "linear-algebra:project-m3-conditioning",
+      "prompt": "Hidden-state project milestone 3 (suggested week 13). Report the residual, its squared norm, the singular values of A and its 2-norm condition number, and explain why a nonzero residual is compatible with a unique estimate.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "linear-algebra-10-objective-1",
+        "linear-algebra-11-objective-2"
+      ],
+      "rubric": [
+        {
+          "id": "project-m3-conditioning-criterion-1",
+          "criterion": "I used the residual convention r = b − A x̂.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-conditioning-criterion-2",
+          "criterion": "I obtained the singular values from AᵀA or another valid route.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-conditioning-criterion-3",
+          "criterion": "I distinguished misfit, measured by the residual, from sensitivity, measured by the condition number.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-conditioning-criterion-4",
+          "criterion": "I reported numbers to sensible precision.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the hidden-state reconstruction project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "linear-algebra:project-m4-dynamics",
+      "prompt": "Hidden-state project milestone 4 (suggested week 14). Starting at your estimate, apply the project's transition matrix, verify its nonnegativity and column sums, compute p₁, identify the stationary composition, and use the stated orthonormal basis to show how each coordinate evolves.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "linear-algebra-6-objective-2",
+        "linear-algebra-3-objective-2"
+      ],
+      "rubric": [
+        {
+          "id": "project-m4-dynamics-criterion-1",
+          "criterion": "I checked the column convention and the column sums before iterating.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-dynamics-criterion-2",
+          "criterion": "I computed p₁ with column vectors.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-dynamics-criterion-3",
+          "criterion": "I found the stationary vector and the other eigenvalues.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-dynamics-criterion-4",
+          "criterion": "I showed which coordinates stay fixed and which shrink in the new basis.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the hidden-state reconstruction project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "linear-algebra:project-m5-interpretation",
+      "prompt": "Hidden-state project milestone 5 (suggested week 14). Use the eigenvalues to explain convergence, then state why this abstract transition model does not support a claim about any real population.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "linear-algebra-3-objective-1",
+        "linear-algebra-4-objective-2"
+      ],
+      "rubric": [
+        {
+          "id": "project-m5-interpretation-criterion-1",
+          "criterion": "I explained convergence with eigenvalue magnitudes.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-interpretation-criterion-2",
+          "criterion": "I named the modeling assumptions behind the fit and the chain.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-interpretation-criterion-3",
+          "criterion": "I kept the synthetic model separate from any claim about real cells or populations.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-interpretation-criterion-4",
+          "criterion": "I disclosed any tools or AI assistance used.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the hidden-state reconstruction project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
     }
   ]
 }

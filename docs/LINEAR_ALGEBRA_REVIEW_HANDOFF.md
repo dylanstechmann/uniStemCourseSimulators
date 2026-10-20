@@ -1,6 +1,6 @@
 # Linear Algebra course review handoff
 
-This handoff targets Linear Algebra for Modeling & Robotics, package version 0.3.6. The [review snapshot](LINEAR_ALGEBRA_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+This handoff targets Linear Algebra for Modeling & Robotics, package version 0.4.0. The [review snapshot](LINEAR_ALGEBRA_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
 
 ## Review scope
 
@@ -10,11 +10,12 @@ This handoff targets Linear Algebra for Modeling & Robotics, package version 0.3
 - Review the new inactive state-reconstruction project for the least-squares solution, residual convention, identifiability, singular values, transition-matrix orientation and eigenbasis calculations.
 - Confirm that the synthetic states, readouts and dynamics are described as mathematical constructs and do not imply real biological evidence.
 - Review the existing sensor-geometry lab and displacement case alongside the new project to assess overlap and sequencing.
+- Check the week-12 project guide and its rehearsal: the restated design, readouts and transition matrix against the draft and CSV, the worked example on a separate design and chain, the rehearsal's least-squares, conditioning and chain keys, and the wording of the five milestone self-checks. Confirm that the guide and rehearsal do not reveal the project's own results, and that the sensor lab's dataset link now resolves to the package-pinned CSV.
 - Assess clarity, accessible alternatives, manual accessibility and likely weekly workload. The current project rubric is unweighted and does not grade prose.
 
 ## Author-side evidence and its limits
 
-The earlier focused Linear Algebra regression suite passed 85 tests for version 0.3.5, including recalculations for its state-reconstruction dataset and transition system. No test suite was run for version 0.3.6. Content validation and report checks are structural author-side evidence, not independent mathematical review. The package still has no substantive homework sequence, laboratory sequence, midterm or final; the project is inactive and ungraded. Workload, accessibility and learner outcomes are unmeasured.
+The earlier focused Linear Algebra regression suite passed 85 tests for version 0.3.5, including recalculations for its state-reconstruction dataset and transition system. No test suite was run for version 0.3.6. Content validation and report checks are structural author-side evidence, not independent mathematical review. The package still has no substantive homework sequence, laboratory sequence, midterm or final; the project is inactive and ungraded. Workload, accessibility and learner outcomes are unmeasured. For 0.4.0 a dedicated test recomputes the rehearsal keys by Householder QR, power iteration and exact iteration of the chain, rather than the normal equations and closed forms used to author them, recomputes the guide's worked example, and checks that the guide and rehearsal do not state the project's results.
 
 ## Review record to complete only after review
 

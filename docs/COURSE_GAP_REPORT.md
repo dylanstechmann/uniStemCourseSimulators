@@ -20,7 +20,7 @@ comprehensive coverage. Every package is still `partial` and unreviewed.
 | general-chemistry-2 | partial | 17 | 44 | 114 | 59 | 0 | 0 | 0 | 4 | 0 | 0 |
 | genetics | partial | 20 | 55 | 113 | 74 | 0 | 0 | 0 | 6 | 0 | 0 |
 | geroscience | partial | 18 | 51 | 90 | 68 | 0 | 0 | 0 | 4 | 0 | 0 |
-| linear-algebra | partial | 15 | 42 | 108 | 56 | 0 | 0 | 0 | 4 | 0 | 0 |
+| linear-algebra | partial | 16 | 42 | 113 | 59 | 0 | 0 | 0 | 4 | 0 | 0 |
 | organic-chemistry | partial | 17 | 48 | 125 | 63 | 0 | 0 | 0 | 4 | 0 | 0 |
 | physics-em | partial | 17 | 46 | 118 | 60 | 0 | 0 | 0 | 6 | 0 | 0 |
 | physics-mechanics | partial | 17 | 44 | 114 | 59 | 0 | 0 | 0 | 4 | 0 | 0 |
@@ -32,7 +32,7 @@ comprehensive coverage. Every package is still `partial` and unreviewed.
 | statistics | partial | 18 | 49 | 106 | 63 | 0 | 0 | 0 | 8 | 0 | 0 |
 | transport | partial | 18 | 47 | 119 | 63 | 0 | 0 | 0 | 6 | 0 | 0 |
 
-Totals: 25 packages, 472 lessons, 1186 objectives, 3042 practice items, 0 lesson objectives with no assessment mapping, 0 with no practice item, 0 linked to no course outcome; 0 of 114 course outcomes that no lesson objective links to, 0 that no assessment lists.
+Totals: 25 packages, 473 lessons, 1186 objectives, 3047 practice items, 0 lesson objectives with no assessment mapping, 0 with no practice item, 0 linked to no course outcome; 0 of 114 course outcomes that no lesson objective links to, 0 that no assessment lists.
 
 Each assessment with items lists the course outcomes its own items assess (item, then its tagged lesson objective,
 then that objective's outcome links), and `tools/validate_content.py` rejects an outcome that none of the

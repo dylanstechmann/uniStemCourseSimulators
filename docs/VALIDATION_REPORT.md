@@ -6151,3 +6151,25 @@ Key checks before publication:
 | Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
 
 Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.
+
+## Linear Algebra hidden-state reconstruction project for learners (2026-10-20)
+
+Linear Algebra advances to 0.4.0. Week 12 gains `assignments/hidden-state-reconstruction-project-guide.md`, the synthetic `assignments/rehearsal-readouts.csv` (four channels mixing two states) and a five-item, 19-point rehearsal practice set that also uses a separate two-state chain; five project milestones are zero-point self-checks in `rubrics/case-studio.json`, with a `project` self-assessment record in week 13. The project readouts and the sensor lab's dataset become learner resources, and the lab's link now resolves to the package-pinned CSV. The inactive project draft is unchanged.
+
+Key checks before publication:
+
+- A self-check script graded the five new items with the backend grader: keys earn full credit and wrong responses zero. Eight further response cases (the true values guessed instead of fitted, eigenvalues used as singular values, a row-vector convention, and fully correct responses) earn the stated scores. The first draft tagged items with objective IDs that did not match their topics; they were remapped to the rank, least-squares, singular-value and Markov-chain lessons. An option-length audit flagged seven fields, which were rebalanced.
+- `tests/content/test_linear_algebra_project_route.py` (5 tests) recomputes the rehearsal keys by Householder QR, power iteration on AᵀA and exact rational iteration of the chain, rather than the normal equations and closed forms used to author the keys. It checks that the residual is orthogonal to both columns, that the condition number equals the golden ratio, that the chain's error ratio gives the second eigenvalue, the guide's restatement of the draft and its worked example, and that neither the guide nor the rehearsal states the project's results, including the 0.7 contrast factor. It also checks that every link resolves and each learner resource is served byte for byte.
+- The guide's display matrices parse in KaTeX. Pins updated: the snapshot version, the lesson count (15 to 16), the global case count (100 to 105) and the backend per-course case map. The numeric-answer limitation, which still counted 69 answers, now counts 89, two requiring a unit and ten checking significant figures. The review handoff, which still named 0.3.6, now targets 0.4.0.
+- The 0.3.7 snapshot is archived as `docs/LINEAR_ALGEBRA_REVIEW_SNAPSHOT-0.3.7.md`.
+
+| Actual command/check | Result |
+| --- | --- |
+| Self-check script over the Linear Algebra item module (backend grader) | 5 items and 8 extra cases passed. |
+| `tools/validate_content.py` | Passed: 25 courses, 473 lessons, 3,047 questions, 1,644 cards and 105 cases; 0 errors and 0 warnings. |
+| `tools/objective_coverage.py --check` and `tools/assessment_candidates.py --check` | Passed after regeneration. |
+| `claims_scan.py --repo uniStemCourseSimulators` | 0 findings. |
+| Full verify, `verify.sh --frontend` (log `la-verify-1`) | Content, legacy (7), security (1,712 files, 0 findings), ruff, root (3,453 passed, 1 skipped), backend (6,425 passed, 2 skipped) and frontend (77 tests) passed. |
+| Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
+
+Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.

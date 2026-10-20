@@ -22,7 +22,7 @@ No course or candidate is activated by this command. `--check` detects report dr
 | general-chemistry-2 | 0.5.0 | partial | unreviewed | formative-only | 0 |
 | genetics | 0.6.0 | partial | unreviewed | formative-only | 0 |
 | geroscience | 0.5.9 | partial | unreviewed | formative-only | 0 |
-| linear-algebra | 0.3.7 | partial | unreviewed | formative-only | 0 |
+| linear-algebra | 0.4.0 | partial | unreviewed | formative-only | 0 |
 | organic-chemistry | 0.4.9 | partial | unreviewed | formative-only | 0 |
 | physics-em | 0.4.8 | partial | unreviewed | formative-only | 0 |
 | physics-mechanics | 0.5.0 | partial | unreviewed | formative-only | 0 |

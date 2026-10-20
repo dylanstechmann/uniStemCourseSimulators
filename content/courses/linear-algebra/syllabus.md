@@ -1,6 +1,6 @@
 # Linear Algebra for Modeling & Robotics
 
-**Maturity: partial. Version: 0.3.7.** This is a personal learning project developed with substantial AI assistance, not an accredited university course.
+**Maturity: partial. Version: 0.4.0.** This is a personal learning project developed with substantial AI assistance, not an accredited university course.
 
 Vectors, matrices, eigenstructure, least squares and linear transformations applied to state estimation, circuit networks and robot coordinates.
 
@@ -32,7 +32,7 @@ This is proposed scope, not measured workload or a reviewed semester. Weeks 1, 2
 | 9 | Cell-state transitions as a Markov chain: transition matrices, the eigenvalue 1 and how fast a population settles | 6 | 4 |
 | 10 | The singular value decomposition and low-rank approximation | 9 | 4 |
 | 11 | Conditioning, error bounds and regularization | 9 | 4 |
-| 12 | Centered PCA, scaling and interpretation | 9 | 4 |
+| 12 | Centered PCA, scaling and interpretation; optional hidden-state project guide | 14 | 7 |
 | 13 | Virtual lab 1: sensor geometry, noise and displacement estimates | 8 | 4 |
 | 14 | Two displacement sensors: a small residual and an unreliable answer | 9 | 4 |
 
@@ -40,15 +40,19 @@ This is proposed scope, not measured workload or a reviewed semester. Weeks 1, 2
 
 Practice includes numeric, single-choice, multiple-select, CSV upload and structured-choice checks. The lab asks for sensor estimates, errors and interpretation. Written discussion criteria are guidance, not automatically graded prose. Retries are unlimited and practice points do not establish an institutional grade, university credit or mastery. Assessments list the objectives and course outcomes their items assess; all four prototype lessons map to course outcomes; these authoring links remain provisional.
 
-There are 15 readings, 108 public practice items and 56 retrieval cards, plus the existing self-assessment case checklist. Week 3 now develops all four fundamental subspaces of a rectangular matrix and connects left-null orthogonality to consistency and least-squares residuals.
+There are 16 readings, 113 public practice items and 59 retrieval cards, plus the existing self-assessment case checklist and five project-milestone self-checks. Week 3 now develops all four fundamental subspaces of a rectangular matrix and connects left-null orthogonality to consistency and least-squares residuals.
+
+## Optional hidden-state reconstruction project (ungraded)
+
+The [hidden-state project guide](assignments/hidden-state-reconstruction-project-guide.md) makes the project below usable as open practice. It restates the project's design, readouts and tasks, works a separate design and chain, and pairs synthetic rehearsal readouts with open practice items in week 12. Five milestones, suggested for weeks 12–13, are Case studio self-checks whose responses are saved privately and never submitted, collected or scored.
 
 ## Inactive integrative project draft
 
-The [hidden-state reconstruction and transition-dynamics project](assessment-specs/hidden-state-reconstruction-project-draft.md) combines full-rank least squares, residual diagnostics, conditioning, orthonormal coordinates and a three-state transition model using a small synthetic dataset. This authoring draft is not scheduled, assigned, collected or graded. Its values and unweighted rubric need independent mathematical, workload and accessibility review before any activation.
+The [hidden-state reconstruction and transition-dynamics project](assessment-specs/hidden-state-reconstruction-project-draft.md) combines full-rank least squares, residual diagnostics, conditioning, orthonormal coordinates and a three-state transition model using a small synthetic dataset. The authoring draft itself is not scheduled, assigned, collected or graded, and the open project guide above does not submit work to it. Its values and unweighted rubric need independent mathematical, workload and accessibility review before any activation.
 
 ## Current limitations
 
-All four compact legacy prototype readings now have expanded instructional content. There is no graded homework sequence, midterm, final or activated integrative project; the new project is an inactive draft. One synthetic lab is not a laboratory sequence. Workload and accessibility have not been measured or reviewed. All uncertainty calculations depend on specified matrix scales and noise assumptions, and regularization supplies a convention rather than a new measurement. The package remains partial and unreviewed.
+All four compact legacy prototype readings now have expanded instructional content. There is no graded homework sequence, midterm, final or activated integrative project; the optional project guide and its rehearsal are ungraded practice, and the project draft remains inactive. One synthetic lab is not a laboratory sequence. Workload and accessibility have not been measured or reviewed. All uncertainty calculations depend on specified matrix scales and noise assumptions, and regularization supplies a convention rather than a new measurement. The package remains partial and unreviewed.
 
 ## Sources and licensing
 
