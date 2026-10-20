@@ -3908,6 +3908,404 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "calculus-1-project:rehearsal-derivatives",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · The rehearsal's corrected signal is S(t) = 16e^(−0.12t) + 4e^(−0.02t) signal units for 0 ≤ t ≤ 20 hours. Differentiate it twice and use the signs of S′ and S″. Use a hyphen-minus for negative values.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-1-2-objective-1",
+        "calculus-1-9-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "s_prime_0",
+          "type": "numeric",
+          "prompt": "S′(0), in signal units per hour, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "s_double_prime_0",
+          "type": "numeric",
+          "prompt": "S″(0), in signal units per hour squared, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "steepest",
+          "type": "single_choice",
+          "prompt": "Where on [0, 20] is the decline steepest?",
+          "options": [
+            "At t = 20 h, because the signal is smallest there and S′ is still negative.",
+            "At t = 0, because S″ > 0 makes S′ increase toward zero as time passes.",
+            "At t = 10 h, the midpoint, where both exponential terms are halfway decayed."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "s_prime_0",
+            "type": "numeric",
+            "answer": -2.0,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "s_double_prime_0",
+            "type": "numeric",
+            "answer": 0.232,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "steepest",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Differentiate each exponential term separately: d/dt e^(−kt) = −k e^(−kt).",
+        "solution": "S′(t) = −1.92e^(−0.12t) − 0.08e^(−0.02t), so S′(0) = −2.00 signal units per hour. S″(t) = 0.2304e^(−0.12t) + 0.0016e^(−0.02t) > 0, so S′ increases toward zero and the decline is steepest at t = 0. Both terms of S′ stay negative, so S decreases throughout.",
+        "lesson_ids": [
+          "calculus-1-project-guide",
+          "calculus-1-2",
+          "calculus-1-9"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-1-project:rehearsal-newton",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · For the same rehearsal signal, find when S first reaches 5 signal units by applying Newton's method to f(t) = S(t) − 5, starting at t₀ = 15 h. Keep at least six significant figures between steps.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-1-12-objective-2",
+        "calculus-1-14-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "t1",
+          "type": "numeric",
+          "prompt": "First Newton estimate t₁, in hours, to four significant figures.",
+          "unit": "h",
+          "points": 1
+        },
+        {
+          "id": "t2",
+          "type": "numeric",
+          "prompt": "Second Newton estimate t₂, in hours, to four significant figures.",
+          "unit": "h",
+          "points": 1
+        },
+        {
+          "id": "uniqueness",
+          "type": "single_choice",
+          "prompt": "Why is there exactly one time in [15, 20] when S = 5?",
+          "options": [
+            "Newton's method converged, so the root it found must be the only root.",
+            "S″ > 0 throughout, so every horizontal line meets the curve exactly once.",
+            "S(15) > 5 > S(20) and S′ < 0 throughout, so the signal crosses 5 once."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "t1",
+            "type": "numeric",
+            "answer": 16.61,
+            "unit": "h",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "t2",
+            "type": "numeric",
+            "answer": 16.77,
+            "unit": "h",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "uniqueness",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "t₁ = t₀ − f(t₀)/f′(t₀), with f′(t) = S′(t). Check the endpoint signs before trusting the iteration.",
+        "solution": "f(15) = 0.608055 and f′(15) = -0.376639, so t₁ = 16.6144 h; one more step gives t₂ = 16.7653 h, where |f(t₂)| ≈ 0.0004. Existence comes from the sign change on [15, 20] and uniqueness from S′ < 0; convergence of the iteration alone proves neither.",
+        "lesson_ids": [
+          "calculus-1-project-guide",
+          "calculus-1-12",
+          "calculus-1-14"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-1-project:rehearsal-accumulation",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Integrate the rehearsal signal exactly over 0 ≤ t ≤ 20 hours. The observed signal is Y(t) = S(t) + 1.5, where 1.5 is the known blank.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-1-4-objective-1",
+        "calculus-1-10-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "exact_integral",
+          "type": "numeric",
+          "prompt": "Exact integral of S from 0 to 20 h, in signal·hours, to four significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "average",
+          "type": "numeric",
+          "prompt": "Average corrected signal over [0, 20], in signal units, to four significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "observed_integral",
+          "type": "numeric",
+          "prompt": "Integral of the uncorrected Y from 0 to 20 h, in signal·hours, to four significant figures.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "exact_integral",
+            "type": "numeric",
+            "answer": 187.2,
+            "unit": "",
+            "tolerance": 0.06,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "average",
+            "type": "numeric",
+            "answer": 9.359,
+            "unit": "",
+            "tolerance": 0.0015,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "observed_integral",
+            "type": "numeric",
+            "answer": 217.2,
+            "unit": "",
+            "tolerance": 0.06,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "An antiderivative of A e^(−kt) is −(A/k) e^(−kt); the blank adds a constant times the interval length.",
+        "solution": "(16/0.12)(1 − e^(−2.4)) + (4/0.02)(1 − e^(−0.4)) = 187.174 signal·hours, an average of 9.3587 signal units over 20 h. Integrating Y adds 1.5 × 20 = 30, giving 217.174.",
+        "lesson_ids": [
+          "calculus-1-project-guide",
+          "calculus-1-4",
+          "calculus-1-10"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-1-project:rehearsal-simpson",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Use only the five values in the rehearsal CSV linked in the project guide. Subtract the blank, then apply composite Simpson's rule with h = 5 h. Compare the estimate with the exact integral, keeping at least six significant figures in both.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-1-11-objective-2",
+        "calculus-1-11-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "simpson",
+          "type": "numeric",
+          "prompt": "Composite Simpson estimate, in signal·hours, to five significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "abs_error",
+          "type": "numeric",
+          "prompt": "Simpson estimate minus the exact integral, in signal·hours, to two significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "error_meaning",
+          "type": "single_choice",
+          "prompt": "What does this small difference show?",
+          "options": [
+            "That the two-exponential model is the right description of the washout itself.",
+            "That five equally spaced samples are enough for any smooth signal on any interval.",
+            "Only that the rule approximates this model's integral closely, not that the model fits data."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "simpson",
+            "type": "numeric",
+            "answer": 187.26,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 5,
+            "dimensions": null
+          },
+          {
+            "id": "abs_error",
+            "type": "numeric",
+            "answer": 0.084,
+            "unit": "",
+            "tolerance": 0.0015,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 2,
+            "dimensions": null
+          },
+          {
+            "id": "error_meaning",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Simpson's weights for four panels are 1, 4, 2, 4, 1, multiplied by h/3.",
+        "solution": "(5/3)[20 + 4(12.400336) + 2(8.09403) + 4(5.608055) + 4.132767] = 187.2573 signal·hours, 0.0837 above the exact 187.1736. The comparison measures the rule against the model; it says nothing about whether the model describes any real signal.",
+        "lesson_ids": [
+          "calculus-1-project-guide",
+          "calculus-1-11"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "calculus-1-project:rehearsal-blank",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · An analyst subtracts a blank of 1.6 instead of the stated 1.5 before integrating the rehearsal signal over 20 hours. Use a hyphen-minus for a decrease.",
+      "points": 2,
+      "objective_ids": [
+        "calculus-1-12-objective-3",
+        "calculus-1-13-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "integral_change",
+          "type": "numeric",
+          "prompt": "Change in the 20-hour corrected integral, in signal·hours, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "assumption",
+          "type": "single_choice",
+          "prompt": "Which assumption produced the difference?",
+          "options": [
+            "That the blank is exactly the stated constant; a wrong blank shifts every value.",
+            "That Simpson's rule is exact for exponential signals, which it is not.",
+            "That the two decay rates are known exactly, which changes only the derivative."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "integral_change",
+            "type": "numeric",
+            "answer": -2.0,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "assumption",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "A constant error c in the blank shifts every corrected value by c, so the integral shifts by c times the interval.",
+        "solution": "Subtracting 0.1 too much over 20 hours lowers the corrected integral by 0.1 × 20 = 2.00 signal·hours. The difference comes from the blank assumption, not from the calculus.",
+        "lesson_ids": [
+          "calculus-1-project-guide",
+          "calculus-1-12",
+          "calculus-1-13"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
     }
   ]
 }

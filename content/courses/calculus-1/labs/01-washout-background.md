@@ -12,7 +12,7 @@
 
 The underlying teaching concentration is C(t)=20e^(−0.1t), with time t in hours. The sensor reports Y(t)=C(t)+2 in a common arbitrary signal scale. The constant blank 2 is independently supplied and exact in this construction. At seven times, the mean signal is rounded to three decimal places and three readings are placed at mean minus 0.1, mean, and mean plus 0.1. Their offsets deliberately balance. Reusing replicate numbers does not establish independence across times, and no confidence interval or real sensor-noise distribution is inferred.
 
-[Download the synthetic CSV](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/calculus-1/labs/washout-signals.csv). The `time` column is the stable row group code; `hours` is elapsed time; `replicate` is a constructed reading identifier from 1 to 3; `signal` is the reported value including background; and `blank` is the known background. Signals and blank share the same scale. Every corrected mean is positive in this exercise. The row values, rather than the unrounded generating function, define the numeric answers below.
+[Download the synthetic CSV](washout-signals.csv). The `time` column is the stable row group code; `hours` is elapsed time; `replicate` is a constructed reading identifier from 1 to 3; `signal` is the reported value including background; and `blank` is the known background. Signals and blank share the same scale. Every corrected mean is positive in this exercise. The row values, rather than the unrounded generating function, define the numeric answers below.
 
 ## Summary of the supplied observations
 

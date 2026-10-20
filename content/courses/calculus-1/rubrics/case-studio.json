@@ -30,6 +30,196 @@
       "limitations": [
         "This preserved three-criterion checklist is self-assessment, not an analytic grading rubric or an institutional grade."
       ]
+    },
+    {
+      "id": "calculus-1:project-m1-derivatives",
+      "prompt": "Washout project milestone 1 (suggested week 12). For the project's corrected signal S(t) = 18e^(−0.08t) + 6e^(−0.015t), derive S′ and S″, find the initial rate of change, show that S decreases on [0, 24] and use the sign of S″ to locate the steepest decline.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "calculus-1-2-objective-1",
+        "calculus-1-9-objective-1"
+      ],
+      "rubric": [
+        {
+          "id": "project-m1-derivatives-criterion-1",
+          "criterion": "I differentiated each exponential term and kept the units signal units per hour.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-derivatives-criterion-2",
+          "criterion": "I showed that every term of S′ is negative, so S decreases on the whole interval.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-derivatives-criterion-3",
+          "criterion": "I used the sign of S″ to explain where the decline is steepest.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-derivatives-criterion-4",
+          "criterion": "I checked my method on the open rehearsal before using the project model.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the washout-model project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "calculus-1:project-m2-newton",
+      "prompt": "Washout project milestone 2 (suggested week 12). Find when the corrected signal first reaches 8 units: establish a unique root on [20, 24], apply Newton's method to f(t) = S(t) − 8 from t₀ = 20 h for at least two iterations, and substitute the final estimate back into f.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "calculus-1-12-objective-2",
+        "calculus-1-14-objective-2"
+      ],
+      "rubric": [
+        {
+          "id": "project-m2-newton-criterion-1",
+          "criterion": "I showed a sign change on [20, 24] and used S′ < 0 to argue the root is unique.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-newton-criterion-2",
+          "criterion": "I wrote each Newton update with f and f′ evaluated at the previous estimate.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-newton-criterion-3",
+          "criterion": "I kept enough digits between steps and reported the residual of the final estimate.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-newton-criterion-4",
+          "criterion": "I explained that convergence of the iteration is not by itself a proof of uniqueness.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the washout-model project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "calculus-1:project-m3-accumulation",
+      "prompt": "Washout project milestone 3 (suggested week 13). Evaluate the exact cumulative corrected signal from 0 to 24 h and its average over the interval, with units, and state how integrating the uncorrected Y changes the result.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "calculus-1-4-objective-1",
+        "calculus-1-10-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m3-accumulation-criterion-1",
+          "criterion": "I used an antiderivative for each exponential term and evaluated it at both limits.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-accumulation-criterion-2",
+          "criterion": "I reported the integral in signal·hours and the average in signal units.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-accumulation-criterion-3",
+          "criterion": "I explained that the blank adds a constant times the 24-hour interval to the integral of Y.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-accumulation-criterion-4",
+          "criterion": "I kept the exact value with enough digits to compare with a numerical estimate later.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the washout-model project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "calculus-1:project-m4-simpson",
+      "prompt": "Washout project milestone 4 (suggested week 13). Using only the seven equally spaced project values, compute composite Simpson's rule with h = 4 h, compare it with the exact integral by absolute and relative error, and explain why the comparison does not establish the accuracy of the model itself.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "calculus-1-11-objective-2",
+        "calculus-1-11-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m4-simpson-criterion-1",
+          "criterion": "I subtracted the blank before applying Simpson's weights 1, 4, 2, 4, 2, 4, 1.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-simpson-criterion-2",
+          "criterion": "I reported the absolute and relative error against the exact integral.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-simpson-criterion-3",
+          "criterion": "I explained that the error measures the rule against the constructed model.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-simpson-criterion-4",
+          "criterion": "I stated that the constructed values say nothing about any real washout.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the washout-model project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "calculus-1:project-m5-assumptions",
+      "prompt": "Washout project milestone 5 (suggested week 14). Calculate how the 24-hour corrected integral changes if a blank of 3.05 is subtracted instead of 3.00, name the assumption responsible, and write a short limitations note separating exact arithmetic in this constructed example from model selection for a real dataset.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "calculus-1-12-objective-3",
+        "calculus-1-13-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m5-assumptions-criterion-1",
+          "criterion": "I computed the change as the blank error times the interval length, with its sign and units.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-assumptions-criterion-2",
+          "criterion": "I named the stated-blank assumption as the source of the difference.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-assumptions-criterion-3",
+          "criterion": "I separated exact arithmetic in a known model from choosing or validating a model for real data.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-assumptions-criterion-4",
+          "criterion": "I disclosed any tools or AI assistance used.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the washout-model project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
     }
   ]
 }

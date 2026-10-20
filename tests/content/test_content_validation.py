@@ -171,8 +171,8 @@ def test_preserved_inventory_is_honest_partial(repository):
     assert result.ok, result.errors
     assert result.inventory == independent_inventory(repository)
     # 25 preserved course cases plus five project-milestone self-checks each in Cell Biology (0.62.0),
-    # Biochemistry (0.5.0) and Genetics (0.6.0).
-    assert result.inventory["courses"] == 25 and result.inventory["cases"] == 40
+    # Biochemistry (0.5.0), Genetics (0.6.0) and Calculus I (0.5.0).
+    assert result.inventory["courses"] == 25 and result.inventory["cases"] == 45
     assert sum(warning["code"] == "legacy-depth" for warning in result.warnings) == 0
     # Assessments list the course outcomes their items assess, so no package has an unmapped outcome.
     assert not [warning for warning in result.warnings if warning["code"] == "objective-coverage"]

@@ -595,7 +595,8 @@ def test_schedule_syllabus_and_labels():
     weeks = c["duration"]["weeks"]
     scheduled = [lid for week in weeks for lid in week["lesson_ids"]]
     lessons = {lesson["id"] for module in c["modules"] for lesson in module["lessons"]}
-    assert len(weeks) == 14 and len(set(scheduled)) == len(scheduled) == 16
+    # 16 topic and lab readings plus the optional washout project guide added in 0.5.0.
+    assert len(weeks) == 14 and len(set(scheduled)) == len(scheduled) == 17
     assert set(scheduled) == lessons
     assert weeks[12]["lesson_ids"] == ["calculus-1-lab-01"]
     assert "calculus-1-case" in weeks[13]["assessment_ids"]
@@ -609,4 +610,4 @@ def test_schedule_syllabus_and_labels():
     )
     syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8")
     assert all(outcome["description"] in syllabus for outcome in c["outcomes"])
-    assert f"Version: {c['version']}" in syllabus and "113 public practice items" in syllabus
+    assert f"Version: {c['version']}" in syllabus and "118 public practice items" in syllabus

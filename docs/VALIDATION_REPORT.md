@@ -5838,3 +5838,26 @@ The lesson reader now passes `remark-gfm` 4.0.1 to `react-markdown`, so the 254 
 | Not run | The Playwright end-to-end suite, which covers lesson accessibility in a browser, runs only in CI; no manual browser check was performed here. |
 
 These checks were run by an AI coding agent (Claude Code) at the owner's request.
+
+## Calculus I washout-model project for learners (2026-10-20)
+
+Calculus I advances to 0.5.0. Week 12 gains `assignments/washout-model-project-guide.md`, the constructed `assignments/washout-rehearsal-signals.csv` (S(t) = 16e^(−0.12t) + 4e^(−0.02t), blank 1.5, five samples over 20 hours) and a five-item, 14-point rehearsal practice set; five project milestones are zero-point self-checks in `rubrics/case-studio.json`, with a `project` self-assessment record in week 14. The project's signal table and the washout lab's dataset become learner resources, and the lab's link now resolves to the package-pinned CSV. The inactive project draft is unchanged.
+
+Key checks before publication:
+
+- A self-check script graded the five new items with the backend grader: keys earn full credit and wrong responses zero. Another 14 cases (too few significant figures, a dropped sign, a sign error in the Newton update, answers with and without the hour unit, an average from the rounded integral, a blank left in, trapezoids instead of Simpson) earn the stated scores. An option-length audit flagged no field, and correct answers were spread across option positions.
+- `tests/content/test_calculus_one_project_route.py` (5 tests) recomputes every rehearsal key with independent numerics: central differences for S′(0) and S″(0), Newton steps with a numerical derivative checked against bisection, a 4,000-panel Simpson sum for the exact integral, and Simpson's rule on the CSV values. It checks both CSVs against their formulas and the guide's worked example against the lab's signal, confirms that neither the guide nor the rehearsal states the project's own results, and checks that the lab and guide links resolve to lesson routes or pinned resources.
+- Pins updated: the Calculus I snapshot version, its scheduled-lesson count (16 to 17) and syllabus item count (113 to 118), the global case count (40 to 45) and the backend per-course case map. The Calculus I numeric-item enumeration is unchanged because the new items use data-interpretation fields; the numeric limitation now also names their 10 significant-figure checks.
+- The 0.4.9 snapshot is archived as `docs/CALCULUS_1_REVIEW_SNAPSHOT-0.4.9.md`.
+
+| Actual command/check | Result |
+| --- | --- |
+| Self-check script over the Calculus I item module (backend grader) | 5 items and 14 extra cases passed. |
+| `tools/validate_content.py` | Passed: 25 courses, 461 lessons, 2,993 questions, 1,608 cards and 45 cases; 0 errors and 0 warnings. |
+| `tools/objective_coverage.py --check docs/COURSE_GAP_REPORT.md` | Passed after regeneration. Calculus I: 17 lessons, 44 objectives, 118 items, 59 cards; no unmapped objective or outcome. |
+| `tools/assessment_candidates.py --check docs/ASSESSMENT_CANDIDATE_REPORT.md` | Passed after regeneration. |
+| `claims_scan.py --repo uniStemCourseSimulators` | One HIGH `disclosure-removed` finding on the Calculus I syllabus version line. It is a false positive: the AI-assistance sentence is unchanged and shares the line with the version number, which had to change. |
+| Full verify, `verify.sh --frontend` (log `calc1-verify-1`) | Content, legacy (7), security (1,658 files including the built bundle, 0 findings), ruff, root (3,391 passed, 1 skipped), backend (6,314 passed, 2 skipped) and frontend passed. |
+| Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
+
+Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.
