@@ -4017,6 +4017,376 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "statics-materials-project:rehearsal-section",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Use the rehearsal candidates linked in the project guide. Each is a rectangular beam of width 15 mm, simply supported over a span of 0.250 m with a 20 N load at midspan. Use I = bh³/12.",
+      "points": 4,
+      "objective_ids": [
+        "statics-materials-14-objective-1",
+        "statics-materials-11-objective-1",
+        "statics-materials-11-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "moment",
+          "type": "numeric",
+          "prompt": "Maximum bending moment, in N·m, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "inertia_p",
+          "type": "numeric",
+          "prompt": "Second moment of area of P, in units of 10⁻⁹ m⁴, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "inertia_q",
+          "type": "numeric",
+          "prompt": "Second moment of area of Q, in units of 10⁻⁹ m⁴, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "depth_effect",
+          "type": "single_choice",
+          "prompt": "Q is 25% deeper than P. Why is its second moment of area about twice P's?",
+          "options": [
+            "Because I grows with the square of the depth, and 1.25² is about 1.56.",
+            "Because I grows with the cube of the depth, and 1.25³ is about 1.95.",
+            "Because Q's lower modulus raises I to compensate for its flexibility."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "moment",
+            "type": "numeric",
+            "answer": 1.25,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "inertia_p",
+            "type": "numeric",
+            "answer": 5.12,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "inertia_q",
+            "type": "numeric",
+            "answer": 10.0,
+            "unit": "",
+            "tolerance": 0.06,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "depth_effect",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "M_max = FL/4 for a centered point load; I = bh³/12 with SI lengths.",
+        "solution": "Each support carries 10 N, and M_max = 20 × 0.250/4 = 1.25 N·m. I_P = 0.015 × 0.016³/12 = 5.12 × 10⁻⁹ m⁴ and I_Q = 0.015 × 0.020³/12 = 10.0 × 10⁻⁹ m⁴; the depth enters cubed.",
+        "lesson_ids": [
+          "statics-materials-project-guide",
+          "statics-materials-14",
+          "statics-materials-11"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-project:rehearsal-checks",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · For the same beams, the classroom criteria are σ_max ≤ S_y/2 for strength and δ_max ≤ 0.500 mm for stiffness. Use σ_max = 6M_max/(bh²) and δ_max = FL³/(48EI).",
+      "points": 4,
+      "objective_ids": [
+        "statics-materials-3-objective-2",
+        "statics-materials-11-objective-1",
+        "statics-materials-4-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "stress_p",
+          "type": "numeric",
+          "prompt": "Maximum bending stress in P, in MPa, to three significant figures.",
+          "unit": "MPa",
+          "points": 1
+        },
+        {
+          "id": "deflection_p",
+          "type": "numeric",
+          "prompt": "Midspan deflection of P, in mm, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "deflection_q",
+          "type": "numeric",
+          "prompt": "Midspan deflection of Q, in mm, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "p_outcome",
+          "type": "single_choice",
+          "prompt": "Which statement about candidate P is correct?",
+          "options": [
+            "It fails the strength check, so its deflection does not need to be checked.",
+            "It passes both checks, because its stress is far below half its yield strength.",
+            "It passes the strength check but fails the stiffness check by a small margin."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "stress_p",
+            "type": "numeric",
+            "answer": 1.95,
+            "unit": "MPa",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "deflection_p",
+            "type": "numeric",
+            "answer": 0.509,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "deflection_q",
+            "type": "numeric",
+            "answer": 0.434,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "p_outcome",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Work in SI: 15 mm = 0.015 m and GPa = 10⁹ Pa. Apply the two criteria separately.",
+        "solution": "σ_P = 6 × 1.25/(0.015 × 0.016²) = 1.953 MPa, far below 12 MPa. δ_P = 20 × 0.250³/(48 × 2.5 × 10⁹ × 5.12 × 10⁻⁹) = 0.5086 mm, just over 0.500 mm, while δ_Q = 0.434 mm passes. A beam can be strong enough and still too flexible.",
+        "lesson_ids": [
+          "statics-materials-project-guide",
+          "statics-materials-3",
+          "statics-materials-11",
+          "statics-materials-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-project:rehearsal-load-limits",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Stress and deflection are both proportional to the load in this linear model. Find the load at which each criterion would be reached.",
+      "points": 4,
+      "objective_ids": [
+        "statics-materials-4-objective-2",
+        "statics-materials-11-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "strength_load_p",
+          "type": "numeric",
+          "prompt": "Load at which P reaches σ_max = S_y/2, in N, to four significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "deflection_load_p",
+          "type": "numeric",
+          "prompt": "Load at which P reaches δ_max = 0.500 mm, in N, to four significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "deflection_load_q",
+          "type": "numeric",
+          "prompt": "Load at which Q reaches δ_max = 0.500 mm, in N, to four significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "governing",
+          "type": "single_choice",
+          "prompt": "Which criterion controls the allowable load for both rehearsal beams?",
+          "options": [
+            "The deflection limit, because it is reached at a much smaller load than the strength limit.",
+            "The strength limit, because yield strength is always the governing property of a beam.",
+            "Neither, because the two limits are reached at the same load in a linear model."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "strength_load_p",
+            "type": "numeric",
+            "answer": 122.9,
+            "unit": "",
+            "tolerance": 0.06,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "deflection_load_p",
+            "type": "numeric",
+            "answer": 19.66,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "deflection_load_q",
+            "type": "numeric",
+            "answer": 23.04,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "governing",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Scale the 20 N load by (limit ÷ value at 20 N) for each criterion; the smaller result controls.",
+        "solution": "P: 20 × 12/1.9531 = 122.88 N for strength and 20 × 0.500/0.50863 = 19.66 N for deflection. Q: deflection is reached at 23.04 N, far below its 128 N strength load. Deflection controls both.",
+        "lesson_ids": [
+          "statics-materials-project-guide",
+          "statics-materials-4",
+          "statics-materials-11"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "statics-materials-project:rehearsal-margin",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Re-check Q, the only passing rehearsal beam, at a load 20% higher than 20 N.",
+      "points": 2,
+      "objective_ids": [
+        "statics-materials-4-objective-2",
+        "statics-materials-4-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "deflection_q_raised",
+          "type": "numeric",
+          "prompt": "Midspan deflection of Q at the raised load, in mm, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "missing_evidence",
+          "type": "single_choice",
+          "prompt": "What does even a passing calculation here not establish?",
+          "options": [
+            "That the beam deflects downward at midspan when a downward load is applied at its centre.",
+            "That a real beam is safe: supports, shear, notches, fatigue and variability are not modelled.",
+            "That the bending stress in this model rises in direct proportion to the applied load."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "deflection_q_raised",
+            "type": "numeric",
+            "answer": 0.521,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "missing_evidence",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Deflection is linear in load, so a 20% higher load gives 20% more deflection.",
+        "solution": "δ = 1.2 × 0.43403 = 0.5208 mm, now above 0.500 mm, so Q's margin is smaller than 20%. The criteria are classroom thresholds on an idealized beam, not acceptance criteria for any real structure.",
+        "lesson_ids": [
+          "statics-materials-project-guide",
+          "statics-materials-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
     }
   ]
 }

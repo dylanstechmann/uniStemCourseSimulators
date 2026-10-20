@@ -30,6 +30,195 @@
       "limitations": [
         "This preserved three-criterion checklist is self-assessment, not an analytic grading rubric or an institutional grade."
       ]
+    },
+    {
+      "id": "statics-materials:project-m1-equilibrium",
+      "prompt": "Beam project milestone 1 (suggested week 8). Draw the free-body diagram of the 0.300 m simply supported beam with its 30 N midspan load, and calculate the support reactions and the maximum bending moment.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "statics-materials-1-objective-2",
+        "statics-materials-14-objective-1"
+      ],
+      "rubric": [
+        {
+          "id": "project-m1-equilibrium-criterion-1",
+          "criterion": "I drew both supports with ideal reactions and the load at midspan.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-equilibrium-criterion-2",
+          "criterion": "I found the reactions from force and moment balance, not by assuming symmetry alone.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-equilibrium-criterion-3",
+          "criterion": "I calculated the maximum bending moment with units of N·m.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-equilibrium-criterion-4",
+          "criterion": "I checked my method on the open rehearsal before using the project beam.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the beam strength-and-stiffness project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "statics-materials:project-m2-section",
+      "prompt": "Beam project milestone 2 (suggested week 8). Convert every candidate property to SI units and calculate I, the maximum bending stress and the midspan deflection for candidates A, B and C.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "statics-materials-11-objective-1",
+        "statics-materials-3-objective-2"
+      ],
+      "rubric": [
+        {
+          "id": "project-m2-section-criterion-1",
+          "criterion": "I converted millimetres, gigapascals and megapascals to consistent SI units before calculating.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-section-criterion-2",
+          "criterion": "I used I = bh³/12 with the depth cubed and the width to the first power.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-section-criterion-3",
+          "criterion": "I calculated σ_max = 6M_max/(bh²) and δ_max = FL³/(48EI) for each candidate.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-section-criterion-4",
+          "criterion": "I kept enough digits to compare each result with its criterion.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the beam strength-and-stiffness project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "statics-materials:project-m3-criteria",
+      "prompt": "Beam project milestone 3 (suggested week 8). Apply the strength criterion σ_max ≤ S_y/2 and the stiffness criterion δ_max ≤ 0.600 mm separately, and explain how a candidate can pass one and fail the other.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "statics-materials-4-objective-1"
+      ],
+      "rubric": [
+        {
+          "id": "project-m3-criteria-criterion-1",
+          "criterion": "I applied the two criteria separately for every candidate.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-criteria-criterion-2",
+          "criterion": "I identified which candidates pass the strength check and which pass the stiffness check.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-criteria-criterion-3",
+          "criterion": "I explained why a beam can be strong enough and still too flexible.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-criteria-criterion-4",
+          "criterion": "I treated the thresholds as classroom criteria, not design requirements.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the beam strength-and-stiffness project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "statics-materials:project-m4-load-limits",
+      "prompt": "Beam project milestone 4 (suggested week 9). For each candidate, calculate the load at which the strength limit and the deflection limit would be reached, and identify which one controls.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "statics-materials-4-objective-2",
+        "statics-materials-11-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m4-load-limits-criterion-1",
+          "criterion": "I used the linear dependence of stress and deflection on load to scale each limit.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-load-limits-criterion-2",
+          "criterion": "I identified the smaller of the two limit loads as the controlling one.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-load-limits-criterion-3",
+          "criterion": "I explained which section property drives each candidate's deflection limit.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-load-limits-criterion-4",
+          "criterion": "I reported the limit loads with units and enough digits.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the beam strength-and-stiffness project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "statics-materials:project-m5-limits",
+      "prompt": "Beam project milestone 5 (suggested week 9). Re-evaluate the only passing candidate at a 20% higher load, then identify the evidence that this idealized calculation lacks for any real design decision.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "statics-materials-4-objective-2",
+        "statics-materials-4-objective-1"
+      ],
+      "rubric": [
+        {
+          "id": "project-m5-limits-criterion-1",
+          "criterion": "I recalculated the passing candidate's stress and deflection at the raised load.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-limits-criterion-2",
+          "criterion": "I named model omissions such as shear, stress concentrations, fatigue, imperfections and variability.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-limits-criterion-3",
+          "criterion": "I stated that the thresholds and values are synthetic and not a design basis.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-limits-criterion-4",
+          "criterion": "I disclosed any tools or AI assistance used.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the beam strength-and-stiffness project. The response is saved privately and is never submitted, scored or graded; the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
     }
   ]
 }

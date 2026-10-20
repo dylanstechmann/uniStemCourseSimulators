@@ -18,7 +18,7 @@ def load(path: Path) -> dict:
 
 def test_torsion_and_bending_reading_and_formative_calculations():
     manifest = load(COURSE / "course.json")
-    assert manifest["version"].startswith("0.4.")
+    assert tuple(int(part) for part in manifest["version"].split(".")) >= (0, 4, 0)
     module = next(
         item
         for item in manifest["modules"]

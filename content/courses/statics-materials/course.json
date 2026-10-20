@@ -7,7 +7,7 @@
   "domain": "Mechanical engineering",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.4.8",
+  "version": "0.5.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -446,7 +446,7 @@
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week undergraduate scope only. The opening week groups free-body diagrams with a short body-equilibrium application; week 2 develops beam load, shear, and moment diagrams before stress. The four compact prototype readings in weeks 1, 3, 4 and 8 now have expanded instruction beside original lessons on body equilibrium, beam loading, bone bending, beam deflection, combined stress, multiaxial strain and pressure vessels, stress concentrations, buckling, fatigue and brittle strength. Week 12 is a synthetic-data fatigue-life lab, and week 14 pairs failure analysis with the course case. All activities are open, ungraded practice. No graded homework sets, exams or project is present, and workload is unmeasured; this is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week undergraduate scope only. The opening week groups free-body diagrams with a short body-equilibrium application; week 2 develops beam load, shear, and moment diagrams before stress. The four compact prototype readings in weeks 1, 3, 4 and 8 now have expanded instruction beside original lessons on body equilibrium, beam loading, bone bending, beam deflection, combined stress, multiaxial strain and pressure vessels, stress concentrations, buckling, fatigue and brittle strength. Week 12 is a synthetic-data fatigue-life lab, and week 14 pairs failure analysis with the course case. Weeks 8–9 add an optional beam strength-and-stiffness project with rehearsal practice and milestone self-checks. All activities are open, ungraded practice. No graded homework sets, exams or graded project is present, and workload is unmeasured; this is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
@@ -524,12 +524,14 @@
       },
       {
         "week": 8,
-        "title": "Failure criteria and design margins",
+        "title": "Failure criteria and design margins; optional beam strength-and-stiffness project",
         "lesson_ids": [
-          "statics-materials-4"
+          "statics-materials-4",
+          "statics-materials-project-guide"
         ],
         "assessment_ids": [
-          "statics-materials-4-practice"
+          "statics-materials-4-practice",
+          "statics-materials-project-rehearsal-practice"
         ]
       },
       {
@@ -539,7 +541,8 @@
           "statics-materials-7"
         ],
         "assessment_ids": [
-          "statics-materials-7-practice"
+          "statics-materials-7-practice",
+          "statics-materials-beam-project"
         ]
       },
       {
@@ -1170,6 +1173,41 @@
           ]
         }
       ]
+    },
+    {
+      "id": "statics-materials-module-project",
+      "title": "Beam strength-and-stiffness project guide (optional, ungraded)",
+      "source_ids": [
+        "solidMechanics",
+        "mechanics"
+      ],
+      "lessons": [
+        {
+          "id": "statics-materials-project-guide",
+          "title": "Beam project guide: strength and stiffness of three synthetic sections (optional, ungraded)",
+          "reading": "assignments/beam-strength-and-stiffness-project-guide.md",
+          "objectives": [
+            "statics-materials-14-objective-1",
+            "statics-materials-11-objective-1",
+            "statics-materials-11-objective-3",
+            "statics-materials-3-objective-2",
+            "statics-materials-4-objective-1",
+            "statics-materials-4-objective-2"
+          ],
+          "worked_example": "For a synthetic beam spanning 0.200 m with a 10 N midspan load and a 10 mm by 10 mm section of E = 3.0 GPa, M_max = 0.500 N·m and I ≈ 0.8333 × 10⁻⁹ m⁴. The stress, 3.00 MPa, is well below a 15 MPa strength limit, but the deflection, about 0.667 mm, exceeds a 0.400 mm limit, so stiffness controls: about 6.0 N against 50 N.",
+          "question_ids": [
+            "statics-materials-project:rehearsal-section",
+            "statics-materials-project:rehearsal-checks",
+            "statics-materials-project:rehearsal-load-limits",
+            "statics-materials-project:rehearsal-margin"
+          ],
+          "card_ids": [
+            "statics-materials-project-1",
+            "statics-materials-project-2",
+            "statics-materials-project-3"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -1568,6 +1606,44 @@
         "statics-materials-15:thin-wall-validity"
       ],
       "points": 11
+    },
+    {
+      "id": "statics-materials-project-rehearsal-practice",
+      "type": "data-analysis",
+      "mode": "practice",
+      "title": "Beam project rehearsal: strength, stiffness and limit loads (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 8,
+      "objective_ids": [
+        "statics-materials-14-objective-1",
+        "statics-materials-11-objective-1",
+        "statics-materials-11-objective-3",
+        "statics-materials-3-objective-2",
+        "statics-materials-4-objective-1",
+        "statics-materials-4-objective-2",
+        "statics-materials-outcome-1",
+        "statics-materials-outcome-2",
+        "statics-materials-outcome-3",
+        "statics-materials-outcome-4"
+      ],
+      "question_ids": [
+        "statics-materials-project:rehearsal-section",
+        "statics-materials-project:rehearsal-checks",
+        "statics-materials-project:rehearsal-load-limits",
+        "statics-materials-project:rehearsal-margin"
+      ],
+      "points": 14
+    },
+    {
+      "id": "statics-materials-beam-project",
+      "type": "project",
+      "mode": "self-assessment",
+      "title": "Beam project milestones M1–M5 in the Case studio (optional self-check; ungraded)",
+      "path": "rubrics/case-studio.json",
+      "week": 9,
+      "objective_ids": [],
+      "question_ids": [],
+      "points": 0
     }
   ],
   "grading_policy": {
@@ -1667,19 +1743,30 @@
       "version": "0.4.8",
       "date": "2026-10-13",
       "summary": "Grouped an original multiaxial Hooke's law, thermal-strain and thin-walled pressure-vessel reading with the week-7 combined-stress lesson: Poisson contraction, generalized Hooke's law and volume change, constrained and partly constrained thermal stress, lateral-constraint stress, and hoop, axial and spherical membrane stresses with radius growth. Added three objectives, eleven formative items and four cards, with no week added, and corrected stale counts in the limitations (84 rather than 78 numerical answers before this release, 46 rather than 40 requiring units, and up to five items per prototype unit). The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.5.0",
+      "date": "2026-10-20",
+      "summary": "Made the planned beam strength-and-stiffness project usable by learners as ungraded practice. Week 8 gains an optional project guide with the project's beam, candidates and tasks, a worked example on a separate beam, two synthetic rehearsal candidates and 4 open rehearsal practice items; five project milestones are Case studio self-checks with a week-9 project record. The project table becomes a learner resource, and the fatigue lab's dataset link now points to the package-pinned CSV instead of a mutable repository URL. The inactive project draft is unchanged; the course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
     "All four legacy prototype readings now have expanded instruction beside the original lessons and one synthetic-data virtual lab; the package still is not equivalent to a full university semester.",
-    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm or cumulative final. An inactive integrative project draft is not scheduled or graded.",
+    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm or cumulative final. An optional beam strength-and-stiffness project guide with rehearsal practice and Case studio milestone self-checks (weeks 8–9) is ungraded practice; the separate project draft stays inactive.",
     "Practice items are short formative checks (two to five per prototype unit and six to eleven per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
-    "Of the 92 numerical answers in this package, 46 require a unit, one checks significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
+    "Of the 102 numerical answers in this package, 46 require a unit, 11 check significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
     "Total workload and weekly duration are unknown; former nominal credit values and hardcoded reading times do not establish workload.",
-    "All loads, materials, specimens and numbers are synthetic teaching examples; this package gives no design basis, test protocol or safety advice and says nothing about any real device, implant or person. The models are simplified textbook descriptions, not analysis methods for real components. The compatibility example does not resolve truss, beam or real assembly design."
+    "All loads, materials, specimens and numbers are synthetic teaching examples; this package gives no design basis, test protocol or safety advice and says nothing about any real device, implant or person. The models are simplified textbook descriptions, not analysis methods for real components. The compatibility example does not resolve truss, beam or real assembly design.",
+    "The beam strength-and-stiffness project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses a separate synthetic beam and candidates, and no software check evaluates a learner's project calculations or written interpretation. Milestone weeks are planning suggestions, not measured workload or deadlines."
   ],
   "intentionally_omitted": [
     "Graded assessments, an activated integrative project and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package."
+  ],
+  "learner_resources": [
+    "labs/fatigue-lives-by-stress-amplitude.csv",
+    "assessment-specs/beam-candidate-comparison.csv",
+    "assignments/beam-rehearsal-candidates.csv"
   ]
 }

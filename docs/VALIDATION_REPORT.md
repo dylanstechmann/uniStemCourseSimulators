@@ -5886,3 +5886,27 @@ Key checks before publication:
 | Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
 
 Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.
+
+## Statics & Mechanics of Materials beam project for learners (2026-10-20)
+
+Statics & Mechanics of Materials advances to 0.5.0. Week 8 gains `assignments/beam-strength-and-stiffness-project-guide.md`, the synthetic `assignments/beam-rehearsal-candidates.csv` (two candidates on a 0.250 m span under 20 N) and a four-item, 14-point rehearsal practice set; five project milestones are zero-point self-checks in `rubrics/case-studio.json`, with a `project` self-assessment record in week 9. The project table and the fatigue lab's dataset become learner resources, and the lab's link now resolves to the package-pinned CSV. The inactive project draft is unchanged.
+
+Key checks before publication:
+
+- A self-check script graded the four new items with the backend grader: keys earn full credit and wrong responses zero. Another 10 cases (FL used for FL/4, a squared depth, too few significant figures, a missing deflection check, a half-depth stress error, the full yield strength used, a load that was not raised) earn the stated scores. An option-length audit flagged one field, which was rebalanced.
+- `tests/content/test_statics_materials_project_route.py` (5 tests) recomputes every rehearsal key with exact rational arithmetic in N, mm and MPa, independently of the SI floats used to author the keys. It checks the cube law for depth, that one rehearsal beam is strong but too flexible, that deflection controls both, the raised-load failure, the guide's restatement of the draft and its worked example, and that neither the guide nor the rehearsal states the project's own results.
+- Pins updated: the Statics snapshot version and lesson count (16 to 17), the global case count (50 to 55) and the backend per-course case map. Four regression tests that pinned the version prefix `0.4.` now require at least 0.4.0.
+- The numeric-answer limitation, which counts numeric items and data-interpretation numeric fields together, now reads 102 answers, 46 requiring a unit and 11 checking significant figures.
+- The 0.4.8 snapshot is archived as `docs/STATICS_MATERIALS_REVIEW_SNAPSHOT-0.4.8.md`.
+
+| Actual command/check | Result |
+| --- | --- |
+| Self-check script over the Statics item module (backend grader) | 4 items and 10 extra cases passed. |
+| `tools/validate_content.py` | Passed: 25 courses, 463 lessons, 3,001 questions, 1,614 cards and 55 cases; 0 errors and 0 warnings. |
+| `tools/objective_coverage.py --check docs/COURSE_GAP_REPORT.md` | Passed after regeneration. Statics: 17 lessons, 45 objectives, 116 items, 63 cards; no unmapped objective or outcome. |
+| `tools/assessment_candidates.py --check docs/ASSESSMENT_CANDIDATE_REPORT.md` | Passed after regeneration. |
+| `claims_scan.py --repo uniStemCourseSimulators` | 0 findings. |
+| Full verify, `verify.sh --frontend` (log `stat-verify-1`) | Content, legacy (7), security (1,666 files including the built bundle, 0 findings), ruff, root (3,401 passed, 1 skipped), backend (6,330 passed, 2 skipped) and frontend passed. |
+| Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
+
+Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.

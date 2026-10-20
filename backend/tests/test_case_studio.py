@@ -182,7 +182,9 @@ def test_all_authored_courses_expose_their_existing_case_studies():
     # Courses whose project has a learner route add five milestone self-checks after the preserved case.
     milestone_cases = {
         course_id: 5
-        for course_id in ("cell-biology", "biochemistry", "genetics", "calculus-1", "physics-mechanics")
+        for course_id in (
+            "cell-biology", "biochemistry", "genetics", "calculus-1", "physics-mechanics", "statics-materials"
+        )
     }
     for summary in courses:
         course = repository.course(summary.id)

@@ -2,11 +2,11 @@
 
 This record pins the current public course package for independent review. It is regenerated with the read-only command below and does not imply acceptance or release.
 
-- **Course package:** `statics-materials` 0.4.8
-- **Public package archive SHA-256:** `429ae0099f1b0ed2ba0344d3f3c079564fc2ded0698eaeee7291423bb12e9c2a`
-- **Manifest SHA-256:** `f1a8254b76d1bb9d68d8a40178214e554525ccb45045e59cb369e1affeeb2489`
-- **Archive inventory:** 25 files, 367,203 bytes
-- **Calculated:** 2026-10-13
+- **Course package:** `statics-materials` 0.5.0
+- **Public package archive SHA-256:** `ebf6b08596fb154d95c13251d522a9a2311888dee52d19046f77a73ebbc6a6c2`
+- **Manifest SHA-256:** `8000194d97aa0b7abd821ec42107a811e42e3212842a98d4f744e2da4cd4fd95`
+- **Archive inventory:** 27 files, 402,653 bytes
+- **Calculated:** 2026-10-20
 - **Reproduce:** `uv run --project backend python tools/course_package_digest.py --course-id statics-materials`
 
-The archive includes the inactive beam comparison, its synthetic candidate table, the original distributed-load/shear/moment lesson, the Week 3 axial compatibility example and the week-7 multiaxial strain, thermal-stress and pressure-vessel reading added in 0.4.8. The digest proves package identity only; it is not engineering review, design approval or release evidence.
+Version 0.5.0 makes the planned beam strength-and-stiffness project usable by learners as ungraded practice. Week 8 gains an optional project guide with the project's beam, candidates and tasks and a worked example on a separate beam, two synthetic rehearsal candidates and four open rehearsal practice items; five project milestones are Case studio self-checks with a week-9 project record. The project table becomes a learner resource, and the fatigue lab's dataset link now resolves to the package-pinned CSV instead of a mutable repository URL. The inactive project draft is unchanged. The digest proves package identity only; it is not mechanical review, instructional approval or release evidence.

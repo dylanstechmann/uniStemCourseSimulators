@@ -3,7 +3,7 @@
 **Activity type:** synthetic-data analysis with public, ungraded formative checks
 **Course package:** Statics & Mechanics of Materials. **Estimated learner time:** 2–3 hours
 **Data status:** all measurements are constructed for instruction. They describe no real material, specimen or test machine, and nothing here is evidence about any device.
-**Dataset:** [synthetic fatigue lives (CSV)](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/statics-materials/labs/fatigue-lives-by-stress-amplitude.csv).
+**Dataset:** [synthetic fatigue lives (CSV)](fatigue-lives-by-stress-amplitude.csv).
 
 ## Experimental question
 

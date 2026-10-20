@@ -1,6 +1,6 @@
 # Statics & Mechanics of Materials
 
-**Maturity: partial. Version: 0.4.8.**
+**Maturity: partial. Version: 0.5.0.**
 
 Equilibrium, internal loads, stress, strain, and failure criteria as tools for safe devices, fixtures, implants, and bioreactor hardware.
 
@@ -28,7 +28,7 @@ This is a proposed scope, not a measured or reviewed semester. Each week lists i
 | 5 | Bending of a long bone: second moment of area and combined stresses | Bending of a long bone: second moment of area, combined stresses and why bones are hollow |
 | 6 | Beam deflection and stiffness: three-point bending and the flexural modulus | Beam deflection and stiffness: three-point bending, superposition and what the span and thickness control |
 | 7 | Combined stress and strain: principal stresses, Mohr's circle, yield, multiaxial Hooke's law and pressure vessels | Combined stress: principal stresses, Mohr's circle and yield criteria; Multiaxial Hooke's law, thermal strain and thin-walled pressure vessels |
-| 8 | Failure criteria and design margins | Failure criteria, fatigue, and design margins |
+| 8 | Failure criteria and design margins; optional beam project | Failure criteria, fatigue, and design margins; Beam project guide: strength and stiffness of three synthetic sections (optional, ungraded) |
 | 9 | Stress concentrations: holes, notches and local stress | Stress concentrations: holes, notches and why the nominal stress is not the stress that fails a part |
 | 10 | Buckling of slender struts: Euler load, effective length and slenderness | Buckling of slender struts: Euler's critical load, effective length and slenderness |
 | 11 | Fatigue under cyclic loading: S–N curves, mean stress and cumulative damage | Fatigue under cyclic loading: S–N curves, Basquin's law, mean stress and cumulative damage |
@@ -38,15 +38,19 @@ This is a proposed scope, not a measured or reviewed semester. Each week lists i
 
 ## Assessment and study policy
 
-Every lesson has public formative items (numeric, single-choice, multiple-select, data-interpretation, structured-response and CSV-upload) mapped to its objectives, plus retrieval cards for the review queue; each practice assessment also lists the course outcomes its items assess. Week 12 is a synthetic-data virtual lab and week 14 pairs a failure-analysis lesson with the course case and its self-assessment checklist. These are practice activities with unlimited retries and no institutional grade, university credit or transferable credit. Workload has not been measured.
+Every topic lesson has public formative items (numeric, single-choice, multiple-select, data-interpretation, structured-response and CSV-upload) mapped to its objectives, plus retrieval cards for the review queue; each practice assessment also lists the course outcomes its items assess. Week 12 is a synthetic-data virtual lab and week 14 pairs a failure-analysis lesson with the course case and its self-assessment checklist. These are practice activities with unlimited retries and no institutional grade, university credit or transferable credit. Workload has not been measured.
+
+## Optional beam strength-and-stiffness project (ungraded)
+
+The [beam project guide](assignments/beam-strength-and-stiffness-project-guide.md) makes the project below usable as open practice. It restates the project's beam, candidates and tasks, works a separate synthetic beam, and pairs two rehearsal candidates with open practice items in week 8. Five milestones, suggested for weeks 8–9, are Case studio self-checks whose responses are saved privately and never submitted, collected or scored.
 
 ## Inactive integrative project draft
 
-The [simply supported beam portfolio](assessment-specs/beam-strength-and-stiffness-project-draft.md) combines equilibrium, bending stress, elastic deflection and separate strength/stiffness limits across three synthetic candidates. It is a paper exercise, not a component design or safety basis; it is not scheduled, assigned, submitted or graded.
+The [simply supported beam portfolio](assessment-specs/beam-strength-and-stiffness-project-draft.md) combines equilibrium, bending stress, elastic deflection and separate strength/stiffness limits across three synthetic candidates. It is a paper exercise, not a component design or safety basis; the draft itself is not scheduled, assigned, submitted or graded, and the open project guide above does not submit work to it.
 
 ## Current limitations
 
-The schedule above is proposed, not measured, and has not been reviewed by a qualified instructor. There are no graded homework sets, midterm or final; the new project is inactive and ungraded. The beam sequence now develops distributed loads, cut-section equilibrium, shear and moment diagrams before stress; week 3 introduces compatibility with one parallel-bar example, while truss and indeterminate-beam deformation remain thin. The course still lacks a substantive homework sequence and a full laboratory sequence. The lessons teach standard models with synthetic data, and the typical values they quote (moduli, strengths, fatigue and fracture constants, heat capacities) are textbook-level and vary between sources. All loads, materials, specimens and numbers are synthetic; no lesson gives a design basis, test protocol or safety advice, and nothing here says anything about any real device, implant or person. Qualified human review is required before this course could meet the complete-course standard.
+The schedule above is proposed, not measured, and has not been reviewed by a qualified instructor. There are no graded homework sets, midterm or final; the optional project guide and its rehearsal are ungraded practice, and the project draft remains inactive. The beam sequence now develops distributed loads, cut-section equilibrium, shear and moment diagrams before stress; week 3 introduces compatibility with one parallel-bar example, while truss and indeterminate-beam deformation remain thin. The course still lacks a substantive homework sequence and a full laboratory sequence. The lessons teach standard models with synthetic data, and the typical values they quote (moduli, strengths, fatigue and fracture constants, heat capacities) are textbook-level and vary between sources. All loads, materials, specimens and numbers are synthetic; no lesson gives a design basis, test protocol or safety advice, and nothing here says anything about any real device, implant or person. Qualified human review is required before this course could meet the complete-course standard.
 
 ## Sources and licensing
 
