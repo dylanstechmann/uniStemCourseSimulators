@@ -6002,3 +6002,22 @@ Key checks before publication:
 | Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
 
 Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.
+
+## Lesson mathematics renders with KaTeX (2026-10-20)
+
+`frontend/src/components/MarkdownReader.tsx` now rewrites `\(…\)` and `\[…\]` delimiters outside code to the dollar forms that remark-math reads, and renders text containing math through a lazily loaded `MathMarkdown.tsx` that adds remark-math 6 and rehype-katex 7 with KaTeX 0.16.47 (MIT). Text without math renders exactly as before. `frontend/src/styles.css` lets wide display equations scroll horizontally. No course content changed.
+
+Key checks before publication:
+
+- A scan of the course Markdown found 1,758 math expressions; KaTeX parsed all of them with errors enabled, with only warnings about Unicode characters such as Ω and ′, which render. Every `\[…\]` block starts at the beginning of its line. No reading uses `$` for currency.
+- `MarkdownReader.test.tsx` adds two tests: inline `\(…\)`, inline `$…$` and display `\[…\]` render as KaTeX with a MathML copy, no error node and no visible TeX source; code spans and blocks keep their delimiters, indented display blocks keep their indentation, and the math chunk is requested only for prose that contains math.
+- Bundle: the main script is 491 kB (149 kB gzipped), against 489 kB before; the math chunk is 276 kB (83 kB gzipped) plus 29 kB of CSS and the KaTeX fonts, all served from the application's own origin under the existing Content-Security-Policy.
+
+| Actual command/check | Result |
+| --- | --- |
+| KaTeX parse scan over all course Markdown (node script in the session scratchpad) | 1,758 expressions, 0 failures. |
+| Frontend unit tests, ESLint, Prettier, `tsc -b` and `vite build` in the off-mount Node copy | 77 tests passed; lint, format, type check and build passed. |
+| Full verify, `verify.sh --frontend` (log `math-verify-1`) | Content, legacy (7), security (1,689 files including the built bundle, 0 findings), ruff, root (3,419 passed, 1 skipped), backend (6,359 passed, 2 skipped) and frontend (77 tests) passed. |
+| Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser, screen-reader or narrow-screen walkthrough of rendered math was performed here. |
+
+Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request.

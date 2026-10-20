@@ -1,6 +1,10 @@
-import { render, screen, within } from "@testing-library/react";
+import { render, screen, waitFor, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { MarkdownReader } from "./MarkdownReader";
+import {
+  MarkdownReader,
+  containsMath,
+  normalizeMathDelimiters,
+} from "./MarkdownReader";
 
 describe("MarkdownReader content boundary", () => {
   it("renders instructional Markdown without executing raw HTML or unsafe links", () => {
@@ -50,5 +54,40 @@ describe("MarkdownReader content boundary", () => {
       </MarkdownReader>,
     );
     expect(container.querySelector("pre")).toHaveAttribute("tabindex", "0");
+  });
+
+  it("renders inline and display LaTeX with KaTeX and keeps a MathML copy", async () => {
+    const { container } = render(
+      <MarkdownReader>
+        {
+          "Inline \\(K_m\\) and dollar $x^2$ forms.\n\n\\[\n\\frac{dC}{dt}=-kC\n\\]\n\nAfter."
+        }
+      </MarkdownReader>,
+    );
+    await waitFor(() =>
+      expect(container.querySelectorAll(".katex")).toHaveLength(3),
+    );
+    expect(container.querySelectorAll(".katex-display")).toHaveLength(1);
+    expect(container.querySelectorAll("math")).toHaveLength(3);
+    // The TeX source survives only in the MathML annotation, not in the visible rendering.
+    const visible = Array.from(container.querySelectorAll(".katex-html"))
+      .map((node) => node.textContent)
+      .join(" ");
+    expect(visible).not.toContain("\\frac");
+    expect(container.textContent).not.toContain("\\(");
+    expect(container.querySelector(".katex-error")).toBeNull();
+  });
+
+  it("leaves delimiters inside code untouched", () => {
+    expect(
+      normalizeMathDelimiters(
+        "Use `print(\\(x\\))` and \\(y\\).\n\n```\n\\[ z \\]\n```",
+      ),
+    ).toBe("Use `print(\\(x\\))` and $y$.\n\n```\n\\[ z \\]\n```");
+    expect(normalizeMathDelimiters("  \\[\n  a=b\n  \\]")).toBe(
+      "  $$\n  a=b\n  $$",
+    );
+    expect(containsMath("Plain text with `$HOME` in code.")).toBe(false);
+    expect(containsMath("Rate \\(k\\).")).toBe(true);
   });
 });

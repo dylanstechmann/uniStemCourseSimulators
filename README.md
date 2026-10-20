@@ -71,7 +71,7 @@ Open http://localhost:8080. Startup generates a database credential in a private
 
 ## Tested learning system
 
-- React/TypeScript reader with public catalog, explicit maturity/limitations, syllabus, lesson objectives and prerequisite lists.
+- React/TypeScript reader with public catalog, explicit maturity/limitations, syllabus, lesson objectives and prerequisite lists. Lesson Markdown renders tables (remark-gfm) and LaTeX mathematics with KaTeX (remark-math and rehype-katex, MIT licensed), loaded as a separate chunk only for text that contains math.
 - FastAPI/Pydantic with PostgreSQL SQLAlchemy/Alembic, server guest sessions, account registration/login/logout and guest-to-account preservation.
 - Enrollment, private notes, bookmarks and learner-marked reading progress stored on the server; the React notebook searches saved note text across current enrolled courses and links each result back to its lesson. Lesson pages include self-assessment retrieval cards with revealable answers.
 - Immutable choice, numeric, symbolic, data-interpretation, structured-rubric, fixed-axis graph-coordinate and bounded CSV-table **formative practice** attempts with diagnosis, hints, next steps, lesson links, and independent criterion scores. The graph exercise plots learner coordinates against supplied replicate data and awards coordinate-level credit; it does not grade axis choice, uncertainty bars, interpolation or interpretation. A cell-biology upload scores replicate counts and means from UTF-8 CSV as inert data with cell-level credit. It does not run uploaded files or grade free-form reasoning; correct results do not establish sound reasoning or mastery.
