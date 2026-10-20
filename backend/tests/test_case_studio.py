@@ -184,7 +184,7 @@ def test_all_authored_courses_expose_their_existing_case_studies():
         course_id: 5
         for course_id in (
             "cell-biology", "biochemistry", "genetics", "calculus-1", "physics-mechanics", "statics-materials",
-            "general-chemistry-2",
+            "general-chemistry-2", "programming",
         )
     }
     for summary in courses:

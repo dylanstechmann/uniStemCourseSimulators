@@ -1,6 +1,6 @@
 # Programming & Numerical Methods review handoff
 
-This handoff targets Programming package version 0.4.8. The [review snapshot](PROGRAMMING_REVIEW_SNAPSHOT.md) identifies the exact public files. The course remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+This handoff targets Programming package version 0.5.0. The [review snapshot](PROGRAMMING_REVIEW_SNAPSHOT.md) identifies the exact public files. The course remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
 
 ## Review scope
 
@@ -9,11 +9,13 @@ This handoff targets Programming package version 0.4.8. The [review snapshot](PR
 - Check that the remainder formula's smoothness and interval conditions are stated correctly and that extrapolation claims are appropriately limited.
 - Review the method-choice distinction for exact tables versus noisy measurements, including the risk of a high-degree global polynomial.
 - Compare the bounded lesson with MIT OCW 2.086 Fall 2014, which places interpolation early and later includes least-squares model fitting, while noting the local course's remaining numerical-method gaps.
+- Check the week-13 sensor-calibration project guide: its restatement of the draft's records, generating rule, rules and milestones, the worked three-point calibration and its guarded fitting function, the construction checks it repeats from the draft, and the wording of the five milestone self-checks.
+- Recalculate the rehearsal keys from `assignments/calibration-rehearsal-records.csv`: the contract's accepted and rejected rows (a duplicated ID, a non-finite signal and an unknown split label), the training-only least-squares fit, and the per-batch held-out bias and RMSE. Confirm that the duplicate rule is stated clearly enough to be unambiguous.
 - Review code, data, error-analysis, accessibility and workload boundaries elsewhere in the package.
 
 ## Author-side evidence and its limits
 
-Repository content validation passed for 25 packages, 423 lessons, 2,636 questions, 1,457 cards and 25 cases with zero errors or explicit depth warnings. Direct recomputation confirms p₂(x)=1−0.6x+0.1x², p₂(0.5)=0.725, f(0.5)=0.8, signed error −0.075, and p₂(4)=0.2 versus f(4)=1/17. The package digest matches the snapshot. No test suite was run for 0.4.8. These checks do not establish independent review, correct implementation behavior, learner understanding, accessibility or measured workload; learner code execution remains disabled.
+Repository content validation passed for 25 packages, 423 lessons, 2,636 questions, 1,457 cards and 25 cases with zero errors or explicit depth warnings. Direct recomputation confirms p₂(x)=1−0.6x+0.1x², p₂(0.5)=0.725, f(0.5)=0.8, signed error −0.075, and p₂(4)=0.2 versus f(4)=1/17. The package digest matches the snapshot. No test suite was run for 0.4.8. For 0.5.0, a dedicated test recomputes every rehearsal key independently, with exact rational normal equations solved by Cramer's rule rather than the centered formula used to author the keys; it checks that keeping one copy of the duplicated ID would change the fit, that the rehearsal rows follow the rule the guide states, that the guide's project checks and worked example recompute, that the guide's fitting function runs and rejects degenerate input, and that every guide and lab link resolves in the application. These checks do not establish independent review, correct implementation behavior, learner understanding, accessibility or measured workload; learner code execution remains disabled.
 
 ## Review record to complete only after review
 

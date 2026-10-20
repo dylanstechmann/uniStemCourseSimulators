@@ -5956,3 +5956,27 @@ Key checks before publication:
 | Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser walkthrough was performed here. |
 
 Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The packages remain partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.
+
+## Programming & Numerical Methods sensor-calibration project for learners (2026-10-20)
+
+Programming & Numerical Methods advances to 0.5.0. Week 13 gains `assignments/sensor-calibration-project-guide.md`, the synthetic `assignments/calibration-rehearsal-records.csv` (43 rows: 40 generated from a stated rule plus three deliberate contract violations) and a five-item, 19-point rehearsal practice set; five project milestones are zero-point self-checks in `rubrics/case-studio.json`, with a `project` self-assessment record in week 14. The lab's dataset and both project data files become learner resources. The inactive project draft is unchanged, and no learner code runs.
+
+Key checks before publication:
+
+- A self-check script graded the five new items with the backend grader: keys earn full credit and wrong responses zero. Nine further response cases (a kept duplicate, reversed residual signs, too few significant figures, and fully correct responses) earn the stated scores. In the first draft the correct option was the longest in every choice field; options were rewritten until length gave no cue.
+- The validator rejected the first build because two response prompts were below the minimum length; the two RMSE prompts then fell below the five-word depth threshold. All four were reworded.
+- `tests/content/test_programming_project_route.py` (5 tests) recomputes every rehearsal key with exact rational normal equations solved by Cramer's rule, independent of the centered formula used to author the keys. It checks that keeping the first copy of the duplicated ID restores an exact slope of 5 mV/mM, that every accepted rehearsal row follows the rule the guide states, and that the rehearsal shares no batch or record ID with the project. It recomputes the guide's construction checks and worked example from the project CSV, runs the guide's fitting function and checks that it rejects degenerate input, and checks that every guide and lab link resolves and that each learner resource is served byte for byte.
+- Pins updated: the Programming snapshot version, the global case count (60 to 65), the backend per-course case map, and the link test's queued gaps, from which Programming is removed. The numeric-answer limitation now counts 75 answers (65 numeric items and ten rehearsal fields), two requiring a unit and ten checking significant figures.
+- The 0.4.9 snapshot is archived as `docs/PROGRAMMING_REVIEW_SNAPSHOT-0.4.9.md`; the review handoff, which still named 0.4.8, now targets 0.5.0.
+
+| Actual command/check | Result |
+| --- | --- |
+| Self-check script over the Programming item module (backend grader) | 5 items and 9 extra cases passed. |
+| `tools/validate_content.py` | Passed: 25 courses, 465 lessons, 3,011 questions, 1,620 cards and 65 cases; 0 errors and 0 warnings. |
+| `tools/objective_coverage.py --check docs/COURSE_GAP_REPORT.md` | Passed after regeneration. |
+| `tools/assessment_candidates.py --check docs/ASSESSMENT_CANDIDATE_REPORT.md` | Passed after regeneration. |
+| `claims_scan.py --repo uniStemCourseSimulators` | 0 findings. |
+| Full verify, `verify.sh --frontend` (log `prog-verify-1`) | Content, legacy (7), security (1,684 files, 0 findings), ruff, root (3,414 passed, 1 skipped), backend (6,351 passed, 2 skipped) and frontend (75 tests) passed. |
+| Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
+
+Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.

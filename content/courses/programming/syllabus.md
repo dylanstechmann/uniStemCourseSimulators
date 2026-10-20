@@ -1,6 +1,6 @@
 # Programming & Numerical Methods for Bioengineering
 
-**Maturity: partial. Version: 0.4.9.**
+**Maturity: partial. Version: 0.5.0.**
 
 A practical introduction to reproducible scientific code, numerical methods, model fitting, validation and communication for bioengineering data.
 
@@ -34,20 +34,24 @@ This is a proposed scope, not a measured or reviewed semester. The interpolation
 | 10 | Interpolation, regression, uncertainty and validation | Interpolation: exact fit at nodes and error between them; regression, uncertainty and validation |
 | 11 | Linear systems, conditioning, least squares and scaled coordinates | Linear-system conditioning and least-squares geometry |
 | 12 | Visualization and uncertainty communication | Reproducible visualization |
-| 13 | Grouped validation and reproducible reports | Thresholds and held-out reporting |
+| 13 | Grouped validation and reproducible reports; optional sensor-calibration project | Thresholds and held-out reporting; sensor-calibration project guide (optional, ungraded) |
 | 14 | Virtual lab | Contract checks and held-out donor reports |
 
 ## Assessment and study policy
 
-The package has 16 readings, 106 public practice items and 56 retrieval cards. Every lesson has open formative items mapped to provisional objectives, and the synthetic-data lab has a public data file. Learner code execution is disabled; the checks assess method selection, calculations and interpretation, not submitted implementations. Nothing is graded for university credit. Workload has not been measured.
+The package has 17 readings, 111 public practice items and 59 retrieval cards. Every lesson has open formative items mapped to provisional objectives, and the synthetic-data lab has a public data file. Learner code execution is disabled; the checks assess method selection, calculations and interpretation, not submitted implementations. Nothing is graded for university credit. Workload has not been measured.
+
+## Optional sensor-calibration project (ungraded)
+
+The [sensor-calibration project guide](assignments/sensor-calibration-project-guide.md) makes the project below usable as open practice. It restates the project's records, rules and milestones, works a three-point calibration, and pairs synthetic rehearsal records with open practice items in week 13. Five milestones, suggested for weeks 13–14, are Case studio self-checks whose responses are saved privately and never submitted, collected or scored; learners run their own code locally.
 
 ## Inactive project
 
-The [sensor-calibration project](assessment-specs/integrative-sensor-calibration-project.md) is an inactive, ungraded draft. It is not part of the assessment schedule and makes no claim about real sensors, donors or classifier performance.
+The [sensor-calibration project](assessment-specs/integrative-sensor-calibration-project.md) is an inactive, ungraded draft. The draft itself is not part of the assessment schedule, the open project guide above does not submit work to it, and it makes no claim about real sensors, donors or classifier performance.
 
 ## Current limitations
 
-The proposed schedule is unmeasured and unreviewed; graded homework, exams, full labs and a cumulative graded project remain absent. Interpolation coverage consists of one hand-worked quadratic comparison; implemented barycentric and piecewise interpolation algorithms and a systematic stability study remain outside the sequence. Direct, iterative and sparse solver comparisons and eigenvalue algorithms also remain limited. All data and functions are synthetic examples. Qualified subject, code, accessibility and workload review remain open.
+The proposed schedule is unmeasured and unreviewed; graded homework, exams, full labs and a cumulative graded project remain absent; the optional project guide and its rehearsal are ungraded practice. Interpolation coverage consists of one hand-worked quadratic comparison; implemented barycentric and piecewise interpolation algorithms and a systematic stability study remain outside the sequence. Direct, iterative and sparse solver comparisons and eigenvalue algorithms also remain limited. All data and functions are synthetic examples. Qualified subject, code, accessibility and workload review remain open.
 
 ## Sources and licensing
 

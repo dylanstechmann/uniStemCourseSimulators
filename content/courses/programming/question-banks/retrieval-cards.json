@@ -546,6 +546,36 @@
         "programming-15-objective-2"
       ],
       "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-project-1",
+      "lesson_id": "programming-project-guide",
+      "front": "Reject, do not repair",
+      "back": "A reader that enforces a contract keeps every rejected row with its reason. When an ID appears twice with different values, nothing says which is right, so both rows are rejected rather than silently chosen.",
+      "objective_ids": [
+        "programming-8-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-project-2",
+      "lesson_id": "programming-project-guide",
+      "front": "Split by the prediction target",
+      "back": "If the model must work on a new batch, hold out whole batches; a random row split lets each batch's offset appear on both sides and understates the error.",
+      "objective_ids": [
+        "programming-13-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-project-3",
+      "lesson_id": "programming-project-guide",
+      "front": "Bias and RMSE per held-out batch",
+      "back": "With residual = observed − predicted, the mean residual shows a batch's systematic offset and the RMSE its typical error; report both for each held-out batch with units and denominators.",
+      "objective_ids": [
+        "programming-3-objective-2"
+      ],
+      "license": "CC-BY-4.0"
     }
   ]
 }

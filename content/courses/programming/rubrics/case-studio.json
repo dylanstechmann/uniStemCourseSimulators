@@ -30,6 +30,196 @@
       "limitations": [
         "This preserved three-criterion checklist is self-assessment, not an analytic grading rubric or an institutional grade."
       ]
+    },
+    {
+      "id": "programming:project-m1-contract",
+      "prompt": "Sensor-calibration project milestone 1 (suggested week 13). Write a pure reader for the project records that checks required columns, unique record IDs, finite numeric values, the declared units and the allowed split labels. Test it with mutated copies of the file, and keep every rejected row with its reason.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "programming-8-objective-2",
+        "programming-8-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m1-contract-criterion-1",
+          "criterion": "My reader returns accepted and rejected rows without changing or silently dropping any row.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-contract-criterion-2",
+          "criterion": "Each rejected row keeps a reason that names the failed rule.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-contract-criterion-3",
+          "criterion": "I tested malformed, non-finite, duplicated and wrongly labelled rows with mutated fixtures.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-contract-criterion-4",
+          "criterion": "My reader reproduces the rehearsal's accepted and rejected counts.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the sensor-calibration project. The response is saved privately and is never submitted, scored or graded; no learner code runs in the application, and the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "programming:project-m2-calibration",
+      "prompt": "Sensor-calibration project milestone 2 (suggested week 13). Write a calibration function that fits the intercept and slope from the training rows by a documented least-squares method and guards against empty, constant-level or rank-deficient input.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "programming-12-objective-1",
+        "programming-12-objective-2"
+      ],
+      "rubric": [
+        {
+          "id": "project-m2-calibration-criterion-1",
+          "criterion": "The fit uses training rows only, and the held-out rows are never passed to it.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-calibration-criterion-2",
+          "criterion": "The function raises a clear error for empty, constant-level or rank-deficient input.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-calibration-criterion-3",
+          "criterion": "Known-answer tests check the fit independently of the function being tested.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-calibration-criterion-4",
+          "criterion": "My function reproduces the rehearsal slope and intercept.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the sensor-calibration project. The response is saved privately and is never submitted, scored or graded; no learner code runs in the application, and the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "programming:project-m3-validation",
+      "prompt": "Sensor-calibration project milestone 3 (suggested week 13). Freeze the batch split before fitting, then report the training fit and the held-out signed bias and RMSE for each held-out batch. Explain why a random-row split can understate error for a new-batch target.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "programming-13-objective-2",
+        "programming-3-objective-2"
+      ],
+      "rubric": [
+        {
+          "id": "project-m3-validation-criterion-1",
+          "criterion": "I froze the split by batch before fitting and never refit after looking at held-out results.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-validation-criterion-2",
+          "criterion": "I reported bias and RMSE separately for each held-out batch, with units and denominators.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-validation-criterion-3",
+          "criterion": "I explained why rows from one batch on both sides of a split understate new-batch error.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-validation-criterion-4",
+          "criterion": "I did not use batch_id as a predictor for an unseen batch.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the sensor-calibration project. The response is saved privately and is never submitted, scored or graded; no learner code runs in the application, and the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "programming:project-m4-figure",
+      "prompt": "Sensor-calibration project milestone 4 (suggested week 14). Plot the observations, the training calibration line and the held-out residuals with labelled units, and add a table or text description so the result does not depend on colour or image inspection.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "programming-4-objective-1",
+        "programming-4-objective-2"
+      ],
+      "rubric": [
+        {
+          "id": "project-m4-figure-criterion-1",
+          "criterion": "Axes carry quantities and units, and every batch is identifiable without relying on colour alone.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-figure-criterion-2",
+          "criterion": "The held-out residuals are visible by batch, not only the training fit.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-figure-criterion-3",
+          "criterion": "A table or text description gives the same comparison as the figure.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-figure-criterion-4",
+          "criterion": "My interpretation stays with the synthetic batches and makes no claim about a real device.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the sensor-calibration project. The response is saved privately and is never submitted, scored or graded; no learner code runs in the application, and the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
+    },
+    {
+      "id": "programming:project-m5-bundle",
+      "prompt": "Sensor-calibration project milestone 5 (suggested week 14). Assemble a reproducible bundle: source code, tests, run instructions, Python and library versions, the input file's SHA-256 and the generated outputs, so that another person can reproduce the report from a clean checkout.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "programming-5-objective-3",
+        "programming-13-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m5-bundle-criterion-1",
+          "criterion": "The bundle records the input SHA-256, the Python and library versions and the run command.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-bundle-criterion-2",
+          "criterion": "Running the tests and the report from a clean checkout reproduces my outputs.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-bundle-criterion-3",
+          "criterion": "Generated outputs are kept separate from source code and input data.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-bundle-criterion-4",
+          "criterion": "I disclosed any tools or AI assistance used.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Optional self-check for the sensor-calibration project. The response is saved privately and is never submitted, scored or graded; no learner code runs in the application, and the separate inactive project draft and its proposed rubric remain unreviewed."
+      ]
     }
   ]
 }

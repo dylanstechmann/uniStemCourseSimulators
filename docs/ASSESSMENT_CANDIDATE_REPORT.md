@@ -27,7 +27,7 @@ No course or candidate is activated by this command. `--check` detects report dr
 | physics-em | 0.4.8 | partial | unreviewed | formative-only | 0 |
 | physics-mechanics | 0.5.0 | partial | unreviewed | formative-only | 0 |
 | physiology | 0.4.9 | partial | unreviewed | formative-only | 0 |
-| programming | 0.4.9 | partial | unreviewed | formative-only | 0 |
+| programming | 0.5.0 | partial | unreviewed | formative-only | 0 |
 | robotics | 0.4.8 | partial | unreviewed | formative-only | 0 |
 | signals-control | 0.4.9 | partial | unreviewed | formative-only | 0 |
 | statics-materials | 0.5.0 | partial | unreviewed | formative-only | 0 |

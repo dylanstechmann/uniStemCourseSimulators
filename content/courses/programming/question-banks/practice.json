@@ -3736,6 +3736,538 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "programming-project:rehearsal-contract",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Use the rehearsal file calibration-rehearsal-records.csv, whose columns match the project's: record_id, batch_id, split, standard_mM, signal_mV and replicate_id. Apply the guide's contract: reject every row whose record_id appears more than once, whose signal is not a finite number, or whose split is not train or held_out. Give whole numbers.",
+      "points": 4,
+      "objective_ids": [
+        "programming-8-objective-2",
+        "programming-8-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "accepted_rows",
+          "type": "numeric",
+          "prompt": "Rows accepted by the contract.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "rejected_rows",
+          "type": "numeric",
+          "prompt": "Rows rejected, counting each rejected row once.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "training_rows",
+          "type": "numeric",
+          "prompt": "Accepted rows with split train.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "duplicate_rule",
+          "type": "single_choice",
+          "prompt": "Why does the contract reject both rows that share the ID T1-L2-R2?",
+          "options": [
+            "Because the two rows disagree and nothing says which one is the real record.",
+            "Because the second row has the larger signal, which marks it as the faulty entry in the file.",
+            "Because a duplicated identifier makes the fit singular."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "accepted_rows",
+            "type": "numeric",
+            "answer": 39.0,
+            "unit": "",
+            "tolerance": 0.4,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 2,
+            "dimensions": null
+          },
+          {
+            "id": "rejected_rows",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0.4,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 1,
+            "dimensions": null
+          },
+          {
+            "id": "training_rows",
+            "type": "numeric",
+            "answer": 23.0,
+            "unit": "",
+            "tolerance": 0.4,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 2,
+            "dimensions": null
+          },
+          {
+            "id": "duplicate_rule",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Count IDs first, then check each row's signal and split; a row can fail more than one rule but is rejected once.",
+        "solution": "Of 43 rows, both copies of T1-L2-R2 (conflicting signals), T3-L1-R3 (split test) and H1-L4-R3 (signal nan) are rejected: 4 rows, each kept with its reason. That leaves 39 accepted rows, 23 of them in the three training batches.",
+        "lesson_ids": [
+          "programming-project-guide",
+          "programming-8"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "programming-project:rehearsal-fit",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Use the rehearsal file calibration-rehearsal-records.csv, whose columns match the project's: record_id, batch_id, split, standard_mM, signal_mV and replicate_id. Apply the guide's contract: reject every row whose record_id appears more than once, whose signal is not a finite number, or whose split is not train or held_out. Fit signal_mV = intercept + slope × standard_mM by ordinary least squares on the accepted training rows only. The slope is in mV/mM and the intercept and RMSE are in mV; enter bare numbers.",
+      "points": 4,
+      "objective_ids": [
+        "programming-12-objective-1",
+        "programming-3-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "slope",
+          "type": "numeric",
+          "prompt": "Slope, in mV/mM, to four significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "intercept",
+          "type": "numeric",
+          "prompt": "Intercept, in mV, to four significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "training_rmse",
+          "type": "numeric",
+          "prompt": "Training RMSE (residuals observed − predicted, divided by the number of training rows before the square root), in mV, to three significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "slope_shift",
+          "type": "single_choice",
+          "prompt": "Every rehearsal batch was generated with a slope of exactly 5 mV/mM. Why is the fitted slope slightly different?",
+          "options": [
+            "Floating-point rounding in the sums shifts the fitted slope by about one part in five hundred.",
+            "The held-out batches pull the fitted line toward their larger offsets during the fit.",
+            "Rejecting both T1-L2-R2 rows unbalances the design, so batch offsets no longer cancel."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "slope",
+            "type": "numeric",
+            "answer": 4.991,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "intercept",
+            "type": "numeric",
+            "answer": 12.24,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 4,
+            "dimensions": null
+          },
+          {
+            "id": "training_rmse",
+            "type": "numeric",
+            "answer": 0.692,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "slope_shift",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Center the standards: slope = Σ(x − x̄)(y − ȳ)/Σ(x − x̄)², intercept = ȳ − slope × x̄, using the 23 training rows.",
+        "solution": "The training means are x̄ ≈ 1.5217 mM and ȳ ≈ 19.8304 mV. The slope is about 4.9912 mV/mM and the intercept about 12.2351 mV, with a training RMSE of about 0.6921 mV. T1, the batch with the lowest offset, lost a row at 1 mM, so its offset is no longer spread evenly across the levels and leaks slightly into the slope.",
+        "lesson_ids": [
+          "programming-project-guide",
+          "programming-12",
+          "programming-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "programming-project:rehearsal-transfer",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Use the rehearsal file calibration-rehearsal-records.csv, whose columns match the project's: record_id, batch_id, split, standard_mM, signal_mV and replicate_id. Apply the guide's contract: reject every row whose record_id appears more than once, whose signal is not a finite number, or whose split is not train or held_out. Use the calibration fitted on the accepted training rows and residuals defined as observed − predicted. Report each held-out batch separately, in mV, to three significant figures; use a hyphen-minus for negative values.",
+      "points": 5,
+      "objective_ids": [
+        "programming-13-objective-2",
+        "programming-3-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "h1_bias",
+          "type": "numeric",
+          "prompt": "Mean residual for batch H1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "h1_rmse",
+          "type": "numeric",
+          "prompt": "Root-mean-square error for batch H1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "h2_bias",
+          "type": "numeric",
+          "prompt": "Mean residual for batch H2.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "h2_rmse",
+          "type": "numeric",
+          "prompt": "Root-mean-square error for batch H2.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "comparison",
+          "type": "single_choice",
+          "prompt": "How do the held-out errors compare with the training RMSE?",
+          "options": [
+            "Both held-out RMSE values are lower, because those batches were not used in the fit.",
+            "Both are well above it, because each held-out batch has an offset the shared fit cannot know.",
+            "They match it closely, because every batch was generated with the same underlying slope of 5 mV/mM."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "h1_bias",
+            "type": "numeric",
+            "answer": 2.28,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "h1_rmse",
+            "type": "numeric",
+            "answer": 2.3,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "h2_bias",
+            "type": "numeric",
+            "answer": -1.72,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "h2_rmse",
+            "type": "numeric",
+            "answer": 1.75,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "comparison",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Predict each held-out row from the training fit, subtract, then average the residuals and their squares per batch.",
+        "solution": "H1 reads high: mean residual ≈ +2.278 mV and RMSE ≈ 2.298 mV. H2 reads low: mean residual ≈ −1.722 mV and RMSE ≈ 1.748 mV. Both exceed the training RMSE of about 0.692 mV because a batch offset is invisible to a calibration fitted on other batches.",
+        "lesson_ids": [
+          "programming-project-guide",
+          "programming-13",
+          "programming-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "programming-project:rehearsal-split",
+      "type": "structured",
+      "prompt": "Project rehearsal open practice · Check the validation design you will defend in project milestone 3. Select one response per criterion.",
+      "points": 3,
+      "objective_ids": [
+        "programming-13-objective-2",
+        "programming-3-objective-1"
+      ],
+      "feedback": {
+        "hint": "Ask what the model must predict, what it can know at that moment, and which way the residual is defined.",
+        "solution": "A new-batch target needs whole held-out batches, because rows of one batch share its offset; batch_id cannot be an input for a batch that was never fitted; and a positive mean residual means readings above the prediction.",
+        "lesson_ids": [
+          "programming-project-guide",
+          "programming-13",
+          "programming-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "response_fields": [
+        {
+          "id": "whole_batches",
+          "type": "single_choice",
+          "prompt": "Split · Why keep each held-out batch whole instead of sampling rows at random?",
+          "options": [
+            "Because random sampling of rows can never be made reproducible, even with a recorded seed value.",
+            "Because the target is a new batch, and a row split leaks each batch's shared offset.",
+            "Because whole batches always lower the held-out error."
+          ],
+          "points": 1
+        },
+        {
+          "id": "batch_predictor",
+          "type": "single_choice",
+          "prompt": "Inputs · Why not add batch_id as a predictor for unseen batches?",
+          "options": [
+            "A new batch has no fitted offset, so that input is unavailable at prediction time.",
+            "Batch identifiers are text, and least squares accepts only numeric columns as predictor inputs.",
+            "Adding any extra predictor always makes the fitted slope less accurate than it was before."
+          ],
+          "points": 1
+        },
+        {
+          "id": "residual_sign",
+          "type": "single_choice",
+          "prompt": "Sign · With residual = observed − predicted, what does a positive mean residual for a batch mean?",
+          "options": [
+            "The calibration over-predicts that batch's readings on average.",
+            "The batch has a steeper slope than the calibration does, on average.",
+            "The batch reads higher than the calibration predicts, on average."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "whole_batches",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "batch_predictor",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "residual_sign",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ],
+        "rubric": [
+          {
+            "id": "whole_batches",
+            "criterion": "Match the split to the target",
+            "points": 1,
+            "evidence": [
+              "Keeps every row of a held-out batch out of the fit."
+            ]
+          },
+          {
+            "id": "batch_predictor",
+            "criterion": "Use only available inputs",
+            "points": 1,
+            "evidence": [
+              "Excludes information that a new batch cannot supply."
+            ]
+          },
+          {
+            "id": "residual_sign",
+            "criterion": "Read the residual sign",
+            "points": 1,
+            "evidence": [
+              "Interprets a positive mean residual as readings above prediction."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "programming-project:rehearsal-report",
+      "type": "structured",
+      "prompt": "Project rehearsal open practice · Check the reporting choices you will make in project milestones 4 and 5. Select one response per criterion.",
+      "points": 3,
+      "objective_ids": [
+        "programming-5-objective-3",
+        "programming-13-objective-3",
+        "programming-4-objective-2"
+      ],
+      "feedback": {
+        "hint": "A digest identifies bytes, a figure needs units and an alternative, and a synthetic result supports only a bounded claim.",
+        "solution": "The SHA-256 shows that a rerun used the same input bytes, not that the data are correct; the figure needs units, per-batch residuals and a table or text alternative; and the conclusion stays with the synthetic batches.",
+        "lesson_ids": [
+          "programming-project-guide",
+          "programming-5",
+          "programming-13",
+          "programming-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "response_fields": [
+        {
+          "id": "digest",
+          "type": "single_choice",
+          "prompt": "Provenance · What does recording the input file's SHA-256 establish?",
+          "options": [
+            "That the input file has no errors.",
+            "That a later rerun read byte-for-byte the same input file as the original run.",
+            "That the calibration will reach the same RMSE on any future batch of sensor data."
+          ],
+          "points": 1
+        },
+        {
+          "id": "figure",
+          "type": "single_choice",
+          "prompt": "Figure · Which choice keeps the held-out result accessible?",
+          "options": [
+            "Label axes with units, show held-out residuals by batch, and add a table or text alternative.",
+            "Use one colour per batch with no legend, since the colours alone are enough to identify every batch.",
+            "Show only the training points and the line, to keep the figure clean."
+          ],
+          "points": 1
+        },
+        {
+          "id": "claim",
+          "type": "single_choice",
+          "prompt": "Interpretation · What may the report conclude?",
+          "options": [
+            "That the sensor will be accurate to within the training RMSE for any future real batch it measures.",
+            "That the fitted slope is wrong, because both held-out batches show large residuals.",
+            "That this fit transfers unequally to two synthetic batches, and nothing about a real device."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "digest",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "figure",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "claim",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ],
+        "rubric": [
+          {
+            "id": "digest",
+            "criterion": "Pin the input",
+            "points": 1,
+            "evidence": [
+              "Uses the digest as an identity check on the input bytes."
+            ]
+          },
+          {
+            "id": "figure",
+            "criterion": "Make the figure readable",
+            "points": 1,
+            "evidence": [
+              "Gives units, per-batch residuals and a non-visual alternative."
+            ]
+          },
+          {
+            "id": "claim",
+            "criterion": "Bound the conclusion",
+            "points": 1,
+            "evidence": [
+              "Limits the claim to the synthetic batches analysed."
+            ]
+          }
+        ]
+      }
     }
   ]
 }

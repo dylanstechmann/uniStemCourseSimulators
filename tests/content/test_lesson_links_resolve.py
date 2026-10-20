@@ -32,7 +32,6 @@ REPOSITORY_ONLY = {("cell-biology", lesson_id, target) for lesson_id, target in 
 # from this link. Remove an entry when its link is fixed; the exact-set comparison fails until the list matches.
 QUEUED = {
     ("calculus-3", "calculus-3-13", "../../linear-algebra/modules/02-vector-spaces-bases-and-coordinate-transforms.md"),
-    ("programming", "programming-lab-01", "pipeline-records.csv"),
     ("robotics", "robotics-lab-01", "near-extension-reports.csv"),
 }
 
