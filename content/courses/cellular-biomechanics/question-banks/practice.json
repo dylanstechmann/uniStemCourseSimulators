@@ -4239,6 +4239,534 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "cellular-biomechanics-project:rehearsal-relaxation",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Use the rehearsal table viscoelastic-rehearsal-candidates.csv: P has E_inf = 2 kPa, E_1 = 7 kPa and τ = 4 s; Q has E_inf = 3 kPa, E_1 = 3 kPa and τ = 0.2 s. Each is a standard linear solid with E(t) = E_inf + E_1 e^(−t/τ), E′(ω) = E_inf + E_1 (ωτ)²/[1 + (ωτ)²] and E″(ω) = E_1 (ωτ)/[1 + (ωτ)²]. Apply a step strain of 0.040 and report stresses in kPa to three significant figures.",
+      "points": 4,
+      "objective_ids": [
+        "cellular-biomechanics-5-objective-2",
+        "cellular-biomechanics-1-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "p_stress_2s",
+          "type": "numeric",
+          "prompt": "Stress in P at t = 2.0 s, in kPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "p_stress_eq",
+          "type": "numeric",
+          "prompt": "Stress in P as t tends to infinity, in kPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "q_stress_2s",
+          "type": "numeric",
+          "prompt": "Stress in Q at t = 2.0 s, in kPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "q_relaxed",
+          "type": "single_choice",
+          "prompt": "Why is Q's stress at 2.0 s already essentially its equilibrium value?",
+          "options": [
+            "Because Q has the larger equilibrium modulus of the two candidates.",
+            "Because 2.0 s is ten of Q's relaxation times, so e^(−t/τ) is negligible.",
+            "Because a step strain produces no relaxation in a standard linear solid."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "p_stress_2s",
+            "type": "numeric",
+            "answer": 0.25,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "p_stress_eq",
+            "type": "numeric",
+            "answer": 0.08,
+            "unit": "",
+            "tolerance": 6e-05,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "q_stress_2s",
+            "type": "numeric",
+            "answer": 0.12,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "q_relaxed",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Stress is strain times the relaxation modulus at that time: σ(t) = ε × [E_inf + E_1 e^(−t/τ)].",
+        "solution": "P: 0.040 × (2 + 7e^(−0.5)) ≈ 0.2498 kPa, falling to 0.040 × 2 = 0.0800 kPa. Q: 0.040 × (3 + 3e^(−10)) ≈ 0.120 kPa; ten relaxation times have passed, so Q has relaxed to its equilibrium modulus while P, with τ = 4 s, still carries much of its relaxing part.",
+        "lesson_ids": [
+          "cellular-biomechanics-project-guide",
+          "cellular-biomechanics-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cellular-biomechanics-project:rehearsal-moduli",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Use the rehearsal table viscoelastic-rehearsal-candidates.csv: P has E_inf = 2 kPa, E_1 = 7 kPa and τ = 4 s; Q has E_inf = 3 kPa, E_1 = 3 kPa and τ = 0.2 s. Each is a standard linear solid with E(t) = E_inf + E_1 e^(−t/τ), E′(ω) = E_inf + E_1 (ωτ)²/[1 + (ωτ)²] and E″(ω) = E_1 (ωτ)/[1 + (ωτ)²]. Report moduli in kPa and the loss tangent as a bare number, each to three significant figures.",
+      "points": 6,
+      "objective_ids": [
+        "cellular-biomechanics-7-objective-1",
+        "cellular-biomechanics-7-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "p_storage_low",
+          "type": "numeric",
+          "prompt": "E′ of P at ω = 0.05 rad/s, in kPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "q_storage_low",
+          "type": "numeric",
+          "prompt": "E′ of Q at ω = 0.05 rad/s, in kPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "p_storage_high",
+          "type": "numeric",
+          "prompt": "E′ of P at ω = 2.0 rad/s, in kPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "q_storage_high",
+          "type": "numeric",
+          "prompt": "E′ of Q at ω = 2.0 rad/s, in kPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "q_tan_high",
+          "type": "numeric",
+          "prompt": "Loss tangent E″/E′ of Q at ω = 2.0 rad/s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "ranking",
+          "type": "single_choice",
+          "prompt": "Why does the storage-modulus ranking of P and Q reverse between the two frequencies?",
+          "options": [
+            "Because P's slow relaxation stores its relaxing part only under fast loading.",
+            "Because Q's loss modulus becomes negative at the lower frequency.",
+            "Because the storage modulus always increases with the equilibrium modulus alone."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "p_storage_low",
+            "type": "numeric",
+            "answer": 2.27,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "q_storage_low",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "p_storage_high",
+            "type": "numeric",
+            "answer": 8.89,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "q_storage_high",
+            "type": "numeric",
+            "answer": 3.41,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "q_tan_high",
+            "type": "numeric",
+            "answer": 0.303,
+            "unit": "",
+            "tolerance": 0.0006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "ranking",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Compute ωτ first, then E′ = E_inf + E_1 (ωτ)²/[1 + (ωτ)²] and E″ = E_1 (ωτ)/[1 + (ωτ)²].",
+        "solution": "At 0.05 rad/s, ωτ is 0.2 for P and 0.01 for Q, so E′ ≈ 2.269 and 3.000 kPa: Q is stiffer. At 2.0 rad/s, ωτ is 8 for P and 0.4 for Q, so E′ ≈ 8.892 and 3.414 kPa: P is stiffer. Q's loss tangent there is ≈ 0.303.",
+        "lesson_ids": [
+          "cellular-biomechanics-project-guide",
+          "cellular-biomechanics-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cellular-biomechanics-project:rehearsal-decision",
+      "type": "structured",
+      "prompt": "Project rehearsal open practice · Use the rehearsal table viscoelastic-rehearsal-candidates.csv: P has E_inf = 2 kPa, E_1 = 7 kPa and τ = 4 s; Q has E_inf = 3 kPa, E_1 = 3 kPa and τ = 0.2 s. Each is a standard linear solid with E(t) = E_inf + E_1 e^(−t/τ), E′(ω) = E_inf + E_1 (ωτ)²/[1 + (ωτ)²] and E″(ω) = E_1 (ωτ)/[1 + (ωτ)²]. Rehearsal thresholds: equilibrium stress no greater than 0.15 kPa under a held strain of 0.040, E′ of at least 6.0 kPa at ω = 2.0 rad/s, and a loss tangent no greater than 0.35 at that frequency. Select one response per criterion.",
+      "points": 3,
+      "objective_ids": [
+        "cellular-biomechanics-5-objective-3",
+        "cellular-biomechanics-7-objective-3"
+      ],
+      "feedback": {
+        "hint": "Check each threshold separately at the stated strain and frequency, and report which one fails.",
+        "solution": "P: equilibrium stress 0.0800 kPa, E′ ≈ 8.89 kPa and tan δ ≈ 0.0969 pass all three. Q: equilibrium stress 0.120 kPa and tan δ ≈ 0.303 pass, but E′ ≈ 3.41 kPa is below 6.0 kPa, so the storage modulus alone rejects it.",
+        "lesson_ids": [
+          "cellular-biomechanics-project-guide",
+          "cellular-biomechanics-7",
+          "cellular-biomechanics-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "response_fields": [
+        {
+          "id": "p_outcome",
+          "type": "single_choice",
+          "prompt": "P · What is P's outcome?",
+          "options": [
+            "P fails, because its relaxing modulus of 7 kPa is larger than Q's.",
+            "P passes all three thresholds.",
+            "P fails, because its stress has not finished relaxing at 2.0 s."
+          ],
+          "points": 1
+        },
+        {
+          "id": "q_binding",
+          "type": "single_choice",
+          "prompt": "Q · Which criterion rejects Q?",
+          "options": [
+            "The loss tangent, because 0.303 is close to the 0.35 limit.",
+            "The equilibrium stress, because Q relaxes much faster than P does.",
+            "Only the storage modulus: Q's E′ at 2.0 rad/s is below 6.0 kPa."
+          ],
+          "points": 1
+        },
+        {
+          "id": "label",
+          "type": "single_choice",
+          "prompt": "Labels · Why can one stiffness number not describe either candidate?",
+          "options": [
+            "Because its instantaneous, equilibrium and dynamic moduli all differ.",
+            "Because a standard linear solid has no defined modulus at any time after loading.",
+            "Because stiffness depends only on the relaxation time and never on any of the moduli."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "p_outcome",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "q_binding",
+            "type": "single_choice",
+            "answer": 2
+          },
+          {
+            "id": "label",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ],
+        "rubric": [
+          {
+            "id": "p_outcome",
+            "criterion": "Apply every threshold to P",
+            "points": 1,
+            "evidence": [
+              "Checks equilibrium stress, storage modulus and loss tangent."
+            ]
+          },
+          {
+            "id": "q_binding",
+            "criterion": "Name the binding criterion",
+            "points": 1,
+            "evidence": [
+              "Identifies the one threshold Q fails."
+            ]
+          },
+          {
+            "id": "label",
+            "criterion": "Separate time scales",
+            "points": 1,
+            "evidence": [
+              "Distinguishes instantaneous, equilibrium and dynamic moduli."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "cellular-biomechanics-project:rehearsal-energy",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Use the rehearsal table viscoelastic-rehearsal-candidates.csv: P has E_inf = 2 kPa, E_1 = 7 kPa and τ = 4 s; Q has E_inf = 3 kPa, E_1 = 3 kPa and τ = 0.2 s. Each is a standard linear solid with E(t) = E_inf + E_1 e^(−t/τ), E′(ω) = E_inf + E_1 (ωτ)²/[1 + (ωτ)²] and E″(ω) = E_1 (ωτ)/[1 + (ωτ)²]. At ω = 2.0 rad/s and strain amplitude 0.020, the energy dissipated per cycle per unit volume is W = π E″ ε₀². Report W in J/m³ to three significant figures as a bare number.",
+      "points": 3,
+      "objective_ids": [
+        "cellular-biomechanics-7-objective-1",
+        "cellular-biomechanics-1-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "p_energy",
+          "type": "numeric",
+          "prompt": "Dissipated energy density for P.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "q_energy",
+          "type": "numeric",
+          "prompt": "Dissipated energy density for Q.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "conversion",
+          "type": "single_choice",
+          "prompt": "Which conversion turns E″ in kPa into W in J/m³?",
+          "options": [
+            "1 kPa = 1 J/m³, so no conversion is needed.",
+            "1 kPa = 1000 J/m³, because 1 Pa equals 1 J/m³.",
+            "1 kPa = 0.001 J/m³, because a kilopascal is a small unit."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "p_energy",
+            "type": "numeric",
+            "answer": 1.08,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "q_energy",
+            "type": "numeric",
+            "answer": 1.3,
+            "unit": "",
+            "tolerance": 0.006,
+            "relative_tolerance": 0,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "conversion",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Convert E″ to pascals (1 Pa = 1 J/m³), then multiply by π and the squared strain amplitude.",
+        "solution": "P: E″ ≈ 861.5 Pa, so W = π × 861.5 × 0.020² ≈ 1.083 J/m³. Q: E″ ≈ 1034.5 Pa, so W ≈ 1.300 J/m³. Q stores less and dissipates more per cycle at this frequency.",
+        "lesson_ids": [
+          "cellular-biomechanics-project-guide",
+          "cellular-biomechanics-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "cellular-biomechanics-project:rehearsal-scope",
+      "type": "structured",
+      "prompt": "Project rehearsal open practice · Check the assumptions and scope you will discuss in project milestones 5 and 6. Select one response per criterion.",
+      "points": 3,
+      "objective_ids": [
+        "cellular-biomechanics-1-objective-2",
+        "cellular-biomechanics-3-objective-1"
+      ],
+      "feedback": {
+        "hint": "Ask which modeling choices the numbers depend on, how each could be tested, and what the result is about.",
+        "solution": "The calculation assumes a single relaxation time and a linear, small-strain response, which an amplitude sweep can test; and a material choice made from stipulated models says nothing about cell signaling, adhesion, growth or differentiation.",
+        "lesson_ids": [
+          "cellular-biomechanics-project-guide",
+          "cellular-biomechanics-1",
+          "cellular-biomechanics-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "response_fields": [
+        {
+          "id": "assumption",
+          "type": "single_choice",
+          "prompt": "Assumption · Which assumption most needs checking before using these numbers?",
+          "options": [
+            "That the candidates were listed in alphabetical order in the rehearsal table.",
+            "That one relaxation time and a linear, small-strain response fit the material.",
+            "That kilopascals rather than pascals are the correct unit for every modulus in the table."
+          ],
+          "points": 1
+        },
+        {
+          "id": "measurement",
+          "type": "single_choice",
+          "prompt": "Measurement · What could test whether the response is linear?",
+          "options": [
+            "Repeating the moduli at several strain amplitudes to see if they change.",
+            "Reporting the same calculated moduli to more decimal places than the table gives.",
+            "Choosing the candidate with the highest instantaneous modulus and re-running the sums."
+          ],
+          "points": 1
+        },
+        {
+          "id": "conclusion",
+          "type": "single_choice",
+          "prompt": "Conclusion · What can the selection support?",
+          "options": [
+            "A prediction that cells on the selected material will spread and proliferate faster.",
+            "A claim that the selected material is the stiffest possible substrate for any cell.",
+            "Only a model-based material choice; it says nothing about how cells would respond."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "assumption",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "measurement",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "conclusion",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ],
+        "rubric": [
+          {
+            "id": "assumption",
+            "criterion": "Name a model assumption",
+            "points": 1,
+            "evidence": [
+              "Identifies the single-time, linear-response assumption."
+            ]
+          },
+          {
+            "id": "measurement",
+            "criterion": "Pair the assumption with a test",
+            "points": 1,
+            "evidence": [
+              "Uses an amplitude sweep to check linearity."
+            ]
+          },
+          {
+            "id": "conclusion",
+            "criterion": "Keep mechanics and mechanobiology apart",
+            "points": 1,
+            "evidence": [
+              "Limits the conclusion to the stipulated material models."
+            ]
+          }
+        ]
+      }
     }
   ]
 }

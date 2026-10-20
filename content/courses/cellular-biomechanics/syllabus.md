@@ -1,6 +1,6 @@
 # Cellular Biomechanics & Mechanobiology
 
-**Maturity: partial. Version: 0.3.9.**
+**Maturity: partial. Version: 0.4.0.**
 
 Connect forces, matrix mechanics, cell adhesion, mechanotransduction, and quantitative assays across molecular-to-tissue scales.
 
@@ -33,20 +33,24 @@ This is a proposed scope, not a measured or reviewed semester. Each week lists i
 | 10 | Experimental design for cell mechanics | Experimental design for cell mechanics |
 | 11 | Dose–response to stiffness: the Hill function and how to choose the levels | Dose–response to stiffness: the Hill function, the half-maximal stiffness and how to choose the levels |
 | 12 | Separating substrate stiffness from ligand density: factorial design and interaction effects | Separating substrate stiffness from ligand density: factorial design, interaction effects and traction forces |
-| 13 | Virtual lab: stiffness, ligand density and the unit of analysis | Virtual lab 1: stiffness, ligand density and the unit of analysis |
+| 13 | Virtual lab: stiffness, ligand density and the unit of analysis; optional viscoelastic material-selection project | Virtual lab 1: stiffness, ligand density and the unit of analysis; Viscoelastic project guide (optional, ungraded) |
 | 14 | Decoupling stiffness from ligand density and mobility: redesigning the experiment | Decoupling stiffness from ligand density and mobility: redesigning the experiment |
 
 ## Assessment and study policy
 
 Every lesson has public formative items (numeric, single-choice, multiple-select, data-interpretation, structured-response and CSV-upload) mapped to its objectives, plus retrieval cards for the review queue; each practice assessment also lists the course outcomes its items assess. Week 3 pairs the existing indentation/viscoelasticity work with an eight-item size-scaling comparison, without adding a nominal week. Week 13 is a synthetic-data virtual lab and week 14 pairs a lesson on redesigning the stiffness experiment with the course case and its self-assessment checklist. These are practice activities with unlimited retries and no institutional grade, university credit or transferable credit. Workload has not been measured.
 
+## Optional viscoelastic material-selection project (ungraded)
+
+The [viscoelastic project guide](assignments/viscoelastic-material-selection-project-guide.md) makes the project below usable as open practice. It restates the project's model, thresholds and tasks, works a separate fictional candidate, and pairs two rehearsal candidates with open practice items in week 13. Five milestones, suggested for weeks 13–14, are Case studio self-checks whose responses are saved privately and never submitted, collected or scored.
+
 ## Inactive integrative project draft
 
-The [viscoelastic material-selection portfolio](assessment-specs/viscoelastic-material-selection-project-draft.md) compares fictional standard-linear-solid models across step relaxation and oscillatory loading. It is a paper-only mathematical exercise, is not scheduled or assigned, and makes no prediction about cell behavior or any real material.
+The [viscoelastic material-selection portfolio](assessment-specs/viscoelastic-material-selection-project-draft.md) compares fictional standard-linear-solid models across step relaxation and oscillatory loading. It is a paper-only mathematical exercise; the draft itself is not scheduled or assigned, the open project guide above does not submit work to it, and it makes no prediction about cell behavior or any real material.
 
 ## Current limitations
 
-The schedule above is proposed, not measured, and has not been reviewed by a qualified instructor. There are no graded homework sets, midterm or final; the new project draft is inactive and ungraded. The four former compact readings now have expanded primers, and the size-scaling reading extends Week 3 without a new week; broader workload, assessment, laboratory, and review gaps remain. The package cites no new papers: the lessons teach standard models with synthetic data, and the typical values they quote (moduli, pillar and bond parameters, cortical tensions, water properties) are textbook-level and vary between sources. All gels, cells, forces, candidate materials and numbers are synthetic; no lesson gives a laboratory protocol or handling procedure, and nothing here says anything about any real cell type, material or measurement. Qualified human review is required before this course could meet the complete-course standard.
+The schedule above is proposed, not measured, and has not been reviewed by a qualified instructor. There are no graded homework sets, midterm or final; the optional project guide and its rehearsal are ungraded practice, and the project draft remains inactive. The four former compact readings now have expanded primers, and the size-scaling reading extends Week 3 without a new week; broader workload, assessment, laboratory, and review gaps remain. The package cites no new papers: the lessons teach standard models with synthetic data, and the typical values they quote (moduli, pillar and bond parameters, cortical tensions, water properties) are textbook-level and vary between sources. All gels, cells, forces, candidate materials and numbers are synthetic; no lesson gives a laboratory protocol or handling procedure, and nothing here says anything about any real cell type, material or measurement. Qualified human review is required before this course could meet the complete-course standard.
 
 ## Sources and licensing
 

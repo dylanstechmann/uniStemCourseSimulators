@@ -3,7 +3,7 @@
 **Activity type:** synthetic-data analysis with public, ungraded formative checks
 **Course package:** Cellular Biomechanics & Mechanobiology. **Estimated learner time:** 2–3 hours
 **Data status:** all measurements are constructed for instruction. They describe no real gel, cell or marker, and nothing here is evidence about any cell type or material.
-**Dataset:** [synthetic marker expression (CSV)](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/cellular-biomechanics/labs/stiffness-ligand-marker-expression.csv).
+**Dataset:** [synthetic marker expression (CSV)](stiffness-ligand-marker-expression.csv).
 
 ## Experimental question
 

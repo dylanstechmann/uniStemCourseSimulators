@@ -6043,3 +6043,25 @@ Key checks before publication:
 | Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
 
 Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.
+
+## Cellular Biomechanics viscoelastic project for learners (2026-10-20)
+
+Cellular Biomechanics & Mechanobiology advances to 0.4.0. Week 13 gains `assignments/viscoelastic-material-selection-project-guide.md`, the synthetic `assignments/viscoelastic-rehearsal-candidates.csv` (two standard-linear-solid candidates examined at a 0.040 step strain, 0.05 and 2.0 rad/s and their own thresholds) and a five-item, 19-point rehearsal practice set; five project milestones are zero-point self-checks in `rubrics/case-studio.json`, with a `project` self-assessment record in week 14. The project table and the stiffness-ligand lab's dataset become learner resources, and the lab's link now resolves to the package-pinned CSV. The inactive project draft is unchanged.
+
+Key checks before publication:
+
+- A self-check script graded the five new items with the backend grader: keys earn full credit and wrong responses zero. Eight further response cases (strain not applied, an inverted loss tangent, kPa not converted to J/m³, and fully correct responses) earn the stated scores. The grader does not support kPa, so modulus fields take bare numbers with the unit in the prompt. An option-length audit flagged seven fields, which were rebalanced.
+- `tests/content/test_cellular_biomechanics_project_route.py` (5 tests) recomputes every rehearsal key with complex arithmetic, E* = E_inf + E_1·iωτ/(1 + iωτ), independent of the real formulas used to author the keys, and checks the threshold outcomes and the storage-modulus ranking reversal. It recomputes the guide's worked example, checks the guide's restatement of the draft, and checks that neither the guide nor the rehearsal states the project's results. Two false positives in that check, small project values rounding to a stated project input and to a distractor's conversion factor, were resolved by comparing small values at full precision and excluding restated inputs. It also checks that every link resolves and each learner resource is served byte for byte.
+- The guide's display equation parses in KaTeX. Pins updated: the snapshot version and lesson count (16 to 17), the global case count (75 to 80) and the backend per-course case map. The numeric-answer limitation now counts 83 answers, fourteen requiring a unit and eleven checking significant figures.
+- The 0.3.9 snapshot is archived as `docs/CELLULAR_BIOMECHANICS_REVIEW_SNAPSHOT-0.3.9.md`.
+
+| Actual command/check | Result |
+| --- | --- |
+| Self-check script over the Cellular Biomechanics item module (backend grader) | 5 items and 8 extra cases passed. |
+| `tools/validate_content.py` | Passed: 25 courses, 468 lessons, 3,024 questions, 1,629 cards and 80 cases; 0 errors and 0 warnings. |
+| `tools/objective_coverage.py --check` and `tools/assessment_candidates.py --check` | Passed after regeneration. |
+| `claims_scan.py --repo uniStemCourseSimulators` | 0 findings. |
+| Full verify, `verify.sh --frontend` (log `cbm-verify-1`) | Content, legacy (7), security (1,696 files, 0 findings), ruff, root (3,429 passed, 1 skipped), backend (6,377 passed, 2 skipped) and frontend (77 tests) passed. |
+| Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
+
+Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.
