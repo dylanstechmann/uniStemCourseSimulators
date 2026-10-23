@@ -63,4 +63,4 @@ This is a Beta–Binomial predictive probability. It differs from plugging the p
 - A posterior probability is conditional on the model and prior. It is not a p-value, a guarantee about an individual, or proof that the assumptions fit a real assay.
 - All values here are synthetic teaching examples, not medical, laboratory or research advice.
 
-MIT OCW 18.05 includes continuous-prior updating and Beta conjugacy in its undergraduate Bayesian unit. This original lesson develops one Beta–Binomial case only; the course does not cover the full Bayesian sequence, normal conjugacy or a broad treatment of maximum likelihood.
+MIT OCW 18.05 includes continuous-prior updating and Beta conjugacy in its undergraduate Bayesian unit. This original lesson develops one Beta–Binomial case only; the course does not cover the full Bayesian sequence, general conjugate families or broad likelihood theory. A [normal-mean companion](normal-conjugacy-and-shared-prediction.md) now develops one known-variance case, and a [likelihood companion](likelihood-estimation-and-censored-exposure.md) derives selected exponential/binomial estimates.

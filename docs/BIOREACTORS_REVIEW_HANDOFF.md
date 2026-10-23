@@ -1,6 +1,6 @@
 # Bioreactors course review handoff
 
-This handoff targets Bioreactors & Tissue Culture Engineering, package version 0.5.0. The [review snapshot](BIOREACTORS_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+This handoff targets Bioreactors & Tissue Culture Engineering, package version 0.6.0. The [review snapshot](BIOREACTORS_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
 
 ## Review scope
 
@@ -18,3 +18,7 @@ At version 0.4.6, the focused growth and project suite passed 7 tests, including
 ## Review record to complete only after review
 
 After a review actually occurs, record reviewer name and qualifications, date, package version and archive digest, artifacts examined, concrete findings and disposition. Keep separate decisions for mathematical correctness, instructional design, assessment, accessibility, workload and release. Do not infer approval from the package hash or test results.
+
+## Balance/observation/local-exposure target (2026-10-22)
+
+Current target 0.6.0 adds three foundations, four reports, twenty checkpoints/cards and two synthetic CSVs. Check total-flow bleed/leakage accounting, gross versus net production, maintenance/death and optional dead-state boundaries; constant-consumption failure at depleted states; probe/process rate-swap symmetry and equal-rate limit; local versus weighted oxygen, exchange amounts and conditional thresholds; raw factorial coding, interactions/simple effects and constructed residual limits. No table is measured data or biological replication, and no input specifies a real culture operation. Code/report/proof scoring, validated process assumptions, experimental competence, workload and qualified review remain open. Earlier evidence above is historical; the current snapshot pins the new target.

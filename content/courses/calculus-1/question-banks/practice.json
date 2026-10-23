@@ -4306,6 +4306,1295 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "calculus-1-16:depth-1",
+      "type": "data_interpretation",
+      "prompt": "For v(t)=2t−2 on [0,3], use n=6 equal subintervals. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-1-16-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "left",
+          "type": "numeric",
+          "prompt": "Left-endpoint signed sum in meters.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "right",
+          "type": "numeric",
+          "prompt": "Right-endpoint signed sum in meters.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "trapezoid",
+          "type": "numeric",
+          "prompt": "Trapezoidal signed sum in meters.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "left",
+            "type": "numeric",
+            "answer": 1.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "right",
+            "type": "numeric",
+            "answer": 4.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "trapezoid",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can rectangles below an axis not be treated as positive signed accumulation?",
+        "solution": "With h=3/n, the right sum is 3+9/n and the left sum 3−9/n. At n=6 these are 4.5 and 1.5 meters; their trapezoidal average is exactly 3 for this affine function. Exactness here is not a general model or quadrature guarantee.",
+        "lesson_ids": [
+          "calculus-1-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus-evidence practice developed with substantial AI assistance; no external problem, function, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-1-16:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For the same velocity on [0,3], initial position is 10 meters. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-1-16-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "net",
+          "type": "numeric",
+          "prompt": "Signed net displacement over the supplied interval, meters.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "distance",
+          "type": "numeric",
+          "prompt": "Total distance traveled over the supplied interval, meters.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "final",
+          "type": "numeric",
+          "prompt": "Position at the final supplied time, meters.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "net",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "distance",
+            "type": "numeric",
+            "answer": 5.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "final",
+            "type": "numeric",
+            "answer": 13.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "When does absolute integral equal integral of absolute value for a real rate?",
+        "solution": "The rate changes sign at one second. Integrals on [0,1] and [1,3] are −1 and +4 meters, so net displacement is 3, distance is 5 and final position is 10+3=13 meters. Taking abs only after summation would erase the reversal.",
+        "lesson_ids": [
+          "calculus-1-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus-evidence practice developed with substantial AI assistance; no external problem, function, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-1-16:depth-3",
+      "type": "data_interpretation",
+      "prompt": "A separate rate is −1 below t=1 and +2 above t=1. Its value at exactly one may be any finite number. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "calculus-1-16-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "derivative",
+          "type": "single_choice",
+          "prompt": "What happens to its accumulation at t=1?",
+          "options": [
+            "It is continuous but has unequal one-sided derivatives −1 and +2.",
+            "It is differentiable with the average slope regardless of the one-sided rates.",
+            "It has a jump of three because the integrand jumps by three at that point."
+          ],
+          "points": 1
+        },
+        {
+          "id": "point",
+          "type": "single_choice",
+          "prompt": "What does changing only the finite value at t=1 do?",
+          "options": [
+            "It changes the integral by the full difference between the two assigned point values.",
+            "It restores differentiability whenever that value equals the average of both rates.",
+            "It changes neither the integral nor the unequal one-sided accumulation derivatives."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "derivative",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "point",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Does an integrable rate need to be continuous at every point?",
+        "solution": "The accumulation is −t up to one and 2t−3 afterward; both meet at −1. Their slopes differ, so the two-sided derivative fails. A finite value at one point contributes zero integral width and cannot repair those one-sided slopes.",
+        "lesson_ids": [
+          "calculus-1-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus-evidence practice developed with substantial AI assistance; no external problem, function, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-1-16:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Let H(t) be the integral of s²−1 from s=t to s=2t. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "calculus-1-16-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "value",
+          "type": "numeric",
+          "prompt": "Value of H at t=1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "derivative",
+          "type": "numeric",
+          "prompt": "Derivative of H at t=1.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "value",
+            "type": "numeric",
+            "answer": 1.3333333333333333,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "derivative",
+            "type": "numeric",
+            "answer": 6.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which chain factors enter a moving-bound integral derivative?",
+        "solution": "Integration gives H(t)=7t³/3−t. Differentiating gives 7t²−1, also obtained as 2[(2t)²−1]−[t²−1]. At one the value is 4/3 and derivative six; the moving lower boundary is subtracted.",
+        "lesson_ids": [
+          "calculus-1-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus-evidence practice developed with substantial AI assistance; no external problem, function, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-1-17:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1 uses f(x)=(x²−9)/(x−3) for x<3 and A+B(x−3)+2(x−3)² for x≥3. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-1-17-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "value",
+          "type": "numeric",
+          "prompt": "Parameter A required for continuity at three.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "slope",
+          "type": "numeric",
+          "prompt": "Parameter B required for differentiability after continuity.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second",
+          "type": "single_choice",
+          "prompt": "Does the supplied coefficient two allow a two-sided second derivative?",
+          "options": [
+            "Yes; equality of first derivatives automatically forces all higher derivatives to agree.",
+            "No; the left second derivative is zero and the right is four.",
+            "Yes; the original left quotient is undefined at three so its limiting slopes do not matter."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "value",
+            "type": "numeric",
+            "answer": 6.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "slope",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "second",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must be checked before differentiating a piecewise simplification at its join?",
+        "solution": "The left branch simplifies to x+3 on its original domain, giving limit six. The right value must therefore have A=6, and slopes agree when B=1. Left and right second derivatives remain zero and four, so this higher derivative fails.",
+        "lesson_ids": [
+          "calculus-1-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus-evidence practice developed with substantial AI assistance; no external problem, function, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-1-17:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1 proves x²→4 at x→2 using |x−2|<1 and |x+2|<5. Set epsilon=0.05; choose delta=min(1,epsilon/5). Separately use secant step h=0.02. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-1-17-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "delta",
+          "type": "numeric",
+          "prompt": "Valid delta from the specified conservative choice.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "secant",
+          "type": "numeric",
+          "prompt": "Forward secant slope for x² at x=2.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "error",
+          "type": "numeric",
+          "prompt": "Signed secant error relative to the exact derivative.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "delta",
+            "type": "numeric",
+            "answer": 0.01,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "secant",
+            "type": "numeric",
+            "answer": 4.02,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "error",
+            "type": "numeric",
+            "answer": 0.02,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why is one valid epsilon–delta radius not necessarily the largest one?",
+        "solution": "The product bound gives delta=0.01. The nonzero-step difference quotient is exactly 4+h, hence 4.02 and signed slope error +0.02. These exact statements do not include floating-point or measurement errors.",
+        "lesson_ids": [
+          "calculus-1-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus-evidence practice developed with substantial AI assistance; no external problem, function, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-1-17:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1 sets h(x)=x sin(1/x) away from zero and h(0)=0. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "calculus-1-17-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "continuous",
+          "type": "single_choice",
+          "prompt": "Which argument establishes continuity at zero?",
+          "options": [
+            "The bound |h(x)|≤|x| squeezes the function values to zero.",
+            "The derivative quotient oscillates, so the original function must also fail to approach zero.",
+            "A finite collection of plot samples proves the values approach zero for every nearby input."
+          ],
+          "points": 1
+        },
+        {
+          "id": "quotient",
+          "type": "single_choice",
+          "prompt": "What happens along the supplied reciprocal-angle sequences?",
+          "options": [
+            "The derivative quotient tends to zero because the original function is continuous there.",
+            "The derivative quotient has values +1 and −1 on sequences both approaching zero.",
+            "The derivative exists as the arithmetic mean of its two sequence values at zero."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "continuous",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "quotient",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How can continuity coexist with a failed derivative limit?",
+        "solution": "The factor x makes h continuous by the squeeze bound, but its derivative quotient is sin(1/x). Along the two supplied sequences it is +1 or −1, proving that the quotient has no unique limit.",
+        "lesson_ids": [
+          "calculus-1-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus-evidence practice developed with substantial AI assistance; no external problem, function, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-1-18:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2 uses x²+xy+y²=7 at (x,y)=(1,2), on its local upper branch. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-1-18-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "first",
+          "type": "numeric",
+          "prompt": "Local derivative dy/dx at the supplied point.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second",
+          "type": "numeric",
+          "prompt": "Local second derivative d²y/dx² at the supplied point.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "inverse",
+          "type": "numeric",
+          "prompt": "Local inverse derivative dx/dy at y=2.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "first",
+            "type": "numeric",
+            "answer": -0.8,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "second",
+            "type": "numeric",
+            "answer": -0.336,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "inverse",
+            "type": "numeric",
+            "answer": -1.25,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "When is an inverse derivative the reciprocal of a forward derivative?",
+        "solution": "Differentiation gives y′=−(2x+y)/(x+2y)=−0.8. Differentiating the constraint again gives y″=−[2+2y′+2(y′)²]/(x+2y)=−0.336. The nonzero local slope permits the inverse slope −1.25. Both calculations use a local upper branch; invertibility is not asserted for the full closed curve.",
+        "lesson_ids": [
+          "calculus-1-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus-evidence practice developed with substantial AI assistance; no external problem, function, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-1-18:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use the same branch and z(x)=ln y(x), with tangent prediction at x=1.05 from (1,2). Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-1-18-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "log_first",
+          "type": "numeric",
+          "prompt": "Derivative dz/dx at the supplied base point.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "log_second",
+          "type": "numeric",
+          "prompt": "Second derivative d²z/dx² at the base point.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "tangent",
+          "type": "numeric",
+          "prompt": "Tangent-line prediction for y at x=1.05.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "log_first",
+            "type": "numeric",
+            "answer": -0.4,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "log_second",
+            "type": "numeric",
+            "answer": -0.328,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "tangent",
+            "type": "numeric",
+            "answer": 1.96,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Does one curvature value establish a Taylor bound over an interval?",
+        "solution": "The branch has positive y near the point. Thus z′=y′/y=−0.4 and z″=y″/y−(y′/y)²=−0.328. The tangent predicts 2−0.8×0.05=1.96. An actual error or interval bound needs additional calculation.",
+        "lesson_ids": [
+          "calculus-1-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus-evidence practice developed with substantial AI assistance; no external problem, function, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-1-18:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2’s right triangle has x²+y²=169, x=5 m,y=12 m and dx/dt=0.6 m/s. Theta is the segment angle above the horizontal. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-1-18-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "vertical",
+          "type": "numeric",
+          "prompt": "Vertical coordinate rate dy/dt, m/s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "angle",
+          "type": "numeric",
+          "prompt": "Angular rate dtheta/dt, rad/s for the supplied exact model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "area",
+          "type": "numeric",
+          "prompt": "Triangular area rate, m²/s for the supplied exact model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "vertical",
+            "type": "numeric",
+            "answer": -0.25,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "angle",
+            "type": "numeric",
+            "answer": -0.05,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "area",
+            "type": "numeric",
+            "answer": 2.975,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why differentiate before substituting a time-specific coordinate?",
+        "solution": "Differentiating before substitution gives ydot=−x xdot/y=−0.25 m/s and theta-dot=−xdot/y=−0.05 rad/s. Product differentiation gives area rate [x ydot+y xdot]/2=2.975 m²/s. Increasing width can exceed the effect of decreasing height.",
+        "lesson_ids": [
+          "calculus-1-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus-evidence practice developed with substantial AI assistance; no external problem, function, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-1-19:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 3 forms an ideal open box from a 14-by-10 cm sheet by removing corner squares x, with V=x(14−2x)(10−2x) on [0,5]. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-1-19-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "cut",
+          "type": "numeric",
+          "prompt": "Positive cut size maximizing volume on [0,5], cm.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "volume",
+          "type": "numeric",
+          "prompt": "Maximum feasible volume before the new height limit, cm³.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "capped",
+          "type": "numeric",
+          "prompt": "Maximum volume after imposing x≤1.5 cm, cm³.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "cut",
+            "type": "numeric",
+            "answer": 1.9183340005338672,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "volume",
+            "type": "numeric",
+            "answer": 120.16442131482596,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "capped",
+            "type": "numeric",
+            "answer": 115.5,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What closes a global constrained optimization argument?",
+        "solution": "Stationary cuts are (12±sqrt(39))/3, of which only the smaller is feasible in the interior. Endpoint volumes vanish. Adding x≤1.5 excludes that stationary maximum and the new boundary volume is 1.5×11×7=115.5 cm³; the same-objective maximum cannot increase under restriction.",
+        "lesson_ids": [
+          "calculus-1-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus-evidence practice developed with substantial AI assistance; no external problem, function, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-1-19:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Assignment 3 applies the Mean Value Theorem to g(t)=t³−3t on [−2,2]. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "calculus-1-19-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "secant",
+          "type": "numeric",
+          "prompt": "Secant slope over the supplied closed interval.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "positive",
+          "type": "numeric",
+          "prompt": "Positive interior point with derivative equal to that slope.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "negative",
+          "type": "numeric",
+          "prompt": "Negative interior point with derivative equal to that slope.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "unique",
+          "type": "single_choice",
+          "prompt": "Does the theorem require exactly one such point?",
+          "options": [
+            "Yes; two matching derivative values would contradict differentiability on the interval.",
+            "Yes; the secant line always touches a polynomial at only its midpoint.",
+            "No; it guarantees at least one and both supplied points are valid."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "secant",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "positive",
+            "type": "numeric",
+            "answer": 1.1547005383792517,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "negative",
+            "type": "numeric",
+            "answer": -1.1547005383792517,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "unique",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What additional argument can turn root existence into uniqueness?",
+        "solution": "Endpoint values are −2 and +2, so the secant slope is one. Solving 3c²−3=1 yields c=±2/sqrt(3), both interior. The theorem guarantees existence without uniqueness, and endpoint sign change likewise does not establish a unique root.",
+        "lesson_ids": [
+          "calculus-1-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus-evidence practice developed with substantial AI assistance; no external problem, function, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-1-19:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Assignment 3 uses h(t)=t+exp(t)−2 on [0,1], with h′≥2. Take one Newton step from t0=0.5. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-1-19-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "iterate",
+          "type": "numeric",
+          "prompt": "New iterate after the specified Newton step.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "residual",
+          "type": "numeric",
+          "prompt": "Residual h at the unrounded new iterate.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "bound",
+          "type": "numeric",
+          "prompt": "Certified location-error bound from |h|/2.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "iterate",
+            "type": "numeric",
+            "answer": 0.4438516719953636,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "residual",
+            "type": "numeric",
+            "answer": 0.0025509417172999704,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "bound",
+            "type": "numeric",
+            "answer": 0.0012754708586499852,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can a small root residual be insufficient by itself?",
+        "solution": "Newton uses the derivative 1+exp(0.5) at the starting point. Evaluate h at the unrounded new iterate and divide its absolute residual by the proven lower bound two. Continuity and endpoint signs give existence; strict derivative positivity gives uniqueness; the MVT converts residual to location error.",
+        "lesson_ids": [
+          "calculus-1-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus-evidence practice developed with substantial AI assistance; no external problem, function, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-1-20:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 4 uses velocity v(t)=2t−3 m/s on [0,4] seconds and initial position seven meters. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "calculus-1-20-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "net",
+          "type": "numeric",
+          "prompt": "Net displacement over the full interval, meters.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "distance",
+          "type": "numeric",
+          "prompt": "Total distance traveled over the full interval, meters.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "final",
+          "type": "numeric",
+          "prompt": "Final position after the full interval, meters.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "minimum",
+          "type": "numeric",
+          "prompt": "Minimum position over the full interval, meters.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "net",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "distance",
+            "type": "numeric",
+            "answer": 8.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "final",
+            "type": "numeric",
+            "answer": 11.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "minimum",
+            "type": "numeric",
+            "answer": 4.75,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How do state, net change and absolute travel differ?",
+        "solution": "The antiderivative is t²−3t. Its minimum is −2.25 at t=1.5, giving minimum position 4.75. Signed displacement is four; adding the initial position gives eleven. Absolute contributions 2.25 and 6.25 sum to distance 8.5.",
+        "lesson_ids": [
+          "calculus-1-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus-evidence practice developed with substantial AI assistance; no external problem, function, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-1-20:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For the same affine velocity on [0,4], use eight equal intervals and allow right-sum absolute error at most 0.05 meter. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-1-20-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "left",
+          "type": "numeric",
+          "prompt": "Left-endpoint signed sum at n=8, meters.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "right",
+          "type": "numeric",
+          "prompt": "Right-endpoint signed sum at n=8, meters.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "intervals",
+          "type": "numeric",
+          "prompt": "Least positive integer subinterval count meeting the stated right-sum tolerance.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "left",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "right",
+            "type": "numeric",
+            "answer": 6.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "intervals",
+            "type": "numeric",
+            "answer": 320.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why distinguish an exact finite-sum error from a measured-data uncertainty?",
+        "solution": "The right sum is 4+16/n and left sum 4−16/n. At eight intervals these are six and two; the right error 16/n≤0.05 requires integer n≥320. The bound is an exact error for this constructed affine function, not a universal rule.",
+        "lesson_ids": [
+          "calculus-1-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus-evidence practice developed with substantial AI assistance; no external problem, function, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-1-20:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Assignment 4’s separate q is −2 below t=2 and +3 above t=2 on [0,4]. Also use H(t)=integral from t to 2t of (s²−1) ds. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "calculus-1-20-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "net",
+          "type": "numeric",
+          "prompt": "Signed accumulation of q over [0,4].",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "absolute",
+          "type": "numeric",
+          "prompt": "Absolute accumulation of q over [0,4].",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "moving",
+          "type": "numeric",
+          "prompt": "Derivative of H at t=1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "jump",
+          "type": "single_choice",
+          "prompt": "Can changing just the finite value q(2) repair the accumulation derivative there?",
+          "options": [
+            "No; its one-sided slopes remain −2 and +3 regardless of that point value.",
+            "Yes; selecting their mean makes every surrounding secant have the same limiting slope.",
+            "Yes; the accumulated integral gains exactly the changed point value at that time."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "net",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "absolute",
+            "type": "numeric",
+            "answer": 10.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "moving",
+            "type": "numeric",
+            "answer": 6.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "jump",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which hypotheses must accompany the moving-boundary formula?",
+        "solution": "The jump accumulation is −2t then 3t−10, continuous at −4 but with unequal slopes. Net accumulation is −4+6=2 and absolute accumulation 4+6=10. The separate smooth moving-boundary derivative is 7t²−1, giving six at one.",
+        "lesson_ids": [
+          "calculus-1-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus-evidence practice developed with substantial AI assistance; no external problem, function, geometry or dataset imported."
+        ]
+      }
     }
   ]
 }

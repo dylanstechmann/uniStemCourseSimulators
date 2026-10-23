@@ -20,7 +20,12 @@ AUDIT = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(AUDIT)
 # Open homework, review and project lessons added in 0.5.0 revisit existing objectives; the inactive
 # candidate stays mapped to the topic lessons it was drafted against.
-OPEN_PRACTICE_LESSON_PREFIXES = ("biochemistry-hw", "biochemistry-review-", "biochemistry-project-")
+# The inactive 0.4.85 candidates also predate the five 0.6.0 mechanism/bridge lessons.
+# Their original coverage contract stays frozen; new public objectives are not certified by these candidates.
+POST_CANDIDATE_LESSON_PREFIXES = (
+    "biochemistry-hw", "biochemistry-review-", "biochemistry-project-",
+    *(f"biochemistry-{number}" for number in range(28, 33)),
+)
 
 
 def test_cumulative_final_candidate_is_inactive_answer_free_and_mapped():
@@ -53,7 +58,7 @@ def test_cumulative_final_candidate_is_inactive_answer_free_and_mapped():
         lesson["id"]
         for module in manifest["modules"]
         for lesson in module["lessons"]
-        if not lesson["id"].startswith(OPEN_PRACTICE_LESSON_PREFIXES)
+        if not lesson["id"].startswith(POST_CANDIDATE_LESSON_PREFIXES)
     }
     assert len(candidate["lesson_ids"]) == 27
     assert set(candidate["lesson_ids"]) == manifest_lesson_ids

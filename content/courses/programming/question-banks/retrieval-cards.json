@@ -576,6 +576,346 @@
         "programming-3-objective-2"
       ],
       "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-16-card-1",
+      "lesson_id": "programming-16",
+      "front": "Why does the central derivative have second-order truncation error?",
+      "back": "Subtracting symmetric Taylor expansions cancels even powers in the numerator; after division by 2h the leading derivative error is proportional to h².",
+      "objective_ids": [
+        "programming-16-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-16-card-2",
+      "lesson_id": "programming-16",
+      "front": "When can refinement-based derivative extrapolation fail?",
+      "back": "Noise, roundoff, nonsmoothness or changing the underlying function/domain can invalidate the assumed leading error model.",
+      "objective_ids": [
+        "programming-16-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-16-card-3",
+      "lesson_id": "programming-16",
+      "front": "Why is the smallest possible difference step not generally best?",
+      "back": "Subtraction/evaluation error is divided by the step, while truncation improves with smaller steps. Their trade-off depends on scales and noise.",
+      "objective_ids": [
+        "programming-16-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-16-card-4",
+      "lesson_id": "programming-16",
+      "front": "Which units should a numerical derivative carry?",
+      "back": "Output units divided by input units; observation-noise propagation must preserve that same derivative scale.",
+      "objective_ids": [
+        "programming-16-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-17-card-1",
+      "lesson_id": "programming-17",
+      "front": "How do output SD and the mean’s standard error differ?",
+      "back": "Under independent identical sampling, the mean’s standard error is output SD divided by sqrt(N). They describe different distributions.",
+      "objective_ids": [
+        "programming-17-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-17-card-2",
+      "lesson_id": "programming-17",
+      "front": "What does increasing the Monte Carlo draw count address?",
+      "back": "It reduces sampling error under the assumed sampling design; it does not remove model error or a biased inner numerical solver.",
+      "objective_ids": [
+        "programming-17-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-17-card-3",
+      "lesson_id": "programming-17",
+      "front": "Why is zero-event probability reporting delicate?",
+      "back": "A plug-in standard error becomes zero at no events, while a model-based one-sided upper bound remains positive.",
+      "objective_ids": [
+        "programming-17-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-17-card-4",
+      "lesson_id": "programming-17",
+      "front": "Does a seed establish valid Monte Carlo inference?",
+      "back": "A seed supports reconstruction of a compatible generator stream. The estimator, distribution, independence assumptions and implementation still need validation.",
+      "objective_ids": [
+        "programming-17-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-18-card-1",
+      "lesson_id": "programming-18",
+      "front": "Why reuse factors instead of an inverse for many right-hand sides?",
+      "back": "A factorization can be reused in triangular solves, avoiding repeated elimination and unnecessary inverse construction.",
+      "objective_ids": [
+        "programming-18-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-18-card-2",
+      "lesson_id": "programming-18",
+      "front": "What distinguishes Jacobi from an in-place update?",
+      "back": "Jacobi evaluates every new component from the old vector. Immediate in-place reuse changes the recurrence.",
+      "objective_ids": [
+        "programming-18-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-18-card-3",
+      "lesson_id": "programming-18",
+      "front": "Why can sparse factors be larger than a sparse input?",
+      "back": "Elimination can create fill-in. Storage and solver choice must account for structure and ordering, not only input nonzero count.",
+      "objective_ids": [
+        "programming-18-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-18-card-4",
+      "lesson_id": "programming-18",
+      "front": "Can a small linear residual prove a sufficiently fine PDE grid?",
+      "back": "No. It verifies the discrete equations. Grid/discretization error requires a separate refinement or analytical comparison.",
+      "objective_ids": [
+        "programming-18-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-19-card-1",
+      "lesson_id": "programming-19",
+      "front": "What conditions matter for simple power iteration?",
+      "back": "A uniquely dominant magnitude and an initial component in its mode are central assumptions; normalization avoids unbounded vector growth.",
+      "objective_ids": [
+        "programming-19-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-19-card-2",
+      "lesson_id": "programming-19",
+      "front": "Why verify an approximate eigenpair directly?",
+      "back": "A stable-looking eigenvalue estimate can conceal a direction error; Av−λv tests the defining equation.",
+      "objective_ids": [
+        "programming-19-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-19-card-3",
+      "lesson_id": "programming-19",
+      "front": "Does dominant mean slowest for every dynamical model?",
+      "back": "No. Interpret the operator and signs; the largest positive eigenvalue of A is the fastest decay rate in x′=−Ax.",
+      "objective_ids": [
+        "programming-19-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-19-card-4",
+      "lesson_id": "programming-19",
+      "front": "Why can power iteration fail for equal dominant magnitudes?",
+      "back": "The modes need not separate in magnitude; sign alternation or rotations can prevent convergence to one direction.",
+      "objective_ids": [
+        "programming-19-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-20-card-1",
+      "lesson_id": "programming-20",
+      "front": "Why is elementwise division by a Jacobian not Newton’s method?",
+      "back": "The correction solves a coupled linear system; off-diagonal derivatives link the unknowns.",
+      "objective_ids": [
+        "programming-20-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-20-card-2",
+      "lesson_id": "programming-20",
+      "front": "Why should a Jacobian check use more than one tiny step?",
+      "back": "Truncation, evaluation error and domain restrictions can make a single step misleading. A sweep exposes the relevant error regime.",
+      "objective_ids": [
+        "programming-20-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-20-card-3",
+      "lesson_id": "programming-20",
+      "front": "What is globalization intended to improve?",
+      "back": "A line search or trust region controls trial steps away from the local convergence regime, with explicit acceptance and failure rules.",
+      "objective_ids": [
+        "programming-20-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-20-card-4",
+      "lesson_id": "programming-20",
+      "front": "Why scale residuals in a multi-equation problem?",
+      "back": "Different component units and magnitudes require declared characteristic scales before a norm has a coherent comparison meaning.",
+      "objective_ids": [
+        "programming-20-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-21-card-1",
+      "lesson_id": "programming-21",
+      "front": "Does an implicit stable step ensure accuracy?",
+      "back": "No. Stability controls perturbation amplification; discretization error still needs an error estimate or independent comparison.",
+      "objective_ids": [
+        "programming-21-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-21-card-2",
+      "lesson_id": "programming-21",
+      "front": "What distinguishes local from global ODE error?",
+      "back": "A local estimate concerns one trial from a given input state; global error also includes accumulated and propagated errors.",
+      "objective_ids": [
+        "programming-21-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-21-card-3",
+      "lesson_id": "programming-21",
+      "front": "Why can a fast decaying mode constrain an explicit method?",
+      "back": "Numerical perturbations in that mode must remain stable even if its displayed state is already small.",
+      "objective_ids": [
+        "programming-21-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-21-card-4",
+      "lesson_id": "programming-21",
+      "front": "What should a reproducible ODE report retain?",
+      "back": "Equations, units, initial values, parameters, method/software, tolerances, time interval, output/event settings, status and independent accuracy checks.",
+      "objective_ids": [
+        "programming-21-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-22-card-1",
+      "lesson_id": "programming-22",
+      "front": "Why preserve rejected data in a ledger?",
+      "back": "A row-level reason and original value make filtering auditable and keep missingness and denominators visible.",
+      "objective_ids": [
+        "programming-22-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-22-card-2",
+      "lesson_id": "programming-22",
+      "front": "Can technical repeats change the independent specimen count?",
+      "back": "No. The design determines independent units. A summary should label records and represented specimens separately.",
+      "objective_ids": [
+        "programming-22-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-23-card-1",
+      "lesson_id": "programming-23",
+      "front": "What must an interpolation validation report separate?",
+      "back": "Node agreement, between-node assumptions, extrapolation domain and evidence about the unknown generating function.",
+      "objective_ids": [
+        "programming-23-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-23-card-2",
+      "lesson_id": "programming-23",
+      "front": "Why use more than exact-polynomial tests?",
+      "back": "They can miss general truncation behavior. A smooth non-polynomial reference and step sweep expose convergence and roundoff regimes.",
+      "objective_ids": [
+        "programming-23-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-24-card-1",
+      "lesson_id": "programming-24",
+      "front": "Why define an event threshold before looking at simulations?",
+      "back": "Changing it after inspection changes the target and can select a misleading result. Preserve the prespecified target or label exploration.",
+      "objective_ids": [
+        "programming-24-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-24-card-2",
+      "lesson_id": "programming-24",
+      "front": "What does a two-axis numerical/sampling study reveal?",
+      "back": "Grid or approximation refinement diagnoses numerical bias, while draw-count comparisons diagnose simulation sampling scatter.",
+      "objective_ids": [
+        "programming-24-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-25-card-1",
+      "lesson_id": "programming-25",
+      "front": "Why manufacture a known solution?",
+      "back": "It creates an independent forward-error reference in a controlled discrete problem, complementing residual checks.",
+      "objective_ids": [
+        "programming-25-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-25-card-2",
+      "lesson_id": "programming-25",
+      "front": "What is a meaningful eigenvector comparison?",
+      "back": "Compare directions up to scale/sign and verify the residual, accounting for clustered eigenvalues when interpreting individual modes.",
+      "objective_ids": [
+        "programming-25-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-26-card-1",
+      "lesson_id": "programming-26",
+      "front": "Why can conservation alone miss an ODE defect?",
+      "back": "Different incorrect trajectories can preserve the same total. Check state errors, positivity, method consistency and refinement too.",
+      "objective_ids": [
+        "programming-26-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "programming-26-card-2",
+      "lesson_id": "programming-26",
+      "front": "How should a nearly repeated-rate reference be evaluated?",
+      "back": "Use the analytic limit or a stable exponential-difference formulation and test continuity; direct subtraction/division can lose precision.",
+      "objective_ids": [
+        "programming-26-objective-2"
+      ],
+      "license": "CC-BY-4.0"
     }
   ]
 }

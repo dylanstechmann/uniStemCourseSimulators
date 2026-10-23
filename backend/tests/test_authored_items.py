@@ -38,7 +38,8 @@ def as_written(field):
         value = f"{answer}"
     else:
         decimals = figures - 1 - math.floor(math.log10(abs(answer)))
-        value = f"{answer:.{decimals}f}" if decimals >= 0 else f"{answer:.{figures - 1}e}"
+        # Whole-number trailing zeros need scientific notation to carry explicit precision.
+        value = f"{answer:.{decimals}f}" if decimals > 0 else f"{answer:.{figures - 1}e}"
     return f"{value} {field.get('unit', '')}".strip()
 
 

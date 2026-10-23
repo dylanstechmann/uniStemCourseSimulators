@@ -69,4 +69,4 @@ If the closed batch contains only \(A\) and \(B\), their total concentration rem
 - At equilibrium there is no net thermodynamic driving force for the reaction, though forward and reverse molecular events can continue.
 - All values are synthetic teaching examples; they do not predict a real material, tissue, process or reaction rate.
 
-MIT OCW 20.110J places equilibrium/free energy, chemical potential and chemical equilibrium in its undergraduate sequence. This local reading develops a single ideal \(A\rightleftharpoons B\) calculation; phase equilibria, nonideal solutions, coupled reactions and a broad thermodynamic treatment remain outside the course scope.
+MIT OCW 20.110J places equilibrium/free energy, chemical potential and chemical equilibrium in its undergraduate sequence. This local reading develops a single ideal \(A\rightleftharpoons B\) calculation; the later phase/activity and electrochemical-coupling readings extend the selected examples, while a general thermodynamic treatment remains beyond this combined course.

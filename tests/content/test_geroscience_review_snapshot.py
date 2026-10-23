@@ -31,7 +31,7 @@ def test_geroscience_review_snapshot_matches_public_package():
     )
 
     assert actual["course_id"] == "geroscience"
-    assert actual["content_version"] == "0.5.9"
+    assert actual["content_version"] == "0.7.0"
     assert re.search(
         r"Public package archive SHA-256:\*\*\s*`([0-9a-f]{64})`", snapshot
     ).group(1) == actual["package_sha256"]

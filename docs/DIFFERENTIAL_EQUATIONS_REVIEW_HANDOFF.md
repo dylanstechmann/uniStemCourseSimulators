@@ -1,6 +1,6 @@
 # Differential Equations course review handoff
 
-This handoff targets Differential Equations for Living & Engineered Systems, package version 0.5.0. The [review snapshot](DIFFERENTIAL_EQUATIONS_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+This handoff targets Differential Equations for Living & Engineered Systems, package version 0.6.0. The [review snapshot](DIFFERENTIAL_EQUATIONS_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
 
 ## Review scope
 
@@ -19,3 +19,7 @@ For version 0.3.7, the focused Differential Equations suite passed 7 tests, incl
 ## Review record to complete only after review
 
 After a review actually occurs, record reviewer name and qualifications, date, package version and archive digest, artifacts examined, concrete findings and disposition. Keep separate decisions for mathematical correctness, instructional design, assessment, accessibility, workload and release. Do not infer approval from the package hash or test results.
+
+## IVP/harmonic/nonlinear coursework target (2026-10-22)
+
+Current target 0.6.0 adds three foundations, four connected reports and twenty checkpoints/cards. Check variable-coefficient factors, residuals and connected solution intervals; local versus global hypotheses and explicit nonunique branches; Fourier coefficient conventions/phase, conservative uniform output bounds and separate initial transients; resonant homogeneous corrections and delayed impulse jumps; repeated-mode fundamental matrices and forced equilibria; conserved/positive/stable/accurate update distinctions; radial reduction, orbital versus phase attraction and the nonlinear zero-parameter argument. All examples are synthetic. Proofs, code, reports, broad course depth, workload and qualified mathematical review remain open. Earlier evidence above is historical; the current snapshot pins the new target.

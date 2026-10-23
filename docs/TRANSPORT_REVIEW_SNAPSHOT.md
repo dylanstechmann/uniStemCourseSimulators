@@ -1,12 +1,12 @@
 # Thermodynamics & Transport review snapshot
 
-This record pins the current public course package for independent review. It does not imply acceptance or release.
+This record identifies the public package; it is not review approval.
 
-- **Course package:** `transport` 0.5.0
-- **Public package archive SHA-256:** `8ce3f96b4e1f697d1de05927e9704e63243c0c49f0cbeccf37ba4d0980d3d968`
-- **Manifest SHA-256:** `5bfd59eab30d5b5258d3cb4b2d58fafd45525f36f79e937ae05205936b435358`
-- **Archive inventory:** 26 files, 401,355 bytes
-- **Calculated:** 2026-10-20
-- **Reproduce:** `uv run --project backend --locked python -B tools/course_package_digest.py --course-id transport`
+- **Course package:** `transport` 0.6.0
+- **Public package archive SHA-256:** `b2ad38ce4193d3de2bb9b1ede5d83233af35105e116abe7831b1a366f03540e2`
+- **Manifest SHA-256:** `c1d8db5ddb7bbdf4204c4b61ca450b9d72650da9a3675e5f2d5088f82c0c8968`
+- **Archive inventory:** 32 files, 519,807 bytes
+- **Calculated:** 2026-10-22
+- **Reproduce:** `python tools/course_package_digest.py --course-id transport`
 
-Version 0.5.0 makes the planned heat-generation slab project usable by learners as ungraded practice. Week 13 gains an optional project guide with the project's slab, conditions and tasks and a worked example on a separate slab, a rehearsal slab and five open rehearsal practice items; five project milestones are Case studio self-checks with a week-14 project record. The oxygen-profile lab's dataset link now resolves to the package-pinned CSV instead of a mutable repository URL. The inactive project draft is unchanged. The digest proves package identity only; it is not transport review, instructional approval or release evidence.
+Three original foundations and three connected paper/simulation assignments extend phase/activity, electrochemical/osmotic/coupled-energy and conservative diffusion reasoning. The course remains partial, unreviewed and formative-only. Code, derivations, plots and reports are not automatically evaluated. The earlier 0.5.0 snapshot remains archived.

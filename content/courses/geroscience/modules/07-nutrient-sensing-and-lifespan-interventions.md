@@ -26,7 +26,9 @@ Reducing calories without malnutrition extends lifespan in many laboratory speci
 
 ## A case of conflicting studies
 
-Two long-term studies of rhesus monkeys tested caloric restriction against controls. One, reported in 2009, found that restriction delayed disease onset and mortality. The other, reported in 2017, reached a different conclusion about all-cause survival while also reporting health benefits. The studies differed in diet composition and feeding of controls, in the origin of the animals, and in the age at which restriction began, among other points. The sensible reading is not that one study is right and the other wrong. It is that effects of restriction depend on conditions that differ between the studies, and that both are small studies of long-lived animals whose survival comparisons carry wide uncertainty.
+The Wisconsin [2009 report](https://pubmed.ncbi.nlm.nih.gov/19590001/) described delayed disease and age-related mortality. The NIA [2012 report](https://pubmed.ncbi.nlm.nih.gov/22932268/) did not detect a survival difference in its tested cohorts;the Wisconsin [2014 update](https://pubmed.ncbi.nlm.nih.gov/24691430/) reported age-related and all-cause survival effects. The [joint2017 primary comparison](https://www.nature.com/articles/ncomms14063) examined the studies together and discussed design and context differences. The original conflicting NIA report is2012,not2017. A failure to detect a difference is not proof of exact equivalence. Age-related and all-cause endpoints also ask different questions.
+
+Diet composition,control feeding,animal origin and age at onset can change the comparison. These are candidate explanations to examine,not a demonstrated unique mechanism for every outcome. The2017 primary text was accessible;earlier records were checked from indexed primary abstracts where direct retrieval was incomplete. No source data are copied,and these monkey results establish no human recommendation.
 
 ## Quantifying survival effects
 
@@ -36,7 +38,7 @@ Survival studies report several summaries, and they answer different questions.
 - **Late-life survival**, for example the mean age of the longest-lived 10%, is sensitive to the oldest animals and noisier because it rests on few animals.
 - **Percent change** is (treated − control) / control × 100.
 
-A treatment can raise median survival with little change at the top, which suggests it protects against early disease, or raise the top without moving the median. These patterns point to different mechanisms. The hazard-based analysis in the survival-curve lesson is preferred for testing, because it uses all deaths and handles censoring.
+A treatment can raise median survival with little change at the top, which suggests it protects against early disease, or raise the top without moving the median. These patterns point to different mechanisms. A prespecified time-to-event analysis can use event times and accommodate censoring under its assumptions. The estimand must match the question; a single proportional-hazards ratio is not a universal summary when effects change over time.
 
 ## Synthetic data
 

@@ -4473,6 +4473,1484 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "organic-chemistry-project:rehearsal-1",
+      "type": "data_interpretation",
+      "prompt": "Aldol-identity dossier rehearsal · Map the donor and acceptor. Separate rehearsal: butanal donor C4H8O and para-methylbenzaldehyde acceptor C8H8O, with stipulated connectivity O=CH–CH(CH2CH3)–CH(OH)–C6H4–CH3 before dehydration. Synthetic X/Y evidence-card integrals and qualitative features are supplied in the guide’s CSV. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 3,
+      "objective_ids": [
+        "organic-chemistry-project-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "donor",
+          "type": "single_choice",
+          "prompt": "In rehearsal butanal CH3–CH2–CH2–CHO, which carbon supplies the new bond?",
+          "options": [
+            "The terminal methyl farthest from the carbonyl.",
+            "The methylene directly adjacent to the donor aldehyde carbonyl.",
+            "The donor carbonyl oxygen."
+          ],
+          "points": 1
+        },
+        {
+          "id": "acceptor",
+          "type": "single_choice",
+          "prompt": "Which atom in the stipulated 4-methylbenzaldehyde acceptor receives that bond?",
+          "options": [
+            "The para methyl carbon on its aromatic ring.",
+            "Its carbonyl oxygen instead of carbon.",
+            "Its aldehyde carbonyl carbon."
+          ],
+          "points": 1
+        },
+        {
+          "id": "oxygen",
+          "type": "single_choice",
+          "prompt": "What happens to the two oxygen atoms in the addition model?",
+          "options": [
+            "The donor carbonyl remains; the acceptor carbonyl oxygen becomes the hydroxyl oxygen after proton transfer.",
+            "Both oxygen atoms disappear during the addition step.",
+            "The donor carbonyl oxygen becomes the new carbon-carbon bond."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "donor",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "acceptor",
+            "type": "single_choice",
+            "answer": 2
+          },
+          {
+            "id": "oxygen",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which atoms should remain labelled through an aldol atom map?",
+        "solution": "The stipulated new bond joins butanal’s alpha methylene carbon to the acceptor aldehyde carbonyl carbon. The donor aldehyde is retained; the acceptor oxygen becomes OH. The resulting connectivity is O=CH–CH(CH2CH3)–CH(OH)–C6H4–CH3, with the ring methyl para to the attached chain.",
+        "lesson_ids": [
+          "organic-chemistry-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "organic-chemistry-project:rehearsal-2",
+      "type": "data_interpretation",
+      "prompt": "Aldol-identity dossier rehearsal · Separate addition from dehydration. Separate rehearsal: butanal donor C4H8O and para-methylbenzaldehyde acceptor C8H8O, with stipulated connectivity O=CH–CH(CH2CH3)–CH(OH)–C6H4–CH3 before dehydration. Synthetic X/Y evidence-card integrals and qualitative features are supplied in the guide’s CSV. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 5,
+      "objective_ids": [
+        "organic-chemistry-project-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "carbon",
+          "type": "numeric",
+          "prompt": "Total carbon count in the rehearsal addition product.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "hydrogen_addition",
+          "type": "numeric",
+          "prompt": "Hydrogen count in the rehearsal addition formula.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "oxygen_addition",
+          "type": "numeric",
+          "prompt": "Oxygen count in that addition formula.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "hydrogen_dehydrated",
+          "type": "numeric",
+          "prompt": "Hydrogen count after loss of one H2O equivalent.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "loss",
+          "type": "single_choice",
+          "prompt": "What formula operation distinguishes the later dehydration?",
+          "options": [
+            "Subtract one carbonyl carbon and its oxygen from the donor.",
+            "Subtract two H atoms and one O atom from the addition formula; carbon count is unchanged.",
+            "Double every atom count because an alkene forms."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "carbon",
+            "type": "numeric",
+            "answer": 12.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "hydrogen_addition",
+            "type": "numeric",
+            "answer": 16.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "oxygen_addition",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "hydrogen_dehydrated",
+            "type": "numeric",
+            "answer": 14.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "loss",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why check addition before subtracting water?",
+        "solution": "Butanal C4H8O plus 4-methylbenzaldehyde C8H8O gives C12H16O2 for the stipulated addition. Removing one H2O gives C12H14O. Addition and dehydration are separate bookkeeping steps; the new carbon-carbon bond itself does not remove water.",
+        "lesson_ids": [
+          "organic-chemistry-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "organic-chemistry-project:rehearsal-3",
+      "type": "data_interpretation",
+      "prompt": "Aldol-identity dossier rehearsal · Unsaturation ledger. Separate rehearsal: butanal donor C4H8O and para-methylbenzaldehyde acceptor C8H8O, with stipulated connectivity O=CH–CH(CH2CH3)–CH(OH)–C6H4–CH3 before dehydration. Synthetic X/Y evidence-card integrals and qualitative features are supplied in the guide’s CSV. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 3,
+      "objective_ids": [
+        "organic-chemistry-project-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "dbe_addition",
+          "type": "numeric",
+          "prompt": "Rehearsal addition-product degree of unsaturation.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "dbe_dehydrated",
+          "type": "numeric",
+          "prompt": "Rehearsal dehydrated-product degree of unsaturation.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "features",
+          "type": "single_choice",
+          "prompt": "Which feature ledger matches those counts?",
+          "options": [
+            "Every oxygen contributes one unsaturation unit, so both formulas have the same count.",
+            "The aromatic ring contributes only one unit regardless of its pi bonds.",
+            "Four units from the aromatic ring system, one from the aldehyde carbonyl, and one additional alkene unit after dehydration."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "dbe_addition",
+            "type": "numeric",
+            "answer": 5.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "dbe_dehydrated",
+            "type": "numeric",
+            "answer": 6.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "features",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why does oxygen not appear in the simple neutral C/H/O unsaturation formula?",
+        "solution": "For the neutral C/H/O formulas, DBE = (2C+2−H)/2. C12H16O2 gives (24+2−16)/2 = 5; C12H14O gives 6. The aromatic ring accounts for four units, the aldehyde carbonyl one, and the new alkene adds the sixth after dehydration.",
+        "lesson_ids": [
+          "organic-chemistry-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "organic-chemistry-project:rehearsal-4",
+      "type": "data_interpretation",
+      "prompt": "Aldol-identity dossier rehearsal · Evidence cards and proton totals. Separate rehearsal: butanal donor C4H8O and para-methylbenzaldehyde acceptor C8H8O, with stipulated connectivity O=CH–CH(CH2CH3)–CH(OH)–C6H4–CH3 before dehydration. Synthetic X/Y evidence-card integrals and qualitative features are supplied in the guide’s CSV. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 4,
+      "objective_ids": [
+        "organic-chemistry-project-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "card_x_total",
+          "type": "numeric",
+          "prompt": "Total integrated hydrogens in rehearsal card X.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "card_y_total",
+          "type": "numeric",
+          "prompt": "Total integrated hydrogens in rehearsal card Y.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "assignment",
+          "type": "single_choice",
+          "prompt": "Which conditional assignment matches the rehearsal cards?",
+          "options": [
+            "X is compatible with the beta-hydroxy addition candidate; Y with the dehydrated candidate.",
+            "X must be the dehydrated candidate because an OH-compatible observation proves water loss.",
+            "Both cards prove that only one compound exists in a real sample."
+          ],
+          "points": 1
+        },
+        {
+          "id": "amount",
+          "type": "single_choice",
+          "prompt": "Do these integrals establish reaction yield or purity?",
+          "options": [
+            "Yes. A total of 16 hydrogens means a 16% isolated yield.",
+            "No. They are stipulated proton-count constraints without calibrated component amounts, response factors or a complete sample model.",
+            "Yes. Matching a formula guarantees complete purity."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "card_x_total",
+            "type": "numeric",
+            "answer": 16.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "card_y_total",
+            "type": "numeric",
+            "answer": 14.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "assignment",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "amount",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What is the denominator of an intramolecular proton integral?",
+        "solution": "The card X counts sum to 4+3+3+2+1+1+0+1+1 = 16; Y sums to 4+3+3+2+0+0+1+1+0 = 14. Their OH and vinylic constraints fit the two stated candidates. Compatibility does not establish a unique real identity, component fraction, purity or yield.",
+        "lesson_ids": [
+          "organic-chemistry-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "organic-chemistry-project:rehearsal-5",
+      "type": "data_interpretation",
+      "prompt": "Aldol-identity dossier rehearsal · Stereochemical questions and scope. Separate rehearsal: butanal donor C4H8O and para-methylbenzaldehyde acceptor C8H8O, with stipulated connectivity O=CH–CH(CH2CH3)–CH(OH)–C6H4–CH3 before dehydration. Synthetic X/Y evidence-card integrals and qualitative features are supplied in the guide’s CSV. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 4,
+      "objective_ids": [
+        "organic-chemistry-project-objective-5"
+      ],
+      "response_fields": [
+        {
+          "id": "centers",
+          "type": "numeric",
+          "prompt": "Number of stereogenic centers in the stipulated rehearsal beta-hydroxy connectivity.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "alkene",
+          "type": "single_choice",
+          "prompt": "Which new question appears after the stated dehydration?",
+          "options": [
+            "The alkene has no geometry question because it is conjugated.",
+            "The two original tetrahedral centers must retain assigned R/S labels in the alkene.",
+            "E/Z geometry of the newly formed alkene; the supplied qualitative evidence does not assign it."
+          ],
+          "points": 1
+        },
+        {
+          "id": "configuration",
+          "type": "single_choice",
+          "prompt": "What absolute configuration is determined by the supplied card totals?",
+          "options": [
+            "None; formula, total integrals and these qualitative bands do not assign either stereocenter.",
+            "Both centers are R because the hydrogen count is even.",
+            "Both centers are S because an OH group is present."
+          ],
+          "points": 1
+        },
+        {
+          "id": "selectivity",
+          "type": "single_choice",
+          "prompt": "What does the stipulated crossed connectivity establish about an actual synthesis?",
+          "options": [
+            "A guaranteed crossed-aldol yield under all reaction conditions.",
+            "Only the chosen paper connectivity; no conditions, competing-product amounts or selectivity are supplied.",
+            "A laboratory procedure that excludes every competing product."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "centers",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "alkene",
+            "type": "single_choice",
+            "answer": 2
+          },
+          {
+            "id": "configuration",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "selectivity",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why do two stereogenic centers not mean that configurations have been assigned?",
+        "solution": "The donor alpha carbon has four different substituents after addition, as does the acceptor-derived carbinol carbon: two stereogenic centers. Dehydration instead creates an alkene with distinct substituents on each alkene carbon, so E/Z is a separate question. None of the supplied cards assigns configuration or demonstrates real selectivity.",
+        "lesson_ids": [
+          "organic-chemistry-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "organic-chemistry-17:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Use ring C1–C2–C3–C4–C5–C6–C1, leaving group at C1, blocked hydrogen site C6 and a paper carbon tag at C4. Restrict formation to loss of an adjacent H and the leaving group. Report exact atom, position and stereochemical counts as whole numbers. Report continuous fractions or amounts as bare numbers in the requested units to three significant figures. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "organic-chemistry-17-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "neighbor",
+          "type": "numeric",
+          "prompt": "Original adjacent carbon supplying the permitted hydrogen, as its exact index.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "first_distance",
+          "type": "numeric",
+          "prompt": "Shortest ring-edge distance from C1 attack site to tag C4.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "other_distance",
+          "type": "numeric",
+          "prompt": "Shortest ring-edge distance from C2 attack site to tag C4.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "neighbor",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "first_distance",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "other_distance",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Does product renumbering physically move a carbon tag?",
+        "solution": "C6 cannot supply the required hydrogen, so the allowed intermediate edge is C1–C2. Attack at C1 leaves the fixed C4 tag para, distance three; attack at C2 leaves it meta, distance two. Original carbon labels remain fixed even if a product is later renumbered for naming.",
+        "lesson_ids": [
+          "organic-chemistry-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original paper atom-map/route and synthetic-yield practice with substantial AI assistance. No external problem, procedure or data copied."
+        ]
+      }
+    },
+    {
+      "id": "organic-chemistry-17:depth-2",
+      "type": "data_interpretation",
+      "prompt": "As a separate unsubstituted formula exercise, C6H5X loses HX, then adds NH2− and H+. Report exact atom, position and stereochemical counts as whole numbers. Report continuous fractions or amounts as bare numbers in the requested units to three significant figures. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "organic-chemistry-17-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "aryne_h",
+          "type": "numeric",
+          "prompt": "Exact hydrogen count in the C6 aryne formula.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "product_h",
+          "type": "numeric",
+          "prompt": "Exact hydrogen count after NH2− and H+ addition.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "aryne_dbe",
+          "type": "numeric",
+          "prompt": "Exact DBE of the neutral C6H4 intermediate.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "product_dbe",
+          "type": "numeric",
+          "prompt": "Exact DBE of the neutral C6H7N product.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "aryne_h",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "product_h",
+            "type": "numeric",
+            "answer": 7.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "aryne_dbe",
+            "type": "numeric",
+            "answer": 5.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "product_dbe",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why include a separate protonation after nucleophile addition?",
+        "solution": "Formal loss of HX gives C6H4. Nitrogen-nucleophile addition plus carbon protonation gives C6H7N. The nitrogen-aware DBE formula yields five and four respectively. These formulas describe this separate unsubstituted exercise, not the earlier ring with an unspecified blocking substituent.",
+        "lesson_ids": [
+          "organic-chemistry-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original paper atom-map/route and synthetic-yield practice with substantial AI assistance. No external problem, procedure or data copied."
+        ]
+      }
+    },
+    {
+      "id": "organic-chemistry-17:depth-3",
+      "type": "data_interpretation",
+      "prompt": "In the blocked-ring rehearsal, stipulate 70% C1 attack among products and 80% starting-material conversion, with no other branches. Report exact atom, position and stereochemical counts as whole numbers. Report continuous fractions or amounts as bare numbers in the requested units to three significant figures. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "organic-chemistry-17-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "fraction",
+          "type": "numeric",
+          "prompt": "Fraction of original inventory forming the C1-attachment product.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "other",
+          "type": "numeric",
+          "prompt": "Fraction forming the other attachment product.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "ratio",
+          "type": "single_choice",
+          "prompt": "Can the supplied 70:30 branching be deduced from drawing two possible attacks?",
+          "options": [
+            "No. It is a separate model input; two possible atom maps do not establish equal or known rates.",
+            "Yes. Every two-path aryne must give exactly the same ratio.",
+            "Yes. The product formula alone fixes both rates."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "fraction",
+            "type": "numeric",
+            "answer": 0.5599999999999999,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "other",
+            "type": "numeric",
+            "answer": 0.24,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "ratio",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which denominator does a branch selectivity use?",
+        "solution": "Multiply conversion by each conditional branch fraction: 0.56 and 0.24 of the original inventory form the products, leaving 0.20 unreacted. The 70:30 split is assumed, not inferred from pathway count or formula.",
+        "lesson_ids": [
+          "organic-chemistry-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original paper atom-map/route and synthetic-yield practice with substantial AI assistance. No external problem, procedure or data copied."
+        ]
+      }
+    },
+    {
+      "id": "organic-chemistry-17:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Both carbons adjacent to an aryl leaving group lack a removable hydrogen under the declared dehydrohalogenation model. Report exact atom, position and stereochemical counts as whole numbers. Report continuous fractions or amounts as bare numbers in the requested units to three significant figures. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "organic-chemistry-17-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "blocked",
+          "type": "single_choice",
+          "prompt": "What conclusion follows within this declared model?",
+          "options": [
+            "No possible chemical reaction can ever involve this molecule.",
+            "Ordinary backside SN2 at the aryl carbon must automatically replace it.",
+            "The specified leaving-group/ortho-H aryne formation is blocked; other precursor chemistries require separate assumptions."
+          ],
+          "points": 1
+        },
+        {
+          "id": "evidence",
+          "type": "single_choice",
+          "prompt": "Which observation is most mechanistically informative here?",
+          "options": [
+            "An assigned original-carbon attachment map tested against explicit competing mechanisms.",
+            "Only a matching total elemental formula.",
+            "Only a high isolated mass with no identity information."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "blocked",
+            "type": "single_choice",
+            "answer": 2
+          },
+          {
+            "id": "evidence",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Does consistency with a mechanism prove it uniquely?",
+        "solution": "The formation rule needs an adjacent hydrogen, so this route fails its stated precondition. A positional map can distinguish alternative predicted attachments; a formula or recovered mass alone cannot uniquely establish the mechanism.",
+        "lesson_ids": [
+          "organic-chemistry-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original paper atom-map/route and synthetic-yield practice with substantial AI assistance. No external problem, procedure or data copied."
+        ]
+      }
+    },
+    {
+      "id": "organic-chemistry-18:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Use the reading’s paper operations P (mask aldehyde), N (ethyl addition at exposed ketone), D (restore aldehyde), with P before N and D after N. Report exact atom, position and stereochemical counts as whole numbers. Report continuous fractions or amounts as bare numbers in the requested units to three significant figures. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "organic-chemistry-18-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "orders",
+          "type": "numeric",
+          "prompt": "Exact number of permutations of the three distinct operations.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "valid",
+          "type": "numeric",
+          "prompt": "Exact number satisfying the stipulated ordering requirements.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "reason",
+          "type": "single_choice",
+          "prompt": "Why is N before P rejected under the paper rules?",
+          "options": [
+            "Retrosynthetic disconnections guarantee every forward order works.",
+            "An acetal mask is present before its formation step.",
+            "It leaves the competing aldehyde exposed during the intended ketone addition."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "orders",
+            "type": "numeric",
+            "answer": 6.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "valid",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "reason",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must follow a retrosynthetic disconnection?",
+        "solution": "Three distinct operations have 3!=6 orders. The strict constraints require P,N,D, leaving one feasible order. This is a conditional compatibility argument: a real route still needs evidence for selective masking, mask survival and harmless restoration of the aldehyde.",
+        "lesson_ids": [
+          "organic-chemistry-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original paper atom-map/route and synthetic-yield practice with substantial AI assistance. No external problem, procedure or data copied."
+        ]
+      }
+    },
+    {
+      "id": "organic-chemistry-18:depth-2",
+      "type": "data_interpretation",
+      "prompt": "In the separate rehearsal, synthetic isolated yields are P=0.90, N=0.75 and D=0.80, from 3.00 mmol starting material. Report exact atom, position and stereochemical counts as whole numbers. Report continuous fractions or amounts as bare numbers in the requested units to three significant figures. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "organic-chemistry-18-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "yield",
+          "type": "numeric",
+          "prompt": "Overall isolated target fraction from the three yields.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "amount",
+          "type": "numeric",
+          "prompt": "Target amount in mmol under that model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "purity",
+          "type": "single_choice",
+          "prompt": "When can an additional purity correction double-count?",
+          "options": [
+            "When the stated isolated yield already uses the purity-corrected target amount.",
+            "Never: multiplying every available percentage is always valid.",
+            "Only when the route has fewer than three steps."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "yield",
+            "type": "numeric",
+            "answer": 0.54,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "amount",
+            "type": "numeric",
+            "answer": 1.6200000000000003,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "purity",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Are percentages from different stages additive?",
+        "solution": "Multiply the fractional step yields to obtain 0.54, then multiply by 3.00 mmol to obtain 1.62 mmol. Conversion, isolation and purity require defined denominators; an already corrected isolated yield should not receive the same correction again.",
+        "lesson_ids": [
+          "organic-chemistry-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original paper atom-map/route and synthetic-yield practice with substantial AI assistance. No external problem, procedure or data copied."
+        ]
+      }
+    },
+    {
+      "id": "organic-chemistry-18:depth-3",
+      "type": "data_interpretation",
+      "prompt": "The reading’s ethyl-addition target retains an aldehyde and converts the other carbonyl of C9H8O2 to ArC(OH)(CH3)(Et). Report exact atom, position and stereochemical counts as whole numbers. Report continuous fractions or amounts as bare numbers in the requested units to three significant figures. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "organic-chemistry-18-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "carbon",
+          "type": "numeric",
+          "prompt": "Exact carbon count in the final target.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "hydrogen",
+          "type": "numeric",
+          "prompt": "Exact hydrogen count in the final target.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "dbe",
+          "type": "numeric",
+          "prompt": "Exact DBE of the neutral final target.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "centers",
+          "type": "numeric",
+          "prompt": "Exact new tetrahedral stereogenic-center count at the alcohol carbon.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "carbon",
+            "type": "numeric",
+            "answer": 11.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "hydrogen",
+            "type": "numeric",
+            "answer": 14.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "dbe",
+            "type": "numeric",
+            "answer": 5.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "centers",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Does one new stereogenic center imply an assigned enantiomer?",
+        "solution": "Net ethyl addition and protonation add C2H6 to C9H8O2, giving C11H14O2. DBE falls from six to five as one carbonyl becomes an alcohol. Aryl, methyl, ethyl and hydroxyl are four different substituents, so that alcohol carbon is stereogenic; no absolute configuration is assigned by the supplied evidence.",
+        "lesson_ids": [
+          "organic-chemistry-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original paper atom-map/route and synthetic-yield practice with substantial AI assistance. No external problem, procedure or data copied."
+        ]
+      }
+    },
+    {
+      "id": "organic-chemistry-18:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Compare a four-step route at 0.90 per step with a two-step route at 0.80 and 0.75. Report exact atom, position and stereochemical counts as whole numbers. Report continuous fractions or amounts as bare numbers in the requested units to three significant figures. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "organic-chemistry-18-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "longer",
+          "type": "numeric",
+          "prompt": "Overall isolated fraction of the four-step route.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "shorter",
+          "type": "numeric",
+          "prompt": "Overall isolated fraction of the two-step route.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "choice",
+          "type": "single_choice",
+          "prompt": "What comparison is justified from only these supplied numbers?",
+          "options": [
+            "The shorter route must have higher yield because it has fewer arrows.",
+            "The longer route has the higher stated overall fraction; practical suitability needs additional evidence.",
+            "The higher fraction proves the route is experimentally validated and safer."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "longer",
+            "type": "numeric",
+            "answer": 0.6561,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "shorter",
+            "type": "numeric",
+            "answer": 0.6000000000000001,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "choice",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Can protection be treated as a free planning symbol?",
+        "solution": "The supplied fractions are 0.6561 and 0.60. On this single declared metric the longer route is higher, while cost, compatibility, stereochemistry, scale and evidence quality remain separate. No practical preparation or safety ranking follows from the arithmetic.",
+        "lesson_ids": [
+          "organic-chemistry-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original paper atom-map/route and synthetic-yield practice with substantial AI assistance. No external problem, procedure or data copied."
+        ]
+      }
+    },
+    {
+      "id": "organic-chemistry-19:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1 uses blocked C6 and tagged C4, conversion 75%, conditional C1 attack 70% and 2.00 mmol initial substrate, with no other products. Report exact atom, position and stereochemical counts as whole numbers. Report continuous fractions or amounts as bare numbers in the requested units to three significant figures. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "organic-chemistry-19-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "first",
+          "type": "numeric",
+          "prompt": "C1-attachment product amount in mmol.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "other",
+          "type": "numeric",
+          "prompt": "Other attachment product amount in mmol.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "remaining",
+          "type": "numeric",
+          "prompt": "Unreacted starting amount in mmol.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "first",
+            "type": "numeric",
+            "answer": 1.0499999999999998,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "other",
+            "type": "numeric",
+            "answer": 0.44999999999999996,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "remaining",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which independent checks should an aryl evidence report include?",
+        "solution": "The products are 2×0.75×0.70=1.05 mmol and 2×0.75×0.30=0.45 mmol; 0.50 mmol remains. Their sum is the original 2.00 mmol. The attachment maps must still be established separately: amount arithmetic does not identify which original carbon bears nitrogen.",
+        "lesson_ids": [
+          "organic-chemistry-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original paper atom-map/route and synthetic-yield practice with substantial AI assistance. No external problem, procedure or data copied."
+        ]
+      }
+    },
+    {
+      "id": "organic-chemistry-19:depth-2",
+      "type": "data_interpretation",
+      "prompt": "In the same blocked C6/tagged C4 map, compare nitrogen attachment at C1 and C2. Report exact atom, position and stereochemical counts as whole numbers. Report continuous fractions or amounts as bare numbers in the requested units to three significant figures. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "organic-chemistry-19-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "ipso_distance",
+          "type": "numeric",
+          "prompt": "Shortest ring-edge distance from C1 attachment to tag C4.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "adjacent_distance",
+          "type": "numeric",
+          "prompt": "Shortest ring-edge distance from C2 attachment to tag C4.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "identity",
+          "type": "single_choice",
+          "prompt": "Does a shared molecular formula distinguish these attachment maps?",
+          "options": [
+            "Yes. Equal formulas establish equal attachment sites.",
+            "Yes. A formula uniquely identifies every aromatic isomer.",
+            "No. Constitutional placement and original-carbon identity require additional structural or tagging evidence."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "ipso_distance",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "adjacent_distance",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "identity",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why keep the tag map when product names change?",
+        "solution": "The distances are three and two, corresponding to para and meta relationships to the fixed tag. A common formula can be compatible with different structures and provides no unique mechanism assignment by itself.",
+        "lesson_ids": [
+          "organic-chemistry-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original paper atom-map/route and synthetic-yield practice with substantial AI assistance. No external problem, procedure or data copied."
+        ]
+      }
+    },
+    {
+      "id": "organic-chemistry-20:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2 adds methyl and a proton to the ketone of C9H8O2 while retaining the aldehyde; the target alcohol carbon has two methyl substituents. Report exact atom, position and stereochemical counts as whole numbers. Report continuous fractions or amounts as bare numbers in the requested units to three significant figures. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "organic-chemistry-20-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "carbon",
+          "type": "numeric",
+          "prompt": "Exact carbon count in the final target formula.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "hydrogen",
+          "type": "numeric",
+          "prompt": "Exact hydrogen count in the final target formula.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "centers",
+          "type": "numeric",
+          "prompt": "Exact new stereogenic-center count at that alcohol carbon.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "dbe",
+          "type": "numeric",
+          "prompt": "Exact DBE of the neutral final target.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "carbon",
+            "type": "numeric",
+            "answer": 10.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "hydrogen",
+            "type": "numeric",
+            "answer": 12.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "centers",
+            "type": "numeric",
+            "answer": 0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "significant_figures": null,
+            "dimensions": null
+          },
+          {
+            "id": "dbe",
+            "type": "numeric",
+            "answer": 5.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What distinguishes the methyl and ethyl route examples stereochemically?",
+        "solution": "Net methyl addition and protonation add CH4, giving C10H12O2 and DBE five. The alcohol carbon has two identical methyl substituents, so this target does not introduce a tetrahedral stereogenic center there. Formula arithmetic must remain connected to the labeled structure rather than used as identity proof.",
+        "lesson_ids": [
+          "organic-chemistry-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original paper atom-map/route and synthetic-yield practice with substantial AI assistance. No external problem, procedure or data copied."
+        ]
+      }
+    },
+    {
+      "id": "organic-chemistry-20:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2 stipulates yields 0.90,0.75,0.80 from 3.00 mmol, with P before N before D. Report exact atom, position and stereochemical counts as whole numbers. Report continuous fractions or amounts as bare numbers in the requested units to three significant figures. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "organic-chemistry-20-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "yield",
+          "type": "numeric",
+          "prompt": "Overall isolated fraction under the supplied yields.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "amount",
+          "type": "numeric",
+          "prompt": "Isolated target amount in mmol.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "valid",
+          "type": "numeric",
+          "prompt": "Exact number of allowed operation orders.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "scope",
+          "type": "single_choice",
+          "prompt": "What remains unestablished by the paper route?",
+          "options": [
+            "Actual selective protection, mask survival, restoration compatibility and experimental product evidence.",
+            "Only multiplication; every chemical step is proven by the supplied arrow order.",
+            "The target necessarily has a single assigned absolute configuration."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "yield",
+            "type": "numeric",
+            "answer": 0.54,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "amount",
+            "type": "numeric",
+            "answer": 1.6200000000000003,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "valid",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "scope",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What should a complete route report separate?",
+        "solution": "The product yield is 0.54, the amount 1.62 mmol and the strict order P,N,D is unique. The calculation depends on stipulated selectivities and yields; it does not establish a real preparation, absolute configuration or an experimental observation.",
+        "lesson_ids": [
+          "organic-chemistry-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original paper atom-map/route and synthetic-yield practice with substantial AI assistance. No external problem, procedure or data copied."
+        ]
+      }
     }
   ]
 }

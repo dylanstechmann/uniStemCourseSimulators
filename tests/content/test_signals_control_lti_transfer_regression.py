@@ -17,7 +17,6 @@ def load(path: Path) -> dict:
 
 def test_lti_reading_maps_objectives_and_preserves_pole_and_gain_items():
     manifest = load(COURSE / "course.json")
-    assert manifest["version"].startswith("0.4.")
     module = next(
         item
         for item in manifest["modules"]

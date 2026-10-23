@@ -434,7 +434,7 @@ def test_weekly_sequence_references_and_partial_labels():
         )["cards"]
     )
     assert (
-        f"The package has {len(lessons)} readings, {len(BANK)} public practice items and {cards} retrieval cards"
+        f"The current package contains {len(lessons)} lessons/activity guides, {len(BANK)} public practice items and {cards} retrieval cards"
         in syllabus
     )
 

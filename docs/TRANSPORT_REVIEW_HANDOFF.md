@@ -1,6 +1,6 @@
 # Thermodynamics & Transport review handoff
 
-This handoff targets Thermodynamics & Transport package version 0.5.0. The [review snapshot](TRANSPORT_REVIEW_SNAPSHOT.md) identifies the exact public files. The course remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+This handoff targets Thermodynamics & Transport package version 0.6.0. The [review snapshot](TRANSPORT_REVIEW_SNAPSHOT.md) identifies the exact public files. The course remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
 
 ## Review scope
 
@@ -22,3 +22,7 @@ For 0.4.9 the shared registry checks every numeric key from closed forms, and a 
 ## Review record to complete only after review
 
 After an actual review, record reviewer qualifications, date, exact package version and archive digest, artifacts examined, specific findings and disposition. Keep separate decisions for scientific correctness, instructional design, assessment, accessibility, workload and release. A matching hash is an identity check, not approval.
+
+## Deeper thermodynamics/transport target (2026-10-22)
+
+Review target 0.6.0 adds phase/activity and local-stability derivations, ion/coupled/osmotic ledgers and conservative finite-volume geometry, with three connected assignments. Check transfer signs, standard states, concentration bases, equilibrium-versus-rate claims, boundary distances, positivity conditions and conservation/refinement evidence. Automated checkpoints do not evaluate learner code or written reasoning; workload and qualified review remain open. The current snapshot pins the exact package.

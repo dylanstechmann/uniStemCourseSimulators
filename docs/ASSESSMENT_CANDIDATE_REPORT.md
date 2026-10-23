@@ -8,31 +8,31 @@ No course or candidate is activated by this command. `--check` detects report dr
 
 | Package | Version | Maturity | Declared review | Grading | Inactive drafts |
 | --- | --- | --- | --- | --- | ---: |
-| biochemistry | 0.5.1 | partial | unreviewed | formative-only | 11 |
-| biomaterials | 0.4.0 | partial | unreviewed | formative-only | 0 |
-| bioreactors | 0.5.0 | partial | unreviewed | formative-only | 0 |
-| calculus-1 | 0.5.0 | partial | unreviewed | formative-only | 0 |
-| calculus-2 | 0.5.0 | partial | unreviewed | formative-only | 0 |
-| calculus-3 | 0.5.0 | partial | unreviewed | formative-only | 0 |
+| biochemistry | 0.6.0 | partial | unreviewed | formative-only | 11 |
+| biomaterials | 0.5.0 | partial | unreviewed | formative-only | 0 |
+| bioreactors | 0.6.0 | partial | unreviewed | formative-only | 0 |
+| calculus-1 | 0.6.0 | partial | unreviewed | formative-only | 0 |
+| calculus-2 | 0.6.0 | partial | unreviewed | formative-only | 0 |
+| calculus-3 | 0.6.0 | partial | unreviewed | formative-only | 0 |
 | cell-biology | 0.62.1 | partial | unreviewed | formative-only | 15 |
-| cellular-biomechanics | 0.4.0 | partial | unreviewed | formative-only | 0 |
-| circuits | 0.4.8 | partial | unreviewed | formative-only | 0 |
-| differential-equations | 0.5.0 | partial | unreviewed | formative-only | 0 |
-| general-chemistry-1 | 0.4.10 | partial | unreviewed | formative-only | 0 |
-| general-chemistry-2 | 0.5.0 | partial | unreviewed | formative-only | 0 |
-| genetics | 0.6.0 | partial | unreviewed | formative-only | 0 |
-| geroscience | 0.5.9 | partial | unreviewed | formative-only | 0 |
-| linear-algebra | 0.4.0 | partial | unreviewed | formative-only | 0 |
-| organic-chemistry | 0.4.9 | partial | unreviewed | formative-only | 0 |
-| physics-em | 0.4.8 | partial | unreviewed | formative-only | 0 |
-| physics-mechanics | 0.5.0 | partial | unreviewed | formative-only | 0 |
-| physiology | 0.4.9 | partial | unreviewed | formative-only | 0 |
-| programming | 0.5.0 | partial | unreviewed | formative-only | 0 |
-| robotics | 0.4.8 | partial | unreviewed | formative-only | 0 |
-| signals-control | 0.4.9 | partial | unreviewed | formative-only | 0 |
-| statics-materials | 0.5.0 | partial | unreviewed | formative-only | 0 |
-| statistics | 0.4.8 | partial | unreviewed | formative-only | 0 |
-| transport | 0.5.0 | partial | unreviewed | formative-only | 0 |
+| cellular-biomechanics | 0.5.0 | partial | unreviewed | formative-only | 0 |
+| circuits | 0.6.0 | partial | unreviewed | formative-only | 0 |
+| differential-equations | 0.6.0 | partial | unreviewed | formative-only | 0 |
+| general-chemistry-1 | 0.6.0 | partial | unreviewed | formative-only | 0 |
+| general-chemistry-2 | 0.6.0 | partial | unreviewed | formative-only | 0 |
+| genetics | 0.7.0 | partial | unreviewed | formative-only | 0 |
+| geroscience | 0.7.0 | partial | unreviewed | formative-only | 0 |
+| linear-algebra | 0.5.0 | partial | unreviewed | formative-only | 0 |
+| organic-chemistry | 0.6.0 | partial | unreviewed | formative-only | 0 |
+| physics-em | 0.6.0 | partial | unreviewed | formative-only | 0 |
+| physics-mechanics | 0.6.0 | partial | unreviewed | formative-only | 0 |
+| physiology | 0.6.0 | partial | unreviewed | formative-only | 0 |
+| programming | 0.6.0 | partial | unreviewed | formative-only | 0 |
+| robotics | 0.6.0 | partial | unreviewed | formative-only | 0 |
+| signals-control | 0.6.0 | partial | unreviewed | formative-only | 0 |
+| statics-materials | 0.6.0 | partial | unreviewed | formative-only | 0 |
+| statistics | 0.6.0 | partial | unreviewed | formative-only | 0 |
+| transport | 0.6.0 | partial | unreviewed | formative-only | 0 |
 
 ## Candidate inventory
 

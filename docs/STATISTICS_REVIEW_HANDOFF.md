@@ -1,6 +1,6 @@
 # Probability, Biostatistics & Experimental Design review handoff
 
-This handoff targets Statistics package version 0.4.7. The [review snapshot](STATISTICS_REVIEW_SNAPSHOT.md) identifies the exact public files. The course remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+This handoff targets Statistics package version 0.6.0. The [review snapshot](STATISTICS_REVIEW_SNAPSHOT.md) identifies the exact public files. The course remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
 
 ## Review scope
 
@@ -17,3 +17,11 @@ The repository content validator passed for 25 packages, 421 lessons, 2,618 ques
 ## Review record to complete only after review
 
 After an actual review, record reviewer qualifications, date, exact package version and archive digest, artifacts examined, specific findings and disposition. Keep separate judgments for statistical correctness, study-design quality, assessment, ethics, accessibility, workload and release. Do not treat a passing validator or matching hash as approval.
+
+## Open project route (2026-10-22)
+
+The current guide, separate worked example, rehearsal and five private milestone self-checks make the existing project usable as ungraded practice. [The route regression tests](../tests/content/test_remaining_course_project_routes.py) independently recalculate every new numeric field and exercise the backend grader, including exact counts and continuous-quantity precision. Review the written explanation, evidence limits and proposed workload independently; automated arithmetic is not subject review. Historical snapshot evidence remains preserved.
+
+## Joint-law/likelihood/regression target (2026-10-22)
+
+Current target 0.6.0 adds four foundations,four reports and twenty-four checkpoints/cards. Check triangular support/marginals/conditional moments,total variance and zero-covariance dependence; event/censored exposure,score,curvature and open-domain supremum; known-variance normal completion of the square and shared future covariance; full-rank regression,residualization,reduced slope,residual degrees of freedom and mean-versus-new prediction. Verify exact binomial coverage,all-failure resampling,central-tail conventions and inclusive sharp-null allocation counts. All inputs are synthetic; independent-unit/design assumptions remain explicit. Code/proofs/reports,broader theory,empirical validity,workload and qualified review remain open. Earlier evidence above is historical; the current snapshot pins the new target.

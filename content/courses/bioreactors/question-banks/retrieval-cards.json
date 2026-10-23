@@ -605,6 +605,206 @@
         "bioreactors-2-objective-2"
       ],
       "license": "CC-BY-4.0"
+    },
+    {
+      "id": "bioreactors-16-card-1",
+      "lesson_id": "bioreactors-16",
+      "front": "How does cell retention change a constant-volume viable balance?",
+      "back": "Use the declared bleed/leakage loss coefficient separately from hydraulic substrate replacement; gross production must replace both viable export and death.",
+      "objective_ids": [
+        "bioreactors-16-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "bioreactors-16-card-2",
+      "lesson_id": "bioreactors-16",
+      "front": "Can a steady viable concentration hide ongoing death and replacement?",
+      "back": "Yes. Gross production, viable export and death can all be positive while their net balance is zero.",
+      "objective_ids": [
+        "bioreactors-16-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "bioreactors-16-card-3",
+      "lesson_id": "bioreactors-16",
+      "front": "Why define the numerator of a yield ratio?",
+      "back": "Exported viable biomass, gross production and a growth-associated coefficient refer to different boundaries and can differ when death, retention and maintenance are present.",
+      "objective_ids": [
+        "bioreactors-16-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "bioreactors-16-card-4",
+      "lesson_id": "bioreactors-16",
+      "front": "How do model-domain and discretization failures differ?",
+      "back": "A boundary derivative pointing outside the admissible domain is an equation-level issue; a negative numerical update despite an invariant exact model is a method/step issue.",
+      "objective_ids": [
+        "bioreactors-16-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "bioreactors-17-card-1",
+      "lesson_id": "bioreactors-17",
+      "front": "Why can an oxygen probe show a delayed rise while liquid transfer starts immediately?",
+      "back": "The probe is a separate dynamic state. Its initial slope can be zero although the liquid derivative is nonzero.",
+      "objective_ids": [
+        "bioreactors-17-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "bioreactors-17-card-2",
+      "lesson_id": "bioreactors-17",
+      "front": "How does structural nonidentifiability differ from noisy fitting?",
+      "back": "Distinct parameter assignments can give exactly the same ideal observations at every time; reducing noise or adding those same observations does not resolve the symmetry.",
+      "objective_ids": [
+        "bioreactors-17-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "bioreactors-17-card-3",
+      "lesson_id": "bioreactors-17",
+      "front": "How should a near-coincident exponential formula be verified?",
+      "back": "Check its analytic equal-rate limit and an independent ODE integration; cancellation in the direct expression is a numerical evaluation issue.",
+      "objective_ids": [
+        "bioreactors-17-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "bioreactors-17-card-4",
+      "lesson_id": "bioreactors-17",
+      "front": "What can a steady oxygen plateau identify in this model?",
+      "back": "With a known equilibrium concentration it constrains uptake divided by transfer; separate parameter values and transient behavior require more information.",
+      "objective_ids": [
+        "bioreactors-17-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "bioreactors-18-card-1",
+      "lesson_id": "bioreactors-18",
+      "front": "Why must internal exchange be written as an amount rate first?",
+      "back": "The same exchange amount enters one zone and leaves the other; dividing by each zone’s own volume then gives concentration derivatives that can differ.",
+      "objective_ids": [
+        "bioreactors-18-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "bioreactors-18-card-2",
+      "lesson_id": "bioreactors-18",
+      "front": "What does a closed total balance fail to establish by itself?",
+      "back": "It does not determine local exposure or validate a uniform driving-force approximation; local equations and observations carry additional information.",
+      "objective_ids": [
+        "bioreactors-18-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "bioreactors-18-card-3",
+      "lesson_id": "bioreactors-18",
+      "front": "When can better exchange solve a local deficit?",
+      "back": "Only when sufficient total supply keeps the supplied zone above the requested level; finite exchange cannot replace missing external capacity.",
+      "objective_ids": [
+        "bioreactors-18-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "bioreactors-18-card-4",
+      "lesson_id": "bioreactors-18",
+      "front": "What should a local-exposure study report beyond a bulk curve?",
+      "back": "Zone balances, weighted-total closure, admissibility, observation mapping and the assumptions held fixed in each controlled comparison.",
+      "objective_ids": [
+        "bioreactors-18-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "bioreactors-19-card-1",
+      "lesson_id": "bioreactors-19",
+      "front": "What belongs in a retained-state report?",
+      "back": "An outlet diagram, original equations, admissible steady branch, production/export/death and substrate ledgers, yield definitions and model-domain/transient evidence.",
+      "objective_ids": [
+        "bioreactors-19-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "bioreactors-19-card-2",
+      "lesson_id": "bioreactors-19",
+      "front": "Why retain separate viable and substrate ledgers?",
+      "back": "They have different state and amount bases. A matching viable net rate does not automatically close substrate, dead-material or elemental inventories.",
+      "objective_ids": [
+        "bioreactors-19-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "bioreactors-20-card-1",
+      "lesson_id": "bioreactors-20",
+      "front": "How can an accurate-looking fit estimate the wrong process coefficient?",
+      "back": "The observation can have its own dynamics and structural ambiguities; fit residuals do not validate the assumed mapping from process state to measured output.",
+      "objective_ids": [
+        "bioreactors-20-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "bioreactors-20-card-2",
+      "lesson_id": "bioreactors-20",
+      "front": "Why label separate model variants in an observation report?",
+      "back": "Equal-rate evaluation, rate assignment and constant uptake change different assumptions; their numerical results cannot be interchanged without re-solving the declared model.",
+      "objective_ids": [
+        "bioreactors-20-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "bioreactors-21-card-1",
+      "lesson_id": "bioreactors-21",
+      "front": "What distinguishes a spatial balance report from a single bulk fit?",
+      "back": "Separate zone volumes, local driving forces, equal/opposite exchange amount rates, local thresholds and a weighted-total residual are all retained.",
+      "objective_ids": [
+        "bioreactors-21-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "bioreactors-21-card-2",
+      "lesson_id": "bioreactors-21",
+      "front": "Why distinguish an internal mixing limit from external capacity?",
+      "back": "Redistribution can reduce local gaps, but it cannot supply oxygen that is missing from the external amount balance.",
+      "objective_ids": [
+        "bioreactors-21-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "bioreactors-22-card-1",
+      "lesson_id": "bioreactors-22",
+      "front": "What should a factorial endpoint report establish before interpreting effects?",
+      "back": "Schema and run identities, factor coding, cell means, the analysis unit and what the table’s synthetic construction does and does not support.",
+      "objective_ids": [
+        "bioreactors-22-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "bioreactors-22-card-2",
+      "lesson_id": "bioreactors-22",
+      "front": "Why can an averaged factor effect be misleading with interaction?",
+      "back": "The simple effect depends on the other factor level and can reverse sign. Endpoint patterns alone also do not identify the underlying physical mechanism.",
+      "objective_ids": [
+        "bioreactors-22-objective-2"
+      ],
+      "license": "CC-BY-4.0"
     }
   ]
 }

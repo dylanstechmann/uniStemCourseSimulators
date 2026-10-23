@@ -1,12 +1,12 @@
 # Cellular Biomechanics review snapshot
 
-This record pins the current public course package for independent review. It is regenerated with the read-only command below and does not imply acceptance or release.
+This identifies the public package; a digest does not approve mechanical models or course depth.
 
-- **Course package:** `cellular-biomechanics` 0.4.0
-- **Public package archive SHA-256:** `5e18074c3352beb80211cc542f64f8dec4b7c68dd5a8843417ae00a04789bd9a`
-- **Manifest SHA-256:** `6d68222b6a6246b96c62a9a7ea8d8574a887a953607323de6dafa4a9b81f322b`
-- **Archive inventory:** 27 files, 404,087 bytes
-- **Calculated:** 2026-10-20
-- **Reproduce:** `uv run --project backend python tools/course_package_digest.py --course-id cellular-biomechanics`
+- **Course package:** `cellular-biomechanics` 0.5.0
+- **Public package archive SHA-256:** `3755b95b4789c09a8d0f1f4823a623edf593536db0544d914635c331e9159ccf`
+- **Manifest SHA-256:** `377f0f6ace0fa7166009211457f1df86785c39d4bcdeea8d05d176f5c57a33e7`
+- **Archive inventory:** 34 files, 540,015 bytes
+- **Calculated:** 2026-10-22
+- **Reproduce:** `python tools/course_package_digest.py --course-id cellular-biomechanics`
 
-Version 0.4.0 makes the planned viscoelastic material-selection project usable by learners as ungraded practice. Week 13 gains an optional project guide with the project's model, thresholds and tasks and a worked example on a separate candidate, two synthetic rehearsal candidates and five open rehearsal practice items; five project milestones are Case studio self-checks with a week-14 project record. The project table becomes a learner resource, and the stiffness-ligand lab's dataset link now resolves to the package-pinned CSV instead of a mutable repository URL. The inactive project draft is unchanged. The digest proves package identity only; it is not biomechanics review, instructional approval or release evidence.
+Three original tensor/membrane/force-history foundations and four reports add twenty checkpoints/cards. All coefficients and records are stipulated synthetic models. Helfrich/Bell metadata is verified without full-text review. Code,proofs,plots,reports and empirical mechanisms are not graded. The course remains partial,unreviewed and formative-only;the previous0.4.0 snapshot is preserved.

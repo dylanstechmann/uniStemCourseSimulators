@@ -182,7 +182,7 @@ def test_genetics_schedule_places_every_lesson_once_and_stays_partial():
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
     # 19 topic and lab lessons plus the optional project guide added in 0.6.0.
-    assert len(all_lessons) == 20
+    assert len(all_lessons) == 26
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])
@@ -258,7 +258,7 @@ def test_physiology_schedule_places_every_lesson_once_and_stays_partial():
     assert [w["week"] for w in weeks] == list(range(1, 15))
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
-    assert len(all_lessons) == 17
+    assert len(all_lessons) == 25
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])
@@ -317,7 +317,7 @@ def test_biochemistry_schedule_places_every_lesson_once_and_stays_partial():
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
     # 27 topic lessons plus 11 open homework, review and project lessons added in 0.5.0.
-    assert len(all_lessons) == 38
+    assert len(all_lessons) == 43
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])
@@ -366,7 +366,7 @@ def test_statistics_schedule_places_every_lesson_once_and_stays_partial():
     assert [w["week"] for w in weeks] == list(range(1, 15))
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
-    assert len(all_lessons) == 18
+    assert len(all_lessons) == 27
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])
@@ -388,7 +388,7 @@ def test_statistics_package_gives_no_protocols_or_advice():
     assert "not guidance for any real study or for any person or animal" in text
     syllabus = (COURSES / "statistics/syllabus.md").read_text(encoding="utf-8")
     assert f"Version: {manifest['version']}." in syllabus and "Proposed 14-week schedule" in syllabus
-    assert all(f"- {outcome['description']}" in syllabus for outcome in manifest["outcomes"]) and len(manifest["outcomes"]) == 8
+    assert all(f"- {outcome['description']}" in syllabus for outcome in manifest["outcomes"]) and len(manifest["outcomes"]) == 12
 
 
 def test_statistics_lab_keys_match_the_dataset_and_the_lab_is_labelled_synthetic():
@@ -414,7 +414,7 @@ def test_biomaterials_schedule_places_every_lesson_once_and_stays_partial():
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
     # 16 topic and lab lessons plus the optional scaffold project guide added in 0.4.0.
-    assert len(all_lessons) == 17
+    assert len(all_lessons) == 22
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])
@@ -461,7 +461,7 @@ def test_bioreactors_schedule_places_every_lesson_once_and_stays_partial():
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
     # 16 topic and lab lessons plus the optional oxygen project guide added in 0.5.0.
-    assert len(all_lessons) == 17
+    assert len(all_lessons) == 24
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])
@@ -509,8 +509,8 @@ def test_transport_schedule_places_every_lesson_once_and_stays_partial():
     assert [w["week"] for w in weeks] == list(range(1, 15))
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
-    # 17 topic and lab lessons plus the optional slab project guide added in 0.5.0.
-    assert len(all_lessons) == 18
+    # The prior 18 routes plus three foundations and three assignments in 0.6.0.
+    assert len(all_lessons) == 24
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])
@@ -558,8 +558,8 @@ def test_cellular_biomechanics_schedule_places_every_lesson_once_and_stays_parti
     assert [w["week"] for w in weeks] == list(range(1, 15))
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
-    # 16 topic and lab lessons plus the optional viscoelastic project guide added in 0.4.0.
-    assert len(all_lessons) == 17
+    # Existing topic/lab/project routes plus three foundations and four reports in 0.5.0.
+    assert len(all_lessons) == 24
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])
@@ -608,8 +608,8 @@ def test_statics_materials_schedule_places_every_lesson_once_and_stays_partial()
     assert [w["week"] for w in weeks] == list(range(1, 15))
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
-    # 16 topic and lab lessons plus the optional beam project guide added in 0.5.0.
-    assert len(all_lessons) == 17
+    # The prior 17 routes plus two compatibility/history foundations and two assignments in 0.6.0.
+    assert len(all_lessons) == 21
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])
@@ -662,7 +662,7 @@ def test_signals_control_schedule_places_every_lesson_once_and_stays_partial():
     assert [w["week"] for w in weeks] == list(range(1, 15))
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
-    assert len(all_lessons) == 17
+    assert len(all_lessons) == 26
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])
@@ -715,8 +715,8 @@ def test_differential_equations_schedule_places_every_lesson_once_and_stays_part
     assert [w["week"] for w in weeks] == list(range(1, 15))
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
-    # 16 topic and lab lessons plus the optional stiff project guide added in 0.5.0.
-    assert len(all_lessons) == 17
+    # Existing topic/lab/project routes plus three foundations and four reports in 0.6.0.
+    assert len(all_lessons) == 24
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])

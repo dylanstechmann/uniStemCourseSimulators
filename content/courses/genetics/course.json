@@ -7,7 +7,7 @@
   "domain": "Life sciences",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -62,6 +62,11 @@
     {
       "id": "genetics-outcome-6",
       "description": "Predict prokaryotic gene expression from regulatory genotypes and environmental inputs.",
+      "bloom": "analyze"
+    },
+    {
+      "id": "genetics-outcome-7",
+      "description": "Analyze one-locus selection/mutation and genotype-association models and distinguish linkage likelihood from causal probability.",
       "bloom": "analyze"
     }
   ],
@@ -517,6 +522,157 @@
         "genetics-outcome-4",
         "genetics-outcome-6"
       ]
+    },
+    {
+      "id": "genetics-19-objective-1",
+      "description": "Infer functional groups without treating them as a physical map.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-5"
+      ]
+    },
+    {
+      "id": "genetics-19-objective-2",
+      "description": "Account for an unobserved reciprocal recombinant class.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-2",
+        "genetics-outcome-5"
+      ]
+    },
+    {
+      "id": "genetics-19-objective-3",
+      "description": "Distinguish an observed zero from a sampling bound.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-2",
+        "genetics-outcome-5"
+      ]
+    },
+    {
+      "id": "genetics-19-objective-4",
+      "description": "Separate frame restoration, suppression and protein-function evidence.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-5"
+      ]
+    },
+    {
+      "id": "genetics-20-objective-1",
+      "description": "Normalize allelic expression by genomic dosage.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-4"
+      ]
+    },
+    {
+      "id": "genetics-20-objective-2",
+      "description": "Use the relevant informative-junction denominator.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-4"
+      ]
+    },
+    {
+      "id": "genetics-20-objective-3",
+      "description": "Audit coding length and frame without overclaiming protein function.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-3"
+      ]
+    },
+    {
+      "id": "genetics-20-objective-4",
+      "description": "Distinguish replication, phase and downstream causal evidence.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-3",
+        "genetics-outcome-4"
+      ]
+    },
+    {
+      "id": "genetics-21-objective-1",
+      "description": "Normalize a specified selection/mutation life cycle.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-7"
+      ]
+    },
+    {
+      "id": "genetics-21-objective-2",
+      "description": "Verify genotype association changes without allele-frequency change.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-7"
+      ]
+    },
+    {
+      "id": "genetics-21-objective-3",
+      "description": "Evaluate a constrained linkage likelihood without calling it causal probability.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-7"
+      ]
+    },
+    {
+      "id": "genetics-21-objective-4",
+      "description": "Distinguish mutation–selection assumptions from an empirical frequency inference.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-7"
+      ]
+    },
+    {
+      "id": "genetics-22-objective-1",
+      "description": "Integrate functional grouping and a separate recombination ledger.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-2",
+        "genetics-outcome-5"
+      ]
+    },
+    {
+      "id": "genetics-22-objective-2",
+      "description": "Combine sampling limits with cis/trans regulation under explicit models.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-2",
+        "genetics-outcome-6"
+      ]
+    },
+    {
+      "id": "genetics-23-objective-1",
+      "description": "Audit dosage versus RNA abundance in a synthetic clone.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-3",
+        "genetics-outcome-4"
+      ]
+    },
+    {
+      "id": "genetics-23-objective-2",
+      "description": "Connect junction counts to a qualified coding-mixture expectation.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-3",
+        "genetics-outcome-4"
+      ]
+    },
+    {
+      "id": "genetics-24-objective-1",
+      "description": "Verify a life-cycle update and an allele-preserving genotype mixture.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-7"
+      ]
+    },
+    {
+      "id": "genetics-24-objective-2",
+      "description": "Keep linkage likelihood and mutation–selection evidence in separate models.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-7"
+      ]
     }
   ],
   "duration": {
@@ -612,20 +768,24 @@
         "week": 9,
         "title": "Bacterial genetic exchange: transfer, mapping and complementation",
         "lesson_ids": [
-          "genetics-16"
+          "genetics-16",
+          "genetics-19"
         ],
         "assessment_ids": [
-          "genetics-16-practice"
+          "genetics-16-practice",
+          "genetics-19-practice"
         ]
       },
       {
         "week": 10,
         "title": "Prokaryotic regulatory circuits: negative and positive control",
         "lesson_ids": [
-          "genetics-17"
+          "genetics-17",
+          "genetics-22"
         ],
         "assessment_ids": [
-          "genetics-17-practice"
+          "genetics-17-practice",
+          "genetics-22-practice"
         ]
       },
       {
@@ -634,12 +794,14 @@
         "lesson_ids": [
           "genetics-3",
           "genetics-8",
-          "genetics-14"
+          "genetics-14",
+          "genetics-20"
         ],
         "assessment_ids": [
           "genetics-3-practice",
           "genetics-8-practice",
-          "genetics-14-practice"
+          "genetics-14-practice",
+          "genetics-20-practice"
         ]
       },
       {
@@ -647,21 +809,25 @@
         "title": "Association, heritability and polygenic prediction",
         "lesson_ids": [
           "genetics-4",
-          "genetics-6"
+          "genetics-6",
+          "genetics-21"
         ],
         "assessment_ids": [
           "genetics-4-practice",
-          "genetics-6-practice"
+          "genetics-6-practice",
+          "genetics-21-practice"
         ]
       },
       {
         "week": 13,
         "title": "Virtual lab: an association study with population structure",
         "lesson_ids": [
-          "genetics-lab-01"
+          "genetics-lab-01",
+          "genetics-23"
         ],
         "assessment_ids": [
-          "genetics-week12-association-lab"
+          "genetics-week12-association-lab",
+          "genetics-23-practice"
         ]
       },
       {
@@ -669,12 +835,14 @@
         "title": "Optional extension: human genetic causal inference and locus follow-up",
         "lesson_ids": [
           "genetics-9",
-          "genetics-15"
+          "genetics-15",
+          "genetics-24"
         ],
         "assessment_ids": [
           "genetics-9-practice",
           "genetics-15-practice",
-          "genetics-case"
+          "genetics-case",
+          "genetics-24-practice"
         ]
       }
     ]
@@ -1379,6 +1547,192 @@
           ]
         }
       ]
+    },
+    {
+      "id": "genetics-module-19",
+      "title": "Phage functional maps: complementation, recombination and suppression",
+      "source_ids": [
+        "genetics-703",
+        "genetics-703-notes"
+      ],
+      "lessons": [
+        {
+          "id": "genetics-19",
+          "title": "Phage functional maps: complementation, recombination and suppression",
+          "reading": "modules/phage-functional-maps.md",
+          "objectives": [
+            "genetics-19-objective-1",
+            "genetics-19-objective-2",
+            "genetics-19-objective-3",
+            "genetics-19-objective-4"
+          ],
+          "worked_example": "The groups are {A,C} and {B,D}; all cross-group pairs complement. Functional grouping does not order the lesions or establish exact physical boundaries. Dominant, cis-acting, polar or intragenic effects can invalidate the simple model.",
+          "question_ids": [
+            "genetics-19:depth-1",
+            "genetics-19:depth-2",
+            "genetics-19:depth-3",
+            "genetics-19:depth-4"
+          ],
+          "card_ids": [
+            "genetics-19-card-1",
+            "genetics-19-card-2",
+            "genetics-19-card-3",
+            "genetics-19-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "genetics-module-20",
+      "title": "Genome structure, transcript processing and allelic evidence",
+      "source_ids": [
+        "genetics-703",
+        "genetics-703-notes"
+      ],
+      "lessons": [
+        {
+          "id": "genetics-20",
+          "title": "Genome structure, transcript processing and allelic evidence",
+          "reading": "modules/genome-structure-and-allelic-evidence.md",
+          "objectives": [
+            "genetics-20-objective-1",
+            "genetics-20-objective-2",
+            "genetics-20-objective-3",
+            "genetics-20-objective-4"
+          ],
+          "worked_example": "DNA A fraction is 0.6 and RNA A fraction is 3/7≈0.42857143. The RNA odds are 0.75 and DNA odds 1.5, so the per-copy contrast is 0.5. A ratio of fractions is a different estimand.",
+          "question_ids": [
+            "genetics-20:depth-1",
+            "genetics-20:depth-2",
+            "genetics-20:depth-3",
+            "genetics-20:depth-4"
+          ],
+          "card_ids": [
+            "genetics-20-card-1",
+            "genetics-20-card-2",
+            "genetics-20-card-3",
+            "genetics-20-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "genetics-module-21",
+      "title": "Selection, inbreeding and linkage likelihood",
+      "source_ids": [
+        "genetics-703",
+        "genetics-703-notes"
+      ],
+      "lessons": [
+        {
+          "id": "genetics-21",
+          "title": "Selection, inbreeding and linkage likelihood",
+          "reading": "modules/selection-inbreeding-and-linkage-likelihood.md",
+          "objectives": [
+            "genetics-21-objective-1",
+            "genetics-21-objective-2",
+            "genetics-21-objective-3",
+            "genetics-21-objective-4"
+          ],
+          "worked_example": "Weighted genotype contributions are 0.49, 0.336 and 0.045, totaling 0.871. The a-allele contribution is 0.213; divide by 0.871 before applying mutation. The declared recurrence gives qnext=0.997×(0.213/0.871)+0.002.",
+          "question_ids": [
+            "genetics-21:depth-1",
+            "genetics-21:depth-2",
+            "genetics-21:depth-3",
+            "genetics-21:depth-4"
+          ],
+          "card_ids": [
+            "genetics-21-card-1",
+            "genetics-21-card-2",
+            "genetics-21-card-3",
+            "genetics-21-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "genetics-module-22",
+      "title": "Assignment 1: functional-genetics evidence report",
+      "source_ids": [
+        "genetics-703",
+        "genetics-703-notes"
+      ],
+      "lessons": [
+        {
+          "id": "genetics-22",
+          "title": "Assignment 1: functional-genetics evidence report",
+          "reading": "assignments/coursework-01-functional-genetics.md",
+          "objectives": [
+            "genetics-22-objective-1",
+            "genetics-22-objective-2"
+          ],
+          "worked_example": "Functional groups are {U,W}, {V,X} and {Y}. In the separate cross, total r=2×15/3000=0.010 and short-interval map estimate is 1.00. Grouping and genetic distance are distinct claims.",
+          "question_ids": [
+            "genetics-22:depth-1",
+            "genetics-22:depth-2"
+          ],
+          "card_ids": [
+            "genetics-22-card-1",
+            "genetics-22-card-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "genetics-module-23",
+      "title": "Assignment 2: genome and transcript evidence dossier",
+      "source_ids": [
+        "genetics-703",
+        "genetics-703-notes"
+      ],
+      "lessons": [
+        {
+          "id": "genetics-23",
+          "title": "Assignment 2: genome and transcript evidence dossier",
+          "reading": "assignments/coursework-02-genome-evidence.md",
+          "objectives": [
+            "genetics-23-objective-1",
+            "genetics-23-objective-2"
+          ],
+          "worked_example": "The DNA odds are 2 and RNA odds 1, so the RNA-per-copy contrast is 0.5 despite a raw RNA A fraction of 0.5. The other two supplied clones have the same ratios by construction; reads are not independent clone replicates.",
+          "question_ids": [
+            "genetics-23:depth-1",
+            "genetics-23:depth-2"
+          ],
+          "card_ids": [
+            "genetics-23-card-1",
+            "genetics-23-card-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "genetics-module-24",
+      "title": "Assignment 3: population dynamics and linkage evidence",
+      "source_ids": [
+        "genetics-703",
+        "genetics-703-notes"
+      ],
+      "lessons": [
+        {
+          "id": "genetics-24",
+          "title": "Assignment 3: population dynamics and linkage evidence",
+          "reading": "assignments/coursework-03-population-and-linkage.md",
+          "objectives": [
+            "genetics-24-objective-1",
+            "genetics-24-objective-2"
+          ],
+          "worked_example": "Random-union weights sum to 0.925; the a contribution is 0.19375. Divide before mutation: qs≈0.20945946 and qnext≈0.20983108. In the separate F mixture, aa=0.0625+0.01875=0.08125, while the overall q remains 0.25 before selection.",
+          "question_ids": [
+            "genetics-24:depth-1",
+            "genetics-24:depth-2"
+          ],
+          "card_ids": [
+            "genetics-24-card-1",
+            "genetics-24-card-2"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -1851,6 +2205,131 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "genetics-19-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Phage functional maps: complementation, recombination and suppression (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 9,
+      "objective_ids": [
+        "genetics-19-objective-1",
+        "genetics-19-objective-2",
+        "genetics-19-objective-3",
+        "genetics-19-objective-4",
+        "genetics-outcome-2",
+        "genetics-outcome-5"
+      ],
+      "question_ids": [
+        "genetics-19:depth-1",
+        "genetics-19:depth-2",
+        "genetics-19:depth-3",
+        "genetics-19:depth-4"
+      ],
+      "points": 10
+    },
+    {
+      "id": "genetics-20-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Genome structure, transcript processing and allelic evidence (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 11,
+      "objective_ids": [
+        "genetics-20-objective-1",
+        "genetics-20-objective-2",
+        "genetics-20-objective-3",
+        "genetics-20-objective-4",
+        "genetics-outcome-3",
+        "genetics-outcome-4"
+      ],
+      "question_ids": [
+        "genetics-20:depth-1",
+        "genetics-20:depth-2",
+        "genetics-20:depth-3",
+        "genetics-20:depth-4"
+      ],
+      "points": 11
+    },
+    {
+      "id": "genetics-21-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Selection, inbreeding and linkage likelihood (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 12,
+      "objective_ids": [
+        "genetics-21-objective-1",
+        "genetics-21-objective-2",
+        "genetics-21-objective-3",
+        "genetics-21-objective-4",
+        "genetics-outcome-7"
+      ],
+      "question_ids": [
+        "genetics-21:depth-1",
+        "genetics-21:depth-2",
+        "genetics-21:depth-3",
+        "genetics-21:depth-4"
+      ],
+      "points": 12
+    },
+    {
+      "id": "genetics-22-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 1: functional-genetics evidence report (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 10,
+      "objective_ids": [
+        "genetics-22-objective-1",
+        "genetics-22-objective-2",
+        "genetics-outcome-2",
+        "genetics-outcome-5",
+        "genetics-outcome-6"
+      ],
+      "question_ids": [
+        "genetics-22:depth-1",
+        "genetics-22:depth-2"
+      ],
+      "points": 5
+    },
+    {
+      "id": "genetics-23-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 2: genome and transcript evidence dossier (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 13,
+      "objective_ids": [
+        "genetics-23-objective-1",
+        "genetics-23-objective-2",
+        "genetics-outcome-3",
+        "genetics-outcome-4"
+      ],
+      "question_ids": [
+        "genetics-23:depth-1",
+        "genetics-23:depth-2"
+      ],
+      "points": 7
+    },
+    {
+      "id": "genetics-24-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 3: population dynamics and linkage evidence (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 14,
+      "objective_ids": [
+        "genetics-24-objective-1",
+        "genetics-24-objective-2",
+        "genetics-outcome-7"
+      ],
+      "question_ids": [
+        "genetics-24:depth-1",
+        "genetics-24:depth-2"
+      ],
+      "points": 8
     }
   ],
   "grading_policy": {
@@ -1960,24 +2439,30 @@
       "version": "0.6.0",
       "date": "2026-10-19",
       "summary": "Made the planned three-point mapping and penetrance project usable by learners as ungraded practice. Week 6 gains an optional project guide with the project's counts, a worked recap of the lesson's cross, a synthetic rehearsal dataset and 5 open rehearsal practice items; five project milestones are Case studio self-checks with a week-7 project record. The association lab's dataset link now points to the package-pinned CSV instead of a mutable repository URL. The inactive project draft is unchanged; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.7.0",
+      "date": "2026-10-22",
+      "summary": "Expanded functional/genome/population evidence depth with three original foundations, three connected report/simulation assignments, eighteen checkpoints/cards and a synthetic clone-count dataset. Develops phage complementation/recombination/suppression, dosage-normalized allelic/transcript reasoning, normalized selection/mutation/inbreeding and known-phase linkage likelihood. Preserves the mapping project and association lab. No source asset, real organism data, qualified review or clinical inference is supplied; the course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "The 19 readings include original instruction on microbial transfer, complementation and prokaryotic regulation plus tetrad-analysis extensions for unordered and ordered asci; they do not establish equivalence to a complete university genetics course.",
-    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm, cumulative final, or graded integrative project. An optional three-point mapping project guide with rehearsal practice and Case studio milestone self-checks (weeks 6–7) is ungraded practice; the separate paper-only project draft stays inactive.",
+    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and three connected open report/simulation assignments but no graded homework/exam or multi-session laboratory sequence. An optional three-point mapping project guide with rehearsal practice and Case studio milestone self-checks (weeks 6–7) is ungraded practice; the separate paper-only project draft stays inactive.",
     "Practice items are short formative checks (two per prototype unit and six to twelve per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
-    "Of the 55 numeric-type practice answers in this package, one requires a unit and the others accept a number within a stated tolerance with the unit optional; none checks significant figures or dimensions. The 10 numeric fields inside data-interpretation items check the stated significant figures, and the one CSV-upload item checks fixed summary cells only.",
     "Total workload and weekly duration are unknown; former nominal credit values and hardcoded reading times do not establish workload.",
     "Risk calculations for families are synthetic teaching examples; this package gives no genetic-counselling or medical advice and says nothing about any person's risk.",
-    "The three-point mapping project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses separate synthetic counts and a different penetrance, and no software check evaluates a learner's project calculations or written interpretation. Milestone weeks are planning suggestions, not measured workload or deadlines."
+    "The three-point mapping project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses separate synthetic counts and a different penetrance, and no software check evaluates a learner's project calculations or written interpretation. Milestone weeks are planning suggestions, not measured workload or deadlines.",
+    "Three new foundation readings and three connected assignments develop selected phage functional maps/suppression, eukaryotic copy/transcript evidence, normalized one-locus population models and known-phase linkage likelihood. These do not complete broad transposition, phage life-cycle, genome-targeting, cancer-genetics or multi-locus/pedigree scope. Written reports, implementations, causal diagrams and protein/organism function are not automatically evaluated; workload and qualified review remain open.",
+    "Of the 106 numerical answers, 1 require units, 46 check significant figures and 0 check dimensions. New continuous checkpoint quantities request three significant figures; exact counts have no significant-figure requirement."
   ],
   "intentionally_omitted": [
-    "Graded assessments and a multi-session laboratory sequence are not authored yet (one synthetic-data virtual lab exists). The course gives introductory unordered two-locus tetrad analysis and a single-exchange centromere-distance estimate from ordered asci; two-locus ordered-tetrad analysis, multiple-exchange corrections, gene conversion, detailed transposition, broader phage and recombinant-DNA genetics, and comprehensive eukaryotic genome analysis remain outside scope. Mendelian randomization and variant-to-mechanism follow-up are optional advanced human-genetics applications."
+    "Graded assessments and a multi-session laboratory sequence remain unauthored. Selected phage fine-structure/complementation/suppression and eukaryotic dosage/transcript evidence now supplement the microbial/operon/tetrad core; detailed transposition, broader phage life cycles, gene targeting, cancer genetics, two-locus ordered tetrads, multiple-exchange corrections, gene conversion and comprehensive genome analysis remain incomplete. Population models are one-locus deterministic examples and linkage likelihood assumes known phase/error-free independent transmissions; broader drift/migration/multi-locus/pedigree inference is deferred. Mendelian randomization and variant-to-mechanism follow-up remain optional advanced human-genetics applications."
   ],
   "learner_resources": [
     "labs/case-control-genotypes.csv",
-    "assignments/three-point-rehearsal-counts.csv"
+    "assignments/three-point-rehearsal-counts.csv",
+    "assignments/genome-evidence-counts.csv"
   ]
 }

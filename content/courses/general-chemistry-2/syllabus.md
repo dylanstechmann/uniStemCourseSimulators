@@ -1,6 +1,6 @@
 # General Chemistry II
 
-**Maturity: partial. Version: 0.5.0.** Personal hobby and learning project with substantial AI assistance; no institutional credit or university equivalence.
+**Maturity: partial. Version: 0.6.0.** Personal hobby and learning project with substantial AI assistance; no institutional credit or university equivalence.
 
 Original instruction develops equilibrium, kinetic inference, electrochemical amount accounting and coordination models through declared synthetic examples.
 
@@ -21,27 +21,31 @@ General Chemistry I. Manifest relationships remain provisional and establish no 
 
 This local sequence is planning scope, not measured workload or a reviewed semester. Four compact buffer, kinetics, redox and coordination readings are grouped with their expanded treatments, and the titration-curve reading is grouped with coupled acid speciation in week 3; all lesson IDs and public assessments remain available. The final week is the synthetic relaxation lab and revisits the preserved redox/metal case. The schedule is an 11-week partial sequence, not two MIT-equivalent courses.
 
-| Week | Reading | Items | Cards |
-|---|---|---:|---:|
-| 1 | Acid-base buffers and capacity (two linked readings) | 9 | 6 |
-| 2 | Free energy, equilibrium and reaction direction | 9 | 4 |
-| 3 | Coupled acid speciation, charge balance and titration curves (two linked readings) | 20 | 8 |
-| 4 | Kinetics and reaction mechanisms (two linked readings) | 8 | 6 |
-| 5 | Rate laws and mechanism inference | 9 | 4 |
-| 6 | Reversible and sequential kinetics | 9 | 4 |
-| 7 | Redox, the Nernst equation and metal centers (two linked readings) | 8 | 6 |
-| 8 | Electrochemical stoichiometry, composition and work; optional redox-cell project guide | 14 | 7 |
-| 9 | Coordination chemistry and ligand balance (two linked readings) | 11 | 6 |
-| 10 | Solubility, complexation and competing equilibria | 9 | 4 |
-| 11 | Virtual lab 1: reporting background and reversible relaxation | 8 | 4 |
+| Week | Readings and activities |
+| --- | --- |
+| 1 | [Acid-base equilibria and buffers](modules/01-acid-base-equilibria-and-buffers.md); [Buffers by design: Henderson–Hasselbalch, capacity and the ionization of weak acids and bases](modules/05-buffers-capacity-and-ionization.md) |
+| 2 | [Free energy, equilibrium and reaction direction](modules/08-free-energy-and-equilibrium.md) |
+| 3 | [Coupled acid speciation and charge balance](modules/09-coupled-acid-speciation-and-charge-balance.md); [Acid–base titration curves: equivalence, buffer regions and indicators](modules/15-acid-base-titration-curves-and-equivalence.md); [Proton-coupled complexation with finite ligand pools](modules/proton-coupled-complexation.md) |
+| 4 | [Kinetics and reaction mechanisms](modules/02-kinetics-and-reaction-mechanisms.md); [Rate laws in practice: integrated forms, half-lives, Arrhenius temperature dependence and how to tell the order](modules/06-rate-laws-half-lives-and-arrhenius.md) |
+| 5 | [Rate laws and mechanism inference](modules/10-rate-laws-and-mechanism-inference.md); [Assignment 1: closed-solution equilibrium ledger](assignments/coursework-01-closed-solution-ledger.md) |
+| 6 | [Reversible and sequential kinetics](modules/11-reversible-and-sequential-kinetics.md) |
+| 7 | [Redox and electrochemical cells](modules/03-redox-and-electrochemical-cells.md); [Redox direction and metal centers: the Nernst equation, electron flow and why ligands matter](modules/07-redox-potentials-and-metal-centers.md) |
+| 8 | [Electrochemical stoichiometry, composition and work](modules/12-electrochemical-stoichiometry-and-work.md); [Redox project guide: a fictional cell from electron balance to charge accounting (optional, ungraded)](assignments/redox-cell-project-guide.md) |
+| 9 | [Coordination chemistry and biologically relevant metals](modules/04-coordination-chemistry-and-biologically-relevant-metals.md); [Ligand balance and coordination models](modules/13-ligand-balance-and-coordination-models.md); [Ligand-field occupations, spin and spectral evidence](modules/ligand-field-spin-and-spectral-evidence.md) |
+| 10 | [Solubility, complexation and competing equilibria](modules/14-solubility-complexation-and-competing-equilibria.md); [Ligand-exchange kinetics and mechanism discrimination](modules/ligand-exchange-and-mechanism-discrimination.md) |
+| 11 | [Virtual lab 1: reporting background and reversible relaxation](labs/01-reporting-background-and-relaxation.md); [Assignment 2: mechanism evidence and reduction report](assignments/coursework-02-mechanism-evidence.md); [Assignment 3: coordination evidence and conditional redox ledger](assignments/coursework-03-coordination-and-redox.md) |
 
 ## Assessment policy
 
-The 11-week sequence retains 17 readings, 114 public practice items and 59 retrieval cards, plus the preserved self-assessment case and five project-milestone self-checks. Numeric, single-choice, CSV-upload, structured-choice and multiple-select checks provide selected feedback with unlimited retries. New numeric items request a bare number in an explicit scale; ten preserved items require units. Only the eight numeric fields in the project rehearsal check significant figures; dimensions and written derivations are not scored. Points are study feedback, not an institutional grade. Outcome lists reflect the objectives their items assess; these associations still require subject-matter review.
+The 11-week sequence contains 23 reading/activity routes, 132 public practice items and 77 retrieval cards, plus the preserved self-assessment case and five project-milestone self-checks. Numeric, single-choice, CSV-upload, structured-choice and multiple-select checks provide selected feedback with unlimited retries. New numeric items request a bare number in an explicit scale; ten preserved items require units. Numeric fields in the project rehearsal and new depth checkpoints check significant figures; dimensions and written derivations are not scored. Points are study feedback, not an institutional grade. Outcome lists reflect the objectives their items assess; these associations still require subject-matter review.
+
+## Connected equilibrium/evidence coursework (open, ungraded)
+
+Three new reports require locally retained finite-pool proton/ligand/charge solutions and residual checks (week 5), competing reduced exchange models plus full-network/identifiability evidence (week 11), and field/spin/spectral plus free-to-total redox ledgers (week 11). New foundations in weeks 3, 9 and 10 develop those connections. The original reduced-rate CSV is analytic, not measured or an exact integration of both microscopic schemes. Browser checkpoints evaluate selected responses, not solvers, reports, proposed studies or real chemical evidence. The existing lab/project remain available; workload and qualified review are open.
 
 ## Optional redox-cell project (ungraded)
 
-The [redox project guide](assignments/redox-cell-project-guide.md) makes the project below usable as open practice. It restates the project's half-reactions, inputs and tasks, works a separate fictional cell, and pairs a rehearsal cell with open practice items in week 8. Five milestones, suggested for weeks 8–9, are Case studio self-checks whose responses are saved privately and never submitted, collected or scored.
+The [redox project guide](assignments/redox-cell-project-guide.md) makes the project below usable as open practice. It restates the project's half-reactions, inputs and tasks, works a separate fictional cell, and pairs a rehearsal cell with open practice items in week 8. Five milestones, suggested for weeks 8–9, are Case studio self-checks whose responses can be saved privately and are not submitted for grading.
 
 ## Inactive integrative project draft
 
@@ -54,3 +58,5 @@ All four original compact prototype readings now have expanded instruction, but 
 ## Sources and licensing
 
 MIT OCW 5.111SC Fall 2014 is one integrated undergraduate comparator for these local Chemistry I/II packages. The local split and topic regrouping do not claim equivalence to two separate MIT courses. Existing MIT chemistry/biochemistry sources remain scope comparators. Eleven OpenStax Chemistry 2e section pages are registered as link-only factual references for kinetics, electrochemistry, free energy and coordination properties. No teaching prose, problem, figure or dataset was copied. No new paper identifier was introduced. Original instruction and synthetic data are CC BY 4.0 with substantial AI assistance. See source-map.json and content/SOURCES_AND_LICENSES.md for rights and the software/content boundary. Links establish no endorsement or review.
+
+The 0.6.0 expansion checks actual acid, ligand and coordination readings against the [5.111SC Fall 2014 syllabus](https://ocw.mit.edu/courses/5-111sc-principles-of-chemical-science-fall-2014/pages/syllabus/) and selected coordination/exchange strands in the [5.112 Fall 2005 calendar](https://ocw.mit.edu/courses/5-112-principles-of-chemical-science-fall-2005/pages/calendar/). OpenStax Chemistry 2e 19.3 was rechecked as link-only concept support. New explanations, derivations, problems and analytic tables are original; no source asset was imported. The local I/II split remains partial and does not claim two-course equivalence.

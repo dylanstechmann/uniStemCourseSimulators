@@ -16,7 +16,7 @@ The CSV contains three fictional comparisons. Study A is a cross-sectional age-g
 | B | Fictional strain A, intervention X vs control; randomized | −1.8 (−2.4, −1.2) | +0.2 (−0.5, +0.9) | 0.98 (0.78, 1.23) |
 | C | Fictional strain B, intervention Y vs control; randomized | +0.1 (−0.5, +0.7) | +1.1 (+0.4, +1.8) | 0.76 (0.60, 0.96) |
 
-The first two estimates in each row are mean differences for that row's stated comparison. A negative hazard-ratio contrast would mean a lower event hazard in the intervention group, if that synthetic model and analysis were valid. The confidence intervals crossing the null indicate uncertainty; they do not prove exact absence of an effect.
+The first two estimates in each row are mean differences for that row's stated comparison. A hazard ratio below one would mean a lower event hazard in the intervention group, if that synthetic model and analysis were valid. The confidence intervals crossing the null indicate uncertainty; they do not prove exact absence of an effect.
 
 ## Learner task
 

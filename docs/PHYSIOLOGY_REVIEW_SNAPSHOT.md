@@ -1,12 +1,12 @@
 # Human Physiology for Engineers review snapshot
 
-This record pins the current public course package for independent review. It is regenerated with the read-only command below and does not imply acceptance or release.
+This identifies the public package; a digest does not approve physiology or course depth.
 
-- **Course package:** `physiology` 0.4.9
-- **Public package archive SHA-256:** `21f9a4c00cc085e59aece986482ebb440daf7c6ff5c9764babc09b5151f846a4`
-- **Manifest SHA-256:** `04324ccfe389a52cbacb2b9a290d704603d5b0bc130251c5afd945729427c6aa`
-- **Archive inventory:** 26 files, 360,958 bytes
-- **Calculated:** 2026-10-17
-- **Reproduce:** `uv run --project backend python tools/course_package_digest.py --course-id physiology`
+- **Course package:** `physiology` 0.6.0
+- **Public package archive SHA-256:** `73ff02c5e97a05641e2d63d4c6553161c8c143339c07dfc5be9db1844c2b9cc5`
+- **Manifest SHA-256:** `707cf481c2577ebd363fb11d3e85c8625fc5d8d35ef2b4957d3c8259a9a57e36`
+- **Archive inventory:** 36 files, 551,303 bytes
+- **Calculated:** 2026-10-22
+- **Reproduce:** `python tools/course_package_digest.py --course-id physiology`
 
-Version 0.4.9 adds an original Hodgkin–Huxley reading grouped with the week-3 excitable-cells lesson. MIT OCW [6.021J Fall 2004 calendar](https://ocw.mit.edu/courses/6-021j-quantitative-physiology-cells-and-tissues-fall-2004/pages/calendar/) gives the model lectures 20–25. The reading has eight numeric and four choice items and four cards; every numeric key is recomputed by integrating the gating equations, and the stated spike, threshold and refractory numbers come from a simulation of the full model. The digest proves package identity only; it is not physiology review, instructional approval or release evidence. The course remains partial, unreviewed and formative-only.
+Three original nephron, delayed-feedback and parallel gas-exchange foundations plus four connected reports add twenty checkpoints/cards. The batch corrects the nonzero initial n^4 conductance slope and stale scope statements. All models are synthetic, partial, unreviewed and formative-only. Code, derivations, reports, physiological validity and experimental competence are not graded. The previous 0.5.0 snapshot is preserved.

@@ -53,4 +53,4 @@ def test_clearance_filtered_load_and_sensor_sensitivity():
     assert items["physiology-4:hormonal-set-point"]["solution_spec"]["answer"] == 3
 
     syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8")
-    assert "weeks 1, 3, 5 and 11 now have expanded" in syllabus
+    assert f"({lesson['reading']})" in syllabus

@@ -4003,6 +4003,2187 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "physiology-project:rehearsal-1",
+      "type": "data_interpretation",
+      "prompt": "Renal-clearance ledger rehearsal · Reference clearance. Rehearsal steady state: common urine flow 1.5 mL/min; reference plasma/urine 0.50/24 mg/mL; A 0.040/0.96; B 0.003/0.144; C 0.015/1.08; glucose 3.0/24 with Tm 180 mg/min. Reference handling is filtration-only; all other stated solutes are freely filtered and nonmetabolized. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 3,
+      "objective_ids": [
+        "physiology-project-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "gfr",
+          "type": "numeric",
+          "prompt": "Rehearsal reference clearance, in mL/min.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "reference_rate",
+          "type": "numeric",
+          "prompt": "Reference urinary mass rate, in mg/min.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "assumption",
+          "type": "single_choice",
+          "prompt": "Which assumption makes reference clearance equal to model GFR?",
+          "options": [
+            "Every solute has clearance equal to GFR, regardless of tubular transport.",
+            "The freely filtered reference is at steady state and is neither reabsorbed, secreted nor metabolized.",
+            "Urine concentration alone equals the filtration rate."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "gfr",
+            "type": "numeric",
+            "answer": 72.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "reference_rate",
+            "type": "numeric",
+            "answer": 36.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "assumption",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why does a reference clearance require more than a concentration ratio?",
+        "solution": "Reference excretion is 24 mg/mL × 1.5 mL/min = 36 mg/min. Divide by plasma concentration 0.5 mg/mL to obtain 72 mL/min. Equality with GFR is conditional on the stated filtration-only model.",
+        "lesson_ids": [
+          "physiology-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "physiology-project:rehearsal-2",
+      "type": "data_interpretation",
+      "prompt": "Renal-clearance ledger rehearsal · Filtered and excreted ledgers. Rehearsal steady state: common urine flow 1.5 mL/min; reference plasma/urine 0.50/24 mg/mL; A 0.040/0.96; B 0.003/0.144; C 0.015/1.08; glucose 3.0/24 with Tm 180 mg/min. Reference handling is filtration-only; all other stated solutes are freely filtered and nonmetabolized. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 5,
+      "objective_ids": [
+        "physiology-project-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "clearance_a",
+          "type": "numeric",
+          "prompt": "Solute A clearance, in mL/min.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "filtered_a",
+          "type": "numeric",
+          "prompt": "Solute A filtered mass rate, in mg/min.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "excreted_a",
+          "type": "numeric",
+          "prompt": "Solute A urinary mass rate, in mg/min.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "fraction_a",
+          "type": "numeric",
+          "prompt": "Solute A fractional excretion as a fraction, not a percentage.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "b",
+          "type": "single_choice",
+          "prompt": "What does the rehearsal B ledger imply?",
+          "options": [
+            "Excretion equals filtered load, so net tubular handling is zero in this model; equal opposing transport fluxes are not excluded.",
+            "All filtered B must have been reabsorbed, because fractional excretion is one.",
+            "The two concentrations are equal, so urine flow is irrelevant."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "clearance_a",
+            "type": "numeric",
+            "answer": 36.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "filtered_a",
+            "type": "numeric",
+            "answer": 2.88,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "excreted_a",
+            "type": "numeric",
+            "answer": 1.44,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "fraction_a",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "b",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why compare filtered and excreted mass rates rather than plasma and urine concentrations directly?",
+        "solution": "With GFR 72 mL/min, A has filtered load 72×0.040 = 2.88 mg/min and excretion 0.96×1.5 = 1.44 mg/min. Clearance is 36 mL/min and fractional excretion is 0.5. B has equal filtered and excreted rates of 0.216 mg/min; equality establishes zero net handling, not zero gross transport.",
+        "lesson_ids": [
+          "physiology-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "physiology-project:rehearsal-3",
+      "type": "data_interpretation",
+      "prompt": "Renal-clearance ledger rehearsal · Net secretion and identifiability. Rehearsal steady state: common urine flow 1.5 mL/min; reference plasma/urine 0.50/24 mg/mL; A 0.040/0.96; B 0.003/0.144; C 0.015/1.08; glucose 3.0/24 with Tm 180 mg/min. Reference handling is filtration-only; all other stated solutes are freely filtered and nonmetabolized. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 4,
+      "objective_ids": [
+        "physiology-project-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "clearance_c",
+          "type": "numeric",
+          "prompt": "Solute C clearance, in mL/min.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "net_c",
+          "type": "numeric",
+          "prompt": "Net tubular addition required for C, in mg/min.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "fraction_c",
+          "type": "numeric",
+          "prompt": "Solute C fractional excretion as a fraction.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "direction",
+          "type": "single_choice",
+          "prompt": "What follows from C excretion exceeding its freely filtered load?",
+          "options": [
+            "Negative filtration, because a clearance cannot exceed GFR.",
+            "A clinical diagnosis follows without other information.",
+            "Net secretion under the stated no-metabolism model; separate gross secretion and reabsorption rates remain unidentified."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "clearance_c",
+            "type": "numeric",
+            "answer": 108.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "net_c",
+            "type": "numeric",
+            "answer": 0.54,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "fraction_c",
+            "type": "numeric",
+            "answer": 1.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "direction",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Can clearance above GFR identify a transporter or quantify both opposing fluxes?",
+        "solution": "C excretion is 1.08×1.5 = 1.62 mg/min and filtered load is 72×0.015 = 1.08 mg/min. The required net addition is 0.54 mg/min. Clearance 108 mL/min exceeds model GFR and fractional excretion is 1.5; neither result decomposes the gross opposing fluxes.",
+        "lesson_ids": [
+          "physiology-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "physiology-project:rehearsal-4",
+      "type": "data_interpretation",
+      "prompt": "Renal-clearance ledger rehearsal · Transport maximum. Rehearsal steady state: common urine flow 1.5 mL/min; reference plasma/urine 0.50/24 mg/mL; A 0.040/0.96; B 0.003/0.144; C 0.015/1.08; glucose 3.0/24 with Tm 180 mg/min. Reference handling is filtration-only; all other stated solutes are freely filtered and nonmetabolized. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 4,
+      "objective_ids": [
+        "physiology-project-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "filtered_glucose",
+          "type": "numeric",
+          "prompt": "Rehearsal glucose filtered load, in mg/min.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "excreted_glucose",
+          "type": "numeric",
+          "prompt": "Ideal glucose excretion above Tm, in mg/min.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "threshold",
+          "type": "numeric",
+          "prompt": "Model plasma threshold Tm/GFR, in mg/mL.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "splay",
+          "type": "single_choice",
+          "prompt": "What is omitted by the sharp threshold?",
+          "options": [
+            "Only arithmetic precision; an exact clinical threshold follows for every person.",
+            "Variation across nephrons and gradual saturation; the stipulated threshold is an idealization.",
+            "Urine flow, because it never enters urinary mass rate."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "filtered_glucose",
+            "type": "numeric",
+            "answer": 216.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "excreted_glucose",
+            "type": "numeric",
+            "answer": 36.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "threshold",
+            "type": "numeric",
+            "answer": 2.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "splay",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why use max(filtered load − Tm, 0) rather than subtracting Tm unconditionally?",
+        "solution": "Filtered load is 72×3.0 = 216 mg/min. With stipulated Tm 180 mg/min, excretion is max(216−180,0) = 36 mg/min, matching urine concentration 24 mg/mL × flow 1.5 mL/min. The model threshold is 180/72 = 2.5 mg/mL and omits splay.",
+        "lesson_ids": [
+          "physiology-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "physiology-project:rehearsal-5",
+      "type": "data_interpretation",
+      "prompt": "Renal-clearance ledger rehearsal · Report a bounded physiological inference. Rehearsal steady state: common urine flow 1.5 mL/min; reference plasma/urine 0.50/24 mg/mL; A 0.040/0.96; B 0.003/0.144; C 0.015/1.08; glucose 3.0/24 with Tm 180 mg/min. Reference handling is filtration-only; all other stated solutes are freely filtered and nonmetabolized. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 3,
+      "objective_ids": [
+        "physiology-project-objective-5"
+      ],
+      "response_fields": [
+        {
+          "id": "rate",
+          "type": "single_choice",
+          "prompt": "Which pair has the same dimensions?",
+          "options": [
+            "GFR × plasma concentration and urine flow × urine concentration: both are mass per time.",
+            "Plasma concentration and GFR: both are mass per time.",
+            "Fractional excretion and urine flow: both are dimensionless."
+          ],
+          "points": 1
+        },
+        {
+          "id": "evidence",
+          "type": "single_choice",
+          "prompt": "Which additional assumption would change an inferred tubular balance?",
+          "options": [
+            "Writing mg/min instead of mg per minute changes the physical model.",
+            "A clearer table removes the need for any transport assumption.",
+            "Protein binding, solute metabolism or a non-steady reference distribution could break the simplified freely filtered ledger."
+          ],
+          "points": 1
+        },
+        {
+          "id": "scope",
+          "type": "single_choice",
+          "prompt": "Which final statement is supported?",
+          "options": [
+            "The reference clearance authorizes a clinical test protocol.",
+            "These invented observations close a declared teaching-model ledger; they estimate no person’s kidney function.",
+            "A fractional excretion above one diagnoses a real person’s disease."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "rate",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "evidence",
+            "type": "single_choice",
+            "answer": 2
+          },
+          {
+            "id": "scope",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What is the narrowest conclusion of this renal ledger?",
+        "solution": "A reproducible ledger labels plasma and urine concentrations, flow, clearance, filtered load, excretion, net transport and fractional excretion. It states steady state, filtration and metabolism assumptions. No synthetic observation is a clinical measurement or a recommendation.",
+        "lesson_ids": [
+          "physiology-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "physiology-17:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Use the rehearsal nephron: GFR=80 mL/min, plasma Na=125 mmol/L and successive sodium removal fractions (0.5,0.8,0.75,0.9) of delivered amount. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physiology-17-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "filtered",
+          "type": "numeric",
+          "prompt": "Filtered sodium amount rate in mmol/min.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "excreted",
+          "type": "numeric",
+          "prompt": "Final sodium excretion amount rate in mmol/min.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "fraction",
+          "type": "numeric",
+          "prompt": "Fraction of filtered sodium excreted.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "filtered",
+            "type": "numeric",
+            "answer": 10.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "excreted",
+            "type": "numeric",
+            "answer": 0.025,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "fraction",
+            "type": "numeric",
+            "answer": 0.0025,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How do delivered-fraction removals combine?",
+        "solution": "Convert 80 mL/min to 0.080 L/min before multiplying by 125 mmol/L: filtered sodium is 10 mmol/min. Sequential remaining fractions give 10×0.5×0.2×0.25×0.1=0.025 mmol/min. Fractional excretion is 0.0025; segment fractions refer to delivered, not original filtered, amount.",
+        "lesson_ids": [
+          "physiology-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physiology-17:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use the same rehearsal nephron with successive water removal fractions (0.5,0.5,0,0.96) of delivered water. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "physiology-17-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "urine_flow",
+          "type": "numeric",
+          "prompt": "Final water/urine flow in mL/min.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "urine_na",
+          "type": "numeric",
+          "prompt": "Urine sodium concentration in mmol/L.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "urine_flow",
+            "type": "numeric",
+            "answer": 0.8,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "urine_na",
+            "type": "numeric",
+            "answer": 31.25,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why solve water and solute balances separately?",
+        "solution": "Water flow is 80×0.5×0.5×1×0.04=0.8 mL/min. Sodium output remains 0.025 mmol/min, so division by 0.0008 L/min gives 31.25 mmol/L. A concentration is an amount-to-volume ratio; its change alone does not identify a change in sodium excretion.",
+        "lesson_ids": [
+          "physiology-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physiology-17:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Change only the rehearsal final water removal fraction from 0.96 to 0.8; hold filtration and all sodium fractions fixed. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physiology-17-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "urine_flow",
+          "type": "numeric",
+          "prompt": "New urine flow in mL/min.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "urine_na",
+          "type": "numeric",
+          "prompt": "New urine sodium concentration in mmol/L.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "excreted",
+          "type": "numeric",
+          "prompt": "Unchanged sodium excretion amount in mmol/min.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "urine_flow",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "urine_na",
+            "type": "numeric",
+            "answer": 6.25,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "excreted",
+            "type": "numeric",
+            "answer": 0.025,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Does dilute urine necessarily mean less solute excretion?",
+        "solution": "Delivered final-segment water is 20 mL/min. Retaining 20 percent gives 4 mL/min, and 0.025/0.004=6.25 mmol/L. The fivefold dilution does not change sodium excretion in this controlled toy comparison; a coupled organism need not hold those other quantities fixed.",
+        "lesson_ids": [
+          "physiology-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physiology-17:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Interpret the nephron mechanisms separately from the invented fractional-removal parameters. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "physiology-17-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "water",
+          "type": "single_choice",
+          "prompt": "Which account of vasopressin-dependent water recovery is appropriate?",
+          "options": [
+            "It can alter collecting-duct water permeability; net water movement still requires an osmotic driving gradient.",
+            "It creates water without any delivery or driving gradient.",
+            "It imposes a fixed sodium excretion fraction independent of all membrane transport."
+          ],
+          "points": 1
+        },
+        {
+          "id": "salt",
+          "type": "single_choice",
+          "prompt": "Which distinction is supported by the reading?",
+          "options": [
+            "The fractions are measured universal human segment recoveries.",
+            "All filtered solute and water must have the same fraction removed at every segment.",
+            "Aldosterone-related sodium/potassium handling differs from a pure water-permeability change; the ledger fractions are synthetic."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "water",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "salt",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does a mechanistic nephron explanation add to a clearance ratio?",
+        "solution": "Basolateral sodium pumping supports epithelial gradients, while segment permeability and transporters determine different solute/water effects. Vasopressin-related permeability requires a medullary driving gradient; aldosterone-related sodium/potassium control is a different mechanism. The selected fractions illustrate conservation rather than supplying real physiological estimates.",
+        "lesson_ids": [
+          "physiology-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physiology-18:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Use tauW=3,tauH=1,g=2,k=1,u=0.3 in tauW wdot=u−w+g h and tauH hdot=−h−k w, starting at w=h=0. All time and state scales are normalized. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physiology-18-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "water",
+          "type": "numeric",
+          "prompt": "Steady normalized water deviation w.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "signal",
+          "type": "numeric",
+          "prompt": "Steady normalized control-signal deviation h.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "initial",
+          "type": "numeric",
+          "prompt": "Right-hand initial wdot in normalized time inverse.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "water",
+            "type": "numeric",
+            "answer": 0.1,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "signal",
+            "type": "numeric",
+            "answer": -0.1,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "initial",
+            "type": "numeric",
+            "answer": 0.1,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can negative feedback leave a nonzero steady error?",
+        "solution": "At equilibrium h=−w and 0=0.3−w+2h, hence w=0.1 and h=−0.1. Starting from zero states, wdot=0.3/3=0.1. Negative h means a signal deviation below its reference, not a negative absolute hormone concentration or a measured human response.",
+        "lesson_ids": [
+          "physiology-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physiology-18:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For that same linear rehearsal, use its two-state characteristic polynomial 3 lambda²+4 lambda+3=0. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "physiology-18-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "real",
+          "type": "numeric",
+          "prompt": "Common real part of both eigenvalues.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "imaginary",
+          "type": "numeric",
+          "prompt": "Positive imaginary magnitude of the conjugate eigenvalues.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "real",
+            "type": "numeric",
+            "answer": -0.6666666666666666,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "imaginary",
+            "type": "numeric",
+            "answer": 0.7453559924999299,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does a stable complex eigenpair establish?",
+        "solution": "The quadratic formula gives lambda=(−4±sqrt(16−36))/6=−2/3±i sqrt(5)/3. Negative real parts imply decaying homogeneous perturbations in this particular linear model. They do not prove every delayed physiological controller is stable or that its response never overshoots.",
+        "lesson_ids": [
+          "physiology-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physiology-18:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Replace the same rehearsal signal target by clip(−k w,−0.05,+0.4), preserving tauH hdot=target−h. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physiology-18-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "water",
+          "type": "numeric",
+          "prompt": "Saturated steady water deviation w.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "signal",
+          "type": "numeric",
+          "prompt": "Saturated steady signal deviation h.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "branch",
+          "type": "single_choice",
+          "prompt": "Why is the lower-bound branch consistent?",
+          "options": [
+            "The unconstrained target is inside the interval and therefore cannot be clipped.",
+            "At w=0.2 the unconstrained target −0.2 lies below −0.05, which clips to the assumed h.",
+            "Any arbitrary clipped state solves the water equation without a balance check."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "water",
+            "type": "numeric",
+            "answer": 0.2,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "signal",
+            "type": "numeric",
+            "answer": -0.05,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "branch",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How do you verify a bounded-controller equilibrium?",
+        "solution": "Assume the lower target −0.05. Water balance gives w=0.3+2(−0.05)=0.2; its unclipped target −0.2 is indeed below the bound. Both the balance and clipping branch must be checked. Clipping a controller target is not equivalent to truncating numerical state values after every step.",
+        "lesson_ids": [
+          "physiology-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physiology-18:depth-4",
+      "type": "data_interpretation",
+      "prompt": "In a separate unbounded rehearsal, retain tauW=3,tauH=1,g=2,k=1,u=0.3 but set the sensor target to −k(w+b), b=0.05. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physiology-18-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "water",
+          "type": "numeric",
+          "prompt": "Biased steady water deviation w.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "signal",
+          "type": "numeric",
+          "prompt": "Biased steady control-signal deviation h.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "meaning",
+          "type": "single_choice",
+          "prompt": "How should a negative h be interpreted?",
+          "options": [
+            "As a normalized deviation below the signal reference; an absolute concentration needs its own reference and scale.",
+            "As proof a real endocrine concentration is negative.",
+            "As proof that the water equation violates mass conservation."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "water",
+            "type": "numeric",
+            "answer": 0.06666666666666667,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "signal",
+            "type": "numeric",
+            "answer": -0.11666666666666667,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "meaning",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why keep bias, gain and saturation perturbations separate?",
+        "solution": "Solve h=−w−0.05 with w=0.3+2h to obtain w=1/15 and h=−7/60. This is a different perturbation from clipping; combining the two without re-solving would change the model. The normalized states carry no direct clinical concentration or time interpretation.",
+        "lesson_ids": [
+          "physiology-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physiology-19:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Use toy binding C(P)=180 P²/(20²+P²), with C in mL O2/L blood and P in common pressure units. Two outlets have P1=60,P2=20 and Q1=2,Q2=1 L/min. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physiology-19-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "content_one",
+          "type": "numeric",
+          "prompt": "Content in outlet one, mL O2/L.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "content_two",
+          "type": "numeric",
+          "prompt": "Content in outlet two, mL O2/L.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "mixed",
+          "type": "numeric",
+          "prompt": "Mixed arterial content, mL O2/L.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "content_one",
+            "type": "numeric",
+            "answer": 162.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "content_two",
+            "type": "numeric",
+            "answer": 90.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "mixed",
+            "type": "numeric",
+            "answer": 138.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which quantity must be mixed in parallel blood streams?",
+        "solution": "The common curve gives 162 and 90 mL O2/L. Oxygen amount rates add as 2×162+1×90=414 mL/min; dividing by total flow three gives mixed content 138. Averaging outlet pressures would skip the nonlinear binding conversion and generally violate this oxygen ledger.",
+        "lesson_ids": [
+          "physiology-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physiology-19:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Invert the same common toy curve after mixing to content 138; also calculate the flow-weighted outlet pressure. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "physiology-19-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "equivalent",
+          "type": "numeric",
+          "prompt": "Equivalent mixed pressure from the toy inverse curve.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "weighted",
+          "type": "numeric",
+          "prompt": "Flow-weighted outlet pressure (2×60+20)/3 for the supplied synthetic model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "equivalent",
+            "type": "numeric",
+            "answer": 36.25307868699863,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "weighted",
+            "type": "numeric",
+            "answer": 46.666666666666664,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "When can an inverse content curve be used after mixing?",
+        "solution": "The inverse gives 20 sqrt(138/(180−138))=20 sqrt(23/7), about 36.2531 pressure units. The direct weighted outlet pressure is 46.6667. Their difference follows from nonlinear conversion; interpreting the inverse as a common mixed-stream pressure additionally requires the same binding conditions in all streams.",
+        "lesson_ids": [
+          "physiology-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physiology-19:depth-3",
+      "type": "data_interpretation",
+      "prompt": "For the same mixed stream use common venous content Cv=54 mL O2/L and total blood flow 3 L/min. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physiology-19-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "delivery",
+          "type": "numeric",
+          "prompt": "Arterial oxygen delivery in mL O2/min.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "uptake",
+          "type": "numeric",
+          "prompt": "Net tissue oxygen uptake in mL O2/min.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "extraction",
+          "type": "numeric",
+          "prompt": "Fractional extraction (Ca−Cv)/Ca for the supplied synthetic model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "delivery",
+            "type": "numeric",
+            "answer": 414.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "uptake",
+            "type": "numeric",
+            "answer": 252.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "extraction",
+            "type": "numeric",
+            "answer": 0.6086956521739131,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How are oxygen delivery and tissue uptake distinguished?",
+        "solution": "Arterial delivery is 3×138=414 mL/min, while venous return carries 3×54=162 mL/min. The difference 252 is tissue uptake under the steady assumptions. Extraction is 84/138=14/23. Delivery and uptake are different amount rates even when the blood-flow value is shared.",
+        "lesson_ids": [
+          "physiology-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physiology-19:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Represent that same Ca=138 as mixing capillary-end content 162 with venous content 54, using Ca=(1−q)162+q54. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "physiology-19-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "equivalent_fraction",
+          "type": "numeric",
+          "prompt": "Equivalent bypass fraction q for the supplied synthetic model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "claim",
+          "type": "single_choice",
+          "prompt": "What does this calculation establish?",
+          "options": [
+            "Proof that exactly this fraction of real blood bypassed all ventilated tissue.",
+            "Proof that every low arterial content has a unique identical cause.",
+            "An equivalent fraction within the stipulated two-content model; separate flow/ventilation evidence is needed to establish an anatomical mechanism."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "equivalent_fraction",
+            "type": "numeric",
+            "answer": 0.2222222222222222,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "claim",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why is a fitted equivalent bypass fraction not a unique diagnosis of mechanism?",
+        "solution": "Rearrangement gives q=(162−138)/(162−54)=24/108=2/9. The same mixed content can arise from unequal exchange, different inputs or other omitted mechanisms. An equivalent fraction summarizes a model ledger; it does not by itself demonstrate an anatomical bypass or real physiological cause.",
+        "lesson_ids": [
+          "physiology-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physiology-20:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1 passive patch: Cm=1 uF/cm²,gL=0.2 mS/cm²,EL=−60 mV,Istep=2 uA/cm², initially V=EL. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physiology-20-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "tau",
+          "type": "numeric",
+          "prompt": "Passive time constant in ms.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "steady",
+          "type": "numeric",
+          "prompt": "New steady membrane potential in mV.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "voltage",
+          "type": "numeric",
+          "prompt": "Membrane potential at t=5 ms in mV.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "tau",
+            "type": "numeric",
+            "answer": 5.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "steady",
+            "type": "numeric",
+            "answer": -50.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "voltage",
+            "type": "numeric",
+            "answer": -53.67879441171442,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What makes a membrane simulation independently checkable?",
+        "solution": "Cm/gL=5 ms and Vinf=EL+I/gL=−50 mV. The solution V=−60+10(1−exp(−t/5)) gives about −53.6788 mV at five milliseconds; its right-hand initial slope is 2 mV/ms. This passive current step is separate from the assignment voltage-clamp gate experiment.",
+        "lesson_ids": [
+          "physiology-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physiology-20:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1 separate voltage clamp: alpha=0.1/ms,beta=0.3/ms,n0=0.1,gbarK=20 mS/cm²,V=−20 mV,EK=−80 mV. Also use a separate passive cable A0=20 mV,lambda=1.5 mm,x=3 mm. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "physiology-20-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "gate",
+          "type": "numeric",
+          "prompt": "Gate value n at t=5 ms.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "conductance",
+          "type": "numeric",
+          "prompt": "gbarK n^4 at t=5 ms in mS/cm².",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "current",
+          "type": "numeric",
+          "prompt": "Outward-positive potassium current at t=5 ms in uA/cm².",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "cable",
+          "type": "numeric",
+          "prompt": "Cable voltage deviation at x=3 mm in mV.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "gate",
+            "type": "numeric",
+            "answer": 0.2296997075145081,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "conductance",
+            "type": "numeric",
+            "answer": 0.05567647924279156,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "current",
+            "type": "numeric",
+            "answer": 3.3405887545674937,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "cable",
+            "type": "numeric",
+            "answer": 2.706705664732254,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Does a fourth-power conductance always start with zero slope?",
+        "solution": "The fixed-rate gate has ninf=0.25,tau=2.5 ms and n(5)=0.25−0.15e^−2. Its conductance is about 0.0556765 mS/cm² and outward current about 3.34059 uA/cm². The independent passive cable deviation is 20e^−2 mV; these separate checks do not reconstruct a full propagating action potential.",
+        "lesson_ids": [
+          "physiology-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physiology-21:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2: C(P)=200P²/(25²+P²),P1=75,P2=25,Q1=3,Q2=1 L/min,Cv=80 mL O2/L. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "physiology-21-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "mixed",
+          "type": "numeric",
+          "prompt": "Mixed arterial oxygen content in mL O2/L.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "equivalent",
+          "type": "numeric",
+          "prompt": "Equivalent pressure from the common inverse binding curve.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "delivery",
+          "type": "numeric",
+          "prompt": "Oxygen delivery in mL/min for the supplied synthetic model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "uptake",
+          "type": "numeric",
+          "prompt": "Tissue oxygen uptake in mL/min.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "mixed",
+            "type": "numeric",
+            "answer": 160.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "equivalent",
+            "type": "numeric",
+            "answer": 50.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "delivery",
+            "type": "numeric",
+            "answer": 640.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "uptake",
+            "type": "numeric",
+            "answer": 320.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What belongs in a gas-exchange evidence report?",
+        "solution": "The two outlet contents are 180 and 100, yielding mixed content (3×180+100)/4=160 mL/L. The inverse pressure is 25 sqrt(160/40)=50, while delivery is 640 and uptake 320 mL/min. Averaging the pressures instead would give 62.5 and would not preserve the oxygen-content ledger.",
+        "lesson_ids": [
+          "physiology-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physiology-21:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2 flows initially follow common pressure drop 30 and resistances R1=10,R2=30 in compatible units. Double only R2 to 60 at fixed pressure, holding outlet contents 180 and 100 fixed for the comparison. Separately model the original Ca=160 using capillary-end content 180 and venous content 80. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 5,
+      "objective_ids": [
+        "physiology-21-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "resistance",
+          "type": "numeric",
+          "prompt": "Initial equivalent parallel resistance for the supplied synthetic model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "equivalent_fraction",
+          "type": "numeric",
+          "prompt": "Original equivalent bypass fraction for the supplied synthetic model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "new_flow",
+          "type": "numeric",
+          "prompt": "New total blood flow in L/min.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "new_delivery",
+          "type": "numeric",
+          "prompt": "New oxygen delivery in mL/min.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "interpretation",
+          "type": "single_choice",
+          "prompt": "Which effect occurs in the fixed-pressure perturbation?",
+          "options": [
+            "Mixed content rises while oxygen delivery falls; a concentration change alone is insufficient.",
+            "Higher mixed content proves greater oxygen delivery regardless of flow.",
+            "The equivalent fraction alone proves an anatomical bypass mechanism."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "resistance",
+            "type": "numeric",
+            "answer": 7.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "equivalent_fraction",
+            "type": "numeric",
+            "answer": 0.2,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "new_flow",
+            "type": "numeric",
+            "answer": 3.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "new_delivery",
+            "type": "numeric",
+            "answer": 590.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "interpretation",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Can mixed oxygen content improve while total delivery declines?",
+        "solution": "Initial total flow is four and equivalent resistance 30/4=7.5. Doubling R2 reduces its flow to 0.5 while Q1 remains three: total 3.5 and delivery 3×180+0.5×100=590. Mixed content rises to about 168.571, despite lower delivery. The original equivalent fraction is (180−160)/(180−80)=0.2 and remains a model summary.",
+        "lesson_ids": [
+          "physiology-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physiology-22:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 3: GFR=90 mL/min,plasma Na=120 mmol/L,sodium removal fractions (0.5,0.75,0.8,0.9),water removal fractions (0.6,0.5,0,0.9),each of delivered quantity. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 5,
+      "objective_ids": [
+        "physiology-22-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "filtered",
+          "type": "numeric",
+          "prompt": "Filtered sodium in mmol/min for the supplied synthetic model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "excreted",
+          "type": "numeric",
+          "prompt": "Excreted sodium in mmol/min for the supplied synthetic model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "fraction",
+          "type": "numeric",
+          "prompt": "Fractional sodium excretion for the supplied synthetic model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "urine_flow",
+          "type": "numeric",
+          "prompt": "Urine flow in mL/min for the supplied synthetic model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "urine_na",
+          "type": "numeric",
+          "prompt": "Urine sodium concentration in mmol/L.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "filtered",
+            "type": "numeric",
+            "answer": 10.8,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "excreted",
+            "type": "numeric",
+            "answer": 0.027,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "fraction",
+            "type": "numeric",
+            "answer": 0.0025,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "urine_flow",
+            "type": "numeric",
+            "answer": 1.8,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "urine_na",
+            "type": "numeric",
+            "answer": 15.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which consistency checks should a serial nephron solver retain?",
+        "solution": "Filtered amount is 0.090×120=10.8 mmol/min. Sodium remaining is 10.8×0.5×0.25×0.2×0.1=0.027, or fraction 0.0025. Water remaining is 90×0.4×0.5×1×0.1=1.8 mL/min; converting to liters before dividing gives urine sodium 15 mmol/L.",
+        "lesson_ids": [
+          "physiology-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physiology-22:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Assignment 3 has two separate perturbations from the original state: A changes only final water removal to 0.5; B instead changes only final sodium removal to 0.8 and retains original water fractions. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "physiology-22-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "water_flow",
+          "type": "numeric",
+          "prompt": "Perturbation A urine flow in mL/min.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "water_concentration",
+          "type": "numeric",
+          "prompt": "Perturbation A urine sodium in mmol/L.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "water_excreted",
+          "type": "numeric",
+          "prompt": "Perturbation A sodium excretion in mmol/min.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "salt_excreted",
+          "type": "numeric",
+          "prompt": "Perturbation B sodium excretion in mmol/min.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "water_flow",
+            "type": "numeric",
+            "answer": 9.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "water_concentration",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "water_excreted",
+            "type": "numeric",
+            "answer": 0.027,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "salt_excreted",
+            "type": "numeric",
+            "answer": 0.054,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why explicitly label separate perturbations?",
+        "solution": "A retains half of final delivered water, giving nine mL/min and 0.027/0.009=3 mmol/L without changing sodium amount. B doubles the retained sodium fraction from 0.1 to 0.2, giving 0.054 mmol/min at the original water flow. Combining A and B would be a third, separately solved model.",
+        "lesson_ids": [
+          "physiology-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physiology-23:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 4 unbounded model: tauW=2,tauH=1,g=1,k=2,u=0.3,initial w=h=0,using tauW wdot=u−w+g h,tauH hdot=−h−k w. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 5,
+      "objective_ids": [
+        "physiology-23-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "water",
+          "type": "numeric",
+          "prompt": "Steady normalized water deviation for the supplied synthetic model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "signal",
+          "type": "numeric",
+          "prompt": "Steady normalized signal deviation for the supplied synthetic model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "real",
+          "type": "numeric",
+          "prompt": "Common eigenvalue real part for the supplied synthetic model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "imaginary",
+          "type": "numeric",
+          "prompt": "Positive imaginary eigenvalue magnitude for the supplied synthetic model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "initial",
+          "type": "numeric",
+          "prompt": "Right-hand initial water derivative for the supplied synthetic model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "water",
+            "type": "numeric",
+            "answer": 0.1,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "signal",
+            "type": "numeric",
+            "answer": -0.2,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "real",
+            "type": "numeric",
+            "answer": -0.75,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "imaginary",
+            "type": "numeric",
+            "answer": 0.9682458365518543,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "initial",
+            "type": "numeric",
+            "answer": 0.15,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What should be verified before interpreting a simulated transient?",
+        "solution": "Steady balance gives w=0.3/(1+2)=0.1 and h=−0.2. The characteristic equation is 2lambda²+3lambda+3=0, giving −3/4±i sqrt(15)/4. Initially wdot=0.3/2=0.15 and hdot=0. These analytic checks constrain a numerical report without asserting any measured physiological time course.",
+        "lesson_ids": [
+          "physiology-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physiology-23:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Assignment 4 uses two separate variants: A clips the target −2w to [−0.1,+0.4]; B instead uses the unbounded biased target −2(w+0.05). All other parameters remain at the original values. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 5,
+      "objective_ids": [
+        "physiology-23-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "bounded_water",
+          "type": "numeric",
+          "prompt": "Variant A steady water deviation.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "bounded_signal",
+          "type": "numeric",
+          "prompt": "Variant A steady signal deviation.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "biased_water",
+          "type": "numeric",
+          "prompt": "Variant B steady water deviation.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "biased_signal",
+          "type": "numeric",
+          "prompt": "Variant B steady signal deviation.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "meaning",
+          "type": "single_choice",
+          "prompt": "Which interpretation is supported? for the supplied synthetic model.",
+          "options": [
+            "Both variants establish actual hormone concentrations and measured human reserve.",
+            "These are separate synthetic control models; negative h denotes a below-reference signal deviation.",
+            "Clipping every integration state after a step always solves the same target-clipped differential equation."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "bounded_water",
+            "type": "numeric",
+            "answer": 0.2,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "bounded_signal",
+            "type": "numeric",
+            "answer": -0.1,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "biased_water",
+            "type": "numeric",
+            "answer": 0.06666666666666667,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "biased_signal",
+            "type": "numeric",
+            "answer": -0.23333333333333334,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "meaning",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How can a normal-looking regulated quantity hide impaired reserve?",
+        "solution": "For A, h=−0.1 and w=0.3−0.1=0.2; the raw target −0.4 verifies the lower-bound branch. For B, w=(0.3−2×0.05)/3=1/15 and h=−2(w+0.05)=−7/30. Similar regulated values do not identify controller reserve or bias without additional evidence.",
+        "lesson_ids": [
+          "physiology-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      }
     }
   ]
 }

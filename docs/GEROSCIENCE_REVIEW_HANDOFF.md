@@ -1,6 +1,6 @@
 # Geroscience course review handoff
 
-This handoff targets Geroscience & Regenerative Biology, package version 0.5.9. The [review snapshot](GEROSCIENCE_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+This handoff targets Geroscience & Regenerative Biology, package version 0.6.0. The [review snapshot](GEROSCIENCE_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
 
 ## Review scope
 
@@ -19,3 +19,11 @@ The focused Geroscience suite passed 488 tests for version 0.5.7, including chec
 ## Review record to complete only after review
 
 After a review actually occurs, record reviewer name and qualifications, date, package version and archive digest, artifacts examined, concrete findings and disposition. Keep separate decisions for scientific accuracy, instructional design, assessment, accessibility, workload and release. Do not infer approval from the package hash or test results.
+
+## Open project route (2026-10-22)
+
+The current guide, separate worked example, rehearsal and five private milestone self-checks make the existing project usable as ungraded practice. [The route regression tests](../tests/content/test_remaining_course_project_routes.py) independently recalculate every new numeric field and exercise the backend grader, including exact counts and continuous-quantity precision. Review the written explanation, evidence limits and proposed workload independently; automated arithmetic is not subject review. Historical snapshot evidence remains preserved.
+
+## Telomere and comparative-evidence target (2026-10-22)
+
+Current 0.7.0 adds one foundation and three seminar dossiers. Verify end protection/maintenance and checkpoint distinctions, minimum-versus-mean and first-integer models, net population versus lineage histories, culture versus engineered-deficiency rescue boundaries, corrected NIA2012/joint2017 and zebrafish2002/lineage2010 chronology, fixed-horizon versus time-to-event endpoints, standardization target weights and label-mixture assumptions. Telomere descriptions use indexed abstracts only because full text was blocked; the joint2017 primary article was accessible. No quantitative study data are imported. Reports, full-paper appraisal, real biology, qualified review and workload remain open.

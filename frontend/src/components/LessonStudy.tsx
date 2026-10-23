@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { errorMessage } from "../api";
 import type {
   Appeal,
@@ -13,6 +13,7 @@ import type {
 import { Assessment } from "./Assessment";
 import { CardRatingControls } from "./CardRatingControls";
 import { MarkdownReader } from "./MarkdownReader";
+import { LessonNotes } from "./LessonNotes";
 
 export function LessonStudy({
   lesson,
@@ -51,25 +52,9 @@ export function LessonStudy({
     rating: CardRating,
   ) => Promise<CardReviewResult>;
 }) {
-  const [body, setBody] = useState(note?.body || "");
   const [status, setStatus] = useState("");
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
-  useEffect(() => {
-    setBody(note?.body || "");
-  }, [note?.body, lesson.id]);
-  async function saveNote() {
-    setBusy(true);
-    setError("");
-    try {
-      await onSaveNote(body);
-      setStatus("Note saved.");
-    } catch (error) {
-      setError(errorMessage(error));
-    } finally {
-      setBusy(false);
-    }
-  }
   async function markRead() {
     setBusy(true);
     setError("");
@@ -165,6 +150,12 @@ export function LessonStudy({
         <p className="muted">
           Reading progress is learner-marked and separate from practice results.
         </p>
+        {status && <p role="status">{status}</p>}
+        {error && (
+          <p role="alert" className="error">
+            {error}
+          </p>
+        )}
       </article>
       {lesson.questions.map((question) => (
         <Assessment
@@ -186,37 +177,13 @@ export function LessonStudy({
           onAppeal={onAppeal}
         />
       ))}
-      <section className="card">
-        <h2>Lesson notes</h2>
-        <label>
-          Your private note
-          <textarea
-            value={body}
-            onChange={(event) => {
-              setBody(event.target.value);
-              setStatus("");
-            }}
-            maxLength={20000}
-            rows={6}
-            disabled={!enabled}
-          />
-        </label>
-        <button onClick={saveNote} disabled={!enabled || busy}>
-          {busy ? "Saving…" : "Save note"}
-        </button>
-        {!enabled && (
-          <p className="muted">
-            {disabledMessage ||
-              "Enroll to save notes to your account or guest session."}
-          </p>
-        )}
-        {status && <p role="status">{status}</p>}
-        {error && (
-          <p role="alert" className="error">
-            {error}
-          </p>
-        )}
-      </section>
+      <LessonNotes
+        key={lesson.id}
+        note={note}
+        enabled={enabled}
+        disabledMessage={disabledMessage}
+        onSave={onSaveNote}
+      />
     </>
   );
 }

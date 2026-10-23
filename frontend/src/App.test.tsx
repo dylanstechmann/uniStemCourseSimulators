@@ -16,6 +16,45 @@ afterEach(() => {
   window.location.hash = "";
 });
 
+describe("startup recovery", () => {
+  it("retries a failed startup without losing the requested page", async () => {
+    const user = userEvent.setup();
+    const session = vi.spyOn(api, "session").mockResolvedValue({
+      user: null,
+      csrf_token: null,
+    });
+    vi.spyOn(api, "courses").mockResolvedValue([]);
+    vi.spyOn(api, "sources")
+      .mockRejectedValueOnce(new Error("Connection interrupted"))
+      .mockResolvedValue([]);
+    vi.spyOn(api, "curriculum").mockResolvedValue({
+      schema_version: "1.0",
+      description: "Test map",
+      nodes: [],
+      pathways: [],
+      alignment_maps: [],
+    });
+    window.location.hash = "/tools/diffusion";
+    render(<App />);
+
+    expect(await screen.findByRole("alert")).toHaveTextContent(
+      "Connection interrupted",
+    );
+    expect(screen.getByText("Session unavailable")).toBeInTheDocument();
+    expect(
+      screen.queryByRole("heading", { name: "Diffusion timescale" }),
+    ).not.toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: "Try again" }));
+    expect(
+      await screen.findByRole("heading", { name: "Diffusion timescale" }),
+    ).toBeInTheDocument();
+    expect(session).toHaveBeenCalledTimes(2);
+    expect(window.location.hash).toBe("#/tools/diffusion");
+    expect(screen.queryByRole("alert")).not.toBeInTheDocument();
+    expect(screen.getByText("Public reader")).toBeInTheDocument();
+  });
+});
+
 describe("shared scientific tools route", () => {
   it("opens a calculator directly for a public reader", async () => {
     vi.spyOn(api, "session").mockResolvedValue({

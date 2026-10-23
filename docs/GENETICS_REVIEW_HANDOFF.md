@@ -1,6 +1,6 @@
 # Genetics & Genomics course review handoff
 
-This handoff targets Genetics & Genomics, package version 0.6.0. The [review snapshot](GENETICS_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+This handoff targets Genetics & Genomics, package version 0.7.0. The [review snapshot](GENETICS_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
 
 ## Review scope
 
@@ -23,3 +23,7 @@ The earlier focused Genetics suite passed 7 tests for version 0.5.5, including i
 ## Review record to complete only after review
 
 After a review actually occurs, record reviewer name and qualifications, date, package version and archive digest, artifacts examined, concrete findings and disposition. Keep separate decisions for genetic and mathematical correctness, instructional design, assessment, accessibility, workload and release. Do not infer approval from the package hash or test results.
+
+## Deeper functional/genome/population target (2026-10-22)
+
+Current target 0.7.0 adds three original foundations, three connected report/simulation assignments, eighteen checkpoints/cards and a synthetic clone-count CSV. Check functional-group assumptions versus recombination, hidden reciprocal classes and zero-count bounds, suppression versus reversion, DNA/RNA odds and dosage/phase/junction denominators, coding-frame limits, life-cycle normalization, identity-by-descent mixtures, exact fixed points and known-phase linkage likelihood. Written work, biological validation, workload and qualified review remain open. The current snapshot pins the package; earlier evidence above remains historical.

@@ -585,6 +585,296 @@
         "signals-control-16-objective-3"
       ],
       "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-project-card-1",
+      "lesson_id": "signals-control-project-guide",
+      "front": "How can an alias be checked without a folding mnemonic?",
+      "back": "Evaluate cosine samples at the original and candidate alias frequencies. Equality at every integer sample demonstrates the ambiguity.",
+      "objective_ids": [
+        "signals-control-project-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-project-card-2",
+      "lesson_id": "signals-control-project-guide",
+      "front": "Why report an analog filter’s desired-signal response as well as interference attenuation?",
+      "back": "A narrower filter also changes desired amplitude and phase. A design decision needs both costs and benefits on a stated error basis.",
+      "objective_ids": [
+        "signals-control-project-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-project-card-3",
+      "lesson_id": "signals-control-project-guide",
+      "front": "Why must cycles/min and rad/min not be mixed in the hold phase calculation?",
+      "back": "Phase is angular frequency times delay. A frequency specified in cycles/min must first be multiplied by 2π before multiplying by minutes.",
+      "objective_ids": [
+        "signals-control-project-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-project-card-4",
+      "lesson_id": "signals-control-project-guide",
+      "front": "Why keep candidate output separate from applied output?",
+      "back": "A plant responds to the applied bounded command. Retaining a different internal output without a declared tracking policy can accumulate inconsistent controller state.",
+      "objective_ids": [
+        "signals-control-project-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-project-card-5",
+      "lesson_id": "signals-control-project-guide",
+      "front": "How can a sampled first-order update be checked without repeating its algebra?",
+      "back": "For positive gain and a held input, the exact state lies between the old state and the held-input equilibrium. Check that range and the small-step limit.",
+      "objective_ids": [
+        "signals-control-project-objective-5"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-17-card-1",
+      "lesson_id": "signals-control-17",
+      "front": "What must be fixed before comparing Fourier formulas?",
+      "back": "The transform/inverse normalization,frequency units,signal support and phase convention;the origin often requires a limit rather than direct zero-over-zero substitution.",
+      "objective_ids": [
+        "signals-control-17-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-17-card-2",
+      "lesson_id": "signals-control-17",
+      "front": "Why separate convolution,multiplication and energy?",
+      "back": "They are different operations with different domains and normalization;one plausible shape or DC value cannot substitute for the full relation.",
+      "objective_ids": [
+        "signals-control-17-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-17-card-3",
+      "lesson_id": "signals-control-17",
+      "front": "What makes discrete frequency representations periodic?",
+      "back": "The integer sample index leaves exp(−i(Omega+two pi)n)unchanged,so a full transform period has length two pi radians/sample.",
+      "objective_ids": [
+        "signals-control-17-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-17-card-4",
+      "lesson_id": "signals-control-17",
+      "front": "How can a time truncation hide an energy error?",
+      "back": "A visually small geometric tail can still contribute a finite squared sum;state the last index and bound or sum what remains.",
+      "objective_ids": [
+        "signals-control-17-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-18-card-1",
+      "lesson_id": "signals-control-18",
+      "front": "What accompanies a polynomial controller match?",
+      "back": "The original characteristic equation,admissible gain/pole/zero conditions and a check that no hidden internal instability was discarded.",
+      "objective_ids": [
+        "signals-control-18-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-18-card-2",
+      "lesson_id": "signals-control-18",
+      "front": "Which stability claim belongs to nominal pole placement?",
+      "back": "Asymptotic decay for the specified exact linear realization;uncertainty,delay,noise and actuator limits need their own analysis.",
+      "objective_ids": [
+        "signals-control-18-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-18-card-3",
+      "lesson_id": "signals-control-18",
+      "front": "Why specify the reference type before reporting steady error?",
+      "back": "Step,ramp and other references excite different low-frequency limits and can produce different persistent errors in the same stable loop.",
+      "objective_ids": [
+        "signals-control-18-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-18-card-4",
+      "lesson_id": "signals-control-18",
+      "front": "Where must a phase margin be evaluated?",
+      "back": "At the actual loop unity-gain crossover using its phase,not automatically at the controller’s maximum phase-boost frequency.",
+      "objective_ids": [
+        "signals-control-18-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-19-card-1",
+      "lesson_id": "signals-control-19",
+      "front": "Why check state information before designing gains?",
+      "back": "A chosen input may not actuate every mode,and a chosen output may not reveal every state;the corresponding rank conditions constrain the proposed design.",
+      "objective_ids": [
+        "signals-control-19-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-19-card-2",
+      "lesson_id": "signals-control-19",
+      "front": "What does a stabilizing state gain leave to be calculated?",
+      "back": "The reference-to-output relation and any feedforward multiplier,plus actuator,model and information assumptions.",
+      "objective_ids": [
+        "signals-control-19-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-19-card-3",
+      "lesson_id": "signals-control-19",
+      "front": "Which assumptions support the observer error modes?",
+      "back": "Common known plant/observer input,correct matrices and the declared measurement equation;pole placement alone does not optimize noisy estimation.",
+      "objective_ids": [
+        "signals-control-19-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-19-card-4",
+      "lesson_id": "signals-control-19",
+      "front": "When do transfer poles represent every state mode?",
+      "back": "For an appropriate minimal realization;nonminimal models require explicit controllability,observability and internal-state analysis.",
+      "objective_ids": [
+        "signals-control-19-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-20-card-1",
+      "lesson_id": "signals-control-20",
+      "front": "What must be fixed before checking digital-loop stability?",
+      "back": "The exact plant discretization,input/measurement timing,integrator update and delivered-command policy;changing them can change the system order and poles.",
+      "objective_ids": [
+        "signals-control-20-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-20-card-2",
+      "lesson_id": "signals-control-20",
+      "front": "Which region characterizes strict decay for these sampled modes?",
+      "back": "Every pole strictly inside the unit circle under the declared linear recurrence;the continuous negative-real-part test applies to a different variable and model.",
+      "objective_ids": [
+        "signals-control-20-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-20-card-3",
+      "lesson_id": "signals-control-20",
+      "front": "Why distinguish a threshold from an allowed maximum?",
+      "back": "An equality boundary can be marginal or unstable even when every point strictly below it in the stated interval decays.",
+      "objective_ids": [
+        "signals-control-20-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-20-card-4",
+      "lesson_id": "signals-control-20",
+      "front": "What does a sampling heuristic fail to establish?",
+      "back": "It does not replace the actual update’s characteristic or prove stability with its timing,limits,delay and model assumptions.",
+      "objective_ids": [
+        "signals-control-20-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-21-card-1",
+      "lesson_id": "signals-control-21",
+      "front": "Which evidence distinguishes a signed signal from its magnitude spectrum?",
+      "back": "Its support,complex phase and original transform/convolution relations;area cancellation and magnitude alone do not identify the waveform or energy.",
+      "objective_ids": [
+        "signals-control-21-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-21-card-2",
+      "lesson_id": "signals-control-21",
+      "front": "Why cannot a system DC gain describe every input?",
+      "back": "The input spectrum also matters;zero input at a frequency gives zero linear output there even when the system gain is nonzero.",
+      "objective_ids": [
+        "signals-control-21-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-22-card-1",
+      "lesson_id": "signals-control-22",
+      "front": "What should two independent compensator calculations agree on?",
+      "back": "The original characteristic,admissible pole/zero/gain domain and full realization modes,not only one rounded response curve.",
+      "objective_ids": [
+        "signals-control-22-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-22-card-2",
+      "lesson_id": "signals-control-22",
+      "front": "Which quantities must a compensation report keep separate?",
+      "back": "Controller phase peak,loop unity-gain crossover,nominal closed-loop modes,reference error and uncertainty/noise/range assumptions.",
+      "objective_ids": [
+        "signals-control-22-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-23-card-1",
+      "lesson_id": "signals-control-23",
+      "front": "Why calculate a reference multiplier after pole placement?",
+      "back": "Pole location determines homogeneous dynamics;the reference-to-output gain also depends on input/output scaling and the chosen feedforward path.",
+      "objective_ids": [
+        "signals-control-23-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-23-card-2",
+      "lesson_id": "signals-control-23",
+      "front": "What does the separation calculation depend on?",
+      "back": "The specified linear plant,common known input,measurement equation and controller/observer interconnection;unmodeled terms must be retained rather than canceled by assertion.",
+      "objective_ids": [
+        "signals-control-23-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-24-card-1",
+      "lesson_id": "signals-control-24",
+      "front": "Why compare early samples with a matrix model?",
+      "back": "They expose update-order and initial-state mismatches that a correct final equilibrium alone can hide.",
+      "objective_ids": [
+        "signals-control-24-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "signals-control-24-card-2",
+      "lesson_id": "signals-control-24",
+      "front": "Which implementation details are part of a stability model?",
+      "back": "The sampled plant,measurement and command timing,integrator storage,delivered-input limits and any extra delay states;they are not interchangeable bookkeeping choices.",
+      "objective_ids": [
+        "signals-control-24-objective-2"
+      ],
+      "license": "CC-BY-4.0"
     }
   ]
 }

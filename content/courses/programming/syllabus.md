@@ -1,12 +1,14 @@
 # Programming & Numerical Methods for Bioengineering
 
-**Maturity: partial. Version: 0.5.0.**
+**Maturity: partial. Version: 0.6.0.**
 
-A practical introduction to reproducible scientific code, numerical methods, model fitting, validation and communication for bioengineering data.
+Reproducible scientific computing, data structures, visualization, numerical integration, model fitting, and error analysis for experimental and engineered systems.
+
+This is a personal hobby and learning project developed with substantial AI assistance. The expanded authored sequence supports local implementation and model/error reasoning; it has no independent approval or measured semester workload.
 
 ## Prerequisites
 
-Algebra, introductory calculus and basic probability; linear algebra and differential equations are useful. Structured course relations remain subject to author review, and this package establishes no university prerequisite equivalency.
+Algebra, introductory calculus and basic probability. Linear Algebra and Differential Equations provide useful shared foundations; numerical-method readings restate only the pieces needed for their algorithms. No university prerequisite equivalency is established.
 
 ## Authored outcomes
 
@@ -16,43 +18,39 @@ Algebra, introductory calculus and basic probability; linear algebra and differe
 - Make reproducible plots and document data provenance.
 - Interpolate a value from tabulated data and assess the error and domain limits.
 
-## Proposed 14-week schedule
+## Proposed 14-block sequence
 
-This is a proposed scope, not a measured or reviewed semester. The interpolation reading is grouped with regression in week 10 to compare methods within the same approximation unit.
+The calendar preserves stable lesson IDs and groups new foundations with the relevant existing units. Five local implementation assignments complement selected browser checks; the app does not run learner code. A study budget of roughly 6–9 hours per block, including implementation, is an unvalidated author planning estimate, not measured workload or credit. Use the assignment scope and your own work log to test it.
 
-| Week | Theme | Readings |
-|---|---|---|
-| 1 | Data structures, units and reproducible code | Data structures, units and provenance |
-| 2 | Input contracts and pure functions | Parsing and validated scientific functions |
-| 3 | Testing scientific functions | Known answers, tolerances, seeds and provenance |
-| 4 | Algorithmic cost and scaling | Cost, scaling and data structures |
-| 5 | Array shapes and memory-aware reductions | Broadcasting and safe reductions |
-| 6 | Floating-point arithmetic | Rounding, cancellation and safe comparisons |
-| 7 | Numerical integration and differential models | Numerical integration and differential models |
-| 8 | Root brackets, residuals and conditioning | Root solving and scale-aware stopping |
-| 9 | Quadrature and stability checks | Quadrature, step error and stability |
-| 10 | Interpolation, regression, uncertainty and validation | Interpolation: exact fit at nodes and error between them; regression, uncertainty and validation |
-| 11 | Linear systems, conditioning, least squares and scaled coordinates | Linear-system conditioning and least-squares geometry |
-| 12 | Visualization and uncertainty communication | Reproducible visualization |
-| 13 | Grouped validation and reproducible reports; optional sensor-calibration project | Thresholds and held-out reporting; sensor-calibration project guide (optional, ungraded) |
-| 14 | Virtual lab | Contract checks and held-out donor reports |
+| Week | Readings and activities |
+| --- | --- |
+| 1 | [Data structures, units, and reproducible code](modules/01-data-structures-units-and-reproducible-code.md) |
+| 2 | [Input contracts, parsing and pure scientific functions](modules/08-contracts-parsing-and-pure-functions.md) |
+| 3 | [Testing a scientific function: known answers, tolerances, seeds and provenance](modules/05-testing-scientific-functions-and-provenance.md) |
+| 4 | [How long will it take? Algorithmic cost, scaling and choosing data structures for research code](modules/06-algorithmic-cost-and-scaling.md); [Assignment 1: validated observation tables](assignments/coursework-01-contracts.md) |
+| 5 | [Array shapes, broadcasting and memory-aware reductions](modules/09-array-shapes-broadcasting-and-memory.md) |
+| 6 | [Floating-point arithmetic in scientific code: rounding, cancellation and comparing numbers safely](modules/07-floating-point-rounding-and-cancellation.md) |
+| 7 | [Numerical integration and differential models](modules/02-numerical-integration-and-differential-models.md); [Numerical differentiation, noise and step selection](modules/differentiation.md); [Assignment 2: numerical-calculus verification](assignments/coursework-02-approximation.md) |
+| 8 | [Root brackets, residuals and conditioning](modules/10-root-brackets-residuals-and-conditioning.md); [Factorization, iteration and sparse linear systems](modules/linear-solvers.md); [Nonlinear systems, Jacobians and damped Newton steps](modules/nonlinear-systems.md) |
+| 9 | [Quadrature, step error and stability checks](modules/11-quadrature-step-error-and-stability.md); [Adaptive ODE error control, stiffness and verification](modules/adaptive-odes.md) |
+| 10 | [Regression, uncertainty, and validation](modules/03-regression-uncertainty-and-validation.md); [Interpolation: exact fit at nodes, error between them](modules/15-interpolation-error-and-extrapolation.md) |
+| 11 | [Linear-system conditioning, residuals and solution error](modules/14-linear-system-conditioning-residuals-and-solution-error.md); [Least squares, rank and scaled coordinates](modules/12-least-squares-rank-and-scaled-coordinates.md); [Numerical eigenpairs, iteration and residuals](modules/eigenproblems.md) |
+| 12 | [Visualization and uncertainty communication](modules/04-visualization-and-uncertainty-communication.md); [Monte Carlo estimation, uncertainty and reproducibility](modules/monte-carlo.md); [Assignment 3: reproducible estimator study](assignments/coursework-03-simulation.md) |
+| 13 | [Grouped validation, thresholds and reproducible reports](modules/13-grouped-validation-thresholds-and-reproducibility.md); [Sensor-calibration project guide: a reproducible pipeline tested on held-out batches (optional, ungraded)](assignments/sensor-calibration-project-guide.md); [Assignment 4: solver verification portfolio](assignments/coursework-04-solvers.md) |
+| 14 | [Virtual lab 1: contract checks and held-out donor reports](labs/01-contracts-and-held-out-donor-reports.md); [Assignment 5: reproducible dynamical-model study](assignments/coursework-05-dynamics.md) |
 
-## Assessment and study policy
+## Coursework and practice
 
-The package has 17 readings, 111 public practice items and 59 retrieval cards. Every lesson has open formative items mapped to provisional objectives, and the synthetic-data lab has a public data file. Learner code execution is disabled; the checks assess method selection, calculations and interpretation, not submitted implementations. Nothing is graded for university credit. Workload has not been measured.
+The current package contains 28 lessons/activity guides, 145 public practice items and 93 retrieval cards. Counts measure inventory, not instructional depth. Six new readings develop finite differences, Monte Carlo, linear/sparse solvers, eigenproblems, coupled nonlinear solves and adaptive/stiff ODEs with separate worked/rehearsal cases.
 
-## Optional sensor-calibration project (ungraded)
+Five original assignments require local parsing/tests, numerical-calculus convergence, estimator/coverage experiments, solver verification and a dynamical-model report. Each packet supplies mathematical inputs, verification targets, implementation/failure tasks and a self-review discussion. Selected arithmetic/interpretation checkpoints receive open practice feedback. Code, derivations, plots and written evidence are not automatically evaluated or given a course grade.
 
-The [sensor-calibration project guide](assignments/sensor-calibration-project-guide.md) makes the project below usable as open practice. It restates the project's records, rules and milestones, works a three-point calibration, and pairs synthetic rehearsal records with open practice items in week 13. Five milestones, suggested for weeks 13–14, are Case studio self-checks whose responses are saved privately and never submitted, collected or scored; learners run their own code locally.
+## Existing project and lab
 
-## Inactive project
+The [sensor-calibration project guide](assignments/sensor-calibration-project-guide.md) and the synthetic contract/held-out-donor lab remain available. Project milestone responses may be saved privately in Case studio and do not generate grades. The [sensor-calibration authoring proposal](assessment-specs/integrative-sensor-calibration-project.md) remains an inactive, ungraded draft and is not part of the assessment schedule. Open rehearsal is not a secure examination.
 
-The [sensor-calibration project](assessment-specs/integrative-sensor-calibration-project.md) is an inactive, ungraded draft. The draft itself is not part of the assessment schedule, the open project guide above does not submit work to it, and it makes no claim about real sensors, donors or classifier performance.
+## Scope and remaining depth
 
-## Current limitations
+The link-only comparators are [MIT OCW 2.086 Fall 2014 syllabus](https://ocw.mit.edu/courses/2-086-numerical-computation-for-mechanical-engineers-fall-2014/pages/syllabus/) and [calendar](https://ocw.mit.edu/courses/2-086-numerical-computation-for-mechanical-engineers-fall-2014/pages/calendar/). The local sequence now develops selected numerical-calculus, probability/simulation, matrix/eigenvalue, ODE and nonlinear-system strands through original instruction and implementation tasks. It uses Python-oriented examples rather than reproducing MIT software or assignments.
 
-The proposed schedule is unmeasured and unreviewed; graded homework, exams, full labs and a cumulative graded project remain absent; the optional project guide and its rehearsal are ungraded practice. Interpolation coverage consists of one hand-worked quadratic comparison; implemented barycentric and piecewise interpolation algorithms and a systematic stability study remain outside the sequence. Direct, iterative and sparse solver comparisons and eigenvalue algorithms also remain limited. All data and functions are synthetic examples. Qualified subject, code, accessibility and workload review remain open.
-
-## Sources and licensing
-
-MIT OCW 2.086 Fall 2014 is an undergraduate numerical-computation comparator. Its calendar places interpolation in the opening numerical-calculus unit and later lists least-squares model fitting; its syllabus also includes interpolation, regression, integration, differentiation, equation solving and deterministic/probabilistic methods. The local lesson is an original, narrow comparison. MIT material is linked only and none was copied or adapted. See [content/SOURCES_AND_LICENSES.md](../../SOURCES_AND_LICENSES.md). No affiliation or equivalency is implied.
+Production sparse/preconditioned/Krylov methods, a complete adaptive-library implementation, arbitrary nonsymmetric eigenvalue conditioning, MCMC and general nonlinear convergence theory remain beyond this introductory boundary. Barycentric/piecewise interpolation and broader regressions remain selective. Graded release, independent scientific/code/accessibility review and measured workload remain open. No endorsement, credit or university equivalence is implied. Original new instruction is CC BY 4.0; source handling is recorded in the source map and repository source/license policy.

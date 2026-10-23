@@ -4508,6 +4508,1252 @@
           }
         ]
       }
+    },
+    {
+      "id": "biomaterials-16:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Synthetic graft model:g(t)=0.8[1−exp(−kt)], k=ln2. Use the named normalized time. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "biomaterials-16-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "one",
+          "type": "numeric",
+          "prompt": "Grafted accessible fraction at t=1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "two",
+          "type": "numeric",
+          "prompt": "Grafted accessible fraction at t=2.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "ceiling",
+          "type": "numeric",
+          "prompt": "Asymptotic accessible fraction in the stipulated material model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "one",
+            "type": "numeric",
+            "answer": 0.4,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "two",
+            "type": "numeric",
+            "answer": 0.6,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "ceiling",
+            "type": "numeric",
+            "answer": 0.8,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What differs between total material and accessible surface groups?",
+        "solution": "The exponential equals one half at t=one and one quarter at t=two, so fractions are0.4 and0.6. The declared ceiling is0.8 rather than complete accessible coverage; fitting this curve alone does not identify its microscopic origin.",
+        "lesson_ids": [
+          "biomaterials-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biomaterials practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biomaterials-16:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Stipulated smooth area-composite wetting:cos(theta)=g cos60°+(1−g)cos120°, with g=0.6. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "biomaterials-16-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "cosine",
+          "type": "numeric",
+          "prompt": "Predicted cosine of contact angle.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "angle",
+          "type": "numeric",
+          "prompt": "Predicted contact angle in degrees.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "claim",
+          "type": "single_choice",
+          "prompt": "Which interpretation is supported? in the stipulated material model.",
+          "options": [
+            "This ideal area model predicts a wetting observable;one angle does not uniquely identify graft chemistry,roughness and contamination.",
+            "The angle is the direct area-weighted mean of60 and120 degrees.",
+            "The predicted angle proves a specific covalent chemical structure and cell response."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "cosine",
+            "type": "numeric",
+            "answer": 0.1,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "angle",
+            "type": "numeric",
+            "answer": 84.26082952273322,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "claim",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why separate a wetting observable from a chemical identity?",
+        "solution": "The cosine is0.6 times one half plus0.4 times minus one half=0.1. Taking arccos gives about84.3degrees. Real roughness, hysteresis and reconstruction require additional evidence rather than an automatic chemical assignment.",
+        "lesson_ids": [
+          "biomaterials-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biomaterials practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biomaterials-16:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Common protein sites:thetaA dot=a theta0−dA thetaA, thetaB dot=b theta0−dB thetaB, theta0=1−thetaA−thetaB. Use a=1, b=2, dA=1, dB=2. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "biomaterials-16-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "free",
+          "type": "numeric",
+          "prompt": "Equilibrium free-site fraction in the stipulated material model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "a",
+          "type": "numeric",
+          "prompt": "Equilibrium A fraction in the stipulated material model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "b",
+          "type": "numeric",
+          "prompt": "Equilibrium B fraction in the stipulated material model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "access",
+          "type": "numeric",
+          "prompt": "Accessible ligand fraction under L=g theta0,g=0.6.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "free",
+            "type": "numeric",
+            "answer": 0.3333333333333333,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "a",
+            "type": "numeric",
+            "answer": 0.3333333333333333,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "b",
+            "type": "numeric",
+            "answer": 0.3333333333333333,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "access",
+            "type": "numeric",
+            "answer": 0.2,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does the competing-site balance require?",
+        "solution": "At equilibrium occupied/free ratios are a/dA=one and b/dB=one. All three fractions are one third, and the separately stipulated masking rule gives L0.2. Association input alone does not determine equilibrium coverage.",
+        "lesson_ids": [
+          "biomaterials-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biomaterials practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biomaterials-16:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Same rates, but initial thetaA=0.8, thetaB=0. The deviation matrix is[[-2, −1], [−2, −4]]. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "biomaterials-16-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "a_slope",
+          "type": "numeric",
+          "prompt": "Initial thetaA time derivative in the stipulated material model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "b_slope",
+          "type": "numeric",
+          "prompt": "Initial thetaB time derivative in the stipulated material model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "slow",
+          "type": "numeric",
+          "prompt": "Less negative deviation eigenvalue in the stipulated material model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "fast",
+          "type": "numeric",
+          "prompt": "More negative deviation eigenvalue in the stipulated material model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "a_slope",
+            "type": "numeric",
+            "answer": -0.6,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "b_slope",
+            "type": "numeric",
+            "answer": 0.4,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "slow",
+            "type": "numeric",
+            "answer": -1.2679491924311228,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "fast",
+            "type": "numeric",
+            "answer": -4.732050807568877,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why retain transient layer information?",
+        "solution": "Free fraction is0.2, so A slope one times0.2−one times0.8=−0.6 and B slope two times0.2=0.4. The matrix characteristic gives eigenvalues−three plus/minus sqrt3, both negative. Initial slopes do not themselves identify equilibrium or prove the full biological mechanism.",
+        "lesson_ids": [
+          "biomaterials-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biomaterials practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biomaterials-17:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Synthetic assay rehearsal:seed1000, count600 attached at time0 and1200 at day2. Use N(t)=N(0)exp(rt). Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "biomaterials-17-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "attachment",
+          "type": "numeric",
+          "prompt": "Initial attached fraction of seeded cells.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "fold",
+          "type": "numeric",
+          "prompt": "Later population fold change relative to attached count.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "net_rate",
+          "type": "numeric",
+          "prompt": "Constant net growth rate per day.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "attachment",
+            "type": "numeric",
+            "answer": 0.6,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "fold",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "net_rate",
+            "type": "numeric",
+            "answer": 0.34657359027997264,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must be specified before a growth ratio?",
+        "solution": "Attachment is600/1000=0.6. The later attached-population ratio is1200/600=two, so r=ln2/two per day. Count relative to seeded cells answers a different question and does not erase attachment loss.",
+        "lesson_ids": [
+          "biomaterials-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biomaterials practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biomaterials-17:depth-2",
+      "type": "data_interpretation",
+      "prompt": "At those same times raw signals are70 and190, with matched blank10 at both. Use S=B+alpha N. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "biomaterials-17-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "signal_fold",
+          "type": "numeric",
+          "prompt": "Blank-corrected signal ratio in the stipulated material model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "initial_alpha",
+          "type": "numeric",
+          "prompt": "Initial corrected signal per counted cell.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "final_alpha",
+          "type": "numeric",
+          "prompt": "Final corrected signal per counted cell.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "alpha_ratio",
+          "type": "numeric",
+          "prompt": "Final/initial per-cell signal ratio in the stipulated material model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "signal_fold",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "initial_alpha",
+            "type": "numeric",
+            "answer": 0.1,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "final_alpha",
+            "type": "numeric",
+            "answer": 0.15,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "alpha_ratio",
+            "type": "numeric",
+            "answer": 1.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why pair an assay with an independent count?",
+        "solution": "Corrected signals60 and180 triple while counts double. Their per-cell coefficients are0.1 and0.15, a1.5fold change. A threefold assay signal is not automatically threefold proliferation.",
+        "lesson_ids": [
+          "biomaterials-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biomaterials practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biomaterials-17:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Same count trajectory:r=ln2/2 per day. Choose division contribution g=0.5 per day, and d=g−r. A separate spike has linear recovery0.8. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "biomaterials-17-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "loss",
+          "type": "numeric",
+          "prompt": "Loss rate per day for the chosen g.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "recovery_factor",
+          "type": "numeric",
+          "prompt": "Inverse-recovery multiplier under the separate linear-spike assumption.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "rates",
+          "type": "single_choice",
+          "prompt": "What can count endpoints identify in this model?",
+          "options": [
+            "They independently identify every positive pair g and d.",
+            "They identify the net difference g−d;separate division and loss need additional information.",
+            "The spike factor automatically corrects all cell counts and metabolic changes."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "loss",
+            "type": "numeric",
+            "answer": 0.15342640972002736,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "recovery_factor",
+            "type": "numeric",
+            "answer": 1.25,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "rates",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why is one analytical correction not a universal biological correction?",
+        "solution": "Only the net difference enters the exponential. The chosen loss is positive, but other positive pairs produce the same trajectory. The inverse spike recovery is one/0.8=1.25 and applies only under its own stated measurement assumptions.",
+        "lesson_ids": [
+          "biomaterials-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biomaterials practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biomaterials-17:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Compare count, normalized output and material interference interpretations. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "biomaterials-17-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "function",
+          "type": "single_choice",
+          "prompt": "Which reporting pair preserves function information?",
+          "options": [
+            "Report total output and the compatible population denominator,then distinguish normalized output and selection effects.",
+            "Report only per-cell output because total function never matters.",
+            "Any increased metabolic signal proves mature tissue function."
+          ],
+          "points": 1
+        },
+        {
+          "id": "count",
+          "type": "single_choice",
+          "prompt": "What could invalidate compatible imaging counts?",
+          "options": [
+            "A fixed image filename guarantees identical sampled cell populations.",
+            "More image intensity always proves more viable cells without calibration.",
+            "Material swelling or opacity can change the observable area/depth or detectability and needs its own measurement check."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "function",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "count",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What should a material-specific evidence diagram include?",
+        "solution": "A normalized function can rise after selective loss, while a material can change assay visibility or recovery. Mechanism-specific controls and measurements are needed before stronger cell or construct claims.",
+        "lesson_ids": [
+          "biomaterials-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biomaterials practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biomaterials-18:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment1 graft model:gmax0.9, k=ln2, initial0. At t=2 use cos(theta)=g−0.5. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "biomaterials-18-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "graft",
+          "type": "numeric",
+          "prompt": "Graft fraction at t=2 in the stipulated material model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "cosine",
+          "type": "numeric",
+          "prompt": "Ideal-composite angle cosine in the stipulated material model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "angle",
+          "type": "numeric",
+          "prompt": "Ideal-composite contact angle in degrees.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "graft",
+            "type": "numeric",
+            "answer": 0.675,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "cosine",
+            "type": "numeric",
+            "answer": 0.175,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "angle",
+            "type": "numeric",
+            "answer": 79.92134189221234,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must be retained with a surface-angle result?",
+        "solution": "The fraction is0.9 times three quarters=0.675. The stipulated cosine is0.175; the angle is its arccos in degrees. This modeled observable does not uniquely identify reaction chemistry or hydrated ligand availability.",
+        "lesson_ids": [
+          "biomaterials-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biomaterials practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biomaterials-18:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Distinct common-site rates:a=2, b=1, dA=1, dB=3. Use graft0.675 and L=g theta0. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "biomaterials-18-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "free",
+          "type": "numeric",
+          "prompt": "Equilibrium free fraction in the stipulated material model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "a",
+          "type": "numeric",
+          "prompt": "Equilibrium A fraction in the stipulated material model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "b",
+          "type": "numeric",
+          "prompt": "Equilibrium B fraction in the stipulated material model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "access",
+          "type": "numeric",
+          "prompt": "Equilibrium accessible ligand fraction in the stipulated material model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "free",
+            "type": "numeric",
+            "answer": 0.3,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "a",
+            "type": "numeric",
+            "answer": 0.6,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "b",
+            "type": "numeric",
+            "answer": 0.1,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "access",
+            "type": "numeric",
+            "answer": 0.2025,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why does a graft measurement not alone specify cell-facing ligand access?",
+        "solution": "Ratios are A/free two and B/free one third, so free is0.3, A0.6, B0.1. Multiplying free fraction by graft0.675 gives0.2025 accessible under the declared masking rule. Substitution into both rate equations and site normalization checks the result.",
+        "lesson_ids": [
+          "biomaterials-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biomaterials practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biomaterials-19:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment2:seed2000, attach1000 at time0, count2000 at day3. Raw signals120 and320, matched blank20 at both. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "biomaterials-19-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "attachment",
+          "type": "numeric",
+          "prompt": "Attached fraction of delivered cells.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "net_rate",
+          "type": "numeric",
+          "prompt": "Net count growth rate per day.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "signal_fold",
+          "type": "numeric",
+          "prompt": "Blank-corrected signal ratio in the stipulated material model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "alpha_ratio",
+          "type": "numeric",
+          "prompt": "Final/initial per-cell signal ratio in the stipulated material model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "attachment",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "net_rate",
+            "type": "numeric",
+            "answer": 0.23104906018664842,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "signal_fold",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "alpha_ratio",
+            "type": "numeric",
+            "answer": 1.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which denominator belongs to a proliferation claim?",
+        "solution": "Counts double over three days after half the delivered cells attach. Corrected signals100 and300 triple, and per-cell signal rises0.1 to0.15. The net count rate is ln2/three, not the logarithm of the signal ratio.",
+        "lesson_ids": [
+          "biomaterials-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biomaterials practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biomaterials-19:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Separate functional comparison:constructA output80 with2000 viable cells; B output72 with1200. Spike recovery is0.75 under a separate linear recovery model. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "biomaterials-19-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "a_per_cell",
+          "type": "numeric",
+          "prompt": "A output per counted viable cell.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "b_per_cell",
+          "type": "numeric",
+          "prompt": "B output per counted viable cell.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "factor",
+          "type": "numeric",
+          "prompt": "Inverse spike-recovery multiplier in the stipulated material model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "claim",
+          "type": "single_choice",
+          "prompt": "Which comparison is correct? in the stipulated material model.",
+          "options": [
+            "B has higher per-cell output but lower total output;the application and compatible denominator determine what that means.",
+            "B has higher total output because its per-cell value is larger.",
+            "The spike factor proves all cell-count and function measurements are valid."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "a_per_cell",
+            "type": "numeric",
+            "answer": 0.04,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "b_per_cell",
+            "type": "numeric",
+            "answer": 0.06,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "factor",
+            "type": "numeric",
+            "answer": 1.3333333333333333,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "claim",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why retain both total and normalized function?",
+        "solution": "Dividing the totals by their respective counts gives0.04 and0.06. The separate linear inverse-recovery factor is four/three. It does not change the supplied total-output ordering or establish biological maturity.",
+        "lesson_ids": [
+          "biomaterials-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biomaterials practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biomaterials-20:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment3 normalized architecture:E=(1−phi)², K=phi³/(1−phi)². Candidate phi=0.75; require E>=0.04, K>=4. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "biomaterials-20-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "stiffness",
+          "type": "numeric",
+          "prompt": "Candidate modeled stiffness in the stipulated material model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "permeability",
+          "type": "numeric",
+          "prompt": "Candidate modeled permeability in the stipulated material model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "upper_porosity",
+          "type": "numeric",
+          "prompt": "Largest porosity allowed by the stiffness requirement.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "decision",
+          "type": "single_choice",
+          "prompt": "Which modeled decision is justified?",
+          "options": [
+            "A favorable permeability automatically guarantees every stiffness threshold.",
+            "This candidate passes both stipulated endpoint constraints,but porosity alone does not establish real connectivity,wet strength or compatibility.",
+            "The model proves this porosity is suitable for any real tissue construct."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "stiffness",
+            "type": "numeric",
+            "answer": 0.0625,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "permeability",
+            "type": "numeric",
+            "answer": 6.75,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "upper_porosity",
+            "type": "numeric",
+            "answer": 0.8,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "decision",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What makes a coupled design check complete?",
+        "solution": "At phi0.75, solid fraction0.25 gives E0.0625 and K6.75. Stiffness requires phi<=0.8 on the physical interval. Both modeled thresholds pass; their assumptions and unmeasured material properties remain part of the evidence boundary.",
+        "lesson_ids": [
+          "biomaterials-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biomaterials practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biomaterials-20:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Separate interface:graft g=0.7, initial equilibrium ratios a/dA=1, b/dB=2. Then b doubles with all other rates fixed. Use L=g theta0. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "biomaterials-20-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "initial_free",
+          "type": "numeric",
+          "prompt": "Initial equilibrium free-site fraction in the stipulated material model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "initial_access",
+          "type": "numeric",
+          "prompt": "Initial accessible fraction in the stipulated material model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "changed_access",
+          "type": "numeric",
+          "prompt": "Accessible fraction after b doubles.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "threshold",
+          "type": "single_choice",
+          "prompt": "For L>=0.15,which result follows? in the stipulated material model.",
+          "options": [
+            "Both interfaces pass because graft fraction remains0.7.",
+            "Changing protein association input cannot affect any interface model.",
+            "The initial interface passes and changed environment fails under the stipulated mask model;unchanged graft fraction alone does not prevent this failure."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "initial_free",
+            "type": "numeric",
+            "answer": 0.25,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "initial_access",
+            "type": "numeric",
+            "answer": 0.175,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "changed_access",
+            "type": "numeric",
+            "answer": 0.11666666666666667,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "threshold",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can a material-only endpoint miss an interface failure?",
+        "solution": "Free fraction begins one/(one+one+two)=one quarter. Doubling b makes its ratio four and free fraction one/six. Access changes0.175 to seven/sixty, below0.15. The conclusion is a model-specific failure, not an empirical claim about a real corona or construct.",
+        "lesson_ids": [
+          "biomaterials-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biomaterials practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
     }
   ]
 }

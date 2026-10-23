@@ -183,6 +183,6 @@ def test_transfer_lesson_statements_match_simulation_and_quadrature():
 def test_transfer_unit_is_grouped_with_the_laplace_week():
     manifest = load(COURSE / "course.json")
     week = next(w for w in manifest["duration"]["weeks"] if w["week"] == 6)
-    assert week["lesson_ids"] == ["differential-equations-14", "differential-equations-15"]
+    assert week["lesson_ids"] == ["differential-equations-14", "differential-equations-15", "differential-equations-17"]
     assert manifest["maturity"] == "partial"
     assert manifest["grading_policy"]["mode"] == "formative-only"

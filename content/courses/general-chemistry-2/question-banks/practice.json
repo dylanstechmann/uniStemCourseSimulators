@@ -4249,6 +4249,1541 @@
           }
         ]
       }
+    },
+    {
+      "id": "general-chemistry-2-16:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Use ideal concentration parameters h=0.000020 mol/L,Ka=0.000010 mol/L,MT=0.0015 mol/L,LT=0.0021 mol/L and Kf=3750 L/mol for HL/M2+/L−/ML+. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "general-chemistry-2-16-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "alpha",
+          "type": "numeric",
+          "prompt": "Binding-form fraction among unbound ligand at the imposed h.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "conditional",
+          "type": "numeric",
+          "prompt": "Conditional concentration-form binding parameter Kf alpha, L/mol.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "complex",
+          "type": "numeric",
+          "prompt": "Admissible ML+ concentration in mol/L.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "alpha",
+            "type": "numeric",
+            "answer": 0.3333333333333333,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "conditional",
+            "type": "numeric",
+            "answer": 1250.0,
+            "unit": "",
+            "tolerance": 5.1,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "complex",
+            "type": "numeric",
+            "answer": 0.0009,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does a protonation-adjusted formation parameter assume?",
+        "solution": "Alpha=Ka/(Ka+h)=1/3 and Kf alpha=1250 L/mol. The admissible root of x=1250(0.0015−x)(0.0021−x) is 0.0009 mol/L. This conditional equation uses the unbound ligand pool, not analytical LT as a free-species concentration. Reconstruct the free species and verify both original amount balances before accepting this conditional result.",
+        "lesson_ids": [
+          "general-chemistry-2-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemical-evidence practice developed with substantial AI assistance; no external problem, chemical system, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-2-16:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use the same imposed-h coupled system and complex concentration 0.0009 mol/L. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "general-chemistry-2-16-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "metal",
+          "type": "numeric",
+          "prompt": "Free M2+ concentration in mol/L.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "ligand",
+          "type": "numeric",
+          "prompt": "Free L− concentration in mol/L.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "protonated",
+          "type": "numeric",
+          "prompt": "HL concentration in mol/L for the supplied ideal model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "bound",
+          "type": "numeric",
+          "prompt": "Fraction of total metal present as ML+.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "metal",
+            "type": "numeric",
+            "answer": 0.0006,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "ligand",
+            "type": "numeric",
+            "answer": 0.0004,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "protonated",
+            "type": "numeric",
+            "answer": 0.0008,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "bound",
+            "type": "numeric",
+            "answer": 0.6,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why are ligand mass balance and charge balance different ledgers?",
+        "solution": "Metal balance leaves 0.0006 mol/L free M. Unbound ligand is 0.0012 mol/L, split into one-third L−=0.0004 and two-thirds HL=0.0008. Recombining free/protonated/bound forms returns both analytical totals; metal bound fraction is 0.6.",
+        "lesson_ids": [
+          "general-chemistry-2-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemical-evidence practice developed with substantial AI assistance; no external problem, chemical system, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-2-16:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Use that same state with Kw,c=10^−14 (mol/L)² and S defined as spectator-anion minus spectator-cation charge equivalents per liter. Report pH to three decimal places, and other continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "general-chemistry-2-16-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "hydroxide",
+          "type": "numeric",
+          "prompt": "Hydroxide concentration from the supplied water relation, mol/L.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "spectator",
+          "type": "numeric",
+          "prompt": "Required S from h+2m+x−l−Kw,c/h, equivalents/L.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "ph",
+          "type": "numeric",
+          "prompt": "Ideal-model pH using standard concentration one mol/L. Report this logarithmic value to three decimal places.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "hydroxide",
+            "type": "numeric",
+            "answer": 5e-10,
+            "unit": "",
+            "tolerance": 5.1e-13,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "spectator",
+            "type": "numeric",
+            "answer": 0.0017199995,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "ph",
+            "type": "numeric",
+            "answer": 4.698970004336019,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Can pH, every analytical total and arbitrary spectator charge all be fixed independently in a closed model?",
+        "solution": "Water gives hydroxide 5×10^−10 mol/L. Charge balance requires S=1.7199995×10^−3 equivalents/L and the imposed ideal-model pH is about 4.69897. If S is fixed independently in a closed solution, h must instead be solved; an arbitrary S cannot be added to the same imposed state.",
+        "lesson_ids": [
+          "general-chemistry-2-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemical-evidence practice developed with substantial AI assistance; no external problem, chemical system, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-2-16:depth-4",
+      "type": "data_interpretation",
+      "prompt": "A numerical solver returns two algebraic complex roots, or a hydrogen iterate without a final species ledger. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "general-chemistry-2-16-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "root",
+          "type": "single_choice",
+          "prompt": "Which complex root is admissible in the selected model?",
+          "options": [
+            "A root with nonnegative species and x no larger than either analytical total.",
+            "Whichever quadratic root has larger magnitude, even when it consumes more ligand than exists.",
+            "Any root accepted by a solver flag without reconstructing its species concentrations."
+          ],
+          "points": 1
+        },
+        {
+          "id": "closed",
+          "type": "single_choice",
+          "prompt": "What must a closed-solution calculation additionally verify?",
+          "options": [
+            "Only the conditional binding equation evaluated at an arbitrary fixed pH.",
+            "Only the sign of total metal, because equilibrium automatically enforces all spectator charge.",
+            "The positive-h charge residual and both original equilibrium/amount balances at the reconstructed state."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "root",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "closed",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why retain original-equation residuals after a reduced solve?",
+        "solution": "Amount bounds exclude unphysical algebraic roots. A closed solution also requires positive hydrogen, compatible spectator charge and the original mass/equilibrium/water relations. Numerical convergence or a small step alone does not establish those chemical constraints.",
+        "lesson_ids": [
+          "general-chemistry-2-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemical-evidence practice developed with substantial AI assistance; no external problem, chemical system, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-2-17:depth-1",
+      "type": "data_interpretation",
+      "prompt": "For a fictional group-eight center assigned formal oxidation state +3, use the stipulated elementary octahedral d-electron model. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "general-chemistry-2-17-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "electrons",
+          "type": "numeric",
+          "prompt": "Exact nominal d-electron count from group minus oxidation state.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "high_unpaired",
+          "type": "numeric",
+          "prompt": "Exact unpaired-electron count in the high-spin d5 occupation.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "low_unpaired",
+          "type": "numeric",
+          "prompt": "Exact unpaired-electron count in the low-spin d5 occupation.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "low_pairs",
+          "type": "numeric",
+          "prompt": "Exact number of doubly occupied d orbitals in that low-spin occupation.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "electrons",
+            "type": "numeric",
+            "answer": 5.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "high_unpaired",
+            "type": "numeric",
+            "answer": 5.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "low_unpaired",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "low_pairs",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why not infer spin from coordination number alone?",
+        "solution": "Formal count is d5. High spin has lower/upper occupation 3/2 with five unpaired electrons and no pairs. Low spin has five lower electrons, two pairs and one unpaired electron. Formal oxidation is bookkeeping, not a direct measured metal charge.",
+        "lesson_ids": [
+          "general-chemistry-2-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemical-evidence practice developed with substantial AI assistance; no external problem, chemical system, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-2-17:depth-2",
+      "type": "data_interpretation",
+      "prompt": "In a separate ideal d4 model, an assigned transition at 600 nm equals Delta. Use h=6.62607015×10^−34 J s,c=299792458 m/s,NA=6.02214076×10^23 mol^−1 and P=210 kJ/mol per pair. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "general-chemistry-2-17-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "splitting",
+          "type": "numeric",
+          "prompt": "Molar splitting Delta in kJ/mol.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "difference",
+          "type": "numeric",
+          "prompt": "Low-minus-high model energy, −Delta+P, in kJ/mol.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "favored",
+          "type": "single_choice",
+          "prompt": "Which candidate has lower supplied model energy?",
+          "options": [
+            "Low spin, because every larger numerical pairing cost guarantees it.",
+            "High spin, because the low-minus-high difference is positive.",
+            "Neither can be compared even under the explicitly supplied occupation model."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "splitting",
+            "type": "numeric",
+            "answer": 199.37760939782834,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "difference",
+            "type": "numeric",
+            "answer": 10.622390602171663,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "favored",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why is an absorption wavelength not automatically a complete ligand-field identification?",
+        "solution": "Molar photon energy is NA hc/lambda after nanometer and kilojoule conversion, about 199.37761 kJ/mol. Low-minus-high energy is about +10.62239 kJ/mol, favoring the high-spin d4 candidate within the model. This depends on the stated transition assignment and omits entropy/covalency.",
+        "lesson_ids": [
+          "general-chemistry-2-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemical-evidence practice developed with substantial AI assistance; no external problem, chemical system, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-2-17:depth-3",
+      "type": "data_interpretation",
+      "prompt": "A distinct d5 octahedral model has Delta=150 kJ/mol and P=180 kJ/mol. Use the spin-only approximation g=2 and neglect orbital contributions. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "general-chemistry-2-17-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "difference",
+          "type": "numeric",
+          "prompt": "Low-minus-high model energy −2Delta+2P, kJ/mol.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "unpaired",
+          "type": "numeric",
+          "prompt": "Exact unpaired-electron count in the favored candidate.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "moment",
+          "type": "numeric",
+          "prompt": "Spin-only moment of that candidate in Bohr magnetons.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "difference",
+            "type": "numeric",
+            "answer": 60.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "unpaired",
+            "type": "numeric",
+            "answer": 5.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "moment",
+            "type": "numeric",
+            "answer": 5.916079783099616,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which assumptions enter the spin-only moment sqrt[n(n+2)]?",
+        "solution": "The energy difference is −300+360=+60 kJ/mol, favoring high spin with five unpaired electrons. Under the stated spin-only approximation its moment is sqrt[5(5+2)]=sqrt(35) Bohr magnetons. A real magnetic response can contain effects omitted by this formula.",
+        "lesson_ids": [
+          "general-chemistry-2-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemical-evidence practice developed with substantial AI assistance; no external problem, chemical system, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-2-17:depth-4",
+      "type": "data_interpretation",
+      "prompt": "For a d7 octahedral comparison use Delta=200 kJ/mol and P=150 kJ/mol; count pairs separately from unpaired electrons. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "general-chemistry-2-17-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "high_unpaired",
+          "type": "numeric",
+          "prompt": "Exact unpaired-electron count in the high-spin d7 occupation.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "low_unpaired",
+          "type": "numeric",
+          "prompt": "Exact unpaired-electron count in the low-spin d7 occupation.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "difference",
+          "type": "numeric",
+          "prompt": "Low-minus-high energy −Delta+P, kJ/mol for the supplied ideal model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "high_unpaired",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "low_unpaired",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "difference",
+            "type": "numeric",
+            "answer": -50.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why count pairs explicitly when comparing high and low spin?",
+        "solution": "High-spin d7 has lower/upper occupation 5/2, two pairs and three unpaired electrons. Low spin has occupation 6/1, three pairs and one unpaired electron. Field-energy difference −Delta plus one additional pair cost gives −50 kJ/mol, favoring low spin within this selected model.",
+        "lesson_ids": [
+          "general-chemistry-2-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemical-evidence practice developed with substantial AI assistance; no external problem, chemical system, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-2-18:depth-1",
+      "type": "data_interpretation",
+      "prompt": "In the reduced dissociation/capture model, kd=0.0004 s−1,kr[L]=0.06 s−1,kc=100 L mol−1 s−1 and fixed free Y=0.0006 mol/L. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "general-chemistry-2-18-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "observed",
+          "type": "numeric",
+          "prompt": "Reduced observed rate per unconverted total, s−1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "plateau",
+          "type": "numeric",
+          "prompt": "High-Y reduced rate plateau in s−1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "half",
+          "type": "numeric",
+          "prompt": "Free Y giving half the plateau, mol/L.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "observed",
+            "type": "numeric",
+            "answer": 0.00019999999999999998,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "plateau",
+            "type": "numeric",
+            "answer": 0.0004,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "half",
+            "type": "numeric",
+            "answer": 0.0006,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why distinguish a reduced observed coefficient from an elementary rate constant?",
+        "solution": "The capture coefficient kc[Y] is 0.06 s−1, matching the return coefficient. Thus the reduced kobs is 0.0002 s−1, half of plateau kd=0.0004. Half-plateau occurs at Y=kr[L]/kc=0.0006 mol/L. These refer to the declared reduction, not an exact universal microscopic law.",
+        "lesson_ids": [
+          "general-chemistry-2-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemical-evidence practice developed with substantial AI assistance; no external problem, chemical system, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-2-18:depth-2",
+      "type": "data_interpretation",
+      "prompt": "A rapid-association alternative has kturn=0.0004 s−1 and KA=100/0.06 L/mol, with the same fixed Y=0.0006 mol/L. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "general-chemistry-2-18-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "rate",
+          "type": "numeric",
+          "prompt": "Alternative model reduced kobs in s−1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "identity",
+          "type": "single_choice",
+          "prompt": "How do the supplied reduced curves compare as Y varies?",
+          "options": [
+            "They are algebraically identical hyperbolas under the stated parameter mapping.",
+            "They agree at only this point and necessarily have different high-Y plateaus.",
+            "They cannot be compared because one saturation expression contains an equilibrium parameter."
+          ],
+          "points": 1
+        },
+        {
+          "id": "mechanism",
+          "type": "single_choice",
+          "prompt": "Does a perfect fit to their common curve select a unique microscopic mechanism?",
+          "options": [
+            "Yes; exact points always identify every microscopic intermediate uniquely.",
+            "Yes; the more complicated notation proves the dissociation mechanism.",
+            "No; a comparison on which their predictions differ is required."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "rate",
+            "type": "numeric",
+            "answer": 0.00019999999999999998,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "identity",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "mechanism",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What kind of observation can resolve a structural rate-law ambiguity?",
+        "solution": "The association expression kturn KA Y/(1+KA Y) is the same reduced hyperbola after the supplied parameter mapping. Both predict 0.0002 s−1 here. A common reduced curve can be identifiable while the underlying mechanism remains ambiguous; different total-pool/time-scale assumptions must still be checked.",
+        "lesson_ids": [
+          "general-chemistry-2-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemical-evidence practice developed with substantial AI assistance; no external problem, chemical system, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-2-18:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Keep the original fixed Y but double free leaving ligand L, changing the dissociation model return coefficient from 0.06 to 0.12 s−1. The simple association candidate has no L term. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "general-chemistry-2-18-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "dissociation",
+          "type": "numeric",
+          "prompt": "New dissociation-model kobs in s−1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "association",
+          "type": "numeric",
+          "prompt": "Association-model kobs under its stipulated L-independent expression, s−1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "ratio",
+          "type": "numeric",
+          "prompt": "New divided by original dissociation kobs.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "dissociation",
+            "type": "numeric",
+            "answer": 0.00013333333333333334,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "association",
+            "type": "numeric",
+            "answer": 0.00019999999999999998,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "ratio",
+            "type": "numeric",
+            "answer": 0.6666666666666666,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why state controlled pools and alternative effects in a mechanism comparison?",
+        "solution": "The dissociation reduction gives 0.0004×0.06/(0.12+0.06), about 0.00013333 s−1, two thirds of its old rate. The stipulated association expression stays at 0.0002. Real L effects could also alter speciation/activity or add pathways; the comparison is discriminating only within the declared candidates.",
+        "lesson_ids": [
+          "general-chemistry-2-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemical-evidence practice developed with substantial AI assistance; no external problem, chemical system, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-2-18:depth-4",
+      "type": "data_interpretation",
+      "prompt": "At the original Y, inspect the dissociation/capture reduction before calling it exact. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "general-chemistry-2-18-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "ratio",
+          "type": "numeric",
+          "prompt": "Predicted intermediate-to-ML concentration ratio kd/(kr[L]+kc[Y]).",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "relaxation",
+          "type": "numeric",
+          "prompt": "Intermediate relaxation time 1/(kr[L]+kc[Y]), seconds.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "approximation",
+          "type": "single_choice",
+          "prompt": "Which description is correct? for the supplied ideal model.",
+          "options": [
+            "A small intermediate pool makes the reduced equation exact at every preparation time and conversion.",
+            "The reduced curve assumes fast intermediate relaxation and a small but nonzero intermediate pool.",
+            "An equilibrium binding constant alone proves the microscopic kinetic equilibration is fast."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "ratio",
+            "type": "numeric",
+            "answer": 0.0033333333333333335,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "relaxation",
+            "type": "numeric",
+            "answer": 8.333333333333334,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "approximation",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Does a small intermediate concentration automatically establish an exact rate law at time zero?",
+        "solution": "The predicted ratio is 0.0004/0.12=1/300 and relaxation time is about 8.33333 s. Those are small/fast relative to the selected slow conversion scale, but initial transients and finite intermediate mass can still produce reduction error. A convergence or fit result does not erase those assumptions.",
+        "lesson_ids": [
+          "general-chemistry-2-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemical-evidence practice developed with substantial AI assistance; no external problem, chemical system, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-2-19:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1 uses MT=0.0012,LT=0.0018,Ka=0.000004 mol/L,Kf=2500 L/mol,Kw,c=10^−14 (mol/L)² and fixed spectator difference S=0.00080099 equivalents/L. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "general-chemistry-2-19-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "alpha",
+          "type": "numeric",
+          "prompt": "Unbound binding-form fraction at the admissible solved h.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "complex",
+          "type": "numeric",
+          "prompt": "ML+ concentration at that state, mol/L.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "metal",
+          "type": "numeric",
+          "prompt": "Free M2+ concentration at that state, mol/L.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "ligand",
+          "type": "numeric",
+          "prompt": "Free L− concentration at that state, mol/L.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "alpha",
+            "type": "numeric",
+            "answer": 0.8,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "complex",
+            "type": "numeric",
+            "answer": 0.0008,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "metal",
+            "type": "numeric",
+            "answer": 0.0004,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "ligand",
+            "type": "numeric",
+            "answer": 0.0008,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What evidence should a closed speciation report retain?",
+        "solution": "The coupled positive-h state has h=10^−6 mol/L and alpha=0.8. Complex is 0.0008, free metal 0.0004 and free L− 0.0008 mol/L, leaving HL=0.0002. Both totals, the original formation/acid relations and the fixed spectator charge must agree; one matching concentration alone is insufficient.",
+        "lesson_ids": [
+          "general-chemistry-2-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemical-evidence practice developed with substantial AI assistance; no external problem, chemical system, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-2-19:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use that same Assignment 1 state with h=10^−6 mol/L and HL=0.0002 mol/L. Report pH to three decimal places, and other continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "general-chemistry-2-19-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "ph",
+          "type": "numeric",
+          "prompt": "Ideal-model pH of the solved state. Report this logarithmic value to three decimal places.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "hydroxide",
+          "type": "numeric",
+          "prompt": "Hydroxide concentration in mol/L for the supplied ideal model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "bound",
+          "type": "numeric",
+          "prompt": "Fraction of total metal bound as ML+.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "spectator",
+          "type": "numeric",
+          "prompt": "Reconstructed spectator charge difference, equivalents/L.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "ph",
+            "type": "numeric",
+            "answer": 6.0,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "hydroxide",
+            "type": "numeric",
+            "answer": 1e-08,
+            "unit": "",
+            "tolerance": 5.1000000000000005e-11,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "bound",
+            "type": "numeric",
+            "answer": 0.6666666666666666,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "spectator",
+            "type": "numeric",
+            "answer": 0.00080099,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why verify a charge ledger independently of a normalized species fraction table?",
+        "solution": "The ideal pH is six and hydroxide 10^−8 mol/L. Bound fraction is 0.0008/0.0012=2/3. Charge gives S=0.000001+2×0.0004+0.0008−0.0008−0.00000001=0.00080099, consistent with the supplied closed inventory. This consistency does not establish missing real-solution species are absent.",
+        "lesson_ids": [
+          "general-chemistry-2-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemical-evidence practice developed with substantial AI assistance; no external problem, chemical system, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-2-20:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2’s reduced dissociation model has kd=0.0006 s−1,kr[L]=0.04 s−1,kc=80 L mol−1 s−1 and free Y=0.0005 mol/L. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "general-chemistry-2-20-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "rate",
+          "type": "numeric",
+          "prompt": "Reduced kobs at the supplied Y, s−1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "half",
+          "type": "numeric",
+          "prompt": "Half-plateau free-Y concentration, mol/L for the supplied ideal model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "plateau",
+          "type": "numeric",
+          "prompt": "High-Y reduced plateau in s−1.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "rate",
+            "type": "numeric",
+            "answer": 0.0003,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "half",
+            "type": "numeric",
+            "answer": 0.0005,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "plateau",
+            "type": "numeric",
+            "answer": 0.0006,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What separates parameter fitting from mechanistic identification?",
+        "solution": "At Y=0.0005, kcY=0.04 matches the return coefficient, so the rate is half of 0.0006: 0.0003 s−1. The corresponding rapid-association model with KA=2000 L/mol and kturn=0.0006 has the same reduced curve. Fit quality alone cannot resolve that structural ambiguity.",
+        "lesson_ids": [
+          "general-chemistry-2-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemical-evidence practice developed with substantial AI assistance; no external problem, chemical system, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-2-20:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For Assignment 2, double free L so the return coefficient becomes 0.08 s−1 while Y remains 0.0005 mol/L. Use the stated L-independent association alternative. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "general-chemistry-2-20-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "dissociation",
+          "type": "numeric",
+          "prompt": "New dissociation-model reduced kobs, s−1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "association",
+          "type": "numeric",
+          "prompt": "Alternative association-model reduced kobs, s−1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "claim",
+          "type": "single_choice",
+          "prompt": "Which conclusion is justified by the theoretical comparison?",
+          "options": [
+            "The theoretical rate table proves one microscopic scheme operates in every real coordination complex.",
+            "Any nonzero L effect automatically excludes all possible associative mechanisms without further assumptions.",
+            "The candidates predict different L responses under their stated assumptions; actual evidence and controls are still needed."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "dissociation",
+            "type": "numeric",
+            "answer": 0.0002,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "association",
+            "type": "numeric",
+            "answer": 0.0003,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "claim",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why compare a reduced model with a full conserved intermediate network?",
+        "solution": "D predicts 0.0006×0.04/(0.08+0.04)=0.0002 s−1 while the stipulated A candidate remains 0.0003. This gives a discriminating prediction, not a real mechanism result; speciation, additional paths and approximation errors can affect an actual observation.",
+        "lesson_ids": [
+          "general-chemistry-2-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemical-evidence practice developed with substantial AI assistance; no external problem, chemical system, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-2-21:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 3’s distinct ideal d4 model assigns Delta to a 650 nm photon and uses P=190 kJ/mol. Use h=6.62607015×10^−34,c=299792458 and NA=6.02214076×10^23 in SI units. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "general-chemistry-2-21-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "splitting",
+          "type": "numeric",
+          "prompt": "Molar splitting Delta in kJ/mol.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "difference",
+          "type": "numeric",
+          "prompt": "Low-minus-high model energy −Delta+P, kJ/mol.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "unpaired",
+          "type": "numeric",
+          "prompt": "Exact unpaired count in the model-favored candidate.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "moment",
+          "type": "numeric",
+          "prompt": "Spin-only moment of that candidate in Bohr magnetons.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "splitting",
+            "type": "numeric",
+            "answer": 184.04087021338,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "difference",
+            "type": "numeric",
+            "answer": 5.959129786619997,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "unpaired",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "moment",
+            "type": "numeric",
+            "answer": 4.898979485566356,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which claims need evidence beyond field-energy and spin-only arithmetic?",
+        "solution": "The assigned photon energy is about 184.04087 kJ/mol. Low-minus-high energy is +5.95913 kJ/mol, favoring the high-spin d4 candidate with four unpaired electrons and moment sqrt(24) under the spin-only assumptions. This does not supply a real spin population, geometry or complete free energy.",
+        "lesson_ids": [
+          "general-chemistry-2-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemical-evidence practice developed with substantial AI assistance; no external problem, chemical system, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-2-21:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Assignment 3’s separate Ox2+ + e− ⇌ Red+ system has E0=0.200 V,KO=10000 L/mol,KR=100 L/mol and independently held neutral free ligand 0.001 mol/L. Equal analytical Ox/Red totals; T=298.15 K,R=8.31446262,F=96485.33212 in SI. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "general-chemistry-2-21-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "factor",
+          "type": "numeric",
+          "prompt": "Ligand factor (1+KR l)/(1+KO l).",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "shift",
+          "type": "numeric",
+          "prompt": "Conditional potential shift (RT/F)ln(factor), V.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "potential",
+          "type": "numeric",
+          "prompt": "Conditional potential at equal analytical totals, V.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "boundary",
+          "type": "single_choice",
+          "prompt": "When would inserting analytical ligand total for free l be unjustified?",
+          "options": [
+            "Never; any analytical total is automatically the free concentration in every complexation model.",
+            "In a finite closed pool with appreciable binding/protonation depletion; add the missing balances.",
+            "Only when the electron number is zero, regardless of ligand depletion or reservoir conditions."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "factor",
+            "type": "numeric",
+            "answer": 0.1,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "shift",
+            "type": "numeric",
+            "answer": -0.059159349699951964,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "potential",
+            "type": "numeric",
+            "answer": 0.14084065030004805,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "boundary",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why derive a ligand-dependent Nernst shift from free species?",
+        "solution": "Free-species ratio is the total-state ratio multiplied by 1.1/11=0.1. Thus the shift is about −0.05915935 V and E about 0.14084065 V. Preferential Ox stabilization lowers this reduction potential under the stated one-to-one/free-reservoir model; it does not determine exchange kinetics.",
+        "lesson_ids": [
+          "general-chemistry-2-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemical-evidence practice developed with substantial AI assistance; no external problem, chemical system, measurements or dataset imported."
+        ]
+      }
     }
   ]
 }

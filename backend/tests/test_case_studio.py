@@ -187,8 +187,12 @@ def test_all_authored_courses_expose_their_existing_case_studies():
             "general-chemistry-2", "programming", "biomaterials", "bioreactors",
             "cellular-biomechanics", "transport", "calculus-2", "calculus-3",
             "differential-equations", "linear-algebra",
+            "circuits", "physiology", "signals-control", "general-chemistry-1",
+            "organic-chemistry", "statistics", "robotics", "geroscience",
         )
     }
+    # Physics E&M authored six milestones for its six project tasks.
+    milestone_cases["physics-em"] = 6
     for summary in courses:
         course = repository.course(summary.id)
         assert len(course.case_studies) == 1 + milestone_cases.get(summary.id, 0)

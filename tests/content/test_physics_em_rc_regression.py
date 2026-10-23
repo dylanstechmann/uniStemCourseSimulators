@@ -14,7 +14,6 @@ COURSE = ROOT / "content/courses/physics-em"
 
 def test_rc_reading_maps_outcome_and_preserves_legacy_keys():
     manifest = json.loads((COURSE / "course.json").read_text(encoding="utf-8"))
-    assert manifest["version"].startswith("0.4.")
     module = next(
         module
         for module in manifest["modules"]

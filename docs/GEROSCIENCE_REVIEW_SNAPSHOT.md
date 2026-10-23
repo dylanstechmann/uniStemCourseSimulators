@@ -1,12 +1,12 @@
-# Geroscience course review snapshot
+# Geroscience review snapshot
 
-This record pins the current public course package for independent review. It is regenerated with the read-only command below and does not imply acceptance or release.
+This identifies a public package, not approval of biological claims or course depth.
 
-- **Course package:** `geroscience` 0.5.9
-- **Public package archive SHA-256:** `eefd02129b6de38d57e15d08e1625a7109a119f5d84995f853f0f62ebd3ef9dc`
-- **Manifest SHA-256:** `905127bed770aec9b38be2e0f1da3d82f496f0949d605e23f15dea65b6914437`
-- **Archive inventory:** 27 files, 388,018 bytes
-- **Calculated:** 2026-10-13
-- **Reproduce:** `uv run --project backend python tools/course_package_digest.py --course-id geroscience`
+- **Course package:** `geroscience` 0.7.0
+- **Public package archive SHA-256:** `c25e98f65eca4b00f71b7e16775ce3259084d5f6442c689e210d2f4350e296a6`
+- **Manifest SHA-256:** `a627a00ceb186cadae715ed83aad4d7aac30704b3ac50f662bbd5e1e8045e1f7`
+- **Archive inventory:** 34 files, 515,824 bytes
+- **Calculated:** 2026-10-22
+- **Reproduce:** `python tools/course_package_digest.py --course-id geroscience`
 
-The archive includes the inactive fictional surrogate-endpoint evidence dossier, the Week 11 primary-study comparison and the week-1 evolutionary-theory reading added in 0.5.9. The digest proves package identity only; it is not scientific review, instructional approval or release evidence.
+One original telomere foundation and three seminar dossiers add ten checkpoints/cards. Selected rhesus/zebrafish attributions are corrected. All quantitative exercises are synthetic. Full appraisals remain ungraded and source-access limits explicit. Partial and unreviewed; previous 0.6.0 snapshot preserved.

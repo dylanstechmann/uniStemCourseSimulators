@@ -1,6 +1,6 @@
 # Physics: Mechanics for Biomedical Engineers review handoff
 
-This handoff targets Physics: Mechanics for Biomedical Engineers, package version 0.5.0. The [review snapshot](PHYSICS_MECHANICS_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+This handoff targets Physics: Mechanics for Biomedical Engineers, package version 0.6.0. The [review snapshot](PHYSICS_MECHANICS_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
 
 ## Review scope
 
@@ -21,3 +21,7 @@ Historical version 0.4.5 records a focused 106-test Mechanics run, including ind
 ## Review record to complete only after review
 
 After a review actually occurs, record reviewer name and qualifications, date, package version and archive digest, artifacts examined, concrete findings and disposition. Keep separate decisions for mechanical and mathematical accuracy, instructional design, assessment, accessibility, workload and release. Do not infer approval from the package hash or test results.
+
+## Coupled/contact/simulation target (2026-10-22)
+
+Current target 0.6.0 adds massive-pulley/constraint and slip-to-roll/contact-power foundations, four connected reports/simulations and an analytic oscillator-reference CSV. Check sign conventions, no-slip/tension/torque and energy agreement, mass-flow and frame ledgers, slip direction versus center motion, phase-event continuation, contact power, numerical versus physical oscillator energy and exact damped-reference generation. Sixteen checkpoints/cards assess selected outputs; diagrams, reports, code, real mechanical behavior, workload and qualified review remain open. Earlier evidence remains historical; the current snapshot pins the package.

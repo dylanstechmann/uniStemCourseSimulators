@@ -17,7 +17,6 @@ def load(path: Path) -> dict:
 
 def test_estimation_reading_objectives_and_preserved_practice():
     manifest = load(COURSE / "course.json")
-    assert manifest["version"].startswith("0.4.")
     module = next(item for item in manifest["modules"] if item["id"] == "statistics-module-2")
     lesson = module["lessons"][0]
     text = (COURSE / lesson["reading"]).read_text(encoding="utf-8")

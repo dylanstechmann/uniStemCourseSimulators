@@ -489,8 +489,8 @@ def test_schedule_syllabus_and_partial_labels():
     lessons = {record["id"] for m in c["modules"] for record in m["lessons"]}
     assessment_ids = {a["id"] for a in c["assessments"]}
     scheduled = [lid for w in weeks for lid in w["lesson_ids"]]
-    # 15 topic and lab lessons plus the optional hidden-state project guide added in 0.4.0.
-    assert len(weeks) == 14 and len(scheduled) == len(set(scheduled)) == 16
+    # Existing core/lab/project plus two foundations and four mixed assignments.
+    assert len(weeks) == 14 and len(scheduled) == len(set(scheduled)) == 22
     assert set(scheduled) == lessons
     assert {aid for w in weeks for aid in w["assessment_ids"]} <= assessment_ids
     assert weeks[12]["lesson_ids"] == ["linear-algebra-lab-01"]

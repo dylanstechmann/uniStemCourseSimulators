@@ -4280,6 +4280,1380 @@
           }
         ]
       }
+    },
+    {
+      "id": "physics-mechanics-16:depth-1",
+      "type": "data_interpretation",
+      "prompt": "A light taut rope does not slip on an ideal-axis pulley: m1=3 kg moves upward, m2=5 kg downward, R=0.10 m,I=0.020 kg m² and g=9.81 m/s². Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physics-mechanics-16-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "acceleration",
+          "type": "numeric",
+          "prompt": "Common motion-direction acceleration in m/s².",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "tension1",
+          "type": "numeric",
+          "prompt": "Tension acting on the three-kilogram mass, N.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "tension2",
+          "type": "numeric",
+          "prompt": "Tension acting on the five-kilogram mass, N.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "acceleration",
+            "type": "numeric",
+            "answer": 1.9620000000000002,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "tension1",
+            "type": "numeric",
+            "answer": 35.316,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "tension2",
+            "type": "numeric",
+            "answer": 39.24,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can a light rope have different tensions on opposite sides of a massive pulley?",
+        "solution": "The reflected pulley inertia is two kilograms, making effective total mass ten kilograms. Acceleration is 1.962 m/s². The separate mass balances give T1=35.316 N and T2=39.24 N; their difference accelerates the massive pulley rather than vanishing.",
+        "lesson_ids": [
+          "physics-mechanics-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanical-evidence practice developed with substantial AI assistance; no external problem, motion, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-mechanics-16:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use the same system starting at rest, before any stop, when the descending mass has moved 0.40 m. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physics-mechanics-16-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "angular",
+          "type": "numeric",
+          "prompt": "Pulley angular acceleration in rad/s².",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "speed",
+          "type": "numeric",
+          "prompt": "Shared rope/mass speed after the drop, m/s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "energy",
+          "type": "numeric",
+          "prompt": "Gravitational energy release and total kinetic gain, J.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "angular",
+            "type": "numeric",
+            "answer": 19.62,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "speed",
+            "type": "numeric",
+            "answer": 1.2528367810692662,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "energy",
+            "type": "numeric",
+            "answer": 7.848000000000001,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which energy terms belong in a massive-pulley calculation?",
+        "solution": "No slip gives alpha=a/R=19.62 rad/s². Constant acceleration gives v²=1.5696 m²/s². Gravitational release is 7.848 J, matching translation plus rotation through 0.5×(3+5+2)×v². Omitting pulley inertia would overstate speed.",
+        "lesson_ids": [
+          "physics-mechanics-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanical-evidence practice developed with substantial AI assistance; no external problem, motion, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-mechanics-16:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Keep the same three- and five-kilogram masses, but let pulley inertia approach zero at fixed radius. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physics-mechanics-16-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "acceleration",
+          "type": "numeric",
+          "prompt": "Limiting common acceleration in m/s².",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "tension",
+          "type": "numeric",
+          "prompt": "Common limiting tension in N.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "inertia",
+          "type": "single_choice",
+          "prompt": "What happens if inertia is increased instead?",
+          "options": [
+            "The shared acceleration decreases while the available potential drop at fixed distance is unchanged.",
+            "The gravitational energy release vanishes because the pulley becomes harder to accelerate.",
+            "The two tensions become exactly equal while a nonzero massive pulley still accelerates."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "acceleration",
+            "type": "numeric",
+            "answer": 2.4525,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "tension",
+            "type": "numeric",
+            "answer": 36.7875,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "inertia",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What do limiting-case checks establish?",
+        "solution": "At zero inertia, a=2g/8=2.4525 m/s² and both tensions approach 36.7875 N. Increasing reflected inertia reduces acceleration and changes energy partition; it does not change the potential release for the same two-mass drop.",
+        "lesson_ids": [
+          "physics-mechanics-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanical-evidence practice developed with substantial AI assistance; no external problem, motion, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-mechanics-16:depth-4",
+      "type": "data_interpretation",
+      "prompt": "The descending mass reaches a stop after the stipulated drop; no impact, slack-rope or continuation model is supplied. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "physics-mechanics-16-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "after",
+          "type": "single_choice",
+          "prompt": "Which conclusion is supported after the event?",
+          "options": [
+            "Both masses necessarily continue the same acceleration through impact and any later slack.",
+            "The pre-impact coupled solution ends; subsequent constraints require additional assumptions.",
+            "The rope must remain taut and preserve its original acceleration regardless of contact."
+          ],
+          "points": 1
+        },
+        {
+          "id": "axis",
+          "type": "single_choice",
+          "prompt": "Does an ideal fixed axle necessarily exert zero force?",
+          "options": [
+            "Yes; zero dissipative torque removes every force at the axle and pulley support.",
+            "Yes; only forces doing nonzero work are allowed in a free-body diagram.",
+            "No; it can exert force while its fixed application point has zero laboratory-frame power."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "after",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "axis",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why record a stopping event in a model report?",
+        "solution": "A contact/stop event can change acceleration constraints, impact behavior or rope tautness. The supplied equations describe the phase before that event. Fixed-axis zero power does not imply zero axle force; a complete support-force balance needs the pulley weight and force geometry.",
+        "lesson_ids": [
+          "physics-mechanics-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanical-evidence practice developed with substantial AI assistance; no external problem, motion, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-mechanics-17:depth-1",
+      "type": "data_interpretation",
+      "prompt": "A rigid body has m=2 kg,R=0.10 m,I=0.5mR²,u=3 m/s and no spin on a fixed level surface. Kinetic mu=0.20,g=9.81; no other horizontal force acts. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physics-mechanics-17-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "time",
+          "type": "numeric",
+          "prompt": "First time the relative bottom-point slip reaches zero, s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "speed",
+          "type": "numeric",
+          "prompt": "Center speed at the rolling transition, m/s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "spin",
+          "type": "numeric",
+          "prompt": "Clockwise angular speed at transition, rad/s.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "time",
+            "type": "numeric",
+            "answer": 0.509683995922528,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "speed",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "spin",
+            "type": "numeric",
+            "answer": 20.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which velocity determines kinetic friction direction?",
+        "solution": "The initial slip is three meters per second. It decreases at mu g(1+1/beta)=5.886 m/s², reaching zero at about 0.509684 s. The center speed is two meters per second and clockwise angular speed twenty rad/s. Continue with the new rolling phase rather than the old kinetic force.",
+        "lesson_ids": [
+          "physics-mechanics-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanical-evidence practice developed with substantial AI assistance; no external problem, motion, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-mechanics-17:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use the same two-kilogram no-spin slip-to-roll case. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physics-mechanics-17-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "initial",
+          "type": "numeric",
+          "prompt": "Initial total mechanical kinetic energy, J.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "final",
+          "type": "numeric",
+          "prompt": "Final translation-plus-rotation kinetic energy, J.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "loss",
+          "type": "numeric",
+          "prompt": "Mechanical energy removed during slip, J.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "initial",
+            "type": "numeric",
+            "answer": 9.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "final",
+            "type": "numeric",
+            "answer": 6.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "loss",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why does friction times center displacement overcount loss during spin-up?",
+        "solution": "Initial kinetic energy is 0.5×2×3²=9 J. At rolling it is 0.5×2×1.5×2²=6 J, so loss is three joules. Friction times center displacement alone would omit simultaneous rotational energy gain; the correct total power is friction dotted with contact-point velocity.",
+        "lesson_ids": [
+          "physics-mechanics-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanical-evidence practice developed with substantial AI assistance; no external problem, motion, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-mechanics-17:depth-3",
+      "type": "data_interpretation",
+      "prompt": "For the same mass and inertia ratio, instead start with u=1 m/s and clockwise rim speed R omega0=2 m/s. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "physics-mechanics-17-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "speed",
+          "type": "numeric",
+          "prompt": "Center speed at the rolling transition, m/s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "final_energy",
+          "type": "numeric",
+          "prompt": "Final total kinetic energy, J.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "loss",
+          "type": "numeric",
+          "prompt": "Mechanical energy removed during this transition, J.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "direction",
+          "type": "single_choice",
+          "prompt": "What is the initial kinetic-friction direction on the body?",
+          "options": [
+            "Rightward: the bottom slips left, so the center accelerates while total energy decreases.",
+            "Leftward: friction always opposes rightward center motion regardless of initial spin.",
+            "Zero: a rotating body cannot slip while its center moves in the same general direction."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "speed",
+            "type": "numeric",
+            "answer": 1.3333333333333333,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "final_energy",
+            "type": "numeric",
+            "answer": 2.6666666666666665,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "loss",
+            "type": "numeric",
+            "answer": 0.3333333333333333,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "direction",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Can friction increase center speed while decreasing total mechanical energy?",
+        "solution": "Initial slip is 1−2=−1 m/s, so friction points right. Final rolling speed is (1+0.5×2)/1.5=4/3 m/s. Initial energy three joules falls to 8/3, losing one third even while the center speeds up.",
+        "lesson_ids": [
+          "physics-mechanics-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanical-evidence practice developed with substantial AI assistance; no external problem, motion, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-mechanics-17:depth-4",
+      "type": "data_interpretation",
+      "prompt": "In the original m=2 kg,mu=0.20 no-spin case, inspect halfway to the slip event. There v=2.5 m/s and R omega=1.0 m/s. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physics-mechanics-17-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "slip",
+          "type": "numeric",
+          "prompt": "Bottom-point laboratory slip speed in m/s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "power",
+          "type": "numeric",
+          "prompt": "Total mechanical power supplied by friction, W.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "after",
+          "type": "single_choice",
+          "prompt": "Which friction force is required after rolling begins on this ideal unforced horizontal surface?",
+          "options": [
+            "The same kinetic magnitude and direction must continue forever after the zero-slip event.",
+            "Zero suffices; keeping the old kinetic force would violate the declared slip law.",
+            "The force must reverse instantly at every time step even when exact rolling is maintained."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "slip",
+            "type": "numeric",
+            "answer": 1.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "power",
+            "type": "numeric",
+            "answer": -5.886000000000001,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "after",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must an event-aware contact simulation preserve?",
+        "solution": "Relative slip is 2.5−1.0=1.5 m/s and friction magnitude is 3.924 N. Total power is −3.924×1.5=−5.886 W. At the event the phase changes; ideal unforced level rolling needs zero friction, not a continued kinetic rule.",
+        "lesson_ids": [
+          "physics-mechanics-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanical-evidence practice developed with substantial AI assistance; no external problem, motion, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-mechanics-18:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1 sticks a 0.8 kg cart at +2 m/s to a 1.2 kg cart at −1 m/s with negligible external impulse. Separately, a 2 kg body at 3 m/s captures resting material at 0.5 kg/s with no external force for four seconds. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 5,
+      "objective_ids": [
+        "physics-mechanics-18-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "collision_speed",
+          "type": "numeric",
+          "prompt": "Final signed cart velocity after sticking, m/s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "collision_loss",
+          "type": "numeric",
+          "prompt": "Kinetic energy removed in the sticking event, J.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "capture_mass",
+          "type": "numeric",
+          "prompt": "Growing-body mass at four seconds, kg.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "capture_speed",
+          "type": "numeric",
+          "prompt": "Growing-body velocity at four seconds, m/s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "capture_energy",
+          "type": "numeric",
+          "prompt": "Growing-body kinetic energy at four seconds, J.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "collision_speed",
+            "type": "numeric",
+            "answer": 0.2,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "collision_loss",
+            "type": "numeric",
+            "answer": 2.16,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "capture_mass",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "capture_speed",
+            "type": "numeric",
+            "answer": 1.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "capture_energy",
+            "type": "numeric",
+            "answer": 4.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What distinguishes an open-body momentum balance from fixed-mass F=ma?",
+        "solution": "The collision retains momentum 0.4 kg m/s and ends at 0.2 m/s; kinetic energy drops from 2.2 to 0.04 J. For capture from rest with no external force, growing-body momentum stays six kg m/s, so at mass four kilograms the velocity is 1.5 m/s and kinetic energy 4.5 J. Momentum and energy conservation are separate conditions.",
+        "lesson_ids": [
+          "physics-mechanics-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanical-evidence practice developed with substantial AI assistance; no external problem, motion, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-mechanics-18:depth-2",
+      "type": "data_interpretation",
+      "prompt": "In Assignment 1’s resting-stream capture case, add constant external force F=3 N for four seconds while keeping m0=2 kg,v0=3 m/s and capture rate 0.5 kg/s. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physics-mechanics-18-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "speed",
+          "type": "numeric",
+          "prompt": "Body velocity at four seconds in m/s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "work",
+          "type": "numeric",
+          "prompt": "External force work over the interval, J.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "loss",
+          "type": "numeric",
+          "prompt": "Nonnegative mechanical-energy loss assigned to capture, J.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "speed",
+            "type": "numeric",
+            "answer": 4.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "work",
+            "type": "numeric",
+            "answer": 47.04670149984197,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "loss",
+            "type": "numeric",
+            "answer": 15.546701499841973,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why is external work insufficient to infer the final kinetic energy of a capturing body?",
+        "solution": "The momentum becomes 6+3t; at t=4 it is eighteen kg m/s in four kilograms. Velocity is 6−6/(2+0.5t), so external work is 3[24−12ln2]. Final kinetic energy is 40.5 J; initial nine plus external work minus final energy gives the separate positive capture loss.",
+        "lesson_ids": [
+          "physics-mechanics-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanical-evidence practice developed with substantial AI assistance; no external problem, motion, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-mechanics-19:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2 uses m1=2 kg,m2=6 kg,R=0.20 m,I=0.080 kg m²,g=9.81 and a taut no-slip light rope on an ideal-axis pulley. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physics-mechanics-19-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "acceleration",
+          "type": "numeric",
+          "prompt": "Shared motion-direction acceleration in m/s².",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "tension1",
+          "type": "numeric",
+          "prompt": "Tension on the rising two-kilogram mass, N.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "tension2",
+          "type": "numeric",
+          "prompt": "Tension on the descending six-kilogram mass, N.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "acceleration",
+            "type": "numeric",
+            "answer": 3.9240000000000004,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "tension1",
+            "type": "numeric",
+            "answer": 27.468000000000004,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "tension2",
+            "type": "numeric",
+            "answer": 35.316,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What should a constrained-motion report retain beyond its solved values?",
+        "solution": "Reflected inertia is two kilograms, yielding effective total mass ten. The force/torque system gives a=3.924 m/s², T1=27.468 N and T2=35.316 N. Their 7.848 N difference provides the pulley torque required by alpha=a/R. This check depends on the declared phase and its explicit mechanical assumptions.",
+        "lesson_ids": [
+          "physics-mechanics-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanical-evidence practice developed with substantial AI assistance; no external problem, motion, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-mechanics-19:depth-2",
+      "type": "data_interpretation",
+      "prompt": "The same Assignment 2 system starts at rest; mass two descends 0.25 m before reaching its stop. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "physics-mechanics-19-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "speed",
+          "type": "numeric",
+          "prompt": "Shared mass/rope speed just before the stop, m/s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "time",
+          "type": "numeric",
+          "prompt": "Time from rest to the pre-impact endpoint, s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "release",
+          "type": "numeric",
+          "prompt": "Gravitational potential reduction over the drop, J.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "rotation",
+          "type": "numeric",
+          "prompt": "Pulley rotational kinetic energy just before the stop, J.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "speed",
+            "type": "numeric",
+            "answer": 1.4007141035914503,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "time",
+            "type": "numeric",
+            "answer": 0.3569607807317661,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "release",
+            "type": "numeric",
+            "answer": 9.81,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "rotation",
+            "type": "numeric",
+            "answer": 1.962,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What changes at a hard stop in a constrained-motion calculation?",
+        "solution": "Constant acceleration gives v²=1.962 and elapsed time sqrt(0.5/3.924). Potential release is 9.81 J, divided into 7.848 J of translation and 1.962 J of pulley rotation. No post-impact motion follows without an additional contact/rope model.",
+        "lesson_ids": [
+          "physics-mechanics-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanical-evidence practice developed with substantial AI assistance; no external problem, motion, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-mechanics-20:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 3’s primary body has m=1.5 kg,R=0.12 m,I=0.4mR²,u=2.8 m/s,no spin,mu=0.25 and g=9.81 on an ideal fixed level surface. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "physics-mechanics-20-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "time",
+          "type": "numeric",
+          "prompt": "Time at the first zero-slip event, s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "speed",
+          "type": "numeric",
+          "prompt": "Center speed at the rolling transition, m/s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "spin",
+          "type": "numeric",
+          "prompt": "Clockwise angular speed at the rolling transition, rad/s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "loss",
+          "type": "numeric",
+          "prompt": "Mechanical energy removed during the slipping phase, J.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "time",
+            "type": "numeric",
+            "answer": 0.3261977573904179,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "speed",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "spin",
+            "type": "numeric",
+            "answer": 16.666666666666668,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "loss",
+            "type": "numeric",
+            "answer": 1.68,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why compare both an event time and energy loss in contact verification?",
+        "solution": "Slip changes at mu g(1+1/0.4)=8.58375 m/s², giving transition time about 0.32619776 s. The rolling speed is 2 m/s and spin is 2/0.12 rad/s. Initial energy 5.88 J falls to 4.2 J, a loss of 1.68 J under the stipulated contact model.",
+        "lesson_ids": [
+          "physics-mechanics-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanical-evidence practice developed with substantial AI assistance; no external problem, motion, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-mechanics-20:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Assignment 3’s overspin body keeps the same mass,inertia ratio and surface but starts at u=0.8 m/s and clockwise rim speed 2.0 m/s. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physics-mechanics-20-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "speed",
+          "type": "numeric",
+          "prompt": "Center speed at rolling transition in m/s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "loss",
+          "type": "numeric",
+          "prompt": "Mechanical energy removed during this transition, J.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "phase",
+          "type": "single_choice",
+          "prompt": "Which simulation treatment matches the declared model?",
+          "options": [
+            "Use leftward kinetic friction because center velocity starts rightward, then keep it after zero slip.",
+            "Ignore the slip event and keep applying the first chosen friction direction for the full run.",
+            "Use rightward kinetic friction until slip reaches zero, then ideal rolling with zero force."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "speed",
+            "type": "numeric",
+            "answer": 1.1428571428571428,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "loss",
+            "type": "numeric",
+            "answer": 0.3085714285714286,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "phase",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Does independence of final rolling speed from kinetic mu imply independence of transition time?",
+        "solution": "The initial contact slips left by 1.2 m/s, so friction is rightward. Final speed is (0.8+0.4×2)/1.4=8/7 m/s. Energy loss is 0.5×1.5×(0.4/1.4)×1.2². A correct phase transition prevents the old kinetic-force rule from producing artificial slip reversal.",
+        "lesson_ids": [
+          "physics-mechanics-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanical-evidence practice developed with substantial AI assistance; no external problem, motion, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-mechanics-21:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 4’s unforced undamped oscillator has m=1 kg,k=4 N/m,x0=0.1 m,v0=0. Take one old-state forward-Euler step of h=0.1 s. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physics-mechanics-21-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "position",
+          "type": "numeric",
+          "prompt": "Forward-Euler position after the first step, m.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "velocity",
+          "type": "numeric",
+          "prompt": "Forward-Euler velocity after the first step, m/s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "energy",
+          "type": "numeric",
+          "prompt": "Mechanical energy computed from that first numerical state, J.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "position",
+            "type": "numeric",
+            "answer": 0.1,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "velocity",
+            "type": "numeric",
+            "answer": -0.04,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "energy",
+            "type": "numeric",
+            "answer": 0.0208,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why verify a numerical oscillator against both a trajectory and an energy identity?",
+        "solution": "Old-state Euler gives x1=0.1 and v1=−0.04. Its energy is 0.5×0.04²+0.5×4×0.1²=0.0208 J, above the exact initial/conserved 0.02 J. This method’s numerical growth factor is 1+omega0²h², not evidence that a passive undamped spring adds energy. This check depends on the declared phase and its explicit mechanical assumptions.",
+        "lesson_ids": [
+          "physics-mechanics-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanical-evidence practice developed with substantial AI assistance; no external problem, motion, geometry or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-mechanics-21:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use the same oscillator/step but velocity-first symplectic Euler. Separately, the damped reference has c=0.4 N s/m with the same m and k. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "physics-mechanics-21-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "position",
+          "type": "numeric",
+          "prompt": "Symplectic-Euler position after its first step, m.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "energy",
+          "type": "numeric",
+          "prompt": "Mechanical energy of that symplectic numerical state, J.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "damped",
+          "type": "numeric",
+          "prompt": "Damped angular frequency of the separate c=0.4 model, rad/s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "interpretation",
+          "type": "single_choice",
+          "prompt": "What does the first symplectic energy decrease establish?",
+          "options": [
+            "The real spring has acquired positive damping solely because a numerical method changed.",
+            "A numerical state change; the undamped physical model still has no dissipative term.",
+            "Every future symplectic step must remove the same energy and simulate physical drag."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "position",
+            "type": "numeric",
+            "answer": 0.096,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "energy",
+            "type": "numeric",
+            "answer": 0.019232,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "damped",
+            "type": "numeric",
+            "answer": 1.98997487421324,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "interpretation",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Does a one-step numerical energy decrease prove physical damping?",
+        "solution": "Velocity-first Euler uses v1=−0.04 then x1=0.096, giving 0.019232 J. That one-step physical-energy change is a numerical artifact in the c=0 model. The distinct damped model has decay 0.2 s⁻¹ and angular frequency sqrt(4−0.04)=sqrt(3.96); verify its dissipation ledger separately.",
+        "lesson_ids": [
+          "physics-mechanics-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanical-evidence practice developed with substantial AI assistance; no external problem, motion, geometry or dataset imported."
+        ]
+      }
     }
   ]
 }

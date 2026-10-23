@@ -27,7 +27,7 @@ Filtering after sampling cannot remove an alias, because it has been moved into 
 
 ## The cost of holding
 
-A digital-to-analog output holds each value for a whole period (a zero-order hold). Compared with a smooth signal it lags on average by half a period, T/2, which is a pure delay and so costs a phase of ω T/2 at frequency ω. For the PI-controlled incubator of the previous lesson, ω_gc = 0.3333 rad/min and the phase margin is 70.9°. With a sampling period of T = 0.5 min, the hold delay is 0.25 min and costs 0.3333 × 0.25 = 0.0833 rad = **4.77°**, reducing the margin to 66.1°. A common rule is to sample at least ten times per closed-loop time constant: here 1/ω_gc = 3 min, so T should not exceed **0.3 min**.
+A digital-to-analog output holds each value for a whole period (a zero-order hold). Its normalized frequency factor is exp(−iωT/2) times sinc(ωT/2), with sinc(x)=sin(x)/x. In the first lobe its phase includes −ωT/2, while its magnitude is not identically one. The following phase-budget approximation keeps the half-period term and omits that amplitude factor; it is not a complete sampled-loop stability calculation. For the PI-controlled incubator of the previous lesson, ω_gc = 0.3333 rad/min and the phase margin is 70.9°. With a sampling period of T = 0.5 min, the hold delay is 0.25 min and costs 0.3333 × 0.25 = 0.0833 rad = **4.77°**, reducing the margin to 66.1°. A common rule is to sample at least ten times per closed-loop time constant: here 1/ω_gc = 3 min, so T should not exceed **0.3 min**.
 
 ## The discrete PI controller
 
@@ -35,7 +35,7 @@ Approximating the integral by a sum gives the incremental form of the PI control
 
 **u[k] = u[k−1] + K_p (e[k] − e[k−1]) + K_p (T/T_i) e[k].**
 
-The proportional term responds to the change of the error and the last term adds the integral over one period. With K_p = 6.667 W/°C, T_i = 10 min, T = 0.25 min, e[k−1] = 1.2 °C, e[k] = 0.9 °C and u[k−1] = 22.0 W, the new command is 22.0 + 6.667 × (0.9 − 1.2) + 6.667 × (0.25/10) × 0.9 = **20.15 W**. Written this way, anti-windup is easy: clamp u[k] to the actuator limits before storing it as u[k−1], so that the stored value is what the heater actually did.
+The proportional term responds to the change of the error and the last term adds the integral over one period. With K_p = 6.667 W/°C, T_i = 10 min, T = 0.25 min, e[k−1] = 1.2 °C, e[k] = 0.9 °C and u[k−1] = 22.0 W, the new command is 22.0 + 6.667 × (0.9 − 1.2) + 6.667 × (0.25/10) × 0.9 = **20.15 W**. One declared clamped incremental implementation clips the new command before storing it as u[k−1], discarding the excess increment in that policy. This is a specific nonlinear storage rule, not a general anti-windup or stability proof; the plant must receive the stated delivered command.
 
 ## The discrete plant
 
@@ -64,4 +64,6 @@ A first-order lag τ dy/dt = −y + K u with an input held constant over each pe
 
 ## Limits of this lesson
 
-All numbers are synthetic. The lesson treats uniform sampling, a zero-order hold and a linear plant, and the half-period delay is an average; it does not cover quantization noise, computation delay, jitter, multirate sampling or the design of the anti-alias filter beyond its first-order attenuation, and the ten-per-time-constant rule is a rule of thumb.
+All numbers are synthetic. The lesson treats uniform sampling, a zero-order hold and a linear plant, and the half-period phase budget omits hold-amplitude effects; it does not cover quantization noise, computation delay, jitter, multirate sampling or the design of the anti-alias filter beyond its first-order attenuation, and the ten-per-time-constant rule is a rule of thumb.
+
+The [exact sampled PI companion](exact-sampled-pi-states-and-schur-stability.md) specifies a separate old-integrator state contract and derives its full two-state characteristic. Do not transfer gain limits between different incremental/state implementations without deriving their actual updates.

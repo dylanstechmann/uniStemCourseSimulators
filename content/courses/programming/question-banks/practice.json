@@ -4268,6 +4268,2662 @@
           }
         ]
       }
+    },
+    {
+      "id": "programming-16:method-1",
+      "type": "data_interpretation",
+      "prompt": "Differentiate f(x)=x³ at x=1 with h=0.2. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-16-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "forward",
+          "type": "numeric",
+          "prompt": "Forward derivative estimate at the stated point.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "central",
+          "type": "numeric",
+          "prompt": "Central derivative estimate at the stated point.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "order",
+          "type": "single_choice",
+          "prompt": "Which truncation statement is justified for a smooth function?",
+          "options": [
+            "Both are exact for every differentiable function.",
+            "Forward is generally first order and central second order under the corresponding smoothness assumptions.",
+            "Central differences eliminate all evaluation error."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "forward",
+            "type": "numeric",
+            "answer": 3.64,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "central",
+            "type": "numeric",
+            "answer": 3.04,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "order",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why does the central derivative have second-order truncation error?",
+        "solution": "The forward quotient is (1.2³−1)/0.2=3.64; the symmetric quotient is (1.2³−0.8³)/0.4=3.04. The true derivative is 3. Taylor expansions identify different leading errors.",
+        "lesson_ids": [
+          "programming-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-16:method-2",
+      "type": "data_interpretation",
+      "prompt": "For f(x)=x³ at x=1, central estimates at h=0.2 and 0.1 are 3.04 and 3.01. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-16-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "extrapolated",
+          "type": "numeric",
+          "prompt": "Richardson extrapolation for second-order differences.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "fine_error",
+          "type": "numeric",
+          "prompt": "Leading fine-grid error magnitude estimate.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "condition",
+          "type": "single_choice",
+          "prompt": "What makes this extrapolation meaningful?",
+          "options": [
+            "Both estimates approximate the same smooth derivative in a plausible h² error regime.",
+            "Each estimate may use a different function and endpoint.",
+            "The step must be smaller than machine precision."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "extrapolated",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "fine_error",
+            "type": "numeric",
+            "answer": 0.01,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "condition",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "When can refinement-based derivative extrapolation fail?",
+        "solution": "Use (4×3.01−3.04)/3=3 and |3.01−3.04|/3=0.01. This exact cancellation is special to the cubic, not a universal error guarantee.",
+        "lesson_ids": [
+          "programming-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-16:method-3",
+      "type": "data_interpretation",
+      "prompt": "A normalized central-difference error envelope is E(h)=2h²+0.000032/h, h>0. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-16-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "step",
+          "type": "numeric",
+          "prompt": "Positive error-envelope minimizing step.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "bound",
+          "type": "numeric",
+          "prompt": "Envelope value at that step.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "limit",
+          "type": "single_choice",
+          "prompt": "What happens to the second term as h tends to zero?",
+          "options": [
+            "It tends to zero like h².",
+            "It grows without bound, so reducing the step indefinitely can worsen this error envelope.",
+            "It is a statistical confidence interval."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "step",
+            "type": "numeric",
+            "answer": 0.02,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "bound",
+            "type": "numeric",
+            "answer": 0.0024,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "limit",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why is the smallest possible difference step not generally best?",
+        "solution": "E′=4h−0.000032/h²=0 gives h³=0.000008 and h=0.02. The terms are 0.0008 and 0.0016, totaling 0.0024.",
+        "lesson_ids": [
+          "programming-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-16:method-4",
+      "type": "data_interpretation",
+      "prompt": "Two independent noisy endpoint observations have σ=0.02 and separation 2h with h=0.1. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "programming-16-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "sd",
+          "type": "numeric",
+          "prompt": "Standard deviation of the central derivative estimate.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "independence",
+          "type": "single_choice",
+          "prompt": "If endpoint errors are correlated, what must change?",
+          "options": [
+            "Treat the correlation as two additional independent samples.",
+            "Keep the independent-error formula for every correlation value.",
+            "Include their covariance in the variance of the difference."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "sd",
+            "type": "numeric",
+            "answer": 0.14142135623730948,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "independence",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which units should a numerical derivative carry?",
+        "solution": "Var[(e_right−e_left)/(2h)]=2σ²/(4h²); SD=σ/(sqrt(2)h)≈0.141421. Correlation changes the numerator variance.",
+        "lesson_ids": [
+          "programming-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-17:method-1",
+      "type": "data_interpretation",
+      "prompt": "For synthetic outputs [1,2,3,4,5], compute the sample summaries. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-17-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "mean",
+          "type": "numeric",
+          "prompt": "Sample mean of the five supplied outputs.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "variance",
+          "type": "numeric",
+          "prompt": "Unbiased sample variance of the five outputs.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "se",
+          "type": "numeric",
+          "prompt": "Estimated standard error of the sample mean.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "mean",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "variance",
+            "type": "numeric",
+            "answer": 2.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "se",
+            "type": "numeric",
+            "answer": 0.7071067811865476,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How do output SD and the mean’s standard error differ?",
+        "solution": "The mean is 3 and centered squared deviations sum to 10; divide by 4 for sample variance 2.5, then by N=5 before taking the square root for standard error sqrt(0.5).",
+        "lesson_ids": [
+          "programming-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-17:method-2",
+      "type": "data_interpretation",
+      "prompt": "For independent U~Uniform[0,1], estimate E[U²] using N=10000. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-17-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "target",
+          "type": "numeric",
+          "prompt": "Exact expectation of the squared uniform input.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "se",
+          "type": "numeric",
+          "prompt": "Model standard error using Var(U²)=4/45.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "count",
+          "type": "numeric",
+          "prompt": "Exact draw count for threefold reduction in standard error.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "target",
+            "type": "numeric",
+            "answer": 0.3333333333333333,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "se",
+            "type": "numeric",
+            "answer": 0.00298142396999972,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "count",
+            "type": "numeric",
+            "answer": 90000.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does increasing the Monte Carlo draw count address?",
+        "solution": "Integrating u² gives 1/3; integrating u⁴ gives 1/5 and variance 4/45. Standard error scales as N^−1/2, so a threefold reduction requires nine times the draws.",
+        "lesson_ids": [
+          "programming-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-17:method-3",
+      "type": "data_interpretation",
+      "prompt": "No events occur among 500 independent Bernoulli draws. Use a one-sided exact 95% upper bound. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "programming-17-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "upper",
+          "type": "numeric",
+          "prompt": "Upper probability bound 1−0.05^(1/500).",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "zero",
+          "type": "single_choice",
+          "prompt": "What can zero observed events establish here?",
+          "options": [
+            "The stated interval calculation bounds an unknown event probability under the independent Bernoulli model; it does not prove zero.",
+            "The true probability equals zero exactly.",
+            "The sample standard error proves the event cannot occur."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "upper",
+            "type": "numeric",
+            "answer": 0.005973551516349559,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "zero",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why is zero-event probability reporting delicate?",
+        "solution": "Solve (1−p)^500=0.05 to obtain approximately 0.00597355. A zero plug-in variance is not evidence that the unknown probability vanishes.",
+        "lesson_ids": [
+          "programming-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-17:method-4",
+      "type": "data_interpretation",
+      "prompt": "Use M independent antithetic pairs Z=(U²+(1−U)²)/2. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-17-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "variance",
+          "type": "numeric",
+          "prompt": "Unbiased sample variance of the five outputs.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "factor",
+          "type": "numeric",
+          "prompt": "Ordinary estimator variance divided by paired estimator variance at equal 2M evaluation cost.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "units",
+          "type": "single_choice",
+          "prompt": "Which sampling units are independent in this construction?",
+          "options": [
+            "All 2M paired outputs are independent because they are different numbers.",
+            "Resetting the same seed for every pair creates independent pairs.",
+            "The M pairs are independent; the two function outputs inside each pair are dependent."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "variance",
+            "type": "numeric",
+            "answer": 0.005555555555555556,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "factor",
+            "type": "numeric",
+            "answer": 8.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "units",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Does a seed establish valid Monte Carlo inference?",
+        "solution": "Expanding and integrating gives Var(Z)=1/180. Ordinary variance at 2M draws is 2/(45M), compared with 1/(180M); their ratio is 8 for this function.",
+        "lesson_ids": [
+          "programming-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-18:method-1",
+      "type": "data_interpretation",
+      "prompt": "For A=[[4,1],[2,3]] and b=[6,8], perform elimination and back substitution. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-18-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "multiplier",
+          "type": "numeric",
+          "prompt": "Multiplier for eliminating the lower-left matrix entry.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "x1",
+          "type": "numeric",
+          "prompt": "First component of the linear-system solution vector.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "x2",
+          "type": "numeric",
+          "prompt": "Second component of the linear-system solution vector.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "multiplier",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "x1",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "x2",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why reuse factors instead of an inverse for many right-hand sides?",
+        "solution": "Subtract half the first row: U=[[4,1],[0,2.5]], transformed b=[6,5]. Back substitution gives x2=2, x1=1; substitution into A verifies both equations.",
+        "lesson_ids": [
+          "programming-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-18:method-2",
+      "type": "data_interpretation",
+      "prompt": "For A=[[4,−1],[−1,4]], b=[2,1], start Jacobi iteration from [0,0]. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-18-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "first_x",
+          "type": "numeric",
+          "prompt": "First component after the second iterate.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second_x",
+          "type": "numeric",
+          "prompt": "Second component after the second iterate.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "bound",
+          "type": "numeric",
+          "prompt": "Infinity-norm error bound q/(1−q) times the last iterate change, q=0.25.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "first_x",
+            "type": "numeric",
+            "answer": 0.5625,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "second_x",
+            "type": "numeric",
+            "answer": 0.375,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "bound",
+            "type": "numeric",
+            "answer": 0.041666666666666664,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What distinguishes Jacobi from an in-place update?",
+        "solution": "The first vector is [0.5,0.25], the second [0.5625,0.375]. The last change has infinity norm 0.125 and the geometric-tail bound is (1/3)×0.125=1/24.",
+        "lesson_ids": [
+          "programming-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-18:method-3",
+      "type": "data_interpretation",
+      "prompt": "An n=1000 tridiagonal matrix stores three diagonals with no structural zeros. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-18-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "entries",
+          "type": "numeric",
+          "prompt": "Exact number of potentially nonzero entries, 3n−2.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "bytes",
+          "type": "numeric",
+          "prompt": "Exact bytes for those float64 values alone, 8 per value.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "memory",
+          "type": "single_choice",
+          "prompt": "Does that value-only byte count include sparse index metadata?",
+          "options": [
+            "Yes. Every sparse format stores values without indices or metadata.",
+            "No. Index arrays, object metadata, factors and workspace can add memory.",
+            "It also proves a fixed runtime on all hardware."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "entries",
+            "type": "numeric",
+            "answer": 2998.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "bytes",
+            "type": "numeric",
+            "answer": 23984.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "memory",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can sparse factors be larger than a sparse input?",
+        "solution": "The three diagonals contain n+(n−1)+(n−1)=2998 values. At eight bytes per value this is 23984 value bytes; representation overhead is separate.",
+        "lesson_ids": [
+          "programming-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-18:method-4",
+      "type": "data_interpretation",
+      "prompt": "A nonsingular matrix [[0,1],[2,3]] has a zero first elimination pivot. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "programming-18-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "pivot",
+          "type": "single_choice",
+          "prompt": "Which action preserves the linear-system equations?",
+          "options": [
+            "Swap the corresponding rows in both A and b, then factor the permuted system.",
+            "Replace the zero pivot with one without changing b.",
+            "Declare every zero-leading-entry matrix singular."
+          ],
+          "points": 1
+        },
+        {
+          "id": "residual",
+          "type": "single_choice",
+          "prompt": "What does a small residual alone establish?",
+          "options": [
+            "The physical model has been experimentally validated.",
+            "The solution must have a small relative forward error for any matrix.",
+            "The computed vector nearly solves the stated discrete equations on the selected residual scale; forward error also depends on conditioning."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "pivot",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "residual",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Can a small linear residual prove a sufficiently fine PDE grid?",
+        "solution": "Row permutation applies to both sides. Residual, forward error and physical-model validity answer different questions.",
+        "lesson_ids": [
+          "programming-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-19:method-1",
+      "type": "data_interpretation",
+      "prompt": "For A=[[4,1],[1,4]], use start [1,0] and two unnormalized power products. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-19-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "first",
+          "type": "numeric",
+          "prompt": "First component after two products.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second",
+          "type": "numeric",
+          "prompt": "Second component after two products.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "ratio",
+          "type": "numeric",
+          "prompt": "Magnitude ratio of subdominant to dominant eigenvalues.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "first",
+            "type": "numeric",
+            "answer": 17.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "second",
+            "type": "numeric",
+            "answer": 8.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "ratio",
+            "type": "numeric",
+            "answer": 0.6,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What conditions matter for simple power iteration?",
+        "solution": "The first product is [4,1], the second [17,8]. Eigenpairs are 5 with [1,1] and 3 with [1,−1], so unwanted modal coefficients shrink relative to the dominant by 3/5 per product.",
+        "lesson_ids": [
+          "programming-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-19:method-2",
+      "type": "data_interpretation",
+      "prompt": "For the same A and v=[17,8], estimate an eigenvalue. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "programming-19-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "quotient",
+          "type": "numeric",
+          "prompt": "Rayleigh quotient for the supplied vector and matrix.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "scaling",
+          "type": "single_choice",
+          "prompt": "What happens to this quotient when v is multiplied by a nonzero real scalar?",
+          "options": [
+            "It is unchanged because numerator and denominator scale by the same squared factor.",
+            "It scales by that scalar.",
+            "It always becomes the exact eigenvalue in one step."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "quotient",
+            "type": "numeric",
+            "answer": 4.770538243626063,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "scaling",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why verify an approximate eigenpair directly?",
+        "solution": "Av=[76,49]; vᵀAv=1684 and vᵀv=353. The quotient is 1684/353≈4.770538. It approaches the dominant eigenvalue 5 under the stated modal assumptions.",
+        "lesson_ids": [
+          "programming-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-19:method-3",
+      "type": "data_interpretation",
+      "prompt": "For A=[[4,1],[1,4]], proposed v=[1,0] and λ=4, use infinity norms. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-19-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "residual",
+          "type": "numeric",
+          "prompt": "Infinity norm of Av−λv.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "relative",
+          "type": "numeric",
+          "prompt": "Relative residual norm divided by ||A||∞ ||v||∞.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "slow",
+          "type": "single_choice",
+          "prompt": "For x′=−Ax, which exact mode decays more slowly?",
+          "options": [
+            "The eigenvalue-5 mode because its magnitude is larger.",
+            "The eigenvalue-3 mode, although power iteration on A emphasizes the eigenvalue-5 mode.",
+            "Both modes have identical decay rates."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "residual",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "relative",
+            "type": "numeric",
+            "answer": 0.2,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "slow",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Does dominant mean slowest for every dynamical model?",
+        "solution": "The residual is [0,1], with norm 1. The matrix norm is 5 and vector norm 1, giving relative residual 0.2. Decay rates of −A are −5 and −3.",
+        "lesson_ids": [
+          "programming-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-19:method-4",
+      "type": "data_interpretation",
+      "prompt": "Use inverse iteration on diag(2,5), shift σ=1 and start [1,1]. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-19-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "first",
+          "type": "numeric",
+          "prompt": "First component after one shifted solve.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second",
+          "type": "numeric",
+          "prompt": "Second component after one shifted solve.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "shift",
+          "type": "single_choice",
+          "prompt": "What happens if the shift equals 2 exactly?",
+          "options": [
+            "The solve becomes exact and requires no factorization.",
+            "The shift removes every need for convergence checks.",
+            "The shifted matrix is singular, so the displayed inverse solve is undefined."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "first",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "second",
+            "type": "numeric",
+            "answer": 0.25,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "shift",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can power iteration fail for equal dominant magnitudes?",
+        "solution": "The diagonal shifted system has coefficients 1 and 4, giving [1,0.25]. At shift 2 its first coefficient vanishes. Use solves rather than explicitly constructing an inverse.",
+        "lesson_ids": [
+          "programming-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-20:method-1",
+      "type": "data_interpretation",
+      "prompt": "For G=[x²+y²−10, x−y−2] at (3,0), solve JΔ=−G. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-20-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "dx",
+          "type": "numeric",
+          "prompt": "First component of the coupled Newton correction.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "dy",
+          "type": "numeric",
+          "prompt": "Second component of the coupled Newton correction.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "residual",
+          "type": "numeric",
+          "prompt": "First equation residual after the full correction.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "dx",
+            "type": "numeric",
+            "answer": 0.16666666666666666,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "dy",
+            "type": "numeric",
+            "answer": 1.1666666666666667,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "residual",
+            "type": "numeric",
+            "answer": 1.3888888888888888,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why is elementwise division by a Jacobian not Newton’s method?",
+        "solution": "G=[−1,1] and J=[[6,0],[1,−1]]. The correction is [1/6,7/6]; at [19/6,7/6], G1=25/18 and G2=0. A full correct Newton step can initially grow the residual.",
+        "lesson_ids": [
+          "programming-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-20:method-2",
+      "type": "data_interpretation",
+      "prompt": "For G=[x²+y²−10, x−y−2], evaluate a directional Jacobian product at (3,1) in direction [1,−1]. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-20-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "first",
+          "type": "numeric",
+          "prompt": "First component of the directional Jacobian product.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second",
+          "type": "numeric",
+          "prompt": "Second component of the directional Jacobian product.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "check",
+          "type": "single_choice",
+          "prompt": "Which numerical comparison checks this derivative?",
+          "options": [
+            "Compare Jv with [G(x+hv)−G(x−hv)]/(2h) over a sensible step sweep.",
+            "Compare Jv with G(x) without perturbing x.",
+            "Reset all residual entries to zero before calculating the quotient."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "first",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "second",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "check",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why should a Jacobian check use more than one tiny step?",
+        "solution": "J=[[6,2],[1,−1]], so multiplication by [1,−1] gives [4,2]. Symmetric directional differences supply an independent derivative check.",
+        "lesson_ids": [
+          "programming-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-20:method-3",
+      "type": "data_interpretation",
+      "prompt": "Use F=[x²+y²−5, x−y−1] at (2,0), with correction [0.25,1.25]. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-20-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "full",
+          "type": "numeric",
+          "prompt": "Infinity norm of F after the full correction.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "half",
+          "type": "numeric",
+          "prompt": "Infinity norm after half the correction.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "guarantee",
+          "type": "single_choice",
+          "prompt": "What does the smaller half-step residual establish?",
+          "options": [
+            "Every future full Newton step must decrease every component.",
+            "The mathematical root is unique.",
+            "It improves this declared norm on this trial; it does not prove global convergence from all starts."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "full",
+            "type": "numeric",
+            "answer": 1.625,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "half",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "guarantee",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What is globalization intended to improve?",
+        "solution": "Full step gives F=[1.625,0]. Half step gives F=[−0.09375,0.5]. The norms are 1.625 and 0.5; exact reduction is specific to these trials.",
+        "lesson_ids": [
+          "programming-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-20:method-4",
+      "type": "data_interpretation",
+      "prompt": "A nonlinear solver reports a tiny update while its scaled residual remains large. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "programming-20-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "status",
+          "type": "single_choice",
+          "prompt": "Which report is justified?",
+          "options": [
+            "Declare success because the update is small regardless of the residual.",
+            "Inspect stagnation, conditioning and termination reason; a small update alone is not a verified root.",
+            "Change the residual scale after seeing the answer until it passes."
+          ],
+          "points": 1
+        },
+        {
+          "id": "roots",
+          "type": "single_choice",
+          "prompt": "What does one locally converged root establish about all roots?",
+          "options": [
+            "Only one accepted solution under the stated tests; uniqueness or exhaustive root finding needs separate reasoning.",
+            "It proves no other roots exist.",
+            "It proves every initial guess converges to the same point."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "status",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "roots",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why scale residuals in a multi-equation problem?",
+        "solution": "Track scaled residual, scaled step, feasibility, iteration limits and failure reasons separately. A local solver does not establish uniqueness or physical validity.",
+        "lesson_ids": [
+          "programming-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-21:method-1",
+      "type": "data_interpretation",
+      "prompt": "For y′=−3y, y(0)=2 and h=0.1, perform one Euler, Heun and backward-Euler step. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-21-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "euler",
+          "type": "numeric",
+          "prompt": "Endpoint state from one explicit Euler step.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "heun",
+          "type": "numeric",
+          "prompt": "Endpoint state from one two-stage Heun step.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "backward",
+          "type": "numeric",
+          "prompt": "Endpoint state from one backward Euler step.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "euler",
+            "type": "numeric",
+            "answer": 1.4,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "heun",
+            "type": "numeric",
+            "answer": 1.49,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "backward",
+            "type": "numeric",
+            "answer": 1.5384615384615383,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Does an implicit stable step ensure accuracy?",
+        "solution": "Euler gives 2−0.6=1.4. Heun averages slopes −6 and −4.2, giving 1.49. Backward Euler solves y_new=2−0.3y_new, giving 2/1.3.",
+        "lesson_ids": [
+          "programming-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-21:method-2",
+      "type": "data_interpretation",
+      "prompt": "For y′=−y from 1 with h=0.2, the Euler/Heun pair is 0.8/0.82. Let atol=0.001 and rtol=0.01. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-21-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "error",
+          "type": "numeric",
+          "prompt": "Normalized pair difference using scale atol+rtol×max(1,0.82).",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "next",
+          "type": "numeric",
+          "prompt": "Proposed next h with safety 0.9 and square-root error controller.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "accept",
+          "type": "single_choice",
+          "prompt": "Under a normalized-error threshold of one, what happens?",
+          "options": [
+            "Accept because every local estimate is a global error guarantee.",
+            "Advance time while discarding the trial state.",
+            "Reject this trial and retry without advancing accepted time."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "error",
+            "type": "numeric",
+            "answer": 1.8181818181818183,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "next",
+            "type": "numeric",
+            "answer": 0.13349157276772194,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "accept",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What distinguishes local from global ODE error?",
+        "solution": "The scale is 0.011 and normalized error is about 1.81818, so the trial fails the rule. The tentative step is 0.2×0.9/sqrt(1.81818)≈0.133492.",
+        "lesson_ids": [
+          "programming-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-21:method-3",
+      "type": "data_interpretation",
+      "prompt": "For y′=−1000y, apply explicit Euler with h=0.01. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-21-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "multiplier",
+          "type": "numeric",
+          "prompt": "Fast-mode amplification factor for the declared Euler step.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "bound",
+          "type": "numeric",
+          "prompt": "Strict stability upper endpoint for h, requiring 0<h<bound.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "stability",
+          "type": "single_choice",
+          "prompt": "What is the behavior of this numerical fast mode?",
+          "options": [
+            "It decays accurately because h is small relative to one.",
+            "It alternates and grows in magnitude, while the exact mode decays.",
+            "It is physically valid whenever another mode varies slowly."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "multiplier",
+            "type": "numeric",
+            "answer": -9.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "bound",
+            "type": "numeric",
+            "answer": 0.002,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "stability",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can a fast decaying mode constrain an explicit method?",
+        "solution": "The multiplier is 1−1000×0.01=−9. The inequality |1−1000h|<1 yields 0<h<0.002. The endpoint itself is marginal, not strictly asymptotically stable.",
+        "lesson_ids": [
+          "programming-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-21:method-4",
+      "type": "data_interpretation",
+      "prompt": "For a′=−ka and b′=ka, a solver preserves a+b but uses a coarse time grid. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "programming-21-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "conservation",
+          "type": "single_choice",
+          "prompt": "What does the preserved total establish?",
+          "options": [
+            "One linear balance is preserved; timing accuracy, positivity and model validity still need separate checks.",
+            "Every state is accurate because their sum is correct.",
+            "The equations have been experimentally validated."
+          ],
+          "points": 1
+        },
+        {
+          "id": "event",
+          "type": "single_choice",
+          "prompt": "How should a threshold crossing between saved times be handled?",
+          "options": [
+            "Assign it to the next saved time and call the result exact.",
+            "Infer it from the final total without examining time.",
+            "Use a declared event-location method and verify its accuracy/direction; saved output times alone do not locate it exactly."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "conservation",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "event",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What should a reproducible ODE report retain?",
+        "solution": "Conservation can hold even for poor time trajectories. Events require their own interpolation/root-location assumptions and convergence checks.",
+        "lesson_ids": [
+          "programming-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-22:method-1",
+      "type": "data_interpretation",
+      "prompt": "Apply Assignment 1’s finite-positive length contract, supported units and first-identical-occurrence duplicate policy. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-22-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "accepted",
+          "type": "numeric",
+          "prompt": "Exact count of retained valid observations.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "excluded",
+          "type": "numeric",
+          "prompt": "Exact count of excluded rows including later duplicates.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "specimens",
+          "type": "numeric",
+          "prompt": "Exact count of represented valid specimens.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "accepted",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "excluded",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "specimens",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why preserve rejected data in a ledger?",
+        "solution": "Keep the first four rows; exclude the repeated r4, NaN, negative length and unsupported nm row. Four retained rows represent two specimens.",
+        "lesson_ids": [
+          "programming-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-22:method-2",
+      "type": "data_interpretation",
+      "prompt": "Using the accepted Assignment 1 records, calculate equally weighted specimen summaries in mm. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "programming-22-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "s1",
+          "type": "numeric",
+          "prompt": "S1 mean length in mm.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "s2",
+          "type": "numeric",
+          "prompt": "S2 mean length in mm.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "overall",
+          "type": "numeric",
+          "prompt": "Equal-specimen-weight mean in mm.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "unit",
+          "type": "single_choice",
+          "prompt": "Which unit of analysis matches the declared target?",
+          "options": [
+            "Each specimen receives equal weight after its technical repeats are summarized.",
+            "Each repeat creates an additional independent specimen.",
+            "Rejected specimens contribute a zero length."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "s1",
+            "type": "numeric",
+            "answer": 0.11,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "s2",
+            "type": "numeric",
+            "answer": 0.21,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "overall",
+            "type": "numeric",
+            "answer": 0.16,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "unit",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Can technical repeats change the independent specimen count?",
+        "solution": "S1 lengths 0.100/0.120 average 0.110; S2 lengths 0.200/0.220 average 0.210. Their equal-weight mean is 0.160 mm. No zero is invented for absent specimens.",
+        "lesson_ids": [
+          "programming-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-23:method-1",
+      "type": "data_interpretation",
+      "prompt": "A separate table (0,1),(0.5,1.75),(1,3) has interpolant p(x)=x²+x+1. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-23-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "value",
+          "type": "numeric",
+          "prompt": "Interpolated value at x=0.25.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "integral",
+          "type": "numeric",
+          "prompt": "Integral of p over [0,1].",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "truth",
+          "type": "single_choice",
+          "prompt": "What does exact agreement at the three nodes establish?",
+          "options": [
+            "The true generating function must equal p everywhere.",
+            "Extrapolation outside the interval is validated automatically.",
+            "The interpolant satisfies those constraints; other functions can match them and differ between nodes."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "value",
+            "type": "numeric",
+            "answer": 1.3125,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "integral",
+            "type": "numeric",
+            "answer": 1.8333333333333333,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "truth",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must an interpolation validation report separate?",
+        "solution": "Substitute 0.25 to obtain 1.3125; integrate x²+x+1 to get 1/3+1/2+1=11/6. Adding c x(x−0.5)(x−1) preserves nodes and changes intermediate values.",
+        "lesson_ids": [
+          "programming-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-23:method-2",
+      "type": "data_interpretation",
+      "prompt": "For f(x)=x² on [0,1], coarse/fine trapezoids are 0.375 and 0.34375. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-23-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "error",
+          "type": "numeric",
+          "prompt": "Fine approximation minus exact integral.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "extrapolated",
+          "type": "numeric",
+          "prompt": "Second-order Richardson extrapolated integral.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "comparison",
+          "type": "single_choice",
+          "prompt": "What is required for a meaningful refinement comparison?",
+          "options": [
+            "Change the equation and grid together until the values agree.",
+            "Keep the function, interval and problem fixed while changing the grid.",
+            "Check only how many decimal digits are printed."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "error",
+            "type": "numeric",
+            "answer": 0.010416666666666666,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "extrapolated",
+            "type": "numeric",
+            "answer": 0.3333333333333333,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "comparison",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why use more than exact-polynomial tests?",
+        "solution": "The exact integral is 1/3. Fine error is 1/96 and (4×0.34375−0.375)/3=1/3. The quadratic’s exact error form makes this a useful test, not a universal guarantee.",
+        "lesson_ids": [
+          "programming-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-24:method-1",
+      "type": "data_interpretation",
+      "prompt": "For U~Uniform[0,1], the targets are E[U²] and P(U²>0.64). Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-24-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "mean",
+          "type": "numeric",
+          "prompt": "Exact expectation of the squared uniform input.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "probability",
+          "type": "numeric",
+          "prompt": "Exact probability of the stated threshold event.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "dependence",
+          "type": "single_choice",
+          "prompt": "If both outputs use the same U draws, how should they be treated?",
+          "options": [
+            "The two estimates from one run can be dependent; report the shared sampling design.",
+            "They are independent because one is a mean and one a probability.",
+            "Using a seed removes their dependence."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "mean",
+            "type": "numeric",
+            "answer": 0.3333333333333333,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "probability",
+            "type": "numeric",
+            "answer": 0.2,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "dependence",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why define an event threshold before looking at simulations?",
+        "solution": "Integrate u² to get 1/3. On [0,1], U²>0.64 is U>0.8, with probability 0.2. Reusing inputs creates a shared-design dependence.",
+        "lesson_ids": [
+          "programming-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-24:method-2",
+      "type": "data_interpretation",
+      "prompt": "An approximate inner output is g_h(U)=U²+h with h=0.01. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-24-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "expectation",
+          "type": "numeric",
+          "prompt": "Expectation of the approximate output.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "bias",
+          "type": "numeric",
+          "prompt": "Bias relative to the intended E[U²].",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "samples",
+          "type": "single_choice",
+          "prompt": "What happens as independent sample count grows at fixed h?",
+          "options": [
+            "The bias necessarily vanishes like N^−1/2.",
+            "The approximation becomes experimentally validated.",
+            "Sampling scatter decreases around the biased target; the fixed 0.01 bias remains."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "expectation",
+            "type": "numeric",
+            "answer": 0.3433333333333333,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "bias",
+            "type": "numeric",
+            "answer": 0.01,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "samples",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does a two-axis numerical/sampling study reveal?",
+        "solution": "E[g_h]=1/3+0.01. Its bias is 0.01 independent of N. Vary both approximation resolution and sample count to separate these errors.",
+        "lesson_ids": [
+          "programming-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-25:method-1",
+      "type": "data_interpretation",
+      "prompt": "For A_3 with diagonal 2/off-diagonal −1, use manufactured u=[1,2,1]. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-25-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "center",
+          "type": "numeric",
+          "prompt": "Middle component of b=A_3 u.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "ends",
+          "type": "single_choice",
+          "prompt": "What are the two boundary-row components of b?",
+          "options": [
+            "Both are zero; the matrix acts on the declared interior vector with homogeneous endpoints.",
+            "Both are two because every row is an interior row with two neighbors.",
+            "They are unknown until an external experiment is performed."
+          ],
+          "points": 1
+        },
+        {
+          "id": "evidence",
+          "type": "single_choice",
+          "prompt": "What does recovering u from this b verify?",
+          "options": [
+            "All future matrices are well-conditioned.",
+            "The continuous PDE is solved exactly on every grid.",
+            "The declared discrete solver and assembly on this test, not physical-model validity or all input cases."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "center",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "ends",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "evidence",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why manufacture a known solution?",
+        "solution": "The row products are 2×1−2=0, −1+4−1=2 and −2+2×1=0. Recovery checks assembly/solve for this manufactured case.",
+        "lesson_ids": [
+          "programming-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-25:method-2",
+      "type": "data_interpretation",
+      "prompt": "For the same A_3, eigenvalues are 2−2cos(jπ/4), j=1,2,3. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-25-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "small",
+          "type": "numeric",
+          "prompt": "Smallest eigenvalue of the stated three-row matrix.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "large",
+          "type": "numeric",
+          "prompt": "Largest eigenvalue of the stated three-row matrix.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "direction",
+          "type": "single_choice",
+          "prompt": "What should be checked besides a numerical eigenvalue?",
+          "options": [
+            "Only compare the number of iterations across unrelated machines.",
+            "Normalize a nonzero vector and inspect Av−λv with a declared scale and norm.",
+            "Require a library to choose the same overall eigenvector sign."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "small",
+            "type": "numeric",
+            "answer": 0.5857864376269049,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "large",
+            "type": "numeric",
+            "answer": 3.414213562373095,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "direction",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What is a meaningful eigenvector comparison?",
+        "solution": "Using cos(π/4)=sqrt(2)/2 gives the extreme eigenvalues 2±sqrt(2). Sign/scale ambiguity means the defining-equation residual is a better verification target than a raw component match.",
+        "lesson_ids": [
+          "programming-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-26:method-1",
+      "type": "data_interpretation",
+      "prompt": "For a′=−a, b′=a−2b, c′=2b, initial [1,0,0], evaluate at t=1. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "programming-26-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "a",
+          "type": "numeric",
+          "prompt": "Exact first-compartment state at time t equals one.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "b",
+          "type": "numeric",
+          "prompt": "Exact second-compartment state at time t equals one.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "c",
+          "type": "numeric",
+          "prompt": "Exact cumulative-loss state at time t equals one.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "balance",
+          "type": "single_choice",
+          "prompt": "What does a+b+c=1 establish by itself?",
+          "options": [
+            "The stated total is conserved; accurate timing and state values still need independent checks.",
+            "Every time trajectory is accurate whenever the sum is one.",
+            "The transfer mechanism has been experimentally verified."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "a",
+            "type": "numeric",
+            "answer": 0.36787944117144233,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "b",
+            "type": "numeric",
+            "answer": 0.23254415793482963,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "c",
+            "type": "numeric",
+            "answer": 0.39957640089372803,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "balance",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can conservation alone miss an ODE defect?",
+        "solution": "Solve a=e^−t, then b=e^−t−e^−2t by an integrating factor, with c=1−a−b. At t=1 they are approximately 0.36787944, 0.23254416 and 0.39957640.",
+        "lesson_ids": [
+          "programming-26"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
+    },
+    {
+      "id": "programming-26:method-2",
+      "type": "data_interpretation",
+      "prompt": "For the same transfer model, compare equal rates k=ℓ=1 and a separate random k~Uniform[0.8,1.2], ℓ=2. Report continuous numeric fields as bare numbers in the stated units to three significant figures; use whole numbers for exact counts. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "programming-26-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "equal",
+          "type": "numeric",
+          "prompt": "Exact b(1) in the repeated-rate limit.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "mean",
+          "type": "numeric",
+          "prompt": "Exact E[a(1)] for the stated uniform k distribution.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "model",
+          "type": "single_choice",
+          "prompt": "What does a narrow Monte Carlo interval for this expectation establish?",
+          "options": [
+            "The rate distribution has been experimentally verified.",
+            "All model and integration uncertainty is removed.",
+            "Precision conditional on the stated distribution and numerical method; it does not validate that distribution for a real population."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "equal",
+            "type": "numeric",
+            "answer": 0.36787944117144233,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "mean",
+            "type": "numeric",
+            "answer": 0.37033688051254854,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "model",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How should a nearly repeated-rate reference be evaluated?",
+        "solution": "At equal rates b(t)=t e^−t, so b(1)=e^−1. For uniform k, integrate e^−k over [0.8,1.2] and divide by 0.4, giving approximately 0.37033688.",
+        "lesson_ids": [
+          "programming-26"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic numerical-methods practice developed with substantial AI assistance; no external exercise or code copied."
+        ]
+      }
     }
   ]
 }

@@ -7,7 +7,7 @@
   "domain": "Bioengineering",
   "level": "Year 3",
   "maturity": "partial",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -62,6 +62,11 @@
     {
       "id": "transport-outcome-6",
       "description": "Relate chemical-potential differences to reaction Gibbs energy and equilibrium, and calculate composition for a stated ideal mixture.",
+      "bloom": "analyze"
+    },
+    {
+      "id": "transport-outcome-7",
+      "description": "Analyze phase partitioning, nonideal mixture stability and electrochemical or osmotic driving forces under explicit thermodynamic and transport assumptions.",
       "bloom": "analyze"
     }
   ],
@@ -468,6 +473,164 @@
         "transport-outcome-3",
         "transport-outcome-4"
       ]
+    },
+    {
+      "id": "transport-17-objective-1",
+      "description": "Combine phase partitioning with a conserved solute balance.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "transport-outcome-7"
+      ]
+    },
+    {
+      "id": "transport-17-objective-2",
+      "description": "Distinguish a lever balance from determining coexistence.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "transport-outcome-7"
+      ]
+    },
+    {
+      "id": "transport-17-objective-3",
+      "description": "Use free-energy curvature to diagnose local mixture stability.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "transport-outcome-7"
+      ]
+    },
+    {
+      "id": "transport-17-objective-4",
+      "description": "Keep activity corrections and concentration ratios consistent.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "transport-outcome-7"
+      ]
+    },
+    {
+      "id": "transport-18-objective-1",
+      "description": "Combine chemical and electrical contributions with a declared direction.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "transport-outcome-7"
+      ]
+    },
+    {
+      "id": "transport-18-objective-2",
+      "description": "Evaluate a coupled energy ledger without claiming a mechanism.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "transport-outcome-7"
+      ]
+    },
+    {
+      "id": "transport-18-objective-3",
+      "description": "Distinguish an ion equilibrium voltage from an arbitrary multi-ion membrane voltage.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "transport-outcome-7"
+      ]
+    },
+    {
+      "id": "transport-18-objective-4",
+      "description": "Connect osmotic pressure to a direction-labeled solvent flux law.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "transport-outcome-7"
+      ]
+    },
+    {
+      "id": "transport-19-objective-1",
+      "description": "Derive explicit positivity bounds from the actual balance stencil.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "transport-outcome-1",
+        "transport-outcome-2",
+        "transport-outcome-4"
+      ]
+    },
+    {
+      "id": "transport-19-objective-2",
+      "description": "Verify a conservative update and its unit of stored amount.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "transport-outcome-1",
+        "transport-outcome-2",
+        "transport-outcome-4"
+      ]
+    },
+    {
+      "id": "transport-19-objective-3",
+      "description": "Use a continuum reference to verify cell-centered boundary assembly.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "transport-outcome-1",
+        "transport-outcome-2",
+        "transport-outcome-4"
+      ]
+    },
+    {
+      "id": "transport-19-objective-4",
+      "description": "Distinguish positivity, conservation, accuracy and model validity.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "transport-outcome-1",
+        "transport-outcome-2",
+        "transport-outcome-4"
+      ]
+    },
+    {
+      "id": "transport-20-objective-1",
+      "description": "Build an activity-consistent partition and conservation report.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "transport-outcome-7"
+      ]
+    },
+    {
+      "id": "transport-20-objective-2",
+      "description": "Report conditional phase amounts without conflating local stability and coexistence.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "transport-outcome-7"
+      ]
+    },
+    {
+      "id": "transport-21-objective-1",
+      "description": "Verify an electrochemical coupling budget with its next-integer failure.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "transport-outcome-1",
+        "transport-outcome-7"
+      ]
+    },
+    {
+      "id": "transport-21-objective-2",
+      "description": "Combine osmotic flux with evolving closed-reservoir balances.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "transport-outcome-1",
+        "transport-outcome-7"
+      ]
+    },
+    {
+      "id": "transport-22-objective-1",
+      "description": "Verify local face transfers against a global discrete amount balance.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "transport-outcome-1",
+        "transport-outcome-2",
+        "transport-outcome-4"
+      ]
+    },
+    {
+      "id": "transport-22-objective-2",
+      "description": "Separate reaction-diffusion resolution and global conservation checks.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "transport-outcome-1",
+        "transport-outcome-2",
+        "transport-outcome-4"
+      ]
     }
   ],
   "duration": {
@@ -492,40 +655,48 @@
         "week": 2,
         "title": "Well-mixed chambers: residence time, wash-in and washout, and tanks in series",
         "lesson_ids": [
-          "transport-12"
+          "transport-12",
+          "transport-17"
         ],
         "assessment_ids": [
-          "transport-12-practice"
+          "transport-12-practice",
+          "transport-17-practice"
         ]
       },
       {
         "week": 3,
         "title": "Diffusion, reaction and characteristic length",
         "lesson_ids": [
-          "transport-2"
+          "transport-2",
+          "transport-18"
         ],
         "assessment_ids": [
-          "transport-2-practice"
+          "transport-2-practice",
+          "transport-18-practice"
         ]
       },
       {
         "week": 4,
         "title": "Transient diffusion: penetration depth, the error function and equilibration times",
         "lesson_ids": [
-          "transport-7"
+          "transport-7",
+          "transport-19"
         ],
         "assessment_ids": [
-          "transport-7-practice"
+          "transport-7-practice",
+          "transport-19-practice"
         ]
       },
       {
         "week": 5,
         "title": "Oxygen limits in thick constructs: zero-order uptake, critical thickness and time scales",
         "lesson_ids": [
-          "transport-5"
+          "transport-5",
+          "transport-20"
         ],
         "assessment_ids": [
-          "transport-5-practice"
+          "transport-5-practice",
+          "transport-20-practice"
         ]
       },
       {
@@ -573,11 +744,13 @@
         "title": "Perfusing a culture through tubing: control-volume balances, pressure drop and energy balances",
         "lesson_ids": [
           "transport-6",
-          "transport-16"
+          "transport-16",
+          "transport-21"
         ],
         "assessment_ids": [
           "transport-6-practice",
-          "transport-16-practice"
+          "transport-16-practice",
+          "transport-21-practice"
         ]
       },
       {
@@ -616,12 +789,14 @@
         "week": 14,
         "title": "A perfused construct with a hypoxic center: advection supplies the channel, diffusion supplies the tissue",
         "lesson_ids": [
-          "transport-13"
+          "transport-13",
+          "transport-22"
         ],
         "assessment_ids": [
           "transport-13-practice",
           "transport-case",
-          "transport-slab-project"
+          "transport-slab-project",
+          "transport-22-practice"
         ]
       }
     ]
@@ -1266,6 +1441,192 @@
           ]
         }
       ]
+    },
+    {
+      "id": "transport-module-17",
+      "title": "Activities, phase partitioning and nonideal stability",
+      "source_ids": [
+        "transport-entropy-thermo",
+        "transport"
+      ],
+      "lessons": [
+        {
+          "id": "transport-17",
+          "title": "Activities, phase partitioning and nonideal stability",
+          "reading": "modules/mixtures-and-phase-equilibrium.md",
+          "objectives": [
+            "transport-17-objective-1",
+            "transport-17-objective-2",
+            "transport-17-objective-3",
+            "transport-17-objective-4"
+          ],
+          "worked_example": "Use n=cα(Vα+Kp Vβ), so cα=0.010/0.005=2 mol/m³ and cβ=6 mol/m³. Their amounts are 0.004 and 0.006 mol, summing to the supplied total; the ratio is three. Concentrations differ at equilibrium because the phase standard-state contributions can differ.",
+          "question_ids": [
+            "transport-17:depth-1",
+            "transport-17:depth-2",
+            "transport-17:depth-3",
+            "transport-17:depth-4"
+          ],
+          "card_ids": [
+            "transport-17-card-1",
+            "transport-17-card-2",
+            "transport-17-card-3",
+            "transport-17-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transport-module-18",
+      "title": "Electrochemical potentials, coupled energy and solvent flux",
+      "source_ids": [
+        "transport-entropy-thermo",
+        "transport"
+      ],
+      "lessons": [
+        {
+          "id": "transport-18",
+          "title": "Electrochemical potentials, coupled energy and solvent flux",
+          "reading": "modules/electrochemical-coupling.md",
+          "objectives": [
+            "transport-18-objective-1",
+            "transport-18-objective-2",
+            "transport-18-objective-3",
+            "transport-18-objective-4"
+          ],
+          "worked_example": "The chemical term is RT ln2≈1728.8477 J/mol and the electrical term is −964.85 J/mol. Their sum is approximately 763.99770 J/mol, so this declared transfer is uphill. Reversing the transfer reverses both terms; changing the ion charge reverses only its electrical contribution.",
+          "question_ids": [
+            "transport-18:depth-1",
+            "transport-18:depth-2",
+            "transport-18:depth-3",
+            "transport-18:depth-4"
+          ],
+          "card_ids": [
+            "transport-18-card-1",
+            "transport-18-card-2",
+            "transport-18-card-3",
+            "transport-18-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transport-module-19",
+      "title": "Finite-volume diffusion, boundary geometry and conservation",
+      "source_ids": [
+        "transport-entropy-thermo",
+        "transport"
+      ],
+      "lessons": [
+        {
+          "id": "transport-19",
+          "title": "Finite-volume diffusion, boundary geometry and conservation",
+          "reading": "modules/conservative-diffusion-models.md",
+          "objectives": [
+            "transport-19-objective-1",
+            "transport-19-objective-2",
+            "transport-19-objective-3",
+            "transport-19-objective-4"
+          ],
+          "worked_example": "For no sink, r≤0.5 gives Δt≤0.5Δx²/D=2.5 s. Adding the first-order sink changes the self coefficient, giving Δt≤1/(2D/Δx²+k)=2 s. These are sufficient positivity tests for this no-flux uniform formulation, not universal boundary or accuracy guarantees.",
+          "question_ids": [
+            "transport-19:depth-1",
+            "transport-19:depth-2",
+            "transport-19:depth-3",
+            "transport-19:depth-4"
+          ],
+          "card_ids": [
+            "transport-19-card-1",
+            "transport-19-card-2",
+            "transport-19-card-3",
+            "transport-19-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transport-module-20",
+      "title": "Assignment 1: phase and free-energy ledger",
+      "source_ids": [
+        "transport-entropy-thermo",
+        "transport"
+      ],
+      "lessons": [
+        {
+          "id": "transport-20",
+          "title": "Assignment 1: phase and free-energy ledger",
+          "reading": "assignments/coursework-01-phase-ledger.md",
+          "objectives": [
+            "transport-20-objective-1",
+            "transport-20-objective-2"
+          ],
+          "worked_example": "The concentration ratio is 4×0.8/1.6=2. The balance denominator is 0.004+2×0.001=0.006 m³, giving cα=2 and cβ=4 mol/m³. Amounts 0.008 and 0.004 mol close the supplied total; the corrected activity ratio is four.",
+          "question_ids": [
+            "transport-20:depth-1",
+            "transport-20:depth-2"
+          ],
+          "card_ids": [
+            "transport-20-card-1",
+            "transport-20-card-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transport-module-21",
+      "title": "Assignment 2: coupled reservoirs and energy ledgers",
+      "source_ids": [
+        "transport-entropy-thermo",
+        "transport"
+      ],
+      "lessons": [
+        {
+          "id": "transport-21",
+          "title": "Assignment 2: coupled reservoirs and energy ledgers",
+          "reading": "assignments/coursework-02-coupled-reservoirs.md",
+          "objectives": [
+            "transport-21-objective-1",
+            "transport-21-objective-2"
+          ],
+          "worked_example": "Add RT ln3 to −964.85 J/mol for the transfer cost, then check integer multiples against 10000 J per event. Five transfers are favorable while six exceed the supply. The ledger does not demonstrate a physical coupling mechanism.",
+          "question_ids": [
+            "transport-21:depth-1",
+            "transport-21:depth-2"
+          ],
+          "card_ids": [
+            "transport-21-card-1",
+            "transport-21-card-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transport-module-22",
+      "title": "Assignment 3: conservative transport verification",
+      "source_ids": [
+        "transport-entropy-thermo",
+        "transport"
+      ],
+      "lessons": [
+        {
+          "id": "transport-22",
+          "title": "Assignment 3: conservative transport verification",
+          "reading": "assignments/coursework-03-transport-verification.md",
+          "objectives": [
+            "transport-22-objective-1",
+            "transport-22-objective-2"
+          ],
+          "worked_example": "Use the old vector in every component: the update is [0.2,0.6,0.2,0]. Its sum remains one. A mixed-time in-place update implements a different algorithm, so both the first-step vector and global total belong in the tests.",
+          "question_ids": [
+            "transport-22:depth-1",
+            "transport-22:depth-2"
+          ],
+          "card_ids": [
+            "transport-22-card-1",
+            "transport-22-card-2"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -1713,6 +2074,131 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "transport-17-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Activities, phase partitioning and nonideal stability (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 2,
+      "objective_ids": [
+        "transport-17-objective-1",
+        "transport-17-objective-2",
+        "transport-17-objective-3",
+        "transport-17-objective-4",
+        "transport-outcome-7"
+      ],
+      "question_ids": [
+        "transport-17:depth-1",
+        "transport-17:depth-2",
+        "transport-17:depth-3",
+        "transport-17:depth-4"
+      ],
+      "points": 11
+    },
+    {
+      "id": "transport-18-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Electrochemical potentials, coupled energy and solvent flux (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 3,
+      "objective_ids": [
+        "transport-18-objective-1",
+        "transport-18-objective-2",
+        "transport-18-objective-3",
+        "transport-18-objective-4",
+        "transport-outcome-7"
+      ],
+      "question_ids": [
+        "transport-18:depth-1",
+        "transport-18:depth-2",
+        "transport-18:depth-3",
+        "transport-18:depth-4"
+      ],
+      "points": 10
+    },
+    {
+      "id": "transport-19-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Finite-volume diffusion, boundary geometry and conservation (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 4,
+      "objective_ids": [
+        "transport-19-objective-1",
+        "transport-19-objective-2",
+        "transport-19-objective-3",
+        "transport-19-objective-4",
+        "transport-outcome-1",
+        "transport-outcome-2",
+        "transport-outcome-4"
+      ],
+      "question_ids": [
+        "transport-19:depth-1",
+        "transport-19:depth-2",
+        "transport-19:depth-3",
+        "transport-19:depth-4"
+      ],
+      "points": 11
+    },
+    {
+      "id": "transport-20-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 1: phase and free-energy ledger (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 5,
+      "objective_ids": [
+        "transport-20-objective-1",
+        "transport-20-objective-2",
+        "transport-outcome-7"
+      ],
+      "question_ids": [
+        "transport-20:depth-1",
+        "transport-20:depth-2"
+      ],
+      "points": 5
+    },
+    {
+      "id": "transport-21-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 2: coupled reservoirs and energy ledgers (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 10,
+      "objective_ids": [
+        "transport-21-objective-1",
+        "transport-21-objective-2",
+        "transport-outcome-1",
+        "transport-outcome-7"
+      ],
+      "question_ids": [
+        "transport-21:depth-1",
+        "transport-21:depth-2"
+      ],
+      "points": 6
+    },
+    {
+      "id": "transport-22-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 3: conservative transport verification (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 14,
+      "objective_ids": [
+        "transport-22-objective-1",
+        "transport-22-objective-2",
+        "transport-outcome-1",
+        "transport-outcome-2",
+        "transport-outcome-4"
+      ],
+      "question_ids": [
+        "transport-22:depth-1",
+        "transport-22:depth-2"
+      ],
+      "points": 7
     }
   ],
   "grading_policy": {
@@ -1822,19 +2308,24 @@
       "version": "0.5.0",
       "date": "2026-10-20",
       "summary": "Made the planned heat-generation slab project usable by learners as ungraded practice. Week 13 gains an optional project guide with the project's slab, conditions and five tasks, a worked example on a separate slab with a Biot number of 1.0, a rehearsal slab with a small Biot number and five open rehearsal practice items; five project milestones are Case studio self-checks with a week-14 project record. The oxygen-profile lab's dataset link now points to the package-pinned CSV instead of a mutable repository URL. The inactive project draft is unchanged; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.6.0",
+      "date": "2026-10-22",
+      "summary": "Expanded thermodynamics/transport toward semester depth with original instruction on activities/phase equilibrium and local nonideal stability, electrochemical/coupled/osmotic driving forces, and conservative finite-volume diffusion/boundary verification; three connected paper/simulation assignments and 18 public checkpoint items/cards join existing calendar blocks. The package remains partial, unreviewed and formative-only; no learner code or prose is graded."
     }
   ],
   "limitations": [
     "All four former compact legacy readings now have expanded instruction beside original lessons, including one synthetic-data virtual lab; this package is not equivalent to a full university semester.",
-    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm or cumulative final. An optional heat-generation slab project guide with rehearsal practice and Case studio milestone self-checks (weeks 13–14) is ungraded practice; the separate project draft stays inactive.",
+    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no graded homework sequence, laboratory sequence, midterm or cumulative final. An optional heat-generation slab project guide with rehearsal practice and Case studio milestone self-checks (weeks 13–14) is ungraded practice; the separate project draft stays inactive.",
     "Practice items are short formative checks (two to four per expanded prototype unit and five to eleven per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
-    "Of the 91 numerical answers in this package, 28 require a unit, 7 check significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
     "Total workload and weekly duration are unknown; former nominal credit values and hardcoded reading times do not establish workload.",
     "All constructs, solutes, cells and numbers are synthetic teaching examples; this package gives no laboratory protocols, handling procedures or medical advice and says nothing about any real tissue, device or process. The formulas are first-order textbook estimates, not design methods.",
-    "Chemical-potential coverage is restricted to one ideal dilute A⇌B reaction at fixed temperature; ionic electrochemical potentials, coupled reactions, nonideal solutions and phase equilibrium remain outside the authored sequence.",
-    "The heat-generation slab project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses a separate synthetic slab, and no software check evaluates a learner's derivation or written interpretation. Milestone weeks are planning suggestions, not measured workload or deadlines."
+    "The heat-generation slab project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses a separate synthetic slab, and no software check evaluates a learner's derivation or written interpretation. Milestone weeks are planning suggestions, not measured workload or deadlines.",
+    "New thermodynamics and finite-volume readings develop selected phase/activity, electrochemical/osmotic/coupled-energy and conservative discretization models with three open coursework packets. General nonideal phase diagrams, statistical thermodynamics, self-consistent multi-ion fields and general CFD remain outside the selected combined scope. Code, derivations, plots and reports are not automatically evaluated; workload and qualified review remain open.",
+    "Of the 129 numerical answers, 28 require a unit, 43 check significant figures and 0 check dimensions. New continuous checkpoints request three significant figures; exact stoichiometric counts use integers."
   ],
   "intentionally_omitted": [
     "Graded assessments, an activated integrative project and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package."

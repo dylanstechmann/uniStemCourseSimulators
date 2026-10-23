@@ -4236,6 +4236,2440 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "statistics-project:rehearsal-1",
+      "type": "data_interpretation",
+      "prompt": "Confirmatory-protocol dossier rehearsal · Independent units and observations. Rehearsal pilot: 8 independent units per arm, 4 technical readings each, 20 explored markers. New independent two-arm planning target: delta = 3 assay points, sigma = 6 (sensitivity 7.5), two-sided alpha = 0.05, power = 0.80, stipulated z values 1.96 and 0.842, attrition 10%. A separate 20-test secondary family has FWER target 0.05. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 3,
+      "objective_ids": [
+        "statistics-project-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "units",
+          "type": "numeric",
+          "prompt": "Exact total independent-unit count in the rehearsal pilot.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "observations",
+          "type": "numeric",
+          "prompt": "Exact total technical-observation count in that pilot.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "analysis_unit",
+          "type": "single_choice",
+          "prompt": "Which count belongs in an independent-unit comparison between the two rehearsal arms?",
+          "options": [
+            "Thirty-two independent units per arm because each technical reading is a new randomized unit.",
+            "Eight independent units per arm; four readings per unit improve the within-unit observation, not the number randomized.",
+            "Sixty-four independent units in each arm."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "units",
+            "type": "numeric",
+            "answer": 16.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "observations",
+            "type": "numeric",
+            "answer": 64.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "analysis_unit",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must agree in a confirmatory protocol’s unit definitions?",
+        "solution": "There are 8×2 = 16 independent units and 16×4 = 64 technical readings. Randomization and the scientific contrast are at the unit level; treating all readings as independent would change the sampling model rather than create new units.",
+        "lesson_ids": [
+          "statistics-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "statistics-project:rehearsal-2",
+      "type": "data_interpretation",
+      "prompt": "Confirmatory-protocol dossier rehearsal · Question and estimand before new data. Rehearsal pilot: 8 independent units per arm, 4 technical readings each, 20 explored markers. New independent two-arm planning target: delta = 3 assay points, sigma = 6 (sensitivity 7.5), two-sided alpha = 0.05, power = 0.80, stipulated z values 1.96 and 0.842, attrition 10%. A separate 20-test secondary family has FWER target 0.05. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 3,
+      "objective_ids": [
+        "statistics-project-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "estimand",
+          "type": "single_choice",
+          "prompt": "Which rehearsal primary estimand is specified clearly enough for planning?",
+          "options": [
+            "Difference in mean change in the fictional assay score at the declared follow-up between two independently randomized arms.",
+            "Whichever of twenty markers has the smallest future p-value.",
+            "Any interesting difference discovered after exclusions are chosen."
+          ],
+          "points": 1
+        },
+        {
+          "id": "target",
+          "type": "single_choice",
+          "prompt": "Why use the declared 3-point smallest effect of interest rather than the selected pilot estimate?",
+          "options": [
+            "The selected pilot effect is automatically unbiased because its p-value was small.",
+            "A small pilot p-value uniquely determines a sample size.",
+            "It fixes the planning question independently of a selected noisy pilot effect; its substantive rationale still must be stated."
+          ],
+          "points": 1
+        },
+        {
+          "id": "model",
+          "type": "single_choice",
+          "prompt": "What model choice matches two independently allocated arms under the supplied approximation?",
+          "options": [
+            "A paired analysis with arbitrary matching of rows after outcomes are known.",
+            "A predeclared independent-group mean contrast with stated variance assumptions, not a paired test invented after seeing values.",
+            "An independent test on every technical reading, ignoring unit IDs."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "estimand",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "target",
+            "type": "single_choice",
+            "answer": 2
+          },
+          {
+            "id": "model",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What separates a predeclared primary question from an exploratory choice?",
+        "solution": "Fix one outcome, timepoint and arm contrast before collecting new observations. The 3-point target is a stipulated smallest effect of interest, not a selected pilot estimate. The analysis model must reflect independent allocation and the declared variance assumptions; pre-specification does not by itself make those assumptions true.",
+        "lesson_ids": [
+          "statistics-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "statistics-project:rehearsal-3",
+      "type": "data_interpretation",
+      "prompt": "Confirmatory-protocol dossier rehearsal · Sample size, sensitivity and attrition. Rehearsal pilot: 8 independent units per arm, 4 technical readings each, 20 explored markers. New independent two-arm planning target: delta = 3 assay points, sigma = 6 (sensitivity 7.5), two-sided alpha = 0.05, power = 0.80, stipulated z values 1.96 and 0.842, attrition 10%. A separate 20-test secondary family has FWER target 0.05. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 5,
+      "objective_ids": [
+        "statistics-project-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "retained",
+          "type": "numeric",
+          "prompt": "Required retained independent units per arm at sigma = 6 points, rounded up.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "recruit",
+          "type": "numeric",
+          "prompt": "Planned units per arm for 10% attrition after that retained count is rounded up.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "sensitive_retained",
+          "type": "numeric",
+          "prompt": "Retained independent units per arm at sigma = 7.5 points, rounded up.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "sensitive_recruit",
+          "type": "numeric",
+          "prompt": "Planned units per arm at sigma = 7.5 with 10% attrition.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "variance",
+          "type": "single_choice",
+          "prompt": "What does the larger-sigma row demonstrate?",
+          "options": [
+            "Required independent-unit count rises with variance under the fixed target effect, alpha and power assumptions.",
+            "More technical readings make independent-unit count irrelevant.",
+            "A variance sensitivity table guarantees the realized power exactly."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "retained",
+            "type": "numeric",
+            "answer": 63.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "recruit",
+            "type": "numeric",
+            "answer": 70.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "sensitive_retained",
+            "type": "numeric",
+            "answer": 99.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "sensitive_recruit",
+            "type": "numeric",
+            "answer": 110.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "variance",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why round the retained-unit requirement up before applying attrition allowance?",
+        "solution": "The stipulated approximation gives 2(1.96+0.842)²(6²)/(3²) = 62.809632, so retain 63 per arm and plan ceil(63/0.9) = 70. At sigma 7.5, the unrounded value is 98.14005, giving 99 retained and 110 planned per arm. These are planning values under a normal approximation, not a guarantee of realized power.",
+        "lesson_ids": [
+          "statistics-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "statistics-project:rehearsal-4",
+      "type": "data_interpretation",
+      "prompt": "Confirmatory-protocol dossier rehearsal · Multiplicity and the pilot’s selected result. Rehearsal pilot: 8 independent units per arm, 4 technical readings each, 20 explored markers. New independent two-arm planning target: delta = 3 assay points, sigma = 6 (sensitivity 7.5), two-sided alpha = 0.05, power = 0.80, stipulated z values 1.96 and 0.842, attrition 10%. A separate 20-test secondary family has FWER target 0.05. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 4,
+      "objective_ids": [
+        "statistics-project-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "threshold",
+          "type": "numeric",
+          "prompt": "Bonferroni per-comparison threshold for a 20-test secondary family with FWER target 0.05.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "family_probability",
+          "type": "numeric",
+          "prompt": "Under independent true nulls, chance of at least one p<0.05 among 20 tests.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "expected_false",
+          "type": "numeric",
+          "prompt": "Expected number of false positives in that all-null family at unadjusted alpha 0.05.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "independence",
+          "type": "single_choice",
+          "prompt": "Which independence statement is correct?",
+          "options": [
+            "Bonferroni fails for every correlated pair of tests.",
+            "The expected false-positive count proves exactly one false positive must occur.",
+            "The 1−(1−alpha)^m probability uses independent tests; Bonferroni’s FWER upper bound does not require independence."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "threshold",
+            "type": "numeric",
+            "answer": 0.0025,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "family_probability",
+            "type": "numeric",
+            "answer": 0.6415140775914581,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "expected_false",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "independence",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What extra assumption is needed for 1−(1−alpha)^m but not the Bonferroni bound?",
+        "solution": "A 20-comparison Bonferroni family uses 0.05/20 = 0.0025. If all twenty null tests are independent, the unadjusted chance of at least one false positive is 1−0.95^20 ≈ 0.641514. The expected number is 20×0.05 = 1; an expectation is not a deterministic observed count. The primary-outcome policy must be stated separately.",
+        "lesson_ids": [
+          "statistics-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "statistics-project:rehearsal-5",
+      "type": "data_interpretation",
+      "prompt": "Confirmatory-protocol dossier rehearsal · Analysis, data and interpretation plan. Rehearsal pilot: 8 independent units per arm, 4 technical readings each, 20 explored markers. New independent two-arm planning target: delta = 3 assay points, sigma = 6 (sensitivity 7.5), two-sided alpha = 0.05, power = 0.80, stipulated z values 1.96 and 0.842, attrition 10%. A separate 20-test secondary family has FWER target 0.05. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 3,
+      "objective_ids": [
+        "statistics-project-objective-5"
+      ],
+      "response_fields": [
+        {
+          "id": "stopping",
+          "type": "single_choice",
+          "prompt": "Which stopping and exclusion plan is acceptable for the rehearsal’s confirmatory framing?",
+          "options": [
+            "Stop at the first p<0.05 and describe the final sample size as fixed in advance.",
+            "A predeclared stopping rule, exclusions and missing-data strategy, with departures documented rather than selected for significance.",
+            "Exclude inconvenient units after seeing which removals make the result significant."
+          ],
+          "points": 1
+        },
+        {
+          "id": "figure",
+          "type": "single_choice",
+          "prompt": "Which figure preserves the experimental unit?",
+          "options": [
+            "Show every technical reading as an independent randomized unit with no IDs.",
+            "Show only significance stars without an effect scale.",
+            "Show independent-unit observations with labelled assay-point scale and arm/time labels; explain technical-repeat summaries in text."
+          ],
+          "points": 1
+        },
+        {
+          "id": "interpretation",
+          "type": "single_choice",
+          "prompt": "Which final interpretation fits a future estimate and interval?",
+          "options": [
+            "Report effect size and uncertainty under the model, then separate statistical evidence, practical importance, mechanism and generalization.",
+            "A significant p-value proves mechanism, universal benefit and exact replication.",
+            "A confidence interval crossing zero proves the true effect is exactly zero."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "stopping",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "figure",
+            "type": "single_choice",
+            "answer": 2
+          },
+          {
+            "id": "interpretation",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What information must survive a tidy table and plot?",
+        "solution": "A protocol fixes the primary model, checks, exclusions, stopping and missing-data handling before new data. Its table retains unit and replicate IDs; its figure shows independent-unit observations, units and an accessible text explanation. A result can be statistically informative while leaving practical importance, mechanism or generalization unresolved.",
+        "lesson_ids": [
+          "statistics-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "statistics-18:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Original rehearsal density f(x, y)=2 for 0<y<x<1, zero elsewhere. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "statistics-18-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "normalization",
+          "type": "numeric",
+          "prompt": "Integral of the joint density over its support.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "mean_x",
+          "type": "numeric",
+          "prompt": "Marginal expectation of X for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "mean_y",
+          "type": "numeric",
+          "prompt": "Marginal expectation of Y for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "normalization",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "mean_x",
+            "type": "numeric",
+            "answer": 0.6666666666666666,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "mean_y",
+            "type": "numeric",
+            "answer": 0.3333333333333333,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must precede a joint-density moment calculation?",
+        "solution": "The triangular support has area one half and density two, giving total one. Integrating y from zero to x gives fX=two x, while integrating x from y to one gives fY=two(1−y). Their means are two thirds and one third.",
+        "lesson_ids": [
+          "statistics-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic probability and statistics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "statistics-18:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use that triangular density. Separately recall the worked discrete model X uniform on {-1, 0, 1}, Y=X². Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "statistics-18-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "covariance",
+          "type": "numeric",
+          "prompt": "Covariance of the triangular X and Y.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "correlation",
+          "type": "numeric",
+          "prompt": "Correlation of the triangular X and Y.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "independence",
+          "type": "single_choice",
+          "prompt": "Which conclusion about the separate discrete worked model is correct?",
+          "options": [
+            "Its covariance is zero but X and Y are dependent because Y=0 identifies X=0.",
+            "Zero covariance proves independence for every pair of random variables.",
+            "A deterministic nonlinear relationship must have correlation plus or minus one."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "covariance",
+            "type": "numeric",
+            "answer": 0.027777777777777776,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "correlation",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "independence",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does zero covariance establish?",
+        "solution": "For the triangle E[XY]=one quarter, giving covariance one/36 and variances one/18 each, hence correlation one half. In the separate discrete model symmetry makes covariance zero while the squared relationship remains dependent. These are distinct supplied joint laws.",
+        "lesson_ids": [
+          "statistics-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic probability and statistics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "statistics-18:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Use f(x, y)=2 on 0<y<x<1. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "statistics-18-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "event",
+          "type": "numeric",
+          "prompt": "Probability Y<1/4 for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "conditional",
+          "type": "numeric",
+          "prompt": "Conditional expectation E[Y|X=0.6] for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "event",
+            "type": "numeric",
+            "answer": 0.4375,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "conditional",
+            "type": "numeric",
+            "answer": 0.3,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why distinguish marginal and conditional reference sets?",
+        "solution": "The marginal event integral gives two(1/4)−(1/4)²=seven/sixteen. Given an interior X=x, Y is uniform from zero to x, so its conditional mean is x/two and equals 0.3 at x=0.6. That conditional mean differs from the marginal mean.",
+        "lesson_ids": [
+          "statistics-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic probability and statistics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "statistics-18:depth-4",
+      "type": "data_interpretation",
+      "prompt": "For that triangle use Var(Y|X=x)=x²/12 and E[Y|X=x]=x/2. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "statistics-18-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "within",
+          "type": "numeric",
+          "prompt": "Expected conditional variance E[Var(Y|X)] for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "between",
+          "type": "numeric",
+          "prompt": "Variance of the conditional mean Var(E[Y|X]).",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "limit",
+          "type": "single_choice",
+          "prompt": "Which statement is supported? for the supplied statistical model.",
+          "options": [
+            "Approximately normal sample means prove every raw joint density is normal.",
+            "The nonnegative variance terms automatically identify instrument and biological noise without a scientific model.",
+            "The two terms sum to Var(Y)=1/18; a CLT for an average does not make raw triangular observations independent or jointly normal."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "within",
+            "type": "numeric",
+            "answer": 0.041666666666666664,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "between",
+            "type": "numeric",
+            "answer": 0.013888888888888888,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "limit",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How should total-variance terms be interpreted?",
+        "solution": "E[X²]=one half gives one/24, and Var(X)=one/18 gives one/72. Their sum is one/18, matching the direct marginal calculation. Conditional variance is a mathematical decomposition; its scientific interpretation and independence assumptions need separate evidence.",
+        "lesson_ids": [
+          "statistics-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic probability and statistics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "statistics-19:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Original exponential rehearsal: event at 2, censor at 3, event at 5, censor at 6 normalized time units. Use independent noninformative parameter-independent censoring and L(lambda) proportional to lambda^d exp(−lambda T), lambda>0. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "statistics-19-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "rate",
+          "type": "numeric",
+          "prompt": "Maximum-likelihood rate in inverse normalized time units.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "mean",
+          "type": "numeric",
+          "prompt": "Associated estimated mean waiting time in normalized time units.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "rate",
+            "type": "numeric",
+            "answer": 0.125,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "mean",
+            "type": "numeric",
+            "answer": 8.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How does independent right censoring enter this exponential likelihood?",
+        "solution": "There are two events and sixteen exposure units, so lambda_hat=two/sixteen=one/eight and estimated mean is eight. Censored records contribute survival exposure without another event factor. Dropping their durations or counting them as events changes the supplied model.",
+        "lesson_ids": [
+          "statistics-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic probability and statistics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "statistics-19:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use that same likelihood at its positive maximum. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "statistics-19-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "information",
+          "type": "numeric",
+          "prompt": "Observed information at the maximum in squared normalized time units.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "standard_error",
+          "type": "numeric",
+          "prompt": "Inverse-curvature approximate rate standard error in inverse time units.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "information",
+            "type": "numeric",
+            "answer": 128.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "standard_error",
+            "type": "numeric",
+            "answer": 0.08838834764831843,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does likelihood curvature fail to establish by itself?",
+        "solution": "The negative second derivative is d/lambda_hat²=two/(one/eight)²=128. The inverse-curvature standard error is one/sqrt128, about 0.08838835. This local asymptotic estimate does not establish small-event-count coverage or permit a physically negative rate.",
+        "lesson_ids": [
+          "statistics-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic probability and statistics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "statistics-19:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Compare lambda=1/4 with the rehearsal maximum 1/8. Separately consider zero events with positive total exposure and strictly positive lambda. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "statistics-19-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "ratio",
+          "type": "numeric",
+          "prompt": "Likelihood at 1/4 divided by likelihood at 1/8.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "log_ratio",
+          "type": "numeric",
+          "prompt": "Natural logarithm of that likelihood ratio.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "boundary",
+          "type": "single_choice",
+          "prompt": "Which zero-event conclusion is correct?",
+          "options": [
+            "Zero events imply an interior maximum at rate one regardless of exposure.",
+            "On lambda>0 the likelihood has a supremum as lambda approaches zero; no positive interior maximum is attained.",
+            "A boundary supremum proves the true physical event probability is exactly zero."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "ratio",
+            "type": "numeric",
+            "answer": 0.5413411329464508,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "log_ratio",
+            "type": "numeric",
+            "answer": -0.6137056388801094,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "boundary",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why state a parameter space before optimization?",
+        "solution": "The ratio is four exp(−two), and its log is two ln2−two. With zero events and positive exposure the positive-domain likelihood decreases with lambda; including zero as a model boundary is a separate parameter-space choice. Neither statement supplies a posterior probability of a rate.",
+        "lesson_ids": [
+          "statistics-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic probability and statistics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "statistics-19:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Separate Bernoulli sample: seven successes in ten independent trials with one common probability p. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "statistics-19-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "mle",
+          "type": "numeric",
+          "prompt": "Maximum-likelihood success probability for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "ratio",
+          "type": "numeric",
+          "prompt": "Likelihood at p=0.5 divided by likelihood at p=0.7.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "posterior",
+          "type": "single_choice",
+          "prompt": "Which interpretation is justified? for the supplied statistical model.",
+          "options": [
+            "The MLE maximizes the supplied sampling likelihood; a posterior needs a separately specified prior and normalization.",
+            "The likelihood ratio is automatically the probability that p=0.5 is true.",
+            "Every prior yields posterior mean equal to the MLE in a finite sample."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "mle",
+            "type": "numeric",
+            "answer": 0.7,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "ratio",
+            "type": "numeric",
+            "answer": 0.43918752853805443,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "posterior",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How do likelihood and posterior differ?",
+        "solution": "The binomial likelihood is proportional to p^seven(1−p)^three, maximized at 0.7. The relative weight at 0.5 follows by dividing those factors. It is not a p-value or a normalized parameter probability, and it need not equal a posterior mean.",
+        "lesson_ids": [
+          "statistics-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic probability and statistics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "statistics-20:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Original rehearsal: independent normal observations conditional on mu, known variance sigma²=16, n=3, sample mean 6. Prespecified prior mu~Normal(mean 4, variance 4). Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "statistics-20-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "mean",
+          "type": "numeric",
+          "prompt": "Posterior mean of mu for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "variance",
+          "type": "numeric",
+          "prompt": "Posterior variance of mu for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "mean",
+            "type": "numeric",
+            "answer": 4.857142857142857,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "variance",
+            "type": "numeric",
+            "answer": 2.2857142857142856,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which quantities add in normal conjugacy?",
+        "solution": "Prior precision is one/four and data precision three/sixteen, giving total seven/sixteen and posterior variance sixteen/seven. Multiplying by the linear coefficient four/four+eighteen/sixteen gives posterior mean thirty-four/seven. These are conditional on the supplied prior and known observation variance.",
+        "lesson_ids": [
+          "statistics-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic probability and statistics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "statistics-20:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use that same posterior and known observation variance. Predict one new observation and an average of two future observations. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "statistics-20-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "single_sd",
+          "type": "numeric",
+          "prompt": "Posterior predictive standard deviation of one future observation.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "average_sd",
+          "type": "numeric",
+          "prompt": "Posterior predictive standard deviation of an average of two future observations.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "single_sd",
+            "type": "numeric",
+            "answer": 4.27617987059879,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "average_sd",
+            "type": "numeric",
+            "answer": 3.2071349029490928,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why is a predictive interval wider than the posterior interval for a mean?",
+        "solution": "One future value has variance sixteen+sixteen/seven=128/seven. The future average has variance sixteen/two+sixteen/seven=72/seven. Taking square roots gives the requested standard deviations. These predictions precede observing and updating with the future values.",
+        "lesson_ids": [
+          "statistics-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic probability and statistics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "statistics-20:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Use two future observations from that same conditional model, independent given one shared mu. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "statistics-20-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "covariance",
+          "type": "numeric",
+          "prompt": "Posterior predictive covariance of the two future observations.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "correlation",
+          "type": "numeric",
+          "prompt": "Posterior predictive correlation of the two future observations.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "covariance",
+            "type": "numeric",
+            "answer": 2.2857142857142856,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "correlation",
+            "type": "numeric",
+            "answer": 0.125,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Can conditional independence coexist with marginal dependence?",
+        "solution": "The future values are independent given mu, but their conditional means share mu. Total covariance is therefore posterior Var(mu)=sixteen/seven. Dividing by their common marginal variance 128/seven gives correlation one/eight. Marginal independence would omit this shared component.",
+        "lesson_ids": [
+          "statistics-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic probability and statistics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "statistics-20:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Use the same normal posterior and supplied rounded critical value 1.96 for a central approximate95% interval of mu. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "statistics-20-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "lower",
+          "type": "numeric",
+          "prompt": "Lower central credible-interval endpoint for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "upper",
+          "type": "numeric",
+          "prompt": "Upper central credible-interval endpoint for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "meaning",
+          "type": "single_choice",
+          "prompt": "Which interpretation is supported? for the supplied statistical model.",
+          "options": [
+            "Every realized frequentist interval assigns95% probability to its fixed true parameter without a prior.",
+            "Known observation variance is established merely by fitting this posterior formula.",
+            "Approximately95% posterior mass lies in this interval under the declared prior and likelihood; frequentist coverage is a different property."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "lower",
+            "type": "numeric",
+            "answer": 1.8939013887505154,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "upper",
+            "type": "numeric",
+            "answer": 7.820384325535198,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "meaning",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does a credible-interval probability depend on?",
+        "solution": "Use posterior mean thirty-four/seven plus or minus 1.96 sqrt(sixteen/seven). This conditional credible statement uses the supplied prior/model and rounded critical value. Repeated-sampling coverage at fixed true means needs its own procedure/model calculation.",
+        "lesson_ids": [
+          "statistics-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic probability and statistics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "statistics-21:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Original rehearsal rows(x, z, y): (0, 0, 2), (0, 1, 3), (1, 1, 4), (1, 2, 11), (2, 2, 12), (2, 3, 13). Fit intercept+x+z by ordinary least squares. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "statistics-21-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "intercept",
+          "type": "numeric",
+          "prompt": "Fitted intercept for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "slope_x",
+          "type": "numeric",
+          "prompt": "Fitted coefficient of x in the multiple model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "slope_z",
+          "type": "numeric",
+          "prompt": "Fitted coefficient of z in the multiple model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "intercept",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "slope_x",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "slope_z",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must a reproducible regression fit retain?",
+        "solution": "The original normal equations give coefficients one, two, three and residuals (one, minus one, minus two, two, one, minus one). Verify that residuals are orthogonal to every design column. That projection property does not prove independent random errors or causality.",
+        "lesson_ids": [
+          "statistics-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic probability and statistics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "statistics-21:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use those rows to compare y-on-x with the intercept+x+z model. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "statistics-21-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "simple",
+          "type": "numeric",
+          "prompt": "Simple y-on-x slope for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "full",
+          "type": "numeric",
+          "prompt": "Coefficient of x in the full multiple model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "shift",
+          "type": "numeric",
+          "prompt": "Simple slope minus full x coefficient.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "simple",
+            "type": "numeric",
+            "answer": 5.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "full",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "shift",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can a slope change after adjustment?",
+        "solution": "The simple slope is five while the full x coefficient is two. In this table the centered x-z cross-product divided by the x sum of squares is one, so the omitted z contribution is three. The algebra describes the specified projection, not a causal effect.",
+        "lesson_ids": [
+          "statistics-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic probability and statistics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "statistics-21:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Use that full model and its six rows with three independent fitted coefficients. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "statistics-21-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "sse",
+          "type": "numeric",
+          "prompt": "Residual sum of squares for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "degrees",
+          "type": "numeric",
+          "prompt": "Exact residual degrees of freedom.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "mse",
+          "type": "numeric",
+          "prompt": "Residual mean square for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "sse",
+            "type": "numeric",
+            "answer": 12.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "degrees",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "mse",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why does fitted rank matter for a residual variance estimate?",
+        "solution": "The squared residuals sum to twelve and rank is three, giving six−three=three residual degrees of freedom and MSE four. Using six in the denominator would omit fitted-parameter cost. Algebraic degrees of freedom do not establish error-model assumptions.",
+        "lesson_ids": [
+          "statistics-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic probability and statistics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "statistics-21:depth-4",
+      "type": "data_interpretation",
+      "prompt": "For that full rehearsal fit predict at x=1, z=1.5, with fixed known predictors and a correctly specified independent homoskedastic error model. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "statistics-21-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "prediction",
+          "type": "numeric",
+          "prompt": "Fitted mean response for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "mean_se",
+          "type": "numeric",
+          "prompt": "Estimated standard error for the mean response.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "new_se",
+          "type": "numeric",
+          "prompt": "Estimated standard error for one new independent observation.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "design",
+          "type": "single_choice",
+          "prompt": "Which claim follows? for the supplied statistical model.",
+          "options": [
+            "The fit describes conditional association; available-covariate adjustment does not prove all confounding is removed.",
+            "Any full-rank regression establishes a randomized causal treatment effect.",
+            "A small residual sum of squares proves the predictor values have no measurement error."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "prediction",
+            "type": "numeric",
+            "answer": 7.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "mean_se",
+            "type": "numeric",
+            "answer": 0.816496580927726,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "new_se",
+            "type": "numeric",
+            "answer": 2.160246899469287,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "design",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which target requires a new-error contribution?",
+        "solution": "At the predictor mean the fitted value is 7.5 and leverage one/six. Mean-response SE is sqrt(four/six), while a new observation adds variance four, giving sqrt(four times seven/six). Design and error assumptions remain separate from the arithmetic.",
+        "lesson_ids": [
+          "statistics-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic probability and statistics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "statistics-22:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1 draws two objects without replacement from five distinguishable objects, two marked. Every unordered pair is equally likely. K counts marked objects;I1, I2 are the ordered draw indicators. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "statistics-22-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "pairs",
+          "type": "numeric",
+          "prompt": "Exact number of possible unordered pairs.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "mean",
+          "type": "numeric",
+          "prompt": "Expectation of K for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "variance",
+          "type": "numeric",
+          "prompt": "Variance of K for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "covariance",
+          "type": "numeric",
+          "prompt": "Covariance of I1 and I2.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "pairs",
+            "type": "numeric",
+            "answer": 10.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "mean",
+            "type": "numeric",
+            "answer": 0.8,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "variance",
+            "type": "numeric",
+            "answer": 0.36,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "covariance",
+            "type": "numeric",
+            "answer": -0.06,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why is a binomial variance wrong for these draws?",
+        "solution": "There are ten pairs, with counts three, six, one for K=zero, one, two. The mean is 0.8 and second moment one, giving variance 0.36. The ordered joint-marked probability is one/tenth, so covariance is 0.1−0.16=−0.06; both representations agree when denominators stay consistent.",
+        "lesson_ids": [
+          "statistics-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic probability and statistics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "statistics-22:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Separate assignment density f(x, y)=6y on 0<y<x<1, zero elsewhere. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "statistics-22-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "mean_x",
+          "type": "numeric",
+          "prompt": "Marginal expectation of X for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "mean_y",
+          "type": "numeric",
+          "prompt": "Marginal expectation of Y for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "event",
+          "type": "numeric",
+          "prompt": "Probability Y<0.5 for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "conditional",
+          "type": "numeric",
+          "prompt": "Conditional expectation E[Y|X=0.6] for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "mean_x",
+            "type": "numeric",
+            "answer": 0.75,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "mean_y",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "event",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "conditional",
+            "type": "numeric",
+            "answer": 0.4,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How can conditional computations be independently checked?",
+        "solution": "Marginals are three x² and six y(1−y), giving means three/four and one/half. Integrating the Y marginal to one/half gives probability one/half. Conditional density is two y/x² on zero<y<x, with mean two x/three, hence 0.4 at x=0.6.",
+        "lesson_ids": [
+          "statistics-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic probability and statistics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "statistics-23:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2 has K~Binomial(4, p) at true p=0.5. Use Wald interval phat±1.96sqrt[phat(1−phat)/4]. Separately use the central equal-tail exact 95% binomial interval with 0.025 per tail. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "statistics-23-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "coverage",
+          "type": "numeric",
+          "prompt": "Actual Wald coverage probability at p=0.5.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "miss",
+          "type": "numeric",
+          "prompt": "Wald miss probability at p=0.5.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "upper",
+          "type": "numeric",
+          "prompt": "Exact central 95% upper endpoint after observing k=0.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "bootstrap",
+          "type": "single_choice",
+          "prompt": "Which all-failure bootstrap statement is correct?",
+          "options": [
+            "More resamples necessarily create successes absent from every observation.",
+            "Every ordinary nonparametric resample also has zero successes; a degenerate percentile interval does not prove p is known to be zero.",
+            "A collapsed plug-in interval establishes exact 95% coverage at every true p."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "coverage",
+            "type": "numeric",
+            "answer": 0.875,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "miss",
+            "type": "numeric",
+            "answer": 0.125,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "upper",
+            "type": "numeric",
+            "answer": 0.6023646356164747,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "bootstrap",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does a procedure name fail to guarantee?",
+        "solution": "Only k=zero and four miss one/half under the Wald rule, with total probability two/sixteen. Thus coverage is fourteen/sixteen. The exact all-failure upper endpoint solves (one−p)^four=0.025. Resampling the all-failure empirical distribution cannot repair its boundary degeneracy.",
+        "lesson_ids": [
+          "statistics-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic probability and statistics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "statistics-23:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Separate sharp-null randomization: outcomes(0, 1, 3, 4), exactly two of four units uniformly assigned to treatment. Observed treatment(3, 4), controls(0, 1). Use absolute mean difference at least observed, including ties. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "statistics-23-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "allocations",
+          "type": "numeric",
+          "prompt": "Exact number of possible treatment allocations.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "extreme",
+          "type": "numeric",
+          "prompt": "Exact number of allocations in the stated two-sided tail.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "difference",
+          "type": "numeric",
+          "prompt": "Observed treatment minus control mean difference.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "p_value",
+          "type": "numeric",
+          "prompt": "Exact inclusive two-sided randomization p-value.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "allocations",
+            "type": "numeric",
+            "answer": 6.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "extreme",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "difference",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "p_value",
+            "type": "numeric",
+            "answer": 0.3333333333333333,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which experiment gives this exact p-value its denominator?",
+        "solution": "The six allocation statistics are minus three, minus one, zero, zero, one, three. The observed statistic is three and two allocations have absolute value at least three, giving two/six. The two zero values remain separate allocations. This relies on the specified sharp null and uniform random assignment.",
+        "lesson_ids": [
+          "statistics-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic probability and statistics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "statistics-24:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 3 rows(x, z, y):(-1, -1, 1.5), (-1, 1, -3.5), (0, -1, 4), (0, 1, 2), (1, -1, 9.5), (1, 1, 4.5). Fit intercept+x+z. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "statistics-24-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "intercept",
+          "type": "numeric",
+          "prompt": "Fitted intercept for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "slope_x",
+          "type": "numeric",
+          "prompt": "Fitted x coefficient for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "slope_z",
+          "type": "numeric",
+          "prompt": "Fitted z coefficient for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "sse",
+          "type": "numeric",
+          "prompt": "Residual sum of squares for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "intercept",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "slope_x",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "slope_z",
+            "type": "numeric",
+            "answer": -2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "sse",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What distinguishes a projection check from model validation?",
+        "solution": "The coefficients are three, four, minus two and residuals (one half, minus one half, minus one, one, one half, minus one half). They are orthogonal to all three design columns and have squared sum three. The exact constructed fit does not establish a real error distribution.",
+        "lesson_ids": [
+          "statistics-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic probability and statistics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "statistics-24:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For that assignment model predict at x=0, z=0. Assume fixed known predictors and the stated independent equal-variance error model. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "statistics-24-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "prediction",
+          "type": "numeric",
+          "prompt": "Fitted mean response for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "mean_se",
+          "type": "numeric",
+          "prompt": "Estimated standard error for the mean response.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "new_se",
+          "type": "numeric",
+          "prompt": "Estimated standard error for one new independent observation.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "causal",
+          "type": "single_choice",
+          "prompt": "Which conclusion is supported? for the supplied statistical model.",
+          "options": [
+            "Any orthogonal design matrix proves the supplied rows were randomly assigned.",
+            "One low estimated error variance guarantees external validity for every population.",
+            "Conditional fitted association needs additional design evidence before causal wording; observed-covariate adjustment alone is insufficient."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "prediction",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "mean_se",
+            "type": "numeric",
+            "answer": 0.408248290463863,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "new_se",
+            "type": "numeric",
+            "answer": 1.0801234497346435,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "causal",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why state the target and design alongside a prediction?",
+        "solution": "Residual rank leaves three degrees of freedom and MSE one. At this predictor row leverage is one/six, so mean SE is sqrt(one/six) and new-observation SE sqrt(seven/six). Neither calculation proves randomized assignment or absence of unmeasured confounding.",
+        "lesson_ids": [
+          "statistics-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic probability and statistics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "statistics-25:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 4 exponential records:event1, event2, censor3, event4, censor2 normalized time units. Use a common positive event rate and independent noninformative parameter-independent censoring. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "statistics-25-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "rate",
+          "type": "numeric",
+          "prompt": "Maximum-likelihood rate in inverse time units.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "mean",
+          "type": "numeric",
+          "prompt": "Associated estimated mean waiting time.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "information",
+          "type": "numeric",
+          "prompt": "Observed information at the positive maximum in squared time units.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "standard_error",
+          "type": "numeric",
+          "prompt": "Inverse-curvature approximate rate standard error in inverse time units.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "rate",
+            "type": "numeric",
+            "answer": 0.25,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "mean",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "information",
+            "type": "numeric",
+            "answer": 48.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "standard_error",
+            "type": "numeric",
+            "answer": 0.14433756729740646,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which ledgers must a censored likelihood report preserve?",
+        "solution": "Three observed events and twelve exposure units give rate one/four and mean four. Information is three/(one/four)²=48 and approximate rate SE one/sqrt48. This local approximation does not establish finite-sample coverage or correct censoring in an empirical study.",
+        "lesson_ids": [
+          "statistics-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic probability and statistics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "statistics-25:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Separate assignment normal model: conditional independent observations with known variance 4, n=4, mean 3;prespecified prior mu~Normal(mean 0, variance 4). Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "statistics-25-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "posterior_mean",
+          "type": "numeric",
+          "prompt": "Posterior mean of mu for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "posterior_variance",
+          "type": "numeric",
+          "prompt": "Posterior variance of mu for the supplied statistical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "predictive_sd",
+          "type": "numeric",
+          "prompt": "Predictive standard deviation of one new observation.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "future_covariance",
+          "type": "numeric",
+          "prompt": "Predictive covariance of two future observations.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "posterior_mean",
+            "type": "numeric",
+            "answer": 2.4,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "posterior_variance",
+            "type": "numeric",
+            "answer": 0.8,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "predictive_sd",
+            "type": "numeric",
+            "answer": 2.1908902300206643,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "future_covariance",
+            "type": "numeric",
+            "answer": 0.8,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What should a cumulative inference report distinguish?",
+        "solution": "Posterior precision is one/four+four/four=five/four, giving variance four/five and mean twelve/five. A new observation adds variance four, while two future observations share covariance four/five through mu. These are conditional model quantities, not p-values or proof of empirical assumptions.",
+        "lesson_ids": [
+          "statistics-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic probability and statistics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
     }
   ]
 }

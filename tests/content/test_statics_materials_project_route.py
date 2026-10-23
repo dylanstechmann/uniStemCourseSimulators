@@ -53,7 +53,7 @@ def beam(row, span, load, deflection_limit_mm):
 
 
 def test_route_is_scheduled_optional_and_ungraded():
-    assert MANIFEST["version"] == "0.5.0" and MANIFEST["maturity"] == "partial"
+    assert MANIFEST["version"] == "0.6.0" and MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed" and MANIFEST["grading_policy"]["mode"] == "formative-only"
     rehearsal = ASSESSMENTS["statics-materials-project-rehearsal-practice"]
     project = ASSESSMENTS["statics-materials-beam-project"]

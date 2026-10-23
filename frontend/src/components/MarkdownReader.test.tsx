@@ -1,5 +1,5 @@
-import { render, screen, waitFor, within } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { act, render, screen, waitFor, within } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
 import {
   MarkdownReader,
   containsMath,
@@ -64,6 +64,8 @@ describe("MarkdownReader content boundary", () => {
         }
       </MarkdownReader>,
     );
+    // Wait for the lazy math renderer, including its transitive imports, before checking the DOM.
+    await act(() => vi.dynamicImportSettled());
     await waitFor(() =>
       expect(container.querySelectorAll(".katex")).toHaveLength(3),
     );

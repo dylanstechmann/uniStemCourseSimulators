@@ -1,6 +1,6 @@
 # Electrical Circuits & Instrumentation review handoff
 
-This handoff targets Electrical Circuits & Instrumentation, package version 0.4.8. The [review snapshot](CIRCUITS_REVIEW_SNAPSHOT.md) identifies the exact package. The course remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+This handoff targets Electrical Circuits & Instrumentation, package version 0.6.0. The [review snapshot](CIRCUITS_REVIEW_SNAPSHOT.md) identifies the exact package. The course remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
 
 ## Review scope
 
@@ -21,3 +21,11 @@ For version 0.4.6, author tests included 124 circuit recalculation regressions, 
 ## Review record to complete only after review
 
 After a review actually occurs, record reviewer expertise, date, exact course version and archive digest, artifacts examined, findings and disposition. Keep separate decisions for circuit correctness, instructional design, assessment, accessibility, workload and release. A matching hash or passing test suite is not approval.
+
+## Open project route (2026-10-22)
+
+The current guide, separate worked example, rehearsal and five private milestone self-checks make the existing project usable as ungraded practice. [The route regression tests](../tests/content/test_remaining_course_project_routes.py) independently recalculate every new numeric field and exercise the backend grader, including exact counts and continuous-quantity precision. Review the written explanation, evidence limits and proposed workload independently; automated arithmetic is not subject review. Historical snapshot evidence remains preserved.
+
+## Device/feedback/noise target (2026-10-22)
+
+Current target 0.6.0 adds three foundations, four reports and twenty checkpoints/cards. Check nonlinear load-line root uniqueness/residual, exact derivative versus DC quotient and passive-sign power; the explicit kappa convention, MOS branch inequalities, rejected roots and finite-perturbation limits; three-state feedback roots, formal DC gain versus attracting equilibrium and model-specific stability; buffered two-pole one-sided noise bandwidth and step response; positive covariance, subtraction and conditional minimum-variance weight. Code/diagrams/reports, physical validation, broader digital foundations, full compensation design, workload and qualified review remain open. Earlier evidence above is historical; the current snapshot pins the new target.

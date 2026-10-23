@@ -2,7 +2,7 @@
 
 This is a personal hobby and learning project. Code and educational drafts were developed with substantial assistance from AI coding tools.
 
-Repository: [dylanstechmann/uniStemCourseSimulators](https://github.com/dylanstechmann/uniStemCourseSimulators). See the [progress review](docs/PROGRESS_REVIEW.md) for delivered features, material findings and prioritized remaining work. The software includes local study tools and a graded-assignment prototype; the requested semester-depth courses are still unfinished. Foundations of Cell and Molecular Biology (0.62.1) and Biochemistry I (0.5.1) are the first packages whose whole proposed 14-week plans can be worked through end to end as ungraded practice. Genetics & Genomics (0.6.0), Calculus I (0.5.0), Physics: Mechanics (0.5.0), Statics & Mechanics of Materials (0.5.0), General Chemistry II (0.5.0), Programming & Numerical Methods (0.5.0), Biomaterials & Tissue Engineering (0.4.0), Bioreactors & Tissue Culture Engineering (0.5.0), Cellular Biomechanics & Mechanobiology (0.4.0), Thermodynamics & Transport (0.5.0), Calculus II (0.5.0), Calculus III (0.5.0), Differential Equations (0.5.0) and Linear Algebra (0.4.0) now have learner routes for every component they lay out, including their projects, but none has a homework or exam sequence. All sixteen remain partial and unreviewed. Instructor access is granted to registered accounts by an operator after out-of-band identity verification. Practice score changes are blocked unless the saved question and variant digest still match.
+Repository: [dylanstechmann/uniStemCourseSimulators](https://github.com/dylanstechmann/uniStemCourseSimulators). All **25 existing course plans have usable routes for their scheduled components**, including projects; see the [course-plan index](docs/COURSE_PLAN_COMPLETION.md). The [semester-course authoring pass](docs/SEMESTER_DEPTH_EXPANSION.md) adds 66 foundations and 86 connected assignments across 24 courses and audits the developed Cell Biology core. That record distinguishes delivered instruction from remaining depth and review limits. Every package is partial and unreviewed; open practice does not establish full-course depth or academic credit. The [progress review](docs/PROGRESS_REVIEW.md) records AI-assisted development and validation.
 
 Interactive, source-grounded courses across science, mathematics, engineering, computing, and biomedicine.
 
@@ -14,16 +14,16 @@ An independent open-source learning platform under development. It does **not co
 | --- | ---: | --- |
 | catalog-only | 0 | Catalog metadata only |
 | outlined | 0 | Structured plan without developed teaching |
-| partial | 25 | Prototype packages with short readings and formative checks; depth varies |
+| partial | 25 | Authored readings, connected coursework and formative checks; depth and review remain limited |
 | beta | 0 | Developed course awaiting required review/gates |
 | complete | 0 | All full-course gates satisfied |
 | externally reviewed | 0 | Qualified named reviewer examined a specified version |
 
-**No current package meets the complete-course standard.** The repository contains 25 partial packages with 473 lessons, 3,047 formative questions, 1,644 retrieval cards and 105 self-assessed case prompts. These counts measure authored material; they do not establish semester depth, measured workload, scientific review or university equivalence.
+**No current package meets the complete-course standard.** The repository contains 25 partial packages with 634 lessons, 3,537 formative questions, 2,131 retrieval cards and 151 self-assessed case prompts. These counts measure authored material; they do not establish semester depth, measured workload, scientific review or university equivalence.
 
 The packages span life sciences, chemistry, mathematics, physics, statistics, computing and engineering. Original readings, worked examples, synthetic datasets and practice are available in each subject, with uneven coverage and depth. See the [package inventory](#package-inventory), [measured content gaps](docs/COURSE_GAP_REPORT.md), and [MIT OpenCourseWare scope audit](docs/COURSE_SCOPE_AUDIT.md) for the current boundaries and priorities. Detailed development history belongs in the [progress review](docs/PROGRESS_REVIEW.md).
 
-Development now proceeds across the repository in bounded instructional batches. The next priorities address foundational course gaps identified against official MIT OpenCourseWare syllabi and calendars. New material is original and attributed; references compare scope and expectations without claiming affiliation, copied course delivery, or equivalent credit. Metadata and review-report refreshes are bundled with substantive changes.
+Development now proceeds across the repository in bounded instructional batches. Follow-up priorities address demonstrated instructional gaps, broader course boundaries and learner evidence identified against official MIT OpenCourseWare syllabi and calendars. New material is original and attributed; references compare scope and expectations without claiming affiliation, copied course delivery, or equivalent credit. Metadata and review-report refreshes are bundled with substantive changes.
 
 The curriculum map adds **37 catalog-only subject nodes** and **8 pathway maps** beside the 25 partial course packages. Catalog-only entries describe planned study areas and dependencies; they contain no authored lessons and cannot be enrolled in. Mapped prerequisite order is planning guidance and does not establish university equivalency.
 
@@ -127,7 +127,7 @@ npx playwright install --with-deps chromium
 npm run test:e2e
 ```
 
-Start Compose before E2E. Run `python tools/check_security.py --bundle frontend/dist` from the root after building. `python tools/validate_content.py --check-links` performs network probes; two JHU pages currently deny the automated client with HTTP 403, so live-link validation is **not fully passed**. Offline schema/content validation passes with 98 explicit legacy-depth warnings for the short prototype readings. Detailed commands, test counts and boundaries are in [VALIDATION_REPORT.md](docs/VALIDATION_REPORT.md). Browser QA of the protected, graded mode, which runs outside Docker against a throwaway fixture, is described in [QA_PROTECTED_GRADED.md](docs/QA_PROTECTED_GRADED.md). Production guidance: [DEPLOYMENT.md](docs/DEPLOYMENT.md).
+Start Compose before E2E. Run `python tools/check_security.py --bundle frontend/dist` from the root after building. `python tools/validate_content.py --check-links` performs network probes; earlier checks recorded HTTP 403 responses from two JHU pages, so those checks did not establish that all live links passed. Offline schema/content validation reports zero errors and zero explicit limitation/depth warnings. Detailed commands, test counts and boundaries are in [VALIDATION_REPORT.md](docs/VALIDATION_REPORT.md). Browser QA of the protected, graded mode, which runs outside Docker against a throwaway fixture, is described in [QA_PROTECTED_GRADED.md](docs/QA_PROTECTED_GRADED.md). Production guidance: [DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
 ## Contributing and licensing
 

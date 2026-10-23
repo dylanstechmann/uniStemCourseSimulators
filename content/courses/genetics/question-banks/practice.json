@@ -4781,6 +4781,1435 @@
           }
         ]
       }
+    },
+    {
+      "id": "genetics-19:depth-1",
+      "type": "data_interpretation",
+      "prompt": "For four recessive mutants, all distinct pairs complement except A with C and B with D; each self-pair fails. Use the simple diffusible-product model. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "genetics-19-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "groups",
+          "type": "numeric",
+          "prompt": "Exact number of functional complementation groups.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "order",
+          "type": "single_choice",
+          "prompt": "What does this grouping establish?",
+          "options": [
+            "Two functional groups; a linear physical order is not determined.",
+            "Four separate physical loci ordered alphabetically from the pair table.",
+            "One functional group because each mutant has the same phenotype."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "groups",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "order",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Does complementation establish a linear genetic map?",
+        "solution": "The groups are {A,C} and {B,D}; all cross-group pairs complement. Functional grouping does not order the lesions or establish exact physical boundaries. Dominant, cis-acting, polar or intragenic effects can invalidate the simple model.",
+        "lesson_ids": [
+          "genetics-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-19:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Only the wild-type recombinant class is observed: W=6 among N=1200 normalized total progeny. The reciprocal double-mutant class is equally frequent and recoverable. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "genetics-19-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "observed",
+          "type": "numeric",
+          "prompt": "Observed wild-type class fraction.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "total",
+          "type": "numeric",
+          "prompt": "Estimated fraction of all reciprocal recombinant progeny.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "map",
+          "type": "numeric",
+          "prompt": "Short-interval estimate in map units, 100r.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "observed",
+            "type": "numeric",
+            "answer": 0.005,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "total",
+            "type": "numeric",
+            "answer": 0.01,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "map",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "When should a selected recombinant count be doubled?",
+        "solution": "The measured wild-type class fraction is 0.005. Both reciprocal recombinant classes contribute, so total r=0.010 and the short-interval estimate is 1.00 map unit. Doubling requires the supplied symmetry/recovery assumption.",
+        "lesson_ids": [
+          "genetics-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-19:depth-3",
+      "type": "data_interpretation",
+      "prompt": "A separate normalized sample has zero wild-type recombinants among N=1500 total progeny, with the same reciprocal-class assumptions. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "genetics-19-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "bound",
+          "type": "numeric",
+          "prompt": "Approximate rule-of-three upper bound for total r.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "map_bound",
+          "type": "numeric",
+          "prompt": "Corresponding short-interval upper bound in map units.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "meaning",
+          "type": "single_choice",
+          "prompt": "How should the bound be interpreted?",
+          "options": [
+            "An exact physical distance that contains zero possible DNA recombination sites.",
+            "A posterior probability of zero recombination without any additional assumptions.",
+            "A model-based bound; it is not an observed distance or proof of no exchange."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "bound",
+            "type": "numeric",
+            "answer": 0.004,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "map_bound",
+            "type": "numeric",
+            "answer": 0.4,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "meaning",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Does zero observed recombination establish zero underlying probability?",
+        "solution": "The observed count is zero, but the approximate upper bound for the selected class is 3/N. Doubling gives total-r bound 0.004, or 0.400 short-interval map units. Independent sampling and reciprocal recovery are assumed.",
+        "lesson_ids": [
+          "genetics-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-19:depth-4",
+      "type": "data_interpretation",
+      "prompt": "A restored-phenotype isolate retains a +1 nucleotide insertion and has a later −1 nucleotide deletion in the same coding sequence. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "genetics-19-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "frame",
+          "type": "single_choice",
+          "prompt": "What follows from the two supplied length changes?",
+          "options": [
+            "The complete original protein sequence is necessarily restored by net zero length.",
+            "The downstream frame can be restored while the intervening protein segment differs.",
+            "The original insertion has been precisely reversed at its original DNA position."
+          ],
+          "points": 1
+        },
+        {
+          "id": "proof",
+          "type": "single_choice",
+          "prompt": "Which evidence would identify precise reversion instead?",
+          "options": [
+            "Sequence confirmation that the original lesion itself returned to its original state.",
+            "Rescue of one phenotype with the original insertion still retained at its position.",
+            "A count of total progeny without sequence or segregation evidence of the lesion."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "frame",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "proof",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why is frame restoration weaker than proof of normal protein function?",
+        "solution": "Net length change is zero modulo three after both changes, but the original insertion remains. A second-site suppressor can restore a phenotype without restoring the original DNA or intervening protein sequence.",
+        "lesson_ids": [
+          "genetics-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-20:depth-1",
+      "type": "data_interpretation",
+      "prompt": "DNA marker counts are A=150/B=100; RNA marker counts are A=60/B=80. Assume unbiased matched assays and dosage-representative DNA counts. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "genetics-20-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "dna_fraction",
+          "type": "numeric",
+          "prompt": "DNA A fraction for the supplied marker counts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "rna_fraction",
+          "type": "numeric",
+          "prompt": "RNA A fraction for the supplied marker counts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "per_copy",
+          "type": "numeric",
+          "prompt": "RNA A:B odds divided by DNA A:B odds.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "dna_fraction",
+            "type": "numeric",
+            "answer": 0.6,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "rna_fraction",
+            "type": "numeric",
+            "answer": 0.42857142857142855,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "per_copy",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which ratio addresses RNA abundance per genomic allele copy?",
+        "solution": "DNA A fraction is 0.6 and RNA A fraction is 3/7≈0.42857143. The RNA odds are 0.75 and DNA odds 1.5, so the per-copy contrast is 0.5. A ratio of fractions is a different estimand.",
+        "lesson_ids": [
+          "genetics-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-20:depth-2",
+      "type": "data_interpretation",
+      "prompt": "A two-isoform unbiased assay observes 54 included-junction and 36 skipped-junction counts. Each molecule supplies one informative count. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "genetics-20-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "inclusion",
+          "type": "numeric",
+          "prompt": "Estimated included-form fraction from the informative junction counts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "skipping",
+          "type": "numeric",
+          "prompt": "Estimated skipped-form fraction from the informative junction counts.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "inclusion",
+            "type": "numeric",
+            "answer": 0.6,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "skipping",
+            "type": "numeric",
+            "answer": 0.4,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What makes a junction fraction interpretable as an isoform fraction?",
+        "solution": "There are 90 informative counts. Inclusion is 54/90=0.6 and skipping 36/90=0.4. All library reads or the DNA marker counts are not the denominator for this stipulated junction estimate.",
+        "lesson_ids": [
+          "genetics-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-20:depth-3",
+      "type": "data_interpretation",
+      "prompt": "The included coding region is 300 nucleotides; skipping removes a 60-nucleotide coding exon, with complete-codon boundaries. Inclusion fraction is 0.6. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "genetics-20-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "codons",
+          "type": "numeric",
+          "prompt": "Exact number of coding codons omitted.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "skipped_length",
+          "type": "numeric",
+          "prompt": "Exact skipped-form coding length in nucleotides.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "expected_length",
+          "type": "numeric",
+          "prompt": "Expected coding length across the two-form mixture, nucleotides.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "function",
+          "type": "single_choice",
+          "prompt": "What follows from removing 60 coding nucleotides?",
+          "options": [
+            "Protein function is guaranteed because coding length was reduced by complete codons.",
+            "Every RNA molecule has exactly the abundance-weighted average coding sequence length.",
+            "The downstream frame is preserved, but protein function remains an empirical question."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "codons",
+            "type": "numeric",
+            "answer": 20.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "skipped_length",
+            "type": "numeric",
+            "answer": 240.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "expected_length",
+            "type": "numeric",
+            "answer": 276.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "function",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Does an in-frame exon skip guarantee a functional protein?",
+        "solution": "The omission removes 20 codons and leaves a 240-nucleotide coding region. The mixture expectation is 0.6×300+0.4×240=276 nucleotides. Frame preservation does not establish activity or a fractional-length real transcript.",
+        "lesson_ids": [
+          "genetics-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-20:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Three clones each provide hundreds of DNA/RNA reads; the junction reads are not allele-resolved. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "genetics-20-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "replicates",
+          "type": "single_choice",
+          "prompt": "What is the supplied biological replication unit?",
+          "options": [
+            "The independently maintained clone lineage, subject to shared-origin and culture limits.",
+            "Every sequencing read, because read totals directly count independent biological clones.",
+            "Each ratio calculated from one library, regardless of the origin of that library."
+          ],
+          "points": 1
+        },
+        {
+          "id": "phase",
+          "type": "single_choice",
+          "prompt": "What is needed to assign skipping to homolog A versus B?",
+          "options": [
+            "A pooled junction total alone with no marker or phase information about transcripts.",
+            "Allele/phase-resolved transcript evidence with relevant mapping and detection controls.",
+            "An assumption that every skipped transcript always comes from the duplicated homolog."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "replicates",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "phase",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Can aggregate skipping counts identify which homolog produced the short isoform?",
+        "solution": "Read depth supplies technical count information, not hundreds of independent lineages. Non-allelic junction counts cannot assign isoforms to a homolog. Phase-aware evidence and controls are needed before connecting a candidate allele to transcript processing.",
+        "lesson_ids": [
+          "genetics-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-21:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Random-union zygotes have q=0.3. Weights for AA/Aa/aa are 1, 0.8 and 0.5. Selection is followed by A→a mutation u=0.002 and a→A v=0.001. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "genetics-21-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "mean",
+          "type": "numeric",
+          "prompt": "Mean selection weight for the supplied zygote population.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "selected",
+          "type": "numeric",
+          "prompt": "Allele a frequency after normalized selection, before mutation.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "next",
+          "type": "numeric",
+          "prompt": "Post-mutation next-generation a frequency.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "mean",
+            "type": "numeric",
+            "answer": 0.871,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "selected",
+            "type": "numeric",
+            "answer": 0.24454649827784158,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "next",
+            "type": "numeric",
+            "answer": 0.24581285878300804,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why divide by mean fitness after selection?",
+        "solution": "Weighted genotype contributions are 0.49, 0.336 and 0.045, totaling 0.871. The a-allele contribution is 0.213; divide by 0.871 before applying mutation. The declared recurrence gives qnext=0.997×(0.213/0.871)+0.002.",
+        "lesson_ids": [
+          "genetics-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-21:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use q=0.1, p=0.9 and identity-by-descent mixture F=0.2, before any selection. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "genetics-21-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "major_homo",
+          "type": "numeric",
+          "prompt": "Probability of AA under the mixture.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "heterozygote",
+          "type": "numeric",
+          "prompt": "Probability of Aa under the mixture.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "minor_homo",
+          "type": "numeric",
+          "prompt": "Probability of aa under the mixture.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "allele",
+          "type": "numeric",
+          "prompt": "Allele a frequency recomputed from genotype probabilities.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "major_homo",
+            "type": "numeric",
+            "answer": 0.828,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "heterozygote",
+            "type": "numeric",
+            "answer": 0.144,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "minor_homo",
+            "type": "numeric",
+            "answer": 0.028,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "allele",
+            "type": "numeric",
+            "answer": 0.1,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Does inbreeding alone change the allele frequency in this mixture model?",
+        "solution": "The Fpq contribution is 0.018. Genotype probabilities are 0.81+0.018=0.828, 0.18×0.8=0.144 and 0.01+0.018=0.028. They sum to one and give 0.028+0.144/2=0.1. The mating step changes association, not q itself.",
+        "lesson_ids": [
+          "genetics-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-21:depth-3",
+      "type": "data_interpretation",
+      "prompt": "A known-phase, error-free cross has R=3 recombinants and NR=17 nonrecombinants. Compare independent transmissions with θ=0.5. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "genetics-21-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "theta",
+          "type": "numeric",
+          "prompt": "Recombination fraction maximizing the supplied constrained linkage likelihood.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "lod",
+          "type": "numeric",
+          "prompt": "Base-ten log likelihood ratio at that maximum.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "inference",
+          "type": "single_choice",
+          "prompt": "What does the log likelihood ratio establish?",
+          "options": [
+            "The posterior probability of a causal gene without any prior or additional model.",
+            "Relative evidence for the declared linkage models; causal identity needs other evidence.",
+            "A base-pair distance with a universal conversion from the observed recombination rate."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "theta",
+            "type": "numeric",
+            "answer": 0.15,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "lod",
+            "type": "numeric",
+            "answer": 2.348995427589644,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "inference",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why calculate linkage evidence in log space?",
+        "solution": "The maximizing fraction is 3/20=0.15. Z=3log10(0.30)+17log10(1.70). It compares the declared known-phase linkage likelihood with θ=0.5, not a posterior gene-causality probability.",
+        "lesson_ids": [
+          "genetics-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-21:depth-4",
+      "type": "data_interpretation",
+      "prompt": "For a rare fully recessive disadvantage s=0.5 and A→a input u=0.000008, use the rare-allele approximation with no back mutation. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "genetics-21-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "balance",
+          "type": "numeric",
+          "prompt": "Approximate rare-recessive balance sqrt(u/s).",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "boundary",
+          "type": "single_choice",
+          "prompt": "What should be checked before interpreting this as an equilibrium?",
+          "options": [
+            "The exact life-cycle recurrence, dominance model, residual and omitted population processes.",
+            "Only the square-root operation; every dominance and life-cycle choice has this root.",
+            "A one-time frequency sample that uniquely identifies mutation input and selection."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "balance",
+            "type": "numeric",
+            "answer": 0.004,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "boundary",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Can one allele-frequency snapshot identify mutation rate uniquely?",
+        "solution": "The specified approximation gives sqrt(0.000016)=0.004. It can be exact for a particular recurrence, but is not universal: dominance, ordering, back mutation and other processes change the equation. Evaluate the actual fixed-point condition.",
+        "lesson_ids": [
+          "genetics-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-22:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1 has five mutants U,V,W,X,Y; all distinct pairs complement except U with W and V with X. A separate cross has W=15 selected wild-type recombinants among N=3000, with equally frequent reciprocal class. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "genetics-22-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "groups",
+          "type": "numeric",
+          "prompt": "Exact number of simple-model functional groups.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "fraction",
+          "type": "numeric",
+          "prompt": "Estimated fraction of all reciprocal recombinant progeny.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "map",
+          "type": "numeric",
+          "prompt": "Short-interval estimate in map units.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "groups",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "fraction",
+            "type": "numeric",
+            "answer": 0.01,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "map",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which ledgers belong in a functional-genetics report?",
+        "solution": "Functional groups are {U,W}, {V,X} and {Y}. In the separate cross, total r=2×15/3000=0.010 and short-interval map estimate is 1.00. Grouping and genetic distance are distinct claims.",
+        "lesson_ids": [
+          "genetics-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-22:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1’s separate pair has zero selected wild-type recombinants among N=1800. Its ideal partial diploid is I+ O+ Z+ / I− Oc Z+ with no catabolite control. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "genetics-22-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "bound",
+          "type": "numeric",
+          "prompt": "Approximate upper bound on total recombinant fraction.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "operon",
+          "type": "single_choice",
+          "prompt": "Which Z copies are expressed without inducer under the supplied negative-inducible model?",
+          "options": [
+            "Neither copy, because trans-acting I+ must repress even an operator that cannot bind it.",
+            "Both copies, because the I− allele eliminates the functional I+ product in trans.",
+            "Only the Oc-linked functional Z copy; I+ can repress the other O+ copy."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "bound",
+            "type": "numeric",
+            "answer": 0.0033333333333333335,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "operon",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why must regulatory genotype predictions track individual copies?",
+        "solution": "The reciprocal-adjusted rule-of-three bound is 6/1800≈0.00333333. In the stipulated partial diploid, I+ acts in trans but Oc escapes its binding in cis; without inducer only that linked Z copy is expressed. With inducer both can express.",
+        "lesson_ids": [
+          "genetics-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-23:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2 clone C1 has DNA A=160/B=80 and RNA A=120/B=120. The stipulated DNA ratio represents genomic dosage. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "genetics-23-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "dna",
+          "type": "numeric",
+          "prompt": "DNA A fraction for the supplied clone counts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "rna",
+          "type": "numeric",
+          "prompt": "RNA A fraction for the supplied clone counts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "per_copy",
+          "type": "numeric",
+          "prompt": "RNA allelic odds divided by DNA allelic odds.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "dna",
+            "type": "numeric",
+            "answer": 0.6666666666666666,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "rna",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "per_copy",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does a raw one-half RNA allele fraction leave unresolved?",
+        "solution": "The DNA odds are 2 and RNA odds 1, so the RNA-per-copy contrast is 0.5 despite a raw RNA A fraction of 0.5. The other two supplied clones have the same ratios by construction; reads are not independent clone replicates.",
+        "lesson_ids": [
+          "genetics-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-23:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2 clone C1 has 63 included/27 skipped informative junctions. The included coding region is 420 nucleotides; skipping omits 90 coding nucleotides with complete-codon boundaries. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "genetics-23-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "inclusion",
+          "type": "numeric",
+          "prompt": "Included-form fraction from the supplied informative junction counts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "codons",
+          "type": "numeric",
+          "prompt": "Exact number of coding codons omitted.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "expected",
+          "type": "numeric",
+          "prompt": "Expected coding length across the two-form mixture, nucleotides.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "homolog",
+          "type": "single_choice",
+          "prompt": "Can the supplied non-allelic junction counts identify which homolog skips?",
+          "options": [
+            "No; allele/phase-resolved evidence is needed to make that assignment.",
+            "Yes; the duplicated homolog must produce every skipped RNA molecule.",
+            "Yes; an average coding length identifies the sequence of every transcript."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "inclusion",
+            "type": "numeric",
+            "answer": 0.7,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "codons",
+            "type": "numeric",
+            "answer": 30.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "expected",
+            "type": "numeric",
+            "answer": 393.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "homolog",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why is a mixture-average coding length not a transcript annotation?",
+        "solution": "Inclusion is 63/90=0.7, the omitted coding segment is 30 codons and the skipped form has 330 coding nucleotides. The expectation is 393 nucleotides. The aggregate junction counts do not identify a homolog or prove protein function.",
+        "lesson_ids": [
+          "genetics-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-24:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 3 starts at q=0.25; selection weights AA/Aa/aa=1/0.9/0.4 precede mutation u=0.001 and v=0.002. Separately inspect the same q with F=0.1 before selection. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "genetics-24-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "mean",
+          "type": "numeric",
+          "prompt": "Mean selection weight under initial random union.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "selected",
+          "type": "numeric",
+          "prompt": "Post-selection a frequency under random union.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "next",
+          "type": "numeric",
+          "prompt": "Post-mutation next-generation a frequency.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "aa_f",
+          "type": "numeric",
+          "prompt": "Pre-selection aa probability under the separate F=0.1 mixture.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "mean",
+            "type": "numeric",
+            "answer": 0.925,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "selected",
+            "type": "numeric",
+            "answer": 0.20945945945945946,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "next",
+            "type": "numeric",
+            "answer": 0.20983108108108106,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "aa_f",
+            "type": "numeric",
+            "answer": 0.08125,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What should a population simulation verify before interpretation?",
+        "solution": "Random-union weights sum to 0.925; the a contribution is 0.19375. Divide before mutation: qs≈0.20945946 and qnext≈0.20983108. In the separate F mixture, aa=0.0625+0.01875=0.08125, while the overall q remains 0.25 before selection.",
+        "lesson_ids": [
+          "genetics-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-24:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Assignment 3’s separate known-phase cross has R=4 and NR=36 independent informative transmissions. The separate recessive-only balance uses u=0.000008,s=0.5 and no back mutation. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "genetics-24-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "theta",
+          "type": "numeric",
+          "prompt": "Recombination fraction maximizing the supplied constrained linkage likelihood.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "lod",
+          "type": "numeric",
+          "prompt": "Base-ten log likelihood ratio at that maximum.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "balance",
+          "type": "numeric",
+          "prompt": "Rare-recessive sqrt(u/s) balance for the separate model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "fixed_point",
+          "type": "single_choice",
+          "prompt": "What happens in the supplied recessive-selection, mutation-after-selection recurrence?",
+          "options": [
+            "Every genotype-weight model has the same square-root root regardless of dominance.",
+            "The positive interior root equals sqrt(u/s); derive it from that recurrence.",
+            "A tiny first-generation change proves convergence to the exact equilibrium already."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "theta",
+            "type": "numeric",
+            "answer": 0.1,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "lod",
+            "type": "numeric",
+            "answer": 6.393930166374943,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "balance",
+            "type": "numeric",
+            "answer": 0.004,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "fixed_point",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why retain an exact recurrence residual alongside an approximation?",
+        "solution": "The known-phase likelihood maximum is θ=4/40=0.1 and Z≈6.39394. In the distinct recessive-only recurrence, the fixed-point equation factors as (1−q)(u−sq²)=0, giving the interior q=0.004. It is not the equilibrium of the main heterozygote-disadvantage model.",
+        "lesson_ids": [
+          "genetics-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
     }
   ]
 }

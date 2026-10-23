@@ -30,9 +30,7 @@ REPOSITORY_ONLY = {("cell-biology", lesson_id, target) for lesson_id, target in 
 
 # Learner-facing gaps queued for each course's own batch: the dataset or lesson exists but the app cannot open it
 # from this link. Remove an entry when its link is fixed; the exact-set comparison fails until the list matches.
-QUEUED = {
-    ("robotics", "robotics-lab-01", "near-extension-reports.csv"),
-}
+QUEUED = set()
 
 
 def manifests():

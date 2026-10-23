@@ -615,6 +615,296 @@
         "statistics-17-objective-3"
       ],
       "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-project-card-1",
+      "lesson_id": "statistics-project-guide",
+      "front": "What must agree in a confirmatory protocol’s unit definitions?",
+      "back": "The randomization unit, independent sampling unit and sample-size calculation must match the analysis model. Technical repeats need their own within-unit role.",
+      "objective_ids": [
+        "statistics-project-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-project-card-2",
+      "lesson_id": "statistics-project-guide",
+      "front": "What separates a predeclared primary question from an exploratory choice?",
+      "back": "The primary outcome, timepoint, contrast and analysis are fixed before new outcomes exist. A pilot-selected marker can motivate that question but cannot retroactively become pre-specified.",
+      "objective_ids": [
+        "statistics-project-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-project-card-3",
+      "lesson_id": "statistics-project-guide",
+      "front": "Why round the retained-unit requirement up before applying attrition allowance?",
+      "back": "The retained analysis target is a discrete count. After that target is fixed, divide by the planned retention fraction and round the allocation count up again.",
+      "objective_ids": [
+        "statistics-project-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-project-card-4",
+      "lesson_id": "statistics-project-guide",
+      "front": "What extra assumption is needed for 1−(1−alpha)^m but not the Bonferroni bound?",
+      "back": "Independence of the tests gives the product probability. The union bound behind Bonferroni controls the family-wise probability without that assumption.",
+      "objective_ids": [
+        "statistics-project-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-project-card-5",
+      "lesson_id": "statistics-project-guide",
+      "front": "What information must survive a tidy table and plot?",
+      "back": "Unit identity, arm, time, outcome scale, technical-replicate identity, denominators and documented missingness/exclusions must remain distinguishable.",
+      "objective_ids": [
+        "statistics-project-objective-5"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-18-card-1",
+      "lesson_id": "statistics-18",
+      "front": "What must precede a joint-density moment calculation?",
+      "back": "The support and normalization, followed by the correct marginal or joint integral; arbitrary rectangular bounds can include impossible pairs.",
+      "objective_ids": [
+        "statistics-18-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-18-card-2",
+      "lesson_id": "statistics-18",
+      "front": "What does zero covariance establish?",
+      "back": "It establishes a zero centered product expectation under finite moments, not factorization of the entire joint law.",
+      "objective_ids": [
+        "statistics-18-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-18-card-3",
+      "lesson_id": "statistics-18",
+      "front": "Why distinguish marginal and conditional reference sets?",
+      "back": "Conditioning changes the distribution and its support; the unconditional average cannot be reused automatically for a fixed predictor.",
+      "objective_ids": [
+        "statistics-18-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-18-card-4",
+      "lesson_id": "statistics-18",
+      "front": "How should total-variance terms be interpreted?",
+      "back": "First as within-condition and between-conditional-mean variation in the declared model; scientific labels require an appropriate data-generating explanation.",
+      "objective_ids": [
+        "statistics-18-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-19-card-1",
+      "lesson_id": "statistics-19",
+      "front": "How does independent right censoring enter this exponential likelihood?",
+      "back": "Each censored duration contributes survival exposure, while only observed events contribute a rate factor.",
+      "objective_ids": [
+        "statistics-19-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-19-card-2",
+      "lesson_id": "statistics-19",
+      "front": "What does likelihood curvature fail to establish by itself?",
+      "back": "It does not verify finite-sample interval coverage, the censoring assumptions or fit of the event-time model.",
+      "objective_ids": [
+        "statistics-19-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-19-card-3",
+      "lesson_id": "statistics-19",
+      "front": "Why state a parameter space before optimization?",
+      "back": "An interior stationary point, an attained boundary maximum and an unattained supremum are different mathematical conclusions.",
+      "objective_ids": [
+        "statistics-19-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-19-card-4",
+      "lesson_id": "statistics-19",
+      "front": "How do likelihood and posterior differ?",
+      "back": "Likelihood compares parameter values through fixed observations; a posterior additionally uses a prior and normalizes over the declared parameter space.",
+      "objective_ids": [
+        "statistics-19-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-20-card-1",
+      "lesson_id": "statistics-20",
+      "front": "Which quantities add in normal conjugacy?",
+      "back": "Independent likelihood precision and prior precision add; variances or standard deviations do not add in that posterior formula.",
+      "objective_ids": [
+        "statistics-20-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-20-card-2",
+      "lesson_id": "statistics-20",
+      "front": "Why is a predictive interval wider than the posterior interval for a mean?",
+      "back": "It includes new observation variability in addition to current uncertainty about the shared mean.",
+      "objective_ids": [
+        "statistics-20-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-20-card-3",
+      "lesson_id": "statistics-20",
+      "front": "Can conditional independence coexist with marginal dependence?",
+      "back": "Yes. Integrating over a shared uncertain parameter can induce dependence between quantities that are independent when that parameter is fixed.",
+      "objective_ids": [
+        "statistics-20-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-20-card-4",
+      "lesson_id": "statistics-20",
+      "front": "What does a credible-interval probability depend on?",
+      "back": "The stated prior, sampling likelihood, observations and interval rule; it is not automatically a frequentist coverage guarantee or empirical model validation.",
+      "objective_ids": [
+        "statistics-20-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-21-card-1",
+      "lesson_id": "statistics-21",
+      "front": "What must a reproducible regression fit retain?",
+      "back": "Raw rows, design columns/rank, coefficient solution, residuals and target assumptions; a coefficient list alone does not identify the analysis.",
+      "objective_ids": [
+        "statistics-21-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-21-card-2",
+      "lesson_id": "statistics-21",
+      "front": "Why can a slope change after adjustment?",
+      "back": "Correlated predictors can share projected response variation; changing the model changes the conditional comparison and may alter the slope without establishing causality.",
+      "objective_ids": [
+        "statistics-21-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-21-card-3",
+      "lesson_id": "statistics-21",
+      "front": "Why does fitted rank matter for a residual variance estimate?",
+      "back": "The projection removes as many independent directions as the design rank; the remaining residual dimension determines the usual mean-square denominator.",
+      "objective_ids": [
+        "statistics-21-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-21-card-4",
+      "lesson_id": "statistics-21",
+      "front": "Which target requires a new-error contribution?",
+      "back": "Prediction of a new noisy observation, rather than estimation of the model mean at specified predictors.",
+      "objective_ids": [
+        "statistics-21-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-22-card-1",
+      "lesson_id": "statistics-22",
+      "front": "Why is a binomial variance wrong for these draws?",
+      "back": "Sampling without replacement makes the indicators dependent; the covariance term changes the variance even though each marginal success probability is the same.",
+      "objective_ids": [
+        "statistics-22-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-22-card-2",
+      "lesson_id": "statistics-22",
+      "front": "How can conditional computations be independently checked?",
+      "back": "Derive and normalize the conditional density, then compare its moment with a direct joint/marginal calculation on the same support.",
+      "objective_ids": [
+        "statistics-22-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-23-card-1",
+      "lesson_id": "statistics-23",
+      "front": "What does a procedure name fail to guarantee?",
+      "back": "Nominal confidence and a bootstrap label do not establish finite-sample coverage; evaluate the actual sampling procedure, especially at boundaries.",
+      "objective_ids": [
+        "statistics-23-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-23-card-2",
+      "lesson_id": "statistics-23",
+      "front": "Which experiment gives this exact p-value its denominator?",
+      "back": "The specified randomized allocations of fixed sharp-null outcomes; an arbitrary observational regrouping need not have that reference distribution.",
+      "objective_ids": [
+        "statistics-23-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-24-card-1",
+      "lesson_id": "statistics-24",
+      "front": "What distinguishes a projection check from model validation?",
+      "back": "Residual orthogonality verifies the least-squares algebra; independence, variance, design and empirical mean-model adequacy require other evidence.",
+      "objective_ids": [
+        "statistics-24-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-24-card-2",
+      "lesson_id": "statistics-24",
+      "front": "Why state the target and design alongside a prediction?",
+      "back": "The new-observation noise term and interpretation depend on what is predicted and how units/data were generated, not only on fitted coefficients.",
+      "objective_ids": [
+        "statistics-24-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-25-card-1",
+      "lesson_id": "statistics-25",
+      "front": "Which ledgers must a censored likelihood report preserve?",
+      "back": "Observed duration and event status separately, total exposure, event count, parameter domain, units and the censoring mechanism assumption.",
+      "objective_ids": [
+        "statistics-25-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "statistics-25-card-2",
+      "lesson_id": "statistics-25",
+      "front": "What should a cumulative inference report distinguish?",
+      "back": "Sampling estimates/coverage, likelihood, posterior probability and future prediction, with each tied to its own parameter, unit, design and assumptions.",
+      "objective_ids": [
+        "statistics-25-objective-2"
+      ],
+      "license": "CC-BY-4.0"
     }
   ]
 }

@@ -4612,6 +4612,1384 @@
           }
         ]
       }
+    },
+    {
+      "id": "transport-17:depth-1",
+      "type": "data_interpretation",
+      "prompt": "An ideal dilute solute has Kp=3, Vα=0.002 m³, Vβ=0.001 m³ and total amount 0.010 mol. Report continuous values as bare numbers in the requested units to three significant figures, and exact counts as integers. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "transport-17-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "alpha",
+          "type": "numeric",
+          "prompt": "Equilibrium concentration in phase alpha, mol/m³.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "beta",
+          "type": "numeric",
+          "prompt": "Equilibrium concentration in phase beta, mol/m³.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "beta_amount",
+          "type": "numeric",
+          "prompt": "Solute amount in phase beta, mol.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "alpha",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "beta",
+            "type": "numeric",
+            "answer": 6.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "beta_amount",
+            "type": "numeric",
+            "answer": 0.006,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What equalizes across two phases at equilibrium?",
+        "solution": "Use n=cα(Vα+Kp Vβ), so cα=0.010/0.005=2 mol/m³ and cβ=6 mol/m³. Their amounts are 0.004 and 0.006 mol, summing to the supplied total; the ratio is three. Concentrations differ at equilibrium because the phase standard-state contributions can differ.",
+        "lesson_ids": [
+          "transport-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic thermodynamics/transport practice developed with substantial AI assistance; no external exercise or data copied."
+        ]
+      }
+    },
+    {
+      "id": "transport-17:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Supplied coexistence compositions are xα=0.1 and xβ=0.7; overall composition is z=0.4. Report continuous values as bare numbers in the requested units to three significant figures, and exact counts as integers. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "transport-17-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "fraction",
+          "type": "numeric",
+          "prompt": "Amount fraction of phase alpha.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "coexistence",
+          "type": "single_choice",
+          "prompt": "What does the lever calculation assume?",
+          "options": [
+            "The coexistence compositions are already known; a balance alone does not derive them.",
+            "The spinodal compositions always equal the coexistence compositions.",
+            "Amount fractions always equal volume fractions without density information."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "fraction",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "coexistence",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Does a lever rule determine the phase diagram?",
+        "solution": "Solve z=fα xα+(1−fα)xβ, giving fα=(0.7−0.4)/(0.7−0.1)=0.5. This checks phase amounts conditional on supplied coexistence, not equilibrium compositions or densities.",
+        "lesson_ids": [
+          "transport-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic thermodynamics/transport practice developed with substantial AI assistance; no external exercise or data copied."
+        ]
+      }
+    },
+    {
+      "id": "transport-17:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Use g=x ln x+(1−x)ln(1−x)+χx(1−x) with χ=2.5. Report continuous values as bare numbers in the requested units to three significant figures, and exact counts as integers. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "transport-17-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "curvature",
+          "type": "numeric",
+          "prompt": "Second derivative at the central composition x=0.5.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "lower",
+          "type": "numeric",
+          "prompt": "Lower spinodal composition from g″=0.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "upper",
+          "type": "numeric",
+          "prompt": "Upper spinodal composition from g″=0.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "meaning",
+          "type": "single_choice",
+          "prompt": "What do the two curvature roots identify?",
+          "options": [
+            "Measured phase boundaries for every real binary liquid.",
+            "A transport rate constant for phase separation.",
+            "Local-instability boundaries, not the coexistence compositions obtained from chemical-potential/common-tangent equality."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "curvature",
+            "type": "numeric",
+            "answer": -1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "lower",
+            "type": "numeric",
+            "answer": 0.27639320225002106,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "upper",
+            "type": "numeric",
+            "answer": 0.7236067977499789,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "meaning",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why are spinodal and coexistence boundaries different?",
+        "solution": "The curvature is 1/x+1/(1−x)−5. At 0.5 it is −1; roots satisfy x(1−x)=0.2, giving approximately 0.27639320 and 0.72360680. Global coexistence requires a separate free-energy comparison.",
+        "lesson_ids": [
+          "transport-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic thermodynamics/transport practice developed with substantial AI assistance; no external exercise or data copied."
+        ]
+      }
+    },
+    {
+      "id": "transport-17:depth-4",
+      "type": "data_interpretation",
+      "prompt": "An activity equilibrium ratio is Ka=4 with constant γα=0.5 and γβ=2 under a common concentration standard. Report continuous values as bare numbers in the requested units to three significant figures, and exact counts as integers. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "transport-17-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "ratio",
+          "type": "numeric",
+          "prompt": "Resulting equilibrium concentration ratio cβ/cα.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "standard",
+          "type": "single_choice",
+          "prompt": "Which bookkeeping rule is correct?",
+          "options": [
+            "Insert dimensional concentration directly into every logarithm.",
+            "State the activity convention and include each activity coefficient once.",
+            "Apply the activity correction twice because two phases exist."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "ratio",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "standard",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Does a dimensionless activity ratio always equal a concentration ratio?",
+        "solution": "From γβ cβ/(γα cα)=4, cβ/cα=4×0.5/2=1. Raw concentrations can be equal while activities differ under the declared coefficients; standard potentials complete the equality of chemical potentials.",
+        "lesson_ids": [
+          "transport-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic thermodynamics/transport practice developed with substantial AI assistance; no external exercise or data copied."
+        ]
+      }
+    },
+    {
+      "id": "transport-18:depth-1",
+      "type": "data_interpretation",
+      "prompt": "For transfer A→B at 300 K, use z=+1, aB/aA=2 and ψB−ψA=−0.010 V; R=8.314 and F=96485 in SI units. Report continuous values as bare numbers in the requested units to three significant figures, and exact counts as integers. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "transport-18-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "chemical",
+          "type": "numeric",
+          "prompt": "Chemical contribution for A-to-B transfer, J/mol.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "electrical",
+          "type": "numeric",
+          "prompt": "Electrical contribution for that transfer, J/mol.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "total",
+          "type": "numeric",
+          "prompt": "Total electrochemical change for transfer, J/mol.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "chemical",
+            "type": "numeric",
+            "answer": 1728.8476977526154,
+            "unit": "",
+            "tolerance": 5.1,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "electrical",
+            "type": "numeric",
+            "answer": -964.85,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "total",
+            "type": "numeric",
+            "answer": 763.9976977526154,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How should electrochemical signs be checked?",
+        "solution": "The chemical term is RT ln2≈1728.8477 J/mol and the electrical term is −964.85 J/mol. Their sum is approximately 763.99770 J/mol, so this declared transfer is uphill. Reversing the transfer reverses both terms; changing the ion charge reverses only its electrical contribution.",
+        "lesson_ids": [
+          "transport-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic thermodynamics/transport practice developed with substantial AI assistance; no external exercise or data copied."
+        ]
+      }
+    },
+    {
+      "id": "transport-18:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use the preceding uphill cost with a synthetic actual auxiliary Gibbs energy −9000 J/mol of coupling events. Report continuous values as bare numbers in the requested units to three significant figures, and exact counts as integers. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "transport-18-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "count",
+          "type": "numeric",
+          "prompt": "Largest exact integer ions per event with strictly negative total.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "mechanism",
+          "type": "single_choice",
+          "prompt": "What does a negative coupled energy total establish?",
+          "options": [
+            "The process must be fast and perfectly coupled.",
+            "The supplied auxiliary energy is a universal biochemical constant.",
+            "Thermodynamic favorability under the declared reservoirs, not a demonstrated coupling mechanism or rate."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "count",
+            "type": "numeric",
+            "answer": 11.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "mechanism",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Can reaction energy alone specify transport speed?",
+        "solution": "The largest favorable integer is eleven: 11×763.99770 is below 9000 J. Twelve exceeds the supply. Check the next integer and distinguish strictly negative driving force from reversible equality.",
+        "lesson_ids": [
+          "transport-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic thermodynamics/transport practice developed with substantial AI assistance; no external exercise or data copied."
+        ]
+      }
+    },
+    {
+      "id": "transport-18:depth-3",
+      "type": "data_interpretation",
+      "prompt": "For the same ideal cation at 300 K with aB/aA=2, determine its equilibrium voltage. Report continuous values as bare numbers in the requested units to three significant figures, and exact counts as integers. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "transport-18-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "voltage",
+          "type": "numeric",
+          "prompt": "Equilibrium B-minus-A voltage difference, in V.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "multispecies",
+          "type": "single_choice",
+          "prompt": "Does this one-species condition determine every multi-ion membrane voltage?",
+          "options": [
+            "No. Other species, currents, charge balance, permeabilities and coupling constraints can matter.",
+            "Yes. Every ion must share the same separate Nernst voltage in any nonequilibrium membrane.",
+            "Only the concentration ratio matters; electrical potential never enters."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "voltage",
+            "type": "numeric",
+            "answer": -0.01791830541278557,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "multispecies",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What is the equilibrium electrochemical condition?",
+        "solution": "Set RT ln2+FΔψ=0, giving a negative B-minus-A voltage of about −0.0179183 V. It balances this ion’s chemical driving force; it is not a complete multi-ion membrane model.",
+        "lesson_ids": [
+          "transport-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic thermodynamics/transport practice developed with substantial AI assistance; no external exercise or data copied."
+        ]
+      }
+    },
+    {
+      "id": "transport-18:depth-4",
+      "type": "data_interpretation",
+      "prompt": "For an ideal particle-concentration difference cA−cB=2 mol/m³ at 300 K, use ΔP=8000 Pa, σ=1 and Lp=10^−12 m/(Pa s), all A-minus-B differences. Report continuous values as bare numbers in the requested units to three significant figures, and exact counts as integers. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "transport-18-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "osmotic",
+          "type": "numeric",
+          "prompt": "Osmotic pressure difference for the supplied concentration difference, Pa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "flux",
+          "type": "numeric",
+          "prompt": "Positive A-to-B volume flux per area, m/s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "law",
+          "type": "single_choice",
+          "prompt": "What additional evidence is needed for a real membrane prediction?",
+          "options": [
+            "Only a favorable Gibbs-energy sign with no transport coefficients.",
+            "A zero osmotic difference at every nonzero concentration.",
+            "A justified constitutive model and coefficients, plus evolving reservoir/pressure constraints."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "osmotic",
+            "type": "numeric",
+            "answer": 4988.4,
+            "unit": "",
+            "tolerance": 5.1,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "flux",
+            "type": "numeric",
+            "answer": 3.0116000000000002e-09,
+            "unit": "",
+            "tolerance": 5.1e-12,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "law",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why separate an equilibrium condition from a flux relation?",
+        "solution": "The osmotic difference is RT×2=4988.4 Pa. The supplied pressure difference leaves 3011.6 Pa driving the declared law, giving 3.0116×10^−9 m/s. This is conditional on the coefficient and reservoir model.",
+        "lesson_ids": [
+          "transport-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic thermodynamics/transport practice developed with substantial AI assistance; no external exercise or data copied."
+        ]
+      }
+    },
+    {
+      "id": "transport-19:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Use no-flux cells, D=2×10^−9 m²/s and Δx=0.0001 m. Then add a first-order sink k=0.1 s^−1. Report continuous values as bare numbers in the requested units to three significant figures, and exact counts as integers. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "transport-19-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "diffusion_step",
+          "type": "numeric",
+          "prompt": "Largest no-sink step under the stated interior positivity rule, s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "combined_step",
+          "type": "numeric",
+          "prompt": "Largest step under 2DΔt/Δx²+kΔt≤1, s.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "diffusion_step",
+            "type": "numeric",
+            "answer": 2.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "combined_step",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why must a time-step condition name its boundary discretization?",
+        "solution": "For no sink, r≤0.5 gives Δt≤0.5Δx²/D=2.5 s. Adding the first-order sink changes the self coefficient, giving Δt≤1/(2D/Δx²+k)=2 s. These are sufficient positivity tests for this no-flux uniform formulation, not universal boundary or accuracy guarantees.",
+        "lesson_ids": [
+          "transport-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic thermodynamics/transport practice developed with substantial AI assistance; no external exercise or data copied."
+        ]
+      }
+    },
+    {
+      "id": "transport-19:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For three no-flux cells, start [0,1,0] and take r=0.2 with no source. Report continuous values as bare numbers in the requested units to three significant figures, and exact counts as integers. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "transport-19-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "first",
+          "type": "numeric",
+          "prompt": "First-cell concentration after one explicit step.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "center",
+          "type": "numeric",
+          "prompt": "Center-cell concentration after one explicit step.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "last",
+          "type": "numeric",
+          "prompt": "Last-cell concentration after one explicit step.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "amount",
+          "type": "single_choice",
+          "prompt": "Which quantity is total amount for equal cells?",
+          "options": [
+            "AΔx times the concentration sum, with geometry and units retained.",
+            "The concentration sum always has mole units without cell volumes.",
+            "Only the middle-cell concentration is needed."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "first",
+            "type": "numeric",
+            "answer": 0.2,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "center",
+            "type": "numeric",
+            "answer": 0.6,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "last",
+            "type": "numeric",
+            "answer": 0.2,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "amount",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What is the central conservation requirement at a shared face?",
+        "solution": "The update is [0.2,0.6,0.2], so its sum remains one. Multiplying by the same cell volume gives conserved amount. Shared face fluxes cancel in the global balance.",
+        "lesson_ids": [
+          "transport-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic thermodynamics/transport practice developed with substantial AI assistance; no external exercise or data copied."
+        ]
+      }
+    },
+    {
+      "id": "transport-19:depth-3",
+      "type": "data_interpretation",
+      "prompt": "A four-cell fixed-boundary slab has L=0.004 m, cL=2, cR=0 mol/m³ and D=2×10^−9 m²/s, with no reaction. Report continuous values as bare numbers in the requested units to three significant figures, and exact counts as integers. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "transport-19-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "first",
+          "type": "numeric",
+          "prompt": "Exact first-cell average concentration for the linear profile.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "last",
+          "type": "numeric",
+          "prompt": "Exact last-cell average concentration for the linear profile.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "flux",
+          "type": "numeric",
+          "prompt": "Constant positive steady face flux, mol/(m² s).",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "first",
+            "type": "numeric",
+            "answer": 1.75,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "last",
+            "type": "numeric",
+            "answer": 0.25,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "flux",
+            "type": "numeric",
+            "answer": 1e-06,
+            "unit": "",
+            "tolerance": 5.1e-09,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Can a tiny matrix residual detect an incorrectly assembled boundary?",
+        "solution": "The linear profile c=2(1−x/L) gives center/average values [1.75,1.25,0.75,0.25]. Each face flux is D×2/L=10^−6 mol/(m² s). Half-cell boundary distances are essential to recover the same flux at every face.",
+        "lesson_ids": [
+          "transport-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic thermodynamics/transport practice developed with substantial AI assistance; no external exercise or data copied."
+        ]
+      }
+    },
+    {
+      "id": "transport-19:depth-4",
+      "type": "data_interpretation",
+      "prompt": "A cell-centered Dirichlet boundary row has update coefficient 1−3r on its old concentration. Report continuous values as bare numbers in the requested units to three significant figures, and exact counts as integers. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "transport-19-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "bound",
+          "type": "numeric",
+          "prompt": "Largest r for nonnegative self weight in this boundary row.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "proof",
+          "type": "single_choice",
+          "prompt": "Does preserved total amount establish an accurate transient?",
+          "options": [
+            "Yes. Every conservative time trajectory is exact.",
+            "It establishes the diffusivity experimentally.",
+            "No. Conservation, positivity, space/time accuracy and model validity require different evidence."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "bound",
+            "type": "numeric",
+            "answer": 0.3333333333333333,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "proof",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What should a transport verification report compare separately?",
+        "solution": "Nonnegative self weight requires r≤1/3 for this row. A no-flux interior row instead has coefficient 1−2r. Preserved totals are useful diagnostics but do not certify transient accuracy or a physical model.",
+        "lesson_ids": [
+          "transport-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic thermodynamics/transport practice developed with substantial AI assistance; no external exercise or data copied."
+        ]
+      }
+    },
+    {
+      "id": "transport-20:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1 uses Ka=4, γα=0.8, γβ=1.6, Vα=0.004 m³, Vβ=0.001 m³ and total solute 0.012 mol. Report continuous values as bare numbers in the requested units to three significant figures, and exact counts as integers. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "transport-20-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "ratio",
+          "type": "numeric",
+          "prompt": "Concentration partition ratio after activity correction.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "alpha",
+          "type": "numeric",
+          "prompt": "Phase-alpha equilibrium concentration in mol/m³.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "beta",
+          "type": "numeric",
+          "prompt": "Phase-beta equilibrium concentration in mol/m³.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "ratio",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "alpha",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "beta",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which two checks should a partition solution pass?",
+        "solution": "The concentration ratio is 4×0.8/1.6=2. The balance denominator is 0.004+2×0.001=0.006 m³, giving cα=2 and cβ=4 mol/m³. Amounts 0.008 and 0.004 mol close the supplied total; the corrected activity ratio is four.",
+        "lesson_ids": [
+          "transport-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic thermodynamics/transport practice developed with substantial AI assistance; no external exercise or data copied."
+        ]
+      }
+    },
+    {
+      "id": "transport-20:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1 supplies coexistence xα=0.15, xβ=0.75 and overall z=0.30. Report continuous values as bare numbers in the requested units to three significant figures, and exact counts as integers. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "transport-20-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "fraction",
+          "type": "numeric",
+          "prompt": "Amount fraction of phase alpha from the lever balance.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "spinodal",
+          "type": "single_choice",
+          "prompt": "Which additional calculation establishes coexistence for a nonideal free-energy model?",
+          "options": [
+            "Match phase chemical potentials/common tangents and compare appropriate Gibbs energies.",
+            "Set only the second derivative to zero and call those roots coexistence.",
+            "Use a larger numerical diffusivity until two phases appear."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "fraction",
+            "type": "numeric",
+            "answer": 0.75,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "spinodal",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why include both local curvature and common-tangent analysis?",
+        "solution": "The lever fraction is (0.75−0.30)/(0.75−0.15)=0.75. It reconstructs the supplied overall composition but assumes the phase endpoints. Curvature roots diagnose local instability and are not a substitute for the coexistence conditions.",
+        "lesson_ids": [
+          "transport-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic thermodynamics/transport practice developed with substantial AI assistance; no external exercise or data copied."
+        ]
+      }
+    },
+    {
+      "id": "transport-21:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2 uses aB/aA=3, Δψ=−0.010 V, z=1, T=300 K and auxiliary energy −10000 J/mol of coupling events; R=8.314, F=96485. Report continuous values as bare numbers in the requested units to three significant figures, and exact counts as integers. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "transport-21-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "cost",
+          "type": "numeric",
+          "prompt": "Electrochemical cost per mole transferred, J/mol.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "count",
+          "type": "numeric",
+          "prompt": "Largest strictly favorable exact integer ions per event.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "meaning",
+          "type": "single_choice",
+          "prompt": "What does the coupling limit represent?",
+          "options": [
+            "A measured rate constant for a real transporter.",
+            "A guaranteed efficiency independent of activities.",
+            "A conditional thermodynamic bound, not demonstrated molecular stoichiometry or transport speed."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "cost",
+            "type": "numeric",
+            "answer": 1775.308770395999,
+            "unit": "",
+            "tolerance": 5.1,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "count",
+            "type": "numeric",
+            "answer": 5.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "meaning",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why test the next integer in a coupled energy budget?",
+        "solution": "Add RT ln3 to −964.85 J/mol for the transfer cost, then check integer multiples against 10000 J per event. Five transfers are favorable while six exceed the supply. The ledger does not demonstrate a physical coupling mechanism.",
+        "lesson_ids": [
+          "transport-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic thermodynamics/transport practice developed with substantial AI assistance; no external exercise or data copied."
+        ]
+      }
+    },
+    {
+      "id": "transport-21:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Closed solvent reservoirs have impermeant solute nA=0.004 mol, nB=0.008 mol and total volume 0.004 m³. Initially each volume is 0.002 m³; T=300 K, area=0.001 m², Lp=10^−12 m/(Pa s) and ΔP=0. Report continuous values as bare numbers in the requested units to three significant figures, and exact counts as integers. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "transport-21-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "volume_a",
+          "type": "numeric",
+          "prompt": "Equilibrium phase-A volume in cubic meters.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "volume_b",
+          "type": "numeric",
+          "prompt": "Equilibrium phase-B volume in cubic meters.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "initial_flow",
+          "type": "numeric",
+          "prompt": "Initial positive A-to-B flow Q in cubic meters per second.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "volume_a",
+            "type": "numeric",
+            "answer": 0.0013333333333333333,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "volume_b",
+            "type": "numeric",
+            "answer": 0.0026666666666666666,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "initial_flow",
+            "type": "numeric",
+            "answer": 4.9884e-12,
+            "unit": "",
+            "tolerance": 5.1e-15,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What changes as solvent crosses closed reservoirs?",
+        "solution": "At equilibrium both concentrations equal total solute/total volume=3 mol/m³. Thus VA=0.004/3 and VB=0.008/3 m³. Initial concentrations are 2 and 4, so Q=area×Lp×RT×2=4.9884×10^−12 m³/s. Volumes evolve while solute amounts remain fixed.",
+        "lesson_ids": [
+          "transport-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic thermodynamics/transport practice developed with substantial AI assistance; no external exercise or data copied."
+        ]
+      }
+    },
+    {
+      "id": "transport-22:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 3 uses four equal no-flux cells from [0,1,0,0] and r=0.2, with no reaction. Report continuous values as bare numbers in the requested units to three significant figures, and exact counts as integers. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "transport-22-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "first",
+          "type": "numeric",
+          "prompt": "First-cell concentration after one explicit update.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second",
+          "type": "numeric",
+          "prompt": "Second-cell concentration after that same update.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "third",
+          "type": "numeric",
+          "prompt": "Third-cell concentration after that same update.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "fourth",
+          "type": "single_choice",
+          "prompt": "What is the fourth-cell concentration after this first step?",
+          "options": [
+            "Zero: no old gradient enters it in this explicit update.",
+            "It instantly equals the final uniform equilibrium concentration.",
+            "It must become negative to preserve mass."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "first",
+            "type": "numeric",
+            "answer": 0.2,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "second",
+            "type": "numeric",
+            "answer": 0.6,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "third",
+            "type": "numeric",
+            "answer": 0.2,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "fourth",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why keep explicit updates separate from the old vector?",
+        "solution": "Use the old vector in every component: the update is [0.2,0.6,0.2,0]. Its sum remains one. A mixed-time in-place update implements a different algorithm, so both the first-step vector and global total belong in the tests.",
+        "lesson_ids": [
+          "transport-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic thermodynamics/transport practice developed with substantial AI assistance; no external exercise or data copied."
+        ]
+      }
+    },
+    {
+      "id": "transport-22:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For the steady fixed-boundary sink problem, D=2×10^−9 m²/s, k=0.002 s^−1 and L=0.004 m. Report continuous values as bare numbers in the requested units to three significant figures, and exact counts as integers. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "transport-22-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "length",
+          "type": "numeric",
+          "prompt": "Reaction-diffusion length sqrt(D/k) in meters.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "ratio",
+          "type": "numeric",
+          "prompt": "Original four-cell width divided by that length.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "balance",
+          "type": "single_choice",
+          "prompt": "Which discrete steady sink balance must be checked?",
+          "options": [
+            "A zero matrix residual alone proves the grid resolves every reaction layer.",
+            "Left and right fluxes must be identical even with a distributed sink.",
+            "j_left−j_right=kΔx sum(c_i) for the constant-area cells, alongside independent continuum/refinement checks."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "length",
+            "type": "numeric",
+            "answer": 0.001,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "ratio",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "balance",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Can a conservative coarse grid still be inaccurate?",
+        "solution": "The characteristic length is 0.001 m and the original cell width is also 0.001 m, motivating refinement. Summed cell equations cancel internal faces and equate boundary net inflow to the discrete integrated sink. This conservation identity is distinct from continuum accuracy.",
+        "lesson_ids": [
+          "transport-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic thermodynamics/transport practice developed with substantial AI assistance; no external exercise or data copied."
+        ]
+      }
     }
   ]
 }

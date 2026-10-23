@@ -62,7 +62,7 @@ def field_checks(c0, a, radius, diffusivity, n=4000):
 
 
 def test_route_is_scheduled_optional_and_ungraded():
-    assert MANIFEST["version"] == "0.5.0" and MANIFEST["maturity"] == "partial"
+    assert MANIFEST["version"] == "0.6.0" and MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed" and MANIFEST["grading_policy"]["mode"] == "formative-only"
     rehearsal = ASSESSMENTS["calculus-3-project-rehearsal-practice"]
     project = ASSESSMENTS["calculus-3-field-project"]

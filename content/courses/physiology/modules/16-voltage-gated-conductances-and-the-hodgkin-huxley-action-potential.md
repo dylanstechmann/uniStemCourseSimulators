@@ -44,7 +44,7 @@ so after a voltage step x(t) = x∞ − (x∞ − x₀) e^(−t/τ_x).
 
 At rest (−65 mV) the classic rates give α_n = 0.0582 ms⁻¹ and β_n = 0.125 ms⁻¹, so n∞ = 0.318, τ_n = 5.46 ms and g_K = 36 × 0.318⁴ ≈ 0.37 mS/cm². At a clamp of 0 mV the time constants are about 0.24 ms for m, 1.03 ms for h and 1.65 ms for n. The m gates are four to seven times faster than the others, and that difference in speed shapes every phase of the spike.
 
-The fourth power explains the delay in the potassium conductance. In the worked example below, n rises from 0.318 to 0.587 within 1 ms of a step to 0 mV, less than doubling, while n⁴, and so g_K, rises about 11.6-fold. Because n⁴ starts with zero slope, g_K curves upward after a step instead of jumping. The exponents were chosen to fit the measured delays; independent gates are an idealization of how real channel proteins move.
+The fourth power explains the delay in the potassium conductance. In the worked example below, n rises from 0.318 to 0.587 within 1 ms of a step to 0 mV, less than doubling, while n⁴, and so g_K, rises about 11.6-fold. The gate and conductance remain continuous, but their right-hand derivatives change when the voltage step changes the rates. In particular, d(g_K)/dt = 4 gbar_K n0³ [alpha_new(1−n0)−beta_new n0]; at n0=0.318 with the worked rates this initial slope is about 1.66155 mS/cm² per ms, not zero. Zero initial slope requires n0=0 or a zero initial gate derivative. The fourth power produces a nonlinear rise, not a universal zero-slope start. The exponents were chosen to fit the measured delays; independent gates are an idealization of how real channel proteins move.
 
 ## The action potential, step by step
 

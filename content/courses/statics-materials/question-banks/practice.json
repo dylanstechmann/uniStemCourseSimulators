@@ -4387,6 +4387,1040 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "statics-materials-16:depth-1",
+      "type": "data_interpretation",
+      "prompt": "A level-propped cantilever has L=1.5 m, w=600 N/m and EI=30000 N m². Upward reactions and counterclockwise external couples are positive. Report numeric responses as bare numbers in the requested units to three significant figures; keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "statics-materials-16-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "prop",
+          "type": "numeric",
+          "prompt": "Upward reaction at the level endpoint prop, N.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "fixed_force",
+          "type": "numeric",
+          "prompt": "Upward reaction at the fixed end, N.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "couple",
+          "type": "numeric",
+          "prompt": "External fixing couple at the fixed end, N m.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "prop",
+            "type": "numeric",
+            "answer": 337.5,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "fixed_force",
+            "type": "numeric",
+            "answer": 562.5,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "couple",
+            "type": "numeric",
+            "answer": 168.75,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why are equilibrium equations insufficient for a redundant reaction?",
+        "solution": "Released-cantilever deflection is wL⁴/(8EI) and endpoint flexibility L³/(3EI). Setting their compatible combination to zero gives RB=3wL/8=337.5 N. Force balance gives RA=562.5 N and external moment balance gives +168.75 N m; the fixed-end internal bending sign is opposite.",
+        "lesson_ids": [
+          "statics-materials-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanics/constitutive-history practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      }
+    },
+    {
+      "id": "statics-materials-16:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For the same beam, take downward support settlement 0.005 m while testing contact. Report numeric responses as bare numbers in the requested units to three significant figures; keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "statics-materials-16-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "released",
+          "type": "numeric",
+          "prompt": "Released end deflection under the uniform load, m.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "prop",
+          "type": "numeric",
+          "prompt": "Contact reaction from (released deflection−settlement)/flexibility, N.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "larger",
+          "type": "single_choice",
+          "prompt": "What happens at settlement 0.020 m for a unilateral prop?",
+          "options": [
+            "The support lies below the released endpoint, so contact is lost and the prop reaction is zero.",
+            "Enforce a negative upward reaction even though the prop cannot pull.",
+            "Keep the level-support reaction unchanged."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "released",
+            "type": "numeric",
+            "answer": 0.01265625,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "prop",
+            "type": "numeric",
+            "answer": 204.1666666666667,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "larger",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which conditions define the unilateral prop?",
+        "solution": "The released displacement is 0.01265625 m and flexibility 0.0000375 m/N. At 0.005 m settlement the compatible upward reaction is about 204.16667 N. At 0.020 m the released endpoint does not reach the support, so the admissible state is separation, not a downward prop force.",
+        "lesson_ids": [
+          "statics-materials-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanics/constitutive-history practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      }
+    },
+    {
+      "id": "statics-materials-16:depth-3",
+      "type": "data_interpretation",
+      "prompt": "For the same level-propped beam, use sagging-positive internal bending. Report numeric responses as bare numbers in the requested units to three significant figures; keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "statics-materials-16-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "zero",
+          "type": "numeric",
+          "prompt": "Interior contraflexure location measured from the fixed end, m.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "position",
+          "type": "numeric",
+          "prompt": "Location of maximum positive internal moment, m.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "positive",
+          "type": "numeric",
+          "prompt": "Maximum positive internal bending moment, N m.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "fixed",
+          "type": "numeric",
+          "prompt": "Internal bending moment at the fixed end, N m.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "zero",
+            "type": "numeric",
+            "answer": 0.375,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "position",
+            "type": "numeric",
+            "answer": 0.9375,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "positive",
+            "type": "numeric",
+            "answer": 94.921875,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "fixed",
+            "type": "numeric",
+            "answer": -168.75,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How should a beam moment diagram be checked?",
+        "solution": "The moment polynomial has zeros at L/4 and L. Its derivative V=5wL/8−wx vanishes at 5L/8, giving 9wL²/128. For these inputs the interior zero is 0.375 m, the maximum occurs at 0.9375 m and is 94.921875 N m, while the fixed-end internal moment is −168.75 N m.",
+        "lesson_ids": [
+          "statics-materials-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanics/constitutive-history practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      }
+    },
+    {
+      "id": "statics-materials-16:depth-4",
+      "type": "data_interpretation",
+      "prompt": "For a released beam, unit-load moment m(x) and load moment M(x) are known. Report numeric responses as bare numbers in the requested units to three significant figures; keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "statics-materials-16-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "integral",
+          "type": "single_choice",
+          "prompt": "Which integral gives the generalized displacement under linear-elastic beam assumptions?",
+          "options": [
+            "Integral of M(x)+m(x) without stiffness or length units.",
+            "The largest moment divided by EI regardless of span or support conditions.",
+            "Integral of M(x)m(x)/(EI(x)) over the beam, with consistent generalized-force signs."
+          ],
+          "points": 1
+        },
+        {
+          "id": "scope",
+          "type": "single_choice",
+          "prompt": "What remains outside this selected beam calculation?",
+          "options": [
+            "Shear deformation, large rotation, plasticity, connection compliance and real structural validation unless separately modeled.",
+            "All possible effects are validated by one compatible reaction.",
+            "Only the number of printed decimals matters."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "integral",
+            "type": "single_choice",
+            "answer": 2
+          },
+          {
+            "id": "scope",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Can average stiffness be substituted freely in an indeterminate beam?",
+        "solution": "Unit-load work connects the actual moment to the moment from a unit generalized force. The stiffness stays inside the integral when it varies. This is a linear-elastic beam model; matching equilibrium and compatibility does not validate omitted mechanisms or a real component.",
+        "lesson_ids": [
+          "statics-materials-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanics/constitutive-history practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      }
+    },
+    {
+      "id": "statics-materials-17:depth-1",
+      "type": "data_interpretation",
+      "prompt": "A free elastic–perfectly plastic bar has E=80 GPa, yield 160 MPa, maximum imposed strain 0.005 and length 0.20 m; unload elastically to zero force. Report numeric responses as bare numbers in the requested units to three significant figures; keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "statics-materials-17-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "yield_strain",
+          "type": "numeric",
+          "prompt": "Yield strain for the declared monotonic law.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "plastic_strain",
+          "type": "numeric",
+          "prompt": "Retained plastic strain after the stated unloading.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "extension",
+          "type": "numeric",
+          "prompt": "Final permanent bar extension in meters.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "yield_strain",
+            "type": "numeric",
+            "answer": 0.002,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "plastic_strain",
+            "type": "numeric",
+            "answer": 0.003,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "extension",
+            "type": "numeric",
+            "answer": 0.0006000000000000001,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Can yield strength alone predict permanent set?",
+        "solution": "Yield strain is σy/E=0.002. At maximum strain 0.005, the plastic part is 0.003; unloading removes only the elastic part under this law. Multiplying the retained strain by the 0.20 m original length gives permanent extension 0.0006 m. These values rely on the supplied constitutive history, not a measured material curve.",
+        "lesson_ids": [
+          "statics-materials-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanics/constitutive-history practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      }
+    },
+    {
+      "id": "statics-materials-17:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use the same free-bar history and original-volume energy basis. Report numeric responses as bare numbers in the requested units to three significant figures; keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "statics-materials-17-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "input",
+          "type": "numeric",
+          "prompt": "Monotonic work input density in J/m³.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "recoverable",
+          "type": "numeric",
+          "prompt": "Recoverable elastic energy density in J/m³.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "plastic_work",
+          "type": "numeric",
+          "prompt": "Plastic work density under the ideal model, J/m³.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "input",
+            "type": "numeric",
+            "answer": 640000.0,
+            "unit": "",
+            "tolerance": 510.0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "recoverable",
+            "type": "numeric",
+            "answer": 160000.0,
+            "unit": "",
+            "tolerance": 510.0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "plastic_work",
+            "type": "numeric",
+            "answer": 480000.0,
+            "unit": "",
+            "tolerance": 510.0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which energy is recovered in elastic unloading of the ideal bar?",
+        "solution": "The elastic triangle is σy²/(2E)=160000 J/m³ and the plastic rectangle is σy(εmax−εy)=480000 J/m³. Their sum is 640000 J/m³. Plastic work is not fully recoverable strain energy and does not determine a temperature rise without a thermal model.",
+        "lesson_ids": [
+          "statics-materials-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanics/constitutive-history practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      }
+    },
+    {
+      "id": "statics-materials-17:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Two equal-area parallel bars have E1=100 GPa/yield1=100 MPa and E2=200 GPa/yield2=300 MPa. Impose common strain 0.0011; each area is 0.0001 m². Report numeric responses as bare numbers in the requested units to three significant figures; keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "statics-materials-17-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "stress1",
+          "type": "numeric",
+          "prompt": "Maximum stress in bar one, MPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "stress2",
+          "type": "numeric",
+          "prompt": "Maximum stress in bar two, MPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "force",
+          "type": "numeric",
+          "prompt": "Total applied force at that strain, N.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "stress1",
+            "type": "numeric",
+            "answer": 100.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "stress2",
+            "type": "numeric",
+            "answer": 220.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "force",
+            "type": "numeric",
+            "answer": 32000.0,
+            "unit": "",
+            "tolerance": 51.0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What determines load sharing after one parallel member yields?",
+        "solution": "Bar one yielded at strain 0.001 and remains at 100 MPa under its perfect-plasticity rule. Bar two is below its 0.0015 yield strain and carries 220 MPa. Equal strain does not mean equal stress; multiplying stresses by equal areas gives forces 10000 and 22000 N, totaling 32000 N.",
+        "lesson_ids": [
+          "statics-materials-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanics/constitutive-history practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      }
+    },
+    {
+      "id": "statics-materials-17:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Unload the preceding compatible assembly to zero external force without reverse yield. Report numeric responses as bare numbers in the requested units to three significant figures; keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "statics-materials-17-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "strain",
+          "type": "numeric",
+          "prompt": "Common residual axial strain of the assembly.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "stress1",
+          "type": "numeric",
+          "prompt": "Residual stress in bar one, MPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "stress2",
+          "type": "numeric",
+          "prompt": "Residual stress in bar two, MPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "resultant",
+          "type": "single_choice",
+          "prompt": "Can nonzero residual stresses coexist with zero external force?",
+          "options": [
+            "No. Zero external force requires every internal stress to vanish individually.",
+            "Only if all prior plastic strains are discarded.",
+            "Yes. Equal-area residual forces can cancel while each member retains a nonzero internal stress."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "strain",
+            "type": "numeric",
+            "answer": 3.333333333333335e-05,
+            "unit": "",
+            "tolerance": 5.1e-08,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "stress1",
+            "type": "numeric",
+            "answer": -6.66666666666667,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "stress2",
+            "type": "numeric",
+            "answer": 6.66666666666667,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "resultant",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why must unloading specify force versus displacement control?",
+        "solution": "Bar one retains plastic strain 0.0001 and bar two none. Zero resultant gives E1(εf−0.0001)+E2 εf=0, so εf≈0.00003333. Residual stresses are approximately −6.6666667 and +6.6666667 MPa, within the stipulated reverse-yield bounds. Their equal-area forces cancel.",
+        "lesson_ids": [
+          "statics-materials-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanics/constitutive-history practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      }
+    },
+    {
+      "id": "statics-materials-18:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1 uses L=1.20 m, w=500 N/m, EI=18000 N m² and downward support settlement 0.002 m. Report numeric responses as bare numbers in the requested units to three significant figures; keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "statics-materials-18-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "prop",
+          "type": "numeric",
+          "prompt": "Admissible upward prop reaction in N.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "fixed_force",
+          "type": "numeric",
+          "prompt": "Upward fixed-end reaction in N.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "couple",
+          "type": "numeric",
+          "prompt": "Counterclockwise external fixing couple in N m.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "prop",
+            "type": "numeric",
+            "answer": 162.5,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "fixed_force",
+            "type": "numeric",
+            "answer": 437.5,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "couple",
+            "type": "numeric",
+            "answer": 165.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What should be rechecked after a support settlement changes a reaction?",
+        "solution": "The released deflection is 0.0072 m and endpoint flexibility 0.000032 m/N. Subtract the 0.002 m settlement before dividing, giving RB=162.5 N. Force and moment equilibrium then give RA=437.5 N and external fixing couple +165 N m. The internal fixed-end moment has the opposite sign.",
+        "lesson_ids": [
+          "statics-materials-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanics/constitutive-history practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      }
+    },
+    {
+      "id": "statics-materials-18:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For the same assignment beam, move the simple prop downward to settlement 0.010 m. Report numeric responses as bare numbers in the requested units to three significant figures; keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "statics-materials-18-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "released",
+          "type": "numeric",
+          "prompt": "Released cantilever endpoint deflection in meters.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "gap",
+          "type": "numeric",
+          "prompt": "Gap between settled prop and the released endpoint, m.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "contact",
+          "type": "single_choice",
+          "prompt": "Which prop force is admissible in this separated state?",
+          "options": [
+            "Zero upward force; the released endpoint remains above the settled support.",
+            "Keep the negative algebraic contact reaction as if the prop could pull.",
+            "Keep the original level-prop force despite separation."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "released",
+            "type": "numeric",
+            "answer": 0.0072,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "gap",
+            "type": "numeric",
+            "answer": 0.0028000000000000004,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "contact",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What makes contact-state selection more than an equilibrium calculation?",
+        "solution": "The free endpoint deflects 0.0072 m downward, less than the support settlement 0.010 m. The positive gap is 0.0028 m and the unilateral prop carries zero. The contact-constrained negative reaction would correspond to a different bilateral tie-down model.",
+        "lesson_ids": [
+          "statics-materials-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanics/constitutive-history practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      }
+    },
+    {
+      "id": "statics-materials-19:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2’s free bar uses E=120 GPa, yield 240 MPa, maximum strain 0.006 and length 0.15 m, with elastic unloading to zero force. Report numeric responses as bare numbers in the requested units to three significant figures; keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "statics-materials-19-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "plastic_strain",
+          "type": "numeric",
+          "prompt": "Retained plastic strain after unloading under the model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "extension",
+          "type": "numeric",
+          "prompt": "Final permanent extension in meters.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "input",
+          "type": "numeric",
+          "prompt": "Monotonic work input density in J/m³.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "recoverable",
+          "type": "numeric",
+          "prompt": "Recoverable elastic energy density in J/m³.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "plastic_strain",
+            "type": "numeric",
+            "answer": 0.004,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "extension",
+            "type": "numeric",
+            "answer": 0.0006,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "input",
+            "type": "numeric",
+            "answer": 1200000.0,
+            "unit": "",
+            "tolerance": 5100.0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "recoverable",
+            "type": "numeric",
+            "answer": 240000.0,
+            "unit": "",
+            "tolerance": 510.0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which independent ledgers should this material report close?",
+        "solution": "Yield strain is 0.002, leaving plastic strain 0.004 at maximum. Permanent extension is 0.0006 m. The elastic energy triangle is 240000 J/m³ and plastic work is 960000 J/m³, totaling 1200000 J/m³. The constitutive history, not a yield number alone, determines these values.",
+        "lesson_ids": [
+          "statics-materials-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanics/constitutive-history practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      }
+    },
+    {
+      "id": "statics-materials-19:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2’s equal-area parallel bars use E1=100 GPa/yield1=100 MPa, E2=200 GPa/yield2=300 MPa, common maximum strain 0.0013, length 0.20 m and each area 0.0001 m². Unload to zero external force. Report numeric responses as bare numbers in the requested units to three significant figures; keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 5,
+      "objective_ids": [
+        "statics-materials-19-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "maximum_force",
+          "type": "numeric",
+          "prompt": "Total external force at the maximum strain, N.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "final_strain",
+          "type": "numeric",
+          "prompt": "Common residual strain after zero-resultant unloading.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "stress1",
+          "type": "numeric",
+          "prompt": "Residual bar-one stress in MPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "stress2",
+          "type": "numeric",
+          "prompt": "Residual bar-two stress in MPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "branch",
+          "type": "single_choice",
+          "prompt": "Which check is required before accepting this elastic-unloading result?",
+          "options": [
+            "Assume every unloading path is elastic for unlimited reverse stress.",
+            "Set both plastic strains to zero before enforcing equilibrium.",
+            "Verify the residual stresses do not cross a new yield condition and that bilateral compatibility remains applicable."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "maximum_force",
+            "type": "numeric",
+            "answer": 36000.0,
+            "unit": "",
+            "tolerance": 51.0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "final_strain",
+            "type": "numeric",
+            "answer": 0.0001,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "stress1",
+            "type": "numeric",
+            "answer": -20.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "stress2",
+            "type": "numeric",
+            "answer": 20.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "branch",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Can zero external force imply a nonzero residual extension?",
+        "solution": "At maximum, stresses are 100 and 260 MPa, giving 36000 N total. Bar one retains plastic strain 0.0003; zero resultant gives final common strain 0.0001 and stresses −20/+20 MPa. These cancel in equal areas and remain within the supplied reverse-yield magnitudes, so this unloading branch is consistent.",
+        "lesson_ids": [
+          "statics-materials-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic mechanics/constitutive-history practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      }
     }
   ]
 }

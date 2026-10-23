@@ -1,6 +1,6 @@
 # Calculus I course review handoff
 
-This handoff targets Calculus I: Differential and Integral Calculus, package version 0.5.0. The [review snapshot](CALCULUS_1_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+This handoff targets Calculus I: Differential and Integral Calculus, package version 0.6.0. The [review snapshot](CALCULUS_1_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
 
 ## Review scope
 
@@ -20,3 +20,7 @@ Historical 0.4.6 evidence: the focused Calculus I suite reported 82 passing test
 ## Review record to complete only after review
 
 After a review actually occurs, record reviewer name and qualifications, date, package version and archive digest, artifacts examined, concrete findings and disposition. Keep separate decisions for mathematical correctness, instructional design, assessment, accessibility, workload and release. Do not infer approval from the package hash or test results.
+
+## Mixed coursework and integral-hypothesis target (2026-10-22)
+
+Current target 0.6.0 adds an original finite-sum/signed-accumulation/local-FTC reading and four sustained mixed assignments. Review quantified and sequence counterexamples, piecewise joins, implicit/explicit/inverse/related rates, feasible optimization, MVT existence versus uniqueness, derivative-bound root certificates, sign reversals, quadrature references and jump/moving-bound hypotheses. Sixteen checkpoints/cards assess selected outputs; written work, implementations, workload and qualified review remain open. Earlier evidence remains historical; the current snapshot pins the package.

@@ -17,6 +17,82 @@ test.afterEach(async ({ page }) => {
   if (deletionStatus !== null) expect(deletionStatus).toBe(204);
 });
 
+test("startup retry returns to the requested calculator after a temporary API failure", async ({
+  page,
+}) => {
+  let unavailable = true;
+  await page.route("**/api/v1/courses", (route) =>
+    unavailable
+      ? route.fulfill({
+          status: 503,
+          contentType: "application/json",
+          body: JSON.stringify({ detail: "Temporarily unavailable" }),
+        })
+      : route.continue(),
+  );
+  await page.goto("/#/tools/diffusion");
+  await expect(page.getByRole("alert")).toHaveText("Temporarily unavailable");
+  unavailable = false;
+  await page.getByRole("button", { name: "Try again" }).click();
+  await expect(
+    page.getByRole("heading", { name: "Diffusion timescale" }),
+  ).toBeVisible();
+  await expect(page).toHaveURL(/#\/tools\/diffusion$/);
+  await page.getByRole("button", { name: "Calculate", exact: true }).click();
+  await expect(page.getByText("10 s", { exact: true })).toBeVisible();
+});
+
+test("typing during a note save survives its acknowledgement and can be saved next", async ({
+  page,
+}) => {
+  await page.goto("/#/account");
+  await page.getByRole("button", { name: "Start guest session" }).click();
+  await expect(
+    page.getByRole("heading", { name: "Guest session", exact: true }),
+  ).toBeVisible();
+  await page.goto("/#/course/cell-biology");
+  await page.getByRole("button", { name: "Enroll in partial course" }).click();
+  await expect(page.getByText("Enrolled", { exact: true })).toBeVisible();
+  await page
+    .getByRole("navigation", { name: "Lessons", exact: true })
+    .getByRole("link")
+    .first()
+    .click();
+  const editor = page.getByRole("textbox", { name: "Your private note" });
+  await editor.fill("First draft");
+
+  let releaseSave!: () => void;
+  let savedOnServer!: () => void;
+  const acknowledgement = new Promise<void>((resolve) => {
+    releaseSave = resolve;
+  });
+  const saveStarted = new Promise<void>((resolve) => {
+    savedOnServer = resolve;
+  });
+  await page.route("**/api/v1/notes/**", async (route) => {
+    if (route.request().method() !== "PUT") return route.continue();
+    const response = await route.fetch();
+    savedOnServer();
+    await acknowledgement;
+    await route.fulfill({ response });
+  });
+  try {
+    await page.getByRole("button", { name: "Save note", exact: true }).click();
+    await saveStarted;
+    await editor.fill("First draft with a newer observation");
+  } finally {
+    releaseSave();
+  }
+  await expect(
+    page.getByText("Unsaved changes.", { exact: true }),
+  ).toBeVisible();
+  await expect(editor).toHaveValue("First draft with a newer observation");
+  await page.getByRole("button", { name: "Save note", exact: true }).click();
+  await expect(page.getByText("Note saved.", { exact: true })).toBeVisible();
+  await page.reload();
+  await expect(editor).toHaveValue("First draft with a newer observation");
+});
+
 test("catalog communicates maturity and has no automated accessibility violations", async ({
   page,
 }) => {

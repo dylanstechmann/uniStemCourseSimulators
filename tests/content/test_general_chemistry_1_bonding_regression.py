@@ -14,7 +14,6 @@ COURSE = ROOT / "content/courses/general-chemistry-1"
 
 def test_configuration_lewis_vsepr_and_polarity_examples():
     manifest = json.loads((COURSE / "course.json").read_text(encoding="utf-8"))
-    assert manifest["version"].startswith("0.4.")
     lesson = next(
         lesson
         for module in manifest["modules"]

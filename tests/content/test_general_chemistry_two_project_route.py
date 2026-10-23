@@ -70,7 +70,7 @@ def project_results():
 
 
 def test_route_is_scheduled_optional_and_ungraded():
-    assert MANIFEST["version"] == "0.5.0" and MANIFEST["maturity"] == "partial"
+    assert MANIFEST["version"] == "0.6.0" and MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed" and MANIFEST["grading_policy"]["mode"] == "formative-only"
     rehearsal = ASSESSMENTS["general-chemistry-2-project-rehearsal-practice"]
     project = ASSESSMENTS["general-chemistry-2-redox-project"]
@@ -176,7 +176,7 @@ def test_guide_and_rehearsal_do_not_give_the_project_answers():
 def test_lab_link_is_package_pinned_and_guide_links_resolve():
     lab = (COURSE / "labs/01-reporting-background-and-relaxation.md").read_text(encoding="utf-8")
     assert "raw.githubusercontent.com" not in lab and "](relaxation-reports.csv)" in lab
-    assert MANIFEST["learner_resources"] == ["labs/relaxation-reports.csv"]
+    assert MANIFEST["learner_resources"] == ["labs/relaxation-reports.csv", "assignments/ligand-exchange-reference.csv"]
 
     sys.path.insert(0, str(ROOT / "backend"))
     from courselab.content import ContentRepository

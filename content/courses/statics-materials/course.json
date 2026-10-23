@@ -3,11 +3,11 @@
   "id": "statics-materials",
   "legacy_code": "ENGR 220",
   "title": "Statics & Mechanics of Materials",
-  "description": "Equilibrium, internal loads, stress, strain, and failure criteria as tools for safe devices, fixtures, implants, and bioreactor hardware.",
+  "description": "Equilibrium, internal loads, deformation and selected material/failure models with explicit boundary conditions and synthetic structures.",
   "domain": "Mechanical engineering",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -442,6 +442,114 @@
       "course_outcome_ids": [
         "statics-materials-outcome-2"
       ]
+    },
+    {
+      "id": "statics-materials-16-objective-1",
+      "description": "Close an indeterminate beam using compatibility and equilibrium.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statics-materials-outcome-1",
+        "statics-materials-outcome-3"
+      ]
+    },
+    {
+      "id": "statics-materials-16-objective-2",
+      "description": "Use settlement compatibility and distinguish prop contact from a tie-down.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statics-materials-outcome-1",
+        "statics-materials-outcome-3"
+      ]
+    },
+    {
+      "id": "statics-materials-16-objective-3",
+      "description": "Check internal moment/shear geometry independently of reaction magnitudes.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statics-materials-outcome-1",
+        "statics-materials-outcome-3"
+      ]
+    },
+    {
+      "id": "statics-materials-16-objective-4",
+      "description": "Interpret energy flexibility and structural-model limits.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statics-materials-outcome-1",
+        "statics-materials-outcome-3"
+      ]
+    },
+    {
+      "id": "statics-materials-17-objective-1",
+      "description": "Separate elastic strain, plastic history and permanent extension.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statics-materials-outcome-1",
+        "statics-materials-outcome-3"
+      ]
+    },
+    {
+      "id": "statics-materials-17-objective-2",
+      "description": "Distinguish recoverable energy from plastic work.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statics-materials-outcome-1",
+        "statics-materials-outcome-3"
+      ]
+    },
+    {
+      "id": "statics-materials-17-objective-3",
+      "description": "Combine compatibility with piecewise constitutive laws during loading.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statics-materials-outcome-1",
+        "statics-materials-outcome-3"
+      ]
+    },
+    {
+      "id": "statics-materials-17-objective-4",
+      "description": "Solve a residual internal state under zero external resultant.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statics-materials-outcome-1",
+        "statics-materials-outcome-3"
+      ]
+    },
+    {
+      "id": "statics-materials-18-objective-1",
+      "description": "Verify a settled indeterminate beam against independent ledgers.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statics-materials-outcome-1",
+        "statics-materials-outcome-3"
+      ]
+    },
+    {
+      "id": "statics-materials-18-objective-2",
+      "description": "Reject an inadmissible tensile prop reaction and solve the separated state.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statics-materials-outcome-1",
+        "statics-materials-outcome-3"
+      ]
+    },
+    {
+      "id": "statics-materials-19-objective-1",
+      "description": "Close a free-bar strain and energy history.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statics-materials-outcome-1",
+        "statics-materials-outcome-3"
+      ]
+    },
+    {
+      "id": "statics-materials-19-objective-2",
+      "description": "Combine yielding, residual compatibility and reverse-yield checks.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statics-materials-outcome-1",
+        "statics-materials-outcome-3"
+      ]
     }
   ],
   "duration": {
@@ -504,10 +612,12 @@
         "week": 6,
         "title": "Beam deflection and stiffness: three-point bending and the flexural modulus",
         "lesson_ids": [
-          "statics-materials-11"
+          "statics-materials-11",
+          "statics-materials-16"
         ],
         "assessment_ids": [
-          "statics-materials-11-practice"
+          "statics-materials-11-practice",
+          "statics-materials-16-practice"
         ]
       },
       {
@@ -527,22 +637,26 @@
         "title": "Failure criteria and design margins; optional beam strength-and-stiffness project",
         "lesson_ids": [
           "statics-materials-4",
-          "statics-materials-project-guide"
+          "statics-materials-project-guide",
+          "statics-materials-17"
         ],
         "assessment_ids": [
           "statics-materials-4-practice",
-          "statics-materials-project-rehearsal-practice"
+          "statics-materials-project-rehearsal-practice",
+          "statics-materials-17-practice"
         ]
       },
       {
         "week": 9,
         "title": "Stress concentrations: holes, notches and local stress",
         "lesson_ids": [
-          "statics-materials-7"
+          "statics-materials-7",
+          "statics-materials-18"
         ],
         "assessment_ids": [
           "statics-materials-7-practice",
-          "statics-materials-beam-project"
+          "statics-materials-beam-project",
+          "statics-materials-18-practice"
         ]
       },
       {
@@ -589,11 +703,13 @@
         "week": 14,
         "title": "Why a scaffold that meets its strength target can still collapse: failure analysis and an accelerated test plan",
         "lesson_ids": [
-          "statics-materials-13"
+          "statics-materials-13",
+          "statics-materials-19"
         ],
         "assessment_ids": [
           "statics-materials-13-practice",
-          "statics-materials-case"
+          "statics-materials-case",
+          "statics-materials-19-practice"
         ]
       }
     ]
@@ -1208,6 +1324,130 @@
           ]
         }
       ]
+    },
+    {
+      "id": "statics-materials-module-16",
+      "title": "Indeterminate beams, energy compatibility and support contact",
+      "source_ids": [
+        "mit-2001-syllabus",
+        "mit-2001-readings"
+      ],
+      "lessons": [
+        {
+          "id": "statics-materials-16",
+          "title": "Indeterminate beams, energy compatibility and support contact",
+          "reading": "modules/indeterminate-beams-and-contact.md",
+          "objectives": [
+            "statics-materials-16-objective-1",
+            "statics-materials-16-objective-2",
+            "statics-materials-16-objective-3",
+            "statics-materials-16-objective-4"
+          ],
+          "worked_example": "Released-cantilever deflection is wL⁴/(8EI) and endpoint flexibility L³/(3EI). Setting their compatible combination to zero gives RB=3wL/8=337.5 N. Force balance gives RA=562.5 N and external moment balance gives +168.75 N m; the fixed-end internal bending sign is opposite.",
+          "question_ids": [
+            "statics-materials-16:depth-1",
+            "statics-materials-16:depth-2",
+            "statics-materials-16:depth-3",
+            "statics-materials-16:depth-4"
+          ],
+          "card_ids": [
+            "statics-materials-16-card-1",
+            "statics-materials-16-card-2",
+            "statics-materials-16-card-3",
+            "statics-materials-16-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "statics-materials-module-17",
+      "title": "Constitutive history, plastic set and load redistribution",
+      "source_ids": [
+        "mit-2001-syllabus",
+        "mit-2001-readings"
+      ],
+      "lessons": [
+        {
+          "id": "statics-materials-17",
+          "title": "Constitutive history, plastic set and load redistribution",
+          "reading": "modules/plasticity-unloading-and-redistribution.md",
+          "objectives": [
+            "statics-materials-17-objective-1",
+            "statics-materials-17-objective-2",
+            "statics-materials-17-objective-3",
+            "statics-materials-17-objective-4"
+          ],
+          "worked_example": "Yield strain is σy/E=0.002. At maximum strain 0.005, the plastic part is 0.003; unloading removes only the elastic part under this law. Multiplying the retained strain by the 0.20 m original length gives permanent extension 0.0006 m. These values rely on the supplied constitutive history, not a measured material curve.",
+          "question_ids": [
+            "statics-materials-17:depth-1",
+            "statics-materials-17:depth-2",
+            "statics-materials-17:depth-3",
+            "statics-materials-17:depth-4"
+          ],
+          "card_ids": [
+            "statics-materials-17-card-1",
+            "statics-materials-17-card-2",
+            "statics-materials-17-card-3",
+            "statics-materials-17-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "statics-materials-module-18",
+      "title": "Assignment 1: redundant-support compatibility and contact",
+      "source_ids": [
+        "mit-2001-syllabus",
+        "mit-2001-readings"
+      ],
+      "lessons": [
+        {
+          "id": "statics-materials-18",
+          "title": "Assignment 1: redundant-support compatibility and contact",
+          "reading": "assignments/coursework-01-support-compatibility.md",
+          "objectives": [
+            "statics-materials-18-objective-1",
+            "statics-materials-18-objective-2"
+          ],
+          "worked_example": "The released deflection is 0.0072 m and endpoint flexibility 0.000032 m/N. Subtract the 0.002 m settlement before dividing, giving RB=162.5 N. Force and moment equilibrium then give RA=437.5 N and external fixing couple +165 N m. The internal fixed-end moment has the opposite sign.",
+          "question_ids": [
+            "statics-materials-18:depth-1",
+            "statics-materials-18:depth-2"
+          ],
+          "card_ids": [
+            "statics-materials-18-card-1",
+            "statics-materials-18-card-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "statics-materials-module-19",
+      "title": "Assignment 2: material history and residual-load report",
+      "source_ids": [
+        "mit-2001-syllabus",
+        "mit-2001-readings"
+      ],
+      "lessons": [
+        {
+          "id": "statics-materials-19",
+          "title": "Assignment 2: material history and residual-load report",
+          "reading": "assignments/coursework-02-material-history.md",
+          "objectives": [
+            "statics-materials-19-objective-1",
+            "statics-materials-19-objective-2"
+          ],
+          "worked_example": "Yield strain is 0.002, leaving plastic strain 0.004 at maximum. Permanent extension is 0.0006 m. The elastic energy triangle is 240000 J/m³ and plastic work is 960000 J/m³, totaling 1200000 J/m³. The constitutive history, not a yield number alone, determines these values.",
+          "question_ids": [
+            "statics-materials-19:depth-1",
+            "statics-materials-19:depth-2"
+          ],
+          "card_ids": [
+            "statics-materials-19-card-1",
+            "statics-materials-19-card-2"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -1644,6 +1884,90 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "statics-materials-16-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Indeterminate beams, energy compatibility and support contact (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 6,
+      "objective_ids": [
+        "statics-materials-16-objective-1",
+        "statics-materials-16-objective-2",
+        "statics-materials-16-objective-3",
+        "statics-materials-16-objective-4",
+        "statics-materials-outcome-1",
+        "statics-materials-outcome-3"
+      ],
+      "question_ids": [
+        "statics-materials-16:depth-1",
+        "statics-materials-16:depth-2",
+        "statics-materials-16:depth-3",
+        "statics-materials-16:depth-4"
+      ],
+      "points": 12
+    },
+    {
+      "id": "statics-materials-17-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Constitutive history, plastic set and load redistribution (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 8,
+      "objective_ids": [
+        "statics-materials-17-objective-1",
+        "statics-materials-17-objective-2",
+        "statics-materials-17-objective-3",
+        "statics-materials-17-objective-4",
+        "statics-materials-outcome-1",
+        "statics-materials-outcome-3"
+      ],
+      "question_ids": [
+        "statics-materials-17:depth-1",
+        "statics-materials-17:depth-2",
+        "statics-materials-17:depth-3",
+        "statics-materials-17:depth-4"
+      ],
+      "points": 13
+    },
+    {
+      "id": "statics-materials-18-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 1: redundant-support compatibility and contact (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 9,
+      "objective_ids": [
+        "statics-materials-18-objective-1",
+        "statics-materials-18-objective-2",
+        "statics-materials-outcome-1",
+        "statics-materials-outcome-3"
+      ],
+      "question_ids": [
+        "statics-materials-18:depth-1",
+        "statics-materials-18:depth-2"
+      ],
+      "points": 6
+    },
+    {
+      "id": "statics-materials-19-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 2: material history and residual-load report (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 14,
+      "objective_ids": [
+        "statics-materials-19-objective-1",
+        "statics-materials-19-objective-2",
+        "statics-materials-outcome-1",
+        "statics-materials-outcome-3"
+      ],
+      "question_ids": [
+        "statics-materials-19:depth-1",
+        "statics-materials-19:depth-2"
+      ],
+      "points": 9
     }
   ],
   "grading_policy": {
@@ -1748,18 +2072,24 @@
       "version": "0.5.0",
       "date": "2026-10-20",
       "summary": "Made the planned beam strength-and-stiffness project usable by learners as ungraded practice. Week 8 gains an optional project guide with the project's beam, candidates and tasks, a worked example on a separate beam, two synthetic rehearsal candidates and 4 open rehearsal practice items; five project milestones are Case studio self-checks with a week-9 project record. The project table becomes a learner resource, and the fatigue lab's dataset link now points to the package-pinned CSV instead of a mutable repository URL. The inactive project draft is unchanged; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.6.0",
+      "date": "2026-10-22",
+      "summary": "Expanded compatibility/material-history depth with original indeterminate-beam energy/settlement/contact and elastic–perfectly plastic unloading/parallel-member redistribution readings, two connected paper assignments and twelve checkpoint items/cards. Preserved the existing lab and beam project. All structures, properties and loads are synthetic; the course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
     "All four legacy prototype readings now have expanded instruction beside the original lessons and one synthetic-data virtual lab; the package still is not equivalent to a full university semester.",
-    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm or cumulative final. An optional beam strength-and-stiffness project guide with rehearsal practice and Case studio milestone self-checks (weeks 8–9) is ungraded practice; the separate project draft stays inactive.",
+    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no graded homework sequence, laboratory sequence, midterm or cumulative final. An optional beam strength-and-stiffness project guide with rehearsal practice and Case studio milestone self-checks (weeks 8–9) is ungraded practice; the separate project draft stays inactive.",
     "Practice items are short formative checks (two to five per prototype unit and six to eleven per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
-    "Of the 102 numerical answers in this package, 46 require a unit, 11 check significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
     "Total workload and weekly duration are unknown; former nominal credit values and hardcoded reading times do not establish workload.",
-    "All loads, materials, specimens and numbers are synthetic teaching examples; this package gives no design basis, test protocol or safety advice and says nothing about any real device, implant or person. The models are simplified textbook descriptions, not analysis methods for real components. The compatibility example does not resolve truss, beam or real assembly design.",
-    "The beam strength-and-stiffness project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses a separate synthetic beam and candidates, and no software check evaluates a learner's project calculations or written interpretation. Milestone weeks are planning suggestions, not measured workload or deadlines."
+    "All loads, materials, specimens and numbers are synthetic teaching examples; this package gives no design basis, test protocol or safety advice and says nothing about any real device, implant or person. The models are simplified textbook descriptions, not analysis methods for real components. The earlier parallel-elastic-bar example and new selected models do not provide general truss/frame analysis or real assembly design validation.",
+    "The beam strength-and-stiffness project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses a separate synthetic beam and candidates, and no software check evaluates a learner's project calculations or written interpretation. Milestone weeks are planning suggestions, not measured workload or deadlines.",
+    "New selected indeterminate-beam/contact and constitutive-history models develop compatibility beyond the earlier parallel-elastic-bar example. Two open paper assignments require free bodies, energy/displacement and residual-state checks. General truss/frame analysis, nonlinear beam behavior and real material/connection validation remain beyond these examples. Written derivations, diagrams and implementations are not automatically evaluated; workload and qualified review remain open.",
+    "Of the 136 numerical answers, 46 require units, 45 check significant figures and 0 check dimensions. New continuous checkpoint quantities request three significant figures in the stated units."
   ],
   "intentionally_omitted": [
     "Graded assessments, an activated integrative project and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package."

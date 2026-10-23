@@ -4485,6 +4485,2034 @@
           "Added synthetic formative practice on op-amp summing, integrating, differentiating and active filtering."
         ]
       }
+    },
+    {
+      "id": "circuits-project:rehearsal-1",
+      "type": "data_interpretation",
+      "prompt": "Sensor-channel budget rehearsal · Loading and gain. Separate rehearsal channel: terminal differential signal ±8 mV; R_s = 5 kΩ, R_in = 500 kΩ, A_d = 80, V_ref = 2.00 V, common mode ±0.4 V and CMRR 66 dB. Filter R = 10 kΩ and C = 2 µF; desired tone 2 Hz, disturbance 40 Hz; 11-bit ADC over 0–4 V at 80 samples/s. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 4,
+      "objective_ids": [
+        "circuits-project-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "loading",
+          "type": "numeric",
+          "prompt": "Loaded/open-circuit voltage fraction for the rehearsal source and input resistances.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "low",
+          "type": "numeric",
+          "prompt": "Nominal amplifier output minimum, before common-mode error, in V.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "high",
+          "type": "numeric",
+          "prompt": "Nominal amplifier output maximum, before common-mode error, in V.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "basis",
+          "type": "single_choice",
+          "prompt": "The rehearsal differential amplitude is specified at the amplifier terminals. Apply loading again?",
+          "options": [
+            "Yes. Every stated input voltage must be multiplied by the loading factor twice.",
+            "No. Apply loading only when converting an open-circuit source voltage to that terminal voltage.",
+            "No. Loading never changes a source voltage."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "loading",
+            "type": "numeric",
+            "answer": 0.9900990099009901,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "low",
+            "type": "numeric",
+            "answer": 1.3599999999999999,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "high",
+            "type": "numeric",
+            "answer": 2.64,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "basis",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "When does a loading factor belong in the gain chain?",
+        "solution": "The divider fraction is 500000/505000 = 0.990099. The terminal differential range gives 2.00 ± 80×0.008 = 1.36–2.64 V before common-mode error. Loading and terminal gain must use an explicitly named input basis.",
+        "lesson_ids": [
+          "circuits-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "circuits-project:rehearsal-2",
+      "type": "data_interpretation",
+      "prompt": "Sensor-channel budget rehearsal · Common-mode error and headroom. Separate rehearsal channel: terminal differential signal ±8 mV; R_s = 5 kΩ, R_in = 500 kΩ, A_d = 80, V_ref = 2.00 V, common mode ±0.4 V and CMRR 66 dB. Filter R = 10 kΩ and C = 2 µF; desired tone 2 Hz, disturbance 40 Hz; 11-bit ADC over 0–4 V at 80 samples/s. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 4,
+      "objective_ids": [
+        "circuits-project-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "cmrr",
+          "type": "numeric",
+          "prompt": "Linear differential/common-mode gain ratio for 66 dB CMRR.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "error_output",
+          "type": "numeric",
+          "prompt": "Worst-case common-mode output error magnitude, in V.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "error_input",
+          "type": "numeric",
+          "prompt": "That error referred to the differential amplifier input, in µV.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "headroom",
+          "type": "single_choice",
+          "prompt": "How should independent worst-case differential and common-mode signs be screened?",
+          "options": [
+            "Add their absolute output contributions on both sides of the reference, then compare with the declared span.",
+            "Subtract the common-mode contribution because rejection always removes the differential signal.",
+            "Compare only the differential contribution; finite CMRR cannot change headroom."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "cmrr",
+            "type": "numeric",
+            "answer": 1995.2623149688789,
+            "unit": "",
+            "tolerance": 5.1,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "error_output",
+            "type": "numeric",
+            "answer": 0.01603799147607272,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "error_input",
+            "type": "numeric",
+            "answer": 200.474893450909,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "headroom",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Does 80 dB CMRR mean 80% common-mode removal?",
+        "solution": "66 dB gives a gain ratio 1995.2623; A_cm = 80/ratio = 0.04009498. The ±0.4 V common-mode input therefore contributes ±0.01603799 V at the output, or 200.47489 µV referred to the amplifier input. Add magnitudes for an independent-sign worst-case screen.",
+        "lesson_ids": [
+          "circuits-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "circuits-project:rehearsal-3",
+      "type": "data_interpretation",
+      "prompt": "Sensor-channel budget rehearsal · Filter response and sampling. Separate rehearsal channel: terminal differential signal ±8 mV; R_s = 5 kΩ, R_in = 500 kΩ, A_d = 80, V_ref = 2.00 V, common mode ±0.4 V and CMRR 66 dB. Filter R = 10 kΩ and C = 2 µF; desired tone 2 Hz, disturbance 40 Hz; 11-bit ADC over 0–4 V at 80 samples/s. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 5,
+      "objective_ids": [
+        "circuits-project-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "corner",
+          "type": "numeric",
+          "prompt": "Rehearsal RC corner frequency, in Hz.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "signal_gain",
+          "type": "numeric",
+          "prompt": "Filter amplitude ratio at the desired 2 Hz component.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "disturbance_gain",
+          "type": "numeric",
+          "prompt": "Filter amplitude ratio at 40 Hz.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "nyquist",
+          "type": "numeric",
+          "prompt": "Nyquist frequency at 80 samples/s, in Hz.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "alias",
+          "type": "single_choice",
+          "prompt": "What do these two amplitude checks establish?",
+          "options": [
+            "An ideal one-pole filter removes all frequencies at or above Nyquist.",
+            "A tone at Nyquist is always recovered at its true amplitude, regardless of phase.",
+            "Only the two ideal model attenuations; a complete alias budget needs the out-of-band spectrum and an error limit."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "corner",
+            "type": "numeric",
+            "answer": 7.957747154594767,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "signal_gain",
+            "type": "numeric",
+            "answer": 0.9698388315126839,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "disturbance_gain",
+            "type": "numeric",
+            "answer": 0.19511986277060733,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "nyquist",
+            "type": "numeric",
+            "answer": 40.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "alias",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why is a Nyquist threshold alone an incomplete acquisition design?",
+        "solution": "RC = 0.0200 s gives f_c = 7.9577472 Hz. The magnitude is 0.96983883 at 2 Hz and 0.19511986 at 40 Hz. The sampler has a 40 Hz Nyquist frequency, but finite attenuation at one frequency does not specify a complete anti-alias filter.",
+        "lesson_ids": [
+          "circuits-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "circuits-project:rehearsal-4",
+      "type": "data_interpretation",
+      "prompt": "Sensor-channel budget rehearsal · ADC and input-referred scale. Separate rehearsal channel: terminal differential signal ±8 mV; R_s = 5 kΩ, R_in = 500 kΩ, A_d = 80, V_ref = 2.00 V, common mode ±0.4 V and CMRR 66 dB. Filter R = 10 kΩ and C = 2 µF; desired tone 2 Hz, disturbance 40 Hz; 11-bit ADC over 0–4 V at 80 samples/s. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 3,
+      "objective_ids": [
+        "circuits-project-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "lsb",
+          "type": "numeric",
+          "prompt": "Rehearsal ADC step size, in mV.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "input_step",
+          "type": "numeric",
+          "prompt": "That step referred through gain 80 to the amplifier input, in µV.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "noise",
+          "type": "single_choice",
+          "prompt": "Does the ideal code step establish the measured input noise floor?",
+          "options": [
+            "Yes. One code step always equals the measured RMS noise.",
+            "No. Noise spectrum, bandwidth, nonlinearity and effective resolution need additional evidence.",
+            "Yes. More ADC bits eliminate all amplifier noise."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "lsb",
+            "type": "numeric",
+            "answer": 1.953125,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "input_step",
+            "type": "numeric",
+            "answer": 24.4140625,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "noise",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What is the reference point of an input-referred ADC step?",
+        "solution": "The ideal 0–4 V, 11-bit ADC has step 4/2048 = 1.953125 mV. Through differential gain 80, that is 24.4140625 µV at the amplifier input. This code scale is not a noise measurement or effective-bit estimate.",
+        "lesson_ids": [
+          "circuits-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "circuits-project:rehearsal-5",
+      "type": "data_interpretation",
+      "prompt": "Sensor-channel budget rehearsal · Communicate the channel and its limits. Separate rehearsal channel: terminal differential signal ±8 mV; R_s = 5 kΩ, R_in = 500 kΩ, A_d = 80, V_ref = 2.00 V, common mode ±0.4 V and CMRR 66 dB. Filter R = 10 kΩ and C = 2 µF; desired tone 2 Hz, disturbance 40 Hz; 11-bit ADC over 0–4 V at 80 samples/s. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 3,
+      "objective_ids": [
+        "circuits-project-objective-5"
+      ],
+      "response_fields": [
+        {
+          "id": "order",
+          "type": "single_choice",
+          "prompt": "Which signal path preserves the intended analog alias-rejection boundary?",
+          "options": [
+            "Source → input loading → amplifier/reference → analog filter → sampler/ADC.",
+            "Source → sampler → analog filter → amplifier/reference.",
+            "ADC → source → amplifier → filter."
+          ],
+          "points": 1
+        },
+        {
+          "id": "missing",
+          "type": "single_choice",
+          "prompt": "Which specification remains missing from the rehearsal?",
+          "options": [
+            "The ideal ADC code step, because the bit count and span cannot determine it.",
+            "The ideal resistor-capacitor time constant, despite both values being stated.",
+            "Real input common-mode range, output-current capacity, offsets, noise spectra and stability margins."
+          ],
+          "points": 1
+        },
+        {
+          "id": "claim",
+          "type": "single_choice",
+          "prompt": "What conclusion can this paper calculation support?",
+          "options": [
+            "A validated instrument specification ready for connection to a subject.",
+            "An internally consistent ideal-model budget with explicitly unresolved physical performance.",
+            "A guarantee that clipping, interference and drift cannot occur."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "order",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "missing",
+            "type": "single_choice",
+            "answer": 2
+          },
+          {
+            "id": "claim",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What makes a signal-path report reproducible?",
+        "solution": "A consistent budget labels every node, reference and unit. The analog filter precedes sampling. Ideal arithmetic cannot supply missing input-range, bias, noise, current-drive, tolerance or stability specifications and cannot validate hardware.",
+        "lesson_ids": [
+          "circuits-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "circuits-16:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Use the original rehearsal diode with I=2 mA,R=500 ohm,Is=10⁻¹² A,VT=0.025 V. Its law is I=Is[exp(Vd/VT)−1] and its load line is Vs=Vd+RI. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "circuits-16-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "diode",
+          "type": "numeric",
+          "prompt": "Diode voltage in volts for the supplied circuit model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "source",
+          "type": "numeric",
+          "prompt": "Required source voltage in volts.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "diode",
+            "type": "numeric",
+            "answer": 0.5354103254501589,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "source",
+            "type": "numeric",
+            "answer": 1.535410325450159,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What defines the nonlinear bias point?",
+        "solution": "The exponential law gives Vd=VT ln(1+I/Is), about 0.53541033 V. The resistor adds one volt, so the source is about 1.53541033 V. Both the device equation and the source/load line must hold at the same operating point.",
+        "lesson_ids": [
+          "circuits-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic circuit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-16:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use the same rehearsal bias. Differentiate the full stated diode law, retaining Is in the result. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "circuits-16-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "resistance",
+          "type": "numeric",
+          "prompt": "Incremental diode resistance in ohms.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "gain",
+          "type": "numeric",
+          "prompt": "Local dVd/dVs voltage gain for the supplied circuit model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "resistance",
+            "type": "numeric",
+            "answer": 12.49999999375,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "gain",
+            "type": "numeric",
+            "answer": 0.024390243890541348,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why is V/I not generally the small-signal resistance?",
+        "solution": "The derivative is rd=VT/(I+Is), about 12.5 ohm; series division gives rd/(R+rd), about 0.02439024. The DC ratio Vd/I is a different number and does not describe infinitesimal perturbations of this exponential operating point.",
+        "lesson_ids": [
+          "circuits-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic circuit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-16:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Use that same forward bias and passive-sign power convention; report positive dissipated or supplied power as requested. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "circuits-16-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "diode_power",
+          "type": "numeric",
+          "prompt": "Diode dissipated power in milliwatts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "resistor_power",
+          "type": "numeric",
+          "prompt": "Resistor dissipated power in milliwatts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "source_power",
+          "type": "numeric",
+          "prompt": "Source supplied power in milliwatts.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "diode_power",
+            "type": "numeric",
+            "answer": 1.0708206509003177,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "resistor_power",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "source_power",
+            "type": "numeric",
+            "answer": 3.070820650900318,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which balance checks the solved load line?",
+        "solution": "The diode dissipates about 1.0708207 mW and the resistor two mW; the source supplies their sum, about 3.0708207 mW. Multiplying the solved load line by its current gives an independent signed power check.",
+        "lesson_ids": [
+          "circuits-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic circuit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-16:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Interpret the stipulated exponential device and its local linearization. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "circuits-16-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "slope",
+          "type": "single_choice",
+          "prompt": "Which resistance describes a sufficiently small perturbation?",
+          "options": [
+            "The derivative VT/(I+Is) evaluated at the solved bias.",
+            "The DC quotient Vd/I at every bias and perturbation amplitude.",
+            "A universal fixed 0.7 V drop divided by the source current."
+          ],
+          "points": 1
+        },
+        {
+          "id": "domain",
+          "type": "single_choice",
+          "prompt": "Which scope statement is supported?",
+          "options": [
+            "A bracketed numerical root proves the law fits every actual diode and reverse bias.",
+            "The chosen thermal-voltage parameter establishes actual device temperature and calibration.",
+            "The stipulated law omits breakdown and other real-device effects; a local derivative is not a measured device specification."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "slope",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "domain",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does a successful root solver establish?",
+        "solution": "The solved derivative belongs to the supplied law at one bias. Its small-step prediction must be checked against a re-solved nonlinear network; breakdown, temperature dependence and calibration require additional models and evidence.",
+        "lesson_ids": [
+          "circuits-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic circuit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-17:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Original rehearsal: grounded-source ideal nMOS,VDD=12 V,RD=3 kohm,VG=2.5 V,Vth=1 V,kappa=1 mA/V². Saturation law ID=kappa(VG−Vth)²/2,lambda=0; verify VD>=VG−Vth. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "circuits-17-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "current",
+          "type": "numeric",
+          "prompt": "Drain current in milliamperes for the supplied circuit model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "drain",
+          "type": "numeric",
+          "prompt": "Drain voltage in volts for the supplied circuit model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "current",
+            "type": "numeric",
+            "answer": 1.125,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "drain",
+            "type": "numeric",
+            "answer": 8.625,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why check a region after computing a transistor current?",
+        "solution": "The overdrive is 1.5 V and the saturation candidate is 1.125 mA. The load line gives VD=12−3(1.125)=8.625 V, above the overdrive, so that candidate satisfies its assumed region.",
+        "lesson_ids": [
+          "circuits-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic circuit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-17:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Linearize the same saturation rehearsal; the source is grounded and the gate drive is ideal. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "circuits-17-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "transconductance",
+          "type": "numeric",
+          "prompt": "Saturation transconductance in millisiemens for the supplied circuit model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "gain",
+          "type": "numeric",
+          "prompt": "Local drain-voltage to gate-voltage gain.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "transconductance",
+            "type": "numeric",
+            "answer": 1.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "gain",
+            "type": "numeric",
+            "answer": -4.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What constrains a small-signal amplifier claim?",
+        "solution": "Differentiating kappa Vov²/2 gives gm=kappa Vov=1.5 mS. The drain load produces gain −gm RD=−4.5. This derivative does not justify arbitrary finite gate swings across region boundaries.",
+        "lesson_ids": [
+          "circuits-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic circuit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-17:depth-3",
+      "type": "data_interpretation",
+      "prompt": "For a separate variant change only VG to 4 V. Use triode ID=kappa[(VG−Vth)VD−VD²/2] for 0<=VD<VG−Vth. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "circuits-17-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "drain",
+          "type": "numeric",
+          "prompt": "Admissible triode drain voltage in volts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "current",
+          "type": "numeric",
+          "prompt": "Triode drain current in milliamperes.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "drain",
+            "type": "numeric",
+            "answer": 1.5694991259569395,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "current",
+            "type": "numeric",
+            "answer": 3.4768336246810203,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How should multiple algebraic roots be interpreted?",
+        "solution": "The saturation candidate would give VD=−1.5 V and fails its region. Combining the triode law with the load line gives the smaller root (10−sqrt28)/3, about 1.5694991 V, and current about 3.4768336 mA. The other quadratic root lies outside triode.",
+        "lesson_ids": [
+          "circuits-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic circuit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-17:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Keep VDD=12 V,RD=3 kohm,Vth=1 V,kappa=1 mA/V² and solve the upper gate boundary of the saturation branch. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "circuits-17-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "gate",
+          "type": "numeric",
+          "prompt": "Gate voltage at the saturation/triode boundary in volts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "interpretation",
+          "type": "single_choice",
+          "prompt": "Which statement follows? for the supplied circuit model.",
+          "options": [
+            "Any gate change below the supply keeps this transistor in saturation regardless of loading.",
+            "The boundary follows from VD=Vov and the load line for this model; it is not a universal transistor voltage.",
+            "The ideal zero gate current proves the real input capacitance and dynamic switching loss vanish."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "gate",
+            "type": "numeric",
+            "answer": 3.5146679151058433,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "interpretation",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which idealizations must accompany a MOS bias report?",
+        "solution": "At the boundary twelve−three Vov²/two=Vov, so the positive overdrive is (−one+sqrt73)/three and the gate is about 3.5146679 V. Off-state leakage, channel-length modulation, capacitances and measured specifications are outside the stipulated static law.",
+        "lesson_ids": [
+          "circuits-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic circuit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-18:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Three equal open-loop poles: A(s)=200/(1+s/1000)^3,negative constant feedback beta=0.005. Let G=beta A0. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "circuits-18-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "loop",
+          "type": "numeric",
+          "prompt": "Dimensionless loop coefficient G for the supplied circuit model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "gain",
+          "type": "numeric",
+          "prompt": "Formal closed-loop DC gain for the supplied circuit model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "loop",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "gain",
+            "type": "numeric",
+            "answer": 100.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why calculate a characteristic equation after DC gain?",
+        "solution": "G=one and the formal gain is two hundred/(one+one)=one hundred. Dynamic stability still needs the characteristic roots; a finite static denominator alone is not the stability argument.",
+        "lesson_ids": [
+          "circuits-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic circuit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-18:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use the same G=1,omega=1000 per second rehearsal. The characteristic equation is (1+s/omega)^3+G=0. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "circuits-18-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "real_root",
+          "type": "numeric",
+          "prompt": "Real closed-loop pole in inverse seconds.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "pair_real",
+          "type": "numeric",
+          "prompt": "Conjugate-pair real part in inverse seconds.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "pair_imaginary",
+          "type": "numeric",
+          "prompt": "Positive conjugate-pair imaginary magnitude in inverse seconds.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "real_root",
+            "type": "numeric",
+            "answer": -2000.0,
+            "unit": "",
+            "tolerance": 5.1,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "pair_real",
+            "type": "numeric",
+            "answer": -500.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "pair_imaginary",
+            "type": "numeric",
+            "answer": 866.0254037844386,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What establishes asymptotic stability of this finite linear model?",
+        "solution": "The cube roots give the real pole −two thousand and a pair −five hundred ±i five hundred sqrt3. All real parts are negative, establishing asymptotic decay for this linear model.",
+        "lesson_ids": [
+          "circuits-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic circuit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-18:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Separate variant: keep A0=200,omega=1000 and set beta=0.135,so G=27. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "circuits-18-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "real_root",
+          "type": "numeric",
+          "prompt": "Real closed-loop pole in inverse seconds.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "pair_real",
+          "type": "numeric",
+          "prompt": "Conjugate-pair real part in inverse seconds.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "pair_imaginary",
+          "type": "numeric",
+          "prompt": "Positive pair imaginary magnitude in inverse seconds.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "stability",
+          "type": "single_choice",
+          "prompt": "Which verdict follows? for the supplied circuit model.",
+          "options": [
+            "The finite positive DC gain guarantees every state approaches equilibrium.",
+            "The negative feedback sign guarantees asymptotic decay for any positive loop gain.",
+            "The positive pair real part makes this linear closed loop unstable."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "real_root",
+            "type": "numeric",
+            "answer": -4000.0,
+            "unit": "",
+            "tolerance": 5.1,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "pair_real",
+            "type": "numeric",
+            "answer": 500.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "pair_imaginary",
+            "type": "numeric",
+            "answer": 2598.076211353316,
+            "unit": "",
+            "tolerance": 5.1,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "stability",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Can stable open-loop poles become unstable after feedback?",
+        "solution": "The real pole is −four thousand, while the pair is +five hundred ±i fifteen hundred sqrt3. Its growing component makes the formal equilibrium nonattracting. An eventual real output limit is not described by this linear model.",
+        "lesson_ids": [
+          "circuits-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic circuit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-18:depth-4",
+      "type": "data_interpretation",
+      "prompt": "For A(s)=A0/(1+s/omega)^3 with A0,omega>0 and G=beta A0>=0,find the boundary where the conjugate pair reaches the imaginary axis. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "circuits-18-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "critical",
+          "type": "numeric",
+          "prompt": "Critical dimensionless G for the supplied circuit model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "boundary",
+          "type": "single_choice",
+          "prompt": "Which interpretation is justified? for the supplied circuit model.",
+          "options": [
+            "G=8 is marginal rather than asymptotically stable in this ideal linear model; a different pole/feedback law needs a new calculation.",
+            "Eight is the universal stable gain limit of every physical op-amp.",
+            "A purely imaginary pair establishes a measured finite oscillator amplitude without nonlinear information."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "critical",
+            "type": "numeric",
+            "answer": 8.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "boundary",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why cannot an equal-pole threshold be copied to a compensated circuit?",
+        "solution": "The pair real part is omega(−one+cuberoot(G)/two), which vanishes at G=eight. Below it all roots decay; above it the pair grows. Amplitude selection, range and compensation require additional model information.",
+        "lesson_ids": [
+          "circuits-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic circuit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-19:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1 uses I=1 mA,R=2 kohm,Is=10⁻¹² A,VT=0.026 V with I=Is[exp(Vd/VT)−1],Vs=Vd+RI. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "circuits-19-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "diode",
+          "type": "numeric",
+          "prompt": "Diode voltage in volts for the supplied circuit model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "source",
+          "type": "numeric",
+          "prompt": "Required source voltage in volts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "resistance",
+          "type": "numeric",
+          "prompt": "Incremental diode resistance in ohms.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "diode",
+            "type": "numeric",
+            "answer": 0.5388049117866066,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "source",
+            "type": "numeric",
+            "answer": 2.5388049117866065,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "resistance",
+            "type": "numeric",
+            "answer": 25.999999973999998,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What should a nonlinear port report retain?",
+        "solution": "The device inversion gives about 0.53880491 V; the resistor adds two volts, giving source about 2.5388049 V. The exact local resistance is 0.026/(0.001+Is), about 26 ohm. Preserve Is in the derivation before rounding.",
+        "lesson_ids": [
+          "circuits-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic circuit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-19:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use that assignment bias and the same passive-sign convention. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "circuits-19-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "gain",
+          "type": "numeric",
+          "prompt": "Local dVd/dVs gain for the supplied circuit model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "diode_power",
+          "type": "numeric",
+          "prompt": "Diode absorbed power in milliwatts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "resistor_power",
+          "type": "numeric",
+          "prompt": "Resistor absorbed power in milliwatts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "source_power",
+          "type": "numeric",
+          "prompt": "Source supplied power in milliwatts.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "gain",
+            "type": "numeric",
+            "answer": 0.012833168792859654,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "diode_power",
+            "type": "numeric",
+            "answer": 0.5388049117866066,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "resistor_power",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "source_power",
+            "type": "numeric",
+            "answer": 2.5388049117866065,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How do sensitivity and conservation complement a root residual?",
+        "solution": "The local voltage gain is rd/(two thousand+rd), about 0.01283317. With one mA, diode power in mW equals its voltage in V; the resistor absorbs two mW and the source supplies their sum. Re-solve perturbed load lines to test the local prediction.",
+        "lesson_ids": [
+          "circuits-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic circuit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-20:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2 uses grounded-source ideal nMOS,VDD=9 V,RD=2 kohm,VG=3 V,Vth=1 V,kappa=0.5 mA/V². In saturation ID=kappa Vov²/2 and lambda=0. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "circuits-20-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "current",
+          "type": "numeric",
+          "prompt": "Drain current in milliamperes for the supplied circuit model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "drain",
+          "type": "numeric",
+          "prompt": "Drain voltage in volts for the supplied circuit model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "transconductance",
+          "type": "numeric",
+          "prompt": "Transconductance in millisiemens for the supplied circuit model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "gain",
+          "type": "numeric",
+          "prompt": "Local voltage gain for the supplied circuit model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "current",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "drain",
+            "type": "numeric",
+            "answer": 7.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "transconductance",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "gain",
+            "type": "numeric",
+            "answer": -2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What checks distinguish a valid small-signal calculation?",
+        "solution": "The overdrive is two V, current one mA and drain seven V; seven exceeds the overdrive. The derivative is one mS and the drain gain is −two. A finite gate perturbation needs a fresh region and curvature check.",
+        "lesson_ids": [
+          "circuits-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic circuit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-20:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Separate assignment variant changes only VG to 5 V. Use the stated triode law ID=kappa(Vov VD−VD²/2) and 0<=VD<Vov. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "circuits-20-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "drain",
+          "type": "numeric",
+          "prompt": "Admissible drain voltage in volts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "current",
+          "type": "numeric",
+          "prompt": "Drain current in milliamperes for the supplied circuit model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "root",
+          "type": "single_choice",
+          "prompt": "Which root argument is valid?",
+          "options": [
+            "Every root of the quadratic is a valid operating point on the same branch.",
+            "The root 5−sqrt7 satisfies the original load line and 0<=VD<4; the other root and the saturation candidate fail their branch conditions.",
+            "Use the saturation candidate VD=1 because it is positive, without checking VD>=Vov."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "drain",
+            "type": "numeric",
+            "answer": 2.3542486889354093,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "current",
+            "type": "numeric",
+            "answer": 3.3228756555322954,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "root",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must accompany a piecewise algebraic solution?",
+        "solution": "Saturation predicts drain one V below overdrive four V and fails. The triode network gives VD=five−sqrt7, about 2.3542487 V, and current about 3.3228757 mA; the larger quadratic root is outside triode. Positive voltage alone is not sufficient branch validation.",
+        "lesson_ids": [
+          "circuits-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic circuit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-21:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 3 uses A(s)=120/(1+s/1000)^3 and constant negative feedback beta=0.025. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "circuits-21-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "loop",
+          "type": "numeric",
+          "prompt": "Dimensionless loop coefficient G for the supplied circuit model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "gain",
+          "type": "numeric",
+          "prompt": "Formal closed-loop DC gain for the supplied circuit model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "pair_real",
+          "type": "numeric",
+          "prompt": "Conjugate-pair real part in inverse seconds.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "pair_imaginary",
+          "type": "numeric",
+          "prompt": "Positive pair imaginary magnitude in inverse seconds.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "loop",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "gain",
+            "type": "numeric",
+            "answer": 30.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "pair_real",
+            "type": "numeric",
+            "answer": -278.8752148462959,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "pair_imaginary",
+            "type": "numeric",
+            "answer": 1249.0247664834064,
+            "unit": "",
+            "tolerance": 5.1,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How can a feedback report verify more than a static gain?",
+        "solution": "G=three and DC gain is thirty. With q=cuberoot3 the pair has real part one thousand(−one+q/two), about −278.87521, and imaginary magnitude five hundred sqrt3 q, about 1249.0248. Derive the state matrix as an independent modal check.",
+        "lesson_ids": [
+          "circuits-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic circuit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-21:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Separate assignment variant keeps A0=120,omega=1000 and sets beta=8/15,so G=64. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "circuits-21-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "pair_real",
+          "type": "numeric",
+          "prompt": "Conjugate-pair real part in inverse seconds.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "pair_imaginary",
+          "type": "numeric",
+          "prompt": "Positive pair imaginary magnitude in inverse seconds.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "gain",
+          "type": "numeric",
+          "prompt": "Formal closed-loop DC gain for the supplied circuit model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "operating",
+          "type": "single_choice",
+          "prompt": "Which claim is supported? for the supplied circuit model.",
+          "options": [
+            "The formal gain 24/13 exists, but the positive pair real part prevents an attracting linear operating state.",
+            "The finite positive DC transfer proves stable settling to 24/13 times the input.",
+            "The linear growth establishes the real clipped output amplitude without a nonlinear range model."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "pair_real",
+            "type": "numeric",
+            "answer": 1000.0,
+            "unit": "",
+            "tolerance": 5.1,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "pair_imaginary",
+            "type": "numeric",
+            "answer": 3464.1016151377544,
+            "unit": "",
+            "tolerance": 5.1,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "gain",
+            "type": "numeric",
+            "answer": 1.8461538461538463,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "operating",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "When should a simulated operating claim stop?",
+        "solution": "At G=sixty-four the cube root is four, giving the pair +one thousand ±i two thousand sqrt3. Formal DC gain is one hundred twenty/sixty-five=twenty-four/thirteen. Output clipping and actual large-amplitude behavior are outside this linear law.",
+        "lesson_ids": [
+          "circuits-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic circuit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-22:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 4 has two ideally buffered identical RC stages,H(s)=(1+s tau)^−2,tau=0.002 s. Input one-sided white ASD is 40 nV/sqrt(Hz),flat in the mathematical model. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "circuits-22-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "bandwidth",
+          "type": "numeric",
+          "prompt": "One-sided noise bandwidth in Hz.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "rms",
+          "type": "numeric",
+          "prompt": "Output RMS noise in nanovolts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "step",
+          "type": "numeric",
+          "prompt": "Unit-step response at t=0.004 s.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "bandwidth",
+            "type": "numeric",
+            "answer": 62.5,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "rms",
+            "type": "numeric",
+            "answer": 316.2277660168379,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "step",
+            "type": "numeric",
+            "answer": 0.5939941502901619,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which assumptions make the two-stage noise calculation valid?",
+        "solution": "The squared magnitude integral is one/(eight tau)=62.5 Hz; output RMS is forty sqrt62.5, about 316.22777 nV. At two time constants the two-lag step response is one−three exp(−two), about 0.59399415. The product assumes ideal buffering, not an unbuffered passive ladder.",
+        "lesson_ids": [
+          "circuits-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic circuit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-22:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Separate channels X=S+Nc+N1,Y=Nc+N2. Zero-mean mutually independent source terms have RMS Nc=5,N1=3,N2=4 microvolts. S is present only in X. Estimate S with X−gY. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "circuits-22-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "difference",
+          "type": "numeric",
+          "prompt": "Noise RMS at g=1 in microvolts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "naive",
+          "type": "numeric",
+          "prompt": "Incorrect independence-based RMS at g=1 in microvolts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "weight",
+          "type": "numeric",
+          "prompt": "Minimum-noise coefficient g for the supplied circuit model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "optimal",
+          "type": "numeric",
+          "prompt": "Minimum output noise RMS in microvolts.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "difference",
+            "type": "numeric",
+            "answer": 5.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "naive",
+            "type": "numeric",
+            "answer": 8.660254037844387,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "weight",
+            "type": "numeric",
+            "answer": 0.6097560975609756,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "optimal",
+            "type": "numeric",
+            "answer": 4.330831047382894,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can full common-noise cancellation fail to minimize total variance?",
+        "solution": "VarX=34,VarY=41,Cov=25 in squared microvolts. The difference has variance twenty-five, while ignoring covariance gives seventy-five. Completing the square gives variance 41(g−25/41)²+769/41, so g=25/41 and RMS about 4.3308310 microvolts. Full common cancellation at g=one is not the minimum variance here.",
+        "lesson_ids": [
+          "circuits-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic circuit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
     }
   ]
 }

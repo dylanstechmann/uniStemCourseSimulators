@@ -18,7 +18,7 @@ A separate reporting model maps actual node voltage to reported voltage y=b+gV. 
 
 ## Data dictionary
 
-[Download the synthetic CSV](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/physics-em/labs/loading-reports.csv). There are 36 rows in twelve groups. `sample` identifies the reference or condition/time group, `condition` is reference, a or b, `time_s` is elapsed seconds for timed circuit rows, `replicate` identifies one of three constructed reports, and `reported_voltage_v` is raw reported voltage in volts.
+[Download the synthetic CSV](loading-reports.csv). There are 36 rows in twelve groups. `sample` identifies the reference or condition/time group, `condition` is reference, a or b, `time_s` is elapsed seconds for timed circuit rows, `replicate` identifies one of three constructed reports, and `reported_voltage_v` is raw reported voltage in volts.
 
 Reference rows and steady-state rows have an empty time field because they are not finite-time transient observations. Codes ending ss denote the exact model's steady-state limit, not a claim that a measured finite duration is infinite. Every central raw report is rounded to six decimal places. Three variants at −0.002,zero,+0.002 V relative to that rounded value deliberately balance to its mean. These are deterministic demonstration offsets, not independently sampled errors or evidence of a probability distribution.
 

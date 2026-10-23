@@ -1,6 +1,6 @@
 # Linear Algebra course review handoff
 
-This handoff targets Linear Algebra for Modeling & Robotics, package version 0.4.0. The [review snapshot](LINEAR_ALGEBRA_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+This handoff targets Linear Algebra for Modeling & Robotics, package version 0.5.0. The [review snapshot](LINEAR_ALGEBRA_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
 
 ## Review scope
 
@@ -20,3 +20,7 @@ The earlier focused Linear Algebra regression suite passed 85 tests for version 
 ## Review record to complete only after review
 
 After a review actually occurs, record reviewer name and qualifications, date, package version and archive digest, artifacts examined, concrete findings and disposition. Keep separate decisions for mathematical correctness, instructional design, assessment, accessibility, workload and release. Do not infer approval from the package hash or test results.
+
+## Mixed proof/map/dynamics target (2026-10-22)
+
+Current target 0.5.0 adds factorization/coordinate/metric/functional and defective/transient/matrix-exponential foundations plus four proof/application reports. Check pivot permutations, original-column bases, similarity versus congruence, Gram/functional rules, multiplicity versus eigenspace dimension, polynomial transients and norm-derivative bounds, weighted projection, quadratic uniqueness and inverse-convention/identifiability distinctions. Twenty checkpoints/cards assess selected responses; proof quality, code, reports, workload and qualified review remain open. Earlier evidence remains historical; the current snapshot pins the package.

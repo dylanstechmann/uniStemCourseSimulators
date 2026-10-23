@@ -10,7 +10,7 @@ Connect reaction extent, atom accounting, the reaction quotient, equilibrium and
 n_A=1.00-\xi,\qquad n_B=0.500+2\xi.
 \]
 
-For this mathematical case only, idealized activities are `a_i=β n_i` with stipulated `β=0.200 mol⁻¹`; the dimensionless equilibrium constant at the fixed temperature is `K_p=a_B²/a_A=1.80`. Use an abstract reaction enthalpy `ΔH=+20.0 kJ/mol of extent`. No compound identity, temperature-dependence, or physical vessel is supplied.
+For this mathematical case only, idealized activities are `a_i=β n_i` with stipulated `β=0.200 mol⁻¹`; the dimensionless equilibrium constant at the fixed temperature is `K_p=a_B²/a_A=1.80`. Use an abstract reaction enthalpy `ΔH=+20.0 kJ/mol of extent` and report `ΔH_total=ξΔH`. A separate stipulated constant-pressure, pressure-volume-work-only heat ledger permits `q=ΔH_total`; fixed temperature alone does not establish that equality. No compound identity, temperature-dependence, or physical vessel is supplied.
 
 ## Work sequence
 
@@ -18,19 +18,19 @@ For this mathematical case only, idealized activities are `a_i=β n_i` with stip
 2. Calculate the initial reaction quotient `Q_p`; use `Q_p` versus `K_p` to predict the direction of net change.
 3. Substitute the extent table into the equilibrium expression, rearrange to a quadratic, solve it and reject any root outside the feasible interval.
 4. Calculate the equilibrium amounts of A and B and verify both nonnegativity and the conserved-unit count.
-5. Calculate the heat absorbed or released at fixed temperature using the stated sign convention, and report sensible significant figures.
+5. Calculate the extent-based enthalpy change and, under the separately stipulated constant-pressure heat-ledger boundary, the heat absorbed or released. State that boundary and report sensible significant figures.
 6. Explain why equilibrium composition and reaction enthalpy do not determine reaction rate, prove chemical identity or provide a laboratory procedure.
 
 ## Author calculation key
 
-The feasible interval is `0≤ξ≤1.00 mol`, set by the initial A amount. Initially, `Q_p=β(0.500)²/1.00=0.0500<K_p`, so the net direction is forward. At equilibrium,
+The inventory-feasible interval is `−0.250≤ξ≤1.00 mol`, set jointly by `n_A≥0` and `n_B≥0`; negative extent is possible when initial B is present. The initial quotient below selects the forward direction for this case. Initially, `Q_p=β(0.500)²/1.00=0.0500<K_p`, so the net direction is forward. At equilibrium,
 
 \[
 1.80=\frac{0.200(0.500+2\xi)^2}{1.00-\xi},\qquad
 4\xi^2+11\xi-8.75=0.
 \]
 
-The admissible root is `ξ=(-11+√261)/8=0.6444368 mol`; the other root is negative and infeasible. Thus `n_A=0.355563 mol` and `n_B=1.788874 mol`. The conserved-unit count is `2n_A+n_B=2.500000 mol`, matching the initial total. With heat into the system positive, `q=ξΔH=+12.8887 kJ`, so the stipulated endothermic extent absorbs heat at fixed temperature. These values are checks on the abstract equations only.
+The admissible root is `ξ=(-11+√261)/8=0.6444368 mol`; the other root is negative and infeasible. Thus `n_A=0.355563 mol` and `n_B=1.788874 mol`. The conserved-unit count is `2n_A+n_B=2.500000 mol`, matching the initial total. The total enthalpy change is `ΔH_total=ξΔH=+12.8887 kJ`. Under the separately stipulated constant-pressure, pressure-volume-work-only heat ledger, `q=ΔH_total` is positive into the system. The fixed temperature and artificial activity normalization alone do not specify that heat-transfer boundary. These values are checks on the abstract equations only.
 
 ## Proposed unweighted review rubric
 

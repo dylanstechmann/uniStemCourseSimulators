@@ -64,7 +64,7 @@ def analyse(counts: dict):
 
 
 def test_route_is_scheduled_optional_and_ungraded():
-    assert MANIFEST["version"] == "0.6.0" and MANIFEST["maturity"] == "partial"
+    assert MANIFEST["version"] == "0.7.0" and MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed"
     assert MANIFEST["grading_policy"]["mode"] == "formative-only"
     rehearsal = ASSESSMENTS["genetics-project-rehearsal-practice"]
@@ -164,7 +164,7 @@ def test_lab_dataset_is_package_pinned_and_links_resolve():
     lab = (COURSE / "labs/01-association-study-and-population-structure.md").read_text(encoding="utf-8")
     assert "raw.githubusercontent.com" not in lab
     assert "[synthetic genotypes (CSV)](case-control-genotypes.csv)" in lab
-    assert MANIFEST["learner_resources"] == ["labs/case-control-genotypes.csv", "assignments/three-point-rehearsal-counts.csv"]
+    assert MANIFEST["learner_resources"] == ["labs/case-control-genotypes.csv", "assignments/three-point-rehearsal-counts.csv", "assignments/genome-evidence-counts.csv"]
 
     sys.path.insert(0, str(ROOT / "backend"))
     from courselab.content import ContentRepository

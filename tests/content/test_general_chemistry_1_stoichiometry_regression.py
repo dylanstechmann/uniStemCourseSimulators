@@ -13,7 +13,6 @@ COURSE = ROOT / "content/courses/general-chemistry-1"
 
 def test_stoichiometry_limiter_and_dilution_preserve_assessment_keys():
     manifest = json.loads((COURSE / "course.json").read_text(encoding="utf-8"))
-    assert manifest["version"].startswith("0.4.")
     assert manifest["maturity"] == "partial"
     assert manifest["review"]["status"] == "unreviewed"
     assert manifest["grading_policy"]["mode"] == "formative-only"
@@ -120,4 +119,6 @@ def test_stoichiometry_limiter_and_dilution_preserve_assessment_keys():
 
     syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8").lower()
     assert f"version: {manifest['version']}." in syllabus
-    assert "| 3 | stoichiometry, solution concentration and reaction extents |" in syllabus
+    calendar_row = next(row for row in syllabus.splitlines() if row.startswith("| 5 |"))
+    assert lesson["title"].lower() in calendar_row
+    assert lesson["id"] in manifest["duration"]["weeks"][4]["lesson_ids"]

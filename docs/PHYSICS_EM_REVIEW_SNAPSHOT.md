@@ -1,12 +1,12 @@
 # Physics: Electricity & Magnetism review snapshot
 
-This record pins the current public course package for independent review. It is regenerated with the read-only command below and does not imply acceptance or release.
+This identifies the public package; a digest does not approve physical interpretation or course depth.
 
-- **Course package:** `physics-em` 0.4.8
-- **Public package archive SHA-256:** `3643c50dcd025c03f7b51e73f106d37169879286725b3546fdcffdb1985e9f52`
-- **Manifest SHA-256:** `f7f19fac8adc51c210bf54f5947e6de8f84b02160d414a260fd733f080c01b31`
-- **Archive inventory:** 26 files, 372,666 bytes
-- **Calculated:** 2026-10-13
-- **Reproduce:** `uv run --project backend python tools/course_package_digest.py --course-id physics-em`
+- **Course package:** `physics-em` 0.6.0
+- **Public package archive SHA-256:** `544c205ca3cd3b11b071ccbb0c846dde322276c3d3db3d5c8bec07c9171e34e3`
+- **Manifest SHA-256:** `e34d488599c0e408a8c59a6d6ef8101d53b01a7199ba9f8d73d2970f277a4946`
+- **Archive inventory:** 34 files, 552,322 bytes
+- **Calculated:** 2026-10-22
+- **Reproduce:** `python tools/course_package_digest.py --course-id physics-em`
 
-The archive includes the inactive series-resonance project draft, the displacement-current/Ampère–Maxwell/plane-wave energy lesson, the two-source interference reading and the week-8 magnetic-field-sources reading added in 0.4.8. The digest proves package identity only; it is not physics review, instructional approval or release evidence.
+Three original continuous-charge/boundary, mutual-energy and source/reflection foundations plus four connected reports add twenty checkpoints/cards. All geometries, circuits and waves are prescribed synthetic models. Browser checks do not evaluate derivations, diagrams, code or reports. The course remains partial, unreviewed and formative-only; the previous 0.5.0 snapshot is preserved.

@@ -1,12 +1,12 @@
 # Linear Algebra review snapshot
 
-This record pins the current public course package for independent review. It is regenerated with the read-only command below and does not imply acceptance or release.
+This identifies the public package; it does not approve proof quality, course depth or a physical model.
 
-- **Course package:** `linear-algebra` 0.4.0
-- **Public package archive SHA-256:** `5e341e55e5445c83071408ab5dce676acf536e22674caa3f3657278616c883ad`
-- **Manifest SHA-256:** `e5e1e911b901c2de9e0ffed12e225d29f2281d84c9971076f0d94b8592bff0ea`
-- **Archive inventory:** 26 files, 366,432 bytes
-- **Calculated:** 2026-10-20
-- **Reproduce:** `uv run --project backend python tools/course_package_digest.py --course-id linear-algebra`
+- **Course package:** `linear-algebra` 0.5.0
+- **Public package archive SHA-256:** `94d43fe012245ffa035d3d30d7f315bb131ed6926a7bed14a712b6e1c9f0d863`
+- **Manifest SHA-256:** `3b0b2e3fabe3a1ecdba0b15798512dd03981f76f0d979c4f9c3d58e92ba01332`
+- **Archive inventory:** 32 files, 496,744 bytes
+- **Calculated:** 2026-10-22
+- **Reproduce:** `python tools/course_package_digest.py --course-id linear-algebra`
 
-Version 0.4.0 makes the planned hidden-state reconstruction project usable by learners as ungraded practice. Week 12 gains an optional project guide with the project's design, readouts and tasks and a worked example on a separate design and chain, synthetic rehearsal readouts with a two-state chain and five open rehearsal practice items; five project milestones are Case studio self-checks with a week-13 project record. The project readouts become a learner resource, and the sensor lab's dataset link now resolves to the package-pinned CSV instead of a mutable repository URL. The inactive project draft is unchanged. The digest proves package identity only; it is not mathematical review, instructional approval or release evidence.
+Two original factorization/coordinate and defective/transient foundations plus four mixed proof/application assignments add twenty checkpoints/cards. Browser checks do not evaluate proofs, reports or implementations; all matrices and data are constructed. The course remains partial, unreviewed and formative-only. The prior 0.4.0 snapshot remains preserved.

@@ -4,10 +4,10 @@ import AxeBuilder from "@axe-core/playwright";
 test("public case studios expose authored science and engineering checklists", async ({
   page,
 }) => {
-  // Cell Biology and Biochemistry list their preserved case first, then five project milestones.
+  // Each course lists its preserved case first, followed by project milestones.
   const caseCounts: Record<string, number> = {
     "cell-biology": 6,
-    circuits: 1,
+    circuits: 6,
     biochemistry: 6,
   };
   for (const course of ["cell-biology", "circuits", "biochemistry"]) {
@@ -166,7 +166,10 @@ test("case prompt and checklist fit a narrow screen", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/#/course/circuits/cases");
   await expect(
-    page.getByRole("heading", { name: "Case prompt", exact: true }),
+    page.getByRole("region", { name: "Case response", exact: true }),
+  ).toHaveCount(6);
+  await expect(
+    page.getByRole("heading", { name: "Case prompt", exact: true }).first(),
   ).toBeVisible();
   expect(
     await page.evaluate(

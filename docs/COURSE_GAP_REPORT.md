@@ -6,33 +6,33 @@ comprehensive coverage. Every package is still `partial` and unreviewed.
 
 | Package | Maturity | Lessons | Objectives | Practice items | Cards | Objectives with no assessment mapping | Objectives with no practice item | Objectives linked to no outcome | Course outcomes | Outcomes no lesson objective links to | Outcomes no assessment lists |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| biochemistry | partial | 38 | 75 | 249 | 146 | 0 | 0 | 0 | 5 | 0 | 0 |
-| biomaterials | partial | 17 | 44 | 108 | 59 | 0 | 0 | 0 | 4 | 0 | 0 |
-| bioreactors | partial | 17 | 45 | 112 | 62 | 0 | 0 | 0 | 4 | 0 | 0 |
-| calculus-1 | partial | 17 | 44 | 118 | 59 | 0 | 0 | 0 | 5 | 0 | 0 |
-| calculus-2 | partial | 17 | 44 | 117 | 59 | 0 | 0 | 0 | 5 | 0 | 0 |
-| calculus-3 | partial | 16 | 41 | 115 | 58 | 0 | 0 | 0 | 4 | 0 | 0 |
+| biochemistry | partial | 43 | 91 | 265 | 162 | 0 | 0 | 0 | 6 | 0 | 0 |
+| biomaterials | partial | 22 | 58 | 122 | 73 | 0 | 0 | 0 | 4 | 0 | 0 |
+| bioreactors | partial | 24 | 65 | 132 | 82 | 0 | 0 | 0 | 4 | 0 | 0 |
+| calculus-1 | partial | 22 | 60 | 134 | 75 | 0 | 0 | 0 | 5 | 0 | 0 |
+| calculus-2 | partial | 23 | 60 | 133 | 75 | 0 | 0 | 0 | 5 | 0 | 0 |
+| calculus-3 | partial | 23 | 61 | 135 | 78 | 0 | 0 | 0 | 5 | 0 | 0 |
 | cell-biology | partial | 45 | 69 | 183 | 96 | 0 | 0 | 0 | 4 | 0 | 0 |
-| cellular-biomechanics | partial | 17 | 44 | 111 | 59 | 0 | 0 | 0 | 4 | 0 | 0 |
-| circuits | partial | 16 | 42 | 115 | 56 | 0 | 0 | 0 | 4 | 0 | 0 |
-| differential-equations | partial | 17 | 45 | 120 | 62 | 0 | 0 | 0 | 4 | 0 | 0 |
-| general-chemistry-1 | partial | 15 | 42 | 113 | 58 | 0 | 0 | 0 | 4 | 0 | 0 |
-| general-chemistry-2 | partial | 17 | 44 | 114 | 59 | 0 | 0 | 0 | 4 | 0 | 0 |
-| genetics | partial | 20 | 55 | 113 | 74 | 0 | 0 | 0 | 6 | 0 | 0 |
-| geroscience | partial | 18 | 51 | 90 | 68 | 0 | 0 | 0 | 4 | 0 | 0 |
-| linear-algebra | partial | 16 | 42 | 113 | 59 | 0 | 0 | 0 | 4 | 0 | 0 |
-| organic-chemistry | partial | 17 | 48 | 125 | 63 | 0 | 0 | 0 | 4 | 0 | 0 |
-| physics-em | partial | 17 | 46 | 118 | 60 | 0 | 0 | 0 | 6 | 0 | 0 |
-| physics-mechanics | partial | 17 | 44 | 114 | 59 | 0 | 0 | 0 | 4 | 0 | 0 |
-| physiology | partial | 17 | 48 | 114 | 64 | 0 | 0 | 0 | 4 | 0 | 0 |
-| programming | partial | 17 | 44 | 111 | 59 | 0 | 0 | 0 | 5 | 0 | 0 |
-| robotics | partial | 15 | 41 | 111 | 56 | 0 | 0 | 0 | 4 | 0 | 0 |
-| signals-control | partial | 17 | 47 | 122 | 60 | 0 | 0 | 0 | 4 | 0 | 0 |
-| statics-materials | partial | 17 | 45 | 116 | 63 | 0 | 0 | 0 | 4 | 0 | 0 |
-| statistics | partial | 18 | 49 | 106 | 63 | 0 | 0 | 0 | 8 | 0 | 0 |
-| transport | partial | 18 | 47 | 119 | 63 | 0 | 0 | 0 | 6 | 0 | 0 |
+| cellular-biomechanics | partial | 24 | 64 | 131 | 79 | 0 | 0 | 0 | 7 | 0 | 0 |
+| circuits | partial | 24 | 67 | 140 | 81 | 0 | 0 | 0 | 4 | 0 | 0 |
+| differential-equations | partial | 24 | 65 | 140 | 82 | 0 | 0 | 0 | 4 | 0 | 0 |
+| general-chemistry-1 | partial | 22 | 63 | 134 | 79 | 0 | 0 | 0 | 4 | 0 | 0 |
+| general-chemistry-2 | partial | 23 | 62 | 132 | 77 | 0 | 0 | 0 | 4 | 0 | 0 |
+| genetics | partial | 26 | 73 | 131 | 92 | 0 | 0 | 0 | 7 | 0 | 0 |
+| geroscience | partial | 23 | 66 | 105 | 83 | 0 | 0 | 0 | 4 | 0 | 0 |
+| linear-algebra | partial | 22 | 62 | 133 | 79 | 0 | 0 | 0 | 5 | 0 | 0 |
+| organic-chemistry | partial | 22 | 65 | 142 | 80 | 0 | 0 | 0 | 4 | 0 | 0 |
+| physics-em | partial | 25 | 66 | 144 | 83 | 0 | 0 | 0 | 6 | 0 | 0 |
+| physics-mechanics | partial | 23 | 60 | 130 | 75 | 0 | 0 | 0 | 4 | 0 | 0 |
+| physiology | partial | 25 | 73 | 139 | 89 | 0 | 0 | 0 | 4 | 0 | 0 |
+| programming | partial | 28 | 78 | 145 | 93 | 0 | 0 | 0 | 5 | 0 | 0 |
+| robotics | partial | 23 | 66 | 136 | 81 | 0 | 0 | 0 | 4 | 0 | 0 |
+| signals-control | partial | 26 | 76 | 151 | 89 | 0 | 0 | 0 | 6 | 0 | 0 |
+| statics-materials | partial | 21 | 57 | 128 | 75 | 0 | 0 | 0 | 4 | 0 | 0 |
+| statistics | partial | 27 | 78 | 135 | 92 | 0 | 0 | 0 | 12 | 0 | 0 |
+| transport | partial | 24 | 65 | 137 | 81 | 0 | 0 | 0 | 7 | 0 | 0 |
 
-Totals: 25 packages, 473 lessons, 1186 objectives, 3047 practice items, 0 lesson objectives with no assessment mapping, 0 with no practice item, 0 linked to no course outcome; 0 of 114 course outcomes that no lesson objective links to, 0 that no assessment lists.
+Totals: 25 packages, 634 lessons, 1670 objectives, 3537 practice items, 0 lesson objectives with no assessment mapping, 0 with no practice item, 0 linked to no course outcome; 0 of 128 course outcomes that no lesson objective links to, 0 that no assessment lists.
 
 Each assessment with items lists the course outcomes its own items assess (item, then its tagged lesson objective,
 then that objective's outcome links), and `tools/validate_content.py` rejects an outcome that none of the

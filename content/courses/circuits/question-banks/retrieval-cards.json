@@ -545,6 +545,256 @@
         "circuits-15-objective-3"
       ],
       "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-project-card-1",
+      "front": "When does a loading factor belong in the gain chain?",
+      "back": "When the input is an open-circuit source voltage. A voltage already specified at the amplifier terminals must not be loaded a second time.",
+      "objective_ids": [
+        "circuits-project-objective-1"
+      ],
+      "lesson_id": "circuits-project-guide",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-project-card-2",
+      "front": "Does 80 dB CMRR mean 80% common-mode removal?",
+      "back": "No. CMRR in decibels is 20 log10(A_d/A_cm). Convert the amplitude-gain ratio before computing an output error.",
+      "objective_ids": [
+        "circuits-project-objective-2"
+      ],
+      "lesson_id": "circuits-project-guide",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-project-card-3",
+      "front": "Why is a Nyquist threshold alone an incomplete acquisition design?",
+      "back": "It does not state transition-band attenuation, out-of-band signal/noise levels, phase at the exact boundary or acquisition settling.",
+      "objective_ids": [
+        "circuits-project-objective-3"
+      ],
+      "lesson_id": "circuits-project-guide",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-project-card-4",
+      "front": "What is the reference point of an input-referred ADC step?",
+      "back": "It is the stated input node obtained by dividing the output code step by the gain from that node. Include loading only when referring farther back to an open-circuit source.",
+      "objective_ids": [
+        "circuits-project-objective-4"
+      ],
+      "lesson_id": "circuits-project-guide",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-project-card-5",
+      "front": "What makes a signal-path report reproducible?",
+      "back": "Label the voltage basis at each node, give equations and units, distinguish supplied inputs from inferred quantities, and name the physical specifications the model lacks.",
+      "objective_ids": [
+        "circuits-project-objective-5"
+      ],
+      "lesson_id": "circuits-project-guide",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-16-card-1",
+      "lesson_id": "circuits-16",
+      "front": "What defines the nonlinear bias point?",
+      "back": "A simultaneous solution of the device law and the original network constraints, followed by a domain and residual check.",
+      "objective_ids": [
+        "circuits-16-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-16-card-2",
+      "lesson_id": "circuits-16",
+      "front": "Why is V/I not generally the small-signal resistance?",
+      "back": "The local slope dV/dI and the secant V/I coincide for a through-origin linear resistor but differ for a nonlinear law.",
+      "objective_ids": [
+        "circuits-16-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-16-card-3",
+      "lesson_id": "circuits-16",
+      "front": "Which balance checks the solved load line?",
+      "back": "Source supplied power equals resistor plus device absorbed power under the declared references; voltage ratios alone do not close the ledger.",
+      "objective_ids": [
+        "circuits-16-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-16-card-4",
+      "lesson_id": "circuits-16",
+      "front": "What does a successful root solver establish?",
+      "back": "It establishes a solution of the supplied equations within numerical error, not the empirical validity or universal range of those equations.",
+      "objective_ids": [
+        "circuits-16-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-17-card-1",
+      "lesson_id": "circuits-17",
+      "front": "Why check a region after computing a transistor current?",
+      "back": "A piecewise law is conditional. A calculated candidate is usable only when its voltage/current inequalities and the network equation all hold.",
+      "objective_ids": [
+        "circuits-17-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-17-card-2",
+      "lesson_id": "circuits-17",
+      "front": "What constrains a small-signal amplifier claim?",
+      "back": "The solved bias, device derivative, network loading, perturbation size and preservation of the assumed operating region.",
+      "objective_ids": [
+        "circuits-17-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-17-card-3",
+      "lesson_id": "circuits-17",
+      "front": "How should multiple algebraic roots be interpreted?",
+      "back": "Substitute each into the original equations and region inequalities; a polynomial root outside the assumed branch is not an operating point on that branch.",
+      "objective_ids": [
+        "circuits-17-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-17-card-4",
+      "lesson_id": "circuits-17",
+      "front": "Which idealizations must accompany a MOS bias report?",
+      "back": "The exact kappa convention, threshold, region law, zero channel-length modulation and gate-current assumption, plus the effects those choices omit.",
+      "objective_ids": [
+        "circuits-17-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-18-card-1",
+      "lesson_id": "circuits-18",
+      "front": "Why calculate a characteristic equation after DC gain?",
+      "back": "The equilibrium value and the decay or growth of deviations answer separate questions.",
+      "objective_ids": [
+        "circuits-18-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-18-card-2",
+      "lesson_id": "circuits-18",
+      "front": "What establishes asymptotic stability of this finite linear model?",
+      "back": "Every closed-loop eigenvalue has a strictly negative real part; a negative feedback label alone does not establish it.",
+      "objective_ids": [
+        "circuits-18-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-18-card-3",
+      "lesson_id": "circuits-18",
+      "front": "Can stable open-loop poles become unstable after feedback?",
+      "back": "Yes. The closed-loop characteristic equation changes; phase and pole structure matter even with a negative feedback connection.",
+      "objective_ids": [
+        "circuits-18-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-18-card-4",
+      "lesson_id": "circuits-18",
+      "front": "Why cannot an equal-pole threshold be copied to a compensated circuit?",
+      "back": "Changing the pole distribution or feedback changes the characteristic equation and the applicable stability conditions.",
+      "objective_ids": [
+        "circuits-18-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-19-card-1",
+      "lesson_id": "circuits-19",
+      "front": "What should a nonlinear port report retain?",
+      "back": "The supplied law and load line, admissible interval, numerical residual, derivative, refinement and independent power balance.",
+      "objective_ids": [
+        "circuits-19-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-19-card-2",
+      "lesson_id": "circuits-19",
+      "front": "How do sensitivity and conservation complement a root residual?",
+      "back": "Sensitivity tests local response and conservation closes another original equation; neither establishes that a synthetic law fits a real component.",
+      "objective_ids": [
+        "circuits-19-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-20-card-1",
+      "lesson_id": "circuits-20",
+      "front": "What checks distinguish a valid small-signal calculation?",
+      "back": "Verify the nonlinear bias first, then differentiate that branch and the original network, with finite perturbations checked separately.",
+      "objective_ids": [
+        "circuits-20-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-20-card-2",
+      "lesson_id": "circuits-20",
+      "front": "What must accompany a piecewise algebraic solution?",
+      "back": "Original-equation substitution and every region inequality, including the rejected candidates and reason for rejection.",
+      "objective_ids": [
+        "circuits-20-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-21-card-1",
+      "lesson_id": "circuits-21",
+      "front": "How can a feedback report verify more than a static gain?",
+      "back": "Derive characteristic roots and a compatible state model, check equilibrium and initial slopes, then compare integration under refinement.",
+      "objective_ids": [
+        "circuits-21-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-21-card-2",
+      "lesson_id": "circuits-21",
+      "front": "When should a simulated operating claim stop?",
+      "back": "At the declared model/range boundary, with unstable modes, numerical error and missing nonlinear mechanisms reported separately.",
+      "objective_ids": [
+        "circuits-21-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-22-card-1",
+      "lesson_id": "circuits-22",
+      "front": "Which assumptions make the two-stage noise calculation valid?",
+      "back": "Declared one-sided density, squared magnitude, flat mathematical input spectrum, unity DC gain and ideal buffering; actual bandwidth/loading need evidence.",
+      "objective_ids": [
+        "circuits-22-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-22-card-2",
+      "lesson_id": "circuits-22",
+      "front": "Why can full common-noise cancellation fail to minimize total variance?",
+      "back": "The reference channel adds its own independent noise. The optimum balances that contribution against the shared component under a justified covariance model.",
+      "objective_ids": [
+        "circuits-22-objective-2"
+      ],
+      "license": "CC-BY-4.0"
     }
   ]
 }

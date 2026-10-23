@@ -4162,6 +4162,1586 @@
           }
         ]
       }
+    },
+    {
+      "id": "calculus-3-15:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Original rehearsal on upper unit sphere:x²+y²+z²=1, z>0, at(1/3, 2/3, 2/3). Regard z as a local graph g(x, y). Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-3-15-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "partial_x",
+          "type": "numeric",
+          "prompt": "Partial derivative g_x at the stated point.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "partial_y",
+          "type": "numeric",
+          "prompt": "Partial derivative g_y at the stated point.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "surface_factor",
+          "type": "numeric",
+          "prompt": "Scalar graph-area factor sqrt(1+g_x²+g_y²) for the supplied multivariable model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "partial_x",
+            "type": "numeric",
+            "answer": -0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "partial_y",
+            "type": "numeric",
+            "answer": -1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "surface_factor",
+            "type": "numeric",
+            "answer": 1.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which condition supports this selected implicit graph?",
+        "solution": "Since Fz=two z is nonzero, the upper local graph has gx=minus x/z=minus one half and gy=minus y/z=minus one. The scalar graph factor is sqrt(one+one/four+one)=three/two. A chart factor converts projected area to surface area; it is not another flat coordinate determinant.",
+        "lesson_ids": [
+          "calculus-3-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic multivariable calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-3-15:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use that same upper-sphere rehearsal and differentiate its implicit identity again. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-3-15-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "hessian_xx",
+          "type": "numeric",
+          "prompt": "Second derivative g_xx for the supplied multivariable model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "hessian_xy",
+          "type": "numeric",
+          "prompt": "Mixed derivative g_xy for the supplied multivariable model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "hessian_yy",
+          "type": "numeric",
+          "prompt": "Second derivative g_yy for the supplied multivariable model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "hessian_xx",
+            "type": "numeric",
+            "answer": -1.875,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "hessian_xy",
+            "type": "numeric",
+            "answer": -0.75,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "hessian_yy",
+            "type": "numeric",
+            "answer": -3.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What is missing from a pointwise Hessian when certifying a Taylor remainder?",
+        "solution": "The sphere graph gives gxx=minus one/z−x²/z³, gxy=minus xy/z³, gyy=minus one/z−y²/z³. At the point these are minus 15/eight, minus three/four, minus three. Explicit square-root differentiation provides a separate check; the point values alone do not bound a whole region.",
+        "lesson_ids": [
+          "calculus-3-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic multivariable calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-3-15:depth-3",
+      "type": "data_interpretation",
+      "prompt": "A path through that point has xdot=0.1, ydot=0.05 and stays on the upper sphere. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "calculus-3-15-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "vertical_rate",
+          "type": "numeric",
+          "prompt": "Required zdot at the point.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "speed",
+          "type": "numeric",
+          "prompt": "Three-dimensional spatial speed for the supplied multivariable model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "vertical_rate",
+            "type": "numeric",
+            "answer": -0.1,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "speed",
+            "type": "numeric",
+            "answer": 0.15,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which independent check verifies a graph path derivative?",
+        "solution": "The chain rule gives zdot=(minus one half)(0.1)+(minus one)(0.05)=minus 0.1. Speed is sqrt(0.1²+0.05²+0.1²)=0.15. Dotting this velocity with the sphere normal gives zero, as differentiating the original constraint requires; zero normal motion is not zero total motion.",
+        "lesson_ids": [
+          "calculus-3-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic multivariable calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-3-15:depth-4",
+      "type": "data_interpretation",
+      "prompt": "SEPARATE curve:y³−3y+x=0. Select the local branch through(0, 0), then compare all real roots at x=0 and the fold point(2, 1). Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-3-15-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "derivative",
+          "type": "numeric",
+          "prompt": "Selected branch derivative dy/dx at(0, 0).",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "branches",
+          "type": "numeric",
+          "prompt": "Exact number of real y solutions at x=0.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "fold",
+          "type": "single_choice",
+          "prompt": "Which conclusion about(2, 1)is justified?",
+          "options": [
+            "Fy=0 universally proves no differentiable graph can exist for any defining equation.",
+            "The explicit fold x=3y−y³ prevents a single differentiable y(x)graph over a full x-neighborhood,while Fx=1 keeps the curve regular in another chart.",
+            "Local uniqueness near(0,0)eliminates every other real solution at the same x."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "derivative",
+            "type": "numeric",
+            "answer": 0.3333333333333333,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "branches",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "fold",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why separate a defining equation from its geometric set?",
+        "solution": "At(0, 0), Fy=minus three gives dy/dx=one/three. At x=zero the three roots are zero and plus/minus sqrt3. At the fold, Fy=zero but Fx=one; the explicit x(y)maximum establishes this particular graph failure rather than a general conclusion from one vanished partial.",
+        "lesson_ids": [
+          "calculus-3-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic multivariable calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-3-16:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Original rehearsal real map:x=u²−v², y=2uv, on full annulus 1<=sqrt(u²+v²)<=2. Evaluate the local map at(u, v)=(1, 1). Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "calculus-3-16-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "jacobian",
+          "type": "numeric",
+          "prompt": "Jacobian determinant at the point.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "radius",
+          "type": "numeric",
+          "prompt": "Radius sqrt(x²+y²)of its image for the supplied multivariable model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "jacobian",
+            "type": "numeric",
+            "answer": 8.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "radius",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does a Jacobian determinant supply?",
+        "solution": "The derivative determinant is four(u²+v²), so its point value is eight. The image is(zero, two), with radius two. Local positive orientation and a valid determinant do not yet establish how often the full input domain covers the target.",
+        "lesson_ids": [
+          "calculus-3-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic multivariable calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-3-16:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use that full input annulus and its image under the same square map. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-3-16-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "pullback",
+          "type": "numeric",
+          "prompt": "Integral of absolute Jacobian over the full input annulus.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "distinct",
+          "type": "numeric",
+          "prompt": "Area of the distinct physical image annulus.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "multiplicity",
+          "type": "numeric",
+          "prompt": "Exact generic image coverage count.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "pullback",
+            "type": "numeric",
+            "answer": 94.24777960769379,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "distinct",
+            "type": "numeric",
+            "answer": 47.12388980384689,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "multiplicity",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can positive local orientation coexist with overcounting?",
+        "solution": "Input polar coordinates give physical radius R=r² from one to four and angle twice theta. The distinct area is fifteen pi, while a full input rotation covers it twice and gives thirty pi through the pullback. The excluded critical origin does not remove the two preimages.",
+        "lesson_ids": [
+          "calculus-3-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic multivariable calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-3-16:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Use physical density rho(x, y)=x²+y² over that distinct image annulus. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-3-16-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "total",
+          "type": "numeric",
+          "prompt": "Distinct physical density total for the supplied multivariable model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "average",
+          "type": "numeric",
+          "prompt": "Area-average physical density for the supplied multivariable model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "full_pullback",
+          "type": "numeric",
+          "prompt": "Density pullback integral over the unrestricted full input annulus.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "total",
+            "type": "numeric",
+            "answer": 400.5530633326986,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "average",
+            "type": "numeric",
+            "answer": 8.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "full_pullback",
+            "type": "numeric",
+            "answer": 801.1061266653973,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which checks can fail to detect repeated coverage?",
+        "solution": "Physical polar integration gives total 255pi/two and distinct area 15pi, hence average 17/two. Pulling rho back gives r^four; with determinant and input polar measure the full integral is 255pi, twice the distinct total. An average alone can hide equal multiplicity in numerator and denominator.",
+        "lesson_ids": [
+          "calculus-3-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic multivariable calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-3-16:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Restrict the square-map input angle to obtain a once-covering physical annulus, allowing a conventional negligible boundary cut. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "calculus-3-16-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "angle_length",
+          "type": "numeric",
+          "prompt": "Length of a once-covering input angular interval in radians.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "domain",
+          "type": "single_choice",
+          "prompt": "Which statement is supported? for the supplied multivariable model.",
+          "options": [
+            "An interval of length pi,with a suitable boundary convention,covers the image once;positive Jacobian alone does not prove global injectivity.",
+            "Any full input rotation is one-to-one because the Jacobian stays positive.",
+            "Taking the absolute determinant automatically removes every repeated preimage."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "angle_length",
+            "type": "numeric",
+            "answer": 3.141592653589793,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "domain",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must accompany a coordinate-change integral?",
+        "solution": "Because physical angle is twice input angle, a pi-length interval covers one physical rotation. The boundary cut has zero area under the regular integration setup. The restriction follows from this map and domain; another map requires its own coverage analysis.",
+        "lesson_ids": [
+          "calculus-3-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic multivariable calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-3-17:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Original signed example:f=(x²−y²)/(x²+y²)² on 0<x, y<1. Compare the two iterated one-sided improper integrations. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "calculus-3-17-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "y_first",
+          "type": "numeric",
+          "prompt": "Value when y is integrated first, then x.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "x_first",
+          "type": "numeric",
+          "prompt": "Value when x is integrated first, then y.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "y_first",
+            "type": "numeric",
+            "answer": 0.7853981633974483,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "x_first",
+            "type": "numeric",
+            "answer": -0.7853981633974483,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must be checked before identifying two iterated integrals?",
+        "solution": "For fixed positive x, the y antiderivative y/(x²+y²)gives inner value one/(one+x²), then pi/four. For fixed positive y, the x antiderivative minus x/(x²+y²)gives the negative result. The disagreement signals a missing hypothesis rather than a contradiction of an applicable theorem.",
+        "lesson_ids": [
+          "calculus-3-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic multivariable calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-3-17:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For that same example integrate over[eps_x, 1]times[eps_y, 1], then shrink eps_x=c eps_y with fixed positive c. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "calculus-3-17-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "ratio_two",
+          "type": "numeric",
+          "prompt": "Limit for c=2 for the supplied multivariable model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "ratio_half",
+          "type": "numeric",
+          "prompt": "Limit for c=1/2 for the supplied multivariable model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "ratio_two",
+            "type": "numeric",
+            "answer": 0.3217505543966422,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "ratio_half",
+            "type": "numeric",
+            "answer": -0.3217505543966422,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why distinguish quadrature refinement from changing the cutoff?",
+        "solution": "The finite rectangle integral is pi/four−atan(eps_x)−atan(one/eps_y)+atan(eps_x/eps_y). Its limiting value is atan(c)−pi/four. The two ratios give plus/minus atan(one/three); each finite rectangle is regular even though the excluded-corner limits differ.",
+        "lesson_ids": [
+          "calculus-3-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic multivariable calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-3-17:depth-3",
+      "type": "data_interpretation",
+      "prompt": "On the quarter annulus0.01<=r<=1, 0<=theta<=pi/2, use the absolute value of that signed f. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "calculus-3-17-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "angular",
+          "type": "numeric",
+          "prompt": "Integral of abs(cos(2theta))from0 to pi/2.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "absolute",
+          "type": "numeric",
+          "prompt": "Integral of abs(f)over the stated quarter annulus.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "angular",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "absolute",
+            "type": "numeric",
+            "answer": 4.605170185988092,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does the quarter-annulus calculation establish?",
+        "solution": "Polar substitution gives abs(f)dA=abs(cos(two theta))dr dtheta/r. The angular integral is one and radial integral ln100. As the inner radius tends to zero, the logarithm diverges on a region inside the square, so absolute integrability fails.",
+        "lesson_ids": [
+          "calculus-3-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic multivariable calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-3-17:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Interpret the differing iterated and cutoff values for this original signed example. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "calculus-3-17-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "theorem",
+          "type": "single_choice",
+          "prompt": "Which theorem interpretation is correct?",
+          "options": [
+            "Any two finite iterated values must be equal regardless of absolute integrability or domain.",
+            "Every singular function necessarily has the same order failure as this example.",
+            "Absolute integrability fails,so the unqualified Fubini exchange is not justified;the example does not invalidate Fubini under its hypotheses."
+          ],
+          "points": 1
+        },
+        {
+          "id": "point",
+          "type": "single_choice",
+          "prompt": "What does assigning f(0, 0)=0 repair?",
+          "options": [
+            "It changes one point but not the nearby logarithmic absolute divergence or cutoff dependence.",
+            "It automatically makes the full function absolutely integrable.",
+            "It forces every simultaneous cutoff and iterated order to have value zero."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "theorem",
+            "type": "single_choice",
+            "answer": 2
+          },
+          {
+            "id": "point",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How should a regularized value be reported?",
+        "solution": "The failure occurs in an entire shrinking neighborhood, not merely at one undefined point. A balanced cutoff can be explicitly defined and studied, but its value is a different operation from an ordinary order-independent integral. Regular continuous or absolutely integrable examples still satisfy the appropriate theorem.",
+        "lesson_ids": [
+          "calculus-3-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic multivariable calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-3-18:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1:F=z²+xy−4=0, upper branch at(2, 1, sqrt2). Change x by 0.1 and y by −0.05; retain unrounded intermediate values. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "calculus-3-18-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "partial_x",
+          "type": "numeric",
+          "prompt": "Upper-graph z_x at the base point.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "partial_y",
+          "type": "numeric",
+          "prompt": "Upper-graph z_y at the base point.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "new_z",
+          "type": "numeric",
+          "prompt": "Exact upper-branch value at the displaced point, evaluated numerically.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "error",
+          "type": "numeric",
+          "prompt": "Absolute tangent-approximation error using unrounded root values.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "partial_x",
+            "type": "numeric",
+            "answer": -0.35355339059327373,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "partial_y",
+            "type": "numeric",
+            "answer": -0.7071067811865475,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "new_z",
+            "type": "numeric",
+            "answer": 1.4159802258506295,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "error",
+            "type": "numeric",
+            "answer": 0.0017666634775344026,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why retain unrounded intermediates for a small finite-change error?",
+        "solution": "The partials are minus one/(two sqrt2)and minus one/sqrt2. Their linear contributions cancel, so the tangent value remains sqrt2. The true value is sqrt2.005, and error is the unrounded difference, also 0.005/[sqrt2.005+sqrt2]. Display rounding is separate from this mathematical error.",
+        "lesson_ids": [
+          "calculus-3-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic multivariable calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-3-18:depth-2",
+      "type": "data_interpretation",
+      "prompt": "SEPARATE assignment comparison:x, y>=0, x+y=3, same upper relation z=sqrt(4−xy). Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-3-18-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "maximum",
+          "type": "numeric",
+          "prompt": "Maximum upper-branch z for the supplied multivariable model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "minimum",
+          "type": "numeric",
+          "prompt": "Minimum upper-branch z for the supplied multivariable model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "maximizers",
+          "type": "numeric",
+          "prompt": "Exact number of maximizing points.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "maximum",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "minimum",
+            "type": "numeric",
+            "answer": 1.3228756555322954,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "maximizers",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What can an interior multiplier calculation miss?",
+        "solution": "Along the compact segment, xy is largest at x=y=1.5 and smallest at the two endpoints. Thus z has minimum sqrt7/two and maximum two, attained at(0, three)and(three, zero). Local regularity supports derivatives, but global extrema require the endpoint comparison as well.",
+        "lesson_ids": [
+          "calculus-3-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic multivariable calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-3-19:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2 first map:x=u v, y=v, 1<=u<=2, 1<=v<=3. Physical density is f=x/y. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "calculus-3-19-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "area",
+          "type": "numeric",
+          "prompt": "Physical wedge area for the supplied multivariable model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "total",
+          "type": "numeric",
+          "prompt": "Physical density total for the supplied multivariable model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "average",
+          "type": "numeric",
+          "prompt": "Area-average density for the supplied multivariable model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "jacobian",
+          "type": "numeric",
+          "prompt": "Jacobian determinant at(u, v)=(1.5, 2).",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "area",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "total",
+            "type": "numeric",
+            "answer": 6.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "average",
+            "type": "numeric",
+            "answer": 1.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "jacobian",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What establishes a usable one-to-one coordinate description?",
+        "solution": "The inverse is v=y, u=x/y and physical bounds one<=y<=three, y<=x<=two y. Determinant v varies across the domain. Area is four, total six and average1.5; the point determinant is two. Replacing the full factor by one point value would change the integral.",
+        "lesson_ids": [
+          "calculus-3-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic multivariable calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-3-19:depth-2",
+      "type": "data_interpretation",
+      "prompt": "SEPARATE cubic map:x=u³−3uv², y=3u²v−v³, on full input annulus 1<=sqrt(u²+v²)<=2. Physical density rho=x²+y². Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "calculus-3-19-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "area",
+          "type": "numeric",
+          "prompt": "Distinct physical image area for the supplied multivariable model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "full_area",
+          "type": "numeric",
+          "prompt": "Absolute-Jacobian area integral over the full input annulus.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "density",
+          "type": "numeric",
+          "prompt": "Distinct physical density total for the supplied multivariable model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "multiplicity",
+          "type": "numeric",
+          "prompt": "Exact generic image coverage count.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "area",
+            "type": "numeric",
+            "answer": 197.92033717615698,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "full_area",
+            "type": "numeric",
+            "answer": 593.7610115284709,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "density",
+            "type": "numeric",
+            "answer": 6432.410958225101,
+            "unit": "",
+            "tolerance": 5.1,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "multiplicity",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How should a new nonlinear map be checked?",
+        "solution": "Input polar coordinates give R=r³ and physical angle three theta, so the distinct image is annulus one<=R<=eight. Its area is 63pi and density total 4095pi/two. Full input coverage triples area to 189pi; the positive determinant 9r^four does not remove the three preimages.",
+        "lesson_ids": [
+          "calculus-3-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic multivariable calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-3-20:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 3 region:r²=x²+y²<=1, 1<=z<=2−r². Field F=(xz, yz, z²). Include upward top and downward bottom in the outward boundary. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "calculus-3-20-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "top",
+          "type": "numeric",
+          "prompt": "Outward upper-paraboloid flux for the supplied multivariable model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "bottom",
+          "type": "numeric",
+          "prompt": "Outward bottom-disk flux for the supplied multivariable model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "net",
+          "type": "numeric",
+          "prompt": "Complete outward flux for the supplied multivariable model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "volume",
+          "type": "numeric",
+          "prompt": "Region volume for the supplied multivariable model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "top",
+            "type": "numeric",
+            "answer": 11.519173063162574,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "bottom",
+            "type": "numeric",
+            "answer": -3.141592653589793,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "net",
+            "type": "numeric",
+            "answer": 8.377580409572781,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "volume",
+            "type": "numeric",
+            "answer": 1.5707963267948966,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What makes a divergence-theorem flux complete?",
+        "solution": "The upper graph area vector is(two x, two y, one)dA and F dot it is four−r^four, integrating to eleven pi/three. The bottom contributes minus pi, giving eight pi/three. Volume is pi/two; independent integration of divergence four z gives the same complete flux.",
+        "lesson_ids": [
+          "calculus-3-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic multivariable calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-3-20:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Same upper graph, but SEPARATE field G=(−yz, xz, 0), boundary unit circle at z=1 counterclockwise from above. Also compute the upper graph scalar area. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-3-20-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "circulation",
+          "type": "numeric",
+          "prompt": "Boundary circulation of G for the supplied multivariable model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "area",
+          "type": "numeric",
+          "prompt": "Scalar upper-graph surface area for the supplied multivariable model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "measure",
+          "type": "single_choice",
+          "prompt": "Which flux measure is consistent?",
+          "options": [
+            "The graph cross-product vector already includes projected measure;use it directly or pair a unit normal with scalar dS,without multiplying both factors twice.",
+            "Multiply the graph area vector by the scalar graph factor a second time for every flux.",
+            "An open upper graph alone is always the full closed boundary for a divergence theorem."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "circulation",
+            "type": "numeric",
+            "answer": 6.283185307179586,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "area",
+            "type": "numeric",
+            "answer": 5.330413500268973,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "measure",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why keep scalar area separate from an oriented area vector?",
+        "solution": "Curl G=(minus x, minus y, two z), whose upper-graph dot product is four−four r², giving two pi and matching the direct circle integral. Scalar area instead integrates sqrt(one+four r²), giving pi(five sqrt5−one)/six. Different integrals require their own measures and fields.",
+        "lesson_ids": [
+          "calculus-3-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic multivariable calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-3-21:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 4 uses f=(x²−y²)/(x²+y²)² on 0<x, y<1. Compare both iterated values with the simultaneous cutoff eps_x=3eps_y shrinking to zero. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-3-21-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "y_first",
+          "type": "numeric",
+          "prompt": "Iterated value with y integrated first.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "x_first",
+          "type": "numeric",
+          "prompt": "Iterated value with x integrated first.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "ratio_three",
+          "type": "numeric",
+          "prompt": "Simultaneous rectangular-cutoff limit with ratio three.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "y_first",
+            "type": "numeric",
+            "answer": 0.7853981633974483,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "x_first",
+            "type": "numeric",
+            "answer": -0.7853981633974483,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "ratio_three",
+            "type": "numeric",
+            "answer": 0.4636476090008061,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must be stated when a singular expression has a cutoff-dependent value?",
+        "solution": "The iterated values are plus/minus pi/four. The ratio-three rectangle tends to atan3−pi/four=atan(one half), which is different from both and from the balanced cutoff zero. Each finite rectangle is regular; the excluded-corner limit needs its own convention because absolute integrability fails.",
+        "lesson_ids": [
+          "calculus-3-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic multivariable calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-3-21:depth-2",
+      "type": "data_interpretation",
+      "prompt": "SEPARATE spatial vortex V=(−y/(x²+y²), x/(x²+y²), 0), axis excluded. At z=1, outer radius 2 circle is CCW THREE traversals; inner radius 1 circle is clockwise ONE traversal. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "calculus-3-21-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "outer",
+          "type": "numeric",
+          "prompt": "Outer weighted circulation for the supplied multivariable model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "inner",
+          "type": "numeric",
+          "prompt": "Inner weighted circulation for the supplied multivariable model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "sum",
+          "type": "numeric",
+          "prompt": "Signed circulation sum for the stated traversals.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "boundary",
+          "type": "single_choice",
+          "prompt": "Which theorem interpretation is valid?",
+          "options": [
+            "Zero curl away from the axis makes the stated weighted sum zero regardless of traversal counts.",
+            "These differently weighted loops are not an ordinary once-covered annulus boundary;zero local curl does not justify changing their multiplicities or crossing the excluded axis.",
+            "Any spanning disk may include the excluded axis without checking field smoothness."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "outer",
+            "type": "numeric",
+            "answer": 18.84955592153876,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "inner",
+            "type": "numeric",
+            "answer": -6.283185307179586,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "sum",
+            "type": "numeric",
+            "answer": 12.566370614359172,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "boundary",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which global information does local curl omit?",
+        "solution": "Each CCW traversal gives two pi, so the outer sum is six pi and inner minus two pi, total four pi. A once-covered annulus has one traversal on each boundary; a triply covered one needs three compatible inner traversals. The supplied pair cannot be silently replaced by either of those boundaries.",
+        "lesson_ids": [
+          "calculus-3-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic multivariable calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
     }
   ]
 }

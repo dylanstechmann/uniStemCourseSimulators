@@ -1,6 +1,6 @@
 # Difference equations, the Z-transform, and discrete pole stability
 
-A sampled controller and plant evolve one step at a time. A difference equation describes that update directly; its impulse response shows what the system does to a one-sample input; and the Z-transform turns repeated updates into an algebraic transfer function. For a causal, finite-order linear time-invariant (LTI) system, the poles of that transfer function reveal whether the natural response decays. This lesson develops the connection for a first-order model, then uses it to analyze a simple feedback loop. All numerical values are synthetic.
+A sampled controller and plant evolve one step at a time. A difference equation describes that update directly; its impulse response shows what the system does to a one-sample input; and the Z-transform turns repeated updates into an algebraic transfer function. For a minimal causal finite-order linear time-invariant (LTI) realization, the transfer poles represent its natural modes. A nonminimal state model can contain modes omitted from its reduced transfer. This lesson develops the connection for a first-order model, then uses it to analyze a simple feedback loop. All numerical values are synthetic.
 
 ## Start with the recurrence
 
@@ -41,7 +41,7 @@ This is the transfer function from input to output under the zero-initial-condit
 
 ## Read stability from the pole
 
-With zero input, the recurrence becomes $y[k]=a y[k-1]$, so $y[k]=a^{k+1}y[-1]$. The natural response decays to zero when $|a|<1$, persists at $|a|=1$ for a simple pole, and grows when $|a|>1$. For a higher-order causal LTI system, every natural mode decays only when all poles lie strictly inside the unit circle. Repeated poles on the boundary require additional care because their responses can grow polynomially.
+With zero input, the recurrence becomes $y[k]=a y[k-1]$, so $y[k]=a^{k+1}y[-1]$. The natural response decays to zero when $|a|<1$, persists at $|a|=1$ for a simple pole, and grows when $|a|>1$. For a higher-order minimal causal LTI realization, every natural mode decays when all its poles lie strictly inside the unit circle; nonminimal state models also require their hidden eigenmodes to be checked. Repeated poles on the boundary require additional care because their responses can grow polynomially.
 
 | Pole $a$ | Natural response | Interpretation |
 | ---: | --- | --- |
@@ -83,3 +83,5 @@ Its closed-loop pole is $z=4/7\approx0.571$, inside the unit circle, so this ide
 ## Limits and course comparison
 
 The derivation covers a first-order causal LTI recurrence and one proportional feedback example. It does not develop general Fourier analysis, discrete frequency response, the full set of transform properties, controller synthesis, quantization, or nonlinear and switched systems. MIT OpenCourseWare's undergraduate [6.003 Signals and Systems (Fall 2011) calendar](https://ocw.mit.edu/courses/6-003-signals-and-systems-fall-2011/pages/calendar/) places discrete-time systems, feedback/poles and the Z-transform in its early sequence; its [Lecture 5: Z transform](https://ocw.mit.edu/courses/6-003-signals-and-systems-fall-2011/resources/lecture-5-z-transform/) connects the unit-sample response with the system function. The related [2.004 Dynamics and Control II (Spring 2008) calendar](https://www.ocw.mit.edu/courses/2-004-dynamics-and-control-ii-spring-2008/pages/calendar/) provides a separate continuous-time control comparator. These links informed scope only; no source text, figure, assessment or data is reproduced.
+
+The recurrence in this reading uses current input x[k] in y[k] and therefore has direct feedthrough. The held physical plant y[k+1]=a y[k]+b u[k] instead has a one-sample input-to-output shift. Their feedback characteristics differ even if a and b match. The [sampled-state companion](exact-sampled-pi-states-and-schur-stability.md) fixes that timing explicitly, and the [state/hidden-mode companion](state-feedback-observation-and-hidden-modes.md) distinguishes transfer stability from internal initial-state growth.

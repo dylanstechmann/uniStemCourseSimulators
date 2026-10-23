@@ -1,6 +1,6 @@
 # Signals & Control course review handoff
 
-This handoff targets Signals, Systems & Feedback Control, package version 0.4.9. The [review snapshot](SIGNALS_CONTROL_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+This handoff targets Signals, Systems & Feedback Control, package version 0.5.0. The [review snapshot](SIGNALS_CONTROL_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
 
 ## Review scope
 
@@ -21,3 +21,11 @@ For version 0.4.9, a dedicated test recomputes every new impedance-modeling key 
 ## Review record to complete only after review
 
 After a review actually occurs, record reviewer name and qualifications, date, package version and archive digest, artifacts examined, concrete findings and disposition. Keep separate decisions for mathematical correctness, instructional design, assessment, accessibility, workload and release. Do not infer approval from the package hash or test results.
+
+## Open project route (2026-10-22)
+
+The current guide, separate worked example, rehearsal and five private milestone self-checks make the existing project usable as ungraded practice. [The route regression tests](../tests/content/test_remaining_course_project_routes.py) independently recalculate every new numeric field and exercise the backend grader, including exact counts and continuous-quantity precision. Review the written explanation, evidence limits and proposed workload independently; automated arithmetic is not subject review. Historical snapshot evidence remains preserved.
+
+## Fourier/compensator/state/sampled target (2026-10-22)
+
+Current target 0.6.0 adds four foundations, four reports, two explicit outcomes and twenty-four checkpoints/cards. Check transform normalization/phase/support, continuous convolution and discrete infinite energy tails; proper lead admissibility/characteristic, tracking and actual crossover versus phase peak; controllability/observability, reference gain, observer/separation and hidden unstable initial modes; exact old-integrator sampled matrix, bilinear/Jury proof, boundary/repeated modes and timing variants. The hold-amplitude qualifier and direct-feedthrough/one-step distinction preserve earlier keys. Selected16.30 topics supplement the bounded6.003/2.004 bridge without full-course equivalence. Code/proofs/reports, broader theory, physical implementation, workload and qualified review remain open. Historical evidence is preserved; the current snapshot pins the new target.

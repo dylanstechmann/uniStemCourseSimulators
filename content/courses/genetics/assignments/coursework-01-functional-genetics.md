@@ -1,0 +1,32 @@
+# Assignment 1: a functional-genetics evidence report
+
+Build a report distinguishing functional groups, genetic distance and suppression. Use the [phage functional-map reading](../modules/phage-functional-maps.md), [three-point mapping reading](../modules/07-three-point-mapping-and-interference.md) and [operon reading](../modules/17-prokaryotic-regulatory-circuits.md) as conceptual resources. All organisms, labels and counts here are fictional. This is paper/data reasoning, with no experimental procedure. Save your report locally; the browser checks selected calculations and choices but does not evaluate the report, diagrams or code.
+
+## Supplied evidence
+
+Five recessive mutants U, V, W, X and Y share a phenotype on a stipulated restrictive host and are individually viable on a permissive host. In an ideal shared-host assay, every distinct pair complements except U with W and V with X. Each mutant paired with itself fails. Matched wild type restores function. The assay is stipulated to distinguish transient complementation from inherited recombinant growth.
+
+In a separate short-interval cross between two lesions within one functional unit, 15 normalized wild-type recombinant progeny are counted among 3000 total progeny. Only the wild-type recombinant class was selected; the reciprocal double-mutant class is stipulated equally frequent and viable. A second sample at a different pair has zero wild-type recombinants among 1800 total progeny. Counts already share the appropriate total-progeny denominator; no dilution conversion is needed.
+
+For a separate suppressor problem, a fictional coding allele retains an original +1 nucleotide insertion. A restored-phenotype isolate also carries a −1 nucleotide deletion farther downstream in the same gene. No protein sequence or activity data are supplied. Finally, consider an ideal negative-inducible operon without catabolite control: a trans-acting functional repressor I+ represses either operator O+ when inducer is absent, inducer inactivates that repressor, and Oc cannot bind it. Both structural genes are Z+. In the partial diploid `I+ O+ Z+ / I− Oc Z+`, specify which Z copy is expressed without and with inducer. Assume no other regulatory mutations and no polar effects.
+
+## Tasks and evidence to retain
+
+1. Draw the full symmetric five-by-five complementation matrix, including the diagonal. Partition the mutants into functional groups under the simple diffusible-product model. Verify every pair against the partition. Explain why the groups do not define a left-to-right chromosome order. Add one hypothetical result that would make the simple partition inconsistent and propose a testable explanation.
+2. Draw parental and reciprocal recombinant haplotypes. Calculate the observed wild-type class fraction, total recombinant fraction and short-interval map estimate. State precisely why one count is doubled. Then recalculate for a hypothetical assay that directly measures both recombinant classes as 15 and 11. Explain why the equal-recovery inference is no longer needed when both are observed.
+3. For the zero-count sample, report the observed count separately from a model-based upper bound on total recombination using the approximate rule of three. State the independent-sampling and reciprocal-class assumptions. Explain why neither zero nor that bound is an exact physical distance in DNA base pairs.
+4. Analyze the suppressor isolate. Determine net frame displacement downstream of both lesions and explain what can remain changed between them. Give an observation that distinguishes precise reversion from suppression, then an observation addressing protein function rather than reading frame alone.
+5. For the partial diploid, construct a copy-resolved expression table under the two inducer conditions. Distinguish trans action of I+ from cis action of Oc. Predict what would change if the Oc copy's structural gene became Z−. A total expression signal can conceal which copy supplied it; make that limitation explicit.
+6. Write a short conclusion with separate claims for functional grouping, recombination, suppression and operon regulation. For each, list the decisive observation and one assumption whose failure would change the inference. Include a control against wild-type background contamination and an alternative explanation for a failed complementation test.
+
+## Self-review after attempting the report
+
+The supported simple-model groups are {U,W}, {V,X} and {Y}: three groups. The observed wild-type fraction is 15/3000=0.005; doubling gives total r=0.010 and about 1.00 short-interval map unit. If the two recombinant classes were counted directly as 15 and 11, use (15+11)/3000 rather than doubling either class. For the zero sample, the approximate upper bound on total r is 6/1800≈0.00333333, or 0.333 map units; this is not the observed distance.
+
+The +1/−1 pair has net frame displacement zero modulo three downstream, but the original lesion remains and the intervening protein segment can differ. That supports suppression rather than precise reversal if the two changes and their phase are confirmed. Without inducer, only the Oc-linked functional Z copy is expressed under the stated operon model; with inducer, both functional Z copies can be expressed. If the Oc-linked Z becomes nonfunctional, constitutive transcription from that copy need not produce the scored Z function. A table of transcript state and a table of functional output can therefore differ.
+
+## Completion standard and limits
+
+A usable report includes the complete matrix, phased haplotypes, explicit count denominators, separate point estimates/bounds, a frame/sequence distinction and a copy-resolved operon table. Results without assumptions or ledgers are insufficient. Optional code should enumerate pairs and check that proposed groups reproduce every supplied result; test an inconsistent extra mutant instead of forcing a partition. Ask a peer or qualified instructor to challenge one causal inference. Record that feedback only if it actually occurs.
+
+This original open assignment was developed with substantial AI assistance; it does not reuse a university problem or count table. MIT OCW 7.03 Fall 2004 supplies the [scope comparison](https://ocw.mit.edu/courses/7-03-genetics-fall-2004/pages/calendar/). No browser score establishes experimental competence, phage handling skill or mastery of the full course. Qualified review and actual learner workload remain unmeasured, and the package is partial and unreviewed.

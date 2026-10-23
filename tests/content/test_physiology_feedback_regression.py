@@ -49,5 +49,5 @@ def test_concentration_balance_and_response_time_example():
     ] == 3
 
     syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8")
-    assert "weeks 1, 3, 5 and 11 now have expanded" in syllabus
-    assert "the four original prototype readings remain short primers despite this expansion" in syllabus.lower()
+    assert f"({lesson['reading']})" in syllabus
+    assert len(text.split()) < 700  # This original homeostasis reading remains a concise primer.

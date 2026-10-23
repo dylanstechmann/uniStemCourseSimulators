@@ -1,12 +1,12 @@
 # Programming & Numerical Methods review snapshot
 
-This record pins the current public course package for independent review. It does not imply acceptance or release.
+This record identifies a public package; it does not approve course depth or release.
 
-- **Course package:** `programming` 0.5.0
-- **Public package archive SHA-256:** `c1adedd1dff997a192992ee3597248dc0391971acdf9ba5f1f6114fb843b2f10`
-- **Manifest SHA-256:** `4fddb575e57c7a03efe571189278b555c96d7fde0b23ad704f2e957428f90234`
-- **Archive inventory:** 28 files, 373,104 bytes
-- **Calculated:** 2026-10-20
-- **Reproduce:** `uv run --project backend --locked python -B tools/course_package_digest.py --course-id programming`
+- **Course package:** `programming` 0.6.0
+- **Public package archive SHA-256:** `236a88d1919a88eeed8ecddb1b4cbe8ff2b015f57612910a8ebf5d7c8fb66a0c`
+- **Manifest SHA-256:** `c59d38698c875deec139560324f7cd81cf37674cd5c60e20bd21fa4a709c7d70`
+- **Archive inventory:** 40 files, 600,853 bytes
+- **Calculated:** 2026-10-22
+- **Reproduce:** `python tools/course_package_digest.py --course-id programming`
 
-Version 0.5.0 makes the planned sensor-calibration project usable by learners as ungraded practice. Week 13 gains an optional project guide with the project's records, rules and milestones, a worked three-point calibration with a guarded fitting function, synthetic rehearsal records with three deliberate contract violations, and five open rehearsal practice items; five project milestones are Case studio self-checks with a week-14 project record. The lab's dataset and both project data files are now served as learner resources. The inactive project draft is unchanged, and no learner code runs. The digest proves package identity only; it is not programming review, instructional approval or release evidence.
+Six original foundations and five local implementation assignments expand the selected introductory numerical-computation sequence. The package remains partial and unreviewed. Automated numeric checks do not review learner implementations or establish measured workload, accreditation or equivalence. The earlier 0.5.0 snapshot is preserved separately.

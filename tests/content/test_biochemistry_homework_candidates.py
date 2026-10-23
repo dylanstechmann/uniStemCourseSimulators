@@ -20,7 +20,12 @@ AUDIT = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(AUDIT)
 # Version 0.5.0 schedules open homework, review and project lessons beside the topic lessons. They revisit
 # existing objectives; the inactive candidates stay mapped to the topic lessons they were drafted against.
-OPEN_PRACTICE_LESSON_PREFIXES = ("biochemistry-hw", "biochemistry-review-", "biochemistry-project-")
+# The inactive 0.4.85 candidates also predate the five 0.6.0 mechanism/bridge lessons.
+# Their original coverage contract stays frozen; new public objectives are not certified by these candidates.
+POST_CANDIDATE_LESSON_PREFIXES = (
+    "biochemistry-hw", "biochemistry-review-", "biochemistry-project-",
+    *(f"biochemistry-{number}" for number in range(28, 33)),
+)
 
 
 def _candidate(number: int) -> dict:
@@ -55,7 +60,7 @@ def test_homework_candidates_cover_their_scheduled_objectives_without_live_polic
             lesson_id
             for week in scheduled
             for lesson_id in week["lesson_ids"]
-            if not lesson_id.startswith(OPEN_PRACTICE_LESSON_PREFIXES)
+            if not lesson_id.startswith(POST_CANDIDATE_LESSON_PREFIXES)
         ]
         expected_objectives = {
             objective_id

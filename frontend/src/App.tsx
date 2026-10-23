@@ -38,6 +38,8 @@ export default function App() {
   const [enrollments, setEnrollments] = useState<Enrollment[]>([]);
   const [bookmarks, setBookmarks] = useState<string[]>([]);
   const [error, setError] = useState("");
+  const [startupError, setStartupError] = useState("");
+  const [startupAttempt, setStartupAttempt] = useState(0);
   const [loading, setLoading] = useState(true);
   const [largeText, setLargeText] = useState(false);
   const [highContrast, setHighContrast] = useState(false);
@@ -49,6 +51,8 @@ export default function App() {
   }, []);
   useEffect(() => {
     let active = true;
+    setLoading(true);
+    setStartupError("");
     Promise.all([api.session(), api.courses(), api.sources(), api.curriculum()])
       .then(([session, courses, sources, curriculum]) => {
         if (active) {
@@ -60,7 +64,7 @@ export default function App() {
         }
       })
       .catch((error) => {
-        if (active) setError(errorMessage(error));
+        if (active) setStartupError(errorMessage(error));
       })
       .finally(() => {
         if (active) setLoading(false);
@@ -68,7 +72,7 @@ export default function App() {
     return () => {
       active = false;
     };
-  }, []);
+  }, [startupAttempt]);
   useEffect(() => {
     let active = true;
     if (!session.user) {
@@ -244,7 +248,9 @@ export default function App() {
         <header className="topbar">
           <span className="session-status">
             {!sessionReady
-              ? "Session loading…"
+              ? startupError
+                ? "Session unavailable"
+                : "Session loading…"
               : session.user
                 ? session.user.is_guest
                   ? "Guest session"
@@ -284,6 +290,20 @@ export default function App() {
             <>
               <h1>uniStemCourseSimulators</h1>
               <p role="status">Loading the learning platform…</p>
+            </>
+          ) : startupError ? (
+            <>
+              <h1>Unable to load the learning platform</h1>
+              <p className="error" role="alert">
+                {startupError}
+              </p>
+              <p>Check your connection, then try again.</p>
+              <button
+                className="primary"
+                onClick={() => setStartupAttempt((attempt) => attempt + 1)}
+              >
+                Try again
+              </button>
             </>
           ) : page === "account" ? (
             <AccountPanel session={session} onSession={setSession} />

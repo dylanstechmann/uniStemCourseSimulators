@@ -4417,6 +4417,2476 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "signals-control-project:rehearsal-1",
+      "type": "data_interpretation",
+      "prompt": "Sampled-loop portfolio rehearsal · Sampling and aliases. Rehearsal: Ts = 0.2 min; disturbance 4 cycles/min; analog corner 0.8 cycles/min; desired tone 0.4 cycles/min. Separate loop: crossover 0.5 rad/min, unheld margin 60 degrees and closed-loop time constant 2.5 min. PI: Kp = 4, Ti = 5 min, previous applied output 7.8, errors 0.5 then 0.8, bound [0,8]. Plant: tau = 4 min, K = 0.6, old output 1. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 4,
+      "objective_ids": [
+        "signals-control-project-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "sample_frequency",
+          "type": "numeric",
+          "prompt": "Rehearsal sampling frequency, in cycles/min.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "nyquist",
+          "type": "numeric",
+          "prompt": "Nyquist frequency, in cycles/min.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "alias",
+          "type": "numeric",
+          "prompt": "Apparent frequency of the 4 cycles/min disturbance, in cycles/min.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "digital",
+          "type": "single_choice",
+          "prompt": "Can a filter applied only after sampling identify the original 4 cycles/min component?",
+          "options": [
+            "Yes. Any digital low-pass reconstructs every original frequency.",
+            "Yes. Increasing digital gain reveals the original frequency.",
+            "No. Its samples are indistinguishable from an appropriate 1 cycle/min component under the supplied sampler."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "sample_frequency",
+            "type": "numeric",
+            "answer": 5.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "nyquist",
+            "type": "numeric",
+            "answer": 2.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "alias",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "digital",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How can an alias be checked without a folding mnemonic?",
+        "solution": "At Ts = 0.2 min, sampling frequency is 5 cycles/min and Nyquist is 2.5 cycles/min. The disturbance folds to |4−5| = 1 cycle/min. A digital filter cannot recover information that the sampler has made indistinguishable.",
+        "lesson_ids": [
+          "signals-control-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-project:rehearsal-2",
+      "type": "data_interpretation",
+      "prompt": "Sampled-loop portfolio rehearsal · Analog attenuation trade-off. Rehearsal: Ts = 0.2 min; disturbance 4 cycles/min; analog corner 0.8 cycles/min; desired tone 0.4 cycles/min. Separate loop: crossover 0.5 rad/min, unheld margin 60 degrees and closed-loop time constant 2.5 min. PI: Kp = 4, Ti = 5 min, previous applied output 7.8, errors 0.5 then 0.8, bound [0,8]. Plant: tau = 4 min, K = 0.6, old output 1. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 3,
+      "objective_ids": [
+        "signals-control-project-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "disturbance_gain",
+          "type": "numeric",
+          "prompt": "Rehearsal analog amplitude ratio at 4 cycles/min.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "signal_gain",
+          "type": "numeric",
+          "prompt": "Amplitude ratio at the desired 0.4 cycles/min component.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "tradeoff",
+          "type": "single_choice",
+          "prompt": "Which interpretation preserves the filter trade-off?",
+          "options": [
+            "Attenuation at one unwanted frequency proves all alias error is eliminated.",
+            "The filter attenuates the disturbance and the desired signal; sufficiency also needs their amplitudes and an allowed error.",
+            "A low-pass leaves every desired frequency exactly unchanged."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "disturbance_gain",
+            "type": "numeric",
+            "answer": 0.19611613513818404,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "signal_gain",
+            "type": "numeric",
+            "answer": 0.8944271909999159,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "tradeoff",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why report an analog filter’s desired-signal response as well as interference attenuation?",
+        "solution": "With fc = 0.8 cycles/min, the frequency ratios are 5 and 0.5. The corresponding amplitude ratios are 1/√26 ≈ 0.196116 and 1/√1.25 ≈ 0.894427. Neither value is an absolute error until an input amplitude and comparison basis are supplied.",
+        "lesson_ids": [
+          "signals-control-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-project:rehearsal-3",
+      "type": "data_interpretation",
+      "prompt": "Sampled-loop portfolio rehearsal · Sample-period and hold phase. Rehearsal: Ts = 0.2 min; disturbance 4 cycles/min; analog corner 0.8 cycles/min; desired tone 0.4 cycles/min. Separate loop: crossover 0.5 rad/min, unheld margin 60 degrees and closed-loop time constant 2.5 min. PI: Kp = 4, Ti = 5 min, previous applied output 7.8, errors 0.5 then 0.8, bound [0,8]. Plant: tau = 4 min, K = 0.6, old output 1. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 5,
+      "objective_ids": [
+        "signals-control-project-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "period_bound",
+          "type": "numeric",
+          "prompt": "Ten-samples-per-time-constant bound for closed-loop time constant 2.5 min, in min.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "hold_radians",
+          "type": "numeric",
+          "prompt": "Hold phase-lag magnitude at crossover 0.5 rad/min, in rad.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "hold_degrees",
+          "type": "numeric",
+          "prompt": "That phase cost, in degrees.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "remaining_margin",
+          "type": "numeric",
+          "prompt": "Stipulated margin after subtracting the hold cost, in degrees.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "heuristic",
+          "type": "single_choice",
+          "prompt": "Does satisfying the ten-sample heuristic establish stability with all omitted delays?",
+          "options": [
+            "No. It is a declared screening rule; the margin estimate still omits computation delay, jitter and unmodeled dynamics.",
+            "Yes. Ten samples per time constant is a proof for every controller and plant.",
+            "Yes. A positive nominal margin removes all uncertainty."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "period_bound",
+            "type": "numeric",
+            "answer": 0.25,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "hold_radians",
+            "type": "numeric",
+            "answer": 0.05,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "hold_degrees",
+            "type": "numeric",
+            "answer": 2.8647889756541165,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "remaining_margin",
+            "type": "numeric",
+            "answer": 57.135211024345885,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "heuristic",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why must cycles/min and rad/min not be mixed in the hold phase calculation?",
+        "solution": "The heuristic gives Ts ≤ 2.5/10 = 0.25 min, so 0.2 min meets it. Hold delay Ts/2 = 0.1 min costs 0.5×0.1 = 0.05 rad = 2.864789 degrees. The supplied 60-degree margin becomes about 57.135211 degrees under this one-delay approximation.",
+        "lesson_ids": [
+          "signals-control-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-project:rehearsal-4",
+      "type": "data_interpretation",
+      "prompt": "Sampled-loop portfolio rehearsal · Incremental PI and a bounded command. Rehearsal: Ts = 0.2 min; disturbance 4 cycles/min; analog corner 0.8 cycles/min; desired tone 0.4 cycles/min. Separate loop: crossover 0.5 rad/min, unheld margin 60 degrees and closed-loop time constant 2.5 min. PI: Kp = 4, Ti = 5 min, previous applied output 7.8, errors 0.5 then 0.8, bound [0,8]. Plant: tau = 4 min, K = 0.6, old output 1. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 3,
+      "objective_ids": [
+        "signals-control-project-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "candidate",
+          "type": "numeric",
+          "prompt": "Unclamped rehearsal PI candidate, in model command units.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "applied",
+          "type": "numeric",
+          "prompt": "Applied command after the [0,8] clamp.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "stored",
+          "type": "single_choice",
+          "prompt": "Which previous-output value should this stipulated incremental implementation retain?",
+          "options": [
+            "The infeasible candidate, because a command bound changes no controller state.",
+            "The applied clamped command 8, rather than the infeasible candidate, with the stated tracking convention.",
+            "Zero at every sample, independently of the applied command."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "candidate",
+            "type": "numeric",
+            "answer": 9.128,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "applied",
+            "type": "numeric",
+            "answer": 8.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "stored",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why keep candidate output separate from applied output?",
+        "solution": "The incremental step is 7.8 + 4(0.8−0.5) + 4(0.2/5)(0.8) = 9.128. The [0,8] bound makes the applied output 8. Under this exercise’s output-tracking convention, the stored previous output is also 8; this is not a universal anti-windup design.",
+        "lesson_ids": [
+          "signals-control-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-project:rehearsal-5",
+      "type": "data_interpretation",
+      "prompt": "Sampled-loop portfolio rehearsal · Exact held-input plant and scope. Rehearsal: Ts = 0.2 min; disturbance 4 cycles/min; analog corner 0.8 cycles/min; desired tone 0.4 cycles/min. Separate loop: crossover 0.5 rad/min, unheld margin 60 degrees and closed-loop time constant 2.5 min. PI: Kp = 4, Ti = 5 min, previous applied output 7.8, errors 0.5 then 0.8, bound [0,8]. Plant: tau = 4 min, K = 0.6, old output 1. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 4,
+      "objective_ids": [
+        "signals-control-project-objective-5"
+      ],
+      "response_fields": [
+        {
+          "id": "decay",
+          "type": "numeric",
+          "prompt": "Rehearsal exact sampled decay factor for tau = 4 min.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "next_state",
+          "type": "numeric",
+          "prompt": "Next model output with y[k] = 1, K = 0.6 and the applied command 8.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "input",
+          "type": "single_choice",
+          "prompt": "Which command belongs in the plant recurrence?",
+          "options": [
+            "The candidate even when the actuator bound prevents it being applied.",
+            "The error increment, because the plant receives no command.",
+            "The held applied command after the clamp, rather than the unachievable PI candidate."
+          ],
+          "points": 1
+        },
+        {
+          "id": "scope",
+          "type": "single_choice",
+          "prompt": "What do these calculations establish?",
+          "options": [
+            "A consistent synthetic portfolio under the declared pieces, not one identified real plant or deployable controller.",
+            "A field-ready sample rate, filter and controller for any incubator.",
+            "A guarantee against saturation, noise and computation delay."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "decay",
+            "type": "numeric",
+            "answer": 0.951229424500714,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "next_state",
+            "type": "numeric",
+            "answer": 1.1853281868972867,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "input",
+            "type": "single_choice",
+            "answer": 2
+          },
+          {
+            "id": "scope",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How can a sampled first-order update be checked without repeating its algebra?",
+        "solution": "The exact factor is exp(−0.2/4) = 0.95122942. The next state is a×1 + 0.6(1−a)×8 = 1.18532819. Equivalently, it moves from 1 toward the held-input equilibrium 4.8 by fraction 1−a; this independent interpretation checks the sign and range.",
+        "lesson_ids": [
+          "signals-control-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-17:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Original continuous rehearsal:x(t)=1 for abs(t)<=1, zero otherwise. Use X(omega)=integral x(t)exp(−i omega t)dt, angular frequency per normalized time. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "signals-control-17-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "area",
+          "type": "numeric",
+          "prompt": "Pulse area and limiting X(0).",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "transform",
+          "type": "numeric",
+          "prompt": "Real transform value at omega=pi/2.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "zero",
+          "type": "numeric",
+          "prompt": "First positive transform-zero angular frequency.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "area",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "transform",
+            "type": "numeric",
+            "answer": 1.2732395447351628,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "zero",
+            "type": "numeric",
+            "answer": 3.141592653589793,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must be fixed before comparing Fourier formulas?",
+        "solution": "Direct integration gives X=two sin(omega)/omega, with origin limit two. At pi/two its value is four/pi, and its first positive zero is pi. The removable origin limit differs from a zero spectral component; frequency convention determines these constants.",
+        "lesson_ids": [
+          "signals-control-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic signals and control practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-17:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Convolve that same continuous pulse with itself. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "signals-control-17-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "peak",
+          "type": "numeric",
+          "prompt": "Peak self-convolution amplitude for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "halfwidth",
+          "type": "numeric",
+          "prompt": "Half-width of the convolution support.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "energy",
+          "type": "numeric",
+          "prompt": "Complete convolution energy integral for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "operation",
+          "type": "single_choice",
+          "prompt": "Which relation is correct under the declared Fourier convention?",
+          "options": [
+            "The transform of the time convolution is X squared;the transform of pointwise x squared is a different operation.",
+            "Time convolution and pointwise multiplication produce the same triangle for every pulse.",
+            "A negative transform component would imply a negative squared-magnitude energy."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "peak",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "halfwidth",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "energy",
+            "type": "numeric",
+            "answer": 5.333333333333333,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "operation",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why separate convolution,multiplication and energy?",
+        "solution": "Overlap length gives y=two−abs(t)on abs(t)<=two. Its peak is two and energy two times integral_0^2(two−t)²dt=sixteen/three. The frequency transform is X², with energy evaluated through its squared magnitude and the inverse-normalization factor.",
+        "lesson_ids": [
+          "signals-control-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic signals and control practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-17:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Separate discrete system:h[n]=(1/2)^n for integer n>=0, zero otherwise. Use normalized angular frequency Omega in radians/sample. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "signals-control-17-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "dc",
+          "type": "numeric",
+          "prompt": "H at Omega=0 for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "nyquist",
+          "type": "numeric",
+          "prompt": "H at Omega=pi for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "quarter",
+          "type": "numeric",
+          "prompt": "Magnitude of H at Omega=pi/2.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "dc",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "nyquist",
+            "type": "numeric",
+            "answer": 0.6666666666666666,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "quarter",
+            "type": "numeric",
+            "answer": 0.8944271909999159,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What makes discrete frequency representations periodic?",
+        "solution": "The geometric transform is one/[one−exp(−i Omega)/two]. DC is two, Nyquist value two/three, and at pi/two the complex denominator gives magnitude two/sqrt5. The response is periodic in normalized frequency; an analog corner formula would describe a different system.",
+        "lesson_ids": [
+          "signals-control-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic signals and control practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-17:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Use that discrete system with input one at n=0, 1, 2 and zero elsewhere. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "signals-control-17-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "sample_two",
+          "type": "numeric",
+          "prompt": "Output y[2] for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "sample_three",
+          "type": "numeric",
+          "prompt": "Output y[3] for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "energy",
+          "type": "numeric",
+          "prompt": "Complete sum of squared output samples.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "frequency",
+          "type": "single_choice",
+          "prompt": "Which convention statement is supported?",
+          "options": [
+            "The sampled response has the same frequency variable and no periodicity as an arbitrary continuous transform.",
+            "Input energy times DC gain squared always gives output energy for every frequency-dependent filter.",
+            "Continuous omega and discrete Omega differ by sample period and periodicity;their energy integrals require the declared domains and normalization."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "sample_two",
+            "type": "numeric",
+            "answer": 1.75,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "sample_three",
+            "type": "numeric",
+            "answer": 0.875,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "energy",
+            "type": "numeric",
+            "answer": 7.333333333333333,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "frequency",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How can a time truncation hide an energy error?",
+        "solution": "The early values are one, three/two, seven/four, then seven/eight with subsequent ratio one half. First-three energy is 101/16 and remaining tail 49/48, giving 22/three. The complete spectrum weights every occupied frequency; DC gain alone does not determine the energy.",
+        "lesson_ids": [
+          "signals-control-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic signals and control practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-18:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Original rehearsal:unity negative feedback, P(s)=1/[s(s+2)], C(s)=K(s+z)/(s+p). Target(s+4)(s²+4s+8); require K>0, p>z>0. All coefficients use normalized time/signals. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "signals-control-18-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "pole",
+          "type": "numeric",
+          "prompt": "Controller pole parameter p for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "gain",
+          "type": "numeric",
+          "prompt": "Controller high-frequency gain K for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "zero",
+          "type": "numeric",
+          "prompt": "Controller zero parameter z for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "pole",
+            "type": "numeric",
+            "answer": 6.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "gain",
+            "type": "numeric",
+            "answer": 12.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "zero",
+            "type": "numeric",
+            "answer": 2.6666666666666665,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What accompanies a polynomial controller match?",
+        "solution": "The target expands to s³+eight s²+24s+32. Matching s(s+two)(s+p)+K(s+z)gives p=six, K=twelve, z=eight/three. Positivity and p>z verify the chosen lead form; coefficient matching outside that domain would require rejection or another controller family.",
+        "lesson_ids": [
+          "signals-control-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic signals and control practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-18:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use that matched target characteristic without adding saturation, delay or model changes. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "signals-control-18-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "real_root",
+          "type": "numeric",
+          "prompt": "Real closed-loop pole per normalized time.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "pair_real",
+          "type": "numeric",
+          "prompt": "Conjugate-pair real part per normalized time.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "pair_imaginary",
+          "type": "numeric",
+          "prompt": "Positive pair imaginary magnitude per normalized time.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "real_root",
+            "type": "numeric",
+            "answer": -4.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "pair_real",
+            "type": "numeric",
+            "answer": -2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "pair_imaginary",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which stability claim belongs to nominal pole placement?",
+        "solution": "The real factor gives minus four and the quadratic s²+four s+eight gives minus two plus or minus two i. All real parts are negative for this exact three-state linear loop. These roots do not prove behavior after a changed plant or an input clamp.",
+        "lesson_ids": [
+          "signals-control-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic signals and control practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-18:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Use the same stable unity-feedback model with a unit-ramp reference. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "signals-control-18-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "velocity_constant",
+          "type": "numeric",
+          "prompt": "Velocity error constant Kv in normalized units.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "ramp_error",
+          "type": "numeric",
+          "prompt": "Unit-ramp asymptotic error for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "velocity_constant",
+            "type": "numeric",
+            "answer": 2.6666666666666665,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "ramp_error",
+            "type": "numeric",
+            "answer": 0.375,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why specify the reference type before reporting steady error?",
+        "solution": "Kv is limit s C P=Kz/(two p)=eight/three, and stable unit-ramp error is its reciprocal three/eight. A unit step has a different error transform. Final-value algebra requires the eligible closed-loop poles; it is not a settling proof for an unstable model.",
+        "lesson_ids": [
+          "signals-control-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic signals and control practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-18:depth-4",
+      "type": "data_interpretation",
+      "prompt": "For that same controller, find the maximum phase-boost frequency and evaluate the LOOP magnitude there. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "signals-control-18-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "frequency",
+          "type": "numeric",
+          "prompt": "Maximum controller-phase angular frequency for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "phase",
+          "type": "numeric",
+          "prompt": "Maximum controller phase boost in degrees.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "loop_magnitude",
+          "type": "numeric",
+          "prompt": "Loop magnitude at that phase-peak frequency.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "crossover",
+          "type": "single_choice",
+          "prompt": "Which conclusion follows? for the supplied signal or control model.",
+          "options": [
+            "Maximum controller phase frequency is automatically the loop crossover for every plant.",
+            "The phase peak occurs at four,but loop magnitude there is below one;phase margin needs the actual unity-gain crossover.",
+            "Adding a lead zero changes phase but leaves loop magnitude unchanged at all frequencies."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "frequency",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "phase",
+            "type": "numeric",
+            "answer": 22.61986494804043,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "loop_magnitude",
+            "type": "numeric",
+            "answer": 0.4472135954999579,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "crossover",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Where must a phase margin be evaluated?",
+        "solution": "Peak phase is at sqrt(pz)=four and boost asin(five/13), about 22.619865 degrees. Controller magnitude is eight and plant magnitude one/(four sqrt20), giving loop magnitude one/sqrt5. Maximum boost and unity-gain crossover are distinct in this example.",
+        "lesson_ids": [
+          "signals-control-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic signals and control practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-19:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Original rehearsal:A=[[0, 1], [−6, −5]], B=(0, 1)transpose, C=(1, 0), D=0, xdot=A x+B u, y=C x. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "signals-control-19-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "controllable",
+          "type": "numeric",
+          "prompt": "Exact rank of [B, A B].",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "observable",
+          "type": "numeric",
+          "prompt": "Exact rank of rows C, C A.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "dc",
+          "type": "numeric",
+          "prompt": "Open-loop zero-initial-state DC transfer gain.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "controllable",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "observable",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "dc",
+            "type": "numeric",
+            "answer": 0.16666666666666666,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why check state information before designing gains?",
+        "solution": "The controllability matrix has rows(zero, one), (one, minus five)and the observability matrix is identity. Both ranks are two. The transfer is one/(s²+five s+six), with DC gain one/six. These tests belong to the declared input/output model, not assumed physical sensor access.",
+        "lesson_ids": [
+          "signals-control-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic signals and control practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-19:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use that rehearsal and u=−Kx+N r. Target state-feedback poles −5 and −6. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "signals-control-19-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "k_one",
+          "type": "numeric",
+          "prompt": "First feedback coefficient K1 for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "k_two",
+          "type": "numeric",
+          "prompt": "Second feedback coefficient K2 for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "reference",
+          "type": "numeric",
+          "prompt": "Reference multiplier N for unit constant-reference gain.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "k_one",
+            "type": "numeric",
+            "answer": 24.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "k_two",
+            "type": "numeric",
+            "answer": 6.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "reference",
+            "type": "numeric",
+            "answer": 30.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does a stabilizing state gain leave to be calculated?",
+        "solution": "The controlled characteristic is s²+(five+K2)s+(six+K1). Matching s²+eleven s+thirty gives K1=24, K2=six. N=thirty then gives unit constant-reference gain for this exact attainable-input model; stable poles alone do not set that reference gain.",
+        "lesson_ids": [
+          "signals-control-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic signals and control practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-19:depth-3",
+      "type": "data_interpretation",
+      "prompt": "For the same plant, use xhatdot=A xhat+B u+L(y−C xhat), with observer-error target poles −8 and −9. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "signals-control-19-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "l_one",
+          "type": "numeric",
+          "prompt": "First observer coefficient L1 for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "l_two",
+          "type": "numeric",
+          "prompt": "Second observer coefficient L2 for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "slow_pole",
+          "type": "numeric",
+          "prompt": "Slow observer-error pole per normalized time.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "l_one",
+            "type": "numeric",
+            "answer": 12.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "l_two",
+            "type": "numeric",
+            "answer": 6.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "slow_pole",
+            "type": "numeric",
+            "answer": -8.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which assumptions support the observer error modes?",
+        "solution": "The error characteristic is s²+(five+L1)s+(five L1+six+L2). Matching s²+17s+72 yields L1=twelve, L2=six. Its error poles are minus eight and minus nine. Noise and model/input mismatches would add information absent from this exact error equation.",
+        "lesson_ids": [
+          "signals-control-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic signals and control practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-19:depth-4",
+      "type": "data_interpretation",
+      "prompt": "SEPARATE nonminimal realization:A=diag(−1, +2), B=(1, 0)transpose, C=(1, 1), D=0. Its zero-initial-state transfer reduces to 1/(s+1). Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "signals-control-19-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "controllable",
+          "type": "numeric",
+          "prompt": "Exact controllability rank for this separate realization.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "observable",
+          "type": "numeric",
+          "prompt": "Exact observability rank for this separate realization.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "growth",
+          "type": "numeric",
+          "prompt": "Autonomous second-state exponential growth rate.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "internal",
+          "type": "single_choice",
+          "prompt": "Which conclusion follows? for the supplied signal or control model.",
+          "options": [
+            "The zero-initial-state convolution map is stable,but the unactuated second mode grows from nonzero initial state;internal asymptotic stability fails.",
+            "The reduced transfer proves every internal initial state decays.",
+            "Setting the unactuated initial state to zero stabilizes that physical mode under all perturbations."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "controllable",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "observable",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "growth",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "internal",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "When do transfer poles represent every state mode?",
+        "solution": "The second state is not actuated through B, so controllability rank is one. C reveals it, so observability rank is two. A nonzero x2 evolves as exp(two t). Zero initial state suppresses that trajectory for one ideal experiment; it does not remove or stabilize the internal mode.",
+        "lesson_ids": [
+          "signals-control-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic signals and control practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-20:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Original rehearsal:exact held plant y[k+1]=a y[k]+b u[k], a=0.8, b=0.2, T=1. PI uses OLD z[k]:u=kp(r−y)+ki z; z[k+1]=z[k]+T(r−y), kp=2, ki=1. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "signals-control-20-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "trace",
+          "type": "numeric",
+          "prompt": "Trace of the two-state deviation matrix.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "determinant",
+          "type": "numeric",
+          "prompt": "Determinant of that matrix for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "trace",
+            "type": "numeric",
+            "answer": 1.4,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "determinant",
+            "type": "numeric",
+            "answer": 0.6,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must be fixed before checking digital-loop stability?",
+        "solution": "The state matrix has rows(a−b kp, b ki), (minus T, one). Trace is one+a−b kp=1.4 and determinant a−b kp+b ki T=0.6. A current-integrator command or an extra delay would define a different matrix and characteristic.",
+        "lesson_ids": [
+          "signals-control-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic signals and control practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-20:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use that exact linear rehearsal matrix and its characteristic lambda²−1.4lambda+0.6. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "signals-control-20-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "real",
+          "type": "numeric",
+          "prompt": "Conjugate-pair real part for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "imaginary",
+          "type": "numeric",
+          "prompt": "Positive pair imaginary magnitude for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "modulus",
+          "type": "numeric",
+          "prompt": "Common pole modulus for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "real",
+            "type": "numeric",
+            "answer": 0.7,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "imaginary",
+            "type": "numeric",
+            "answer": 0.33166247903553997,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "modulus",
+            "type": "numeric",
+            "answer": 0.7745966692414834,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which region characterizes strict decay for these sampled modes?",
+        "solution": "The pair is 0.7 plus or minus i sqrt0.11 and modulus sqrt0.6. It lies strictly inside the unit circle. The corresponding discrete decay differs from a continuous half-plane condition and is not a proof for a saturated or delayed implementation.",
+        "lesson_ids": [
+          "signals-control-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic signals and control practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-20:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Keep a=0.8, b=0.2, T=1, kp=2 and vary only positive ki under the same OLD-integrator contract. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "signals-control-20-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "upper",
+          "type": "numeric",
+          "prompt": "Strict upper threshold for ki; the stable interval requires ki below this value.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "boundary",
+          "type": "single_choice",
+          "prompt": "Which ki=3 conclusion is correct?",
+          "options": [
+            "The stable interval includes equality because every positive ki is allowed.",
+            "A unit-circle pair always decays after enough samples without any other mechanism.",
+            "The determinant is one and the conjugate pair lies on the unit circle;the boundary is not asymptotically stable."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "upper",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "boundary",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why distinguish a threshold from an allowed maximum?",
+        "solution": "The second-order inequalities reduce to zero<ki<three. At ki=three, the determinant reaches one while trace remains 1.4, giving a unit-circle pair. Strict separation from the boundary is part of this nominal linear stability condition, not a measured robustness margin.",
+        "lesson_ids": [
+          "signals-control-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic signals and control practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-20:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Separate variant changes only ki to 4. Compare with the corresponding continuous PI model if desired. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "signals-control-20-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "modulus",
+          "type": "numeric",
+          "prompt": "Pole modulus at ki=4 for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "comparison",
+          "type": "single_choice",
+          "prompt": "Which conclusion is supported? for the supplied signal or control model.",
+          "options": [
+            "The stable open-loop sampled plant guarantees every positive PI gain is stable.",
+            "This sampled matrix has determinant1.2 and growing modes;continuous PI stability does not prove this implementation stable.",
+            "The half-sample phase heuristic alone overrides the exact sampled characteristic roots."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "modulus",
+            "type": "numeric",
+            "answer": 1.0954451150103321,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "comparison",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does a sampling heuristic fail to establish?",
+        "solution": "Trace remains 1.4 and determinant becomes1.2, so complex-pair modulus sqrt1.2 exceeds one. A continuous plant with tau=minus one/ln0.8 and positive PI coefficients can be stable while this specified sampled update is not. Different equations require separate stability checks.",
+        "lesson_ids": [
+          "signals-control-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic signals and control practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-21:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1 continuous pulse:x=+1 on[0, 1], −1 on[1, 2], zero elsewhere. Use the declared continuous Fourier convention and self-convolution y=x*x. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "signals-control-21-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "input_energy",
+          "type": "numeric",
+          "prompt": "Complete input energy integral for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "magnitude",
+          "type": "numeric",
+          "prompt": "Magnitude of X at omega=pi.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "output_energy",
+          "type": "numeric",
+          "prompt": "Complete self-convolution energy for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "transform_real",
+          "type": "numeric",
+          "prompt": "Real Y at omega=pi for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "input_energy",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "magnitude",
+            "type": "numeric",
+            "answer": 1.2732395447351628,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "output_energy",
+            "type": "numeric",
+            "answer": 2.6666666666666665,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "transform_real",
+            "type": "numeric",
+            "answer": -1.6211389382774044,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which evidence distinguishes a signed signal from its magnitude spectrum?",
+        "solution": "The input has zero area but energy two. Direct interval integration gives X(pi)=minus four i/pi, so its magnitude is four/pi and Y(pi)=minus sixteen/pi². The signed piecewise convolution has energy eight/three; negative transform values are not negative energy.",
+        "lesson_ids": [
+          "signals-control-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic signals and control practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-21:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Separate assignment sequence:h[n]=(1/3)^n for n>=0, input delta[n]−delta[n−1], causal zero initial state. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "signals-control-21-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "first",
+          "type": "numeric",
+          "prompt": "Output y[1] for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "energy",
+          "type": "numeric",
+          "prompt": "Complete output energy sum for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "magnitude",
+          "type": "numeric",
+          "prompt": "Magnitude of output transform at Omega=pi/2.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "dc",
+          "type": "single_choice",
+          "prompt": "Which zero-frequency conclusion follows? for the supplied signal or control model.",
+          "options": [
+            "The input DC component is zero,so the output DC component is zero even though H has nonzero DC gain.",
+            "A nonzero H at DC forces every input to produce a nonzero DC output.",
+            "Zero DC component means every output sample and its total energy are zero."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "first",
+            "type": "numeric",
+            "answer": -0.6666666666666666,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "energy",
+            "type": "numeric",
+            "answer": 1.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "magnitude",
+            "type": "numeric",
+            "answer": 1.3416407864998738,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "dc",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why cannot a system DC gain describe every input?",
+        "solution": "The output is one at zero and minus two/three times(one/three)^(n−one)afterward, giving energy three/two. At pi/two, Y=1.2+0.6i and magnitude three/sqrt5. The difference input cancels DC while retaining nonzero finite energy.",
+        "lesson_ids": [
+          "signals-control-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic signals and control practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-22:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2:unity feedback, P=1/[s(s+3)], proper lead C=K(s+z)/(s+p), target(s+5)(s²+6s+13). Require K>0, p>z>0. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "signals-control-22-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "pole",
+          "type": "numeric",
+          "prompt": "Controller pole parameter p for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "gain",
+          "type": "numeric",
+          "prompt": "High-frequency controller gain K for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "zero",
+          "type": "numeric",
+          "prompt": "Controller zero parameter z for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "pole",
+            "type": "numeric",
+            "answer": 8.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "gain",
+            "type": "numeric",
+            "answer": 19.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "zero",
+            "type": "numeric",
+            "answer": 3.4210526315789473,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What should two independent compensator calculations agree on?",
+        "solution": "The target expands to s³+eleven s²+43s+65. Matching the original plant/controller characteristic gives p=eight, K=nineteen, z=65/19, which satisfies the selected lead inequalities. Retain all coefficients and check the unsimplified realization rather than matching only a plotted pole pair.",
+        "lesson_ids": [
+          "signals-control-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic signals and control practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-22:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use that assignment design and stable unity feedback with a unit-ramp reference. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "signals-control-22-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "frequency",
+          "type": "numeric",
+          "prompt": "Maximum controller-phase angular frequency for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "phase",
+          "type": "numeric",
+          "prompt": "Maximum phase boost in degrees.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "ramp_error",
+          "type": "numeric",
+          "prompt": "Asymptotic unit-ramp error for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "frequency",
+            "type": "numeric",
+            "answer": 5.23148363780597,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "phase",
+            "type": "numeric",
+            "answer": 23.635808483372866,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "ramp_error",
+            "type": "numeric",
+            "answer": 0.36923076923076925,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which quantities must a compensation report keep separate?",
+        "solution": "The peak frequency is sqrt(520/19), about 5.2314836, and boost asin(87/217), about 23.635808 degrees. Kv=65/24 gives ramp error 24/65. Actual loop crossover requires its own magnitude calculation; the phase peak is not automatically that crossover.",
+        "lesson_ids": [
+          "signals-control-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic signals and control practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-23:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 3:A=[[0, 1], [−4, −4]], B=(0, 1)transpose, C=(1, 0), D=0. Use u=−Kx+N r, target feedback poles −3 and −7. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "signals-control-23-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "k_one",
+          "type": "numeric",
+          "prompt": "Feedback coefficient K1 for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "k_two",
+          "type": "numeric",
+          "prompt": "Feedback coefficient K2 for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "reference",
+          "type": "numeric",
+          "prompt": "Reference multiplier N for unit constant-reference gain.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "k_one",
+            "type": "numeric",
+            "answer": 17.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "k_two",
+            "type": "numeric",
+            "answer": 6.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "reference",
+            "type": "numeric",
+            "answer": 21.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why calculate a reference multiplier after pole placement?",
+        "solution": "The characteristic s²+(four+K2)s+(four+K1)must equal s²+ten s+21. Thus K1=seventeen, K2=six, and N=21 gives unit steady gain for the exact attainable-input model. Verify controllability/observability and the original equilibrium before interpreting the gains.",
+        "lesson_ids": [
+          "signals-control-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic signals and control practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-23:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For that assignment, use the stated exact-model observer, target error poles −6 and −9, and controller u=−K xhat+N r. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "signals-control-23-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "l_one",
+          "type": "numeric",
+          "prompt": "Observer coefficient L1 for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "l_two",
+          "type": "numeric",
+          "prompt": "Observer coefficient L2 for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "slowest",
+          "type": "numeric",
+          "prompt": "Slowest pole of the combined four-state linear model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "combined",
+          "type": "single_choice",
+          "prompt": "Which conclusion is supported? for the supplied signal or control model.",
+          "options": [
+            "A stable reduced transfer proves all internal realizations stable regardless of hidden modes.",
+            "Arbitrarily fast observer poles guarantee optimal noisy estimation without a noise model.",
+            "The exact combined matrix has the feedback/observer pole union;different plant input or nonlinear limits require the actual changed equations."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "l_one",
+            "type": "numeric",
+            "answer": 11.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "l_two",
+            "type": "numeric",
+            "answer": 6.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "slowest",
+            "type": "numeric",
+            "answer": -3.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "combined",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does the separation calculation depend on?",
+        "solution": "The observer error polynomial is s²+(four+L1)s+(four L1+four+L2). Matching s²+15s+54 gives L=(eleven, six). The combined poles are minus three, minus seven, minus six, minus nine, with slowest minus three under the exact linear connection.",
+        "lesson_ids": [
+          "signals-control-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic signals and control practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-24:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 4 exact plant:a=b=0.5, T=1, kp=1, ki=0.5. OLD-integrator PI u[k]=kp(r−y[k])+ki z[k], z[k+1]=z[k]+T(r−y[k]). Start y[0]=z[0]=0 with unit reference. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "signals-control-24-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "trace",
+          "type": "numeric",
+          "prompt": "Two-state deviation-matrix trace for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "determinant",
+          "type": "numeric",
+          "prompt": "Two-state determinant for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "pole",
+          "type": "numeric",
+          "prompt": "Repeated discrete pole for the supplied signal or control model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "sample_two",
+          "type": "numeric",
+          "prompt": "Output y[2] from the declared initial state.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "trace",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "determinant",
+            "type": "numeric",
+            "answer": 0.25,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "pole",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "sample_two",
+            "type": "numeric",
+            "answer": 0.75,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why compare early samples with a matrix model?",
+        "solution": "The matrix has rows(zero, one/four), (minus one, one), trace one and determinant one/four, giving double pole one half. Direct recurrence yields y1=one half, z1=one, y2=three/four. A polynomial sample-index factor can accompany this repeated pole while it still decays.",
+        "lesson_ids": [
+          "signals-control-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic signals and control practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "signals-control-24:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Keep that plant, kp, T and OLD-integrator contract. Find the strict positive-ki upper threshold, then consider the SEPARATE variant ki=3. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "signals-control-24-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "upper",
+          "type": "numeric",
+          "prompt": "Strict upper threshold for ki; stable interval excludes equality.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "unstable_modulus",
+          "type": "numeric",
+          "prompt": "Pole modulus for the separate ki=3 variant.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "implementation",
+          "type": "single_choice",
+          "prompt": "Which interpretation is correct? for the supplied signal or control model.",
+          "options": [
+            "Every integrator update order and clamp policy has the same characteristic.",
+            "Using updated instead of old integrator state changes the matrix;clamping defines another nonlinear system that does not inherit this linear proof.",
+            "A repeated pole inside the unit circle is always unstable because it is repeated."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "upper",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "unstable_modulus",
+            "type": "numeric",
+            "answer": 1.224744871391589,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "implementation",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which implementation details are part of a stability model?",
+        "solution": "The strict interval is zero<ki<two. At the separate ki=three, trace one and determinant 1.5 give modulus sqrt1.5>one. The boundary and unstable variants must be evaluated under the same update order; another timing or clamp policy needs new equations.",
+        "lesson_ids": [
+          "signals-control-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic signals and control practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
     }
   ]
 }

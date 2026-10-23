@@ -11,7 +11,6 @@ ROOT = COURSE.parents[2]
 
 def test_equilibrium_quotient_and_direction_preserve_practice_keys():
     manifest = json.loads((COURSE / "course.json").read_text(encoding="utf-8"))
-    assert manifest["version"].startswith("0.4.")
     assert manifest["maturity"] == "partial"
     assert manifest["review"]["status"] == "unreviewed"
     assert manifest["grading_policy"]["mode"] == "formative-only"
@@ -111,5 +110,7 @@ def test_equilibrium_quotient_and_direction_preserve_practice_keys():
 
     syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8").lower()
     assert f"version: {manifest['version']}." in syllabus
-    assert "| 8 | chemical equilibrium, reaction extents and activity conventions |" in syllabus
+    calendar_row = next(row for row in syllabus.splitlines() if row.startswith("| 10 |"))
+    assert lesson["title"].lower() in calendar_row
+    assert lesson["id"] in manifest["duration"]["weeks"][9]["lesson_ids"]
     assert "four compact foundations are paired with expanded instruction" in syllabus

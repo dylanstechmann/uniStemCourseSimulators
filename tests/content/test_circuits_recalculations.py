@@ -386,7 +386,7 @@ def test_op_amp_gain_bias_and_operating_range_example():
     ] == 2
     syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8")
     assert "Weeks 1, 4, 7 and 12 now have expanded" in syllabus
-    assert "No compact prototype readings remain" in syllabus
+    assert "first four prototype readings remain concise primers" in syllabus
 
 
 def test_rc_response_alias_equivalence_and_nyquist_boundary():
@@ -430,7 +430,7 @@ def test_rc_response_alias_equivalence_and_nyquist_boundary():
     assert BANK["circuits-3:nyquist-rate"]["solution_spec"]["answer"] == pytest.approx(300)
     syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8")
     assert "Weeks 1, 4, 7 and 12 now have expanded" in syllabus
-    assert "No compact prototype readings remain" in syllabus
+    assert "first four prototype readings remain concise primers" in syllabus
 
 
 def test_sensor_calibration_and_first_order_uncertainty():
@@ -465,7 +465,7 @@ def test_sensor_calibration_and_first_order_uncertainty():
     ] == pytest.approx(0.283)
     syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8")
     assert "Weeks 1, 4, 7 and 12 now have expanded" in syllabus
-    assert "No compact prototype readings remain" in syllabus
+    assert "first four prototype readings remain concise primers" in syllabus
 
 
 CHECKS = BANK["circuits-lab-01:summary"]["solution_spec"]["validation_spec"]["checks"]

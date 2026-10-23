@@ -575,6 +575,166 @@
         "physics-mechanics-6-objective-3"
       ],
       "license": "CC-BY-4.0"
+    },
+    {
+      "id": "physics-mechanics-16-card-1",
+      "lesson_id": "physics-mechanics-16",
+      "front": "Why can a light rope have different tensions on opposite sides of a massive pulley?",
+      "back": "Rim interaction transmits net torque to accelerate the pulley; equal tension across it would contradict nonzero rotational acceleration.",
+      "objective_ids": [
+        "physics-mechanics-16-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "physics-mechanics-16-card-2",
+      "lesson_id": "physics-mechanics-16",
+      "front": "Which energy terms belong in a massive-pulley calculation?",
+      "back": "Both mass translations and pulley rotation, along with the potential change and any separately supplied losses.",
+      "objective_ids": [
+        "physics-mechanics-16-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "physics-mechanics-16-card-3",
+      "lesson_id": "physics-mechanics-16",
+      "front": "What do limiting-case checks establish?",
+      "back": "Consistency with the declared equations in a controlled limit; they do not validate omitted traction, deformation or real support behavior.",
+      "objective_ids": [
+        "physics-mechanics-16-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "physics-mechanics-16-card-4",
+      "lesson_id": "physics-mechanics-16",
+      "front": "Why record a stopping event in a model report?",
+      "back": "A valid phase solution can become invalid when contact, tautness or another constraint changes; a numerical continuation must specify the new model.",
+      "objective_ids": [
+        "physics-mechanics-16-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "physics-mechanics-17-card-1",
+      "lesson_id": "physics-mechanics-17",
+      "front": "Which velocity determines kinetic friction direction?",
+      "back": "The relative velocity at the contact point, v−R omega in the stated signs; it need not have the same sign as center velocity.",
+      "objective_ids": [
+        "physics-mechanics-17-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "physics-mechanics-17-card-2",
+      "lesson_id": "physics-mechanics-17",
+      "front": "Why does friction times center displacement overcount loss during spin-up?",
+      "back": "Some translational energy is transferred into rotation; total mechanical power uses the actual force-application-point velocity.",
+      "objective_ids": [
+        "physics-mechanics-17-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "physics-mechanics-17-card-3",
+      "lesson_id": "physics-mechanics-17",
+      "front": "Can friction increase center speed while decreasing total mechanical energy?",
+      "back": "Yes. It can reduce excess spin and accelerate translation while opposing relative contact slip.",
+      "objective_ids": [
+        "physics-mechanics-17-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "physics-mechanics-17-card-4",
+      "lesson_id": "physics-mechanics-17",
+      "front": "What must an event-aware contact simulation preserve?",
+      "back": "The sign and magnitude rules within each phase, a correctly located zero-slip event and a post-event constraint/force law consistent with the new state.",
+      "objective_ids": [
+        "physics-mechanics-17-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "physics-mechanics-18-card-1",
+      "lesson_id": "physics-mechanics-18",
+      "front": "What distinguishes an open-body momentum balance from fixed-mass F=ma?",
+      "back": "It includes the momentum carried by incoming/outgoing material, with velocities and the system boundary defined in a common frame.",
+      "objective_ids": [
+        "physics-mechanics-18-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "physics-mechanics-18-card-2",
+      "lesson_id": "physics-mechanics-18",
+      "front": "Why is external work insufficient to infer the final kinetic energy of a capturing body?",
+      "back": "Incoming/outgoing kinetic energy and mechanical loss can enter; track the complete energy ledger for the declared mass flow.",
+      "objective_ids": [
+        "physics-mechanics-18-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "physics-mechanics-19-card-1",
+      "lesson_id": "physics-mechanics-19",
+      "front": "What should a constrained-motion report retain beyond its solved values?",
+      "back": "Original signed force/torque equations, explicit geometric constraints, residuals, energy and limiting-case checks, and the phase’s validity interval.",
+      "objective_ids": [
+        "physics-mechanics-19-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "physics-mechanics-19-card-2",
+      "lesson_id": "physics-mechanics-19",
+      "front": "What changes at a hard stop in a constrained-motion calculation?",
+      "back": "The active contact and rope constraints may change; end the valid pre-impact solution and state any assumptions for continuation.",
+      "objective_ids": [
+        "physics-mechanics-19-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "physics-mechanics-20-card-1",
+      "lesson_id": "physics-mechanics-20",
+      "front": "Why compare both an event time and energy loss in contact verification?",
+      "back": "They test different consequences of the phase dynamics; an apparently correct endpoint speed can conceal an incorrect contact-force history.",
+      "objective_ids": [
+        "physics-mechanics-20-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "physics-mechanics-20-card-2",
+      "lesson_id": "physics-mechanics-20",
+      "front": "Does independence of final rolling speed from kinetic mu imply independence of transition time?",
+      "back": "No. In this ideal model, final speed follows a coupled invariant while event time scales inversely with positive mu.",
+      "objective_ids": [
+        "physics-mechanics-20-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "physics-mechanics-21-card-1",
+      "lesson_id": "physics-mechanics-21",
+      "front": "Why verify a numerical oscillator against both a trajectory and an energy identity?",
+      "back": "Phase, amplitude and energy errors can differ; an exact mechanical law and analytic reference expose artifacts that a smooth graph can hide.",
+      "objective_ids": [
+        "physics-mechanics-21-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "physics-mechanics-21-card-2",
+      "lesson_id": "physics-mechanics-21",
+      "front": "Does a one-step numerical energy decrease prove physical damping?",
+      "back": "No. The mechanical law specifies damping; numerical integrators can alter computed energy even when the exact model conserves it.",
+      "objective_ids": [
+        "physics-mechanics-21-objective-2"
+      ],
+      "license": "CC-BY-4.0"
     }
   ]
 }

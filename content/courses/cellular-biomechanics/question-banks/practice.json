@@ -4767,6 +4767,1568 @@
           }
         ]
       }
+    },
+    {
+      "id": "cellular-biomechanics-16:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Original rehearsal:aligned orthotropic Cnormal=[[6, 2], [2, 5]], C66=3 kPa. Displacement u=(0.01x+0.04y, −0.02x+0.02y), with compatible length units. Use engineering shear gamma=2epsilon_xy. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "cellular-biomechanics-16-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "gamma",
+          "type": "numeric",
+          "prompt": "Engineering shear strain gamma_xy for the supplied mechanical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "stress_xx",
+          "type": "numeric",
+          "prompt": "Normal stress sigma_xx in kPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "stress_yy",
+          "type": "numeric",
+          "prompt": "Normal stress sigma_yy in kPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "shear",
+          "type": "numeric",
+          "prompt": "Shear stress tau_xy in kPa.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "gamma",
+            "type": "numeric",
+            "answer": 0.02,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "stress_xx",
+            "type": "numeric",
+            "answer": 0.1,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "stress_yy",
+            "type": "numeric",
+            "answer": 0.12,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "shear",
+            "type": "numeric",
+            "answer": 0.06,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which strain vector is work-conjugate to the symmetric stress components?",
+        "solution": "The symmetric displacement gradient gives epsilon_xx=0.01, epsilon_yy=0.02, epsilon_xy=0.01, so gamma=0.02. The aligned constitutive matrix gives stress(0.10, 0.12, 0.06)kPa. Using epsilon_xy in place of engineering gamma would lose the shear factor two.",
+        "lesson_ids": [
+          "cellular-biomechanics-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic cellular mechanics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "cellular-biomechanics-16:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use that same stress and outward unit normal n=(0.6, 0.8). Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "cellular-biomechanics-16-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "traction_x",
+          "type": "numeric",
+          "prompt": "Boundary traction x component in kPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "traction_y",
+          "type": "numeric",
+          "prompt": "Boundary traction y component in kPa.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "traction_x",
+            "type": "numeric",
+            "answer": 0.108,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "traction_y",
+            "type": "numeric",
+            "answer": 0.132,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What fixes a boundary traction sign?",
+        "solution": "Form sigma=[[0.10, 0.06], [0.06, 0.12]] and multiply by n. The result is(0.108, 0.132)kPa. Traction is a vector of force per boundary area;it is not generally parallel to the normal or equal to one scalar normal-stress component.",
+        "lesson_ids": [
+          "cellular-biomechanics-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic cellular mechanics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "cellular-biomechanics-16:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Use the same rehearsal strain and constitutive coefficients. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "cellular-biomechanics-16-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "energy",
+          "type": "numeric",
+          "prompt": "Stored energy density in J/m³.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "determinant",
+          "type": "numeric",
+          "prompt": "Determinant of the normal coefficient block in squared kPa units.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "work",
+          "type": "single_choice",
+          "prompt": "Which work convention is consistent?",
+          "options": [
+            "The shear term can use epsilon_xy or gamma_xy interchangeably with unchanged coefficients.",
+            "One-half e transpose C e equals one-half sigma:epsilon when gamma_xy=2epsilon_xy.",
+            "A negative individual normal stress necessarily makes the full elastic energy negative."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "energy",
+            "type": "numeric",
+            "answer": 2.3,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "determinant",
+            "type": "numeric",
+            "answer": 26.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "work",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How can elastic work reveal a component error?",
+        "solution": "One-half[0.01(0.10)+0.02(0.12)+0.02(0.06)]is 0.0023 kPa, or 2.3 J/m³. The normal determinant is 6×5−2²=26 and C66 is positive. Tensor and engineering-vector work agree only with their correct paired shear convention.",
+        "lesson_ids": [
+          "cellular-biomechanics-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic cellular mechanics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "cellular-biomechanics-16:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Separate identification test in the four-coefficient orthotropic family:prescribe e=(0.01, 0, 0), observe stress(0.06, 0.02, 0)kPa, and assume no additional material symmetry. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "cellular-biomechanics-16-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "unknown",
+          "type": "numeric",
+          "prompt": "Exact number of undetermined coefficients among C11, C12, C22, C66.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "identification",
+          "type": "single_choice",
+          "prompt": "Which conclusion follows? for the supplied mechanical model.",
+          "options": [
+            "C11=6 and C12=2 are identified;C22 and C66 remain undetermined except for admissibility restrictions.",
+            "The observation uniquely identifies all four coefficients and proves isotropy.",
+            "A positive-energy condition by itself selects one unique C22 and C66 pair."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "unknown",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "identification",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why separate prescribed strain from a traction-free lateral boundary?",
+        "solution": "This test excites only the first normal-strain column. It identifies C11 and C12 while leaving two coefficients unresolved. Positive-energy inequalities can restrict them but do not make them unique;another independent normal and shear comparison can supply distinct predictions.",
+        "lesson_ids": [
+          "cellular-biomechanics-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic cellular mechanics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "cellular-biomechanics-17:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Original rehearsal long-cylinder model:E/L=pi kappa/r+2pi sigma r, positive fixed-tension reservoir, zero spontaneous curvature, no pressure/cortex/end terms. Use kappa=72 pN nm, sigma=0.02 pN/nm. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "cellular-biomechanics-17-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "radius",
+          "type": "numeric",
+          "prompt": "Equilibrium tube radius in nm.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "force",
+          "type": "numeric",
+          "prompt": "Equilibrium extension force in pN.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "radius",
+            "type": "numeric",
+            "answer": 42.42640687119285,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "force",
+            "type": "numeric",
+            "answer": 10.66291905158008,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which conditions support the simple tube force law?",
+        "solution": "The stationary radius is sqrt[kappa/(two sigma)]=sqrt1800 nm and the positive second derivative verifies a minimum. The force is 2pi sqrt(two kappa sigma), about 10.662919 pN. This applies to the stated reservoir/geometry model, not an arbitrary whole-cell pulling experiment.",
+        "lesson_ids": [
+          "cellular-biomechanics-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic cellular mechanics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "cellular-biomechanics-17:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Separate supplied force-radius observation under that same ideal law:F=12pi pN, r=30 nm. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "cellular-biomechanics-17-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "tension",
+          "type": "numeric",
+          "prompt": "Inferred tension sigma in pN/nm.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "rigidity",
+          "type": "numeric",
+          "prompt": "Inferred bending rigidity kappa in pN nm.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "tension",
+            "type": "numeric",
+            "answer": 0.1,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "rigidity",
+            "type": "numeric",
+            "answer": 180.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What can one equilibrium tube force identify?",
+        "solution": "The inverse relations are sigma=F/(four pi r)=0.1 pN/nm and kappa=F r/(two pi)=180 pN nm. Reinsert both into the radius and force relations. Force alone identifies only their product;the independently supplied radius adds information.",
+        "lesson_ids": [
+          "cellular-biomechanics-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic cellular mechanics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "cellular-biomechanics-17:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Use that inverted pair and radius. Stipulate thermal energy kBT=4 pN nm. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "cellular-biomechanics-17-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "thermal",
+          "type": "numeric",
+          "prompt": "Bending rigidity divided by the stipulated thermal energy.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "bending",
+          "type": "numeric",
+          "prompt": "Bending contribution to E/L in pN.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "tension",
+          "type": "numeric",
+          "prompt": "Tension contribution to E/L in pN.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "thermal",
+            "type": "numeric",
+            "answer": 45.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "bending",
+            "type": "numeric",
+            "answer": 18.84955592153876,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "tension",
+            "type": "numeric",
+            "answer": 18.84955592153876,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can energy per length be compared with a force here?",
+        "solution": "The rigidity is180/four=45 thermal-energy units. Bending contribution pi kappa/r is 6pi pN and tension contribution two pi sigma r is also6pi pN. Their sum is12pi pN, matching the extension force. The equal terms follow at the optimum rather than at every radius.",
+        "lesson_ids": [
+          "cellular-biomechanics-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic cellular mechanics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "cellular-biomechanics-17:depth-4",
+      "type": "data_interpretation",
+      "prompt": "At fixed positive kappa, multiply sigma by four within the same ideal model. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "cellular-biomechanics-17-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "radius_ratio",
+          "type": "numeric",
+          "prompt": "New equilibrium radius divided by original radius.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "force_ratio",
+          "type": "numeric",
+          "prompt": "New force divided by original force.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "meaning",
+          "type": "single_choice",
+          "prompt": "Which interpretation is supported? for the supplied mechanical model.",
+          "options": [
+            "A single whole-cell aspiration pressure uniquely supplies both kappa and sigma without another model.",
+            "Every real perturbation that changes force must change tension alone.",
+            "The scaling belongs to the supplied membrane model;an aspiration cortical-tension estimate is not automatically its bilayer tension or bending rigidity."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "radius_ratio",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "force_ratio",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "meaning",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why preserve model boundaries when comparing mechanical readouts?",
+        "solution": "Radius varies as inverse sqrt(sigma)and force as sqrt(sigma), so the ratios are one half and two. These are parameter-controlled model comparisons. A biological perturbation may also change bending, cortex coupling, geometry or reservoir access and needs separate evidence.",
+        "lesson_ids": [
+          "cellular-biomechanics-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic cellular mechanics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "cellular-biomechanics-18:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Original rehearsal:initially intact single irreversible bond, k(F)=k0 exp(F/Fb), k0=0.2/s, Fb=3 pN, per-bond force ramp F=r t, r=1.2 pN/s, no rebinding. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "cellular-biomechanics-18-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "hazard",
+          "type": "numeric",
+          "prompt": "Cumulative hazard at F=3 pN.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "survival",
+          "type": "numeric",
+          "prompt": "Survival probability at F=3 pN.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "hazard",
+            "type": "numeric",
+            "answer": 0.8591409142295228,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "survival",
+            "type": "numeric",
+            "answer": 0.42352577103880834,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What determines survival during a force ramp?",
+        "solution": "Changing time to force gives H=(k0 Fb/r)[exp(F/Fb)−one]. Here the coefficient is one half and F/Fb=one, so H=(e−one)/two and survivor exp(−H), about 0.42352577. A changing off-rate must be integrated;it is not a probability itself.",
+        "lesson_ids": [
+          "cellular-biomechanics-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic cellular mechanics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "cellular-biomechanics-18:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use that same ramp and selected off-rate law. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "cellular-biomechanics-18-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "mode",
+          "type": "numeric",
+          "prompt": "Rupture-force density mode in pN.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "median",
+          "type": "numeric",
+          "prompt": "Median rupture force in pN.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "mode",
+            "type": "numeric",
+            "answer": 2.0794415416798353,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "median",
+            "type": "numeric",
+            "answer": 2.6092250585758316,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why compute mode and median separately?",
+        "solution": "The interior-mode condition r>k0 Fb holds. Mode is 3ln2, about 2.0794415 pN, whereas median is 3ln[one+two ln2], about 2.6092251. A density maximum and a half-probability quantile answer different questions and need not coincide.",
+        "lesson_ids": [
+          "cellular-biomechanics-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic cellular mechanics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "cellular-biomechanics-18:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Separate variant doubles only the rehearsal rate to r=2.4 pN/s. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "cellular-biomechanics-18-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "mode",
+          "type": "numeric",
+          "prompt": "New eligible mode in pN.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "median",
+          "type": "numeric",
+          "prompt": "New median in pN for the supplied mechanical model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "mode",
+            "type": "numeric",
+            "answer": 4.158883083359671,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "median",
+            "type": "numeric",
+            "answer": 3.9832842886149926,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why is machine speed not automatically the model loading rate?",
+        "solution": "The doubled ramp changes the coefficient to one quarter. Mode becomes 3ln4, about 4.1588831, and median3ln[one+four ln2], about 3.9832843 pN. Keep the parameter change separate from a change in k0, Fb or machine-to-bond force transfer.",
+        "lesson_ids": [
+          "cellular-biomechanics-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic cellular mechanics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "cellular-biomechanics-18:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Return to r=1.2 and find the 90th percentile. Separately consider r=0.3 pN/s with the original k0, Fb. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "cellular-biomechanics-18-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "percentile",
+          "type": "numeric",
+          "prompt": "90th percentile rupture force at r=1.2 in pN.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "slow_mode",
+          "type": "single_choice",
+          "prompt": "Which mode applies at the separate slow rate?",
+          "options": [
+            "The F=0 boundary,because r<k0 Fb;the negative logarithmic interior candidate is outside nonnegative force.",
+            "The negative algebraic candidate is a physically negative rupture force in this nonnegative ramp.",
+            "A median formula must replace the mode solely because the interior mode is inadmissible."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "percentile",
+            "type": "numeric",
+            "answer": 5.171068257924436,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "slow_mode",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why check a distribution maximum against the support?",
+        "solution": "Solving survivor=0.1 gives3ln[one+two ln10], about 5.1710683 pN. At the separate slow rate 0.3, the density decreases from its boundary maximum because r<0.6. The interior logarithm cannot be used outside its eligibility condition.",
+        "lesson_ids": [
+          "cellular-biomechanics-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic cellular mechanics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "cellular-biomechanics-19:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1:Cnormal=[[5, 1], [1, 4]], C66=2 kPa;u=(0.02x−0.01y, 0.03x−0.01y), compatible lengths. Use gamma=2epsilon_xy. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "cellular-biomechanics-19-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "stress_xx",
+          "type": "numeric",
+          "prompt": "Normal stress sigma_xx in kPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "stress_yy",
+          "type": "numeric",
+          "prompt": "Normal stress sigma_yy in kPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "shear",
+          "type": "numeric",
+          "prompt": "Shear stress tau_xy in kPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "energy",
+          "type": "numeric",
+          "prompt": "Stored elastic energy density in J/m³.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "stress_xx",
+            "type": "numeric",
+            "answer": 0.09,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "stress_yy",
+            "type": "numeric",
+            "answer": -0.02,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "shear",
+            "type": "numeric",
+            "answer": 0.04,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "energy",
+            "type": "numeric",
+            "answer": 1.4,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must agree in independent continuum calculations?",
+        "solution": "The engineering strain is(0.02, minus 0.01, 0.02), giving stress(0.09, minus 0.02, 0.04)kPa. One-half tensor contraction or paired engineering work gives0.0014 kPa=1.4 J/m³. The negative normal stress is compatible with positive total stored energy under the stated constitutive model.",
+        "lesson_ids": [
+          "cellular-biomechanics-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic cellular mechanics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "cellular-biomechanics-19:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For that assignment stress, take outward normal n=(0.8, 0.6)and tangent m=(−0.6, 0.8). Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "cellular-biomechanics-19-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "traction_x",
+          "type": "numeric",
+          "prompt": "Traction x component in kPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "traction_y",
+          "type": "numeric",
+          "prompt": "Traction y component in kPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "normal",
+          "type": "numeric",
+          "prompt": "Normal traction component n dot t in kPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "tangent",
+          "type": "numeric",
+          "prompt": "Tangential component m dot t in kPa.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "traction_x",
+            "type": "numeric",
+            "answer": 0.096,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "traction_y",
+            "type": "numeric",
+            "answer": 0.02,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "normal",
+            "type": "numeric",
+            "answer": 0.0888,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "tangent",
+            "type": "numeric",
+            "answer": -0.0416,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does reversing a chosen tangent change?",
+        "solution": "Multiplying the symmetric stress tensor by n gives(0.096, 0.020)kPa. Its projections are 0.0888 and minus 0.0416 kPa. Reconstructing the vector from those unit-normal/tangent projections checks orientation and signs independently.",
+        "lesson_ids": [
+          "cellular-biomechanics-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic cellular mechanics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "cellular-biomechanics-20:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2 long-cylinder fixed-tension model:E/L=pi kappa/r+2pi sigma r, kappa=50 pN nm, sigma=0.04 pN/nm, no pressure/cortex/end contributions. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "cellular-biomechanics-20-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "radius",
+          "type": "numeric",
+          "prompt": "Equilibrium radius in nm for the supplied mechanical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "force",
+          "type": "numeric",
+          "prompt": "Equilibrium extension force in pN.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "radius",
+            "type": "numeric",
+            "answer": 25.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "force",
+            "type": "numeric",
+            "answer": 12.566370614359172,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which checks establish this selected energy minimum?",
+        "solution": "The minimum occurs at sqrt[fifty/(two times0.04)]=25 nm. Each energy-per-length contribution is 2pi pN, so force is 4pi pN. The result depends on the selected fixed-reservoir effective energy and is not a whole-cell force prediction.",
+        "lesson_ids": [
+          "cellular-biomechanics-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic cellular mechanics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "cellular-biomechanics-20:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Separate assignment observation:F=8pi pN, r=40 nm under that same law, kBT=4 pN nm. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "cellular-biomechanics-20-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "tension",
+          "type": "numeric",
+          "prompt": "Inferred sigma in pN/nm for the supplied mechanical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "rigidity",
+          "type": "numeric",
+          "prompt": "Inferred kappa in pN nm.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "thermal",
+          "type": "numeric",
+          "prompt": "Rigidity divided by stipulated thermal energy.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "inverse",
+          "type": "single_choice",
+          "prompt": "Which conclusion is justified? for the supplied mechanical model.",
+          "options": [
+            "Repeating one ideal force measurement with unlimited numerical precision necessarily separates kappa and sigma.",
+            "Force and independent radius determine this pair under the law;force alone supplies only their product.",
+            "The inferred bending energy is automatically the cell cortex bulk modulus."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "tension",
+            "type": "numeric",
+            "answer": 0.05,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "rigidity",
+            "type": "numeric",
+            "answer": 160.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "thermal",
+            "type": "numeric",
+            "answer": 40.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "inverse",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What can precision fail to resolve?",
+        "solution": "Sigma is F/(four pi r)=0.05, and kappa=F r/(two pi)=160. Its ratio to four is forty. Repeating the forward radius and force relations checks the inverse arithmetic;empirical validity and omitted contributions remain separate questions.",
+        "lesson_ids": [
+          "cellular-biomechanics-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic cellular mechanics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "cellular-biomechanics-21:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 3 initially intact irreversible single-bond law:k0=0.05/s, Fb=4 pN, per-bond ramp r=0.8 pN/s, no rebinding. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "cellular-biomechanics-21-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "mode",
+          "type": "numeric",
+          "prompt": "Eligible rupture-force mode in pN.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "median",
+          "type": "numeric",
+          "prompt": "Median rupture force in pN.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "mode",
+            "type": "numeric",
+            "answer": 5.545177444479562,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "median",
+            "type": "numeric",
+            "answer": 5.311045718153324,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why retain a complete distribution alongside one summary?",
+        "solution": "The cumulative-hazard coefficient is one quarter. Mode is 4ln4, about 5.5451774 pN, and median4ln[one+four ln2], about 5.3110457. Both refer to the same supplied distribution;their difference does not imply two distinct bond populations.",
+        "lesson_ids": [
+          "cellular-biomechanics-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic cellular mechanics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "cellular-biomechanics-21:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use that assignment at F=8 pN with 100 initially intact conditional independent trials. Separately double only r while remaining in the eligible interior-mode regime. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "cellular-biomechanics-21-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "hazard",
+          "type": "numeric",
+          "prompt": "Cumulative hazard at F=8 pN.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "expected",
+          "type": "numeric",
+          "prompt": "Expected intact count at F=8;continuous expectation, not an observed integer count.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "shift",
+          "type": "numeric",
+          "prompt": "Mode increase after doubling only r in pN.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "count",
+          "type": "single_choice",
+          "prompt": "Which count interpretation is supported?",
+          "options": [
+            "The continuous expectation specifies the exact observed number of intact trials.",
+            "A survival probability automatically establishes biological replication across cultures.",
+            "The expectation is100 times survival;an actual integer count varies under the supplied sampling model."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "hazard",
+            "type": "numeric",
+            "answer": 1.5972640247326626,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "expected",
+            "type": "numeric",
+            "answer": 20.244965821838907,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "shift",
+            "type": "numeric",
+            "answer": 2.772588722239781,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "count",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "When should a count response be continuous?",
+        "solution": "H=(exp(two)−one)/four and survivor exp(−H). Multiplying by 100 gives expected count about 20.244966, not a guaranteed observation. The separate doubled-rate mode shift is 4ln2, about 2.7725887 pN;that identity need not equal the median shift.",
+        "lesson_ids": [
+          "cellular-biomechanics-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic cellular mechanics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "cellular-biomechanics-22:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 4 models:A Cnormal=[[6, 2], [2, 5]], C66=3 kPa;B Cnormal=[[6, 2], [2, 8]], C66=1.5 kPa. Compare a biaxial strain(0.01, 0.01, 0)and a SEPARATE pure engineering shear gamma=0.02. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "cellular-biomechanics-22-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "normal_a",
+          "type": "numeric",
+          "prompt": "Biaxial sigma_yy for model A in kPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "normal_b",
+          "type": "numeric",
+          "prompt": "Biaxial sigma_yy for model B in kPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "shear_a",
+          "type": "numeric",
+          "prompt": "Separate pure-shear tau_xy for A in kPa.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "shear_b",
+          "type": "numeric",
+          "prompt": "Separate pure-shear tau_xy for B in kPa.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "normal_a",
+            "type": "numeric",
+            "answer": 0.07,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "normal_b",
+            "type": "numeric",
+            "answer": 0.1,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "shear_a",
+            "type": "numeric",
+            "answer": 0.06,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "shear_b",
+            "type": "numeric",
+            "answer": 0.03,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What makes a comparison discriminating within a model family?",
+        "solution": "Both models agree on the earlier prescribed strain(0.01, zero, zero). The new biaxial predictions differ in yy stress:0.07 versus0.10 kPa. The separate shear predictions are 0.06 versus0.03. These distinct loadings expose unresolved coefficients without proving either model describes an actual cell.",
+        "lesson_ids": [
+          "cellular-biomechanics-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic cellular mechanics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "cellular-biomechanics-22:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Separate membrane alternatives:A kappa=90 pN nm, sigma=0.05 pN/nm;B kappa=45, sigma=0.10, same units. Use the ideal fixed-tension long-cylinder law. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "cellular-biomechanics-22-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "radius_a",
+          "type": "numeric",
+          "prompt": "Predicted radius for A in nm.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "radius_b",
+          "type": "numeric",
+          "prompt": "Predicted radius for B in nm.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "force",
+          "type": "numeric",
+          "prompt": "Common predicted extension force in pN.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "selection",
+          "type": "single_choice",
+          "prompt": "Which inference is supported? for the supplied mechanical model.",
+          "options": [
+            "The equal force cannot select between these pairs;an independent radius differs and can discriminate under the stated law.",
+            "One exact common force value proves both bending rigidities are equal.",
+            "The radius difference uniquely identifies a signaling pathway without a connecting biological model."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "radius_a",
+            "type": "numeric",
+            "answer": 30.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "radius_b",
+            "type": "numeric",
+            "answer": 15.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "force",
+            "type": "numeric",
+            "answer": 18.84955592153876,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "selection",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why distinguish a mechanical inverse parameter from a biological mechanism?",
+        "solution": "Both products kappa sigma equal 4.5, so force is 6pi pN. Their radius ratios kappa/(two sigma)give 30 and 15 nm. Joint force/geometry evidence can separate the selected alternatives, while cortex/reservoir/biological mechanisms still require their own assumptions and evidence.",
+        "lesson_ids": [
+          "cellular-biomechanics-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic cellular mechanics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
     }
   ]
 }

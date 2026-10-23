@@ -3,7 +3,7 @@
 **Activity type:** synthetic-data analysis with public, ungraded formative checks
 **Course package:** Geroscience & Regenerative Biology. **Estimated learner time:** 2–3 hours
 **Data status:** all observations are constructed for instruction. They describe no real animals, intervention or study, and nothing here is evidence about any compound or about human aging.
-**Dataset:** [synthetic cohort (CSV)](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/geroscience/labs/lifespan-cohort.csv).
+**Dataset:** [synthetic cohort (CSV)](lifespan-cohort.csv).
 
 ## Experimental question
 

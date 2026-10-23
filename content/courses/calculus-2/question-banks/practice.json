@@ -4215,6 +4215,1242 @@
           }
         ]
       }
+    },
+    {
+      "id": "calculus-2-16:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Rehearsal generator y=2+x,0<=x<=2,rotated about the x-axis. Coordinates use a common normalized length scale. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "calculus-2-16-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "length",
+          "type": "numeric",
+          "prompt": "Generator slant length in normalized length units.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "lateral",
+          "type": "numeric",
+          "prompt": "Lateral area excluding end caps in normalized area units.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "length",
+            "type": "numeric",
+            "answer": 2.8284271247461903,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "lateral",
+            "type": "numeric",
+            "answer": 53.31459525790039,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which small element produces surface area about the x-axis?",
+        "solution": "The line slope is one, so its slant length is two sqrt2. Rotating the line gives a frustum with radii two and four, whose lateral area is pi(two+four)(two sqrt2)=twelve pi sqrt2. The same result follows from integrating two pi y ds, with ds=sqrt2 dx.",
+        "lesson_ids": [
+          "calculus-2-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-2-16:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use that same rehearsal frustum and include both circular end caps only when explicitly requested. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "calculus-2-16-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "volume",
+          "type": "numeric",
+          "prompt": "Enclosed volume in normalized cubic units.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "closed",
+          "type": "numeric",
+          "prompt": "Surface area including both end disks.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "volume",
+            "type": "numeric",
+            "answer": 58.64306286700947,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "closed",
+            "type": "numeric",
+            "answer": 116.14644832969626,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must be stated before integrating a geometric boundary?",
+        "solution": "The disk integral pi integral(2+x)² dx from zero to two is 56pi/three. The two end disks contribute pi(two²+four²)=20pi, added to the lateral area only for a capped boundary. Area and volume have different dimensions and cannot be exchanged because they share the same outline.",
+        "lesson_ids": [
+          "calculus-2-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-2-16:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Rotate the unit-circle generator x=cos(t),y=sin(t) around the x-axis. Compare t in [0,pi] with the full-circle interval [0,2pi]. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "calculus-2-16-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "coverage",
+          "type": "numeric",
+          "prompt": "Exact number of times the full-circle rotation map covers the sphere.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "surface",
+          "type": "numeric",
+          "prompt": "Actual distinct unit-sphere area for the supplied mathematical example.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "coverage",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "surface",
+            "type": "numeric",
+            "answer": 12.566370614359172,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Can a once-traced curve generate a multiply covered surface?",
+        "solution": "The upper semicircle generates the sphere once and gives four pi. The full planar circle is traced once, but both its upper and lower halves generate the same sphere: the absolute-radius swept integral is eight pi and counts the surface twice. Using an absolute radius prevents sign cancellation but does not resolve coverage.",
+        "lesson_ids": [
+          "calculus-2-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-2-16:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Interpret a surface-of-revolution setup with a possibly negative generating coordinate or repeated parameter range. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "calculus-2-16-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "radius",
+          "type": "single_choice",
+          "prompt": "Which element is appropriate about the x-axis?",
+          "options": [
+            "Two pi abs(y(t)) times sqrt(x prime²+y prime²) dt, with the intended coverage checked.",
+            "Pi y(t)² dt without a parameter-width or arc-length factor.",
+            "Two pi y(t) dt with signed cancellation regardless of distance to the axis."
+          ],
+          "points": 1
+        },
+        {
+          "id": "coverage",
+          "type": "single_choice",
+          "prompt": "What repairs the full-circle sphere double count?",
+          "options": [
+            "Drop the absolute radius and accept zero as the sphere’s geometric area.",
+            "Refine numerical quadrature without changing or interpreting the parameter map.",
+            "Choose a generating interval that covers the sphere once or account for multiplicity explicitly."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "radius",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "coverage",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can a numerically accurate integral still give the wrong geometric quantity?",
+        "solution": "Distance to the rotation axis is nonnegative and the generating arc element includes both parameter derivatives. Even that correct integrand counts multiplicity, so the full-circle sphere example needs a once-covering interval or explicit correction. More quadrature points cannot infer the intended distinct surface from an ambiguous map.",
+        "lesson_ids": [
+          "calculus-2-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-2-17:depth-1",
+      "type": "data_interpretation",
+      "prompt": "For f_n(x)=x^n compare the pointwise-limit error on [0,1] with its uniform bound on [0,1/2]. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-2-17-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "global",
+          "type": "numeric",
+          "prompt": "Supremum error from the pointwise limit on [0,1] for any finite positive n.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "restricted",
+          "type": "numeric",
+          "prompt": "Uniform error bound on [0,1/2] at n=10.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "index",
+          "type": "numeric",
+          "prompt": "Smallest positive integer n with (1/2)^n strictly below 0.001.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "global",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "restricted",
+            "type": "numeric",
+            "answer": 0.0009765625,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "index",
+            "type": "numeric",
+            "answer": 10.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How do pointwise and uniform claims differ?",
+        "solution": "At every x<one the limit is zero, while at one it is one. Interior points arbitrarily close to one keep the supremum error at one, so convergence is not uniform on the whole interval. On the restricted interval the maximum is two^−n; n=ten is the first exponent whose certificate is below 0.001.",
+        "lesson_ids": [
+          "calculus-2-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-2-17:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use the continuous triangular sequence: h_n=n²x on [0,1/n],h_n=n(2−nx) on [1/n,2/n],zero afterward,n>=2. Evaluate n=5. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "calculus-2-17-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "height",
+          "type": "numeric",
+          "prompt": "Triangle peak height for the supplied mathematical example.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "base",
+          "type": "numeric",
+          "prompt": "Triangle base width for the supplied mathematical example.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "integral",
+          "type": "numeric",
+          "prompt": "Integral over [0,1] for the supplied mathematical example.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "interchange",
+          "type": "single_choice",
+          "prompt": "Which statement follows? for the supplied mathematical example.",
+          "options": [
+            "The integral must tend to zero merely because every fixed point eventually lies outside the shrinking support.",
+            "The pointwise limit is zero, while each triangle’s integral is one; pointwise convergence alone does not justify interchange.",
+            "A sufficiently sparse fixed plotting grid proves that the integral is small."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "height",
+            "type": "numeric",
+            "answer": 5.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "base",
+            "type": "numeric",
+            "answer": 0.4,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "integral",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "interchange",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can a fixed sample grid mislead for a narrowing sequence?",
+        "solution": "At n=five the triangle has height five and base two/five, hence area one. Every fixed positive point eventually lies beyond the support and the value at zero stays zero, so the pointwise limit is zero everywhere. Its integral differs from the sequence of integrals, exposing the missing uniform control.",
+        "lesson_ids": [
+          "calculus-2-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-2-17:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Use F(0)=0 and F(x)=exp(−1/x²) for x!=0. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "calculus-2-17-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "value",
+          "type": "numeric",
+          "prompt": "Actual F(1/2) for the supplied mathematical example.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "representation",
+          "type": "single_choice",
+          "prompt": "Which conclusion is correct? for the supplied mathematical example.",
+          "options": [
+            "Existence of every derivative guarantees that the Taylor series equals the function at all nearby nonzero points.",
+            "This example invalidates every finite-order Taylor remainder theorem.",
+            "Every derivative at zero vanishes, so all Taylor polynomials are zero while F(1/2) is positive."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "value",
+            "type": "numeric",
+            "answer": 0.01831563888873418,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "representation",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What extra claim is needed beyond smoothness for an infinite Taylor representation?",
+        "solution": "Away from zero, each derivative is a polynomial in one/x times exp(−one/x²), and the exponential dominates every power as x approaches zero. Difference quotients therefore give zero derivatives at the center. All Taylor polynomials vanish, but F(one half)=exp(−four)>zero; finite-order remainder statements remain valid with their own bounds.",
+        "lesson_ids": [
+          "calculus-2-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-2-17:depth-4",
+      "type": "data_interpretation",
+      "prompt": "For sum from n=1 of x^n/n² on [0,1],use the uniform tail bound 1/N and inspect its formal derivative series. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-2-17-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "tail",
+          "type": "numeric",
+          "prompt": "Uniform original-series tail certificate at N=100.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "derivative",
+          "type": "numeric",
+          "prompt": "Derivative-series value at x=1/2 in the justified interior.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "endpoint",
+          "type": "single_choice",
+          "prompt": "Which statement is supported? for the supplied mathematical example.",
+          "options": [
+            "The original series converges uniformly on [0,1], but the derivative series becomes harmonic at one and needs its own domain argument.",
+            "Uniform convergence of the original series automatically gives a uniformly convergent derivative series through every endpoint.",
+            "A finite polynomial being defined outside a convergence interval proves the infinite series converges there."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "tail",
+            "type": "numeric",
+            "answer": 0.01,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "derivative",
+            "type": "numeric",
+            "answer": 1.3862943611198906,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "endpoint",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why do different termwise operations need separate hypotheses?",
+        "solution": "Bounding x^n/n² by one/n² gives a uniform tail at most one/N. The derivative series is sum x^(n−one)/n, equal to −ln(one−x)/x inside and to a divergent harmonic series at one. At one half its value is two ln2; the original uniform bound does not justify endpoint differentiation.",
+        "lesson_ids": [
+          "calculus-2-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-2-18:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1 uses I=integral_0^1 x/(x²+4x+5) dx and J=integral_0^1 x² ln(1+x) dx. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-2-18-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "rational",
+          "type": "numeric",
+          "prompt": "Exact I evaluated numerically for the supplied mathematical example.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "parts",
+          "type": "numeric",
+          "prompt": "Exact J evaluated numerically for the supplied mathematical example.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "method",
+          "type": "single_choice",
+          "prompt": "Which method description is appropriate?",
+          "options": [
+            "Apply L’Hôpital’s rule directly as a general antiderivative method for both.",
+            "Complete the square and separate the numerator for I; integrate by parts and divide the rational remainder for J.",
+            "Treat both denominators as singular on [0,1] without checking their values."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "rational",
+            "type": "numeric",
+            "answer": 0.06277948107164483,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "parts",
+            "type": "numeric",
+            "answer": 0.18432034259551905,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "method",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does a mixed-method report need beyond two decimal answers?",
+        "solution": "For I, the denominator is (x+two)²+one and the numerator separates into its derivative part and a remainder, yielding one-half ln2−two arctan(one/seven). For J, integration by parts followed by division gives two ln2/three−five/eighteen. Differentiate candidates and check domains before evaluating the endpoints.",
+        "lesson_ids": [
+          "calculus-2-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-2-18:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1 also uses A=integral_0^infinity 1/[(x+1)(x+2)] dx with one shared cutoff T and tail R(T)=ln((T+2)/(T+1)). Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-2-18-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "integral",
+          "type": "numeric",
+          "prompt": "Full convergent integral A for the supplied mathematical example.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "cutoff",
+          "type": "numeric",
+          "prompt": "Smallest nonnegative integer T with R(T)<=0.01.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "tail",
+          "type": "numeric",
+          "prompt": "Actual tail at that integer cutoff.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "integral",
+            "type": "numeric",
+            "answer": 0.6931471805599453,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "cutoff",
+            "type": "numeric",
+            "answer": 99.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "tail",
+            "type": "numeric",
+            "answer": 0.009950330853168092,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why keep one shared cutoff for this partial-fraction limit?",
+        "solution": "Keep the partial-fraction logarithms at one finite upper cutoff before taking the limit, giving A=ln2. Solving the tail inequality gives T at least one/(exp(0.01)−one)−one, about 98.5008333. The smallest integer is 99 and its tail is ln(101/100); neighboring-integer checks verify the boundary choice.",
+        "lesson_ids": [
+          "calculus-2-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-2-19:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2 rotates y=1+2x,0<=x<=1,about the x-axis. Distinguish lateral surface,end caps and volume. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-2-19-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "lateral",
+          "type": "numeric",
+          "prompt": "Lateral area excluding end caps.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "volume",
+          "type": "numeric",
+          "prompt": "Enclosed volume for the supplied mathematical example.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "closed",
+          "type": "numeric",
+          "prompt": "Area including both circular end caps.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "lateral",
+            "type": "numeric",
+            "answer": 28.099258924162907,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "volume",
+            "type": "numeric",
+            "answer": 13.61356816555577,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "closed",
+            "type": "numeric",
+            "answer": 59.515185460060835,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What distinguishes volume, lateral area and capped area?",
+        "solution": "The generator has radii one and three and slant length sqrt5, so lateral area is four pi sqrt5. The disk-volume integral gives thirteen pi/three. End disks add ten pi only for the capped boundary. The element, dimensions and requested boundary distinguish the three results even though their generating outline is shared.",
+        "lesson_ids": [
+          "calculus-2-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-2-19:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2’s separate disk has R=3 and density c(r)=10[1−(r/R)^4] per normalized area. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-2-19-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "amount",
+          "type": "numeric",
+          "prompt": "Total disk amount for the supplied mathematical example.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "average",
+          "type": "numeric",
+          "prompt": "Area-average density for the supplied mathematical example.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "median",
+          "type": "numeric",
+          "prompt": "Radius containing half the amount, divided by R.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "amount",
+            "type": "numeric",
+            "answer": 188.49555921538757,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "average",
+            "type": "numeric",
+            "answer": 6.666666666666667,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "median",
+            "type": "numeric",
+            "answer": 0.5893185516627324,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why distinguish a weighted quantile from an average?",
+        "solution": "Annular integration gives total sixty pi and area nine pi, hence mean density twenty/three. With z=(r/R)² the cumulative fraction is three z/two−z³/two. Its admissible half-amount root on [zero,one] gives radius ratio about 0.58931855; other algebraic roots do not represent a radius in this disk.",
+        "lesson_ids": [
+          "calculus-2-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-2-20:depth-1",
+      "type": "data_interpretation",
+      "prompt": "For the positive series sum n>=2 of 1/[n(ln n)^p],use the integral remainder bound for p=2 after terms through N. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-2-20-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "bound",
+          "type": "numeric",
+          "prompt": "Remainder upper bound 1/ln(N) at N=100.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "index",
+          "type": "numeric",
+          "prompt": "Smallest integer N making that bound <=0.1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "classification",
+          "type": "single_choice",
+          "prompt": "Which p=1 conclusion is justified?",
+          "options": [
+            "It converges because a finite plot of partial sums grows slowly.",
+            "Terms tending to zero alone guarantee convergence of every positive series.",
+            "It diverges by its eligible comparison integral despite slow partial-sum growth and terms tending to zero."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "bound",
+            "type": "numeric",
+            "answer": 0.21714724095162588,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "index",
+            "type": "numeric",
+            "answer": 22027.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "classification",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How does a slow tail challenge numerical convergence claims?",
+        "solution": "The p=two integral tail is one/ln N, about 0.217147 at one hundred. Requiring that certificate at most 0.1 gives ln N at least ten, so N=22027 is the smallest integer. The p=one comparison integral diverges; small finite increments and a zero term limit do not establish convergence.",
+        "lesson_ids": [
+          "calculus-2-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-2-20:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For the alternating harmonic series retain the first N terms and require first-omitted bound <=0.001. Separately analyze sum n>=1 of (x−1)^n/(n2^n). Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-2-20-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "terms",
+          "type": "numeric",
+          "prompt": "Smallest positive integer N for the alternating bound 1/(N+1)<=0.001.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "radius",
+          "type": "numeric",
+          "prompt": "Radius of the separate power series centered at one.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "endpoints",
+          "type": "single_choice",
+          "prompt": "Which endpoint classification is correct for that power series?",
+          "options": [
+            "At x=−1 it converges conditionally; at x=3 it diverges.",
+            "Both endpoints converge absolutely because the interior ratio is less than one.",
+            "Both endpoints are included without a test because the radius is finite."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "terms",
+            "type": "numeric",
+            "answer": 999.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "radius",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "endpoints",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which labels prevent off-by-one and endpoint mistakes?",
+        "solution": "The alternating bound uses the next term one/(N+one), giving N=999 as the smallest sufficient count. The separate ratio test gives radius two around one. Substitution at minus one produces alternating harmonic terms, while at three it produces positive harmonic terms; the endpoint verdicts require their own arguments.",
+        "lesson_ids": [
+          "calculus-2-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-2-21:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 4 integrates the cubic arctangent truncation x−x³/3 from zero to b=1/2. Use the exact unrounded polynomial integral for its truncation/error comparisons. Report the approximation field to six significant figures and the bound/error fields to three significant figures, as bare numbers in the stated normalized units. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "calculus-2-21-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "approximation",
+          "type": "numeric",
+          "prompt": "Cubic polynomial integral; report SIX significant figures.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "bound",
+          "type": "numeric",
+          "prompt": "Integrated first-omitted truncation certificate for the supplied mathematical example.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "error",
+          "type": "numeric",
+          "prompt": "Actual error relative to the exact arctangent integral, using the unrounded polynomial value.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "approximation",
+            "type": "numeric",
+            "answer": 0.11979166666666667,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 6
+          },
+          {
+            "id": "bound",
+            "type": "numeric",
+            "answer": 0.0005208333333333333,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "error",
+            "type": "numeric",
+            "answer": 0.00046036217663149304,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why does this approximation field require six significant figures?",
+        "solution": "The polynomial integral is exactly 23/192, reported as 0.119792 to six significant figures so it differs from the exact integral 0.12025203. Integrating the pointwise omitted bound gives one/1920; the actual unrounded-polynomial error is about 4.60362177×10⁻⁴. Display rounding has a separate budget and is not part of that truncation derivation.",
+        "lesson_ids": [
+          "calculus-2-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "calculus-2-21:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For Assignment 4 retain arctangent indices n=0 through N before integration. At b=1/2 use B_N=b^(2N+4)/[(2N+3)(2N+4)] and target 10^−6. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "calculus-2-21-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "terms",
+          "type": "numeric",
+          "prompt": "First sufficient number of nonzero arctangent terms under this certificate.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "degree",
+          "type": "numeric",
+          "prompt": "Degree of that arctangent polynomial before integration.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "bound",
+          "type": "numeric",
+          "prompt": "Integrated bound for this first sufficient choice.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "claim",
+          "type": "single_choice",
+          "prompt": "What does the preceding order’s larger bound establish?",
+          "options": [
+            "The actual error necessarily equals the conservative bound.",
+            "That certificate is insufficient for the target; actual-error failure needs a separate reference or sharper argument.",
+            "No smooth function can ever be approximated by Taylor polynomials because one bound is conservative."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "terms",
+            "type": "numeric",
+            "answer": 6.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "degree",
+            "type": "numeric",
+            "answer": 11.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "bound",
+            "type": "numeric",
+            "answer": 3.353580013736264e-07,
+            "unit": "",
+            "tolerance": 5.1e-10,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "claim",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why distinguish polynomial degree, term count and a sufficient bound?",
+        "solution": "With N=four the bound is about 1.84955×10^−6, while N=five gives about 3.35358×10^−7. N=five means six nonzero terms and arctangent degree eleven. The previous certificate failing does not alone prove its actual error exceeds the target; display and numerical rounding need their own budget as well.",
+        "lesson_ids": [
+          "calculus-2-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
     }
   ]
 }

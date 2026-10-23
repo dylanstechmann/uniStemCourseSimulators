@@ -12863,6 +12863,1366 @@
           }
         ]
       }
+    },
+    {
+      "id": "biochemistry-28:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Stipulated reversible neutral carrier:J=V(Cout−Cin)/(K+Cout+Cin), V=6, K=1. First Cout4, Cin1; then both concentrations double. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "biochemistry-28-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "initial",
+          "type": "numeric",
+          "prompt": "Initial inward net flux for the stipulated biochemical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "doubled",
+          "type": "numeric",
+          "prompt": "Flux after both concentrations double.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "initial",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "doubled",
+            "type": "numeric",
+            "answer": 3.272727272727273,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What distinguishes flux from thermodynamic drive?",
+        "solution": "Initial flux is six times three/six=three. After doubling concentrations, it is six times six/eleven=thirty-six/eleven. A fixed ratio does not imply fixed occupancy or linear rate scaling; this neutral teaching law does not include an ion electrical term.",
+        "lesson_ids": [
+          "biochemistry-28"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biochemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biochemistry-28:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Inward positive monovalent ion:outside/inside ratio10, FDeltaPsi/RT=−ln10. Two ions move inward with each neutral substrate at Sin/Sout1000. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "biochemistry-28-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "ion",
+          "type": "numeric",
+          "prompt": "Inward ion free energy divided by RT.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "cycle",
+          "type": "numeric",
+          "prompt": "Two-ion/substrate cycle free energy divided by RT.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "stall",
+          "type": "numeric",
+          "prompt": "Ideal reversible substrate accumulation ratio for two ions.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "ion",
+            "type": "numeric",
+            "answer": -4.605170185988092,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "cycle",
+            "type": "numeric",
+            "answer": -2.302585092994046,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "stall",
+            "type": "numeric",
+            "answer": 10000.0,
+            "unit": "",
+            "tolerance": 51.0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must accompany a membrane-potential sign?",
+        "solution": "Each inward ion contributes ln0.1−ln10=−two ln10. Substrate contributes ln1000=three ln10, so two ions give total minus ln10. Zero cycle drive occurs at ratio ten thousand; stall is not a finite useful-flux claim.",
+        "lesson_ids": [
+          "biochemistry-28"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biochemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biochemistry-28:depth-3",
+      "type": "data_interpretation",
+      "prompt": "A separate pump exports that ion gradient and hydrolyzes ATP with DeltaG/RT=−12 per cycle. Require strictly negative total cycle free energy. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "biochemistry-28-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "ions",
+          "type": "numeric",
+          "prompt": "Largest integer exported-ion count with favorable total energy.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "cost",
+          "type": "numeric",
+          "prompt": "Energy cost divided by RT for exporting two ions.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "cycle",
+          "type": "numeric",
+          "prompt": "Total two-ion pump cycle free energy divided by RT.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "ions",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "cost",
+            "type": "numeric",
+            "answer": 9.210340371976184,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "cycle",
+            "type": "numeric",
+            "answer": -2.7896596280238164,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How is an integer transport bound verified?",
+        "solution": "Two exported ions cost four ln10, less than twelve; three would cost six ln10, greater than twelve. The model maximum is two. A real protein’s coupling count is a mechanistic property rather than a number chosen freely from this bound.",
+        "lesson_ids": [
+          "biochemistry-28"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biochemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biochemistry-28:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Compare a high-affinity uniporter, a tightly coupled cycle and a leak. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "biochemistry-28-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "affinity",
+          "type": "single_choice",
+          "prompt": "Which conclusion is correct? for the stipulated biochemical model.",
+          "options": [
+            "High binding affinity alone does not supply the free energy needed to maintain uphill neutral accumulation.",
+            "A sufficiently low dissociation constant creates free energy without a coupled process.",
+            "A zero net flux proves every microscopic crossing stopped."
+          ],
+          "points": 1
+        },
+        {
+          "id": "leak",
+          "type": "single_choice",
+          "prompt": "Why can a leak defeat secondary transport?",
+          "options": [
+            "It always increases useful coupled work without any cost.",
+            "It changes no possible flux or concentration endpoint.",
+            "It dissipates the driving gradient or bypasses the intended coupled cycle;maintaining that gradient has its own energy ledger."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "affinity",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "leak",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What evidence distinguishes a transport mechanism?",
+        "solution": "Alternating-access restrictions and coupled return steps matter, while leak and turnover create distinct pathways. Binding, net flux and a concentration endpoint cannot independently identify the whole mechanism.",
+        "lesson_ids": [
+          "biochemistry-28"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biochemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biochemistry-29:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Synthetic40-residue product:one successful charging per residue, ATP toAMP; count charging as two phosphate equivalents per event. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "biochemistry-29-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "atp",
+          "type": "numeric",
+          "prompt": "Exact ATP molecules consumed in successful charging.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "equivalents",
+          "type": "numeric",
+          "prompt": "Exact charging high-energy phosphate equivalents.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "bonds",
+          "type": "numeric",
+          "prompt": "Exact peptide-bond count for the stipulated biochemical model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "atp",
+            "type": "numeric",
+            "answer": 40.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "equivalents",
+            "type": "numeric",
+            "answer": 80.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "bonds",
+            "type": "numeric",
+            "answer": 39.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why are ATP molecules and phosphate equivalents different?",
+        "solution": "Forty residues require forty charged substrates and forty ATP-toAMP events in the declared no-retry model. Charging counts eighty phosphate equivalents under the pyrophosphate/regeneration convention, while the chain contains thirty-nine peptide bonds.",
+        "lesson_ids": [
+          "biochemistry-29"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biochemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biochemistry-29:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Same product:two elongation GTP per addition after the first residue, and separately stipulated four-GTP overhead. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "biochemistry-29-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "elongation",
+          "type": "numeric",
+          "prompt": "Exact elongation GTP count for the stipulated biochemical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "gtp",
+          "type": "numeric",
+          "prompt": "Exact total GTP including stipulated overhead.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "total",
+          "type": "numeric",
+          "prompt": "Exact total charging-plus-GTP phosphate equivalents.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "elongation",
+            "type": "numeric",
+            "answer": 78.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "gtp",
+            "type": "numeric",
+            "answer": 82.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "total",
+            "type": "numeric",
+            "answer": 162.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What belongs in a translation energy result?",
+        "solution": "Thirty-nine additions cost seventy-eight GTP; four overhead gives eighty-two. Add eighty charging equivalents for one hundred sixty-two total. Direct peptide transfer uses the activated aminoacyl ester; the full process still needs the separately counted nucleotides.",
+        "lesson_ids": [
+          "biochemistry-29"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biochemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biochemistry-29:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Conditional filters:input correct0.9, incorrect0.1; first survival correct0.8, incorrect0.01; second conditional survival correct0.9, incorrect0.1. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "biochemistry-29-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "correct",
+          "type": "numeric",
+          "prompt": "Correct accepted output per original attempt.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "acceptance",
+          "type": "numeric",
+          "prompt": "Total accepted output per attempt.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "error",
+          "type": "numeric",
+          "prompt": "Incorrect fraction among accepted outputs.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "correct",
+            "type": "numeric",
+            "answer": 0.648,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "acceptance",
+            "type": "numeric",
+            "answer": 0.6481,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "error",
+            "type": "numeric",
+            "answer": 0.00015429717636167257,
+            "unit": "",
+            "tolerance": 5.1e-07,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which denominator defines an output error fraction?",
+        "solution": "Correct output is0.648 and incorrect0.0001, total0.6481. The accepted-output error fraction is0.0001/0.6481=one/6481, not incorrect output divided by all attempts. The conditional probabilities are stipulated, not universal enzyme error rates.",
+        "lesson_ids": [
+          "biochemistry-29"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biochemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biochemistry-29:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Same first filter but omit the second. Compare its accepted-output error with the two-filter result. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "biochemistry-29-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "without",
+          "type": "numeric",
+          "prompt": "Incorrect fraction among outputs without the second filter.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "improvement",
+          "type": "numeric",
+          "prompt": "One-filter error divided by two-filter error.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "charging",
+          "type": "single_choice",
+          "prompt": "Which statement is correct? for the stipulated biochemical model.",
+          "options": [
+            "Correct codon pairing proves every tRNA carries the correct amino acid.",
+            "A correctly paired anticodon can still carry an incorrectly charged amino acid;charging and codon recognition are distinct checks.",
+            "Peptide-bond formation directly consumes two ATP molecules for every bond."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "without",
+            "type": "numeric",
+            "answer": 0.0013869625520110957,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "improvement",
+            "type": "numeric",
+            "answer": 8.988904299583911,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "charging",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does a two-filter probability model leave unresolved?",
+        "solution": "Without editing, incorrect0.001 competes with correct0.720, giving one/721. The improvement6481/721 differs from exactly ten because the correct-output denominator also changes. Editing can consume substrates and energy and need not be free or faster.",
+        "lesson_ids": [
+          "biochemistry-29"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biochemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biochemistry-30:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Simplified Calvin net ledger for one three-carbon triose output, with acceptor regeneration inside the boundary. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "biochemistry-30-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "co2",
+          "type": "numeric",
+          "prompt": "Exact CO2 molecule count per net triose output.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "atp",
+          "type": "numeric",
+          "prompt": "Exact ATP requirement for the stipulated biochemical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "nadph",
+          "type": "numeric",
+          "prompt": "Exact NADPH requirement for the stipulated biochemical model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "co2",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "atp",
+            "type": "numeric",
+            "answer": 9.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "nadph",
+            "type": "numeric",
+            "answer": 6.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why distinguish net triose output from regenerated intermediates?",
+        "solution": "Three CO2 supply the three net output carbons. Six ATP support phosphorylation/reduction preparation and three acceptor regeneration, total nine; the reductant requirement is six NADPH. Five of the six reduced triose equivalents remain for acceptor regeneration.",
+        "lesson_ids": [
+          "biochemistry-30"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biochemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biochemistry-30:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Ideal four-linear-electron block:two water oxidations, productive PSII and PSI excitation for each electron; stipulate four water-derived plus eight route-derived lumen protons. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "biochemistry-30-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "oxygen",
+          "type": "numeric",
+          "prompt": "Exact released O2 count for the stipulated biochemical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "nadph",
+          "type": "numeric",
+          "prompt": "Exact terminal NADPH count for the stipulated biochemical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "photons",
+          "type": "numeric",
+          "prompt": "Exact minimum productive linear photon count.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "protons",
+          "type": "numeric",
+          "prompt": "Exact stipulated lumen-proton count for the stipulated biochemical model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "oxygen",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "nadph",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "photons",
+            "type": "numeric",
+            "answer": 8.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "protons",
+            "type": "numeric",
+            "answer": 12.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must be specified with a light-reaction yield?",
+        "solution": "Four electrons release one oxygen, form two NADPH and need four productive excitations in each photosystem. The separately stated proton ledger totals twelve. These ideal counts omit losses and do not establish a measured quantum efficiency.",
+        "lesson_ids": [
+          "biochemistry-30"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biochemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biochemistry-30:depth-3",
+      "type": "data_interpretation",
+      "prompt": "For six NADPH use three of those blocks. Stipulate h=14/3 protons per ATP and a cyclic route supplying two protons per cyclic electron plus one productive photon. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "biochemistry-30-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "required_protons",
+          "type": "numeric",
+          "prompt": "Exact proton count needed for nine ATP.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "linear_protons",
+          "type": "numeric",
+          "prompt": "Exact protons from the three linear blocks.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "cyclic",
+          "type": "numeric",
+          "prompt": "Exact added cyclic-electron count for the deficit.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "photons",
+          "type": "numeric",
+          "prompt": "Exact total minimum productive photons.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "required_protons",
+            "type": "numeric",
+            "answer": 42.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "linear_protons",
+            "type": "numeric",
+            "answer": 36.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "cyclic",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "photons",
+            "type": "numeric",
+            "answer": 27.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can enough reductant still leave an energy deficit?",
+        "solution": "Nine ATP need forty-two protons. Linear flow supplies thirty-six and six NADPH, leaving six protons. Three cyclic electrons supply them and add three photons to twenty-four linear photons, total twenty-seven. The cyclic route adds no terminal NADPH or oxygen in this model.",
+        "lesson_ids": [
+          "biochemistry-30"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biochemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biochemistry-30:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Separate available pool:18ATP and9NADPH used only by the simplified Calvin net ledger. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "biochemistry-30-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "output",
+          "type": "numeric",
+          "prompt": "Maximum ensemble net triose output.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "co2",
+          "type": "numeric",
+          "prompt": "CO2 amount consumed for the stipulated biochemical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "atp_left",
+          "type": "numeric",
+          "prompt": "ATP amount remaining for the stipulated biochemical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "limiting",
+          "type": "single_choice",
+          "prompt": "Which resource limits this model?",
+          "options": [
+            "NADPH limits output;the unused ATP does not replace missing reducing equivalents.",
+            "ATP limits because ATP and NADPH are interchangeable currencies.",
+            "Any positive ATP pool proves unlimited carbon fixation."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "output",
+            "type": "numeric",
+            "answer": 1.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "co2",
+            "type": "numeric",
+            "answer": 4.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "atp_left",
+            "type": "numeric",
+            "answer": 4.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "limiting",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What makes a carbon-output maximum defensible?",
+        "solution": "ATP supports two output units but NADPH only one point five. That fixes four point five CO2 and uses thirteen point five ATP, leaving four point five. Fractional ensemble amounts do not mean fractional individual molecules in one literal event.",
+        "lesson_ids": [
+          "biochemistry-30"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biochemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biochemistry-31:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Distinct ion outside/inside ratio4, FDeltaPsi/RT=−ln4; two-ion inward substrate cycle at ratio64. Separate ATP pump supplies−10RT per cycle. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "biochemistry-31-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "ion",
+          "type": "numeric",
+          "prompt": "Inward driving-ion free energy divided by RT.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "cycle",
+          "type": "numeric",
+          "prompt": "Two-ion/substrate cycle free energy divided by RT.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "stall",
+          "type": "numeric",
+          "prompt": "Ideal reversible substrate ratio for the stipulated biochemical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "pump",
+          "type": "numeric",
+          "prompt": "Largest favorable integer exported-ion count for the separate pump.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "ion",
+            "type": "numeric",
+            "answer": -2.772588722239781,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "cycle",
+            "type": "numeric",
+            "answer": -1.3862943611198906,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "stall",
+            "type": "numeric",
+            "answer": 256.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "pump",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How can two cycles have equal free energy but different transport?",
+        "solution": "Inward ion energy is minus two ln4. Substrate ln64=three ln4 with two ions gives minus ln4; stall is4^four=256. Export costs two ln4 per ion, and three cost less than ten while four cost more. Mechanistic stoichiometry and finite-flux limitations remain separate.",
+        "lesson_ids": [
+          "biochemistry-31"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biochemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biochemistry-31:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Distinct60-residue product:no retries, two elongation GTP per addition after the first, six overhead GTP, two equivalents per charging. Separate filters:correct input0.98, survival0.9 then0.95; incorrect input0.02, survival0.1 then0.01. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "biochemistry-31-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "equivalents",
+          "type": "numeric",
+          "prompt": "Exact total translation high-energy equivalents.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "bonds",
+          "type": "numeric",
+          "prompt": "Exact peptide-bond count for the stipulated biochemical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "acceptance",
+          "type": "numeric",
+          "prompt": "Total accepted output per attempt in the separate filter model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "error",
+          "type": "numeric",
+          "prompt": "Incorrect fraction among accepted outputs.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "equivalents",
+            "type": "numeric",
+            "answer": 244.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "bonds",
+            "type": "numeric",
+            "answer": 59.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "acceptance",
+            "type": "numeric",
+            "answer": 0.83792,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "error",
+            "type": "numeric",
+            "answer": 2.3868627076570556e-05,
+            "unit": "",
+            "tolerance": 5.1e-08,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why retain separate ledgers inside one report?",
+        "solution": "Charging costs one hundred twenty equivalents, elongation one hundred eighteen and overhead six, total two hundred forty-four for fifty-nine bonds. Separate correct output0.8379 and incorrect0.00002 give acceptance0.83792 and error one/41896. The two models have separate boundaries and do not identify real kinetic rates.",
+        "lesson_ids": [
+          "biochemistry-31"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biochemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biochemistry-32:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Distinct available pool:20ATP, 8NADPH; use nine ATP and six NADPH per three-carbon net triose output. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "biochemistry-32-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "output",
+          "type": "numeric",
+          "prompt": "Maximum ensemble net triose output.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "co2",
+          "type": "numeric",
+          "prompt": "CO2 amount consumed for the stipulated biochemical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "atp_left",
+          "type": "numeric",
+          "prompt": "ATP amount remaining for the stipulated biochemical model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "output",
+            "type": "numeric",
+            "answer": 1.3333333333333333,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "co2",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "atp_left",
+            "type": "numeric",
+            "answer": 8.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must a resource-limited synthesis preserve?",
+        "solution": "Reductant supports eight/six=four/three output, less than the ATP bound twenty/nine. This fixes four CO2 and consumes twelve ATP, leaving eight. Carbon and energy boundaries close separately; net triose is not a whole glucose molecule.",
+        "lesson_ids": [
+          "biochemistry-32"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biochemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "biochemistry-32:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For twelve linear electrons retain36generated lumen protons, six NADPH and24productive photons. Stipulate five protons/ATP, nineATP demand, and cyclic route three protons plus one photon per cyclic electron. Then separately lose one sixth of linear protons. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "biochemistry-32-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "cyclic",
+          "type": "numeric",
+          "prompt": "Exact added cyclic electrons without the specified loss.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "photons",
+          "type": "numeric",
+          "prompt": "Exact total productive photons without loss.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "leak_cyclic",
+          "type": "numeric",
+          "prompt": "Exact cyclic electrons after the stated linear-proton loss.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "leak_photons",
+          "type": "numeric",
+          "prompt": "Exact total productive photons after that loss.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "cyclic",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "photons",
+            "type": "numeric",
+            "answer": 27.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "leak_cyclic",
+            "type": "numeric",
+            "answer": 5.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "leak_photons",
+            "type": "numeric",
+            "answer": 29.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can identical final photon counts conceal different mechanisms?",
+        "solution": "The ATP target needs forty-five protons. Without loss, deficit nine requires three cyclic electrons and twenty-seven total photons. Losing six linear protons leaves thirty useful, deficit fifteen requires five cyclic electrons and twenty-nine photons. This partitioned model does not assert real regulation or unaffected cyclic leakage.",
+        "lesson_ids": [
+          "biochemistry-32"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biochemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
     }
   ]
 }

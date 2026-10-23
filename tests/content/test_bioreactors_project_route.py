@@ -58,7 +58,7 @@ def crossing(k, our0, mu, ccrit):
 
 
 def test_route_is_scheduled_optional_and_ungraded():
-    assert MANIFEST["version"] == "0.5.0" and MANIFEST["maturity"] == "partial"
+    assert MANIFEST["version"] == "0.6.0" and MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed" and MANIFEST["grading_policy"]["mode"] == "formative-only"
     rehearsal = ASSESSMENTS["bioreactors-project-rehearsal-practice"]
     project = ASSESSMENTS["bioreactors-oxygen-project"]
@@ -127,7 +127,7 @@ def test_guide_and_rehearsal_do_not_give_the_project_answers():
 def test_lab_dataset_is_package_pinned_and_links_resolve():
     lab = (COURSE / "labs/01-measuring-kla-by-dynamic-gassing-out.md").read_text(encoding="utf-8")
     assert "raw.githubusercontent.com" not in lab and "](gassing-out-do-curves.csv)" in lab
-    assert MANIFEST["learner_resources"] == ["labs/gassing-out-do-curves.csv"]
+    assert MANIFEST["learner_resources"] == ["labs/gassing-out-do-curves.csv", "assignments/probe-response-reference.csv", "assignments/process-evidence-factorial.csv"]
     sys.path.insert(0, str(ROOT / "backend"))
     from courselab.content import ContentRepository
 

@@ -81,7 +81,7 @@ def singular_values_2x2(A):
 
 
 def test_route_is_scheduled_optional_and_ungraded():
-    assert MANIFEST["version"] == "0.4.0" and MANIFEST["maturity"] == "partial"
+    assert MANIFEST["version"] == "0.5.0" and MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed" and MANIFEST["grading_policy"]["mode"] == "formative-only"
     rehearsal = ASSESSMENTS["linear-algebra-project-rehearsal-practice"]
     project = ASSESSMENTS["linear-algebra-hidden-state-project"]

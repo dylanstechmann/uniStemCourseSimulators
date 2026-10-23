@@ -48,7 +48,7 @@ At larger extensions the response becomes strongly nonlinear. A widely used inte
 
 **F L_p / (k_BT) = 1/[4(1 − x/L)²] − 1/4 + x/L.**
 
-For the same chain with L_p = 50 nm, half extension needs only **0.10 pN**, while 90% extension needs **2.10 pN**, twenty times more. The force diverges as the chain approaches full extension, where bond stretching or unfolding eventually takes over. The interpolation is accurate to within roughly 10% across the range and should not be read as exact.
+For the same chain with L_p = 50 nm, half extension needs only **0.10 pN**, while 90% extension needs **2.10 pN**, twenty times more. The force diverges as the chain approaches full extension, where bond stretching or unfolding eventually takes over. This is an interpolation rather than an exact force law;its approximation error is not quantified for these synthetic examples,and stretch/unfolding requires additional model information.
 
 ## Buckling of stiff filaments
 

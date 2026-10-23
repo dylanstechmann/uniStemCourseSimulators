@@ -1,6 +1,6 @@
 # General Chemistry I course review handoff
 
-This handoff targets General Chemistry I, package version 0.4.10. The [review snapshot](GENERAL_CHEMISTRY_1_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded. The local General Chemistry I/II boundary divides a single 5.111SC comparator and does not claim two independent course equivalents.
+This handoff targets General Chemistry I, package version 0.5.0. The [review snapshot](GENERAL_CHEMISTRY_1_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded. The local General Chemistry I/II boundary divides a single 5.111SC comparator and does not claim two independent course equivalents.
 
 ## Review scope
 
@@ -18,3 +18,11 @@ Historical version 0.4.6 records an 87-test focused run for equilibrium and ener
 ## Review record to complete only after review
 
 After a review actually occurs, record reviewer name and qualifications, date, package version and archive digest, artifacts examined, concrete findings and disposition. Keep separate decisions for chemical accuracy, instructional design, assessment, accessibility, workload and release. Do not infer approval from the package hash or test results.
+
+## Open project route (2026-10-22)
+
+The current guide, separate worked example, rehearsal and five private milestone self-checks make the existing project usable as ungraded practice. [The route regression tests](../tests/content/test_remaining_course_project_routes.py) independently recalculate every new numeric field and exercise the backend grader, including exact counts and continuous-quantity precision. Review the written explanation, evidence limits and proposed workload independently; automated arithmetic is not subject review. Historical snapshot evidence remains preserved.
+
+## Electronic and coupled-ledger target (2026-10-22)
+
+Target 0.6.0 adds two foundations and four reports. Check one-electron energies, radial normalization/mode/mean/cumulative measure and node/state counts; nonorthogonal amplitude normalization, projected energies, phase conventions and particle-matched occupancy references; physical reaction-extent roots, dimensionless pressure quotient and rigid-vessel internal-energy versus enthalpy boundaries; reference-calibrated two-component spectral reconstruction and a distinct cumulative gas ledger. These are synthetic models, not measured spectra, dissociation energies or laboratory validation. Fourteen scheduled blocks and selected checkpoints establish neither full-report quality nor measured workload. Qualified review remains open.

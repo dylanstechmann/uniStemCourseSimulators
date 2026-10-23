@@ -17,7 +17,6 @@ def load(path: Path) -> dict:
 
 def test_frequency_filter_reading_maps_objectives_and_preserves_keys():
     manifest = load(COURSE / "course.json")
-    assert manifest["version"].startswith("0.4.")
     module = next(
         item
         for item in manifest["modules"]

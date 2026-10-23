@@ -545,6 +545,256 @@
         "robotics-14-objective-3"
       ],
       "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-project-card-1",
+      "lesson_id": "robotics-project-guide",
+      "front": "Why does zero endpoint velocity not imply a smooth acceleration join?",
+      "back": "The cubic’s derivative is zero at the endpoints, but its second derivative is not. Joining a stationary segment therefore creates an acceleration discontinuity.",
+      "objective_ids": [
+        "robotics-project-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-project-card-2",
+      "lesson_id": "robotics-project-guide",
+      "front": "Which reference matters in mgr cos(q)?",
+      "back": "The angle is measured from horizontal, with positive motion raising the load. A different zero-angle convention would change the trigonometric expression.",
+      "objective_ids": [
+        "robotics-project-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-project-card-3",
+      "lesson_id": "robotics-project-guide",
+      "front": "Why must a stopping screen name its geometry and braking assumptions?",
+      "back": "The formula is a one-dimensional kinematic allowance. A real configuration-dependent path, uncertain braking or different latency would require another model and evidence.",
+      "objective_ids": [
+        "robotics-project-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-project-card-4",
+      "lesson_id": "robotics-project-guide",
+      "front": "Why report both a continuous lower bound and a candidate choice?",
+      "back": "The model may permit a duration between listed candidates. Candidate selection and continuous optimization answer different questions and must each check every constraint.",
+      "objective_ids": [
+        "robotics-project-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-project-card-5",
+      "lesson_id": "robotics-project-guide",
+      "front": "How can work remain fixed while the peak actuator budget changes?",
+      "back": "Potential-energy change depends on endpoints. The time scaling changes speed, acceleration, peak power and conditional stopping allowance without changing those endpoints in this lossless model.",
+      "objective_ids": [
+        "robotics-project-objective-5"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-15-card-1",
+      "lesson_id": "robotics-15",
+      "front": "Why cannot total mass alone determine a link inertia?",
+      "back": "Center locations and rotational mass distribution contribute separately to kinetic energy and the joint mass matrix.",
+      "objective_ids": [
+        "robotics-15-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-15-card-2",
+      "lesson_id": "robotics-15",
+      "front": "Which terms must a two-body kinetic ledger retain?",
+      "back": "Both center translations,both absolute body rotations and the coupled cross terms,with no double counting of parallel-axis inertia.",
+      "objective_ids": [
+        "robotics-15-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-15-card-3",
+      "lesson_id": "robotics-15",
+      "front": "Why keep successive trajectory states explicitly separate?",
+      "back": "Changing posture,rates or acceleration changes different parts of the dynamic equation; carrying a prior state silently mixes incompatible terms.",
+      "objective_ids": [
+        "robotics-15-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-15-card-4",
+      "lesson_id": "robotics-15",
+      "front": "What does positive joint inertia establish?",
+      "back": "A positive kinetic-energy quadratic form for nonzero joint velocities in the declared model,not a nonsingular endpoint map or actual hardware identification.",
+      "objective_ids": [
+        "robotics-15-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-16-card-1",
+      "lesson_id": "robotics-16",
+      "front": "What must a constrained acceleration solution satisfy?",
+      "back": "The original mass/input equations,acceleration compatibility and the chosen constraint/reaction convention,with compatible initial position and velocity.",
+      "objective_ids": [
+        "robotics-16-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-16-card-2",
+      "lesson_id": "robotics-16",
+      "front": "Why must the constraint normal normalization be recorded?",
+      "back": "Rescaling the constraint changes its multiplier and reciprocal mobility; physical force/inertia interpretation requires a consistent unit-normal convention.",
+      "objective_ids": [
+        "robotics-16-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-16-card-3",
+      "lesson_id": "robotics-16",
+      "front": "Why distinguish bilateral constraints from unilateral contact?",
+      "back": "Their admissible reaction signs and separation rules differ even when an equality block system looks algebraically similar.",
+      "objective_ids": [
+        "robotics-16-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-16-card-4",
+      "lesson_id": "robotics-16",
+      "front": "What does tangent velocity fail to imply on a curved boundary?",
+      "back": "It does not make the normal acceleration zero; changing constraint direction creates the A dot v term.",
+      "objective_ids": [
+        "robotics-16-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-17-card-1",
+      "lesson_id": "robotics-17",
+      "front": "What connects finite pose checks to a continuous clearance statement?",
+      "back": "A justified motion bound for every modeled body point throughout the interval,plus complete interval sampling and an explicit geometry-error allowance.",
+      "objective_ids": [
+        "robotics-17-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-17-card-2",
+      "lesson_id": "robotics-17",
+      "front": "How should an inconclusive clearance bound be reported?",
+      "back": "As an unresolved bound under the supplied assumptions,not automatic collision or proof of separation.",
+      "objective_ids": [
+        "robotics-17-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-17-card-3",
+      "lesson_id": "robotics-17",
+      "front": "Why distinguish path geometry from its timing?",
+      "back": "Timing changes rates and dynamic demands,but it cannot remove an overlap in the same sequence of configurations.",
+      "objective_ids": [
+        "robotics-17-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-17-card-4",
+      "lesson_id": "robotics-17",
+      "front": "What gives an uncertainty allowance its meaning?",
+      "back": "Its definition,coverage or deterministic bound,geometry and evidence;a decimal magnitude alone does not establish a strict physical limit.",
+      "objective_ids": [
+        "robotics-17-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-18-card-1",
+      "lesson_id": "robotics-18",
+      "front": "Which checks complement a trajectory torque table?",
+      "back": "Independent body-energy derivation,original dynamic residuals,signed power and integration refinement,with model assumptions recorded.",
+      "objective_ids": [
+        "robotics-18-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-18-card-2",
+      "lesson_id": "robotics-18",
+      "front": "Why integrate signed power rather than torque magnitude?",
+      "back": "Mechanical energy change depends on torque dotted with actual velocity;opposing signs and recovery can cancel net work while absolute energy flow remains nonzero.",
+      "objective_ids": [
+        "robotics-18-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-19-card-1",
+      "lesson_id": "robotics-19",
+      "front": "What should agree in independent constrained calculations?",
+      "back": "The original dynamic rows,constraint compatibility,normal sign,and block-versus-Schur solutions under the same matrix and force convention.",
+      "objective_ids": [
+        "robotics-19-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-19-card-2",
+      "lesson_id": "robotics-19",
+      "front": "Which evidence is missing from an acceleration-level contact model?",
+      "back": "An impact/impulse law when velocity is incompatible,and physical friction/compliance/adhesion data for real contact behavior.",
+      "objective_ids": [
+        "robotics-19-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-20-card-1",
+      "lesson_id": "robotics-20",
+      "front": "What must accompany a positive clearance number?",
+      "back": "The complete modeled geometry,continuous rate bound,sampling coverage,error allowance and their assumptions;arithmetic alone supplies no physical guarantee.",
+      "objective_ids": [
+        "robotics-20-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-20-card-2",
+      "lesson_id": "robotics-20",
+      "front": "When does finer sampling help and when does it not?",
+      "back": "It can reduce a justified between-sample allowance or reveal a missed collision;it does not repair a colliding geometry or unsupported global motion assumptions.",
+      "objective_ids": [
+        "robotics-20-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-21-card-1",
+      "lesson_id": "robotics-21",
+      "front": "Why preserve requested and delivered torque separately?",
+      "back": "Actuator limits change the plant input and invalidate exact cancellation;the coupled acceleration follows delivered torque,not the unattained request.",
+      "objective_ids": [
+        "robotics-21-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "robotics-21-card-2",
+      "lesson_id": "robotics-21",
+      "front": "Which assumptions support the exact computed-torque error equation?",
+      "back": "Correct model,consistent error definitions and delivery of the requested torque;clipping or model mismatch adds a residual that must be propagated through the plant.",
+      "objective_ids": [
+        "robotics-21-objective-2"
+      ],
+      "license": "CC-BY-4.0"
     }
   ]
 }

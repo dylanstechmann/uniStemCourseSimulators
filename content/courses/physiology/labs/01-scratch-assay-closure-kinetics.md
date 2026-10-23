@@ -3,7 +3,7 @@
 **Activity type:** synthetic-data analysis with public, ungraded formative checks
 **Course package:** Human Physiology for Engineers. **Estimated learner time:** 2–3 hours
 **Data status:** all measurements are constructed for instruction. They describe no real cells, compound or experiment, and nothing here is evidence about any treatment or about human healing.
-**Dataset:** [synthetic closure measurements (CSV)](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/physiology/labs/scratch-assay-closure.csv).
+**Dataset:** [synthetic closure measurements (CSV)](scratch-assay-closure.csv).
 
 ## Experimental question
 

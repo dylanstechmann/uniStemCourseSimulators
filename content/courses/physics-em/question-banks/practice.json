@@ -4337,6 +4337,2190 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "physics-em-project:rehearsal-resonance",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Rehearsal circuit: an ideal series RLC with R = 64 Ω, L = 0.040 H and C = 4.0 µF, driven by v_s(t) = V_peak cos(ωt) with V_peak = 3.0 V, using peak phasors under the exp(jωt) convention. Report bare numbers to three significant figures.",
+      "points": 3,
+      "objective_ids": [
+        "physics-em-13-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "omega0",
+          "type": "numeric",
+          "prompt": "The resonant angular frequency ω₀ = 1/√(LC), in rad/s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "f0",
+          "type": "numeric",
+          "prompt": "The same resonant frequency as cycles per second, f₀ = ω₀/(2π), in Hz.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "conversion",
+          "type": "single_choice",
+          "prompt": "Why does the conversion to hertz divide by 2π?",
+          "options": [
+            "One full cycle spans 2π radians, so ω₀ rad/s is f₀ = ω₀/(2π) cycles per second.",
+            "Radians and hertz are the same unit, so no conversion is needed.",
+            "The peak phasor already counts cycles, so 2π corrects its double counting."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "omega0",
+            "type": "numeric",
+            "answer": 2500.0,
+            "unit": "",
+            "tolerance": 2.5,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "f0",
+            "type": "numeric",
+            "answer": 398.0,
+            "unit": "",
+            "tolerance": 0.4,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "conversion",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Combine L and C into ω₀ = 1/√(LC); one cycle covers 2π radians.",
+        "solution": "ω₀ = 1/√(0.040 × 4.0 µF) = 1/√(1.6 × 10⁻⁷) = 2500 rad/s, and f₀ = 2500/(2π) ≈ 398 Hz. Angular frequency is radians per second, so dividing by one cycle's 2π radians gives cycles per second.",
+        "lesson_ids": [
+          "physics-em-project-guide",
+          "physics-em-13"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-project:rehearsal-q-bandwidth",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Rehearsal circuit: an ideal series RLC with R = 64 Ω, L = 0.040 H and C = 4.0 µF, driven by v_s(t) = V_peak cos(ωt) with V_peak = 3.0 V, using peak phasors under the exp(jωt) convention. Report Q, the bandwidth and both half-power frequencies to three significant figures.",
+      "points": 5,
+      "objective_ids": [
+        "physics-em-13-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "quality",
+          "type": "numeric",
+          "prompt": "The quality factor Q = ω₀L/R.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "bandwidth",
+          "type": "numeric",
+          "prompt": "The half-power bandwidth Δω = R/L, in rad/s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "low",
+          "type": "numeric",
+          "prompt": "The lower half-power angular frequency, in rad/s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "high",
+          "type": "numeric",
+          "prompt": "The upper half-power angular frequency, in rad/s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "r_change",
+          "type": "single_choice",
+          "prompt": "Which quantities stay unchanged if only R changes?",
+          "options": [
+            "Only ω₀ and f₀; Q, bandwidth, both half-power frequencies and the currents change.",
+            "Every quantity, because L and C set all series-resonance behavior.",
+            "Only the currents change; Q and the bandwidth depend on L and C alone."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "quality",
+            "type": "numeric",
+            "answer": 1.56,
+            "unit": "",
+            "tolerance": 0.002,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "bandwidth",
+            "type": "numeric",
+            "answer": 1600.0,
+            "unit": "",
+            "tolerance": 1.6,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "low",
+            "type": "numeric",
+            "answer": 1820.0,
+            "unit": "",
+            "tolerance": 1.9,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "high",
+            "type": "numeric",
+            "answer": 3420.0,
+            "unit": "",
+            "tolerance": 3.5,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "r_change",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Use Q = ω₀L/R and Δω = R/L; the half-power pair straddles ω₀ and differs by the bandwidth.",
+        "solution": "Q = 2500 × 0.040/64 = 1.56 and Δω = 64/0.040 = 1600 rad/s. With 1/(2Q) = 0.32, the half-power pair is ω₀(√(1 + 1/(4Q²)) ∓ 1/(2Q)): ω_low ≈ 1820 rad/s and ω_high ≈ 3420 rad/s, differing by 1600 rad/s. L and C alone fix ω₀ = 2500 rad/s; changing R moves Q, the bandwidth, both half-power frequencies and every current.",
+        "lesson_ids": [
+          "physics-em-project-guide",
+          "physics-em-13"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-project:rehearsal-power-energy",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Rehearsal circuit: an ideal series RLC with R = 64 Ω, L = 0.040 H and C = 4.0 µF, driven by v_s(t) = V_peak cos(ωt) with V_peak = 3.0 V, using peak phasors under the exp(jωt) convention. Work at resonance. Report the current in A, the power in W, the energy in µJ and the capacitor peak voltage in V, each to three significant figures.",
+      "points": 5,
+      "objective_ids": [
+        "physics-em-13-objective-2",
+        "physics-em-8-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "i_rms",
+          "type": "numeric",
+          "prompt": "The RMS current at resonance, in A.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "power",
+          "type": "numeric",
+          "prompt": "The average resistor power at resonance, in W.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "w_max",
+          "type": "numeric",
+          "prompt": "The maximum energy stored in the inductor, L I_peak²/2, in µJ.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "v_c_peak",
+          "type": "numeric",
+          "prompt": "The capacitor peak voltage at resonance, I_peak/(ω₀C), in V.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "simultaneity",
+          "type": "single_choice",
+          "prompt": "Why need the two stored-energy maxima not occur at the same instant?",
+          "options": [
+            "Energy trades between L and C a quarter-cycle out of step, so one maximum occurs while the other's store passes through zero.",
+            "The resistor removes energy faster than the capacitor can store it, so only one maximum ever exists.",
+            "Average power is zero at resonance, so the two maxima cancel each other."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "i_rms",
+            "type": "numeric",
+            "answer": 0.0331,
+            "unit": "",
+            "tolerance": 4e-05,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "power",
+            "type": "numeric",
+            "answer": 0.0703,
+            "unit": "",
+            "tolerance": 8e-05,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "w_max",
+            "type": "numeric",
+            "answer": 43.9,
+            "unit": "",
+            "tolerance": 0.05,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "v_c_peak",
+            "type": "numeric",
+            "answer": 4.69,
+            "unit": "",
+            "tolerance": 0.005,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "simultaneity",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "At resonance Z = R, so I_peak = V_peak/R; average power uses the RMS current.",
+        "solution": "At resonance the reactances cancel, so I_peak = 3.0/64 = 0.046875 A and I_RMS = 0.046875/√2 ≈ 0.0331 A. The average resistor power is I_RMS²R = 0.0703 W. The inductor's maximum energy is ½(0.040)(0.046875)² = 43.9 µJ, and the capacitor's peak voltage I_peak/(ω₀C) = 4.69 V gives ½(4.0 µF)(4.69 V)², the same 43.9 µJ. Their maxima sit a quarter-cycle apart because the energy trades between L and C.",
+        "lesson_ids": [
+          "physics-em-project-guide",
+          "physics-em-13"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-project:rehearsal-selection",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Rehearsal circuit: an ideal series RLC with R = 64 Ω, L = 0.040 H and C = 4.0 µF, driven by v_s(t) = V_peak cos(ωt) with V_peak = 3.0 V, using peak phasors under the exp(jωt) convention. Apply the fictional selection brief: Q ≥ 1, half-power bandwidth Δω ≤ 1000 rad/s, and peak current at resonance I_peak ≤ 0.080 A.",
+      "points": 4,
+      "objective_ids": [
+        "physics-em-13-objective-1",
+        "physics-em-13-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "q_check",
+          "type": "single_choice",
+          "prompt": "Does the rehearsal circuit meet the Q ≥ 1 limit?",
+          "options": [
+            "Yes: Q = 2500 × 0.040/64 = 1.56 ≥ 1.",
+            "No: Q = 0.040/64 < 1.",
+            "Q cannot be judged without knowing the source amplitude."
+          ],
+          "points": 1
+        },
+        {
+          "id": "bw_check",
+          "type": "single_choice",
+          "prompt": "Does it meet the Δω ≤ 1000 rad/s bandwidth limit?",
+          "options": [
+            "Yes: the bandwidth is below the limit at every Q.",
+            "No: Δω = 64/0.040 = 1600 rad/s exceeds 1000 rad/s.",
+            "The bandwidth limit does not apply below Q = 1."
+          ],
+          "points": 1
+        },
+        {
+          "id": "i_check",
+          "type": "single_choice",
+          "prompt": "Does it meet the I_peak ≤ 0.080 A limit?",
+          "options": [
+            "Yes: at resonance I_peak = 3.0/64 = 0.0469 A ≤ 0.080 A.",
+            "No: at resonance I_peak = 3.0/64 exceeds 0.080 A.",
+            "Peak current cannot be computed without the RMS value first."
+          ],
+          "points": 1
+        },
+        {
+          "id": "binding",
+          "type": "single_choice",
+          "prompt": "What is the binding failure for this circuit?",
+          "options": [
+            "The bandwidth: Q and peak current both meet their limits, but Δω = 1600 rad/s exceeds 1000 rad/s.",
+            "The peak current, because 0.0469 A is uncomfortably close to 0.080 A.",
+            "Q, because 1.56 is only marginally above 1."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "q_check",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "bw_check",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "i_check",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "binding",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Evaluate each limit separately, then name the one that actually fails.",
+        "solution": "Q = 1.56 ≥ 1 passes, and I_peak = 0.0469 A ≤ 0.080 A passes, but Δω = R/L = 1600 rad/s exceeds the 1000 rad/s limit, so the binding failure is the bandwidth. The brief rejects this circuit on bandwidth alone.",
+        "lesson_ids": [
+          "physics-em-project-guide",
+          "physics-em-13"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-project:rehearsal-off-resonance",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Rehearsal circuit: an ideal series RLC with R = 64 Ω, L = 0.040 H and C = 4.0 µF, driven by v_s(t) = V_peak cos(ωt) with V_peak = 3.0 V, using peak phasors under the exp(jωt) convention. Evaluate the circuit at ω = 800 rad/s. Report the reactance in Ω, the impedance magnitude in Ω and the current in A, each to three significant figures.",
+      "points": 4,
+      "objective_ids": [
+        "physics-em-13-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "reactance",
+          "type": "numeric",
+          "prompt": "The net reactance ωL − 1/(ωC), in Ω, with its sign.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "impedance",
+          "type": "numeric",
+          "prompt": "The impedance magnitude |Z| = √(R² + X²), in Ω.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "current",
+          "type": "numeric",
+          "prompt": "The source-current peak I_peak = V_peak/|Z|, in A.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "lead_lag",
+          "type": "single_choice",
+          "prompt": "What does the sign of the net reactance imply here?",
+          "options": [
+            "The net reactance is negative, so the current leads the source voltage by atan(|X|/R) ≈ 77.1°.",
+            "The net reactance is negative, so the current lags the source voltage by atan(|X|/R).",
+            "The net reactance is positive at every ω below resonance, so the current lags."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "reactance",
+            "type": "numeric",
+            "answer": -280.5,
+            "unit": "",
+            "tolerance": 0.5,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "impedance",
+            "type": "numeric",
+            "answer": 287.7,
+            "unit": "",
+            "tolerance": 0.3,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "current",
+            "type": "numeric",
+            "answer": 0.0104,
+            "unit": "",
+            "tolerance": 2e-05,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "lead_lag",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Compare ωL with 1/(ωC) at this ω; the larger term sets the sign, and the sign sets lead or lag.",
+        "solution": "At 800 rad/s, ωL = 32 Ω and 1/(ωC) = 312.5 Ω, so the net reactance is −280.5 Ω (capacitive). Then |Z| = √(64² + 280.5²) ≈ 287.7 Ω, I_peak = 3.0/287.7 ≈ 0.0104 A, and the current leads the voltage by atan(280.5/64) ≈ 77.1° under the exp(jωt) convention: below resonance the capacitive term wins.",
+        "lesson_ids": [
+          "physics-em-project-guide",
+          "physics-em-13"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-project:rehearsal-scope",
+      "type": "data_interpretation",
+      "prompt": "Project rehearsal open practice · Check the ideal-model assumptions and inference limits you will discuss in series-resonance project milestone 6. Select one response per criterion.",
+      "points": 3,
+      "objective_ids": [
+        "physics-em-13-objective-3",
+        "physics-em-4-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "linearity",
+          "type": "single_choice",
+          "prompt": "Linearity · Which step depends on ideal linear components?",
+          "options": [
+            "Q = ω₀L/R assumes constant L and R at every current level; a real inductor's core can make both vary with drive.",
+            "No step depends on linearity, because resonance is a purely topological property of any loop.",
+            "Only the resistor power assumes linearity, because the reactances cancel exactly regardless."
+          ],
+          "points": 1
+        },
+        {
+          "id": "curve_limits",
+          "type": "single_choice",
+          "prompt": "Curve · What can an observed resonance curve alone not establish?",
+          "options": [
+            "It cannot establish that the system is an ideal linear series RLC; real loss can distribute across the inductor, capacitor and wiring in ways the single-R model cannot separate.",
+            "It cannot establish the resonant frequency, which must come from component labels rather than the curve.",
+            "It cannot establish anything about power, which requires separate RMS readings at every frequency."
+          ],
+          "points": 1
+        },
+        {
+          "id": "scope",
+          "type": "single_choice",
+          "prompt": "Scope · What does this calculation support?",
+          "options": [
+            "Only the response of this synthetic circuit under the stated ideal model; no device, instrument or biological claim.",
+            "A tuning rule for laboratory oscillators and filters.",
+            "A safety limit for driving real electrodes at resonance."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "linearity",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "curve_limits",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "scope",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Ask what the ideal model assumes about components, and what a frequency sweep alone can show.",
+        "solution": "Q and the currents assume one constant R and L regardless of drive level; an observed peak locates a resonant frequency but cannot prove the loss sits in a single ideal resistor, since real components distribute loss differently; and the whole calculation describes only this synthetic circuit, not any device, instrument or biological preparation.",
+        "lesson_ids": [
+          "physics-em-project-guide",
+          "physics-em-13"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-17:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Rehearsal source: rho(r)=rho0(r/a)² inside a=0.04 m,grounded concentric sleeve b=0.08 m,no external fields,K=lambda/(2pi epsilon0)=10 V. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "physics-em-17-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "fraction",
+          "type": "numeric",
+          "prompt": "Fraction of total line charge enclosed at r=a/2.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "field",
+          "type": "numeric",
+          "prompt": "Radial field at r=a/2 in V/m.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "fraction",
+            "type": "numeric",
+            "answer": 0.0625,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "field",
+            "type": "numeric",
+            "answer": 31.25,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must be computed before simplifying Gauss law for a nonuniform source?",
+        "solution": "Cylindrical shells contribute rho0(s/a)²2pi s ds, so enclosed line charge scales as r^4. At half radius the fraction is 1/16. Gauss gives E=K r³/a^4 inside, hence K/(8a)=31.25 V/m. A cross-sectional area fraction would incorrectly treat the density as uniform.",
+        "lesson_ids": [
+          "physics-em-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic electromagnetic-model practice developed with substantial AI assistance; no external problem, equipment measurements, external problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-em-17:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use the same rehearsal cylindrical source and V(b)=0. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "physics-em-17-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "boundary",
+          "type": "numeric",
+          "prompt": "Potential V(a) in volts for the supplied ideal model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "axis",
+          "type": "numeric",
+          "prompt": "Potential V(0) in volts for the supplied ideal model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "boundary",
+            "type": "numeric",
+            "answer": 6.931471805599453,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "axis",
+            "type": "numeric",
+            "answer": 9.431471805599454,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why is the infinite-line potential reference important?",
+        "solution": "Integrating the annular field gives V(a)=K ln(b/a)=10ln2. Integrating the interior cubic field adds K/4 from the boundary to the axis, so V(0)=10ln2+2.5. The source insulator is not equipotential; zero field at its axis does not require zero potential there.",
+        "lesson_ids": [
+          "physics-em-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic electromagnetic-model practice developed with substantial AI assistance; no external problem, equipment measurements, external problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-em-17:depth-3",
+      "type": "data_interpretation",
+      "prompt": "For the same rehearsal, inspect the sleeve inner surface at b=0.08 m. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physics-em-17-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "before",
+          "type": "numeric",
+          "prompt": "Radial field immediately before the metal in V/m.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "surface",
+          "type": "numeric",
+          "prompt": "Signed inner-surface sigma_b/epsilon0 in V/m.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "boundary",
+          "type": "single_choice",
+          "prompt": "Which statement is correct? for the supplied ideal model.",
+          "options": [
+            "A grounded conductor must contain the same nonzero radial field as the neighboring vacuum annulus.",
+            "The metal field vanishes and its induced inner line charge cancels the enclosed source line charge.",
+            "The prescribed insulating charge distribution must be equipotential because its outline is cylindrical."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "before",
+            "type": "numeric",
+            "answer": 125.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "surface",
+            "type": "numeric",
+            "answer": -125.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "boundary",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How can an induced-charge sign be checked independently?",
+        "solution": "The annular field at the sleeve is K/b=125 V/m. A Gaussian surface in the metal encloses zero net charge, so its inner surface carries −lambda and sigma/epsilon0=−K/b=−125 V/m. The fixed volume charge remains an insulating distribution, distinct from the induced conducting surface.",
+        "lesson_ids": [
+          "physics-em-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic electromagnetic-model practice developed with substantial AI assistance; no external problem, equipment measurements, external problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-em-17:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Use the same rehearsal to integrate field energy per unit length U prime. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "physics-em-17-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "energy",
+          "type": "numeric",
+          "prompt": "Normalized energy U prime/(pi epsilon0 K²).",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "identity",
+          "type": "single_choice",
+          "prompt": "Which energy calculation is valid here?",
+          "options": [
+            "One-half lambda V(0) automatically, because every distributed source is at its axis potential.",
+            "One-half lambda V(a) automatically, because interior field energy is always zero.",
+            "Both the cross-sectional epsilon0 E²/2 integral and one-half rho V integral with the grounded surface term accounted for."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "energy",
+            "type": "numeric",
+            "answer": 0.8181471805599453,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "identity",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why are two different energy integrals useful?",
+        "solution": "Field-energy integration splits at a and gives normalized value ln(b/a)+1/8=ln2+1/8. Independently integrating one-half rho V returns the same result; the grounded conductor has zero-potential surface contribution. Replacing the volume distribution by one selected potential omits its varying potential and gives the wrong energy.",
+        "lesson_ids": [
+          "physics-em-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic electromagnetic-model practice developed with substantial AI assistance; no external problem, equipment measurements, external problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-em-18:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Rehearsal passive dot references: L1=0.02 H,L2=0.08 H,M=0.02 H,currents (1,−2) A. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "physics-em-18-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "coupling",
+          "type": "numeric",
+          "prompt": "Coupling magnitude abs(M)/sqrt(L1 L2) for the supplied ideal model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "energy",
+          "type": "numeric",
+          "prompt": "Total stored magnetic energy in joules.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "coupling",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "energy",
+            "type": "numeric",
+            "answer": 0.13,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Does a negative mutual term prove negative stored energy?",
+        "solution": "The coupling magnitude is 0.02/sqrt(0.02×0.08)=one half. Energy is one-half L1 i1²+M i1 i2+one-half L2 i2²=0.01−0.04+0.16=0.13 J. The mutual term can be negative while the complete positive definite quadratic form remains nonnegative.",
+        "lesson_ids": [
+          "physics-em-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic electromagnetic-model practice developed with substantial AI assistance; no external problem, equipment measurements, external problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-em-18:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use the same rehearsal current state and derivatives (4,1) A/s. Voltages use passive signs at the dotted terminals. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physics-em-18-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "first_voltage",
+          "type": "numeric",
+          "prompt": "First coil voltage in volts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second_voltage",
+          "type": "numeric",
+          "prompt": "Second coil voltage in volts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "power",
+          "type": "numeric",
+          "prompt": "Total coil port power in watts.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "first_voltage",
+            "type": "numeric",
+            "answer": 0.1,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "second_voltage",
+            "type": "numeric",
+            "answer": 0.16,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "power",
+            "type": "numeric",
+            "answer": -0.22,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does negative total passive port power mean for a valid inductor state?",
+        "solution": "The inductance matrix gives v1=0.02×four+0.02×one=0.10 V and v2=0.02×four+0.08×one=0.16 V. Total port power is one×0.10+(−two)×0.16=−0.22 W. It equals the energy derivative and indicates stored energy returning through the ports at this instant.",
+        "lesson_ids": [
+          "physics-em-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic electromagnetic-model practice developed with substantial AI assistance; no external problem, equipment measurements, external problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-em-18:depth-3",
+      "type": "data_interpretation",
+      "prompt": "For the rehearsal inductance matrix, inspect passivity and reference changes. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physics-em-18-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "determinant",
+          "type": "numeric",
+          "prompt": "Inductance-matrix determinant in H² for the supplied ideal model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "passive",
+          "type": "single_choice",
+          "prompt": "Which coefficient condition supports this passive model?",
+          "options": [
+            "Positive self-inductances and M²<=L1 L2; strict inequality gives a nonsingular positive definite matrix.",
+            "Any magnitude of M is passive if its sign is negative.",
+            "A negative determinant proves extra free energy is available from a real ideal device."
+          ],
+          "points": 1
+        },
+        {
+          "id": "reference",
+          "type": "single_choice",
+          "prompt": "What must change when one coil reference is reversed?",
+          "options": [
+            "Only one numerical voltage sign, leaving the current and coupling references untouched.",
+            "Nothing, because dot and passive references never affect a coupled equation.",
+            "Its current and voltage coordinates and the corresponding mutual signs change consistently."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "determinant",
+            "type": "numeric",
+            "answer": 0.0012,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "passive",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "reference",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why test the full inductance matrix?",
+        "solution": "The determinant is 0.02×0.08−0.02²=0.0012 H². The positive self terms and positive determinant make the matrix positive definite. A consistent reference reversal changes the coordinate signs and mutual entries together; it does not alter the physical energy. Exceeding the coupling bound invalidates this passive constitutive model.",
+        "lesson_ids": [
+          "physics-em-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic electromagnetic-model practice developed with substantial AI assistance; no external problem, equipment measurements, external problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-em-18:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Separate steady motional-rod rehearsal: B=0.5 T,length=0.2 m,speed=3 m/s,total resistance=2 ohms,negligible inductance. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "physics-em-18-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "emf",
+          "type": "numeric",
+          "prompt": "Motional emf magnitude in volts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "current",
+          "type": "numeric",
+          "prompt": "Current magnitude in amperes for the supplied ideal model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "drag",
+          "type": "numeric",
+          "prompt": "Magnetic drag magnitude in newtons.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "power",
+          "type": "numeric",
+          "prompt": "External mechanical power maintaining speed in watts.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "emf",
+            "type": "numeric",
+            "answer": 0.3,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "current",
+            "type": "numeric",
+            "answer": 0.15,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "drag",
+            "type": "numeric",
+            "answer": 0.015,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "power",
+            "type": "numeric",
+            "answer": 0.045,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Where does resistive heating energy come from in the steady moving-rod model?",
+        "solution": "The ideal emf is B length speed=0.3 V and current 0.15 A. Drag is I length B=0.015 N opposite the prescribed motion, so the maintaining agent supplies 0.045 W, equal to I²R. This macroscopic ledger includes the moving constraint; it does not claim a magnetic force does work along an individual charge’s total velocity.",
+        "lesson_ids": [
+          "physics-em-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic electromagnetic-model practice developed with substantial AI assistance; no external problem, equipment measurements, external problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-em-19:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Rehearsal prescribed sheet: K0=0.01 A/m,outgoing vacuum waves on both sides,Z0=120pi ohms. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physics-em-19-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "field",
+          "type": "numeric",
+          "prompt": "Peak electric magnitude on either side in V/m.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "one_side",
+          "type": "numeric",
+          "prompt": "One-side average outward flux in W/m².",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "total",
+          "type": "numeric",
+          "prompt": "Total two-sided average outward flux per sheet area in W/m².",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "field",
+            "type": "numeric",
+            "answer": 1.8849555921538759,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "one_side",
+            "type": "numeric",
+            "answer": 0.00471238898038469,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "total",
+            "type": "numeric",
+            "answer": 0.00942477796076938,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why do the two outgoing sheet fluxes add despite opposite vector directions?",
+        "solution": "Tangential continuity and the magnetic jump give electric peak Z0K0/two=0.6pi. Each outgoing side carries Z0K0²/eight=0.0015pi W/m², so total outward flux is 0.003pi. Opposite coordinate Poynting vectors do not cancel energy leaving the source; dot each with its own outward normal.",
+        "lesson_ids": [
+          "physics-em-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic electromagnetic-model practice developed with substantial AI assistance; no external problem, equipment measurements, external problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-em-19:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For the same ideal source take omega=10^8 rad/s,c=3.00×10^8 m/s and observation distance 30 m. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physics-em-19-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "wavelength",
+          "type": "numeric",
+          "prompt": "Wavelength in meters for the supplied ideal model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "delay",
+          "type": "numeric",
+          "prompt": "Propagation delay in microseconds for the supplied ideal model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "time",
+          "type": "single_choice",
+          "prompt": "Which source time sets the remote waveform at observation time t?",
+          "options": [
+            "The instantaneous source time t at every distance with no delay.",
+            "The earlier time t−abs(z)/c within this outgoing-wave model.",
+            "Any time because source boundary conditions cannot influence traveling waves."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "wavelength",
+            "type": "numeric",
+            "answer": 18.84955592153876,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "delay",
+            "type": "numeric",
+            "answer": 0.1,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "time",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does a retarded-time argument represent?",
+        "solution": "The wavelength is two pi c/omega=6pi m. Travel time is 30/(3×10^8)=10^−7 seconds, or 0.1 microseconds. The field samples the source at t−abs(z)/c; the use of both sides changes propagation signs, not the finite travel-time requirement.",
+        "lesson_ids": [
+          "physics-em-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic electromagnetic-model practice developed with substantial AI assistance; no external problem, equipment measurements, external problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-em-19:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Separate perfect-conductor reflection: incident peak E0=6 V/m,c=3.00×10^8 m/s,Z0=120pi ohms. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physics-em-19-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "magnetic",
+          "type": "numeric",
+          "prompt": "Peak total magnetic field at the wall in nT.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "incident",
+          "type": "numeric",
+          "prompt": "Incident average intensity in W/m².",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "pressure",
+          "type": "numeric",
+          "prompt": "Perfect-reflector pressure in nPa for the supplied ideal model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "magnetic",
+            "type": "numeric",
+            "answer": 40.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "incident",
+            "type": "numeric",
+            "answer": 0.0477464829275686,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "pressure",
+            "type": "numeric",
+            "answer": 0.3183098861837907,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How do electric and magnetic fields combine at an ideal conducting wall?",
+        "solution": "Tangential electric fields cancel at the wall while magnetic fields add, giving peak B=two E0/c=40 nT. Incident intensity is E0²/(two Z0)=0.15/pi W/m² and reflector pressure is two I/c=one/pi nPa. Momentum transfer does not require net time-average energy absorption by the perfect conductor.",
+        "lesson_ids": [
+          "physics-em-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic electromagnetic-model practice developed with substantial AI assistance; no external problem, equipment measurements, external problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-em-19:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Use that same ideal equal-amplitude reflected pattern and epsilon0=1/(mu0 c²),mu0=4pi×10^−7 H/m. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "physics-em-19-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "density",
+          "type": "numeric",
+          "prompt": "Average total standing-field energy density in nJ/m³.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "flux",
+          "type": "single_choice",
+          "prompt": "Which statement follows from the full standing fields?",
+          "options": [
+            "Zero average Poynting flux requires both total fields to vanish everywhere.",
+            "Total standing fields obey E=cB instantaneously at every position and phase.",
+            "Average normal Poynting flux is zero while the average stored energy is nonzero."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "density",
+            "type": "numeric",
+            "answer": 0.3183098861837907,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "flux",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Can nonzero electromagnetic energy coexist with zero average transport?",
+        "solution": "Cycle averages of electric and magnetic energy add to epsilon0 E0²=one/pi nJ/m³. The Poynting product changes sign over time and averages to zero; nodes and antinodes need not coincide for electric and magnetic fields. The traveling-wave instantaneous relation cannot be transferred to the standing sum.",
+        "lesson_ids": [
+          "physics-em-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic electromagnetic-model practice developed with substantial AI assistance; no external problem, equipment measurements, external problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-em-20:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1 cylindrical source: rho proportional to r² inside a=0.05 m,grounded sleeve b=0.15 m,K=lambda/(2pi epsilon0)=8 V,no external source fields. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physics-em-20-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "field",
+          "type": "numeric",
+          "prompt": "Radial field at r=a/2 in V/m.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "boundary",
+          "type": "numeric",
+          "prompt": "Potential V(a) with V(b)=0 in volts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "axis",
+          "type": "numeric",
+          "prompt": "Axis potential in volts for the supplied ideal model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "field",
+            "type": "numeric",
+            "answer": 20.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "boundary",
+            "type": "numeric",
+            "answer": 8.788898309344878,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "axis",
+            "type": "numeric",
+            "answer": 10.788898309344878,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What belongs in a distributed-field report?",
+        "solution": "Enclosed line charge scales as r^4, so E(a/two)=K/(eight a)=20 V/m. Annular integration gives V(a)=eight ln3 and interior integration adds K/four=two volts at the axis. Retain the finite grounded reference, the source distribution and both field regions; the insulating source is not equipotential.",
+        "lesson_ids": [
+          "physics-em-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic electromagnetic-model practice developed with substantial AI assistance; no external problem, equipment measurements, external problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-em-20:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use that same Assignment 1 source to check stored energy and induced surface charge. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physics-em-20-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "energy",
+          "type": "numeric",
+          "prompt": "Normalized U prime/(pi epsilon0 K²).",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "surface",
+          "type": "numeric",
+          "prompt": "Signed inner-surface sigma_b/epsilon0 in V/m.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "identity",
+          "type": "single_choice",
+          "prompt": "Which statement is supported? for the supplied ideal model.",
+          "options": [
+            "The field-energy and one-half rho V integrals agree; one selected insulator potential cannot replace its distributed V.",
+            "One-half lambda V(0) always equals the full energy because charge density varies with radius.",
+            "The grounded sleeve has positive induced inner charge for a positive total source line charge."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "energy",
+            "type": "numeric",
+            "answer": 1.2236122886681098,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "surface",
+            "type": "numeric",
+            "answer": -53.333333333333336,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "identity",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why preserve interface and energy checks as separate evidence?",
+        "solution": "Normalized energy is ln3+one eighth from separate interior and annular integrals. The induced inner surface satisfies sigma/epsilon0=−K/b=−160/three V/m. A valid energy comparison integrates the actual varying potential over the source; choosing its axis or boundary value for all charge would solve a different distribution.",
+        "lesson_ids": [
+          "physics-em-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic electromagnetic-model practice developed with substantial AI assistance; no external problem, equipment measurements, external problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-em-21:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2 passive references: L1=0.03 H,L2=0.12 H,M=0.03 H,currents (2,1) A,derivatives (−1,2) A/s. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "physics-em-21-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "energy",
+          "type": "numeric",
+          "prompt": "Stored magnetic energy in joules.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "first_voltage",
+          "type": "numeric",
+          "prompt": "First coil voltage in volts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second_voltage",
+          "type": "numeric",
+          "prompt": "Second coil voltage in volts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "rate",
+          "type": "numeric",
+          "prompt": "Stored-energy derivative in watts for the supplied ideal model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "energy",
+            "type": "numeric",
+            "answer": 0.18,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "first_voltage",
+            "type": "numeric",
+            "answer": 0.03,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "second_voltage",
+            "type": "numeric",
+            "answer": 0.21,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "rate",
+            "type": "numeric",
+            "answer": 0.27,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How can a coupled-inductor report independently check an instantaneous result?",
+        "solution": "Self energies are 0.06 and 0.06 J and mutual energy is 0.06 J, totaling 0.18. Matrix multiplication gives voltages 0.03 and 0.21 V. Signed port power is two×0.03+one×0.21=0.27 W, matching the direct stored-energy derivative despite a negative derivative in the first current coordinate.",
+        "lesson_ids": [
+          "physics-em-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic electromagnetic-model practice developed with substantial AI assistance; no external problem, equipment measurements, external problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-em-21:depth-2",
+      "type": "data_interpretation",
+      "prompt": "At that same Assignment 2 instant add series resistances R1=2 ohms and R2=3 ohms; external source voltages are u=v+R i. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "physics-em-21-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "first_source",
+          "type": "numeric",
+          "prompt": "First external source voltage in volts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second_source",
+          "type": "numeric",
+          "prompt": "Second external source voltage in volts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "loss",
+          "type": "numeric",
+          "prompt": "Total resistive dissipation in watts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "input",
+          "type": "numeric",
+          "prompt": "Signed total source input power in watts.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "first_source",
+            "type": "numeric",
+            "answer": 4.03,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "second_source",
+            "type": "numeric",
+            "answer": 3.21,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "loss",
+            "type": "numeric",
+            "answer": 11.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "input",
+            "type": "numeric",
+            "answer": 11.27,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What verifies a transient source-work calculation?",
+        "solution": "Source voltages are 0.03+two×two=4.03 and 0.21+three×one=3.21 V. Resistive loss is two×four+three×one=11 W. Source input is 4.03×two+3.21×one=11.27 W, split into loss eleven and storage rate 0.27. Coil and external source voltages must occupy distinct ledger entries.",
+        "lesson_ids": [
+          "physics-em-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic electromagnetic-model practice developed with substantial AI assistance; no external problem, equipment measurements, external problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-em-22:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 3 Part A prescribed sheet: K0=0.03 A/m,Z0=120pi ohms,outgoing waves on both sides. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physics-em-22-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "field",
+          "type": "numeric",
+          "prompt": "Peak electric magnitude in V/m.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "one_side",
+          "type": "numeric",
+          "prompt": "One-side average outward flux in W/m².",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "total",
+          "type": "numeric",
+          "prompt": "Total two-sided average outward flux per sheet area in W/m².",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "field",
+            "type": "numeric",
+            "answer": 5.654866776461628,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "one_side",
+            "type": "numeric",
+            "answer": 0.042411500823462206,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "total",
+            "type": "numeric",
+            "answer": 0.08482300164692441,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which source-boundary evidence should a wave report retain?",
+        "solution": "Boundary conditions give peak field Z0K0/two=1.8pi V/m. Each side carries Z0K0²/eight=0.0135pi W/m²; both outward contributions total 0.027pi. The cycle-averaged negative field work on the prescribed current supplies that electromagnetic output, with no finite total antenna-power claim for an infinite sheet.",
+        "lesson_ids": [
+          "physics-em-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic electromagnetic-model practice developed with substantial AI assistance; no external problem, equipment measurements, external problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-em-22:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Assignment 3 Part B is a separate perfect reflector with incident E0=4.5 V/m,c=3.00×10^8 m/s,Z0=120pi ohms and consistent epsilon0. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "physics-em-22-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "magnetic",
+          "type": "numeric",
+          "prompt": "Peak total wall magnetic field in nT.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "incident",
+          "type": "numeric",
+          "prompt": "Incident average intensity in W/m².",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "pressure",
+          "type": "numeric",
+          "prompt": "Reflector pressure in nPa for the supplied ideal model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "density",
+          "type": "numeric",
+          "prompt": "Average standing-field energy density in nJ/m³.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "magnetic",
+            "type": "numeric",
+            "answer": 30.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "incident",
+            "type": "numeric",
+            "answer": 0.02685739664675734,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "pressure",
+            "type": "numeric",
+            "answer": 0.17904931097838225,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "density",
+            "type": "numeric",
+            "answer": 0.17904931097838225,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why compute cycle averages from the full incident/reflected fields?",
+        "solution": "The wall magnetic peak is two E0/c=30 nT. Incident intensity is E0²/(two Z0)=0.084375/pi W/m², pressure is two I/c=0.5625/pi nPa, and standing energy density is epsilon0 E0²=0.5625/pi nJ/m³. These nonzero quantities coexist with zero average normal Poynting flux for the ideal standing sum.",
+        "lesson_ids": [
+          "physics-em-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic electromagnetic-model practice developed with substantial AI assistance; no external problem, equipment measurements, external problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-em-23:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 4 isolated capacitors: C1=2 microfarads at 6 V,C2=4 microfarads at zero,connect corresponding terminals through 2 kilo-ohms,no external battery. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "physics-em-23-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "final",
+          "type": "numeric",
+          "prompt": "Common final voltage in volts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "dissipated",
+          "type": "numeric",
+          "prompt": "Total resistive energy loss in microjoules.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "tau",
+          "type": "numeric",
+          "prompt": "Voltage-difference relaxation time in milliseconds.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "current",
+          "type": "numeric",
+          "prompt": "Initial connecting-current magnitude in mA.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "final",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "dissipated",
+            "type": "numeric",
+            "answer": 24.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "tau",
+            "type": "numeric",
+            "answer": 2.6666666666666665,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "current",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does a cumulative boundary report retain beyond a final value?",
+        "solution": "Conserved charge is twelve microcoulombs, so final voltage is two V. Capacitor energy falls from 36 to twelve microjoules, losing 24 through the finite resistance. The voltage-difference capacitance is four/three microfarads, giving tau=eight/three milliseconds, and initial current is three mA. Charge and field-energy statements require separate ledgers.",
+        "lesson_ids": [
+          "physics-em-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic electromagnetic-model practice developed with substantial AI assistance; no external problem, equipment measurements, external problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "physics-em-23:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Interpret the cumulative report’s three separate claims about Gaussian flux, passive-inductor port power and perfect-reflection standing fields. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "physics-em-23-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "gauss",
+          "type": "single_choice",
+          "prompt": "Which Gaussian statement is correct?",
+          "options": [
+            "Zero net flux proves the field vanishes at every surface point regardless of sources.",
+            "Zero enclosed net charge gives zero net flux, while local electric fields can remain nonzero.",
+            "The shape of a Gaussian surface always supplies the symmetry of its source distribution."
+          ],
+          "points": 1
+        },
+        {
+          "id": "inductor",
+          "type": "single_choice",
+          "prompt": "Which power statement is correct?",
+          "options": [
+            "A valid passive inductor state can return stored energy with negative total port power.",
+            "Negative power proves its stored energy is negative at that instant.",
+            "Adding absolute port powers preserves every signed energy identity."
+          ],
+          "points": 1
+        },
+        {
+          "id": "standing",
+          "type": "single_choice",
+          "prompt": "Which standing-field statement is correct?",
+          "options": [
+            "Nonzero field energy requires positive net average transport at every plane.",
+            "A perfect reflector must absorb net energy to transfer any momentum.",
+            "Nonzero field energy can coexist with zero time-average normal Poynting flux."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "gauss",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "inductor",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "standing",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why identify the mathematical object behind a physical claim?",
+        "solution": "Gaussian flux is an integrated charge constraint, inductor port power is a stored-energy derivative, and Poynting flux is an energy-transport quantity with its own time average and surface orientation. Each verified counterexample limits a different overbroad claim; none permits replacing the original source, state or boundary definitions.",
+        "lesson_ids": [
+          "physics-em-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic electromagnetic-model practice developed with substantial AI assistance; no external problem, equipment measurements, external problem or dataset imported."
+        ]
+      }
     }
   ]
 }

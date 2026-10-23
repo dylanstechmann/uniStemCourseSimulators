@@ -21,3 +21,7 @@ The focused Cellular Biomechanics suite passed 8 tests for version 0.3.6, includ
 ## Review record to complete only after review
 
 After a review actually occurs, record reviewer name and qualifications, date, package version and archive digest, artifacts examined, concrete findings and disposition. Keep separate decisions for mathematical and mechanical correctness, instructional design, assessment, accessibility, workload and release. Do not infer approval from the package hash or test results.
+
+## Tensor/membrane/force-history target (2026-10-22)
+
+Current target0.5.0 adds three foundations,four reports,three explicit outcomes and twenty checkpoints/cards. Check symmetric gradient/spin,engineering shear work,positive orthotropic energy,traction/frame transforms and loading identifiability;selected fixed-reservoir curvature energy,radius/force derivatives and joint inverse evidence;integrated ramp hazard,density/mode eligibility,quantiles,expected counts and censoring. Check the deliberately agreeing/contrasting constitutive models and mechanical-versus-biological interpretations. Classical Helfrich/Bell bibliography is credited with metadata-only verification,not full-text review. An earlier unsupported global interpolation-accuracy percentage is replaced with an explicit unquantified approximation limit,without changing earlier practice keys. Code/proofs/reports,broader theory,empirical validity,workload and qualified review remain open. Historical evidence above is preserved;the current snapshot pins the new target.

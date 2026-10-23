@@ -7,7 +7,7 @@
   "domain": "Electrical engineering",
   "level": "Year 3",
   "maturity": "partial",
-  "version": "0.4.9",
+  "version": "0.6.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -55,6 +55,16 @@
       "id": "signals-control-outcome-4",
       "description": "Tune feedback with attention to noise, saturation, and uncertainty.",
       "bloom": "understand"
+    },
+    {
+      "id": "signals-control-outcome-5",
+      "description": "Compute selected continuous and discrete Fourier representations and verify convolution, phase and complete energy relationships.",
+      "bloom": "analyze"
+    },
+    {
+      "id": "signals-control-outcome-6",
+      "description": "Assess controllability, observability and internal modes and construct selected state-feedback and observer models with explicit reference and implementation assumptions.",
+      "bloom": "analyze"
     }
   ],
   "lesson_objectives": [
@@ -468,6 +478,274 @@
       "course_outcome_ids": [
         "signals-control-outcome-1"
       ]
+    },
+    {
+      "id": "signals-control-project-objective-1",
+      "description": "Calculate a sampling frequency, Nyquist boundary and folded frequency using consistent units.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-2"
+      ]
+    },
+    {
+      "id": "signals-control-project-objective-2",
+      "description": "Evaluate desired and unwanted components through a first-order pre-sampling filter.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-2"
+      ]
+    },
+    {
+      "id": "signals-control-project-objective-3",
+      "description": "Apply a stated timing heuristic and compute the separate zero-order-hold phase cost.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-3"
+      ]
+    },
+    {
+      "id": "signals-control-project-objective-4",
+      "description": "Compute a PI candidate, clamp the applied output and retain a consistent controller state.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-4"
+      ]
+    },
+    {
+      "id": "signals-control-project-objective-5",
+      "description": "Advance a first-order sampled plant using the applied command and identify the model’s limits.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-1",
+        "signals-control-outcome-3",
+        "signals-control-outcome-4"
+      ]
+    },
+    {
+      "id": "signals-control-17-objective-1",
+      "description": "Derive a finite pulse transform with a consistent origin limit and frequency scale.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-2",
+        "signals-control-outcome-5"
+      ]
+    },
+    {
+      "id": "signals-control-17-objective-2",
+      "description": "Recover a convolution from support overlap and verify its energy.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-2",
+        "signals-control-outcome-5"
+      ]
+    },
+    {
+      "id": "signals-control-17-objective-3",
+      "description": "Derive discrete frequency response from a stable geometric impulse response.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-2",
+        "signals-control-outcome-5"
+      ]
+    },
+    {
+      "id": "signals-control-17-objective-4",
+      "description": "Retain an infinite geometric output tail in a discrete energy ledger.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-2",
+        "signals-control-outcome-5"
+      ]
+    },
+    {
+      "id": "signals-control-18-objective-1",
+      "description": "Match and verify an admissible proper lead compensator.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-2",
+        "signals-control-outcome-3",
+        "signals-control-outcome-4"
+      ]
+    },
+    {
+      "id": "signals-control-18-objective-2",
+      "description": "Recover real and complex closed-loop modal parts.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-2",
+        "signals-control-outcome-3",
+        "signals-control-outcome-4"
+      ]
+    },
+    {
+      "id": "signals-control-18-objective-3",
+      "description": "Distinguish a ramp tracking constant from step tracking and formal unstable limits.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-2",
+        "signals-control-outcome-3",
+        "signals-control-outcome-4"
+      ]
+    },
+    {
+      "id": "signals-control-18-objective-4",
+      "description": "Separate a controller phase peak from actual loop crossover.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-2",
+        "signals-control-outcome-3",
+        "signals-control-outcome-4"
+      ]
+    },
+    {
+      "id": "signals-control-19-objective-1",
+      "description": "Check input/output state information and the zero-initial-state gain.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-1",
+        "signals-control-outcome-6"
+      ]
+    },
+    {
+      "id": "signals-control-19-objective-2",
+      "description": "Construct full-state feedback and a separate unit-reference multiplier.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-1",
+        "signals-control-outcome-6"
+      ]
+    },
+    {
+      "id": "signals-control-19-objective-3",
+      "description": "Derive an exact-model observer error equation and gains.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-1",
+        "signals-control-outcome-6"
+      ]
+    },
+    {
+      "id": "signals-control-19-objective-4",
+      "description": "Detect an internal unstable mode that a reduced transfer omits.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-1",
+        "signals-control-outcome-6"
+      ]
+    },
+    {
+      "id": "signals-control-20-objective-1",
+      "description": "Derive a sampled state matrix with an explicit update order.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-1",
+        "signals-control-outcome-3",
+        "signals-control-outcome-4"
+      ]
+    },
+    {
+      "id": "signals-control-20-objective-2",
+      "description": "Recover sampled modal parts and unit-circle magnitude.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-1",
+        "signals-control-outcome-3",
+        "signals-control-outcome-4"
+      ]
+    },
+    {
+      "id": "signals-control-20-objective-3",
+      "description": "Derive a strict sampled-gain threshold and identify its marginal boundary.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-1",
+        "signals-control-outcome-3",
+        "signals-control-outcome-4"
+      ]
+    },
+    {
+      "id": "signals-control-20-objective-4",
+      "description": "Reject a stable-continuous-loop inference for a changed sampled implementation.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-1",
+        "signals-control-outcome-3",
+        "signals-control-outcome-4"
+      ]
+    },
+    {
+      "id": "signals-control-21-objective-1",
+      "description": "Verify signed pulse phase,convolution and energy with original intervals.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-5"
+      ]
+    },
+    {
+      "id": "signals-control-21-objective-2",
+      "description": "Retain a discrete infinite tail and separate input from system DC behavior.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-5"
+      ]
+    },
+    {
+      "id": "signals-control-22-objective-1",
+      "description": "Verify a distinct admissible compensator through the original characteristic.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-2",
+        "signals-control-outcome-3",
+        "signals-control-outcome-4"
+      ]
+    },
+    {
+      "id": "signals-control-22-objective-2",
+      "description": "Distinguish peak phase,actual crossover and steady ramp error.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-2",
+        "signals-control-outcome-3",
+        "signals-control-outcome-4"
+      ]
+    },
+    {
+      "id": "signals-control-23-objective-1",
+      "description": "Construct a distinct state-feedback pair and reference equilibrium.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-1",
+        "signals-control-outcome-6"
+      ]
+    },
+    {
+      "id": "signals-control-23-objective-2",
+      "description": "Verify observer gains and the combined separation conditions.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-1",
+        "signals-control-outcome-6"
+      ]
+    },
+    {
+      "id": "signals-control-24-objective-1",
+      "description": "Verify a repeated sampled pole and early recurrence under one update contract.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-1",
+        "signals-control-outcome-3",
+        "signals-control-outcome-4"
+      ]
+    },
+    {
+      "id": "signals-control-24-objective-2",
+      "description": "Bound a sampled gain and distinguish changed timing or nonlinear policies.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "signals-control-outcome-1",
+        "signals-control-outcome-3",
+        "signals-control-outcome-4"
+      ]
     }
   ],
   "duration": {
@@ -508,10 +786,12 @@
         "week": 4,
         "title": "Frequency response and filtering",
         "lesson_ids": [
-          "signals-control-2"
+          "signals-control-2",
+          "signals-control-17"
         ],
         "assessment_ids": [
-          "signals-control-2-practice"
+          "signals-control-2-practice",
+          "signals-control-17-practice"
         ]
       },
       {
@@ -530,20 +810,24 @@
         "week": 6,
         "title": "Reading Bode plots: decibels, phase and the cost of a delay",
         "lesson_ids": [
-          "signals-control-9"
+          "signals-control-9",
+          "signals-control-21"
         ],
         "assessment_ids": [
-          "signals-control-9-practice"
+          "signals-control-9-practice",
+          "signals-control-21-practice"
         ]
       },
       {
         "week": 7,
         "title": "Proportional control of an incubator: steady-state error and saturation",
         "lesson_ids": [
-          "signals-control-5"
+          "signals-control-5",
+          "signals-control-19"
         ],
         "assessment_ids": [
-          "signals-control-5-practice"
+          "signals-control-5-practice",
+          "signals-control-19-practice"
         ]
       },
       {
@@ -551,11 +835,13 @@
         "title": "Feedback, stability and robustness; Routh–Hurwitz and the root locus",
         "lesson_ids": [
           "signals-control-3",
-          "signals-control-15"
+          "signals-control-15",
+          "signals-control-18"
         ],
         "assessment_ids": [
           "signals-control-3-practice",
-          "signals-control-15-practice"
+          "signals-control-15-practice",
+          "signals-control-18-practice"
         ]
       },
       {
@@ -572,10 +858,12 @@
         "week": 10,
         "title": "PI control, tuning and integrator windup",
         "lesson_ids": [
-          "signals-control-11"
+          "signals-control-11",
+          "signals-control-22"
         ],
         "assessment_ids": [
-          "signals-control-11-practice"
+          "signals-control-11-practice",
+          "signals-control-22-practice"
         ]
       },
       {
@@ -592,33 +880,42 @@
         "week": 12,
         "title": "Controller design and sampled implementation",
         "lesson_ids": [
-          "signals-control-4"
+          "signals-control-4",
+          "signals-control-23"
         ],
         "assessment_ids": [
-          "signals-control-4-practice"
+          "signals-control-4-practice",
+          "signals-control-23-practice"
         ]
       },
       {
         "week": 13,
-        "title": "Discrete-time dynamics, Z-transform, and sampled PI control",
+        "title": "Discrete-time dynamics, Z-transform, and sampled PI control; optional sampled-loop portfolio project",
         "lesson_ids": [
           "signals-control-14",
-          "signals-control-12"
+          "signals-control-12",
+          "signals-control-project-guide",
+          "signals-control-20"
         ],
         "assessment_ids": [
           "signals-control-14-practice",
-          "signals-control-12-practice"
+          "signals-control-12-practice",
+          "signals-control-project-rehearsal-practice",
+          "signals-control-20-practice"
         ]
       },
       {
         "week": 14,
         "title": "When a sensor filter makes a fast loop oscillate: phase lag, crossover and a safe retuning sequence",
         "lesson_ids": [
-          "signals-control-13"
+          "signals-control-13",
+          "signals-control-24"
         ],
         "assessment_ids": [
           "signals-control-13-practice",
-          "signals-control-case"
+          "signals-control-case",
+          "signals-control-project-milestones",
+          "signals-control-24-practice"
         ]
       }
     ]
@@ -1241,6 +1538,304 @@
           ]
         }
       ]
+    },
+    {
+      "id": "signals-control-module-project",
+      "title": "Sampled-loop portfolio project guide (optional, ungraded)",
+      "source_ids": [
+        "signals",
+        "control",
+        "control-spring-2008",
+        "mit-ocw-signals-sampling"
+      ],
+      "lessons": [
+        {
+          "id": "signals-control-project-guide",
+          "title": "Sampled-loop portfolio project guide (optional, ungraded)",
+          "reading": "assignments/sampled-loop-project-guide.md",
+          "objectives": [
+            "signals-control-project-objective-1",
+            "signals-control-project-objective-2",
+            "signals-control-project-objective-3",
+            "signals-control-project-objective-4",
+            "signals-control-project-objective-5"
+          ],
+          "worked_example": "For a separate Ts = 0.1 min example, a 7 cycles/min disturbance aliases to 3 cycles/min at a 10 cycles/min sample rate. A PI candidate of 5.725 clamps to 5; a tau = 3 min, K = 0.4 plant starting at 0.3 advances to about 0.355733 with that held command.",
+          "question_ids": [
+            "signals-control-project:rehearsal-1",
+            "signals-control-project:rehearsal-2",
+            "signals-control-project:rehearsal-3",
+            "signals-control-project:rehearsal-4",
+            "signals-control-project:rehearsal-5"
+          ],
+          "card_ids": [
+            "signals-control-project-card-1",
+            "signals-control-project-card-2",
+            "signals-control-project-card-3",
+            "signals-control-project-card-4",
+            "signals-control-project-card-5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "signals-control-module-17",
+      "title": "Fourier representations and energy ledgers",
+      "source_ids": [
+        "signals-semester-6003-calendar",
+        "signals-semester-6003-syllabus"
+      ],
+      "lessons": [
+        {
+          "id": "signals-control-17",
+          "title": "Fourier representations and energy ledgers",
+          "reading": "modules/fourier-representations-and-energy-ledgers.md",
+          "objectives": [
+            "signals-control-17-objective-1",
+            "signals-control-17-objective-2",
+            "signals-control-17-objective-3",
+            "signals-control-17-objective-4"
+          ],
+          "worked_example": "Direct integration gives X=two sin(omega)/omega, with origin limit two. At pi/two its value is four/pi, and its first positive zero is pi. The removable origin limit differs from a zero spectral component; frequency convention determines these constants.",
+          "question_ids": [
+            "signals-control-17:depth-1",
+            "signals-control-17:depth-2",
+            "signals-control-17:depth-3",
+            "signals-control-17:depth-4"
+          ],
+          "card_ids": [
+            "signals-control-17-card-1",
+            "signals-control-17-card-2",
+            "signals-control-17-card-3",
+            "signals-control-17-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "signals-control-module-18",
+      "title": "Proper lead compensation and pole design",
+      "source_ids": [
+        "signals-semester-6003-calendar",
+        "signals-semester-6003-syllabus",
+        "signals-semester-2004-calendar",
+        "signals-semester-2004-syllabus",
+        "signals-semester-1630-notes"
+      ],
+      "lessons": [
+        {
+          "id": "signals-control-18",
+          "title": "Proper lead compensation and pole design",
+          "reading": "modules/proper-lead-compensation-and-pole-design.md",
+          "objectives": [
+            "signals-control-18-objective-1",
+            "signals-control-18-objective-2",
+            "signals-control-18-objective-3",
+            "signals-control-18-objective-4"
+          ],
+          "worked_example": "The target expands to s³+eight s²+24s+32. Matching s(s+two)(s+p)+K(s+z)gives p=six, K=twelve, z=eight/three. Positivity and p>z verify the chosen lead form; coefficient matching outside that domain would require rejection or another controller family. Verify the original signal,realization and timing assumptions independently before interpreting this selected result.",
+          "question_ids": [
+            "signals-control-18:depth-1",
+            "signals-control-18:depth-2",
+            "signals-control-18:depth-3",
+            "signals-control-18:depth-4"
+          ],
+          "card_ids": [
+            "signals-control-18-card-1",
+            "signals-control-18-card-2",
+            "signals-control-18-card-3",
+            "signals-control-18-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "signals-control-module-19",
+      "title": "State feedback, observation and hidden modes",
+      "source_ids": [
+        "signals-semester-6003-calendar",
+        "signals-semester-6003-syllabus",
+        "signals-semester-1630-notes",
+        "signals-semester-1630-syllabus"
+      ],
+      "lessons": [
+        {
+          "id": "signals-control-19",
+          "title": "State feedback, observation and hidden modes",
+          "reading": "modules/state-feedback-observation-and-hidden-modes.md",
+          "objectives": [
+            "signals-control-19-objective-1",
+            "signals-control-19-objective-2",
+            "signals-control-19-objective-3",
+            "signals-control-19-objective-4"
+          ],
+          "worked_example": "The controllability matrix has rows(zero, one), (one, minus five)and the observability matrix is identity. Both ranks are two. The transfer is one/(s²+five s+six), with DC gain one/six. These tests belong to the declared input/output model, not assumed physical sensor access.",
+          "question_ids": [
+            "signals-control-19:depth-1",
+            "signals-control-19:depth-2",
+            "signals-control-19:depth-3",
+            "signals-control-19:depth-4"
+          ],
+          "card_ids": [
+            "signals-control-19-card-1",
+            "signals-control-19-card-2",
+            "signals-control-19-card-3",
+            "signals-control-19-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "signals-control-module-20",
+      "title": "Exact sampled PI states and Schur stability",
+      "source_ids": [
+        "signals-semester-6003-calendar",
+        "signals-semester-6003-syllabus",
+        "signals-semester-1630-notes"
+      ],
+      "lessons": [
+        {
+          "id": "signals-control-20",
+          "title": "Exact sampled PI states and Schur stability",
+          "reading": "modules/exact-sampled-pi-states-and-schur-stability.md",
+          "objectives": [
+            "signals-control-20-objective-1",
+            "signals-control-20-objective-2",
+            "signals-control-20-objective-3",
+            "signals-control-20-objective-4"
+          ],
+          "worked_example": "The state matrix has rows(a−b kp, b ki), (minus T, one). Trace is one+a−b kp=1.4 and determinant a−b kp+b ki T=0.6. A current-integrator command or an extra delay would define a different matrix and characteristic.",
+          "question_ids": [
+            "signals-control-20:depth-1",
+            "signals-control-20:depth-2",
+            "signals-control-20:depth-3",
+            "signals-control-20:depth-4"
+          ],
+          "card_ids": [
+            "signals-control-20-card-1",
+            "signals-control-20-card-2",
+            "signals-control-20-card-3",
+            "signals-control-20-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "signals-control-module-21",
+      "title": "Assignment 1: transform and energy evidence",
+      "source_ids": [
+        "signals-semester-6003-calendar",
+        "signals-semester-6003-syllabus"
+      ],
+      "lessons": [
+        {
+          "id": "signals-control-21",
+          "title": "Assignment 1: transform and energy evidence",
+          "reading": "assignments/coursework-01-transform-and-energy-evidence.md",
+          "objectives": [
+            "signals-control-21-objective-1",
+            "signals-control-21-objective-2"
+          ],
+          "worked_example": "The input has zero area but energy two. Direct interval integration gives X(pi)=minus four i/pi, so its magnitude is four/pi and Y(pi)=minus sixteen/pi². The signed piecewise convolution has energy eight/three; negative transform values are not negative energy.",
+          "question_ids": [
+            "signals-control-21:depth-1",
+            "signals-control-21:depth-2"
+          ],
+          "card_ids": [
+            "signals-control-21-card-1",
+            "signals-control-21-card-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "signals-control-module-22",
+      "title": "Assignment 2: compensation and model evidence",
+      "source_ids": [
+        "signals-semester-6003-calendar",
+        "signals-semester-6003-syllabus",
+        "signals-semester-2004-calendar",
+        "signals-semester-1630-notes"
+      ],
+      "lessons": [
+        {
+          "id": "signals-control-22",
+          "title": "Assignment 2: compensation and model evidence",
+          "reading": "assignments/coursework-02-compensation-and-model-evidence.md",
+          "objectives": [
+            "signals-control-22-objective-1",
+            "signals-control-22-objective-2"
+          ],
+          "worked_example": "The target expands to s³+eleven s²+43s+65. Matching the original plant/controller characteristic gives p=eight, K=nineteen, z=65/19, which satisfies the selected lead inequalities. Retain all coefficients and check the unsimplified realization rather than matching only a plotted pole pair.",
+          "question_ids": [
+            "signals-control-22:depth-1",
+            "signals-control-22:depth-2"
+          ],
+          "card_ids": [
+            "signals-control-22-card-1",
+            "signals-control-22-card-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "signals-control-module-23",
+      "title": "Assignment 3: state and observer evidence",
+      "source_ids": [
+        "signals-semester-6003-calendar",
+        "signals-semester-6003-syllabus",
+        "signals-semester-1630-notes",
+        "signals-semester-1630-syllabus"
+      ],
+      "lessons": [
+        {
+          "id": "signals-control-23",
+          "title": "Assignment 3: state and observer evidence",
+          "reading": "assignments/coursework-03-state-and-observer-evidence.md",
+          "objectives": [
+            "signals-control-23-objective-1",
+            "signals-control-23-objective-2"
+          ],
+          "worked_example": "The characteristic s²+(four+K2)s+(four+K1)must equal s²+ten s+21. Thus K1=seventeen, K2=six, and N=21 gives unit steady gain for the exact attainable-input model. Verify controllability/observability and the original equilibrium before interpreting the gains. Verify the original signal,realization and timing assumptions independently before interpreting this selected result.",
+          "question_ids": [
+            "signals-control-23:depth-1",
+            "signals-control-23:depth-2"
+          ],
+          "card_ids": [
+            "signals-control-23-card-1",
+            "signals-control-23-card-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "signals-control-module-24",
+      "title": "Assignment 4: sampled stability and implementation",
+      "source_ids": [
+        "signals-semester-6003-calendar",
+        "signals-semester-6003-syllabus",
+        "signals-semester-1630-notes"
+      ],
+      "lessons": [
+        {
+          "id": "signals-control-24",
+          "title": "Assignment 4: sampled stability and implementation",
+          "reading": "assignments/coursework-04-sampled-stability-and-implementation.md",
+          "objectives": [
+            "signals-control-24-objective-1",
+            "signals-control-24-objective-2"
+          ],
+          "worked_example": "The matrix has rows(zero, one/four), (minus one, one), trace one and determinant one/four, giving double pole one half. Direct recurrence yields y1=one half, z1=one, y2=three/four. A polynomial sample-index factor can accompany this repeated pole while it still decays.",
+          "question_ids": [
+            "signals-control-24:depth-1",
+            "signals-control-24:depth-2"
+          ],
+          "card_ids": [
+            "signals-control-24-card-1",
+            "signals-control-24-card-2"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -1671,6 +2266,215 @@
         "signals-control-16:thermal-no-overshoot"
       ],
       "points": 12
+    },
+    {
+      "id": "signals-control-project-rehearsal-practice",
+      "type": "data-analysis",
+      "mode": "practice",
+      "title": "Sampled-loop portfolio rehearsal (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 13,
+      "objective_ids": [
+        "signals-control-project-objective-1",
+        "signals-control-project-objective-2",
+        "signals-control-project-objective-3",
+        "signals-control-project-objective-4",
+        "signals-control-project-objective-5",
+        "signals-control-outcome-1",
+        "signals-control-outcome-2",
+        "signals-control-outcome-3",
+        "signals-control-outcome-4"
+      ],
+      "question_ids": [
+        "signals-control-project:rehearsal-1",
+        "signals-control-project:rehearsal-2",
+        "signals-control-project:rehearsal-3",
+        "signals-control-project:rehearsal-4",
+        "signals-control-project:rehearsal-5"
+      ],
+      "points": 19
+    },
+    {
+      "id": "signals-control-project-milestones",
+      "type": "project",
+      "mode": "self-assessment",
+      "title": "Sampled-loop portfolio milestones M1–M5 in the Case studio (optional, ungraded)",
+      "path": "rubrics/case-studio.json",
+      "week": 14,
+      "objective_ids": [],
+      "question_ids": [],
+      "points": 0
+    },
+    {
+      "id": "signals-control-17-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Fourier representations and energy ledgers (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 4,
+      "objective_ids": [
+        "signals-control-17-objective-1",
+        "signals-control-17-objective-2",
+        "signals-control-17-objective-3",
+        "signals-control-17-objective-4",
+        "signals-control-outcome-2",
+        "signals-control-outcome-5"
+      ],
+      "question_ids": [
+        "signals-control-17:depth-1",
+        "signals-control-17:depth-2",
+        "signals-control-17:depth-3",
+        "signals-control-17:depth-4"
+      ],
+      "points": 14
+    },
+    {
+      "id": "signals-control-18-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Proper lead compensation and pole design (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 8,
+      "objective_ids": [
+        "signals-control-18-objective-1",
+        "signals-control-18-objective-2",
+        "signals-control-18-objective-3",
+        "signals-control-18-objective-4",
+        "signals-control-outcome-2",
+        "signals-control-outcome-3",
+        "signals-control-outcome-4"
+      ],
+      "question_ids": [
+        "signals-control-18:depth-1",
+        "signals-control-18:depth-2",
+        "signals-control-18:depth-3",
+        "signals-control-18:depth-4"
+      ],
+      "points": 12
+    },
+    {
+      "id": "signals-control-19-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "State feedback, observation and hidden modes (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 7,
+      "objective_ids": [
+        "signals-control-19-objective-1",
+        "signals-control-19-objective-2",
+        "signals-control-19-objective-3",
+        "signals-control-19-objective-4",
+        "signals-control-outcome-1",
+        "signals-control-outcome-6"
+      ],
+      "question_ids": [
+        "signals-control-19:depth-1",
+        "signals-control-19:depth-2",
+        "signals-control-19:depth-3",
+        "signals-control-19:depth-4"
+      ],
+      "points": 13
+    },
+    {
+      "id": "signals-control-20-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Exact sampled PI states and Schur stability (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 13,
+      "objective_ids": [
+        "signals-control-20-objective-1",
+        "signals-control-20-objective-2",
+        "signals-control-20-objective-3",
+        "signals-control-20-objective-4",
+        "signals-control-outcome-1",
+        "signals-control-outcome-3",
+        "signals-control-outcome-4"
+      ],
+      "question_ids": [
+        "signals-control-20:depth-1",
+        "signals-control-20:depth-2",
+        "signals-control-20:depth-3",
+        "signals-control-20:depth-4"
+      ],
+      "points": 9
+    },
+    {
+      "id": "signals-control-21-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 1: transform and energy evidence (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 6,
+      "objective_ids": [
+        "signals-control-21-objective-1",
+        "signals-control-21-objective-2",
+        "signals-control-outcome-5"
+      ],
+      "question_ids": [
+        "signals-control-21:depth-1",
+        "signals-control-21:depth-2"
+      ],
+      "points": 8
+    },
+    {
+      "id": "signals-control-22-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 2: compensation and model evidence (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 10,
+      "objective_ids": [
+        "signals-control-22-objective-1",
+        "signals-control-22-objective-2",
+        "signals-control-outcome-2",
+        "signals-control-outcome-3",
+        "signals-control-outcome-4"
+      ],
+      "question_ids": [
+        "signals-control-22:depth-1",
+        "signals-control-22:depth-2"
+      ],
+      "points": 6
+    },
+    {
+      "id": "signals-control-23-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 3: state and observer evidence (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 12,
+      "objective_ids": [
+        "signals-control-23-objective-1",
+        "signals-control-23-objective-2",
+        "signals-control-outcome-1",
+        "signals-control-outcome-6"
+      ],
+      "question_ids": [
+        "signals-control-23:depth-1",
+        "signals-control-23:depth-2"
+      ],
+      "points": 7
+    },
+    {
+      "id": "signals-control-24-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 4: sampled stability and implementation (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 14,
+      "objective_ids": [
+        "signals-control-24-objective-1",
+        "signals-control-24-objective-2",
+        "signals-control-outcome-1",
+        "signals-control-outcome-3",
+        "signals-control-outcome-4"
+      ],
+      "question_ids": [
+        "signals-control-24:depth-1",
+        "signals-control-24:depth-2"
+      ],
+      "points": 7
     }
   ],
   "grading_policy": {
@@ -1770,22 +2574,39 @@
       "version": "0.4.9",
       "date": "2026-10-17",
       "summary": "Added an impedance-modeling reading to week 5: Laplace-domain impedances of electrical, translational and thermal elements, transfer functions by impedance division and force balance, ωn and ζ from component values, the force–voltage analogy, the incubator as a thermal RC circuit and why passive thermal networks cannot ring. Eight numeric and four choice items, four retrieval cards, a practice assessment and independent recalculation tests were added; stale numeric-answer, significant-figure and item-range counts in the limitations were corrected. The package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.5.0",
+      "date": "2026-10-22",
+      "summary": "Made the planned sampled-loop portfolio project usable as optional ungraded practice: an original guide, a separate worked example and rehearsal, 5 open practice items and 5 private Case studio milestone self-checks. Pinned learner datasets locally. The inactive review draft stays separate; the package remains partial and unreviewed."
+    },
+    {
+      "version": "0.6.0",
+      "date": "2026-10-22",
+      "summary": "Added four original Fourier/energy,proper lead design,state feedback/observation/hidden-mode and exact sampled PI/Schur foundations with four connected reports and twenty-four checkpoints/cards. Qualified zero-initial-state/minimal-mode and hold-delay claims. Selected16.30 state topics supplement the narrower6.003/2.004 bridge without claiming three complete courses;all inputs remain synthetic and package partial,unreviewed and formative-only."
     }
   ],
   "limitations": [
     "All four preserved prototype readings now have expanded instruction beside original lessons and one synthetic-data virtual lab; this package is not equivalent to a full university semester.",
-    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm or cumulative final. An inactive integrative project draft is not scheduled or graded.",
+    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and four connected open reports but no experimental laboratory sequence,midterm or cumulative final. An inactive integrative project draft is not scheduled or graded.",
     "Practice items are short formative checks (two per prototype unit and six to twelve per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
-    "Of the 93 numerical answers in this package, 18 require a unit and none checks significant figures or dimensions; the others accept a number within a stated tolerance, with the unit optional.",
     "Total workload and weekly duration are unknown; former nominal credit values and hardcoded reading times do not establish workload.",
     "All plants, signals, controllers and numbers are synthetic teaching examples; this package gives no controller settings, safety procedures or test protocols for any real device and says nothing about any real incubator, instrument or process. The models are simplified textbook descriptions, not design methods for real equipment.",
-    "The new discrete-time unit is a first-order foundation with one proportional-feedback example; it does not add the Fourier, discrete-frequency-response, broad transform-property, controller-synthesis or nonlinear-system depth of MIT 6.003.",
-    "The local single-input/single-output sequence combines selected 6.003 signals-and-systems and 2.004 physical modeling/control topics. It does not cover the complete Fourier sequence, rotational and two-port component modeling (one reading covers lumped electrical, translational and thermal impedances), compensator design on the root locus, hands-on implementation or lab depth of those comparators."
+    "The earlier discrete-time unit is a first-order primer;new companions add selected Fourier/discrete-frequency and exact two-state sampled PI stability. General transform theory,modulation,quantization,delay/multirate and nonlinear synthesis remain selective or deferred.",
+    "The local single-input/single-output sequence combines selected 6.003 signals-and-systems and 2.004 physical modeling/control topics. It does not cover the complete Fourier sequence, rotational and two-port component modeling (one reading covers lumped electrical, translational and thermal impedances), general compensator synthesis,hands-on implementation or lab depth of those comparators. Selected proper lead coefficient matching and two-state feedback/observer design are now developed with explicit limits.",
+    "The optional sampled-loop portfolio project is ungraded. Its milestone drafts are private self-checks; no software check evaluates the learner’s written derivation, diagram or interpretation. The proposed schedule and time estimate have not been measured.",
+    "Four foundations and four reports develop selected continuous/discrete Fourier and energy, proper lead polynomial design, two-state feedback/observation and an exact specified sampled PI matrix/Schur proof. Broader Fourier-series/modulation/quantization, rotational/two-port component models, general state/robust/noisy synthesis, hardware labs, qualified review and measured workload remain open. This selected bridge does not reproduce 6.003, 2.004 or the supplemental 16.30 course.",
+    "Continuous and discrete transform conventions, zero initial state, minimal realizations and actual update timing are explicit. Hidden unstable states can be canceled from a reduced transfer. The hold has an amplitude factor as well as phase; linear sampled inequalities do not prove nonlinear saturated behavior. Checkpoints assess selected outputs, not proofs, code, plots, reports, physical tuning or empirical robustness.",
+    "Of the 174 numerical answers, 18 require units, 77 check significant figures and 0 check dimensions. New continuous checkpoints request three significant figures in named normalized units; exact ranks have no significant-figure requirement. Written reasoning and implementation quality are not automatically evaluated."
   ],
   "intentionally_omitted": [
     "Graded assessments, an activated integrative project and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package.",
     "A full discrete-time signals-and-systems sequence, including Fourier representations, discrete-time frequency response and broad Z-transform techniques, remains outside this bounded addition."
+  ],
+  "learner_resources": [
+    "assignments/sampled-loop-rehearsal.csv",
+    "labs/incubator-step-tests.csv"
   ]
 }

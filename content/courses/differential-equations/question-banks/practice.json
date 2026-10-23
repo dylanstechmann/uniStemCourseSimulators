@@ -4589,6 +4589,1734 @@
           }
         ]
       }
+    },
+    {
+      "id": "differential-equations-16:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Rehearsal IVP: y prime+t y=3t,y(0)=5. Use the normalized integrating factor M(0)=1. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "differential-equations-16-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "factor",
+          "type": "numeric",
+          "prompt": "Integrating factor M at t=2.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "state",
+          "type": "numeric",
+          "prompt": "Solution y at t=2 for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "derivative",
+          "type": "numeric",
+          "prompt": "Solution derivative at t=2 for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "factor",
+            "type": "numeric",
+            "answer": 7.38905609893065,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "state",
+            "type": "numeric",
+            "answer": 3.2706705664732256,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "derivative",
+            "type": "numeric",
+            "answer": -0.5413411329464508,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How does an integrating factor solve a linear IVP?",
+        "solution": "The factor is exp(t²/2), so integration gives y=3+2exp(−t²/2). At t=2 the factor is e², state is 3+2e^−2 and derivative is −4e^−2. Substitution verifies y prime+t y=3t and the original initial value, rather than only one matching observation.",
+        "lesson_ids": [
+          "differential-equations-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic differential-equation practice developed with substantial AI assistance; no external problem, external solution, code or measured dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "differential-equations-16:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For y prime=2 sqrt(abs(y)),y(0)=0, use the forward branch waiting at zero until a=1, then y=(t−1)². Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "differential-equations-16-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "state",
+          "type": "numeric",
+          "prompt": "Delayed-branch y at t=3 for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "derivative",
+          "type": "numeric",
+          "prompt": "Delayed-branch y prime at t=3.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "evidence",
+          "type": "single_choice",
+          "prompt": "Which fact establishes nonuniqueness? for the supplied mathematical model.",
+          "options": [
+            "The delayed branch and zero branch satisfy the same equation/initial data, including the joined derivative.",
+            "Failure of a sufficient Lipschitz hypothesis alone proves nonuniqueness for every equation.",
+            "A solver returning the zero branch proves no delayed branch exists."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "state",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "derivative",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "evidence",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What proves nonuniqueness of an IVP?",
+        "solution": "At t=3 the delayed branch has y=4 and derivative four, equal to 2sqrt(y). The branch joins zero with zero first derivative at t=1. Both it and the identically zero solution obey the same IVP; this explicit family establishes nonuniqueness without treating a failed sufficient hypothesis as a proof.",
+        "lesson_ids": [
+          "differential-equations-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic differential-equation practice developed with substantial AI assistance; no external problem, external solution, code or measured dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "differential-equations-16:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Use y prime=y²,y(0)=1 and its initial-value branch through t=0. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "differential-equations-16-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "state",
+          "type": "numeric",
+          "prompt": "State y at t=0.5 for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "escape",
+          "type": "numeric",
+          "prompt": "Finite forward escape time for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "interval",
+          "type": "single_choice",
+          "prompt": "Which interval contains the maximal IVP branch through zero?",
+          "options": [
+            "All real t, because the vector field is smooth at every finite state.",
+            "All t<1; the expression on t>1 is disconnected and does not continue through the singularity.",
+            "Only t>1, because an algebraic expression is defined there too."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "state",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "escape",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "interval",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must accompany a closed-form IVP solution?",
+        "solution": "Separation gives y=1/(1−t), hence y(0.5)=2 and finite-time escape at one. The maximal connected interval through zero is (−infinity,1). Smooth local slope dependence ensures local uniqueness but does not bound the solution or continue it through infinite state.",
+        "lesson_ids": [
+          "differential-equations-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic differential-equation practice developed with substantial AI assistance; no external problem, external solution, code or measured dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "differential-equations-16:depth-4",
+      "type": "data_interpretation",
+      "prompt": "For the linear homogeneous equation y prime+t y=0, compare propagation from s=1 to t=2 and assess a general nonlinear IVP theorem. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "differential-equations-16-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "propagator",
+          "type": "numeric",
+          "prompt": "Two-time propagator K(2,1) for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "kernel",
+          "type": "single_choice",
+          "prompt": "Which kernel statement is correct?",
+          "options": [
+            "Every variable-coefficient equation has an unchanged constant-coefficient transfer function.",
+            "A kernel depending on two times proves that no initial-value solution exists.",
+            "K(t,s)=exp(−(t²−s²)/2) generally depends on both times, not only t−s."
+          ],
+          "points": 1
+        },
+        {
+          "id": "theorem",
+          "type": "single_choice",
+          "prompt": "What do continuity plus local Lipschitz dependence near an initial point guarantee?",
+          "options": [
+            "Local existence and uniqueness under the stated neighborhood hypotheses, not global boundedness.",
+            "A bounded physical solution for all future time in every model.",
+            "Nonnegative numerical states for every explicit step size."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "propagator",
+            "type": "numeric",
+            "answer": 0.22313016014842982,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "kernel",
+            "type": "single_choice",
+            "answer": 2
+          },
+          {
+            "id": "theorem",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "When is a two-time propagator a convolution kernel?",
+        "solution": "Integrating the coefficient from one to two gives (4−1)/2=1.5, so the homogeneous propagator is exp(−1.5). Its separate time dependence prevents an automatic time-invariant convolution replacement. Local theorem hypotheses support a local unique solution; domain invariance, long-time behavior and numerical admissibility require separate evidence.",
+        "lesson_ids": [
+          "differential-equations-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic differential-equation practice developed with substantial AI assistance; no external problem, external solution, code or measured dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "differential-equations-17:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Use the odd unit square input on period 2pi, equal to +1 on (0,pi), and the stable filter y prime+y=u. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "differential-equations-17-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "amplitude",
+          "type": "numeric",
+          "prompt": "Fundamental output amplitude for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "lag",
+          "type": "numeric",
+          "prompt": "Fundamental lag in radians relative to the sine input.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "sine",
+          "type": "numeric",
+          "prompt": "Fundamental sine coefficient for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "cosine",
+          "type": "numeric",
+          "prompt": "Fundamental cosine coefficient for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "amplitude",
+            "type": "numeric",
+            "answer": 0.9003163161571061,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "lag",
+            "type": "numeric",
+            "answer": 0.7853981633974483,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "sine",
+            "type": "numeric",
+            "answer": 0.6366197723675814,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "cosine",
+            "type": "numeric",
+            "answer": -0.6366197723675814,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How do you retain phase in harmonic response?",
+        "solution": "Odd symmetry removes the mean/cosine input coefficients, and integration gives fundamental sine amplitude 4/pi. The filter divides its complex amplitude by 1+i: output sine/cosine coefficients are 2/pi and −2/pi, amplitude 4/(pi sqrt2) and sine-relative lag pi/4. A magnitude without its phase does not specify the waveform.",
+        "lesson_ids": [
+          "differential-equations-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic differential-equation practice developed with substantial AI assistance; no external problem, external solution, code or measured dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "differential-equations-17:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For the same a=1 filter, compare the third harmonic with the fundamental. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "differential-equations-17-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "amplitude",
+          "type": "numeric",
+          "prompt": "Third-harmonic output amplitude for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "ratio",
+          "type": "numeric",
+          "prompt": "Third-to-fundamental output amplitude ratio for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "amplitude",
+            "type": "numeric",
+            "answer": 0.1342112322786321,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "ratio",
+            "type": "numeric",
+            "answer": 0.14907119849998599,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why is the output harmonic ratio smaller than the input ratio here?",
+        "solution": "The third input harmonic is 4/(3pi), and its filter magnitude is 1/sqrt10. Dividing its output amplitude by the fundamental gives sqrt2/(3sqrt10)=1/(3sqrt5), below one third. The filter changes relative harmonic sizes, not just the overall amplitude of the input square wave.",
+        "lesson_ids": [
+          "differential-equations-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic differential-equation practice developed with substantial AI assistance; no external problem, external solution, code or measured dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "differential-equations-17:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Use the conservative uniform periodic-output tail certificate 4/(pi N) after retaining odd indices no larger than N. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "differential-equations-17-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "bound20",
+          "type": "numeric",
+          "prompt": "Uniform certificate at N=20 for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "bound64",
+          "type": "numeric",
+          "prompt": "Uniform certificate at N=64 for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "index",
+          "type": "numeric",
+          "prompt": "Smallest integer N strictly larger than 4/(0.02pi).",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "meaning",
+          "type": "single_choice",
+          "prompt": "Which statement follows from the derivation?",
+          "options": [
+            "The actual output error equals the certificate at every time.",
+            "A finite sample grid proves the supremum error exactly without an analytic argument.",
+            "The output tail is bounded above by the certificate; the actual maximum need not equal it."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "bound20",
+            "type": "numeric",
+            "answer": 0.06366197723675814,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "bound64",
+            "type": "numeric",
+            "answer": 0.019894367886486918,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "index",
+            "type": "numeric",
+            "answer": 64.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "meaning",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How is a conservative Fourier-tail certificate obtained?",
+        "solution": "Each omitted output amplitude is at most 4/(pi n²). Summing all omitted integers and bounding their decreasing tail integral gives 4/(pi N), deliberately including even indices. N=64 makes this certificate below 0.02; it is an upper bound, not the actual error or a measured grid maximum.",
+        "lesson_ids": [
+          "differential-equations-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic differential-equation practice developed with substantial AI assistance; no external problem, external solution, code or measured dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "differential-equations-17:depth-4",
+      "type": "data_interpretation",
+      "prompt": "For the same square input and a=1 filter, use the exact periodic half-cycle map and compare the IVP starting at zero. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "differential-equations-17-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "periodic_initial",
+          "type": "numeric",
+          "prompt": "Exact periodic output at the positive half-cycle start t=0.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "transient",
+          "type": "numeric",
+          "prompt": "Magnitude of the omitted homogeneous correction at t=1 for y(0)=0.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "convergence",
+          "type": "single_choice",
+          "prompt": "Which statement is supported? for the supplied mathematical model.",
+          "options": [
+            "Uniform convergence of the output alone proves every derivative series converges uniformly through the input jumps.",
+            "The discontinuous input is not uniformly approximated, while the absolutely summable filtered-output series is uniformly convergent.",
+            "More Fourier harmonics automatically remove an omitted initial-value transient."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "periodic_initial",
+            "type": "numeric",
+            "answer": -0.9171523356672743,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "transient",
+            "type": "numeric",
+            "answer": 0.33740148871436,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "convergence",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can a Fourier-tail bound fail to bound an initial-value approximation?",
+        "solution": "The half-cycle map gives yper(0)=−(1−e^−pi)/(1+e^−pi). Starting at zero adds −yper(0)e^−t, whose magnitude remains distinct from any harmonic tail. Output absolute summability supports uniform convergence, while discontinuous input and one-sided output derivatives require separate treatment at each switch.",
+        "lesson_ids": [
+          "differential-equations-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic differential-equation practice developed with substantial AI assistance; no external problem, external solution, code or measured dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "differential-equations-18:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Rehearsal planar model: x prime=(mu−r²)x−omega y,y prime=omega x+(mu−r²)y,mu=4,omega=2,r0=1. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "differential-equations-18-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "radius",
+          "type": "numeric",
+          "prompt": "Attracting cycle radius for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "period",
+          "type": "numeric",
+          "prompt": "Cycle period for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "exponent",
+          "type": "numeric",
+          "prompt": "Radial decay exponent at the cycle.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "radius",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "period",
+            "type": "numeric",
+            "answer": 3.141592653589793,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "exponent",
+            "type": "numeric",
+            "answer": -8.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What distinguishes an attracting cycle from an attracting equilibrium?",
+        "solution": "Adding x x prime and y y prime cancels rotation and gives r prime=4r−r³. Its positive equilibrium is two, with derivative 4−3×4=−8. Angular speed is two, giving period pi. Attraction concerns the cycle as a set; phase shifts do not contract like radial disturbances.",
+        "lesson_ids": [
+          "differential-equations-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic differential-equation practice developed with substantial AI assistance; no external problem, external solution, code or measured dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "differential-equations-18:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use the same rehearsal and w=r² with initial w0=1. Evaluate at t=ln(3)/8. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "differential-equations-18-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "time",
+          "type": "numeric",
+          "prompt": "Specified evaluation time for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "squared",
+          "type": "numeric",
+          "prompt": "Squared radius w at that time.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "radius",
+          "type": "numeric",
+          "prompt": "Radius r at that time.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "time",
+            "type": "numeric",
+            "answer": 0.13732653608351372,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "squared",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "radius",
+            "type": "numeric",
+            "answer": 1.4142135623730951,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How can a planar radius model supply an independent solver reference?",
+        "solution": "The squared radius solves w prime=8w−2w², giving w=4/(1+3e^−8t). At ln(3)/8 the exponential is one third, so w=2 and the radius is sqrt2. This is an intermediate radius; reaching it is not a complete cycle or exact arrival at the limiting orbit.",
+        "lesson_ids": [
+          "differential-equations-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic differential-equation practice developed with substantial AI assistance; no external problem, external solution, code or measured dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "differential-equations-18:depth-3",
+      "type": "data_interpretation",
+      "prompt": "For a separate mu=0 case use r0=1 and the same positive angular speed. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "differential-equations-18-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "radius",
+          "type": "numeric",
+          "prompt": "Radius at t=1 for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "lyapunov_derivative",
+          "type": "numeric",
+          "prompt": "Derivative of V=r²/2 at t=1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "origin",
+          "type": "single_choice",
+          "prompt": "What establishes attraction in this case?",
+          "options": [
+            "The nonlinear radial equation and V prime=−r^4, while the purely imaginary linearization alone is inconclusive.",
+            "The imaginary linear eigenvalues alone prove exponential attraction.",
+            "The linearized circles prove the nonlinear origin cannot attract."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "radius",
+            "type": "numeric",
+            "answer": 0.5773502691896258,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "lyapunov_derivative",
+            "type": "numeric",
+            "answer": -0.1111111111111111,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "origin",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What should you conclude from zero-real-part eigenvalues in a nonlinear linearization?",
+        "solution": "At mu=0 the exact radius is 1/sqrt(1+2t), hence r(1)=1/sqrt3 and V prime=−r^4=−1/9. Decay is algebraic, not exponential. The nonlinear argument resolves a case that cannot be classified for attraction using its zero-real-part linear eigenvalues alone.",
+        "lesson_ids": [
+          "differential-equations-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic differential-equation practice developed with substantial AI assistance; no external problem, external solution, code or measured dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "differential-equations-18:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Interpret the positive-mu cycle and the exact origin in this smooth planar model. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "differential-equations-18-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "phase",
+          "type": "single_choice",
+          "prompt": "Which statement is correct? for the supplied mathematical model.",
+          "options": [
+            "Every trajectory converges to one fixed point on the circle and stops rotating.",
+            "Nearby positive-radius trajectories approach the circle; an angular phase shift can remain.",
+            "The exact origin must depart from zero despite being an equilibrium."
+          ],
+          "points": 1
+        },
+        {
+          "id": "scope",
+          "type": "single_choice",
+          "prompt": "Which inference is supported? for the supplied mathematical model.",
+          "options": [
+            "Any numerical closed-looking curve proves an attracting periodic orbit.",
+            "One squared-radius identity establishes chaos in every two-state autonomous model.",
+            "The derived radial formula proves this model’s amplitude behavior; it is not a general theorem for all biological oscillators."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "phase",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "scope",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why report phase error separately from radius error?",
+        "solution": "Radial attraction and tangential phase neutrality describe different directions. The exact origin remains an equilibrium even when unstable. The explicit radial reduction proves this particular smooth model’s behavior, but visual loops and borrowed parameter names do not identify a real oscillator or establish a general nonlinear theorem.",
+        "lesson_ids": [
+          "differential-equations-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic differential-equation practice developed with substantial AI assistance; no external problem, external solution, code or measured dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "differential-equations-19:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1 Part A uses y prime+2t y=2t,y(0)=3 with integrating factor normalized to one at zero. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "differential-equations-19-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "factor",
+          "type": "numeric",
+          "prompt": "Integrating factor at t=1 for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "state",
+          "type": "numeric",
+          "prompt": "State y at t=1 for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "particular",
+          "type": "numeric",
+          "prompt": "Constant equilibrium particular solution for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "factor",
+            "type": "numeric",
+            "answer": 2.718281828459045,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "state",
+            "type": "numeric",
+            "answer": 1.7357588823428847,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "particular",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What should a methods/domain report retain?",
+        "solution": "The integrating factor is e^(t²), so y=1+2e^−t². At one the factor is e and the state is 1+2/e. Differentiation gives y prime=−4t e^−t² and substitution returns 2t. The initial derivative vanishes because the coefficient vanishes there; this is not a constant-time-constant relaxation.",
+        "lesson_ids": [
+          "differential-equations-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic differential-equation practice developed with substantial AI assistance; no external problem, external solution, code or measured dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "differential-equations-19:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1 Parts B/C are separate IVPs: z prime=z²,z(0)=2; and v prime=3sqrt(abs(v)),v(0)=0 with delayed branch waiting until a=1. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 5,
+      "objective_ids": [
+        "differential-equations-19-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "escape",
+          "type": "numeric",
+          "prompt": "Forward escape time of z.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "state",
+          "type": "numeric",
+          "prompt": "Value z at t=0.25 for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "delayed",
+          "type": "numeric",
+          "prompt": "Delayed-branch v at t=2 for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "delayed_derivative",
+          "type": "numeric",
+          "prompt": "Delayed-branch v prime at t=2.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "domain",
+          "type": "single_choice",
+          "prompt": "Which statement is justified? for the supplied mathematical model.",
+          "options": [
+            "The z branch through zero ends at 0.5; the delayed v branch and zero v branch verify nonuniqueness of the other IVP.",
+            "The formula for z after its pole continues through the singularity without a domain restriction.",
+            "Both IVPs have the same solution solely because they are separable."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "escape",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "state",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "delayed",
+            "type": "numeric",
+            "answer": 2.25,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "delayed_derivative",
+            "type": "numeric",
+            "answer": 4.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "domain",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why keep theorem hypotheses and explicit counterexamples separate?",
+        "solution": "The first equation gives z=2/(1−2t), escape at one half and z(0.25)=4. The separate delayed branch is v=(9/4)(t−1)² after one, giving v(2)=9/4 and derivative 9/2. Verify each in its own original equation; a smooth local field can still permit escape, while nonuniqueness needs two actual branches.",
+        "lesson_ids": [
+          "differential-equations-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic differential-equation practice developed with substantial AI assistance; no external problem, external solution, code or measured dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "differential-equations-20:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2 Part A: x double-prime+4x=sin(2t),x(0)=x prime(0)=0. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "differential-equations-20-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "first_state",
+          "type": "numeric",
+          "prompt": "Position at t=pi/4 for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "velocity",
+          "type": "numeric",
+          "prompt": "Velocity at t=pi/4 for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second_state",
+          "type": "numeric",
+          "prompt": "Position at t=pi/2 for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "first_state",
+            "type": "numeric",
+            "answer": 0.125,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "velocity",
+            "type": "numeric",
+            "answer": 0.39269908169872414,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "second_state",
+            "type": "numeric",
+            "answer": 0.39269908169872414,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How should a resonant response be checked?",
+        "solution": "The full initial-value solution is sin(2t)/8−t cos(2t)/4 and its derivative is (t/2)sin(2t). The requested values are one eighth, pi/8 and pi/8. A resonant particular trial alone does not satisfy both initial conditions; the growing envelope also prevents a finite attracting periodic response.",
+        "lesson_ids": [
+          "differential-equations-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic differential-equation practice developed with substantial AI assistance; no external problem, external solution, code or measured dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "differential-equations-20:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2 Part B: z double-prime+2z prime+2z=3delta(t−1),rest before one. Separately Part C uses the a=1 square-input filter and N=64 periodic harmonics. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "differential-equations-20-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "jump",
+          "type": "numeric",
+          "prompt": "Derivative jump at the delayed impulse.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "impulse_state",
+          "type": "numeric",
+          "prompt": "Position z at t=1+pi/2 for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "tail",
+          "type": "numeric",
+          "prompt": "Periodic-output tail certificate 4/(pi N).",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "transient",
+          "type": "numeric",
+          "prompt": "Omitted transient magnitude at t=1 for the separate filter starting at zero.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "jump",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "impulse_state",
+            "type": "numeric",
+            "answer": 0.6236387290522858,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "tail",
+            "type": "numeric",
+            "answer": 0.019894367886486918,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "transient",
+            "type": "numeric",
+            "answer": 0.33740148871436,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which errors need separate entries in a forced-response report?",
+        "solution": "The impulse preserves z and jumps z prime by three; afterward z=3e^−(t−1)sin(t−1), giving 3exp(−pi/2) at the target time. The separate Fourier certificate is 1/(16pi). Its initial transient is |yper(0)|e^−1 and must be budgeted separately; adding harmonics cannot repair a missing initial condition.",
+        "lesson_ids": [
+          "differential-equations-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic differential-equation practice developed with substantial AI assistance; no external problem, external solution, code or measured dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "differential-equations-21:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 3 Part A uses A=[[-1,2],[0,-1]],constant b=(0,1),x(0)=(0,0). Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "differential-equations-21-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "first",
+          "type": "numeric",
+          "prompt": "First state at t=1 for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second",
+          "type": "numeric",
+          "prompt": "Second state at t=1 for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "steady_first",
+          "type": "numeric",
+          "prompt": "First component of the forced equilibrium.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "steady_second",
+          "type": "numeric",
+          "prompt": "Second component of the forced equilibrium.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "first",
+            "type": "numeric",
+            "answer": 0.5284822353142307,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "second",
+            "type": "numeric",
+            "answer": 0.6321205588285577,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "steady_first",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "steady_second",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What independently verifies a fundamental-matrix response?",
+        "solution": "Write A=−I+N with N²=0, so exp(At)=e^−t(I+tN). Convolution with the constant input gives x2=1−e^−t and x1=2[1−(1+t)e^−t]. Their equilibrium is (2,1), not zero; omitting b from the equilibrium equation would solve a different system.",
+        "lesson_ids": [
+          "differential-equations-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic differential-equation practice developed with substantial AI assistance; no external problem, external solution, code or measured dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "differential-equations-21:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Assignment 3 Part B uses z prime=[[-3,1],[3,-1]]z,z(0)=(4,0). Evaluate the exact state at t=ln(2)/4. Separately take one forward-Euler step h=0.4 from the original initial state. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "differential-equations-21-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "first",
+          "type": "numeric",
+          "prompt": "Exact first state at the specified logarithmic time.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second",
+          "type": "numeric",
+          "prompt": "Exact second state at that time.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "euler_first",
+          "type": "numeric",
+          "prompt": "First state after the separate single Euler step.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "euler_second",
+          "type": "numeric",
+          "prompt": "Second state after that step.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "first",
+            "type": "numeric",
+            "answer": 2.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "second",
+            "type": "numeric",
+            "answer": 1.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "euler_first",
+            "type": "numeric",
+            "answer": -0.8,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "euler_second",
+            "type": "numeric",
+            "answer": 4.8,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Can an update conserve a total and remain stable yet produce a negative state?",
+        "solution": "The closed total remains four and z1=1+3e^−4t,z2=3−3e^−4t. At ln2/4 the state is (2.5,1.5). A separate step from (4,0) with h=0.4 gives (−0.8,4.8), still totaling four despite a negative component. Stable amplification and total conservation do not ensure numerical positivity.",
+        "lesson_ids": [
+          "differential-equations-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic differential-equation practice developed with substantial AI assistance; no external problem, external solution, code or measured dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "differential-equations-22:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 4 Part A uses the planar radius model with mu=1/4,omega=2,r0=1/4. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "differential-equations-22-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "cycle_radius",
+          "type": "numeric",
+          "prompt": "Attracting cycle radius for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "period",
+          "type": "numeric",
+          "prompt": "Cycle period for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "exponent",
+          "type": "numeric",
+          "prompt": "Radial decay exponent at the cycle.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "observed_radius",
+          "type": "numeric",
+          "prompt": "Radius at t=2ln(3) for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "cycle_radius",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "period",
+            "type": "numeric",
+            "answer": 3.141592653589793,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "exponent",
+            "type": "numeric",
+            "answer": -0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "observed_radius",
+            "type": "numeric",
+            "answer": 0.35355339059327373,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How do a limiting cycle and a sampled amplitude differ?",
+        "solution": "The squared radius obeys w prime=(1/2)w−2w² and equals (1/4)/(1+3exp(−t/2)). Thus the limiting radius is one half, period pi and radial exponent minus one half. At 2ln3, w=1/8 and radius 1/(2sqrt2); this finite-time point is not exact arrival on the cycle.",
+        "lesson_ids": [
+          "differential-equations-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic differential-equation practice developed with substantial AI assistance; no external problem, external solution, code or measured dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "differential-equations-22:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Assignment 4 Part B instead uses mu=0,omega=2,r0=1/2 and evaluates at t=2. Separately Part D takes one Euler step h=0.4 for q prime=−4q,q(0)=1. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "differential-equations-22-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "radius",
+          "type": "numeric",
+          "prompt": "Zero-mu radius at t=2 for the supplied mathematical model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "lyapunov_derivative",
+          "type": "numeric",
+          "prompt": "Derivative of V=r²/2 at that time.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "amplification",
+          "type": "numeric",
+          "prompt": "Separate Euler one-step amplification factor.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "claim",
+          "type": "single_choice",
+          "prompt": "Which statement is correct? for the supplied mathematical model.",
+          "options": [
+            "Purely imaginary linearization proves exponential attraction in every nonlinear system.",
+            "An amplification factor with magnitude below one guarantees positive states for every nonnegative initial value.",
+            "The nonlinear radius decays algebraically; the separate stable Euler amplification still violates positivity."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "radius",
+            "type": "numeric",
+            "answer": 0.35355339059327373,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "lyapunov_derivative",
+            "type": "numeric",
+            "answer": -0.015625,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "amplification",
+            "type": "numeric",
+            "answer": -0.6,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "claim",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What belongs in a numerical acceptance table?",
+        "solution": "For mu=0, r=(1/2)/sqrt(1+t/2), so r(2)=1/(2sqrt2) and V prime=−r^4=−1/64. The separate Euler factor is 1−4×0.4=−0.6: magnitude below one but negative. These examples distinguish nonlinear attraction, linearization limits, numerical stability and admissibility.",
+        "lesson_ids": [
+          "differential-equations-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic differential-equation practice developed with substantial AI assistance; no external problem, external solution, code or measured dataset imported."
+        ]
+      }
     }
   ]
 }

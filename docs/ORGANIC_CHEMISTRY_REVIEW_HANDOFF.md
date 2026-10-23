@@ -1,6 +1,6 @@
 # Organic Chemistry I course review handoff
 
-This handoff targets Organic Chemistry I for Life Sciences, package version 0.4.8. The [review snapshot](ORGANIC_CHEMISTRY_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+This handoff targets Organic Chemistry I for Life Sciences, package version 0.6.0. The [review snapshot](ORGANIC_CHEMISTRY_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
 
 ## Review scope
 
@@ -18,3 +18,11 @@ The repository content validator passed for 25 courses, 421 lessons, 2,618 quest
 ## Review record to complete only after review
 
 After a review actually occurs, record reviewer qualifications, date, exact package version and archive digest, artifacts examined, concrete findings and disposition. Keep separate decisions for chemical and mathematical correctness, instructional design, assessment, accessibility, workload and release. A package hash is an identity check, not approval.
+
+## Open project route (2026-10-22)
+
+The current guide, separate worked example, rehearsal and five private milestone self-checks make the existing project usable as ungraded practice. [The route regression tests](../tests/content/test_remaining_course_project_routes.py) independently recalculate every new numeric field and exercise the backend grader, including exact counts and continuous-quantity precision. Review the written explanation, evidence limits and proposed workload independently; automated arithmetic is not subject review. Historical snapshot evidence remains preserved.
+
+## Deeper mechanism and synthesis target (2026-10-22)
+
+Review target 0.6.0 adds original aryne/blocked-ring atom maps and multistep forward-compatibility/protection instruction, plus two paper assignments. Review electron/charge flow, original-carbon mapping, formation-rule restrictions, compatibility stipulations, formula/stereochemical reasoning and yield denominators. No real route selectivity, preparation or procedure is established. Written work, workload and qualified review remain open; the current snapshot pins the package.

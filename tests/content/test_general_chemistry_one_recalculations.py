@@ -536,17 +536,17 @@ def test_schedule_and_conservative_labels():
     }
     weeks = manifest["duration"]["weeks"]
     # Ten teaching weeks after the compact/expanded regrouping.
-    assert [week["week"] for week in weeks] == list(range(1, 11))
+    assert [week["week"] for week in weeks] == list(range(1, 15))
     assert {lid for week in weeks for lid in week["lesson_ids"]} == lessons
-    assert weeks[-1]["assessment_ids"] == [
+    assert weeks[-2]["assessment_ids"] == [
         "general-chemistry-1-week14-buffer-lab",
         "general-chemistry-1-case",
     ]
-    assert len(lessons) == 15 and len(BANK) == 113
+    assert len(lessons) == 22 and len(BANK) == 134
     cards = len(load(COURSE / "question-banks/retrieval-cards.json")["cards"])
     text = (COURSE / "syllabus.md").read_text(encoding="utf-8")
     assert (
-        f"There are {len(lessons)} scheduled activities (14 readings and one synthetic lab), "
-        f"{len(BANK)} public practice items and {cards} retrieval cards" in text
+        f"Current practice inventory: {len(lessons)} lessons, {len(BANK)} public practice items, "
+        f"{cards} retrieval cards" in text
     )
     assert "Four compact foundations are paired with expanded instruction inside the same week" in text

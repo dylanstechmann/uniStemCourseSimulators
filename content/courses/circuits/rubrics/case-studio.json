@@ -30,6 +30,161 @@
       "limitations": [
         "This preserved three-criterion checklist is self-assessment, not an analytic grading rubric or an institutional grade."
       ]
+    },
+    {
+      "id": "circuits:project-m1",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "circuits-project-objective-1"
+      ],
+      "prompt": "Sensor-channel budget · milestone 1: Loading and gain. The project uses terminal ±5 mV differential input, ±0.5 V common mode, gain 200 about 2.5 V, 80 dB CMRR, an 8.2 kΩ/1 µF filter and a 12-bit 0–5 V ADC at 100 samples/s. For the project, calculate the 1 MΩ/(1 MΩ+1 kΩ) loading fraction. Treat ±5 mV as the declared amplifier-terminal differential range for the nominal gain/reference check. Also report what changes if ±5 mV instead names the open-circuit source. Use the project guide in week 13 for the full supplied model. Save your calculation and reasoning privately; this self-check is ungraded.",
+      "rubric": [
+        {
+          "id": "circuits-project-m1-criterion-1",
+          "criterion": "Labels open-circuit and terminal voltages separately.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "circuits-project-m1-criterion-2",
+          "criterion": "Calculates loading from both resistances and keeps its factor dimensionless.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "circuits-project-m1-criterion-3",
+          "criterion": "Maps the terminal signal about the 2.5 V reference before adding other errors.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Checklist marks record the learner’s own self-review. Written reasoning is not automatically evaluated."
+      ]
+    },
+    {
+      "id": "circuits:project-m2",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "circuits-project-objective-2"
+      ],
+      "prompt": "Sensor-channel budget · milestone 2: Common-mode error and headroom. The project uses terminal ±5 mV differential input, ±0.5 V common mode, gain 200 about 2.5 V, 80 dB CMRR, an 8.2 kΩ/1 µF filter and a 12-bit 0–5 V ADC at 100 samples/s. For gain 200 and 80 dB CMRR, calculate common-mode gain and the output contribution of ±0.5 V. Refer it to the amplifier differential input, then screen the declared 0–5 V output span with worst-case signs. Use the project guide in week 13 for the full supplied model. Save your calculation and reasoning privately; this self-check is ungraded.",
+      "rubric": [
+        {
+          "id": "circuits-project-m2-criterion-1",
+          "criterion": "Uses 20 log10 for the gain ratio rather than treating decibels as a percentage.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "circuits-project-m2-criterion-2",
+          "criterion": "Divides the output error by differential gain to state its input basis.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "circuits-project-m2-criterion-3",
+          "criterion": "Includes reference, differential signal and common-mode contribution in both extremes.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Checklist marks record the learner’s own self-review. Written reasoning is not automatically evaluated."
+      ]
+    },
+    {
+      "id": "circuits:project-m3",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "circuits-project-objective-3"
+      ],
+      "prompt": "Sensor-channel budget · milestone 3: Filter response and sampling. The project uses terminal ±5 mV differential input, ±0.5 V common mode, gain 200 about 2.5 V, 80 dB CMRR, an 8.2 kΩ/1 µF filter and a 12-bit 0–5 V ADC at 100 samples/s. For the project’s 8.2 kΩ, 1 µF filter, compute the corner and amplitude ratios at 5 and 50 Hz. Compare with the 100 samples/s Nyquist frequency. State the additional spectrum and error information needed for an alias budget. Use the project guide in week 13 for the full supplied model. Save your calculation and reasoning privately; this self-check is ungraded.",
+      "rubric": [
+        {
+          "id": "circuits-project-m3-criterion-1",
+          "criterion": "Uses f in cycles/s consistently with the RC corner formula.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "circuits-project-m3-criterion-2",
+          "criterion": "Reports desired-signal attenuation as well as disturbance attenuation.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "circuits-project-m3-criterion-3",
+          "criterion": "Keeps a finite one-pole attenuation distinct from complete alias prevention.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Checklist marks record the learner’s own self-review. Written reasoning is not automatically evaluated."
+      ]
+    },
+    {
+      "id": "circuits:project-m4",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "circuits-project-objective-4"
+      ],
+      "prompt": "Sensor-channel budget · milestone 4: ADC and input-referred scale. The project uses terminal ±5 mV differential input, ±0.5 V common mode, gain 200 about 2.5 V, 80 dB CMRR, an 8.2 kΩ/1 µF filter and a 12-bit 0–5 V ADC at 100 samples/s. For the project’s 12-bit 0–5 V ADC, compute the output step and the step referred through gain 200. State whether the reference point is the amplifier input or the unloaded source, and identify what remains unknown about effective resolution. Use the project guide in week 13 for the full supplied model. Save your calculation and reasoning privately; this self-check is ungraded.",
+      "rubric": [
+        {
+          "id": "circuits-project-m4-criterion-1",
+          "criterion": "Uses the full span divided by 2^bits under the stated ideal quantizer convention.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "circuits-project-m4-criterion-2",
+          "criterion": "Names the input node and gain used for referral.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "circuits-project-m4-criterion-3",
+          "criterion": "Does not equate a code step with measured noise, accuracy or effective bits.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Checklist marks record the learner’s own self-review. Written reasoning is not automatically evaluated."
+      ]
+    },
+    {
+      "id": "circuits:project-m5",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "circuits-project-objective-5"
+      ],
+      "prompt": "Sensor-channel budget · milestone 5: Communicate the channel and its limits. The project uses terminal ±5 mV differential input, ±0.5 V common mode, gain 200 about 2.5 V, 80 dB CMRR, an 8.2 kΩ/1 µF filter and a 12-bit 0–5 V ADC at 100 samples/s. Assemble a labelled signal-path table or diagram with a plain-text alternative. Include loading, gain/reference, common-mode error, filtering, sampling and quantization. List unmodeled offset/bias, noise, swing/current, input range, tolerances and stability, and add one independent numerical check. Use the project guide in week 13 for the full supplied model. Save your calculation and reasoning privately; this self-check is ungraded.",
+      "rubric": [
+        {
+          "id": "circuits-project-m5-criterion-1",
+          "criterion": "A reader can follow each node’s units, voltage basis and reference.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "circuits-project-m5-criterion-2",
+          "criterion": "An independent check tests a balance or limiting case rather than repeating a calculator display.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "circuits-project-m5-criterion-3",
+          "criterion": "The report keeps its ideal comparison separate from hardware or subject-use claims.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Checklist marks record the learner’s own self-review. Written reasoning is not automatically evaluated."
+      ]
     }
   ]
 }

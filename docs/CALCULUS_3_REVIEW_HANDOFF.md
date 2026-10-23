@@ -19,3 +19,7 @@ Historical authoring records describe 91 Calculus III numerical and mathematical
 ## Review record to complete only after review
 
 After a review actually occurs, record reviewer name and qualifications, date, package version and archive digest, artifacts examined, concrete findings and disposition. Keep separate decisions for mathematical correctness, instructional design, assessment, accessibility, workload and release. Do not infer approval from the package hash or test results.
+
+## Local/global hypothesis target (2026-10-22)
+
+Current target 0.6.0 adds three foundations, four reports, one outcome and twenty checkpoints/cards. Verify implicit first/second derivatives, sufficient chart conditions and fold geometry; finite-change Hessian bounds and complete constrained extrema; nonlinear polynomial Jacobians, inverse bounds and global multiplicity; iterated/rectangular singular limits and absolute divergence; full curved top/bottom flux, direct volume divergence, separate curl/circulation and scalar area; weighted-loop domain and orientation hypotheses. Checkpoint values do not evaluate proofs, reports or code. The original four primers are concise. General analysis/topology and workload/qualified review remain outside the delivered evidence.

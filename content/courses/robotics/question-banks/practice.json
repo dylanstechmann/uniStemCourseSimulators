@@ -4126,6 +4126,1997 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "robotics-project:rehearsal-1",
+      "type": "data_interpretation",
+      "prompt": "Trajectory-margin portfolio rehearsal · Differentiate the time scaling. Rehearsal cubic move: Δq = 0.6 rad, I = 0.12 kg m², m = 1.5 kg, r = 0.20 m and g = 9.81 m/s²; candidates 0.6, 1.0, 1.4 s. Limits: speed 1 rad/s, positive torque 3.5 N m; scalar clearance 0.25 rad, latency 0.04 s, braking 3 rad/s² and allowance 0.01 rad. Unless a field asks otherwise, evaluate the T = 1.00 s candidate. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 3,
+      "objective_ids": [
+        "robotics-project-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "speed",
+          "type": "numeric",
+          "prompt": "Rehearsal peak joint speed at T = 1.00 s, in rad/s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "acceleration",
+          "type": "numeric",
+          "prompt": "Peak absolute joint acceleration at T = 1.00 s, in rad/s².",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "endpoints",
+          "type": "single_choice",
+          "prompt": "What are the cubic’s endpoint properties?",
+          "options": [
+            "Endpoint velocity and acceleration are both zero at both ends.",
+            "The cubic has constant velocity throughout the move.",
+            "Endpoint velocities are zero, but endpoint accelerations are nonzero and change sign between the ends."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "speed",
+            "type": "numeric",
+            "answer": 0.9,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "acceleration",
+            "type": "numeric",
+            "answer": 3.6,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "endpoints",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why does zero endpoint velocity not imply a smooth acceleration join?",
+        "solution": "Differentiating q = Δq(3s²−2s³), s = t/T, gives q_dot = (Δq/T)(6s−6s²) and q_ddot = (Δq/T²)(6−12s). For Δq = 0.6 and T = 1, peak speed is 0.9 rad/s at s = 0.5 and peak absolute acceleration is 3.6 rad/s² at an endpoint.",
+        "lesson_ids": [
+          "robotics-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "robotics-project:rehearsal-2",
+      "type": "data_interpretation",
+      "prompt": "Trajectory-margin portfolio rehearsal · Gravity and actuator torque. Rehearsal cubic move: Δq = 0.6 rad, I = 0.12 kg m², m = 1.5 kg, r = 0.20 m and g = 9.81 m/s²; candidates 0.6, 1.0, 1.4 s. Limits: speed 1 rad/s, positive torque 3.5 N m; scalar clearance 0.25 rad, latency 0.04 s, braking 3 rad/s² and allowance 0.01 rad. Unless a field asks otherwise, evaluate the T = 1.00 s candidate. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 3,
+      "objective_ids": [
+        "robotics-project-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "gravity",
+          "type": "numeric",
+          "prompt": "Rehearsal gravity-torque coefficient mgr, in N m.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "torque",
+          "type": "numeric",
+          "prompt": "Maximum positive rehearsal torque at T = 1.00 s, in N m.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "maximum",
+          "type": "single_choice",
+          "prompt": "Why does the positive torque peak occur at the start of this stipulated 0-to-0.6-rad move?",
+          "options": [
+            "Acceleration starts at its positive maximum, while gravity cos(q) is also largest at q = 0; both contributions decrease over this interval.",
+            "Gravity torque is zero when q = 0 under the declared horizontal reference.",
+            "The largest positive torque always occurs at peak speed for every trajectory."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "gravity",
+            "type": "numeric",
+            "answer": 2.943,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "torque",
+            "type": "numeric",
+            "answer": 3.375,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "maximum",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which reference matters in mgr cos(q)?",
+        "solution": "The gravity coefficient is 1.5×9.81×0.2 = 2.943 N m. At T = 1, the start torque is mgr + I×3.6 = 3.375 N m. Because the angle stays below π/2 and acceleration falls linearly, this is the maximum positive torque in the declared model; no unprovided reverse-torque capability is inferred.",
+        "lesson_ids": [
+          "robotics-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "robotics-project:rehearsal-3",
+      "type": "data_interpretation",
+      "prompt": "Trajectory-margin portfolio rehearsal · Conditional stopping screen. Rehearsal cubic move: Δq = 0.6 rad, I = 0.12 kg m², m = 1.5 kg, r = 0.20 m and g = 9.81 m/s²; candidates 0.6, 1.0, 1.4 s. Limits: speed 1 rad/s, positive torque 3.5 N m; scalar clearance 0.25 rad, latency 0.04 s, braking 3 rad/s² and allowance 0.01 rad. Unless a field asks otherwise, evaluate the T = 1.00 s candidate. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 3,
+      "objective_ids": [
+        "robotics-project-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "stopping",
+          "type": "numeric",
+          "prompt": "Rehearsal stopping allowance at the T = 1.00 s peak speed, in rad.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "reserve",
+          "type": "numeric",
+          "prompt": "Remaining rehearsal scalar clearance, in rad.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "conditional",
+          "type": "single_choice",
+          "prompt": "What makes the stopping allowance conditional?",
+          "options": [
+            "A positive remaining clearance proves a hardware protective function.",
+            "It assumes the declared latency, guaranteed braking magnitude, scalar geometry and position allowance; none is validated by this calculation.",
+            "The scalar angle allowance is automatically a Cartesian distance in metres."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "stopping",
+            "type": "numeric",
+            "answer": 0.18100000000000002,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "reserve",
+            "type": "numeric",
+            "answer": 0.06899999999999998,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "conditional",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why must a stopping screen name its geometry and braking assumptions?",
+        "solution": "For v = 0.9 rad/s, latency 0.040 s, braking magnitude 3 rad/s² and allowance 0.010 rad, d_stop = 0.036+0.135+0.010 = 0.181 rad. Against scalar clearance 0.250 rad the reserve is 0.069 rad. The result depends on the stipulated braking and geometry; it is not a physical safety claim.",
+        "lesson_ids": [
+          "robotics-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "robotics-project:rehearsal-4",
+      "type": "data_interpretation",
+      "prompt": "Trajectory-margin portfolio rehearsal · Choose timing under all constraints. Rehearsal cubic move: Δq = 0.6 rad, I = 0.12 kg m², m = 1.5 kg, r = 0.20 m and g = 9.81 m/s²; candidates 0.6, 1.0, 1.4 s. Limits: speed 1 rad/s, positive torque 3.5 N m; scalar clearance 0.25 rad, latency 0.04 s, braking 3 rad/s² and allowance 0.01 rad. Unless a field asks otherwise, evaluate the T = 1.00 s candidate. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 3,
+      "objective_ids": [
+        "robotics-project-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "continuous",
+          "type": "numeric",
+          "prompt": "Shortest continuous rehearsal duration meeting all three declared constraints, in s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "candidate",
+          "type": "numeric",
+          "prompt": "Shortest feasible rehearsal candidate among 0.6, 1.0 and 1.4 s, in s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "binding",
+          "type": "single_choice",
+          "prompt": "Which constraint sets the continuous rehearsal lower bound?",
+          "options": [
+            "The torque bound alone, regardless of the speed limit.",
+            "The shortest listed candidate is necessarily feasible.",
+            "The 1.00 rad/s speed limit; the torque and scalar stopping bounds are smaller."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "continuous",
+            "type": "numeric",
+            "answer": 0.9,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "candidate",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "binding",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why report both a continuous lower bound and a candidate choice?",
+        "solution": "The speed bound is T≥0.9 s. Torque gives T≥sqrt(0.432/(3.50−2.943))≈0.881 s. The scalar stopping inequality permits speed about 1.086 rad/s, corresponding to a smaller timing bound. Speed controls the continuous 0.9 s bound, while 1.0 s is the shortest listed candidate meeting every screen.",
+        "lesson_ids": [
+          "robotics-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "robotics-project:rehearsal-5",
+      "type": "data_interpretation",
+      "prompt": "Trajectory-margin portfolio rehearsal · Energy and a bounded monitoring record. Rehearsal cubic move: Δq = 0.6 rad, I = 0.12 kg m², m = 1.5 kg, r = 0.20 m and g = 9.81 m/s²; candidates 0.6, 1.0, 1.4 s. Limits: speed 1 rad/s, positive torque 3.5 N m; scalar clearance 0.25 rad, latency 0.04 s, braking 3 rad/s² and allowance 0.01 rad. Unless a field asks otherwise, evaluate the T = 1.00 s candidate. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 4,
+      "objective_ids": [
+        "robotics-project-objective-5"
+      ],
+      "response_fields": [
+        {
+          "id": "work",
+          "type": "numeric",
+          "prompt": "Rehearsal ideal mechanical work to raise the load through 0.6 rad, in J.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "duration",
+          "type": "single_choice",
+          "prompt": "Why is this ideal work independent of duration?",
+          "options": [
+            "Work must grow as T² because peak torque changes.",
+            "Endpoint kinetic energies are both zero and the potential-energy rise is fixed; peak rates and margins can still depend on duration.",
+            "Zero endpoint speed means the load’s gravitational energy never changes."
+          ],
+          "points": 1
+        },
+        {
+          "id": "monitor",
+          "type": "single_choice",
+          "prompt": "Which paper monitoring record preserves the evidence boundary?",
+          "options": [
+            "Separate command, measured position/speed, delivered-current information and timestamps; flag model-limit discrepancies without calling the record a protective function.",
+            "Treat the commanded cubic as proof of measured execution.",
+            "Delete timestamps because the model specifies a duration."
+          ],
+          "points": 1
+        },
+        {
+          "id": "join",
+          "type": "single_choice",
+          "prompt": "What does joining the cubic directly to a stationary segment introduce?",
+          "options": [
+            "A smooth zero-acceleration join guaranteed by zero endpoint velocity.",
+            "A proof that friction and backlash are absent.",
+            "An acceleration discontinuity; this cubic alone does not provide a jerk-bounded physical trajectory."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "work",
+            "type": "numeric",
+            "answer": 1.6617427992015892,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "duration",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "monitor",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "join",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How can work remain fixed while the peak actuator budget changes?",
+        "solution": "With zero endpoint speeds and no losses, work is the potential-energy rise mgr sin(0.6) = 1.6617428 J. Inertial work over the whole move is zero because kinetic energy returns to zero, while peak torque and speed remain duration-dependent. A command history is not a measurement history, and the cubic’s endpoint acceleration jump remains outside a jerk-bounded model.",
+        "lesson_ids": [
+          "robotics-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "robotics-15:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Original rehearsal uses two uniform rods, each 1 m and 1 kg, center at 0.5 m, center inertia 1/12 kg m², synthetic g=1 m/s². At q=(pi/2, 0), angles shoulder-from-horizontal and elbow-relative, derive joint inertia. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "robotics-15-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "m11",
+          "type": "numeric",
+          "prompt": "Joint inertia entry M11 in kg m².",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "m12",
+          "type": "numeric",
+          "prompt": "Joint inertia entry M12=M21 in kg m².",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "m22",
+          "type": "numeric",
+          "prompt": "Joint inertia entry M22 in kg m².",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "m11",
+            "type": "numeric",
+            "answer": 2.6666666666666665,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "m12",
+            "type": "numeric",
+            "answer": 0.8333333333333334,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "m22",
+            "type": "numeric",
+            "answer": 0.3333333333333333,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why cannot total mass alone determine a link inertia?",
+        "solution": "Adding each center translational energy and center rotational energy gives M11=five/three+cos q2, M12=one/three+cos q2/two, M22=one/three. At q2=zero the requested entries are eight/three, five/six, one/three. The earlier point-mass model is a different mass distribution.",
+        "lesson_ids": [
+          "robotics-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic planar robotics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "robotics-15:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use those same rods at q=(pi/2, 0), v=(1, −1) rad/s, with the stated synthetic gravity. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "robotics-15-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "kinetic",
+          "type": "numeric",
+          "prompt": "Kinetic energy in joules for the supplied robotics model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "potential",
+          "type": "numeric",
+          "prompt": "Potential energy in joules relative to horizontal-link zero.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "kinetic",
+            "type": "numeric",
+            "answer": 0.6666666666666666,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "potential",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which terms must a two-body kinetic ledger retain?",
+        "solution": "The symmetric quadratic form gives kinetic energy one half times(eight/three−ten/six+one/three)=two/three J. Potential is 1.5 sin q1+0.5 sin(q1+q2), giving two J. The off-diagonal cross contribution appears twice inside the quadratic form.",
+        "lesson_ids": [
+          "robotics-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic planar robotics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "robotics-15:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Separate rehearsal state of the same rods:q=(0, pi/2), v=(1, −1), a=(0, 2), in radians and seconds. Use tau=M a+h+G. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "robotics-15-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "shoulder",
+          "type": "numeric",
+          "prompt": "Required shoulder torque in newton meters.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "elbow",
+          "type": "numeric",
+          "prompt": "Required elbow torque in newton meters.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "shoulder",
+            "type": "numeric",
+            "answer": 2.6666666666666665,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "elbow",
+            "type": "numeric",
+            "answer": 1.1666666666666667,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why keep successive trajectory states explicitly separate?",
+        "solution": "At this posture M has entries five/three, one/three, one/three. Inertial torque is(two/three, two/three), h=(one half, one half), G=(1.5, zero). Their signed sum is(eight/three, seven/six). This state differs from the preceding straight-posture energy example.",
+        "lesson_ids": [
+          "robotics-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic planar robotics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "robotics-15:depth-4",
+      "type": "data_interpretation",
+      "prompt": "For the rehearsal straight posture q2=0, compare joint kinetic inertia with endpoint-position Jacobian rank. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "robotics-15-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "determinant",
+          "type": "numeric",
+          "prompt": "Determinant of the rod mass matrix in squared inertia units.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "singularity",
+          "type": "single_choice",
+          "prompt": "Which conclusion is supported? for the supplied robotics model.",
+          "options": [
+            "The endpoint Jacobian can lose rank while the distributed-link joint mass matrix remains positive definite.",
+            "A singular endpoint map requires zero kinetic energy for every nonzero joint velocity.",
+            "The earlier point-mass coefficients remain unchanged when mass is redistributed into uniform rods."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "determinant",
+            "type": "numeric",
+            "answer": 0.19444444444444445,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "singularity",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does positive joint inertia establish?",
+        "solution": "The determinant is(eight/three)(one/three)−(five/six)²=seven/36, positive. In general it is four/nine−cos²q2/four, at least seven/36. Endpoint position rank and joint kinetic energy are distinct properties of the model.",
+        "lesson_ids": [
+          "robotics-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic planar robotics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "robotics-16:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Original rehearsal frozen generalized model:M=[[3, 1], [1, 2]], wall q1>=0, at q1=v1=0, A=(1, 0), tau=(-4, 2). Use M a=tau+A transpose lambda and A a=0, positive reaction into allowed space. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "robotics-16-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "tangent",
+          "type": "numeric",
+          "prompt": "Active tangential acceleration a2 in the stated generalized units.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "reaction",
+          "type": "numeric",
+          "prompt": "Active normal reaction in the stated generalized force units.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "tangent",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "reaction",
+            "type": "numeric",
+            "answer": 5.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must a constrained acceleration solution satisfy?",
+        "solution": "The active constraint fixes a1=zero. The second dynamic row gives a2=one, and the first gives reaction five. Substitution into both rows and the constraint checks the original system; reaction sign is consistent with a nonadhesive wall at this resting boundary.",
+        "lesson_ids": [
+          "robotics-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic planar robotics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "robotics-16:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use that same M and unit normal A. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "robotics-16-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "mobility",
+          "type": "numeric",
+          "prompt": "Normal mobility A M inverse A transpose.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "effective_mass",
+          "type": "numeric",
+          "prompt": "Reciprocal effective normal mass in stated generalized units.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "power",
+          "type": "single_choice",
+          "prompt": "Which work statement follows at compatible velocity?",
+          "options": [
+            "Zero reaction power means the reaction cannot change acceleration.",
+            "Reaction power is lambda times A v=zero,although its effect on acceleration can be nonzero.",
+            "A workless stationary constraint necessarily dissipates kinetic energy continuously."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "mobility",
+            "type": "numeric",
+            "answer": 0.4,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "effective_mass",
+            "type": "numeric",
+            "answer": 2.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "power",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why must the constraint normal normalization be recorded?",
+        "solution": "M inverse has normal entry two/five, so effective normal mass is five/two for this unit-normal convention. At A v=zero, reaction power vanishes. This does not eliminate its acceleration effect or supply a friction, impact or compliant-contact law.",
+        "lesson_ids": [
+          "robotics-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic planar robotics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "robotics-16:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Separate input for the same resting wall and M:tau=(4, 2). A bilateral equality solve gives lambda=−3. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "robotics-16-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "normal",
+          "type": "numeric",
+          "prompt": "Released free normal acceleration a1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "tangent",
+          "type": "numeric",
+          "prompt": "Released free tangential acceleration a2.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "branch",
+          "type": "single_choice",
+          "prompt": "Which branch is admissible for this nonadhesive wall instant?",
+          "options": [
+            "Keep the negative reaction because every algebraic equality solution is physically admissible for a wall.",
+            "Set both accelerations to zero without solving the supplied mass/input equations.",
+            "Release,using free acceleration directed into q1>0; the negative equality reaction would require adhesion."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "normal",
+            "type": "numeric",
+            "answer": 1.2,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "tangent",
+            "type": "numeric",
+            "answer": 0.4,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "branch",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why distinguish bilateral constraints from unilateral contact?",
+        "solution": "The inverse mass matrix maps(4, 2)to(1.2, 0.4). Its positive normal acceleration separates from the wall. A bilateral linkage could allow a negative multiplier, but the stated nonadhesive wall cannot pull; this is an instantaneous branch check, not a complete impact solver.",
+        "lesson_ids": [
+          "robotics-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic planar robotics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "robotics-16:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Separate unit-mass Cartesian bead at the inside boundary of a unit circle:q=(1, 0), v=(0, 2), no other force. Use b=(1−q dot q)/2, A=−q transpose and inward reaction lambda. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "robotics-16-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "reaction",
+          "type": "numeric",
+          "prompt": "Required inward reaction magnitude in normalized force units.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "acceleration",
+          "type": "numeric",
+          "prompt": "Required inward acceleration magnitude in normalized acceleration units.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "curvature",
+          "type": "single_choice",
+          "prompt": "Which equation is necessary? for the supplied robotics model.",
+          "options": [
+            "A a+A dot v=0;here A dot v=−4,so dropping it loses the centripetal acceleration.",
+            "A a=0 always because the current velocity is tangent.",
+            "Zero instantaneous reaction power implies zero normal acceleration."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "reaction",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "acceleration",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "curvature",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does tangent velocity fail to imply on a curved boundary?",
+        "solution": "Differentiating the circle twice gives A a=four and ax=−four. With unit mass the inward reaction magnitude is four and is perpendicular to velocity. The curved bead is a separate supplied geometry, not the flat frozen-matrix wall.",
+        "lesson_ids": [
+          "robotics-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic planar robotics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "robotics-17:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Original rehearsal:L1=0.3 m, L2=0.2 m, global absolute joint-rate bounds w1=0.4 rad/s, w2=0.6 rad/s. Uniform time grid includes endpoints with maximum gap 0.2 s. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "robotics-17-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "speed",
+          "type": "numeric",
+          "prompt": "Whole-link bound V in m/s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "motion",
+          "type": "numeric",
+          "prompt": "Between-sample allowance V Delta/2 in meters.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "speed",
+            "type": "numeric",
+            "answer": 0.32,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "motion",
+            "type": "numeric",
+            "answer": 0.032,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What connects finite pose checks to a continuous clearance statement?",
+        "solution": "Every link-two centerline point has speed at most L1 w1+L2(w1+w2)=0.32 m/s, and that also bounds link one. With both grid endpoints included, every time is within half the largest gap, so the displacement allowance is 0.032 m. Sampled tool speed alone does not supply this global bound.",
+        "lesson_ids": [
+          "robotics-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic planar robotics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "robotics-17:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use that V and grid with minimum sampled clearance 0.05 m and deterministic geometry allowance delta=0.005 m. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "robotics-17-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "margin",
+          "type": "numeric",
+          "prompt": "Continuous clearance lower bound in meters.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "threshold",
+          "type": "numeric",
+          "prompt": "Maximum-gap threshold in seconds;strictly smaller gaps certify positive lower bound.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "margin",
+            "type": "numeric",
+            "answer": 0.013,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "threshold",
+            "type": "numeric",
+            "answer": 0.28125,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How should an inconclusive clearance bound be reported?",
+        "solution": "The lower bound is 0.05−0.032−0.005=0.013 m. Strict positivity requires Delta<two(0.05−0.005)/0.32=0.28125 s. Equality leaves zero bound and does not establish strict separation; a nonpositive bound alone is inconclusive about actual collision.",
+        "lesson_ids": [
+          "robotics-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic planar robotics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "robotics-17:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Separate path:L1=L2=0.25 m, q2=0, q1 rotates 0 to pi/2. Disk center(0.25, 0.25)m, radius0.03 m;link radius0.01 m. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "robotics-17-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "endpoint",
+          "type": "numeric",
+          "prompt": "Whole-link clearance at either endpoint configuration in meters.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "overlap",
+          "type": "numeric",
+          "prompt": "Magnitude of negative signed clearance at q1=pi/4 in meters.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "path",
+          "type": "single_choice",
+          "prompt": "Which conclusion follows? for the supplied robotics model.",
+          "options": [
+            "Slowing this same geometric path removes the middle overlap without changing configurations.",
+            "Clear start and finish do not certify this swept path;the obstacle center lies on link two at the intermediate pose.",
+            "Tool endpoints alone prove all finite-radius links remain clear."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "endpoint",
+            "type": "numeric",
+            "answer": 0.21,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "overlap",
+            "type": "numeric",
+            "answer": 0.04,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "path",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why distinguish path geometry from its timing?",
+        "solution": "At the endpoint configurations the center-to-segment distance is 0.25 m, so clearance is 0.21 m. At pi/four the center lies on the second segment, giving signed clearance minus0.04 m. The geometric overlap persists under slower timing of the same path.",
+        "lesson_ids": [
+          "robotics-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic planar robotics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "robotics-17:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Return to the original rehearsal lengths/rates/grid/cmin. Replace delta=0.005 with a bound from deterministic absolute joint-angle errors d1=0.01 rad, d2=0.02 rad. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "robotics-17-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "geometry",
+          "type": "numeric",
+          "prompt": "Replacement whole-link position allowance in meters.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "margin",
+          "type": "numeric",
+          "prompt": "New continuous clearance lower bound in meters.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "error",
+          "type": "single_choice",
+          "prompt": "Which interpretation is valid? for the supplied robotics model.",
+          "options": [
+            "Any quoted standard deviation is a guaranteed maximum error at every time.",
+            "Both old and replacement allowances must always be added even when they describe the same uncertainty.",
+            "The deterministic angle bounds give delta=(L1+L2)d1+L2 d2;one standard deviation is not automatically such a bound."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "geometry",
+            "type": "numeric",
+            "answer": 0.009,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "margin",
+            "type": "numeric",
+            "answer": 0.009,
+            "unit": "",
+            "tolerance": 5.1e-06,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "error",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What gives an uncertainty allowance its meaning?",
+        "solution": "The exact unit-vector difference inequality gives position allowance 0.5(0.01)+0.2(0.02)=0.009 m. Replacing the old allowance gives0.05−0.032−0.009=0.009 m. Adding both would require separate justified error sources rather than a replacement comparison.",
+        "lesson_ids": [
+          "robotics-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic planar robotics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "robotics-18:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1 uses the same unit uniform rods and synthetic g=1. Trajectory q1=0.2sin(t), q2=0.4+0.1cos(2t). At t=0, q=(0, 0.5), v=(0.2, 0), a=(0, −0.4). Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "robotics-18-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "shoulder",
+          "type": "numeric",
+          "prompt": "Required shoulder torque in N m.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "elbow",
+          "type": "numeric",
+          "prompt": "Required elbow torque in N m.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "kinetic",
+          "type": "numeric",
+          "prompt": "Instantaneous kinetic energy in joules.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "potential",
+          "type": "numeric",
+          "prompt": "Instantaneous potential energy in joules.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "shoulder",
+            "type": "numeric",
+            "answer": 1.6299414352337784,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "elbow",
+            "type": "numeric",
+            "answer": 0.3150464583839371,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "kinetic",
+            "type": "numeric",
+            "answer": 0.050884984571140796,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "potential",
+            "type": "numeric",
+            "answer": 0.2397127693021015,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which checks complement a trajectory torque table?",
+        "solution": "The shoulder expression is 41/30+0.3cos(0.5), about 1.6299414 N m. Elbow torque is−2/15+0.02sin(0.5)+0.5cos(0.5), about 0.31504646. Kinetic energy is 0.02[5/3+cos(0.5)] and potential 0.5sin(0.5). Retain full intermediate precision and verify the original body-energy construction.",
+        "lesson_ids": [
+          "robotics-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic planar robotics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "robotics-18:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For that same trajectory at t=pi/2, q=(0.2, 0.3), v=(0, 0), a=(−0.2, 0.4). Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "robotics-18-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "shoulder",
+          "type": "numeric",
+          "prompt": "Required shoulder torque in N m.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "elbow",
+          "type": "numeric",
+          "prompt": "Required elbow torque in N m.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "potential",
+          "type": "numeric",
+          "prompt": "Potential energy at this second state in joules.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "work",
+          "type": "single_choice",
+          "prompt": "Which periodic-energy check is valid over 0<=t<=2pi?",
+          "options": [
+            "Signed integrated delivered torque power equals the returned energy difference;zero net change does not imply zero instantaneous or absolute power.",
+            "A returned position alone proves zero work even if final velocity differs.",
+            "Summing absolute torque values is the mechanical signed work integral."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "shoulder",
+            "type": "numeric",
+            "answer": 1.708891147707049,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "elbow",
+            "type": "numeric",
+            "answer": 0.4099242986992924,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "potential",
+            "type": "numeric",
+            "answer": 0.5377167654946933,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "work",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why integrate signed power rather than torque magnitude?",
+        "solution": "At this rest instant h vanishes but acceleration and gravity remain. The torques are about 1.7088911 and0.40992430 N m, potential about 0.53771677 J. The complete prescribed period returns both configuration and velocity, so net signed work is zero for the ideal no-loss model, not every power contribution.",
+        "lesson_ids": [
+          "robotics-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic planar robotics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "robotics-19:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2 frozen model:M=[[4, 1], [1, 1]], wall q1>=0, at q1=v1=0, unit A=(1, 0), tau=(−2, 3). Use M a=tau+A transpose lambda. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "robotics-19-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "tangent",
+          "type": "numeric",
+          "prompt": "Active tangential acceleration a2 for the supplied robotics model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "reaction",
+          "type": "numeric",
+          "prompt": "Active normal reaction lambda for the supplied robotics model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "effective_mass",
+          "type": "numeric",
+          "prompt": "Reciprocal normal mobility in stated generalized mass units.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "tangent",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "reaction",
+            "type": "numeric",
+            "answer": 5.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "effective_mass",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What should agree in independent constrained calculations?",
+        "solution": "The constraint fixes a1=zero, so the second row gives a2=three and the first gives reaction five. The inverse mass matrix has normal entry one/three, so effective normal mass is three. Both the full block solve and the reduced mobility equation must recover these values.",
+        "lesson_ids": [
+          "robotics-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic planar robotics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "robotics-19:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Separate assignment input tau=(5, 1), same matrix and compatible resting boundary. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "robotics-19-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "normal",
+          "type": "numeric",
+          "prompt": "Released normal acceleration a1 for the supplied robotics model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "tangent",
+          "type": "numeric",
+          "prompt": "Released tangential acceleration a2 for the supplied robotics model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "release",
+          "type": "single_choice",
+          "prompt": "Which interpretation follows? for the supplied robotics model.",
+          "options": [
+            "The wall can always apply tensile force because its equality block system has a solution.",
+            "The negative equality reaction would require adhesion;free normal acceleration is positive,so this instant releases.",
+            "A released branch automatically resolves any earlier impact without an impulse law."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "normal",
+            "type": "numeric",
+            "answer": 1.3333333333333333,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "tangent",
+            "type": "numeric",
+            "answer": -0.3333333333333333,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "release",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which evidence is missing from an acceleration-level contact model?",
+        "solution": "M inverse times(5, 1)gives(four/three, minus one/three). The positive normal acceleration points into allowed space. The equality multiplier is negative and fails the nonadhesive wall condition;an impact or inconsistent initial velocity would require information absent from this instant.",
+        "lesson_ids": [
+          "robotics-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic planar robotics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "robotics-20:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 3:L1=0.5 m, L2=0.25 m, global joint-rate bounds 0.6 and0.4 rad/s, grid includes endpoints, max gap 0.1 s, minsampledclearance 0.05 m, deterministic geometry allowance 0.01 m. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "robotics-20-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "speed",
+          "type": "numeric",
+          "prompt": "Whole-link speed bound in m/s.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "motion",
+          "type": "numeric",
+          "prompt": "Nearest-sample motion allowance in meters.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "margin",
+          "type": "numeric",
+          "prompt": "Continuous clearance lower bound in meters.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "speed",
+            "type": "numeric",
+            "answer": 0.55,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "motion",
+            "type": "numeric",
+            "answer": 0.0275,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "margin",
+            "type": "numeric",
+            "answer": 0.0125,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must accompany a positive clearance number?",
+        "solution": "The bound is 0.5(0.6)+0.25(0.6+0.4)=0.55 m/s. Half-gap displacement is 0.0275 m and lower bound 0.05−0.0275−0.01=0.0125 m. This is conditional on the global bounds and conservative fixed geometry, not a measured protective margin.",
+        "lesson_ids": [
+          "robotics-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic planar robotics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "robotics-20:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Separate variant replaces the geometry allowance with deterministic angle-error bounds d1=0.01 rad, d2=0.02 rad, keeping the same path/rates/grid/cmin. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "robotics-20-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "geometry",
+          "type": "numeric",
+          "prompt": "Replacement whole-link position allowance in meters.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "margin",
+          "type": "numeric",
+          "prompt": "New continuous clearance lower bound in meters.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "threshold",
+          "type": "numeric",
+          "prompt": "Strict maximum-gap threshold in seconds.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "rates",
+          "type": "single_choice",
+          "prompt": "Which rate assumption is necessary?",
+          "options": [
+            "Any dense finite rate plot proves a global upper bound without further assumptions.",
+            "Tool speed always bounds elbow and link-body speed for every robot configuration.",
+            "The joint-rate bounds hold throughout each interval;sampled maximum rates alone do not establish them."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "geometry",
+            "type": "numeric",
+            "answer": 0.0125,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "margin",
+            "type": "numeric",
+            "answer": 0.01,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "threshold",
+            "type": "numeric",
+            "answer": 0.13636363636363638,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "rates",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "When does finer sampling help and when does it not?",
+        "solution": "The replacement allowance is 0.75(0.01)+0.25(0.02)=0.0125 m. The new lower bound is 0.01 m, and strict gap threshold two(0.05−0.0125)/0.55, about 0.13636364 s. Refining samples can tighten a bound but cannot remove an overlap from an unchanged path.",
+        "lesson_ids": [
+          "robotics-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic planar robotics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "robotics-21:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 4 uses unit uniform rods, g=1, q=(0, pi/2), v=(1, 2), desiredacceleration=(0.2, 0.3), error=(0.01, −0.02), errorrate=(0.1, −0.1), Kp=100, Kd=20. Request tau=M(adesired+Kd edot+Kp e)+h+G;clip each torque to [−0.5, +0.5] N m. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "robotics-21-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "shoulder_request",
+          "type": "numeric",
+          "prompt": "Requested shoulder torque in N m.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "elbow_request",
+          "type": "numeric",
+          "prompt": "Requested elbow torque in N m.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "shoulder_acceleration",
+          "type": "numeric",
+          "prompt": "Actual shoulder acceleration after torque clipping in rad/s².",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "elbow_acceleration",
+          "type": "numeric",
+          "prompt": "Actual elbow acceleration after torque clipping in rad/s².",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "shoulder_request",
+            "type": "numeric",
+            "answer": 1.6,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "elbow_request",
+            "type": "numeric",
+            "answer": 0.3333333333333333,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "shoulder_acceleration",
+            "type": "numeric",
+            "answer": 2.375,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "elbow_acceleration",
+            "type": "numeric",
+            "answer": -2.875,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why preserve requested and delivered torque separately?",
+        "solution": "Virtual acceleration is(3.2, minus 3.7), and requested torque(1.6, one/three). Delivered torque is(one half, one/three). Solving the original rod plant with h=(minus four, one half), G=(1.5, zero)gives acceleration(19/eight, minus 23/eight). The elbow acceleration changes through coupling even though its own torque is not clipped.",
+        "lesson_ids": [
+          "robotics-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic planar robotics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "robotics-21:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use the same clipped assignment state and error definition e=qd−q. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "robotics-21-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "shoulder_error_acceleration",
+          "type": "numeric",
+          "prompt": "Actual shoulder error acceleration in rad/s².",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "elbow_error_acceleration",
+          "type": "numeric",
+          "prompt": "Actual elbow error acceleration in rad/s².",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "cancellation",
+          "type": "single_choice",
+          "prompt": "Which interpretation is correct? for the supplied robotics model.",
+          "options": [
+            "Actual error acceleration is desired minus actual acceleration;the ideal decoupled error equation no longer governs after input clipping.",
+            "Use the ideal error equation unchanged because the modeled mass matrix is exact.",
+            "Clipping only the shoulder torque cannot affect the elbow acceleration in a coupled mass matrix."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "shoulder_error_acceleration",
+            "type": "numeric",
+            "answer": -2.175,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "elbow_error_acceleration",
+            "type": "numeric",
+            "answer": 3.175,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "cancellation",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which assumptions support the exact computed-torque error equation?",
+        "solution": "Subtract(19/eight, minus 23/eight)from desired(0.2, 0.3), giving(minus87/forty, 127/forty). The ideal unclipped error acceleration would be(minus three, four). Their discrepancy matches the inverse-mass response to the torque residual with the error sign reversed.",
+        "lesson_ids": [
+          "robotics-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic planar robotics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
     }
   ]
 }

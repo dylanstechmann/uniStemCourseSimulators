@@ -665,7 +665,7 @@ def test_schedule_once_formative_labels_and_all_package_schedules():
     assert all(a["mode"] != "graded" for a in MANIFEST["assessments"])
     syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8")
     assert "Weeks 1, 3, 7 and 12 now have expanded" in syllabus
-    assert "No compact prototype readings remain" in syllabus
+    assert "first three prototype readings remain concise primers" in syllabus
     courses = [
         json.loads(p.read_text(encoding="utf-8"))
         for p in (ROOT / "content/courses").glob("*/course.json")

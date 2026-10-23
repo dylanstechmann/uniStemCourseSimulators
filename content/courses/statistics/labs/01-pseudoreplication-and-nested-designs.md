@@ -3,7 +3,7 @@
 **Activity type:** synthetic-data analysis with public, ungraded formative checks
 **Course package:** Probability, Biostatistics & Experimental Design. **Estimated learner time:** 2–3 hours
 **Data status:** all measurements are constructed for instruction. They describe no real animals, assay or treatment, and nothing here is evidence about any compound or any organism.
-**Dataset:** [synthetic nested readings (CSV)](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/statistics/labs/nested-biomarker-readings.csv).
+**Dataset:** [synthetic nested readings (CSV)](nested-biomarker-readings.csv).
 
 ## Experimental question
 

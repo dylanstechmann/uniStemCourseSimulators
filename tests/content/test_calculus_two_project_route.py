@@ -49,7 +49,7 @@ def integrate_polynomial(coefficients, upper):
 
 
 def test_route_is_scheduled_optional_and_ungraded():
-    assert MANIFEST["version"] == "0.5.0" and MANIFEST["maturity"] == "partial"
+    assert MANIFEST["version"] == "0.6.0" and MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed" and MANIFEST["grading_policy"]["mode"] == "formative-only"
     rehearsal = ASSESSMENTS["calculus-2-project-rehearsal-practice"]
     project = ASSESSMENTS["calculus-2-tail-project"]

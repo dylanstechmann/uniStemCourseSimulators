@@ -1,6 +1,6 @@
 # Statics & Materials course review handoff
 
-This handoff targets Statics & Mechanics of Materials, package version 0.5.0. The [review snapshot](STATICS_MATERIALS_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+This handoff targets Statics & Mechanics of Materials, package version 0.6.0. The [review snapshot](STATICS_MATERIALS_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
 
 ## Review scope
 
@@ -20,3 +20,7 @@ For version 0.4.5, the focused Statics & Materials suite passed 10 tests, includ
 ## Review record to complete only after review
 
 After a review actually occurs, record reviewer name and qualifications, date, package version and archive digest, artifacts examined, concrete findings and disposition. Keep separate decisions for mathematical correctness, instructional design, assessment, accessibility, workload and release. Do not infer approval from the package hash or test results.
+
+## Deeper compatibility/material-history target (2026-10-22)
+
+Review target 0.6.0 adds selected indeterminate-beam/energy/settlement/contact and elastic–perfectly plastic unloading/redistribution readings, plus two paper assignments. Check signs, compatibility, unilateral support constraints, constitutive branches, residual equilibrium and work/energy distinctions. All loads/materials are synthetic; no real design or material validation is supplied. Written diagrams, derivations, workload and qualified review remain open. The current snapshot pins the package.

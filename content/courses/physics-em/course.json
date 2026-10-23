@@ -7,7 +7,7 @@
   "domain": "Physics",
   "level": "Year 1",
   "maturity": "partial",
-  "version": "0.4.8",
+  "version": "0.6.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -436,6 +436,168 @@
       "course_outcome_ids": [
         "physics-em-outcome-3"
       ]
+    },
+    {
+      "id": "physics-em-17-objective-1",
+      "description": "Integrate nonuniform enclosed charge before applying cylindrical symmetry.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-em-outcome-1"
+      ]
+    },
+    {
+      "id": "physics-em-17-objective-2",
+      "description": "Recover a distributed-source potential with a declared finite reference.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-em-outcome-1"
+      ]
+    },
+    {
+      "id": "physics-em-17-objective-3",
+      "description": "Check the induced conductor surface sign and electrostatic boundary.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-em-outcome-1"
+      ]
+    },
+    {
+      "id": "physics-em-17-objective-4",
+      "description": "Compare distributed energy integrals without treating the insulator as one terminal.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-em-outcome-1"
+      ]
+    },
+    {
+      "id": "physics-em-18-objective-1",
+      "description": "Check passive coupling and a mutual-energy cross term.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-em-outcome-3"
+      ]
+    },
+    {
+      "id": "physics-em-18-objective-2",
+      "description": "Verify signed port power against the stored-energy derivative.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-em-outcome-3"
+      ]
+    },
+    {
+      "id": "physics-em-18-objective-3",
+      "description": "Distinguish a valid mutual sign from an inconsistent coefficient table.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-em-outcome-3"
+      ]
+    },
+    {
+      "id": "physics-em-18-objective-4",
+      "description": "Close induced emf, drag and externally supplied mechanical power.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-em-outcome-3"
+      ]
+    },
+    {
+      "id": "physics-em-19-objective-1",
+      "description": "Match a source boundary to two-sided outward electromagnetic power.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-em-outcome-5"
+      ]
+    },
+    {
+      "id": "physics-em-19-objective-2",
+      "description": "Use wavelength and retarded time without treating a remote field as instantaneous source information.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-em-outcome-5"
+      ]
+    },
+    {
+      "id": "physics-em-19-objective-3",
+      "description": "Separate reflected-field boundary conditions from momentum and incident energy flux.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-em-outcome-5"
+      ]
+    },
+    {
+      "id": "physics-em-19-objective-4",
+      "description": "Distinguish standing-field storage from average transport.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-em-outcome-5"
+      ]
+    },
+    {
+      "id": "physics-em-20-objective-1",
+      "description": "Solve a distinct distributed electrostatic boundary problem.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-em-outcome-1"
+      ]
+    },
+    {
+      "id": "physics-em-20-objective-2",
+      "description": "Verify source-energy and conductor-boundary statements independently.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-em-outcome-1"
+      ]
+    },
+    {
+      "id": "physics-em-21-objective-1",
+      "description": "Check a distinct coupled current state and energy rate.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-em-outcome-3"
+      ]
+    },
+    {
+      "id": "physics-em-21-objective-2",
+      "description": "Separate source input, coil storage and resistive loss.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-em-outcome-3"
+      ]
+    },
+    {
+      "id": "physics-em-22-objective-1",
+      "description": "Verify a distinct two-sided radiating source and outward-power ledger.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-em-outcome-5"
+      ]
+    },
+    {
+      "id": "physics-em-22-objective-2",
+      "description": "Compare reflected momentum, standing storage and zero average transport.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-em-outcome-5"
+      ]
+    },
+    {
+      "id": "physics-em-23-objective-1",
+      "description": "Close conserved charge, transient time scale and energy dissipation.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-em-outcome-2"
+      ]
+    },
+    {
+      "id": "physics-em-23-objective-2",
+      "description": "Restrict conservation and energy claims to the mathematical object actually checked.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-em-outcome-1",
+        "physics-em-outcome-3",
+        "physics-em-outcome-5"
+      ]
     }
   ],
   "duration": {
@@ -458,20 +620,24 @@
         "week": 2,
         "title": "Capacitance, dielectrics and energy boundaries",
         "lesson_ids": [
-          "physics-em-8"
+          "physics-em-8",
+          "physics-em-17"
         ],
         "assessment_ids": [
-          "physics-em-8-practice"
+          "physics-em-8-practice",
+          "physics-em-17-practice"
         ]
       },
       {
         "week": 3,
         "title": "The cell membrane as a capacitor: charge, ions, fields and the membrane time constant",
         "lesson_ids": [
-          "physics-em-5"
+          "physics-em-5",
+          "physics-em-20"
         ],
         "assessment_ids": [
-          "physics-em-5-practice"
+          "physics-em-5-practice",
+          "physics-em-20-practice"
         ]
       },
       {
@@ -530,20 +696,24 @@
         "week": 9,
         "title": "Induction, Lenz signs and inductor energy",
         "lesson_ids": [
-          "physics-em-12"
+          "physics-em-12",
+          "physics-em-18"
         ],
         "assessment_ids": [
-          "physics-em-12-practice"
+          "physics-em-12-practice",
+          "physics-em-18-practice"
         ]
       },
       {
         "week": 10,
         "title": "Magnetic forces and induction at the bench: flow meters, induced voltages and keeping currents within limits",
         "lesson_ids": [
-          "physics-em-6"
+          "physics-em-6",
+          "physics-em-21"
         ],
         "assessment_ids": [
-          "physics-em-6-practice"
+          "physics-em-6-practice",
+          "physics-em-21-practice"
         ]
       },
       {
@@ -562,31 +732,40 @@
         "week": 12,
         "title": "Electrodes, impedance, and measurement",
         "lesson_ids": [
-          "physics-em-4"
+          "physics-em-4",
+          "physics-em-19"
         ],
         "assessment_ids": [
-          "physics-em-4-practice"
+          "physics-em-4-practice",
+          "physics-em-19-practice"
         ]
       },
       {
         "week": 13,
-        "title": "Phasors, loading and measurement inference",
+        "title": "Phasors, loading and measurement inference; optional series-resonance project",
         "lesson_ids": [
-          "physics-em-13"
+          "physics-em-13",
+          "physics-em-project-guide",
+          "physics-em-22"
         ],
         "assessment_ids": [
-          "physics-em-13-practice"
+          "physics-em-13-practice",
+          "physics-em-project-rehearsal-practice",
+          "physics-em-22-practice"
         ]
       },
       {
         "week": 14,
         "title": "Virtual lab 1: calibration, loading and observed time constants",
         "lesson_ids": [
-          "physics-em-lab-01"
+          "physics-em-lab-01",
+          "physics-em-23"
         ],
         "assessment_ids": [
           "physics-em-week14-loading-lab",
-          "physics-em-case"
+          "physics-em-case",
+          "physics-em-rlc-project",
+          "physics-em-23-practice"
         ]
       }
     ]
@@ -1206,6 +1385,259 @@
           ]
         }
       ]
+    },
+    {
+      "id": "physics-em-module-project",
+      "title": "Series-resonance project guide (optional, ungraded)",
+      "source_ids": [
+        "physicsEM",
+        "circuits",
+        "openstax-em-ac-power"
+      ],
+      "lessons": [
+        {
+          "id": "physics-em-project-guide",
+          "title": "Series-resonance project guide: resonant frequency, quality factor, bandwidth, power and stored energy (optional, ungraded)",
+          "reading": "assignments/series-resonance-project-guide.md",
+          "objectives": [
+            "physics-em-13-objective-1",
+            "physics-em-13-objective-2",
+            "physics-em-13-objective-3",
+            "physics-em-8-objective-1",
+            "physics-em-4-objective-2"
+          ],
+          "worked_example": "For a separate series RLC circuit with R = 250 Ω, L = 0.010 H, C = 1.0 µF and V_peak = 8.0 V, ω₀ = 10,000 rad/s (f₀ ≈ 1591.5 Hz), Q = 0.40 with bandwidth 25,000 rad/s and half-power frequencies near 3508 and 28,508 rad/s; at resonance I_peak = 0.032 A gives 0.128 W average resistor power and equal 5.12 µJ stored-energy maxima a quarter-cycle apart; at ω = 50,000 rad/s the +480 Ω net reactance gives |Z| ≈ 541 Ω and a current lagging by ≈ 62.5°.",
+          "question_ids": [
+            "physics-em-project:rehearsal-resonance",
+            "physics-em-project:rehearsal-q-bandwidth",
+            "physics-em-project:rehearsal-power-energy",
+            "physics-em-project:rehearsal-selection",
+            "physics-em-project:rehearsal-off-resonance",
+            "physics-em-project:rehearsal-scope"
+          ],
+          "card_ids": [
+            "physics-em-project-1",
+            "physics-em-project-2",
+            "physics-em-project-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "physics-em-module-17",
+      "title": "Continuous charge and grounded cylindrical boundaries",
+      "source_ids": [
+        "em-semester-calendar",
+        "em-semester-syllabus"
+      ],
+      "lessons": [
+        {
+          "id": "physics-em-17",
+          "title": "Continuous charge and grounded cylindrical boundaries",
+          "reading": "modules/continuous-charge-and-grounded-boundaries.md",
+          "objectives": [
+            "physics-em-17-objective-1",
+            "physics-em-17-objective-2",
+            "physics-em-17-objective-3",
+            "physics-em-17-objective-4"
+          ],
+          "worked_example": "Cylindrical shells contribute rho0(s/a)²2pi s ds, so enclosed line charge scales as r^4. At half radius the fraction is 1/16. Gauss gives E=K r³/a^4 inside, hence K/(8a)=31.25 V/m. A cross-sectional area fraction would incorrectly treat the density as uniform.",
+          "question_ids": [
+            "physics-em-17:depth-1",
+            "physics-em-17:depth-2",
+            "physics-em-17:depth-3",
+            "physics-em-17:depth-4"
+          ],
+          "card_ids": [
+            "physics-em-17-card-1",
+            "physics-em-17-card-2",
+            "physics-em-17-card-3",
+            "physics-em-17-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "physics-em-module-18",
+      "title": "Coupled inductors and mechanical power",
+      "source_ids": [
+        "em-semester-calendar",
+        "em-semester-syllabus"
+      ],
+      "lessons": [
+        {
+          "id": "physics-em-18",
+          "title": "Coupled inductors and mechanical power",
+          "reading": "modules/coupled-inductors-and-mechanical-power.md",
+          "objectives": [
+            "physics-em-18-objective-1",
+            "physics-em-18-objective-2",
+            "physics-em-18-objective-3",
+            "physics-em-18-objective-4"
+          ],
+          "worked_example": "The coupling magnitude is 0.02/sqrt(0.02×0.08)=one half. Energy is one-half L1 i1²+M i1 i2+one-half L2 i2²=0.01−0.04+0.16=0.13 J. The mutual term can be negative while the complete positive definite quadratic form remains nonnegative. Verify the original source, state and boundary equations independently before accepting this selected response.",
+          "question_ids": [
+            "physics-em-18:depth-1",
+            "physics-em-18:depth-2",
+            "physics-em-18:depth-3",
+            "physics-em-18:depth-4"
+          ],
+          "card_ids": [
+            "physics-em-18-card-1",
+            "physics-em-18-card-2",
+            "physics-em-18-card-3",
+            "physics-em-18-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "physics-em-module-19",
+      "title": "Radiating source, reflection and standing-field energy",
+      "source_ids": [
+        "em-semester-calendar",
+        "em-semester-syllabus",
+        "em-semester-wave-chapter"
+      ],
+      "lessons": [
+        {
+          "id": "physics-em-19",
+          "title": "Radiating source, reflection and standing-field energy",
+          "reading": "modules/radiating-sheet-reflection-and-standing-energy.md",
+          "objectives": [
+            "physics-em-19-objective-1",
+            "physics-em-19-objective-2",
+            "physics-em-19-objective-3",
+            "physics-em-19-objective-4"
+          ],
+          "worked_example": "Tangential continuity and the magnetic jump give electric peak Z0K0/two=0.6pi. Each outgoing side carries Z0K0²/eight=0.0015pi W/m², so total outward flux is 0.003pi. Opposite coordinate Poynting vectors do not cancel energy leaving the source; dot each with its own outward normal.",
+          "question_ids": [
+            "physics-em-19:depth-1",
+            "physics-em-19:depth-2",
+            "physics-em-19:depth-3",
+            "physics-em-19:depth-4"
+          ],
+          "card_ids": [
+            "physics-em-19-card-1",
+            "physics-em-19-card-2",
+            "physics-em-19-card-3",
+            "physics-em-19-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "physics-em-module-20",
+      "title": "Assignment 1: charge, boundary and energy evidence",
+      "source_ids": [
+        "em-semester-calendar",
+        "em-semester-syllabus"
+      ],
+      "lessons": [
+        {
+          "id": "physics-em-20",
+          "title": "Assignment 1: charge, boundary and energy evidence",
+          "reading": "assignments/coursework-01-charge-boundary-and-energy.md",
+          "objectives": [
+            "physics-em-20-objective-1",
+            "physics-em-20-objective-2"
+          ],
+          "worked_example": "Enclosed line charge scales as r^4, so E(a/two)=K/(eight a)=20 V/m. Annular integration gives V(a)=eight ln3 and interior integration adds K/four=two volts at the axis. Retain the finite grounded reference, the source distribution and both field regions; the insulating source is not equipotential.",
+          "question_ids": [
+            "physics-em-20:depth-1",
+            "physics-em-20:depth-2"
+          ],
+          "card_ids": [
+            "physics-em-20-card-1",
+            "physics-em-20-card-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "physics-em-module-21",
+      "title": "Assignment 2: mutual energy and source work",
+      "source_ids": [
+        "em-semester-calendar",
+        "em-semester-syllabus"
+      ],
+      "lessons": [
+        {
+          "id": "physics-em-21",
+          "title": "Assignment 2: mutual energy and source work",
+          "reading": "assignments/coursework-02-mutual-energy-and-source-work.md",
+          "objectives": [
+            "physics-em-21-objective-1",
+            "physics-em-21-objective-2"
+          ],
+          "worked_example": "Self energies are 0.06 and 0.06 J and mutual energy is 0.06 J, totaling 0.18. Matrix multiplication gives voltages 0.03 and 0.21 V. Signed port power is two×0.03+one×0.21=0.27 W, matching the direct stored-energy derivative despite a negative derivative in the first current coordinate.",
+          "question_ids": [
+            "physics-em-21:depth-1",
+            "physics-em-21:depth-2"
+          ],
+          "card_ids": [
+            "physics-em-21-card-1",
+            "physics-em-21-card-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "physics-em-module-22",
+      "title": "Assignment 3: source, reflection and wave energy",
+      "source_ids": [
+        "em-semester-calendar",
+        "em-semester-syllabus",
+        "em-semester-wave-chapter"
+      ],
+      "lessons": [
+        {
+          "id": "physics-em-22",
+          "title": "Assignment 3: source, reflection and wave energy",
+          "reading": "assignments/coursework-03-source-reflection-and-wave-energy.md",
+          "objectives": [
+            "physics-em-22-objective-1",
+            "physics-em-22-objective-2"
+          ],
+          "worked_example": "Boundary conditions give peak field Z0K0/two=1.8pi V/m. Each side carries Z0K0²/eight=0.0135pi W/m²; both outward contributions total 0.027pi. The cycle-averaged negative field work on the prescribed current supplies that electromagnetic output, with no finite total antenna-power claim for an infinite sheet.",
+          "question_ids": [
+            "physics-em-22:depth-1",
+            "physics-em-22:depth-2"
+          ],
+          "card_ids": [
+            "physics-em-22-card-1",
+            "physics-em-22-card-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "physics-em-module-23",
+      "title": "Assignment 4: cumulative boundaries and energy claims",
+      "source_ids": [
+        "em-semester-calendar",
+        "em-semester-syllabus"
+      ],
+      "lessons": [
+        {
+          "id": "physics-em-23",
+          "title": "Assignment 4: cumulative boundaries and energy claims",
+          "reading": "assignments/coursework-04-cumulative-boundary-evidence.md",
+          "objectives": [
+            "physics-em-23-objective-1",
+            "physics-em-23-objective-2"
+          ],
+          "worked_example": "Conserved charge is twelve microcoulombs, so final voltage is two V. Capacitor energy falls from 36 to twelve microjoules, losing 24 through the finite resistance. The voltage-difference capacitance is four/three microfarads, giving tau=eight/three milliseconds, and initial current is three mA. Charge and field-energy statements require separate ledgers.",
+          "question_ids": [
+            "physics-em-23:depth-1",
+            "physics-em-23:depth-2"
+          ],
+          "card_ids": [
+            "physics-em-23-card-1",
+            "physics-em-23-card-2"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -1605,6 +2037,185 @@
         "physics-em-16:field-model-choice"
       ],
       "points": 11
+    },
+    {
+      "id": "physics-em-project-rehearsal-practice",
+      "type": "data-analysis",
+      "mode": "practice",
+      "title": "Series-resonance project rehearsal: resonant frequency, bandwidth, power, selection and phase (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 13,
+      "objective_ids": [
+        "physics-em-13-objective-1",
+        "physics-em-13-objective-2",
+        "physics-em-13-objective-3",
+        "physics-em-8-objective-1",
+        "physics-em-4-objective-2",
+        "physics-em-outcome-1",
+        "physics-em-outcome-2",
+        "physics-em-outcome-4"
+      ],
+      "question_ids": [
+        "physics-em-project:rehearsal-resonance",
+        "physics-em-project:rehearsal-q-bandwidth",
+        "physics-em-project:rehearsal-power-energy",
+        "physics-em-project:rehearsal-selection",
+        "physics-em-project:rehearsal-off-resonance",
+        "physics-em-project:rehearsal-scope"
+      ],
+      "points": 24
+    },
+    {
+      "id": "physics-em-rlc-project",
+      "type": "project",
+      "mode": "self-assessment",
+      "title": "Series-resonance project milestones M1–M6 in the Case studio (optional self-check; ungraded)",
+      "path": "rubrics/case-studio.json",
+      "week": 14,
+      "objective_ids": [],
+      "question_ids": [],
+      "points": 0
+    },
+    {
+      "id": "physics-em-17-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Continuous charge and grounded cylindrical boundaries (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 2,
+      "objective_ids": [
+        "physics-em-17-objective-1",
+        "physics-em-17-objective-2",
+        "physics-em-17-objective-3",
+        "physics-em-17-objective-4",
+        "physics-em-outcome-1"
+      ],
+      "question_ids": [
+        "physics-em-17:depth-1",
+        "physics-em-17:depth-2",
+        "physics-em-17:depth-3",
+        "physics-em-17:depth-4"
+      ],
+      "points": 9
+    },
+    {
+      "id": "physics-em-18-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Coupled inductors and mechanical power (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 9,
+      "objective_ids": [
+        "physics-em-18-objective-1",
+        "physics-em-18-objective-2",
+        "physics-em-18-objective-3",
+        "physics-em-18-objective-4",
+        "physics-em-outcome-3"
+      ],
+      "question_ids": [
+        "physics-em-18:depth-1",
+        "physics-em-18:depth-2",
+        "physics-em-18:depth-3",
+        "physics-em-18:depth-4"
+      ],
+      "points": 12
+    },
+    {
+      "id": "physics-em-19-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Radiating source, reflection and standing-field energy (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 12,
+      "objective_ids": [
+        "physics-em-19-objective-1",
+        "physics-em-19-objective-2",
+        "physics-em-19-objective-3",
+        "physics-em-19-objective-4",
+        "physics-em-outcome-5"
+      ],
+      "question_ids": [
+        "physics-em-19:depth-1",
+        "physics-em-19:depth-2",
+        "physics-em-19:depth-3",
+        "physics-em-19:depth-4"
+      ],
+      "points": 11
+    },
+    {
+      "id": "physics-em-20-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 1: charge, boundary and energy evidence (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 3,
+      "objective_ids": [
+        "physics-em-20-objective-1",
+        "physics-em-20-objective-2",
+        "physics-em-outcome-1"
+      ],
+      "question_ids": [
+        "physics-em-20:depth-1",
+        "physics-em-20:depth-2"
+      ],
+      "points": 6
+    },
+    {
+      "id": "physics-em-21-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 2: mutual energy and source work (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 10,
+      "objective_ids": [
+        "physics-em-21-objective-1",
+        "physics-em-21-objective-2",
+        "physics-em-outcome-3"
+      ],
+      "question_ids": [
+        "physics-em-21:depth-1",
+        "physics-em-21:depth-2"
+      ],
+      "points": 8
+    },
+    {
+      "id": "physics-em-22-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 3: source, reflection and wave energy (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 13,
+      "objective_ids": [
+        "physics-em-22-objective-1",
+        "physics-em-22-objective-2",
+        "physics-em-outcome-5"
+      ],
+      "question_ids": [
+        "physics-em-22:depth-1",
+        "physics-em-22:depth-2"
+      ],
+      "points": 7
+    },
+    {
+      "id": "physics-em-23-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 4: cumulative boundaries and energy claims (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 14,
+      "objective_ids": [
+        "physics-em-23-objective-1",
+        "physics-em-23-objective-2",
+        "physics-em-outcome-1",
+        "physics-em-outcome-2",
+        "physics-em-outcome-3",
+        "physics-em-outcome-5"
+      ],
+      "question_ids": [
+        "physics-em-23:depth-1",
+        "physics-em-23:depth-2"
+      ],
+      "points": 7
     }
   ],
   "grading_policy": {
@@ -1704,19 +2315,35 @@
       "version": "0.4.8",
       "date": "2026-10-13",
       "summary": "Grouped an original magnetic-field-sources reading with the week-8 magnetic-vectors lesson: Biot–Savart fields of a loop on its axis, finite segments and a square loop; Ampère's law inside a thick wire, in a toroid and between parallel wires; and magnetic dipole moment, torque, energy and the axial far field. Added three objectives, eleven formative items and four cards, with no week added. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.5.0",
+      "date": "2026-10-20",
+      "summary": "Made the planned series-resonance project usable by learners as ungraded practice. Week 13 gains an optional project guide with the candidates, brief and six tasks, a worked example on a separate circuit, a rehearsal circuit and six open rehearsal practice items; six project milestones are Case studio self-checks with a week-14 project record. The loading lab's dataset link now points to the package-pinned CSV instead of a mutable repository URL. The inactive project draft is unchanged; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.6.0",
+      "date": "2026-10-22",
+      "summary": "Added original continuous-charge/grounded-boundary energy, coupled-inductor/mechanical power and radiating-sheet/reflection/standing-energy foundations; four connected field/induction/wave/cumulative reports and twenty checkpoints/cards. Preserves earlier project, lab and numeric keys. Explicit source/state/boundary, signed-power and distributed-energy distinctions; partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "All 16 instructional readings now have substantive original instruction alongside one synthetic data lab; this is not a full university semester.",
+    "Nineteen topic readings and four connected reports accompany one synthetic data lab and the optional project guide; this is not a full university semester.",
     "The proposed 14-week sequence is unmeasured and unreviewed; its opening electrostatics block combines two related readings, and week 8 pairs magnetic vectors with field sources and dipoles. Graded homework, exams and a full laboratory sequence remain absent; the new RLC portfolio is inactive and ungraded.",
-    "New sources, parameters and reports are synthetic; selected electrostatic, lumped-element and prescribed-field models provide no real apparatus or human-subject procedure.",
-    "Of 82 numeric items, fifteen require units: eight preserved items, three displacement-current/energy-flux checks, and four fringe/path calculations. Other numeric items request bare numbers in stated scales; none checks significant figures or dimensions. Choices assess selected field/circuit/evidence decisions, not diagrams or proof quality.",
+    "New worked systems and parameters are synthetic; selected electrostatic, lumped-element and prescribed-field models provide no real apparatus or human-subject procedure.",
     "Public keys and feedback remain formative authoring specifications; practice points are not course grades.",
     "Subject-matter, accessibility and workload review remain outstanding; the original text circuit map has a verbal description but no assistive-technology review.",
     "The initial four OpenStax sections remain link-only references; no teaching text, problem, figure or dataset was imported.",
-    "Fourteen primary OpenStax University Physics Volume 2 section pages are registered as link-only references; no prose, problem, figure or dataset was imported."
+    "Fourteen primary OpenStax University Physics Volume 2 section pages are registered as link-only references; no prose, problem, figure or dataset was imported.",
+    "The series-resonance project is optional and ungraded. Its six milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses a separate synthetic circuit, and no software check evaluates a learner's derivation or written interpretation. Milestone weeks are planning suggestions, not measured workload or deadlines.",
+    "Three selected foundations and four connected open reports deepen continuous nonuniform charge/boundaries/energy, mutual coupling and mechanical induction power, source generation from an ideal infinite sheet, conducting reflection and standing-field storage/transport. Four reports do not reproduce the source course’s TEAL experimental/group format or complete assessment depth. Workload and qualified review remain open.",
+    "All new geometries, circuits and waves are prescribed synthetic mathematical models, not tissue fields, finite antenna designs, exposure limits or equipment validation. The infinite sheet has finite power per area, not finite total antenna power. Grounded and isolated boundaries, signed source work and stored/transported energy require separate ledgers. Code, diagrams, derivations, plots and reports are retained locally and ungraded; finite-end/antenna/diffraction, lossy materials and nonlinear cores remain deferred.",
+    "Of the 145 numerical answers, 15 require units, 63 check significant figures and 0 check dimensions. New continuous checkpoint quantities request three significant figures; written arguments are not automatically evaluated."
   ],
   "intentionally_omitted": [
     "Graded assessments, a complete laboratory sequence, an active graded project, measured workload and qualified human review remain outstanding."
+  ],
+  "learner_resources": [
+    "labs/loading-reports.csv"
   ]
 }

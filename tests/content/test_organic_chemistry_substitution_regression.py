@@ -13,7 +13,6 @@ COURSE = ROOT / "content/courses/organic-chemistry"
 
 def test_sn1_sn2_lesson_maps_mechanism_rate_and_stereochemistry():
     manifest = json.loads((COURSE / "course.json").read_text(encoding="utf-8"))
-    assert manifest["version"].startswith("0.4.")
     assert manifest["maturity"] == "partial"
     assert manifest["review"]["status"] == "unreviewed"
     assert manifest["grading_policy"]["mode"] == "formative-only"

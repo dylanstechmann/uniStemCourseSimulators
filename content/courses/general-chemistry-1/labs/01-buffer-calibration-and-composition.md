@@ -20,7 +20,7 @@ A synthetic reporting system adds +0.0800 pH units to every model value. The cen
 
 ## Data dictionary
 
-[Download the synthetic CSV](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/general-chemistry-1/labs/buffer-reports.csv). `sample` is the stable group code; `acid_equivalents_mol` is the abstract acid load, blank for the separate reference; `replicate` identifies one of three constructed reports; `reported_pH` is the value including offset. A blank reference load means not applicable, not zero acid added to the same buffer.
+[Download the synthetic CSV](buffer-reports.csv). `sample` is the stable group code; `acid_equivalents_mol` is the abstract acid load, blank for the separate reference; `replicate` identifies one of three constructed reports; `reported_pH` is the value including offset. A blank reference load means not applicable, not zero acid added to the same buffer.
 
 | Sample | Acid equivalents (mol) | Mean reported pH | Mean after reference correction |
 |---|---:|---:|---:|

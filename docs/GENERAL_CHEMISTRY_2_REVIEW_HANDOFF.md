@@ -1,6 +1,6 @@
 # General Chemistry II course review handoff
 
-This handoff targets General Chemistry II: Kinetics, Acid–Base Systems & Coordination Chemistry, package version 0.5.0. The [review snapshot](GENERAL_CHEMISTRY_2_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded. The local General Chemistry I/II boundary divides one integrated 5.111SC comparator and does not claim two independent course equivalents.
+This handoff targets General Chemistry II: Kinetics, Acid–Base Systems & Coordination Chemistry, package version 0.6.0. The [review snapshot](GENERAL_CHEMISTRY_2_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded. The local General Chemistry I/II boundary divides one integrated 5.111SC comparator and does not claim two independent course equivalents.
 
 ## Review scope
 
@@ -20,3 +20,7 @@ Historical version 0.4.6 records a focused suite of 110 passing tests, including
 ## Review record to complete only after review
 
 After a review actually occurs, record reviewer name and qualifications, date, package version and archive digest, artifacts examined, concrete findings and disposition. Keep separate decisions for chemical and mathematical correctness, instructional design, assessment, accessibility, workload and release. Do not infer approval from the package hash or test results.
+
+## Coupled speciation/coordination/evidence target (2026-10-22)
+
+Current target 0.6.0 adds three foundations and three connected reports. Check free/protonated/bound ligand and spectator-charge signs, closed versus imposed-h/free-ligand boundaries, spectral units and occupation/pair/spin-only assumptions, reduced mechanism equivalence/discrimination/time scales and full-network limits, and free-to-total redox factors/Nernst signs. Eighteen checkpoints/cards assess selected outputs; solvers, reports, proposed studies, actual chemical validity, workload and qualified review remain open. The reduced-rate CSV is analytic, not measured. Earlier evidence remains historical; the current snapshot pins the package.

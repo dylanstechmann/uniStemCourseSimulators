@@ -71,7 +71,7 @@ def errors(rows, intercept, slope):
 
 
 def test_route_is_scheduled_optional_and_ungraded():
-    assert MANIFEST["version"] == "0.5.0" and MANIFEST["maturity"] == "partial"
+    assert MANIFEST["version"] == "0.6.0" and MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed" and MANIFEST["grading_policy"]["mode"] == "formative-only"
     rehearsal = ASSESSMENTS["programming-project-rehearsal-practice"]
     project = ASSESSMENTS["programming-sensor-calibration-project"]
@@ -183,6 +183,7 @@ def test_lab_and_project_data_are_package_pinned_and_links_resolve():
         "labs/pipeline-records.csv",
         "assessment-specs/sensor-calibration-records.csv",
         "assignments/calibration-rehearsal-records.csv",
+        "assignments/semester-observations.csv",
     ]
 
     sys.path.insert(0, str(ROOT / "backend"))

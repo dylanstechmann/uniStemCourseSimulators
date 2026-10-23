@@ -575,6 +575,206 @@
         "linear-algebra-6-objective-3"
       ],
       "license": "CC-BY-4.0"
+    },
+    {
+      "id": "linear-algebra-15-card-1",
+      "lesson_id": "linear-algebra-15",
+      "front": "Why does a zero leading entry not prove singularity?",
+      "back": "A row interchange may provide a nonzero pivot; invertibility depends on the complete map, not one entry in one row ordering.",
+      "objective_ids": [
+        "linear-algebra-15-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "linear-algebra-15-card-2",
+      "lesson_id": "linear-algebra-15",
+      "front": "Why can an invertible coordinate change fail to preserve the ordinary coordinate norm?",
+      "back": "A nonorthogonal basis has a nonidentity Gram matrix; carry that metric to compare the same physical length.",
+      "objective_ids": [
+        "linear-algebra-15-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "linear-algebra-15-card-3",
+      "lesson_id": "linear-algebra-15",
+      "front": "Which transformation represents a linear map in a new basis?",
+      "back": "S inverse A S when x=Sz; substituting into a scalar quadratic form instead gives S transpose A S.",
+      "objective_ids": [
+        "linear-algebra-15-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "linear-algebra-15-card-4",
+      "lesson_id": "linear-algebra-15",
+      "front": "What should a transformation proof identify first?",
+      "back": "The object represented—equation system, linear map, scalar form, metric or functional—and the coordinates of its inputs and outputs.",
+      "objective_ids": [
+        "linear-algebra-15-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "linear-algebra-16-card-1",
+      "lesson_id": "linear-algebra-16",
+      "front": "Why can a repeated eigenvalue fail to give a diagonalization?",
+      "back": "The eigenspace may have too few independent eigenvectors to form an invertible eigenvector matrix.",
+      "objective_ids": [
+        "linear-algebra-16-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "linear-algebra-16-card-2",
+      "lesson_id": "linear-algebra-16",
+      "front": "What term is lost by replacing a defective matrix power with lambda to the power n times the identity?",
+      "back": "The polynomial-in-n coupling from the nilpotent part; it can dominate finite-time behavior even when the eventual state decays.",
+      "objective_ids": [
+        "linear-algebra-16-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "linear-algebra-16-card-3",
+      "lesson_id": "linear-algebra-16",
+      "front": "How can a matrix-exponential formula be checked independently?",
+      "back": "Verify its initial identity and derivative equation, or solve the triangular component equations in sequence.",
+      "objective_ids": [
+        "linear-algebra-16-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "linear-algebra-16-card-4",
+      "lesson_id": "linear-algebra-16",
+      "front": "Which matrix controls the instantaneous Euclidean norm derivative?",
+      "back": "The symmetric part of the generator; negative real parts of generator eigenvalues alone are a weaker asymptotic statement.",
+      "objective_ids": [
+        "linear-algebra-16-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "linear-algebra-17-card-1",
+      "lesson_id": "linear-algebra-17",
+      "front": "Why state ambient spaces with subspace dimensions?",
+      "back": "Row/null spaces belong to input space while column/left-null spaces belong to output space; rectangular maps distinguish those dimensions.",
+      "objective_ids": [
+        "linear-algebra-17-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "linear-algebra-17-card-2",
+      "lesson_id": "linear-algebra-17",
+      "front": "Why does minimum norm not identify every physical input component?",
+      "back": "It chooses one representative among inputs with identical outputs; null-space directions remain unobserved by the supplied map.",
+      "objective_ids": [
+        "linear-algebra-17-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "linear-algebra-17-card-3",
+      "lesson_id": "linear-algebra-17",
+      "front": "How does a left-null vector certify inconsistency?",
+      "back": "It annihilates every Ax; a nonzero pairing with b proves b cannot equal Ax for any input.",
+      "objective_ids": [
+        "linear-algebra-17-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "linear-algebra-18-card-1",
+      "lesson_id": "linear-algebra-18",
+      "front": "What should a least-squares proof retain beyond fitted coefficients?",
+      "back": "The declared inner product/objective, residual orthogonality, uniqueness conditions and an independent projection or factorization check.",
+      "objective_ids": [
+        "linear-algebra-18-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "linear-algebra-18-card-2",
+      "lesson_id": "linear-algebra-18",
+      "front": "Why does a positive-definite quadratic have a unique stationary minimum?",
+      "back": "Its shifted objective difference is half a strictly positive quadratic form for every nonzero displacement from the stationary point.",
+      "objective_ids": [
+        "linear-algebra-18-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "linear-algebra-18-card-3",
+      "lesson_id": "linear-algebra-18",
+      "front": "Why track an inner product in projections and coordinate changes?",
+      "back": "Orthogonality and lengths depend on its metric; a numerical array alone does not identify which geometry is being represented.",
+      "objective_ids": [
+        "linear-algebra-18-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "linear-algebra-19-card-1",
+      "lesson_id": "linear-algebra-19",
+      "front": "Why is the scalar spectral-radius power not the entire state history?",
+      "back": "A nonorthogonal or defective structure can add coupling and polynomial factors that matter at finite times.",
+      "objective_ids": [
+        "linear-algebra-19-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "linear-algebra-19-card-2",
+      "lesson_id": "linear-algebra-19",
+      "front": "How should a discrete transient maximum be checked?",
+      "back": "Compare the exact sequence or successive-term ratios and neighboring integer steps, separately for each specified observable.",
+      "objective_ids": [
+        "linear-algebra-19-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "linear-algebra-19-card-3",
+      "lesson_id": "linear-algebra-19",
+      "front": "Can one coordinate rise while the Euclidean state norm falls?",
+      "back": "Yes. Component transfer can coexist with a negative total norm derivative; state the exact observable being discussed.",
+      "objective_ids": [
+        "linear-algebra-19-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "linear-algebra-20-card-1",
+      "lesson_id": "linear-algebra-20",
+      "front": "What does the pseudoinverse choose in an underdetermined consistent system?",
+      "back": "The minimum-norm exact representative under the specified inner products; it does not observe an input null-space component.",
+      "objective_ids": [
+        "linear-algebra-20-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "linear-algebra-20-card-2",
+      "lesson_id": "linear-algebra-20",
+      "front": "Why can a retained-energy criterion miss an important inverse response?",
+      "back": "The requested right-hand side may align with a dropped singular direction even when that mode contributes little to total matrix energy.",
+      "objective_ids": [
+        "linear-algebra-20-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "linear-algebra-20-card-3",
+      "lesson_id": "linear-algebra-20",
+      "front": "Does a regularized solution create information in a null direction?",
+      "back": "No. Its penalty selects a convention and trades fit against input size; the unobserved direction remains unobserved by A.",
+      "objective_ids": [
+        "linear-algebra-20-objective-3"
+      ],
+      "license": "CC-BY-4.0"
     }
   ]
 }

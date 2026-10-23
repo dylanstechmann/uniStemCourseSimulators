@@ -30,6 +30,161 @@
       "limitations": [
         "This preserved three-criterion checklist is self-assessment, not an analytic grading rubric or an institutional grade."
       ]
+    },
+    {
+      "id": "signals-control:project-m1",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "signals-control-project-objective-1"
+      ],
+      "prompt": "Sampled-loop portfolio · milestone 1: Sampling and aliases. The project uses Ts = 0.25 min, a 3 cycles/min disturbance, a 1 cycle/min analog corner and the separate loop, PI and plant parameters declared in the guide. For the project’s 3 cycles/min disturbance and Ts = 0.25 min, calculate sampling, Nyquist and apparent frequency. Demonstrate the ambiguity with a few sampled cosine values and explain why the analog filtering boundary matters. Use the project guide in week 13 for the full supplied model. Save your calculation and reasoning privately; this self-check is ungraded.",
+      "rubric": [
+        {
+          "id": "signals-control-project-m1-criterion-1",
+          "criterion": "Keeps cycles/min distinct from rad/min.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "signals-control-project-m1-criterion-2",
+          "criterion": "Checks the alias in the principal interval from zero to Nyquist.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "signals-control-project-m1-criterion-3",
+          "criterion": "Explains indistinguishable sampled sequences rather than claiming a digital filter restores lost information.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Checklist marks record the learner’s own self-review. Written reasoning is not automatically evaluated."
+      ]
+    },
+    {
+      "id": "signals-control:project-m2",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "signals-control-project-objective-2"
+      ],
+      "prompt": "Sampled-loop portfolio · milestone 2: Analog attenuation trade-off. The project uses Ts = 0.25 min, a 3 cycles/min disturbance, a 1 cycle/min analog corner and the separate loop, PI and plant parameters declared in the guide. For fc = 1 cycle/min, evaluate the project disturbance at 3 cycles/min and desired component at 0.25 cycles/min. Report amplitude ratios, distinguish them from powers, and explain why the two checks are not a complete anti-alias design. Use the project guide in week 13 for the full supplied model. Save your calculation and reasoning privately; this self-check is ungraded.",
+      "rubric": [
+        {
+          "id": "signals-control-project-m2-criterion-1",
+          "criterion": "Uses the same corner-frequency convention for both components.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "signals-control-project-m2-criterion-2",
+          "criterion": "Distinguishes dimensionless amplitude ratio from decibels, power and absolute error.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "signals-control-project-m2-criterion-3",
+          "criterion": "States what additional spectrum and tolerance information is missing.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Checklist marks record the learner’s own self-review. Written reasoning is not automatically evaluated."
+      ]
+    },
+    {
+      "id": "signals-control:project-m3",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "signals-control-project-objective-3"
+      ],
+      "prompt": "Sampled-loop portfolio · milestone 3: Sample-period and hold phase. The project uses Ts = 0.25 min, a 3 cycles/min disturbance, a 1 cycle/min analog corner and the separate loop, PI and plant parameters declared in the guide. Check the project’s Ts = 0.25 min against the 3 min closed-loop time constant. At crossover 1/3 rad/min, compute the hold cost in radians and degrees and its effect on the supplied 70.9-degree margin. List timing and modeling omissions. Use the project guide in week 13 for the full supplied model. Save your calculation and reasoning privately; this self-check is ungraded.",
+      "rubric": [
+        {
+          "id": "signals-control-project-m3-criterion-1",
+          "criterion": "Labels the ten-sample criterion as a heuristic rather than a theorem.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "signals-control-project-m3-criterion-2",
+          "criterion": "Converts the same phase consistently between radians and degrees.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "signals-control-project-m3-criterion-3",
+          "criterion": "Subtracts the phase cost once and keeps the result conditional on omitted delays.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Checklist marks record the learner’s own self-review. Written reasoning is not automatically evaluated."
+      ]
+    },
+    {
+      "id": "signals-control:project-m4",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "signals-control-project-objective-4"
+      ],
+      "prompt": "Sampled-loop portfolio · milestone 4: Incremental PI and a bounded command. The project uses Ts = 0.25 min, a 3 cycles/min disturbance, a 1 cycle/min analog corner and the separate loop, PI and plant parameters declared in the guide. Apply the project’s incremental PI update with Kp = 6.667, Ti = 10 min, Ts = 0.25 min, previous command 19.9 and errors 0.9 then 1.2. Show the candidate, the [0,20] clamp and the value retained under the stated tracking convention. Use the project guide in week 13 for the full supplied model. Save your calculation and reasoning privately; this self-check is ungraded.",
+      "rubric": [
+        {
+          "id": "signals-control-project-m4-criterion-1",
+          "criterion": "Uses both the proportional difference and integral increment.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "signals-control-project-m4-criterion-2",
+          "criterion": "Shows candidate, applied and retained values as separate quantities.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "signals-control-project-m4-criterion-3",
+          "criterion": "Does not generalize this one-step arithmetic into a validated anti-windup controller.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Checklist marks record the learner’s own self-review. Written reasoning is not automatically evaluated."
+      ]
+    },
+    {
+      "id": "signals-control:project-m5",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "signals-control-project-objective-5"
+      ],
+      "prompt": "Sampled-loop portfolio · milestone 5: Exact held-input plant and scope. The project uses Ts = 0.25 min, a 3 cycles/min disturbance, a 1 cycle/min analog corner and the separate loop, PI and plant parameters declared in the guide. For the project plant with tau = 10 min, gain 0.5 and initial output zero, advance one Ts = 0.25 min interval using the applied PI command. Give an independent limiting-case check and state why the portfolio’s separate stipulated pieces do not identify one real process. Use the project guide in week 13 for the full supplied model. Save your calculation and reasoning privately; this self-check is ungraded.",
+      "rubric": [
+        {
+          "id": "signals-control-project-m5-criterion-1",
+          "criterion": "Uses the exact exponential and applied held command.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "signals-control-project-m5-criterion-2",
+          "criterion": "Checks the update against the old state and held-input equilibrium.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "signals-control-project-m5-criterion-3",
+          "criterion": "Identifies timing, quantization, actuator and uncertainty evidence the paper model omits.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Checklist marks record the learner’s own self-review. Written reasoning is not automatically evaluated."
+      ]
     }
   ]
 }

@@ -17,7 +17,6 @@ def load(path: Path) -> dict:
 
 def test_probability_sampling_reading_and_assessment_keys():
     manifest = load(COURSE / "course.json")
-    assert manifest["version"].startswith("0.4.")
     module = next(
         item for item in manifest["modules"] if item["id"] == "statistics-module-1"
     )

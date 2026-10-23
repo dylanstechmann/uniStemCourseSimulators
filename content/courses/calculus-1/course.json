@@ -7,7 +7,7 @@
   "domain": "Mathematics",
   "level": "Year 1",
   "maturity": "partial",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -422,6 +422,140 @@
         "calculus-1-outcome-2",
         "calculus-1-outcome-3"
       ]
+    },
+    {
+      "id": "calculus-1-16-objective-1",
+      "description": "Derive signed finite sums and an exact affine-model check.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-1-outcome-4"
+      ]
+    },
+    {
+      "id": "calculus-1-16-objective-2",
+      "description": "Separate state, signed displacement and total distance.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-1-outcome-4"
+      ]
+    },
+    {
+      "id": "calculus-1-16-objective-3",
+      "description": "Check fundamental-theorem hypotheses at a jump.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-1-outcome-4"
+      ]
+    },
+    {
+      "id": "calculus-1-16-objective-4",
+      "description": "Differentiate moving bounds and check against explicit accumulation.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-1-outcome-4"
+      ]
+    },
+    {
+      "id": "calculus-1-17-objective-1",
+      "description": "Connect assigned point values to continuity and differentiability.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-1-outcome-1",
+        "calculus-1-outcome-2"
+      ]
+    },
+    {
+      "id": "calculus-1-17-objective-2",
+      "description": "Use a quantified limit bound and an exact secant error.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-1-outcome-1",
+        "calculus-1-outcome-2"
+      ]
+    },
+    {
+      "id": "calculus-1-17-objective-3",
+      "description": "Construct a continuous but nondifferentiable sequence counterexample.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-1-outcome-1",
+        "calculus-1-outcome-2"
+      ]
+    },
+    {
+      "id": "calculus-1-18-objective-1",
+      "description": "Cross-check implicit curvature and local inverse sensitivity.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-1-outcome-2"
+      ]
+    },
+    {
+      "id": "calculus-1-18-objective-2",
+      "description": "Apply composition while retaining domain and approximation distinctions.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-1-outcome-2",
+        "calculus-1-outcome-3"
+      ]
+    },
+    {
+      "id": "calculus-1-18-objective-3",
+      "description": "Differentiate a geometric constraint before inserting instantaneous values.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-1-outcome-2",
+        "calculus-1-outcome-3"
+      ]
+    },
+    {
+      "id": "calculus-1-19-objective-1",
+      "description": "Compare feasible stationary candidates and changed constraints.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-1-outcome-3"
+      ]
+    },
+    {
+      "id": "calculus-1-19-objective-2",
+      "description": "Separate theorem existence from uniqueness.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-1-outcome-5"
+      ]
+    },
+    {
+      "id": "calculus-1-19-objective-3",
+      "description": "Convert a residual into a certified root-location error.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-1-outcome-3",
+        "calculus-1-outcome-5"
+      ]
+    },
+    {
+      "id": "calculus-1-20-objective-1",
+      "description": "Integrate signed rates while retaining reversals and initial state.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-1-outcome-4"
+      ]
+    },
+    {
+      "id": "calculus-1-20-objective-2",
+      "description": "Derive a finite-sum error and the least admissible count.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-1-outcome-4"
+      ]
+    },
+    {
+      "id": "calculus-1-20-objective-3",
+      "description": "Check jump hypotheses and moving-boundary accumulation separately.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-1-outcome-4"
+      ]
     }
   ],
   "duration": {
@@ -452,10 +586,12 @@
         "week": 3,
         "title": "Derivative rules and chain rule",
         "lesson_ids": [
-          "calculus-1-2"
+          "calculus-1-2",
+          "calculus-1-17"
         ],
         "assessment_ids": [
-          "calculus-1-2-practice"
+          "calculus-1-2-practice",
+          "calculus-1-17-practice"
         ]
       },
       {
@@ -484,10 +620,12 @@
         "week": 6,
         "title": "Optimization and related rates",
         "lesson_ids": [
-          "calculus-1-3"
+          "calculus-1-3",
+          "calculus-1-18"
         ],
         "assessment_ids": [
-          "calculus-1-3-practice"
+          "calculus-1-3-practice",
+          "calculus-1-18-practice"
         ]
       },
       {
@@ -516,20 +654,24 @@
         "week": 9,
         "title": "Definite integrals and the fundamental theorem",
         "lesson_ids": [
-          "calculus-1-4"
+          "calculus-1-4",
+          "calculus-1-19"
         ],
         "assessment_ids": [
-          "calculus-1-4-practice"
+          "calculus-1-4-practice",
+          "calculus-1-19-practice"
         ]
       },
       {
         "week": 10,
         "title": "Accumulation, the fundamental theorem and substitution",
         "lesson_ids": [
-          "calculus-1-10"
+          "calculus-1-10",
+          "calculus-1-16"
         ],
         "assessment_ids": [
-          "calculus-1-10-practice"
+          "calculus-1-10-practice",
+          "calculus-1-16-practice"
         ]
       },
       {
@@ -568,12 +710,14 @@
         "week": 14,
         "title": "A washout curve: semilog slopes, background and model checks",
         "lesson_ids": [
-          "calculus-1-13"
+          "calculus-1-13",
+          "calculus-1-20"
         ],
         "assessment_ids": [
           "calculus-1-13-practice",
           "calculus-1-case",
-          "calculus-1-washout-project"
+          "calculus-1-washout-project",
+          "calculus-1-20-practice"
         ]
       }
     ]
@@ -1186,6 +1330,164 @@
           ]
         }
       ]
+    },
+    {
+      "id": "calculus-1-module-16",
+      "title": "Piecewise rates, signed accumulation and integral hypotheses",
+      "source_ids": [
+        "calculus-1801-syllabus",
+        "calculus-1801-unit3"
+      ],
+      "lessons": [
+        {
+          "id": "calculus-1-16",
+          "title": "Piecewise rates, signed accumulation and integral hypotheses",
+          "reading": "modules/piecewise-rates-and-integral-hypotheses.md",
+          "objectives": [
+            "calculus-1-16-objective-1",
+            "calculus-1-16-objective-2",
+            "calculus-1-16-objective-3",
+            "calculus-1-16-objective-4"
+          ],
+          "worked_example": "With h=3/n, the right sum is 3+9/n and the left sum 3−9/n. At n=6 these are 4.5 and 1.5 meters; their trapezoidal average is exactly 3 for this affine function. Exactness here is not a general model or quadrature guarantee.",
+          "question_ids": [
+            "calculus-1-16:depth-1",
+            "calculus-1-16:depth-2",
+            "calculus-1-16:depth-3",
+            "calculus-1-16:depth-4"
+          ],
+          "card_ids": [
+            "calculus-1-16-card-1",
+            "calculus-1-16-card-2",
+            "calculus-1-16-card-3",
+            "calculus-1-16-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "calculus-1-module-17",
+      "title": "Assignment 1: limits, domains and proof hypotheses",
+      "source_ids": [
+        "calculus-1801-syllabus",
+        "calculus-1801-unit3"
+      ],
+      "lessons": [
+        {
+          "id": "calculus-1-17",
+          "title": "Assignment 1: limits, domains and proof hypotheses",
+          "reading": "assignments/coursework-01-limits-and-proof.md",
+          "objectives": [
+            "calculus-1-17-objective-1",
+            "calculus-1-17-objective-2",
+            "calculus-1-17-objective-3"
+          ],
+          "worked_example": "The left branch simplifies to x+3 on its original domain, giving limit six. The right value must therefore have A=6, and slopes agree when B=1. Left and right second derivatives remain zero and four, so this higher derivative fails.",
+          "question_ids": [
+            "calculus-1-17:depth-1",
+            "calculus-1-17:depth-2",
+            "calculus-1-17:depth-3"
+          ],
+          "card_ids": [
+            "calculus-1-17-card-1",
+            "calculus-1-17-card-2",
+            "calculus-1-17-card-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "calculus-1-module-18",
+      "title": "Assignment 2: implicit functions, inverse rates and geometry",
+      "source_ids": [
+        "calculus-1801-syllabus",
+        "calculus-1801-unit3"
+      ],
+      "lessons": [
+        {
+          "id": "calculus-1-18",
+          "title": "Assignment 2: implicit functions, inverse rates and geometry",
+          "reading": "assignments/coursework-02-implicit-and-related-rates.md",
+          "objectives": [
+            "calculus-1-18-objective-1",
+            "calculus-1-18-objective-2",
+            "calculus-1-18-objective-3"
+          ],
+          "worked_example": "Differentiation gives y′=−(2x+y)/(x+2y)=−0.8. Differentiating the constraint again gives y″=−[2+2y′+2(y′)²]/(x+2y)=−0.336. The nonzero local slope permits the inverse slope −1.25. Both calculations use a local upper branch; invertibility is not asserted for the full closed curve.",
+          "question_ids": [
+            "calculus-1-18:depth-1",
+            "calculus-1-18:depth-2",
+            "calculus-1-18:depth-3"
+          ],
+          "card_ids": [
+            "calculus-1-18-card-1",
+            "calculus-1-18-card-2",
+            "calculus-1-18-card-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "calculus-1-module-19",
+      "title": "Assignment 3: constrained optimization and root certificates",
+      "source_ids": [
+        "calculus-1801-syllabus",
+        "calculus-1801-unit3"
+      ],
+      "lessons": [
+        {
+          "id": "calculus-1-19",
+          "title": "Assignment 3: constrained optimization and root certificates",
+          "reading": "assignments/coursework-03-optimization-and-certificates.md",
+          "objectives": [
+            "calculus-1-19-objective-1",
+            "calculus-1-19-objective-2",
+            "calculus-1-19-objective-3"
+          ],
+          "worked_example": "Stationary cuts are (12±sqrt(39))/3, of which only the smaller is feasible in the interior. Endpoint volumes vanish. Adding x≤1.5 excludes that stationary maximum and the new boundary volume is 1.5×11×7=115.5 cm³; the same-objective maximum cannot increase under restriction.",
+          "question_ids": [
+            "calculus-1-19:depth-1",
+            "calculus-1-19:depth-2",
+            "calculus-1-19:depth-3"
+          ],
+          "card_ids": [
+            "calculus-1-19-card-1",
+            "calculus-1-19-card-2",
+            "calculus-1-19-card-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "calculus-1-module-20",
+      "title": "Assignment 4: accumulation, quadrature and cumulative reasoning",
+      "source_ids": [
+        "calculus-1801-syllabus",
+        "calculus-1801-unit3"
+      ],
+      "lessons": [
+        {
+          "id": "calculus-1-20",
+          "title": "Assignment 4: accumulation, quadrature and cumulative reasoning",
+          "reading": "assignments/coursework-04-accumulation-and-synthesis.md",
+          "objectives": [
+            "calculus-1-20-objective-1",
+            "calculus-1-20-objective-2",
+            "calculus-1-20-objective-3"
+          ],
+          "worked_example": "The antiderivative is t²−3t. Its minimum is −2.25 at t=1.5, giving minimum position 4.75. Signed displacement is four; adding the initial position gives eleven. Absolute contributions 2.25 and 6.25 sum to distance 8.5.",
+          "question_ids": [
+            "calculus-1-20:depth-1",
+            "calculus-1-20:depth-2",
+            "calculus-1-20:depth-3"
+          ],
+          "card_ids": [
+            "calculus-1-20-card-1",
+            "calculus-1-20-card-2",
+            "calculus-1-20-card-3"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -1617,6 +1919,111 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "calculus-1-16-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Piecewise rates, signed accumulation and integral hypotheses (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 10,
+      "objective_ids": [
+        "calculus-1-16-objective-1",
+        "calculus-1-16-objective-2",
+        "calculus-1-16-objective-3",
+        "calculus-1-16-objective-4",
+        "calculus-1-outcome-4"
+      ],
+      "question_ids": [
+        "calculus-1-16:depth-1",
+        "calculus-1-16:depth-2",
+        "calculus-1-16:depth-3",
+        "calculus-1-16:depth-4"
+      ],
+      "points": 10
+    },
+    {
+      "id": "calculus-1-17-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 1: limits, domains and proof hypotheses (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 3,
+      "objective_ids": [
+        "calculus-1-17-objective-1",
+        "calculus-1-17-objective-2",
+        "calculus-1-17-objective-3",
+        "calculus-1-outcome-1",
+        "calculus-1-outcome-2"
+      ],
+      "question_ids": [
+        "calculus-1-17:depth-1",
+        "calculus-1-17:depth-2",
+        "calculus-1-17:depth-3"
+      ],
+      "points": 8
+    },
+    {
+      "id": "calculus-1-18-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 2: implicit functions, inverse rates and geometry (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 6,
+      "objective_ids": [
+        "calculus-1-18-objective-1",
+        "calculus-1-18-objective-2",
+        "calculus-1-18-objective-3",
+        "calculus-1-outcome-2",
+        "calculus-1-outcome-3"
+      ],
+      "question_ids": [
+        "calculus-1-18:depth-1",
+        "calculus-1-18:depth-2",
+        "calculus-1-18:depth-3"
+      ],
+      "points": 9
+    },
+    {
+      "id": "calculus-1-19-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 3: constrained optimization and root certificates (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 9,
+      "objective_ids": [
+        "calculus-1-19-objective-1",
+        "calculus-1-19-objective-2",
+        "calculus-1-19-objective-3",
+        "calculus-1-outcome-3",
+        "calculus-1-outcome-5"
+      ],
+      "question_ids": [
+        "calculus-1-19:depth-1",
+        "calculus-1-19:depth-2",
+        "calculus-1-19:depth-3"
+      ],
+      "points": 10
+    },
+    {
+      "id": "calculus-1-20-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 4: accumulation, quadrature and cumulative reasoning (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 14,
+      "objective_ids": [
+        "calculus-1-20-objective-1",
+        "calculus-1-20-objective-2",
+        "calculus-1-20-objective-3",
+        "calculus-1-outcome-4"
+      ],
+      "question_ids": [
+        "calculus-1-20:depth-1",
+        "calculus-1-20:depth-2",
+        "calculus-1-20:depth-3"
+      ],
+      "points": 11
     }
   ],
   "grading_policy": {
@@ -1726,18 +2133,24 @@
       "version": "0.5.0",
       "date": "2026-10-20",
       "summary": "Made the planned washout-model project usable by learners as ungraded practice. Week 12 gains an optional project guide with the project's model and tasks, a worked one-term example, a synthetic rehearsal signal and 5 open rehearsal practice items; five project milestones are Case studio self-checks with a week-14 project record. The project's signal table becomes a learner resource, and the washout lab's dataset link now points to the package-pinned CSV instead of a mutable repository URL. The inactive project draft is unchanged; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.6.0",
+      "date": "2026-10-22",
+      "summary": "Added original Riemann-sum/signed-versus-absolute accumulation and local FTC-hypothesis instruction, plus four sustained mixed assignments covering limit/counterexample proofs, implicit/inverse/related rates, constrained optimization/MVT/root certificates and cumulative accumulation/numerical checks. Sixteen new public checkpoints/cards assess selected results only; reports, proofs and implementations need actual review. Preserves the washout lab and project. The course remains partial, unreviewed and formative-only within the paired Calculus I/II boundary."
     }
   ],
   "limitations": [
-    "All sixteen scheduled readings now contain expanded or original instructional text, including one synthetic-data virtual lab; this package is not equivalent to a full university semester.",
+    "The scheduled core readings now contain expanded or original instructional text, including one synthetic-data virtual lab; this package is not equivalent to a full university semester.",
     "The proposed 14-week schedule is unmeasured and unreviewed. One synthetic lab is not a laboratory sequence; graded homework and exams are not authored. An optional washout-model project guide with rehearsal practice and Case studio milestone self-checks (weeks 12–14) is ungraded practice; the separate project draft stays inactive.",
     "Formative items and provisional objective associations do not establish comprehensive coverage or mastery.",
     "Bloom labels, prerequisite edges and mathematical accessibility await qualified review.",
     "Answers and feedback are intentionally public practice authoring specifications, not restricted exam keys.",
-    "Of the 75 numeric item answers, 9 require a unit; none checks significant figures or dimensions. New bare-number prompts state the relevant output scale. CSV checks use explicit tolerances. The 10 numeric fields inside the project rehearsal's data-interpretation items check the stated significant figures.",
     "Total and weekly workload are unknown. The proposed schedule is planning scope only.",
     "All new functions, concentrations and observations are synthetic teaching examples. No real clearance rate, biological mechanism, dosing advice, device specification or experimental protocol is established.",
-    "The washout-model project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses a separate constructed signal, blank and target, and no software check evaluates a learner's project calculations or written interpretation. Milestone weeks are planning suggestions, not measured workload or deadlines."
+    "The washout-model project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses a separate constructed signal, blank and target, and no software check evaluates a learner's project calculations or written interpretation. Milestone weeks are planning suggestions, not measured workload or deadlines.",
+    "Four new open mixed assignments require locally saved proofs/counterexamples, implicit/explicit cross-checks, constrained-sign and theorem-hypothesis arguments, root certificates and sign-aware accumulation/numerical verification. Selected browser checkpoints do not evaluate written proofs, diagrams or code. The new FTC reading proves a local continuity implication and tests a piecewise-rate counterexample; it is not a general integration/real-analysis treatment. Full coursework breadth, qualified review and measured workload remain open. Advanced integration, geometry and series belong to paired Calculus II under the shared 18.01SC comparator.",
+    "Of the 126 numerical answers, 9 require units, 50 check significant figures and 0 check dimensions. New continuous checkpoint quantities request three significant figures; exact interval counts have no significant-figure requirement."
   ],
   "intentionally_omitted": [
     "Graded assessments, a laboratory sequence, an activated cumulative project, measured workload, accessibility review and qualified human content review remain outstanding."

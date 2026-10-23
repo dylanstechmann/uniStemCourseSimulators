@@ -1,6 +1,6 @@
 # Human Physiology for Engineers review handoff
 
-This handoff targets Human Physiology for Engineers, package version 0.4.9. The [review snapshot](PHYSIOLOGY_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+This handoff targets Human Physiology for Engineers, package version 0.6.0. The [review snapshot](PHYSIOLOGY_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
 
 ## Review scope
 
@@ -22,3 +22,11 @@ For package version 0.4.6, the focused Physiology suite passed 8 tests, includin
 ## Review record to complete only after review
 
 After a review actually occurs, record reviewer name and qualifications, date, package version and archive digest, artifacts examined, concrete findings and disposition. Keep separate decisions for scientific and mathematical accuracy, instructional design, assessment, accessibility, workload and release. Do not infer approval from the package hash or test results.
+
+## Open project route (2026-10-22)
+
+The current guide, separate worked example, rehearsal and five private milestone self-checks make the existing project usable as ungraded practice. [The route regression tests](../tests/content/test_remaining_course_project_routes.py) independently recalculate every new numeric field and exercise the backend grader, including exact counts and continuous-quantity precision. Review the written explanation, evidence limits and proposed workload independently; automated arithmetic is not subject review. Historical snapshot evidence remains preserved.
+
+## Organ-system and feedback target (2026-10-22)
+
+Current target 0.6.0 adds three foundations, four connected reports and twenty checkpoints/cards. Check delivered-fraction serial amount/water ledgers and unit conversions; qualitative segment transport and medullary-gradient/permeability distinction; scaled two-state feedback signs, initial derivatives, eigenmodes, target clipping and separate bias; nonlinear oxygen-content mixing, resistance boundary conditions, delivery versus uptake and equivalent-fraction nonidentifiability. Check the corrected right-hand n^4 slope at nonzero n0. New parameters are invented, not calibrated physiological estimates. Solver/report evaluation, broader organ depth, experimental competence, workload and qualified review remain open. Existing evidence above is historical; the current snapshot pins the new target.

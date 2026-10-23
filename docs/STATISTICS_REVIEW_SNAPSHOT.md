@@ -1,12 +1,12 @@
-# Statistics review snapshot
+# Probability, Biostatistics & Experimental Design review snapshot
 
-This record pins the current public course package for independent review. It does not imply acceptance or release.
+This identifies the public package; a digest does not approve inference or course depth.
 
-- **Course package:** `statistics` 0.4.8
-- **Public package archive SHA-256:** `c3cf2cc43a32186a610fd64d1bf24a24e91f0141b3394bf633fbeb52c5f7611d`
-- **Manifest SHA-256:** `9a6fdbb03cec081a806b1e20b8fa700a41870008a23564c365d6b75ce4e8b9b4`
-- **Archive inventory:** 26 files, 377,406 bytes
-- **Calculated:** 2026-10-13
-- **Reproduce:** `uv run --project backend --locked python -B tools/course_package_digest.py --course-id statistics`
+- **Course package:** `statistics` 0.6.0
+- **Public package archive SHA-256:** `c8a84a16c25997be08ae5937ca656e79aa1856fef9b3b2d597b060a2c4520a4a`
+- **Manifest SHA-256:** `151b04dccfb85a42f4b1cb7514a478383ba5ddbf99baa278d4ea8bc61fff1f6b`
+- **Archive inventory:** 36 files, 587,788 bytes
+- **Calculated:** 2026-10-22
+- **Reproduce:** `python tools/course_package_digest.py --course-id statistics`
 
-Version 0.4.8 corrects the syllabus outcome list so that it quotes the manifest's finite-prior outcome exactly. No reading, item, key or card changed. The digest proves package identity only; it is not statistical review, instructional approval or release evidence.
+Four original joint-law/likelihood/normal-update/regression foundations and four reports add twenty-four checkpoints/cards. All records and tables are synthetic models. Proofs,plots,code,reports,causal identification and empirical validity are not graded. The course remains partial,unreviewed and formative-only; the previous 0.5.0 snapshot is preserved.

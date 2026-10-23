@@ -11,7 +11,6 @@ ROOT = COURSE.parents[2]
 
 def test_carbonyl_lesson_maps_addition_and_acyl_substitution():
     manifest = json.loads((COURSE / "course.json").read_text(encoding="utf-8"))
-    assert manifest["version"].startswith("0.4.")
     assert manifest["maturity"] == "partial"
     assert manifest["review"]["status"] == "unreviewed"
     assert manifest["grading_policy"]["mode"] == "formative-only"

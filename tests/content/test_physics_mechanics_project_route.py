@@ -53,7 +53,7 @@ def rotor(row: dict[str, float]) -> dict[str, float]:
 
 
 def test_route_is_scheduled_optional_and_ungraded():
-    assert MANIFEST["version"] == "0.5.0" and MANIFEST["maturity"] == "partial"
+    assert MANIFEST["version"] == "0.6.0" and MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed" and MANIFEST["grading_policy"]["mode"] == "formative-only"
     rehearsal = ASSESSMENTS["physics-mechanics-project-rehearsal-practice"]
     project = ASSESSMENTS["physics-mechanics-rotor-project"]
@@ -131,6 +131,7 @@ def test_lab_and_project_data_are_package_pinned_and_links_resolve():
         "labs/compliance-reports.csv",
         "assessment-specs/fictional-rotor-candidates.csv",
         "assignments/rotor-rehearsal-candidates.csv",
+        "assignments/oscillator-reference.csv",
     ]
 
     sys.path.insert(0, str(ROOT / "backend"))

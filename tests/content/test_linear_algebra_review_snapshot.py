@@ -29,7 +29,7 @@ def test_linear_algebra_review_snapshot_matches_public_package():
     snapshot = (ROOT / "docs/LINEAR_ALGEBRA_REVIEW_SNAPSHOT.md").read_text(encoding="utf-8")
 
     assert actual["course_id"] == "linear-algebra"
-    assert actual["content_version"] == "0.4.0"
+    assert actual["content_version"] == "0.5.0"
     assert re.search(
         r"Public package archive SHA-256:\*\*\s*`([0-9a-f]{64})`", snapshot
     ).group(1) == actual["package_sha256"]

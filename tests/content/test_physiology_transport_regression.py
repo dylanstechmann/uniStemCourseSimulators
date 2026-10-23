@@ -50,4 +50,4 @@ def test_flow_network_and_exchange_relations():
     assert items["physiology-3:perfusion-limited-gas"]["solution_spec"]["answer"] == 3
 
     syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8")
-    assert "weeks 1, 3, 5 and 11 now have expanded" in syllabus
+    assert f"({lesson['reading']})" in syllabus

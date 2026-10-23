@@ -16,7 +16,7 @@ By the end of this lesson, you should be able to:
 
 **Salamanders** regrow limbs through a **blastema**, a mass of progenitor cells that forms at the wound. Many cells there arise by dedifferentiation of local tissue, and the blastema reforms the missing structure with the correct pattern.
 
-**Zebrafish** regenerate fins, spinal cord and the heart. After surgical removal of about a fifth of the ventricle, the heart in a 2002 study regenerated the missing muscle over weeks with little scarring, and cardiomyocytes were the source of new muscle.
+**Zebrafish** regenerate fins, spinal cord and the heart. The [2002 regeneration report](https://pubmed.ncbi.nlm.nih.gov/12481136/) described heart repair after partial ventricular injury. A distinct [2010 genetic lineage study](https://pubmed.ncbi.nlm.nih.gov/20336145/) supported contribution from existing cardiomyocytes with limited dedifferentiation and proliferation. Keep the tissue-level finding and later cell-origin evidence separate;neither is evidence of the same response in adult human hearts.
 
 **Neonatal mice** can regenerate the heart for a short time. In a 2011 study, resection of the ventricular apex at one day after birth was followed by regrowth with minimal scarring, whereas the same injury at seven days after birth left a scar and did not regenerate. The window closes within about a week.
 

@@ -1,6 +1,6 @@
 # Electrical Circuits & Instrumentation
 
-**Maturity: partial. Version: 0.4.8.** Personal hobby and learning project with substantial AI assistance; no university equivalence or institutional credit.
+**Maturity: partial. Version: 0.6.0.** Personal hobby and learning project with substantial AI assistance; no university equivalence or institutional credit.
 
 Original instruction develops nodal/port balances, finite feedback, differential/common-mode errors, filter loading/recovery, noise and uncertainty, acquisition and calibration domains, second-order RLC transients and frequency response, and op-amp summing, integrating, differentiating and active filtering. An original text feedback map includes a verbal description. Preserved sensor-loading/ADC and first-order frequency-response lessons remain.
 
@@ -19,26 +19,36 @@ Physics: Electricity & Magnetism; Calculus I recommended. Manifest relationships
 
 This is planning scope, not measured workload or a reviewed semester. Weeks 1, 4, 7 and 12 now have expanded DC-network/Thevenin, amplifier/front-end, filter/sampling and sensor/calibration primers. Week 5 pairs finite feedback with op-amp summing, integrator, differentiator and active-filter stages, and week 8 pairs the preserved first-order RC filter with a second-order RLC unit, keeping the proposed 14-week sequence. Week 14 is a synthetic gain/clipping/common-mode/baseline lab and revisits the preserved movement-clipping/rest-drift case. All activities are public formative practice.
 
-| Week | Reading | Items | Cards |
-|---|---|---:|---:|
-| 1 | DC network analysis and equivalent circuits | 3 | 2 |
-| 2 | Nodal networks, port tests and power | 9 | 4 |
-| 3 | Reading a sensor without fooling yourself: voltage dividers, loading error and ADC resolution | 6 | 4 |
-| 4 | Operational amplifiers and analog front ends | 2 | 2 |
-| 5 | Feedback, finite gain, bias and output range; Op-amp signal operations: summing, integrating, differentiating and active filtering | 22 | 8 |
-| 6 | Differential signals, common mode and interface imbalance | 9 | 4 |
-| 7 | Filters, sampling, and anti-aliasing | 3 | 2 |
-| 8 | First-order RC response; Second-order RLC transients, damping, resonance and impedance | 15 | 8 |
-| 9 | Filter loading, baseline and recovery | 9 | 4 |
-| 10 | Noise bandwidth, covariance and uncertainty | 9 | 4 |
-| 11 | Sampling, quantization and acquisition settling | 9 | 4 |
-| 12 | Sensors, calibration, and uncertainty | 2 | 2 |
-| 13 | Calibration, clipping, residuals and case evidence | 9 | 4 |
-| 14 | Virtual lab 1: gain, clipping, common mode and baseline recovery | 8 | 4 |
+| Week | Readings and activities | Practice items | Cards |
+| --- | --- | ---: | ---: |
+| 1 | [DC network analysis and equivalent circuits](modules/01-dc-network-analysis-and-equivalent-circuits.md) | 3 | 2 |
+| 2 | [Nodal networks, port tests and power](modules/07-nodal-networks-port-tests-and-power.md) | 9 | 4 |
+| 3 | [Reading a sensor without fooling yourself: voltage dividers, loading error and ADC resolution](modules/05-sensor-loading-and-adc-resolution.md); [Nonlinear load lines and local models](modules/nonlinear-load-lines-and-local-models.md) | 10 | 8 |
+| 4 | [Operational amplifiers and analog front ends](modules/02-operational-amplifiers-and-analog-front-ends.md); [MOS operating regions and small signals](modules/mos-operating-regions-and-small-signals.md) | 6 | 6 |
+| 5 | [Feedback, finite gain, bias and output range](modules/08-feedback-finite-gain-bias-and-output-range.md); [Op-amp signal operations: summing, integrating, differentiating and active filtering](modules/15-op-amp-summing-integrators-differentiators-and-active-filters.md); [Assignment 1: nonlinear port evidence](assignments/coursework-01-nonlinear-port-evidence.md) | 24 | 10 |
+| 6 | [Differential signals, common mode and interface imbalance](modules/09-differential-common-mode-and-interface-imbalance.md); [Dynamic feedback and stability limits](modules/dynamic-feedback-and-stability-limits.md) | 13 | 8 |
+| 7 | [Filters, sampling, and anti-aliasing](modules/03-filters-sampling-and-anti-aliasing.md); [Assignment 2: device bias and amplifier regions](assignments/coursework-02-device-bias-and-amplifier-regions.md) | 5 | 4 |
+| 8 | [First-order frequency response: an RC low-pass filter for a biological signal](modules/06-rc-low-pass-frequency-response.md); [Second-order RLC transients, damping, resonance and impedance](modules/14-second-order-rlc-transients-resonance-and-impedance.md) | 15 | 8 |
+| 9 | [Filter loading, baseline and recovery](modules/10-filter-loading-baseline-and-recovery.md); [Assignment 3: feedback modes and operating claims](assignments/coursework-03-feedback-modes-and-operating-claims.md) | 11 | 6 |
+| 10 | [Noise bandwidth, covariance and uncertainty](modules/11-noise-bandwidth-covariance-and-uncertainty.md) | 9 | 4 |
+| 11 | [Sampling, quantization and acquisition settling](modules/12-sampling-quantization-and-acquisition-settling.md) | 9 | 4 |
+| 12 | [Sensors, calibration, and uncertainty](modules/04-sensors-calibration-and-uncertainty.md) | 2 | 2 |
+| 13 | [Calibration, clipping, residuals and case evidence](modules/13-calibration-clipping-residuals-and-case-evidence.md); [Sensor-channel budget project guide (optional, ungraded)](assignments/sensor-channel-project-guide.md); [Assignment 4: transient noise and covariance](assignments/coursework-04-transient-noise-and-covariance.md) | 16 | 11 |
+| 14 | [Virtual lab 1: gain, clipping, common mode and baseline recovery](labs/01-gain-clipping-and-baseline-recovery.md) | 8 | 4 |
 
 ## Assessment policy
 
-There are 16 readings, 115 public practice items and 56 retrieval cards, plus the preserved case. Most newer lessons have six numeric and three conceptual choices; the op-amp operations lesson has ten numeric and three conceptual choices. The lab includes CSV summaries, gain/rejection/decay calculations, structured choices and multiple-select interpretation. Twenty numeric items require units; the RLC and op-amp operations calculations state the requested units, while other numeric items use their established answer formats. Significant figures, dimensions, diagrams, written diagnosis and uncertainty arguments are not automatically scored. Unlimited retries provide study feedback, not course grades. Outcome links still need qualified review.
+Current practice inventory: 24 lesson/activity routes, 140 public practice items, 81 retrieval cards and 6 Case studio prompts, including five project milestones. Counts do not measure semester depth or independently reviewed quality.
+
+Most newer lessons have six numeric and three conceptual choices; the op-amp operations lesson has ten numeric and three conceptual choices. The lab includes CSV summaries, gain/rejection/decay calculations, structured choices and multiple-select interpretation. Twenty numeric items require units; the RLC and op-amp operations calculations state the requested units, while other numeric items use their established answer formats. The project rehearsal checks three significant figures; dimensions, diagrams, written diagnosis and uncertainty arguments are not automatically scored. Unlimited retries provide study feedback, not course grades. Outcome links still need qualified review.
+
+## Connected coursework (open, ungraded)
+
+Three original foundations derive nonlinear load lines and local slopes (week 3), piecewise MOS operating points and small signals (week 4), and dynamic feedback modes/stability (week 6). Four connected reports require a distinct nonlinear port/power/sensitivity study (week 5), MOS region and finite-perturbation report (week 7), exact/eigenmode/ODE feedback comparison (week 9), and buffered two-pole transient/noise plus correlated-channel analysis (week 13). Twenty checkpoints/cards assess selected values and interpretations; continuous fields request three significant figures in named reporting units. Keep code, derivations, circuit diagrams and full reports locally; they are not automatically evaluated. The sensor lab and channel-budget project remain available. Counts and proposed scheduling do not establish semester depth or measured workload.
+
+## Optional sensor-channel budget project (ungraded)
+
+The [sensor-channel budget project guide](assignments/sensor-channel-project-guide.md) makes the planned project usable as open practice. Week 13 includes the guide, a separate worked example and five rehearsal items; Five Case studio milestones save private self-check responses without submission or grading. The inactive review draft below remains separate.
 
 ## Inactive design project
 
@@ -46,8 +56,10 @@ An [integrative sensor-channel project draft](assessment-specs/integrative-senso
 
 ## Current limitations
 
-No compact prototype readings remain. One data lab is not a laboratory sequence; graded homework, exams and a cumulative graded project remain absent. Workload, accessibility and circuit quality await review. The lab's known references, hard clamp, valid input range and separately stipulated drift are synthetic assumptions. They establish conditional electrical explanations without unique real interface identification. The preserved Nyquist key is a nominal two-times threshold, not a guarantee of arbitrary-phase recovery at the exact boundary or practical acquisition/filter performance. The package remains partial, unreviewed and formative-only.
+The first four prototype readings remain concise primers with longer companions. One data lab is not a laboratory sequence; graded homework, exams and a cumulative graded project remain absent. Workload, accessibility and circuit quality await review. The lab's known references, hard clamp, valid input range and separately stipulated drift are synthetic assumptions. They establish conditional electrical explanations without unique real interface identification. The preserved Nyquist key is a nominal two-times threshold, not a guarantee of arbitrary-phase recovery at the exact boundary or practical acquisition/filter performance. The package remains partial, unreviewed and formative-only.
 
 ## Sources and licensing
 
 MIT OCW [6.002 Circuits and Electronics, Spring 2007 calendar](https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/pages/calendar/) is the direct undergraduate comparator for the week-8 addition; it schedules second-order transients (L16), damping (L17), sinusoidal frequency response (L18), impedance (L19), filters and Q (L20), and energy and power (L24). The local RLC unit is original and limited to one ideal series model. Existing MIT signals links remain scope comparators. Retrieved OpenStax Kirchhoff guidance, Texas Instruments op-amp specification guidance, NIST combined-standard-uncertainty guidance and an Analog Devices ADC teaching chapter are link-only references. No teaching prose, problem, figure or dataset was copied. No new DOI, PMID or NCT was introduced; document metadata was checked directly against the retrieved primary sources. Original readings, feedback map and synthetic CSV are CC BY 4.0 with substantial AI assistance. See source-map.json and content/SOURCES_AND_LICENSES.md for rights and the software/content boundary. Links establish no endorsement or review.
+
+The 0.6.0 expansion compares the actual port, finite-feedback, op-amp and noise readings with [6.002 Spring 2007 calendar](https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/pages/calendar/) and [syllabus](https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/pages/syllabus/): nonlinear/small-signal/MOS lectures 5–12, feedback 21, stability 23 and power 24. The existing local linear models were covered, nonlinear device bias/regions absent and dynamic stability shallow. New original derivations deepen those strands. Broader Boolean/memory/CMOS foundations and physical laboratory competence are deliberately outside this narrower instrumentation package. Four reports and a synthetic lab do not reproduce the source's sustained homework and experimental requirements. [TI SLOA020A, March 2001](https://www.ti.com/lit/an/sloa020a/sloa020a.pdf) is link-only loop/pole/compensation support; the equal-pole model is original, not a TI circuit or product specification. No source text, figure, problem, code or data is imported. Full compensation design, broad coursework, qualified review and measured workload remain open.

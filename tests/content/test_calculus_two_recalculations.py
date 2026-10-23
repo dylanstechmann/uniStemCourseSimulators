@@ -507,12 +507,12 @@ def test_schedule_and_partial_status():
         "calculus-2-case",
         "calculus-2-tail-project",  # 0.5.0: the optional project's milestone record
     ]
-    # 16 topic and lab lessons plus the optional exponential-tail project guide added in 0.5.0.
-    assert len(lessons) == 17 and len(BANK) == 117
+    # Existing topic/lab/project routes plus two foundations and four reports in 0.6.0.
+    assert len(lessons) == 23 and len(BANK) == 133
     cards = len(load(COURSE / "question-banks/retrieval-cards.json")["cards"])
     syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8")
     assert (
-        f"There are {len(lessons)} readings, {len(BANK)} public practice items and {cards} retrieval cards"
+        f"There are {len(lessons)} lesson/activity routes, {len(BANK)} public practice items and {cards} retrieval cards"
         in syllabus
     )
     assert "Weeks 1, 4, 7 and 10 also have expanded readings" in syllabus

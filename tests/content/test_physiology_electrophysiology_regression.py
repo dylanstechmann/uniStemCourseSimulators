@@ -44,4 +44,4 @@ def test_ionic_driving_force_and_passive_multi_ion_balance():
     )
 
     syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8")
-    assert "weeks 1, 3, 5 and 11 now have expanded" in syllabus
+    assert f"({lesson['reading']})" in syllabus

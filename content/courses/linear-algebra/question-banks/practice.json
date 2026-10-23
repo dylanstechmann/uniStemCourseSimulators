@@ -4066,6 +4066,1703 @@
           }
         ]
       }
+    },
+    {
+      "id": "linear-algebra-15:depth-1",
+      "type": "data_interpretation",
+      "prompt": "A has rows (0,1,2),(1,1,0),(2,3,1). Swap its first two rows before elimination, using PA=LU and a unit-diagonal L. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "linear-algebra-15-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "l31",
+          "type": "numeric",
+          "prompt": "Elimination multiplier stored as L31 after the row swap.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "l32",
+          "type": "numeric",
+          "prompt": "Elimination multiplier stored as L32.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "u33",
+          "type": "numeric",
+          "prompt": "Final diagonal pivot U33 for the supplied exact matrix.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "determinant",
+          "type": "numeric",
+          "prompt": "Determinant of the original unpermuted A.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "l31",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "l32",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "u33",
+            "type": "numeric",
+            "answer": -1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "determinant",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why does a zero leading entry not prove singularity?",
+        "solution": "After swapping the first two rows, multipliers two and one give U rows (1,1,0),(0,1,2),(0,0,−1). Its determinant is −1; the row permutation also has determinant −1 and L has determinant one, giving det(A)=1. Verify the entire product PA=LU, not one chosen solution only.",
+        "lesson_ids": [
+          "linear-algebra-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic linear-algebra practice developed with substantial AI assistance; no external problem, matrix, vector or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "linear-algebra-15:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Let S have columns (1,0),(1,1), z=(1,2), physical x=Sz and standard functional coefficients d=(1,2). Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "linear-algebra-15-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "x1",
+          "type": "numeric",
+          "prompt": "First physical-vector component in standard coordinates.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "x2",
+          "type": "numeric",
+          "prompt": "Second physical-vector component in standard coordinates.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "norm_squared",
+          "type": "numeric",
+          "prompt": "Physical Euclidean norm squared of x.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "pairing",
+          "type": "numeric",
+          "prompt": "Scalar functional value d transpose x.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "x1",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "x2",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "norm_squared",
+            "type": "numeric",
+            "answer": 13.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "pairing",
+            "type": "numeric",
+            "answer": 7.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can an invertible coordinate change fail to preserve the ordinary coordinate norm?",
+        "solution": "The physical vector is (3,2), with squared norm thirteen. In z coordinates use G=S transpose S=[[1,1],[1,2]], not the identity. Functional coefficients are S transpose d=(1,3), whose pairing with z also gives seven; vector and functional transformations differ.",
+        "lesson_ids": [
+          "linear-algebra-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic linear-algebra practice developed with substantial AI assistance; no external problem, matrix, vector or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "linear-algebra-15:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Use the same S and standard map/form matrix A=diag(2,3). Define B=S inverse A S and C=S transpose A S. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "linear-algebra-15-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "map_entry",
+          "type": "numeric",
+          "prompt": "Upper-right entry of the map representation B.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "form_entry",
+          "type": "numeric",
+          "prompt": "Upper-right entry of the form representation C.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "map_trace",
+          "type": "numeric",
+          "prompt": "Trace of the map representation B.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "form_trace",
+          "type": "numeric",
+          "prompt": "Trace of the quadratic-form representation C.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "map_entry",
+            "type": "numeric",
+            "answer": -1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "form_entry",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "map_trace",
+            "type": "numeric",
+            "answer": 5.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "form_trace",
+            "type": "numeric",
+            "answer": 7.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which transformation represents a linear map in a new basis?",
+        "solution": "Similarity gives B=[[2,−1],[0,3]] with eigenvalues two and three. Congruence gives C=[[2,2],[2,5]] with eigenvalues six and one. The same scalar form and positive definiteness are preserved under the coordinate substitution, while ordinary array eigenvalues need not be preserved by congruence.",
+        "lesson_ids": [
+          "linear-algebra-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic linear-algebra practice developed with substantial AI assistance; no external problem, matrix, vector or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "linear-algebra-15:depth-4",
+      "type": "data_interpretation",
+      "prompt": "In the same nonorthogonal basis, G=S transpose S and the standard A is symmetric. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "linear-algebra-15-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "adjoint",
+          "type": "single_choice",
+          "prompt": "Which relation represents the same self-adjoint map in z coordinates?",
+          "options": [
+            "B transpose=B for every invertible basis, regardless of its Gram matrix.",
+            "B transpose G=GB, with the physical metric carried by G.",
+            "B inverse=G solely because the original map was symmetric."
+          ],
+          "points": 1
+        },
+        {
+          "id": "positive",
+          "type": "single_choice",
+          "prompt": "Why does invertible congruence preserve positive definiteness?",
+          "options": [
+            "Every congruent matrix has exactly the same ordinary eigenvalues and eigenvectors.",
+            "The diagonal entries remain numerically equal in all invertible coordinate systems.",
+            "Nonzero z maps to nonzero Sz, so the same positive scalar quadratic form is evaluated."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "adjoint",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "positive",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What should a transformation proof identify first?",
+        "solution": "Carry the Gram metric when taking adjoints in nonorthogonal coordinates. Positive definiteness follows directly from z transpose C z=(Sz) transpose A(Sz)>0 for nonzero z, without claiming ordinary eigenvalues are unchanged. Different matrix operations preserve different represented quantities.",
+        "lesson_ids": [
+          "linear-algebra-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic linear-algebra practice developed with substantial AI assistance; no external problem, matrix, vector or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "linear-algebra-16:depth-1",
+      "type": "data_interpretation",
+      "prompt": "J has rows (0.5,2),(0,0.5), x0=(0,1), and xn=J to the power n times x0. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "linear-algebra-16-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "x1",
+          "type": "numeric",
+          "prompt": "First component after one step.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "x2",
+          "type": "numeric",
+          "prompt": "Second component after one step.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "norm",
+          "type": "numeric",
+          "prompt": "Euclidean norm after one step.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "eigenspace",
+          "type": "numeric",
+          "prompt": "Exact dimension of the eigenspace for eigenvalue 0.5.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "x1",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "x2",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "norm",
+            "type": "numeric",
+            "answer": 2.0615528128088303,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "eigenspace",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can a repeated eigenvalue fail to give a diagonalization?",
+        "solution": "J−0.5I has rank one, so its eigenspace is one dimensional despite the repeated eigenvalue. The first state is (2,0.5), with norm sqrt(17)/2>1. A stable eigenvalue does not imply monotone Euclidean norm decay for every coupled state.",
+        "lesson_ids": [
+          "linear-algebra-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic linear-algebra practice developed with substantial AI assistance; no external problem, matrix, vector or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "linear-algebra-16:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For the same J and x0, use N=J−0.5I with N squared zero. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "linear-algebra-16-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "second_first",
+          "type": "numeric",
+          "prompt": "First state component after two steps.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second_second",
+          "type": "numeric",
+          "prompt": "Second state component after two steps.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "third_first",
+          "type": "numeric",
+          "prompt": "First state component after three steps.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "limit",
+          "type": "single_choice",
+          "prompt": "What is the long-time behavior of this state?",
+          "options": [
+            "Both components approach zero; the polynomial coupling factor is eventually dominated by geometric decay.",
+            "The first amplified step forces unbounded growth for all later time regardless of the exact powers.",
+            "The second component must remain exactly one because the initial vector had that value."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "second_first",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "second_second",
+            "type": "numeric",
+            "answer": 0.25,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "third_first",
+            "type": "numeric",
+            "answer": 1.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "limit",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What term is lost by replacing a defective matrix power with lambda to the power n times the identity?",
+        "solution": "Since N²=0, J^n=0.5^n I+n0.5^(n−1)N for positive n. This yields (2,0.25) at n=2 and (1.5,0.125) at n=3. Polynomial times geometric decay tends to zero; transient amplification and asymptotic behavior are different claims.",
+        "lesson_ids": [
+          "linear-algebra-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic linear-algebra practice developed with substantial AI assistance; no external problem, matrix, vector or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "linear-algebra-16:depth-3",
+      "type": "data_interpretation",
+      "prompt": "For xdot=Ax, let A have rows (−1,4),(0,−1), x0=(0,1), and inspect t=1. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "linear-algebra-16-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "first",
+          "type": "numeric",
+          "prompt": "First state component at t=1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second",
+          "type": "numeric",
+          "prompt": "Second state component at t=1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "norm",
+          "type": "numeric",
+          "prompt": "Euclidean state norm at t=1.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "first",
+            "type": "numeric",
+            "answer": 1.4715177646857693,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "second",
+            "type": "numeric",
+            "answer": 0.36787944117144233,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "norm",
+            "type": "numeric",
+            "answer": 1.5168057934430552,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How can a matrix-exponential formula be checked independently?",
+        "solution": "A=−I+N with N²=0 gives exp(At)=exp(−t)(I+tN). The state is exp(−t)(4t,1); at one its norm sqrt(17)/e exceeds the initial one. The first-coordinate peak at t=1 need not coincide with a full-norm peak.",
+        "lesson_ids": [
+          "linear-algebra-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic linear-algebra practice developed with substantial AI assistance; no external problem, matrix, vector or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "linear-algebra-16:depth-4",
+      "type": "data_interpretation",
+      "prompt": "A contrasting generator has rows (−2,3),(0,−2). Use the symmetric part H=(A+A transpose)/2. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "linear-algebra-16-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "largest",
+          "type": "numeric",
+          "prompt": "Largest eigenvalue of H for the supplied exact matrix.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "envelope",
+          "type": "numeric",
+          "prompt": "Euclidean norm upper-envelope factor at t=1 from ||x(t)||≤exp(−0.5t)||x0||.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "decay",
+          "type": "single_choice",
+          "prompt": "What follows for every nonzero state in this contrasting system?",
+          "options": [
+            "Its Euclidean norm must grow transiently because the matrix is defective.",
+            "Its norm stays constant because both eigenvalues of A are the same.",
+            "Its Euclidean norm strictly decreases because H is negative definite."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "largest",
+            "type": "numeric",
+            "answer": -0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "envelope",
+            "type": "numeric",
+            "answer": 0.6065306597126334,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "decay",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which matrix controls the instantaneous Euclidean norm derivative?",
+        "solution": "H has eigenvalues −0.5 and −3.5. The identity d||x||²/dt=2x transpose Hx gives a negative slope and the stated envelope. This non-normal defective matrix has monotone norm decay, so non-normality alone is not a guarantee of amplification.",
+        "lesson_ids": [
+          "linear-algebra-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic linear-algebra practice developed with substantial AI assistance; no external problem, matrix, vector or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "linear-algebra-17:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1 uses A rows (1,0,1),(0,1,1),(1,1,2),(2,−1,1). Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "linear-algebra-17-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "rank",
+          "type": "numeric",
+          "prompt": "Exact rank of the supplied four-by-three matrix.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "nullity",
+          "type": "numeric",
+          "prompt": "Exact null-space dimension in input space.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "left_nullity",
+          "type": "numeric",
+          "prompt": "Exact left-null-space dimension in output space.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "rank",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "nullity",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "left_nullity",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why state ambient spaces with subspace dimensions?",
+        "solution": "The first two rows/columns provide two independent directions, with the third input column equal to the first two summed. Rank is two, input nullity one and output left-nullity two. Basis membership and independence need direct checks, not dimension counts alone.",
+        "lesson_ids": [
+          "linear-algebra-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic linear-algebra practice developed with substantial AI assistance; no external problem, matrix, vector or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "linear-algebra-17:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For that A use b=(1,2,3,0), xp=(1,2,0) and null vector n=(−1,−1,1). Write x=xp+t n. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "linear-algebra-17-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "parameter",
+          "type": "numeric",
+          "prompt": "Parameter t giving the minimum-Euclidean-norm exact solution.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "norm_squared",
+          "type": "numeric",
+          "prompt": "Squared norm of that minimum-norm solution.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "observable1",
+          "type": "numeric",
+          "prompt": "Fixed observable x1+x3 for every exact solution.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "observable2",
+          "type": "numeric",
+          "prompt": "Fixed observable x2+x3 for every exact solution.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "parameter",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "norm_squared",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "observable1",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "observable2",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why does minimum norm not identify every physical input component?",
+        "solution": "Squared norm is (1−t)²+(2−t)²+t², minimized at t=1. The selected vector is (0,1,1) with squared norm two. The two summed observables stay one and two throughout the family; minimum norm selects an unobserved component convention rather than measuring it.",
+        "lesson_ids": [
+          "linear-algebra-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic linear-algebra practice developed with substantial AI assistance; no external problem, matrix, vector or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "linear-algebra-17:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Change only the fourth component of that b from zero to 0.3. A listed left-null vector is ell=(−2,1,0,1). Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "linear-algebra-17-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "pairing",
+          "type": "numeric",
+          "prompt": "Dot product ell transpose with the changed output vector.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "consistent",
+          "type": "single_choice",
+          "prompt": "What does this pairing establish?",
+          "options": [
+            "An input null vector can repair the changed output while leaving the original map fixed.",
+            "The changed output is outside the column space, so no exact input solution exists.",
+            "The coefficient rank has changed even though no entry of the matrix was changed."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "pairing",
+            "type": "numeric",
+            "answer": 0.3,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "consistent",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How does a left-null vector certify inconsistency?",
+        "solution": "The pairing is −2×1+1×2+0×3+1×0.3=0.3. Every reachable output is orthogonal to every left-null vector, so this nonzero value certifies inconsistency. Adding an input null vector changes no output and cannot repair it.",
+        "lesson_ids": [
+          "linear-algebra-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic linear-algebra practice developed with substantial AI assistance; no external problem, matrix, vector or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "linear-algebra-18:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2 uses B rows (1,0),(1,1),(1,2) and y=(1,2,2), with an unweighted Euclidean least-squares objective. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "linear-algebra-18-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "intercept",
+          "type": "numeric",
+          "prompt": "First fitted coefficient in the supplied column order.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "slope",
+          "type": "numeric",
+          "prompt": "Second fitted coefficient in the supplied column order.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "residual",
+          "type": "numeric",
+          "prompt": "Euclidean residual norm for the fitted output.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "intercept",
+            "type": "numeric",
+            "answer": 1.1666666666666667,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "slope",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "residual",
+            "type": "numeric",
+            "answer": 0.408248290463863,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What should a least-squares proof retain beyond fitted coefficients?",
+        "solution": "Normal equations or QR give coefficients (7/6,1/2). The residual y−B beta is (−1/6,1/3,−1/6), orthogonal to both design columns, with squared norm 1/6. A weighted objective would change the orthogonality relation. Check the original equations and the chosen metric before interpreting this selected result.",
+        "lesson_ids": [
+          "linear-algebra-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic linear-algebra practice developed with substantial AI assistance; no external problem, matrix, vector or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "linear-algebra-18:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2 uses C=[[3,1],[1,3]],d=(2,4) and f(z)=0.5 z transpose C z−d transpose z. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "linear-algebra-18-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "first",
+          "type": "numeric",
+          "prompt": "First coordinate of the unique minimizer.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second",
+          "type": "numeric",
+          "prompt": "Second coordinate of the unique minimizer.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "minimum",
+          "type": "numeric",
+          "prompt": "Global minimum value of the stated objective.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "first",
+            "type": "numeric",
+            "answer": 0.25,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "second",
+            "type": "numeric",
+            "answer": 1.25,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "minimum",
+            "type": "numeric",
+            "answer": -2.75,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why does a positive-definite quadratic have a unique stationary minimum?",
+        "solution": "Solving Cz=d gives (1/4,5/4). The objective there is −11/4. Eigenvalues four and two make C positive definite; completing the square gives a strictly positive difference for every distinct point, establishing global uniqueness.",
+        "lesson_ids": [
+          "linear-algebra-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic linear-algebra practice developed with substantial AI assistance; no external problem, matrix, vector or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "linear-algebra-18:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Use a nonorthogonal S with columns (1,0),(1,1) and standard A=diag(2,3), as in the new coordinate reading. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "linear-algebra-18-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "transform",
+          "type": "single_choice",
+          "prompt": "Which statement correctly compares similarity and congruence?",
+          "options": [
+            "Similarity preserves map eigenvalues; congruence represents the substituted scalar form and preserves positivity.",
+            "Both operations must preserve every ordinary eigenvalue because S is invertible.",
+            "Congruence is the linear-map coordinate rule while similarity directly substitutes a quadratic form."
+          ],
+          "points": 1
+        },
+        {
+          "id": "weighted",
+          "type": "single_choice",
+          "prompt": "At a weighted least-squares optimum, which orthogonality is required?",
+          "options": [
+            "B transpose r=0 regardless of the nonuniform weights assigned in the objective.",
+            "The residual must be zero because a positive weight matrix is invertible.",
+            "B transpose W r=0 under the stated positive-weight objective."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "transform",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "weighted",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why track an inner product in projections and coordinate changes?",
+        "solution": "The represented object determines the transformation law. Likewise the chosen residual inner product determines orthogonality: a nonuniform positive W requires B transpose W r=0, not an unqualified Euclidean residual condition. Changing objective geometry is not evidence that data improved.",
+        "lesson_ids": [
+          "linear-algebra-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic linear-algebra practice developed with substantial AI assistance; no external problem, matrix, vector or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "linear-algebra-19:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 3 uses J=[[0.6,1.5],[0,0.6]], x0=(0,1). Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "linear-algebra-19-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "first",
+          "type": "numeric",
+          "prompt": "First state component after two steps.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second",
+          "type": "numeric",
+          "prompt": "Second state component after two steps.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "radius",
+          "type": "numeric",
+          "prompt": "Spectral radius of the supplied matrix.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "first",
+            "type": "numeric",
+            "answer": 1.8,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "second",
+            "type": "numeric",
+            "answer": 0.36,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "radius",
+            "type": "numeric",
+            "answer": 0.6,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why is the scalar spectral-radius power not the entire state history?",
+        "solution": "The nilpotent expansion gives first component 1.5n0.6^(n−1) and second 0.6^n. At n=2 these are 1.8 and 0.36. Spectral radius 0.6 determines asymptotic decay here without eliminating finite-time amplification from the coupling. Check the original equations and the chosen metric before interpreting this selected result.",
+        "lesson_ids": [
+          "linear-algebra-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic linear-algebra practice developed with substantial AI assistance; no external problem, matrix, vector or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "linear-algebra-19:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For the same Assignment 3 recurrence and initial state, inspect n=5. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "linear-algebra-19-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "first",
+          "type": "numeric",
+          "prompt": "First state component after five steps.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second",
+          "type": "numeric",
+          "prompt": "Second state component after five steps.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "interpretation",
+          "type": "single_choice",
+          "prompt": "Which statement matches this stable defective recurrence?",
+          "options": [
+            "The first component equals only 0.6 to the fifth power because both eigenvalues match.",
+            "Both components eventually vanish; coordinate and norm peaks need not occur at the same step.",
+            "Any earlier amplification proves that no asymptotic limit can exist for this state."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "first",
+            "type": "numeric",
+            "answer": 0.972,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "second",
+            "type": "numeric",
+            "answer": 0.07776,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "interpretation",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How should a discrete transient maximum be checked?",
+        "solution": "At five steps, 1.5×5×0.6^4=0.972 and 0.6^5=0.07776. An initial transient is compatible with eventual zero; calculate the specific coordinate or norm of interest instead of assigning every observable the same peak.",
+        "lesson_ids": [
+          "linear-algebra-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic linear-algebra practice developed with substantial AI assistance; no external problem, matrix, vector or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "linear-algebra-19:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Assignment 3’s continuous contrast has A=[[-2,3],[0,-2]],x0=(0,1), evaluated at t=0.5. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "linear-algebra-19-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "first",
+          "type": "numeric",
+          "prompt": "First continuous-state component at t=0.5.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second",
+          "type": "numeric",
+          "prompt": "Second continuous-state component at t=0.5.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "largest",
+          "type": "numeric",
+          "prompt": "Largest eigenvalue of the symmetric part of A.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "first",
+            "type": "numeric",
+            "answer": 0.5518191617571635,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "second",
+            "type": "numeric",
+            "answer": 0.36787944117144233,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "largest",
+            "type": "numeric",
+            "answer": -0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Can one coordinate rise while the Euclidean state norm falls?",
+        "solution": "The triangular solution is exp(−2t)(3t,1), giving (1.5/e,1/e). The symmetric part has largest eigenvalue −0.5, so d||x||²/dt≤−||x||². The first coordinate can rise from zero while the full norm strictly decreases.",
+        "lesson_ids": [
+          "linear-algebra-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic linear-algebra practice developed with substantial AI assistance; no external problem, matrix, vector or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "linear-algebra-20:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 4 uses A rows (1,1,0),(0,0,2) and b=(2,2). Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "linear-algebra-20-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "first",
+          "type": "numeric",
+          "prompt": "First coordinate of the minimum-Euclidean-norm exact input.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second",
+          "type": "numeric",
+          "prompt": "Second coordinate of the minimum-Euclidean-norm exact input.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "third",
+          "type": "numeric",
+          "prompt": "Third coordinate of the minimum-Euclidean-norm exact input.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "norm",
+          "type": "numeric",
+          "prompt": "Euclidean norm of that selected exact input.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "first",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "second",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "third",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "norm",
+            "type": "numeric",
+            "answer": 1.7320508075688772,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does the pseudoinverse choose in an underdetermined consistent system?",
+        "solution": "Exact outputs require x1+x2=2 and x3=1. The invisible direction is (1,−1,0); the minimum-norm representative is (1,1,1), orthogonal to that null direction, with norm sqrt(3). It is a selected convention, not an extra measurement. Check the original equations and the chosen metric before interpreting this selected result.",
+        "lesson_ids": [
+          "linear-algebra-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic linear-algebra practice developed with substantial AI assistance; no external problem, matrix, vector or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "linear-algebra-20:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For that A and b, retain only the larger singular-value inverse response. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "linear-algebra-20-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "residual",
+          "type": "numeric",
+          "prompt": "Output residual norm of the rank-one inverse reconstruction.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "input_norm",
+          "type": "numeric",
+          "prompt": "Input norm of that rank-one reconstruction.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "energy_fraction",
+          "type": "numeric",
+          "prompt": "Fraction of squared matrix Frobenius norm retained.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "residual",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "input_norm",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "energy_fraction",
+            "type": "numeric",
+            "answer": 0.6666666666666666,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can a retained-energy criterion miss an important inverse response?",
+        "solution": "The singular values are two and sqrt(2). Keeping only the larger gives input (0,0,1), leaving output residual (2,0) with norm two. Input norm is one and the retained matrix-energy fraction is 4/(4+2)=2/3. Matrix energy fraction alone does not certify reconstruction quality for every output.",
+        "lesson_ids": [
+          "linear-algebra-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic linear-algebra practice developed with substantial AI assistance; no external problem, matrix, vector or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "linear-algebra-20:depth-3",
+      "type": "data_interpretation",
+      "prompt": "For the same A,b, minimize ||Ax−b||²+2||x||² with dimensionless variables. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "linear-algebra-20-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "first",
+          "type": "numeric",
+          "prompt": "First coordinate of the ridge minimizer.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second",
+          "type": "numeric",
+          "prompt": "Second coordinate of the ridge minimizer.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "third",
+          "type": "numeric",
+          "prompt": "Third coordinate of the ridge minimizer.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "residual",
+          "type": "numeric",
+          "prompt": "Euclidean output residual norm of the ridge minimizer.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "first",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "second",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "third",
+            "type": "numeric",
+            "answer": 0.6666666666666666,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "residual",
+            "type": "numeric",
+            "answer": 1.2018504251546631,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Does a regularized solution create information in a null direction?",
+        "solution": "The positive-definite system (A transpose A+2I)x=A transpose b gives (1/2,1/2,2/3). Its output is (1,4/3) and residual (1,2/3), with norm sqrt(13)/3. It minimizes a penalized objective rather than solving the exact output equations.",
+        "lesson_ids": [
+          "linear-algebra-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic linear-algebra practice developed with substantial AI assistance; no external problem, matrix, vector or dataset imported."
+        ]
+      }
     }
   ]
 }

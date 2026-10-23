@@ -30,6 +30,161 @@
       "limitations": [
         "This preserved three-criterion checklist is self-assessment, not an analytic grading rubric or an institutional grade."
       ]
+    },
+    {
+      "id": "robotics:project-m1",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "robotics-project-objective-1"
+      ],
+      "prompt": "Trajectory-margin portfolio · milestone 1: Differentiate the time scaling. The project moves through 1 rad with a cubic time scaling and durations 0.8, 1.0 and 1.5 s, under the inertia, gravity, positive-torque and scalar stopping assumptions in the guide. Differentiate the project’s cubic move through Δq = 1 rad and derive bounds as functions of T before substituting the candidate durations. Identify the normalized times where speed and absolute acceleration reach their maxima. Use the project guide in week 13 for the full supplied model. Save your calculation and reasoning privately; this self-check is ungraded.",
+      "rubric": [
+        {
+          "id": "robotics-project-m1-criterion-1",
+          "criterion": "Differentiates with the t-to-s chain factor at each order.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "robotics-project-m1-criterion-2",
+          "criterion": "Finds the interior speed maximum and endpoint acceleration extrema.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "robotics-project-m1-criterion-3",
+          "criterion": "Keeps zero velocity distinct from zero acceleration at a join.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Checklist marks record the learner’s own self-review. Written reasoning is not automatically evaluated."
+      ]
+    },
+    {
+      "id": "robotics:project-m2",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "robotics-project-objective-2"
+      ],
+      "prompt": "Trajectory-margin portfolio · milestone 2: Gravity and actuator torque. The project moves through 1 rad with a cubic time scaling and durations 0.8, 1.0 and 1.5 s, under the inertia, gravity, positive-torque and scalar stopping assumptions in the guide. For each project duration, evaluate tau = I q_ddot + mgr cos(q) using I = 0.20 kg m², m = 2.00 kg and r = 0.250 m. Explain the positive torque maximum over 0≤q≤1 rad and screen the stated 5.50 N m positive limit. Use the project guide in week 13 for the full supplied model. Save your calculation and reasoning privately; this self-check is ungraded.",
+      "rubric": [
+        {
+          "id": "robotics-project-m2-criterion-1",
+          "criterion": "Uses the horizontal angle reference and raising-positive sign.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "robotics-project-m2-criterion-2",
+          "criterion": "Includes inertia and gravity with compatible torque units.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "robotics-project-m2-criterion-3",
+          "criterion": "Checks the actual stated positive limit without inventing a missing actuator envelope.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Checklist marks record the learner’s own self-review. Written reasoning is not automatically evaluated."
+      ]
+    },
+    {
+      "id": "robotics:project-m3",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "robotics-project-objective-3"
+      ],
+      "prompt": "Trajectory-margin portfolio · milestone 3: Conditional stopping screen. The project moves through 1 rad with a cubic time scaling and durations 0.8, 1.0 and 1.5 s, under the inertia, gravity, positive-torque and scalar stopping assumptions in the guide. For each project peak speed, compute d_stop = v×0.050 + v²/(2×4.00) + 0.020 rad and the reserve against 0.400 rad. Separate latency travel, braking travel and position allowance, then list the assumptions needed by this scalar screen. Use the project guide in week 13 for the full supplied model. Save your calculation and reasoning privately; this self-check is ungraded.",
+      "rubric": [
+        {
+          "id": "robotics-project-m3-criterion-1",
+          "criterion": "Reports all three allowance terms on the same angular basis.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "robotics-project-m3-criterion-2",
+          "criterion": "Checks clearance with a sign convention for reserve.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "robotics-project-m3-criterion-3",
+          "criterion": "Does not convert a conditional paper margin into a validated protective function.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Checklist marks record the learner’s own self-review. Written reasoning is not automatically evaluated."
+      ]
+    },
+    {
+      "id": "robotics:project-m4",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "robotics-project-objective-4"
+      ],
+      "prompt": "Trajectory-margin portfolio · milestone 4: Choose timing under all constraints. The project moves through 1 rad with a cubic time scaling and durations 0.8, 1.0 and 1.5 s, under the inertia, gravity, positive-torque and scalar stopping assumptions in the guide. Screen the project candidates 0.8, 1.0 and 1.5 s against speed, positive torque and scalar stopping limits. Separately solve the continuous lower bound from each constraint and identify which one controls, without assuming the shortest candidate is feasible. Use the project guide in week 13 for the full supplied model. Save your calculation and reasoning privately; this self-check is ungraded.",
+      "rubric": [
+        {
+          "id": "robotics-project-m4-criterion-1",
+          "criterion": "Displays separate speed, torque and stopping results for each candidate.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "robotics-project-m4-criterion-2",
+          "criterion": "Solves continuous bounds independently of the listed candidate grid.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "robotics-project-m4-criterion-3",
+          "criterion": "Names the binding constraint and distinguishes equality from positive reserve.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Checklist marks record the learner’s own self-review. Written reasoning is not automatically evaluated."
+      ]
+    },
+    {
+      "id": "robotics:project-m5",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "robotics-project-objective-5"
+      ],
+      "prompt": "Trajectory-margin portfolio · milestone 5: Energy and a bounded monitoring record. The project moves through 1 rad with a cubic time scaling and durations 0.8, 1.0 and 1.5 s, under the inertia, gravity, positive-torque and scalar stopping assumptions in the guide. For the project’s one-radian raise, close the ideal kinetic/potential work ledger. Propose a paper-only record keeping commands distinct from measured states, delivered-current information and time. State the cubic endpoint-acceleration issue and the limits of every performance or protective-function claim. Use the project guide in week 13 for the full supplied model. Save your calculation and reasoning privately; this self-check is ungraded.",
+      "rubric": [
+        {
+          "id": "robotics-project-m5-criterion-1",
+          "criterion": "Accounts for zero net endpoint kinetic-energy change and the potential rise.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "robotics-project-m5-criterion-2",
+          "criterion": "Separates duration-independent work from duration-dependent torque and stopping constraints.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "robotics-project-m5-criterion-3",
+          "criterion": "Keeps command, observation and unvalidated hardware assumptions distinct.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "Checklist marks record the learner’s own self-review. Written reasoning is not automatically evaluated."
+      ]
     }
   ]
 }

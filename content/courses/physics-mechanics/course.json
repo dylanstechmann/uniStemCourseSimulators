@@ -7,7 +7,7 @@
   "domain": "Physics",
   "level": "Year 1",
   "maturity": "partial",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -416,6 +416,162 @@
         "physics-mechanics-outcome-2",
         "physics-mechanics-outcome-4"
       ]
+    },
+    {
+      "id": "physics-mechanics-16-objective-1",
+      "description": "Solve coupled translational and rotational force balances.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-3",
+        "physics-mechanics-outcome-4"
+      ]
+    },
+    {
+      "id": "physics-mechanics-16-objective-2",
+      "description": "Cross-check a coupled constraint with rotational and energy ledgers.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-3",
+        "physics-mechanics-outcome-4"
+      ]
+    },
+    {
+      "id": "physics-mechanics-16-objective-3",
+      "description": "Test an inertia limit without discarding the constraint model.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-3",
+        "physics-mechanics-outcome-4"
+      ]
+    },
+    {
+      "id": "physics-mechanics-16-objective-4",
+      "description": "Identify when a coupled-motion solution stops applying.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-3",
+        "physics-mechanics-outcome-4"
+      ]
+    },
+    {
+      "id": "physics-mechanics-17-objective-1",
+      "description": "Solve the slip event before imposing rolling.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-3",
+        "physics-mechanics-outcome-4"
+      ]
+    },
+    {
+      "id": "physics-mechanics-17-objective-2",
+      "description": "Close endpoint and contact-power mechanical-energy balances.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-3",
+        "physics-mechanics-outcome-4"
+      ]
+    },
+    {
+      "id": "physics-mechanics-17-objective-3",
+      "description": "Analyze overspin without equating friction with center deceleration.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-3",
+        "physics-mechanics-outcome-4"
+      ]
+    },
+    {
+      "id": "physics-mechanics-17-objective-4",
+      "description": "Evaluate contact power and choose the correct post-event law.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-3",
+        "physics-mechanics-outcome-4"
+      ]
+    },
+    {
+      "id": "physics-mechanics-18-objective-1",
+      "description": "Compare closed-event and growing-body momentum/energy ledgers.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-4"
+      ]
+    },
+    {
+      "id": "physics-mechanics-18-objective-2",
+      "description": "Close external work, changing kinetic energy and capture loss.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-4"
+      ]
+    },
+    {
+      "id": "physics-mechanics-19-objective-1",
+      "description": "Solve a distinct constrained force/torque system.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-3",
+        "physics-mechanics-outcome-4"
+      ]
+    },
+    {
+      "id": "physics-mechanics-19-objective-2",
+      "description": "Verify endpoint kinematics and rotational energy before the boundary event.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-3",
+        "physics-mechanics-outcome-4"
+      ]
+    },
+    {
+      "id": "physics-mechanics-20-objective-1",
+      "description": "Locate a new slip event and its rolling state.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-3",
+        "physics-mechanics-outcome-4"
+      ]
+    },
+    {
+      "id": "physics-mechanics-20-objective-2",
+      "description": "Check overspin power and an event-aware simulation interpretation.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-3",
+        "physics-mechanics-outcome-4"
+      ]
+    },
+    {
+      "id": "physics-mechanics-21-objective-1",
+      "description": "Distinguish numerical energy growth from a physical driving mechanism.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-4"
+      ]
+    },
+    {
+      "id": "physics-mechanics-21-objective-2",
+      "description": "Compare method artifacts with a separately declared damping law.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-4"
+      ]
     }
   ],
   "duration": {
@@ -488,30 +644,38 @@
         "week": 7,
         "title": "Impact forces: impulse, work–energy and why stopping more slowly protects tissue",
         "lesson_ids": [
-          "physics-mechanics-5"
+          "physics-mechanics-5",
+          "physics-mechanics-18"
         ],
         "assessment_ids": [
-          "physics-mechanics-5-practice"
+          "physics-mechanics-5-practice",
+          "physics-mechanics-18-practice"
         ]
       },
       {
         "week": 8,
         "title": "Torque, angular momentum and rolling",
         "lesson_ids": [
-          "physics-mechanics-10"
+          "physics-mechanics-10",
+          "physics-mechanics-16",
+          "physics-mechanics-17"
         ],
         "assessment_ids": [
-          "physics-mechanics-10-practice"
+          "physics-mechanics-10-practice",
+          "physics-mechanics-16-practice",
+          "physics-mechanics-17-practice"
         ]
       },
       {
         "week": 9,
         "title": "Rotation, torque, and material response",
         "lesson_ids": [
-          "physics-mechanics-4"
+          "physics-mechanics-4",
+          "physics-mechanics-19"
         ],
         "assessment_ids": [
-          "physics-mechanics-4-practice"
+          "physics-mechanics-4-practice",
+          "physics-mechanics-19-practice"
         ]
       },
       {
@@ -519,11 +683,13 @@
         "title": "Uniform circular motion: an ideal centrifuge model, universal gravitation and circular orbits",
         "lesson_ids": [
           "physics-mechanics-6",
-          "physics-mechanics-15"
+          "physics-mechanics-15",
+          "physics-mechanics-20"
         ],
         "assessment_ids": [
           "physics-mechanics-6-practice",
-          "physics-mechanics-15-practice"
+          "physics-mechanics-15-practice",
+          "physics-mechanics-20-practice"
         ]
       },
       {
@@ -563,11 +729,13 @@
         "week": 14,
         "title": "Virtual lab 1: machine compliance and orientation-dependent stiffness",
         "lesson_ids": [
-          "physics-mechanics-lab-01"
+          "physics-mechanics-lab-01",
+          "physics-mechanics-21"
         ],
         "assessment_ids": [
           "physics-mechanics-week14-compliance-lab",
-          "physics-mechanics-case"
+          "physics-mechanics-case",
+          "physics-mechanics-21-practice"
         ]
       }
     ]
@@ -1190,6 +1358,180 @@
           ]
         }
       ]
+    },
+    {
+      "id": "physics-mechanics-module-16",
+      "title": "Massive pulleys and coupled constraints",
+      "source_ids": [
+        "mechanics-801-constraints-rolling"
+      ],
+      "lessons": [
+        {
+          "id": "physics-mechanics-16",
+          "title": "Massive pulleys and coupled constraints",
+          "reading": "modules/massive-pulleys-and-coupled-constraints.md",
+          "objectives": [
+            "physics-mechanics-16-objective-1",
+            "physics-mechanics-16-objective-2",
+            "physics-mechanics-16-objective-3",
+            "physics-mechanics-16-objective-4"
+          ],
+          "worked_example": "The reflected pulley inertia is two kilograms, making effective total mass ten kilograms. Acceleration is 1.962 m/s². The separate mass balances give T1=35.316 N and T2=39.24 N; their difference accelerates the massive pulley rather than vanishing.",
+          "question_ids": [
+            "physics-mechanics-16:depth-1",
+            "physics-mechanics-16:depth-2",
+            "physics-mechanics-16:depth-3",
+            "physics-mechanics-16:depth-4"
+          ],
+          "card_ids": [
+            "physics-mechanics-16-card-1",
+            "physics-mechanics-16-card-2",
+            "physics-mechanics-16-card-3",
+            "physics-mechanics-16-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "physics-mechanics-module-17",
+      "title": "Sliding to rolling: contact velocity, torque and power",
+      "source_ids": [
+        "mechanics-801-constraints-rolling"
+      ],
+      "lessons": [
+        {
+          "id": "physics-mechanics-17",
+          "title": "Sliding to rolling: contact velocity, torque and power",
+          "reading": "modules/sliding-to-rolling-and-contact-power.md",
+          "objectives": [
+            "physics-mechanics-17-objective-1",
+            "physics-mechanics-17-objective-2",
+            "physics-mechanics-17-objective-3",
+            "physics-mechanics-17-objective-4"
+          ],
+          "worked_example": "The initial slip is three meters per second. It decreases at mu g(1+1/beta)=5.886 m/s², reaching zero at about 0.509684 s. The center speed is two meters per second and clockwise angular speed twenty rad/s. Continue with the new rolling phase rather than the old kinetic force.",
+          "question_ids": [
+            "physics-mechanics-17:depth-1",
+            "physics-mechanics-17:depth-2",
+            "physics-mechanics-17:depth-3",
+            "physics-mechanics-17:depth-4"
+          ],
+          "card_ids": [
+            "physics-mechanics-17-card-1",
+            "physics-mechanics-17-card-2",
+            "physics-mechanics-17-card-3",
+            "physics-mechanics-17-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "physics-mechanics-module-18",
+      "title": "Assignment 1: impulse, capture and system boundaries",
+      "source_ids": [
+        "mechanics-801-constraints-rolling"
+      ],
+      "lessons": [
+        {
+          "id": "physics-mechanics-18",
+          "title": "Assignment 1: impulse, capture and system boundaries",
+          "reading": "assignments/coursework-01-system-boundaries.md",
+          "objectives": [
+            "physics-mechanics-18-objective-1",
+            "physics-mechanics-18-objective-2"
+          ],
+          "worked_example": "The collision retains momentum 0.4 kg m/s and ends at 0.2 m/s; kinetic energy drops from 2.2 to 0.04 J. For capture from rest with no external force, growing-body momentum stays six kg m/s, so at mass four kilograms the velocity is 1.5 m/s and kinetic energy 4.5 J. Momentum and energy conservation are separate conditions.",
+          "question_ids": [
+            "physics-mechanics-18:depth-1",
+            "physics-mechanics-18:depth-2"
+          ],
+          "card_ids": [
+            "physics-mechanics-18-card-1",
+            "physics-mechanics-18-card-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "physics-mechanics-module-19",
+      "title": "Assignment 2: coupled motion and constraints",
+      "source_ids": [
+        "mechanics-801-constraints-rolling"
+      ],
+      "lessons": [
+        {
+          "id": "physics-mechanics-19",
+          "title": "Assignment 2: coupled motion and constraints",
+          "reading": "assignments/coursework-02-constrained-motion.md",
+          "objectives": [
+            "physics-mechanics-19-objective-1",
+            "physics-mechanics-19-objective-2"
+          ],
+          "worked_example": "Reflected inertia is two kilograms, yielding effective total mass ten. The force/torque system gives a=3.924 m/s², T1=27.468 N and T2=35.316 N. Their 7.848 N difference provides the pulley torque required by alpha=a/R. This check depends on the declared phase and its explicit mechanical assumptions.",
+          "question_ids": [
+            "physics-mechanics-19:depth-1",
+            "physics-mechanics-19:depth-2"
+          ],
+          "card_ids": [
+            "physics-mechanics-19-card-1",
+            "physics-mechanics-19-card-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "physics-mechanics-module-20",
+      "title": "Assignment 3: sliding-to-rolling transition study",
+      "source_ids": [
+        "mechanics-801-constraints-rolling"
+      ],
+      "lessons": [
+        {
+          "id": "physics-mechanics-20",
+          "title": "Assignment 3: sliding-to-rolling transition study",
+          "reading": "assignments/coursework-03-contact-transition.md",
+          "objectives": [
+            "physics-mechanics-20-objective-1",
+            "physics-mechanics-20-objective-2"
+          ],
+          "worked_example": "Slip changes at mu g(1+1/0.4)=8.58375 m/s², giving transition time about 0.32619776 s. The rolling speed is 2 m/s and spin is 2/0.12 rad/s. Initial energy 5.88 J falls to 4.2 J, a loss of 1.68 J under the stipulated contact model.",
+          "question_ids": [
+            "physics-mechanics-20:depth-1",
+            "physics-mechanics-20:depth-2"
+          ],
+          "card_ids": [
+            "physics-mechanics-20-card-1",
+            "physics-mechanics-20-card-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "physics-mechanics-module-21",
+      "title": "Assignment 4: oscillator simulation and model verification",
+      "source_ids": [
+        "mechanics-801-constraints-rolling"
+      ],
+      "lessons": [
+        {
+          "id": "physics-mechanics-21",
+          "title": "Assignment 4: oscillator simulation and model verification",
+          "reading": "assignments/coursework-04-oscillator-verification.md",
+          "objectives": [
+            "physics-mechanics-21-objective-1",
+            "physics-mechanics-21-objective-2"
+          ],
+          "worked_example": "Old-state Euler gives x1=0.1 and v1=−0.04. Its energy is 0.5×0.04²+0.5×4×0.1²=0.0208 J, above the exact initial/conserved 0.02 J. This method’s numerical growth factor is 1+omega0²h², not evidence that a passive undamped spring adds energy. This check depends on the declared phase and its explicit mechanical assumptions.",
+          "question_ids": [
+            "physics-mechanics-21:depth-1",
+            "physics-mechanics-21:depth-2"
+          ],
+          "card_ids": [
+            "physics-mechanics-21-card-1",
+            "physics-mechanics-21-card-2"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -1616,6 +1958,132 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "physics-mechanics-16-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Massive pulleys and coupled constraints (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 8,
+      "objective_ids": [
+        "physics-mechanics-16-objective-1",
+        "physics-mechanics-16-objective-2",
+        "physics-mechanics-16-objective-3",
+        "physics-mechanics-16-objective-4",
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-3",
+        "physics-mechanics-outcome-4"
+      ],
+      "question_ids": [
+        "physics-mechanics-16:depth-1",
+        "physics-mechanics-16:depth-2",
+        "physics-mechanics-16:depth-3",
+        "physics-mechanics-16:depth-4"
+      ],
+      "points": 11
+    },
+    {
+      "id": "physics-mechanics-17-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Sliding to rolling: contact velocity, torque and power (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 8,
+      "objective_ids": [
+        "physics-mechanics-17-objective-1",
+        "physics-mechanics-17-objective-2",
+        "physics-mechanics-17-objective-3",
+        "physics-mechanics-17-objective-4",
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-3",
+        "physics-mechanics-outcome-4"
+      ],
+      "question_ids": [
+        "physics-mechanics-17:depth-1",
+        "physics-mechanics-17:depth-2",
+        "physics-mechanics-17:depth-3",
+        "physics-mechanics-17:depth-4"
+      ],
+      "points": 13
+    },
+    {
+      "id": "physics-mechanics-18-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 1: impulse, capture and system boundaries (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 7,
+      "objective_ids": [
+        "physics-mechanics-18-objective-1",
+        "physics-mechanics-18-objective-2",
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-4"
+      ],
+      "question_ids": [
+        "physics-mechanics-18:depth-1",
+        "physics-mechanics-18:depth-2"
+      ],
+      "points": 8
+    },
+    {
+      "id": "physics-mechanics-19-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 2: coupled motion and constraints (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 9,
+      "objective_ids": [
+        "physics-mechanics-19-objective-1",
+        "physics-mechanics-19-objective-2",
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-3",
+        "physics-mechanics-outcome-4"
+      ],
+      "question_ids": [
+        "physics-mechanics-19:depth-1",
+        "physics-mechanics-19:depth-2"
+      ],
+      "points": 7
+    },
+    {
+      "id": "physics-mechanics-20-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 3: sliding-to-rolling transition study (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 10,
+      "objective_ids": [
+        "physics-mechanics-20-objective-1",
+        "physics-mechanics-20-objective-2",
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-3",
+        "physics-mechanics-outcome-4"
+      ],
+      "question_ids": [
+        "physics-mechanics-20:depth-1",
+        "physics-mechanics-20:depth-2"
+      ],
+      "points": 7
+    },
+    {
+      "id": "physics-mechanics-21-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 4: oscillator simulation and model verification (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 14,
+      "objective_ids": [
+        "physics-mechanics-21-objective-1",
+        "physics-mechanics-21-objective-2",
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-4"
+      ],
+      "question_ids": [
+        "physics-mechanics-21:depth-1",
+        "physics-mechanics-21:depth-2"
+      ],
+      "points": 7
     }
   ],
   "grading_policy": {
@@ -1720,18 +2188,24 @@
       "version": "0.5.0",
       "date": "2026-10-20",
       "summary": "Made the planned rotor trade-off project usable by learners as ungraded practice. Week 11 gains an optional project guide with the project's candidates and tasks, a worked single-rotor example, two synthetic rehearsal candidates and 4 open rehearsal practice items; five project milestones are Case studio self-checks with a week-12 project record. The draft's table now lists candidate C's 0.6 kg disk mass, matching its CSV and reference calculations, and the project table becomes a learner resource. The compliance lab's dataset link now points to the package-pinned CSV instead of a mutable repository URL. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.6.0",
+      "date": "2026-10-22",
+      "summary": "Added original massive-pulley/constraint and slip-to-roll/contact-power foundations, four connected momentum/energy/constraint/contact/simulation assignments, sixteen checkpoint items/cards and an analytic synthetic oscillator table. Distinguishes tension/torque coupling, contact-event laws and physical versus numerical energy changes. Preserves the rotor project and compliance lab; all models are synthetic, partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "All 15 readings now have substantive instruction beside one synthetic data lab; this is not a full university semester.",
+    "The core and new coupled/contact readings have substantive instruction beside one synthetic data lab; this is not a full university semester.",
     "The proposed 14-week sequence is unmeasured and unreviewed. Graded homework, exams, a full laboratory sequence and an active graded cumulative project remain absent. An optional rotor trade-off project guide with rehearsal practice and Case studio milestone self-checks (weeks 11–12) is ungraded practice; the rotor portfolio itself remains an inactive authoring draft.",
     "All parameters and reports are synthetic; selected point-particle, rigid-body, contact and scalar material models provide no real equipment or specimen-testing procedure. In particular, ω²r and RCF determine acceleration only; they do not predict sedimentation or justify a speed, time or temperature protocol.",
-    "Of 74 numeric items, eight preserved items require units; none checks significant figures or dimensions. New numeric items ask for bare numbers in stated scales; choices assess selected force/constraint/evidence decisions, not free-body drawings or proof quality. The 6 numeric fields inside the project rehearsal's data-interpretation items check the stated significant figures.",
     "Public keys and feedback remain formative authoring specifications; practice points are not course grades.",
     "Subject-matter, accessibility and workload review remain outstanding; the original text free-body diagram has a verbal description but no assistive-technology review.",
     "Fifteen primary OpenStax University Physics Volume 1 sections are registered as link-only references; no teaching prose, problem, figure or dataset was imported.",
     "The new variable-mass lesson is a one-dimensional point-body model with uniform stream velocities and stated external forces. It does not cover engine thermodynamics, pressure thrust, multidimensional flow, vehicle control or real propulsion design.",
-    "The rotor trade-off project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses separate invented candidates at a different target, and no software check evaluates a learner's project calculations or written comparison. Milestone weeks are planning suggestions, not measured workload or deadlines."
+    "The rotor trade-off project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses separate invented candidates at a different target, and no software check evaluates a learner's project calculations or written comparison. Milestone weeks are planning suggestions, not measured workload or deadlines.",
+    "Two new selected coupled-constraint/contact-power foundations and four open report/simulation assignments deepen forces, momentum/energy, rolling and oscillator verification. Browser checkpoints do not evaluate diagrams, written arguments, implementations or a real apparatus. General three-dimensional rigid-body/contact, deformable rope/traction/impact characterization and measured laboratory work remain beyond these models. Workload, scientific review and broader coursework/laboratory depth remain open.",
+    "Of the 126 numerical answers, 8 require units, 52 check significant figures and 0 check dimensions. New continuous checkpoint quantities request three significant figures in the stated scales."
   ],
   "intentionally_omitted": [
     "Graded assessments, complete laboratory sequence, cumulative graded project, measured workload and qualified human review remain outstanding.",
@@ -1741,6 +2215,7 @@
   "learner_resources": [
     "labs/compliance-reports.csv",
     "assessment-specs/fictional-rotor-candidates.csv",
-    "assignments/rotor-rehearsal-candidates.csv"
+    "assignments/rotor-rehearsal-candidates.csv",
+    "assignments/oscillator-reference.csv"
   ]
 }

@@ -7,7 +7,7 @@
   "domain": "Mathematics",
   "level": "Year 1",
   "maturity": "partial",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -422,6 +422,140 @@
       "course_outcome_ids": [
         "calculus-2-outcome-1"
       ]
+    },
+    {
+      "id": "calculus-2-16-objective-1",
+      "description": "Derive a lateral surface from nonnegative radius and arc length.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-2-outcome-2"
+      ]
+    },
+    {
+      "id": "calculus-2-16-objective-2",
+      "description": "Distinguish lateral area, capped surface and enclosed volume.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-2-outcome-2"
+      ]
+    },
+    {
+      "id": "calculus-2-16-objective-3",
+      "description": "Recognize surface-map multiplicity separately from a curve’s traversal count.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-2-outcome-2"
+      ]
+    },
+    {
+      "id": "calculus-2-16-objective-4",
+      "description": "Choose a radius/arc element and verify its geometric coverage.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-2-outcome-2"
+      ]
+    },
+    {
+      "id": "calculus-2-17-objective-1",
+      "description": "Distinguish pointwise and uniform convergence with a quantified certificate.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-2-outcome-3",
+        "calculus-2-outcome-4"
+      ]
+    },
+    {
+      "id": "calculus-2-17-objective-2",
+      "description": "Use a continuous shrinking-support counterexample to an unjustified integral interchange.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-2-outcome-3",
+        "calculus-2-outcome-4"
+      ]
+    },
+    {
+      "id": "calculus-2-17-objective-3",
+      "description": "Distinguish a smooth function from representation by its Taylor series.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-2-outcome-3",
+        "calculus-2-outcome-4"
+      ]
+    },
+    {
+      "id": "calculus-2-17-objective-4",
+      "description": "Keep original-series convergence and derivative conditions separate.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-2-outcome-3",
+        "calculus-2-outcome-4"
+      ]
+    },
+    {
+      "id": "calculus-2-18-objective-1",
+      "description": "Select and verify distinct integration transformations.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-2-outcome-1"
+      ]
+    },
+    {
+      "id": "calculus-2-18-objective-2",
+      "description": "Derive a coupled improper limit and minimal integer cutoff.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-2-outcome-1"
+      ]
+    },
+    {
+      "id": "calculus-2-19-objective-1",
+      "description": "Verify a distinct geometric element and requested boundary.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-2-outcome-2"
+      ]
+    },
+    {
+      "id": "calculus-2-19-objective-2",
+      "description": "Use annular weighting and an admissible cumulative-amount quantile.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-2-outcome-2"
+      ]
+    },
+    {
+      "id": "calculus-2-20-objective-1",
+      "description": "Combine convergence hypotheses with an exact integer certificate convention.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-2-outcome-3"
+      ]
+    },
+    {
+      "id": "calculus-2-20-objective-2",
+      "description": "Distinguish alternating index arithmetic from radius and endpoint tests.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-2-outcome-3"
+      ]
+    },
+    {
+      "id": "calculus-2-21-objective-1",
+      "description": "Retain enough approximation precision to distinguish estimate, certificate and reference error.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-2-outcome-3",
+        "calculus-2-outcome-4"
+      ]
+    },
+    {
+      "id": "calculus-2-21-objective-2",
+      "description": "Select a sufficient order without confusing bound failure with actual-error failure.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-2-outcome-3",
+        "calculus-2-outcome-4"
+      ]
     }
   ],
   "duration": {
@@ -466,30 +600,36 @@
         "week": 4,
         "title": "Applications of integration: work and accumulation",
         "lesson_ids": [
-          "calculus-2-3"
+          "calculus-2-3",
+          "calculus-2-18"
         ],
         "assessment_ids": [
-          "calculus-2-3-practice"
+          "calculus-2-3-practice",
+          "calculus-2-18-practice"
         ]
       },
       {
         "week": 5,
         "title": "Geometry, parametric curves and radial amounts",
         "lesson_ids": [
-          "calculus-2-13"
+          "calculus-2-13",
+          "calculus-2-16"
         ],
         "assessment_ids": [
-          "calculus-2-13-practice"
+          "calculus-2-13-practice",
+          "calculus-2-16-practice"
         ]
       },
       {
         "week": 6,
         "title": "Integrals as accumulation: total consumption from rate data, numerical rules with error bounds and improper integrals",
         "lesson_ids": [
-          "calculus-2-5"
+          "calculus-2-5",
+          "calculus-2-19"
         ],
         "assessment_ids": [
-          "calculus-2-5-practice"
+          "calculus-2-5-practice",
+          "calculus-2-19-practice"
         ]
       },
       {
@@ -516,10 +656,12 @@
         "week": 9,
         "title": "Alternating series and error certificates",
         "lesson_ids": [
-          "calculus-2-10"
+          "calculus-2-10",
+          "calculus-2-20"
         ],
         "assessment_ids": [
-          "calculus-2-10-practice"
+          "calculus-2-10-practice",
+          "calculus-2-20-practice"
         ]
       },
       {
@@ -536,10 +678,12 @@
         "week": 11,
         "title": "Power series, radius and endpoints",
         "lesson_ids": [
-          "calculus-2-11"
+          "calculus-2-11",
+          "calculus-2-17"
         ],
         "assessment_ids": [
-          "calculus-2-11-practice"
+          "calculus-2-11-practice",
+          "calculus-2-17-practice"
         ]
       },
       {
@@ -557,11 +701,13 @@
         "title": "Taylor polynomials and integrated error; optional exponential-tail project",
         "lesson_ids": [
           "calculus-2-12",
-          "calculus-2-project-guide"
+          "calculus-2-project-guide",
+          "calculus-2-21"
         ],
         "assessment_ids": [
           "calculus-2-12-practice",
-          "calculus-2-project-rehearsal-practice"
+          "calculus-2-project-rehearsal-practice",
+          "calculus-2-21-practice"
         ]
       },
       {
@@ -1176,6 +1322,189 @@
           ]
         }
       ]
+    },
+    {
+      "id": "calculus-2-module-16",
+      "title": "Surface elements, rotation and multiplicity",
+      "source_ids": [
+        "calc2-semester-syllabus",
+        "calc2-semester-geometry"
+      ],
+      "lessons": [
+        {
+          "id": "calculus-2-16",
+          "title": "Surface elements, rotation and multiplicity",
+          "reading": "modules/surface-elements-and-multiplicity.md",
+          "objectives": [
+            "calculus-2-16-objective-1",
+            "calculus-2-16-objective-2",
+            "calculus-2-16-objective-3",
+            "calculus-2-16-objective-4"
+          ],
+          "worked_example": "The line slope is one, so its slant length is two sqrt2. Rotating the line gives a frustum with radii two and four, whose lateral area is pi(two+four)(two sqrt2)=twelve pi sqrt2. The same result follows from integrating two pi y ds, with ds=sqrt2 dx.",
+          "question_ids": [
+            "calculus-2-16:depth-1",
+            "calculus-2-16:depth-2",
+            "calculus-2-16:depth-3",
+            "calculus-2-16:depth-4"
+          ],
+          "card_ids": [
+            "calculus-2-16-card-1",
+            "calculus-2-16-card-2",
+            "calculus-2-16-card-3",
+            "calculus-2-16-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "calculus-2-module-17",
+      "title": "Series operations and Taylor representation limits",
+      "source_ids": [
+        "calc2-semester-syllabus",
+        "calc2-semester-series"
+      ],
+      "lessons": [
+        {
+          "id": "calculus-2-17",
+          "title": "Series operations and Taylor representation limits",
+          "reading": "modules/limits-of-series-operations-and-taylor-representation.md",
+          "objectives": [
+            "calculus-2-17-objective-1",
+            "calculus-2-17-objective-2",
+            "calculus-2-17-objective-3",
+            "calculus-2-17-objective-4"
+          ],
+          "worked_example": "At every x<one the limit is zero, while at one it is one. Interior points arbitrarily close to one keep the supremum error at one, so convergence is not uniform on the whole interval. On the restricted interval the maximum is two^−n; n=ten is the first exponent whose certificate is below 0.001.",
+          "question_ids": [
+            "calculus-2-17:depth-1",
+            "calculus-2-17:depth-2",
+            "calculus-2-17:depth-3",
+            "calculus-2-17:depth-4"
+          ],
+          "card_ids": [
+            "calculus-2-17-card-1",
+            "calculus-2-17-card-2",
+            "calculus-2-17-card-3",
+            "calculus-2-17-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "calculus-2-module-18",
+      "title": "Assignment 1: methods and improper-limit evidence",
+      "source_ids": [
+        "calc2-semester-syllabus",
+        "calc2-semester-geometry",
+        "calc2-semester-improper"
+      ],
+      "lessons": [
+        {
+          "id": "calculus-2-18",
+          "title": "Assignment 1: methods and improper-limit evidence",
+          "reading": "assignments/coursework-01-methods-and-improper-evidence.md",
+          "objectives": [
+            "calculus-2-18-objective-1",
+            "calculus-2-18-objective-2"
+          ],
+          "worked_example": "For I, the denominator is (x+two)²+one and the numerator separates into its derivative part and a remainder, yielding one-half ln2−two arctan(one/seven). For J, integration by parts followed by division gives two ln2/three−five/eighteen. Differentiate candidates and check domains before evaluating the endpoints.",
+          "question_ids": [
+            "calculus-2-18:depth-1",
+            "calculus-2-18:depth-2"
+          ],
+          "card_ids": [
+            "calculus-2-18-card-1",
+            "calculus-2-18-card-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "calculus-2-module-19",
+      "title": "Assignment 2: geometry and weighted amounts",
+      "source_ids": [
+        "calc2-semester-syllabus",
+        "calc2-semester-geometry",
+        "calc2-semester-accumulation"
+      ],
+      "lessons": [
+        {
+          "id": "calculus-2-19",
+          "title": "Assignment 2: geometry and weighted amounts",
+          "reading": "assignments/coursework-02-geometry-and-weighted-amounts.md",
+          "objectives": [
+            "calculus-2-19-objective-1",
+            "calculus-2-19-objective-2"
+          ],
+          "worked_example": "The generator has radii one and three and slant length sqrt5, so lateral area is four pi sqrt5. The disk-volume integral gives thirteen pi/three. End disks add ten pi only for the capped boundary. The element, dimensions and requested boundary distinguish the three results even though their generating outline is shared.",
+          "question_ids": [
+            "calculus-2-19:depth-1",
+            "calculus-2-19:depth-2"
+          ],
+          "card_ids": [
+            "calculus-2-19-card-1",
+            "calculus-2-19-card-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "calculus-2-module-20",
+      "title": "Assignment 3: convergence and integer certificates",
+      "source_ids": [
+        "calc2-semester-syllabus",
+        "calc2-semester-series",
+        "calc2-semester-improper"
+      ],
+      "lessons": [
+        {
+          "id": "calculus-2-20",
+          "title": "Assignment 3: convergence and integer certificates",
+          "reading": "assignments/coursework-03-convergence-and-integer-certificates.md",
+          "objectives": [
+            "calculus-2-20-objective-1",
+            "calculus-2-20-objective-2"
+          ],
+          "worked_example": "The p=two integral tail is one/ln N, about 0.217147 at one hundred. Requiring that certificate at most 0.1 gives ln N at least ten, so N=22027 is the smallest integer. The p=one comparison integral diverges; small finite increments and a zero term limit do not establish convergence.",
+          "question_ids": [
+            "calculus-2-20:depth-1",
+            "calculus-2-20:depth-2"
+          ],
+          "card_ids": [
+            "calculus-2-20-card-1",
+            "calculus-2-20-card-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "calculus-2-module-21",
+      "title": "Assignment 4: integrated approximation and claims",
+      "source_ids": [
+        "calc2-semester-syllabus",
+        "calc2-semester-series"
+      ],
+      "lessons": [
+        {
+          "id": "calculus-2-21",
+          "title": "Assignment 4: integrated approximation and claims",
+          "reading": "assignments/coursework-04-integrated-approximation-and-claims.md",
+          "objectives": [
+            "calculus-2-21-objective-1",
+            "calculus-2-21-objective-2"
+          ],
+          "worked_example": "The polynomial integral is exactly 23/192, reported as 0.119792 to six significant figures so it differs from the exact integral 0.12025203. Integrating the pointwise omitted bound gives one/1920; the actual unrounded-polynomial error is about 4.60362177×10⁻⁴. Display rounding has a separate budget and is not part of that truncation derivation.",
+          "question_ids": [
+            "calculus-2-21:depth-1",
+            "calculus-2-21:depth-2"
+          ],
+          "card_ids": [
+            "calculus-2-21-card-1",
+            "calculus-2-21-card-2"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -1604,6 +1933,124 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "calculus-2-16-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Surface elements, rotation and multiplicity (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 5,
+      "objective_ids": [
+        "calculus-2-16-objective-1",
+        "calculus-2-16-objective-2",
+        "calculus-2-16-objective-3",
+        "calculus-2-16-objective-4",
+        "calculus-2-outcome-2"
+      ],
+      "question_ids": [
+        "calculus-2-16:depth-1",
+        "calculus-2-16:depth-2",
+        "calculus-2-16:depth-3",
+        "calculus-2-16:depth-4"
+      ],
+      "points": 8
+    },
+    {
+      "id": "calculus-2-17-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Series operations and Taylor representation limits (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 11,
+      "objective_ids": [
+        "calculus-2-17-objective-1",
+        "calculus-2-17-objective-2",
+        "calculus-2-17-objective-3",
+        "calculus-2-17-objective-4",
+        "calculus-2-outcome-3",
+        "calculus-2-outcome-4"
+      ],
+      "question_ids": [
+        "calculus-2-17:depth-1",
+        "calculus-2-17:depth-2",
+        "calculus-2-17:depth-3",
+        "calculus-2-17:depth-4"
+      ],
+      "points": 12
+    },
+    {
+      "id": "calculus-2-18-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 1: methods and improper-limit evidence (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 4,
+      "objective_ids": [
+        "calculus-2-18-objective-1",
+        "calculus-2-18-objective-2",
+        "calculus-2-outcome-1"
+      ],
+      "question_ids": [
+        "calculus-2-18:depth-1",
+        "calculus-2-18:depth-2"
+      ],
+      "points": 6
+    },
+    {
+      "id": "calculus-2-19-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 2: geometry and weighted amounts (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 6,
+      "objective_ids": [
+        "calculus-2-19-objective-1",
+        "calculus-2-19-objective-2",
+        "calculus-2-outcome-2"
+      ],
+      "question_ids": [
+        "calculus-2-19:depth-1",
+        "calculus-2-19:depth-2"
+      ],
+      "points": 6
+    },
+    {
+      "id": "calculus-2-20-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 3: convergence and integer certificates (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 9,
+      "objective_ids": [
+        "calculus-2-20-objective-1",
+        "calculus-2-20-objective-2",
+        "calculus-2-outcome-3"
+      ],
+      "question_ids": [
+        "calculus-2-20:depth-1",
+        "calculus-2-20:depth-2"
+      ],
+      "points": 6
+    },
+    {
+      "id": "calculus-2-21-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 4: integrated approximation and claims (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 13,
+      "objective_ids": [
+        "calculus-2-21-objective-1",
+        "calculus-2-21-objective-2",
+        "calculus-2-outcome-3",
+        "calculus-2-outcome-4"
+      ],
+      "question_ids": [
+        "calculus-2-21:depth-1",
+        "calculus-2-21:depth-2"
+      ],
+      "points": 7
     }
   ],
   "grading_policy": {
@@ -1713,18 +2160,25 @@
       "version": "0.5.0",
       "date": "2026-10-20",
       "summary": "Made the planned exponential-tail project usable by learners as ungraded practice. Week 13 gains an optional project guide with the project's function, polynomial and six tasks, a worked example on a separate function, a rehearsal function and four open rehearsal practice items; five project milestones are Case studio self-checks with a week-14 project record. The force lab's dataset link now points to the package-pinned CSV instead of a mutable repository URL, and the structure note, which still counted 15 readings, is corrected. The inactive project draft is unchanged; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.6.0",
+      "date": "2026-10-22",
+      "summary": "Added original surface/frustum/coverage and function-limit/Taylor-representation foundations, four connected mixed methods/geometry/convergence/approximation reports and sixteen checkpoints/cards. Explicitly distinguishes elements/multiplicity, theorem sufficiency, integer indices and approximation/reference/display precision. Preserves the existing force lab and exponential-tail project. Partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "All sixteen scheduled readings now have expanded or original instructional text, including one synthetic-data virtual lab; this is not equivalent to a full university semester.",
+    "Seventeen topic readings and four connected reports accompany one synthetic lab and the optional project guide; this is not equivalent to a full university semester.",
     "The proposed 14-week sequence is unmeasured and unreviewed. Graded homework, exams and a laboratory sequence are absent. An optional exponential-tail project guide with rehearsal practice and Case studio milestone self-checks (weeks 13–14) is ungraded practice; the separate cumulative-project draft stays inactive.",
     "Formative item and objective links are provisional and do not establish comprehensive coverage or mastery.",
     "All examples and observations are synthetic. Mathematical force and radial concentration models establish no device behavior, experimental protocol or biological mechanism.",
-    "New numeric prompts state their output scale and request a bare number; existing unit-entry requirements are retained. Only the 9 numeric fields in the project rehearsal check significant figures; dimensions are not automatically assessed.",
     "CSV and structured choices check selected calculations and distinctions; written derivations and model identification are not automatically graded.",
     "Convergence and error bounds require their stated domains, smoothness, sign and monotonicity assumptions.",
     "Qualified human mathematical review, accessibility review and workload measurement remain outstanding.",
-    "The exponential-tail project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses a separate function, and no software check evaluates a learner's derivation or written interpretation. Milestone weeks are planning suggestions, not measured workload or deadlines."
+    "The exponential-tail project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses a separate function, and no software check evaluates a learner's derivation or written interpretation. Milestone weeks are planning suggestions, not measured workload or deadlines.",
+    "Two selected foundations and four connected open assignments deepen surface elements/coverage, integration-method selection, slow and alternating tail certificates, elementary function-limit/Taylor counterexamples and integrated approximation precision. They do not establish a measured semester workload, complete assessment/lab sequence or qualified mathematical review. General real-analysis and multivariable surface theory remain outside this paired single-variable scope.",
+    "Browser checkpoints evaluate selected values/choices, not derivations, code, geometry diagrams, numerical studies or complete reports. The arctangent cubic-integral field requests six significant figures to distinguish its approximation from the reference; other new continuous fields request three, while exact integer counts/cutoffs carry no significant-figure penalty. Mathematical error certificates do not measure physical uncertainty or model discrepancy.",
+    "Of the 120 numerical answers, 8 require units, 38 check significant figures and 0 check dimensions. Exact integer outputs use whole-number responses without a significant-figure requirement."
   ],
   "intentionally_omitted": [
     "Graded assessments, measured workload, a laboratory sequence, an activated cumulative project and named qualified review remain outstanding."

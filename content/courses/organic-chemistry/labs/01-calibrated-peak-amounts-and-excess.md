@@ -20,7 +20,7 @@ Each central report has three deliberately balanced versions with offsets −0.2
 
 ## Data dictionary
 
-[Download the synthetic CSV](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/organic-chemistry/labs/peak-reports.csv). `sample` identifies blank, pure standards or mixture groups; `replicate` identifies one of three constructed reports; `area_a` and `area_b` are raw arbitrary reporting areas, including additive offsets. No real experiment or learner record is supplied.
+[Download the synthetic CSV](peak-reports.csv). `sample` identifies blank, pure standards or mixture groups; `replicate` identifies one of three constructed reports; `area_a` and `area_b` are raw arbitrary reporting areas, including additive offsets. No real experiment or learner record is supplied.
 
 | Sample | Mean raw area A | Mean raw area B |
 |---|---:|---:|

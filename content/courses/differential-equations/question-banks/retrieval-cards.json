@@ -606,6 +606,206 @@
         "differential-equations-4-objective-2"
       ],
       "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-16-card-1",
+      "lesson_id": "differential-equations-16",
+      "front": "How does an integrating factor solve a linear IVP?",
+      "back": "Choose M prime=pM so (My) prime=Mq, integrate with the initial value, then verify the original equation and its interval.",
+      "objective_ids": [
+        "differential-equations-16-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-16-card-2",
+      "lesson_id": "differential-equations-16",
+      "front": "What proves nonuniqueness of an IVP?",
+      "back": "Two different verified solutions with the same initial data. Failure of one sufficient theorem hypothesis alone is not enough.",
+      "objective_ids": [
+        "differential-equations-16-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-16-card-3",
+      "lesson_id": "differential-equations-16",
+      "front": "What must accompany a closed-form IVP solution?",
+      "back": "Initial data, original residual and a connected solution interval; algebraic expressions on another branch do not cross a singularity.",
+      "objective_ids": [
+        "differential-equations-16-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-16-card-4",
+      "lesson_id": "differential-equations-16",
+      "front": "When is a two-time propagator a convolution kernel?",
+      "back": "For the appropriate time-invariant system where it depends only on elapsed time; variable coefficients generally retain separate initial and final times.",
+      "objective_ids": [
+        "differential-equations-16-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-17-card-1",
+      "lesson_id": "differential-equations-17",
+      "front": "How do you retain phase in harmonic response?",
+      "back": "Solve both sine and cosine coefficients or retain the complex coefficient; an amplitude alone is insufficient to reconstruct the signal.",
+      "objective_ids": [
+        "differential-equations-17-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-17-card-2",
+      "lesson_id": "differential-equations-17",
+      "front": "Why is the output harmonic ratio smaller than the input ratio here?",
+      "back": "Higher harmonics undergo greater attenuation through 1/sqrt(a²+n²); each harmonic has its own amplitude and phase response.",
+      "objective_ids": [
+        "differential-equations-17-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-17-card-3",
+      "lesson_id": "differential-equations-17",
+      "front": "How is a conservative Fourier-tail certificate obtained?",
+      "back": "Bound each omitted output amplitude, sum an absolutely convergent majorant and bound that sum; do not equate the certificate with the observed error.",
+      "objective_ids": [
+        "differential-equations-17-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-17-card-4",
+      "lesson_id": "differential-equations-17",
+      "front": "Why can a Fourier-tail bound fail to bound an initial-value approximation?",
+      "back": "It bounds the periodic solution truncation only; missing initial transients, numerical error and input-representation error need their own terms.",
+      "objective_ids": [
+        "differential-equations-17-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-18-card-1",
+      "lesson_id": "differential-equations-18",
+      "front": "What distinguishes an attracting cycle from an attracting equilibrium?",
+      "back": "The radius approaches an invariant closed orbit while motion continues around it; a tangential phase shift can persist.",
+      "objective_ids": [
+        "differential-equations-18-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-18-card-2",
+      "lesson_id": "differential-equations-18",
+      "front": "How can a planar radius model supply an independent solver reference?",
+      "back": "Derive the scalar squared-radius equation and its exact solution, then compare with the radius computed from independently integrated Cartesian states.",
+      "objective_ids": [
+        "differential-equations-18-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-18-card-3",
+      "lesson_id": "differential-equations-18",
+      "front": "What should you conclude from zero-real-part eigenvalues in a nonlinear linearization?",
+      "back": "The linearization is inconclusive for the relevant nonlinear stability claim; use additional structure, a nonlinear estimate or a verified counterexample.",
+      "objective_ids": [
+        "differential-equations-18-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-18-card-4",
+      "lesson_id": "differential-equations-18",
+      "front": "Why report phase error separately from radius error?",
+      "back": "A near-circular numerical plot can hide accumulated timing error; invariant-set geometry alone does not verify trajectory timing.",
+      "objective_ids": [
+        "differential-equations-18-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-19-card-1",
+      "lesson_id": "differential-equations-19",
+      "front": "What should a methods/domain report retain?",
+      "back": "The integrating-factor derivation, original residual identity, initial condition, connected interval and numerical refinement against an independently derived solution.",
+      "objective_ids": [
+        "differential-equations-19-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-19-card-2",
+      "lesson_id": "differential-equations-19",
+      "front": "Why keep theorem hypotheses and explicit counterexamples separate?",
+      "back": "A failed sufficient condition is not itself a proof of failure; an explicit verified solution family or singular trajectory supplies the relevant evidence.",
+      "objective_ids": [
+        "differential-equations-19-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-20-card-1",
+      "lesson_id": "differential-equations-20",
+      "front": "How should a resonant response be checked?",
+      "back": "Include the homogeneous initial-condition correction, verify the original equation and distinguish growing resonant envelopes from stable steady periodic gain.",
+      "objective_ids": [
+        "differential-equations-20-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-20-card-2",
+      "lesson_id": "differential-equations-20",
+      "front": "Which errors need separate entries in a forced-response report?",
+      "back": "Event/impulse representation, ordinary integration, harmonic truncation and initial-transient omission; they arise from different approximations.",
+      "objective_ids": [
+        "differential-equations-20-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-21-card-1",
+      "lesson_id": "differential-equations-21",
+      "front": "What independently verifies a fundamental-matrix response?",
+      "back": "Differentiate Phi, check Phi(0)=I, reconstruct the forcing/initial condition and compare a componentwise integrating-factor derivation.",
+      "objective_ids": [
+        "differential-equations-21-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-21-card-2",
+      "lesson_id": "differential-equations-21",
+      "front": "Can an update conserve a total and remain stable yet produce a negative state?",
+      "back": "Yes. Conservation, amplification stability, nonnegative states and accurate trajectories require separate checks and can have different step limits.",
+      "objective_ids": [
+        "differential-equations-21-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-22-card-1",
+      "lesson_id": "differential-equations-22",
+      "front": "How do a limiting cycle and a sampled amplitude differ?",
+      "back": "The cycle is an invariant asymptotic set; a trajectory’s finite-time radius can coincide with another model’s observation without sharing its long-time behavior.",
+      "objective_ids": [
+        "differential-equations-22-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-22-card-2",
+      "lesson_id": "differential-equations-22",
+      "front": "What belongs in a numerical acceptance table?",
+      "back": "Original-equation checks, invariant/domain conditions, reference error, refinement and event/phase accuracy as separate claims; a successful solver flag cannot substitute for them.",
+      "objective_ids": [
+        "differential-equations-22-objective-2"
+      ],
+      "license": "CC-BY-4.0"
     }
   ]
 }

@@ -457,15 +457,15 @@ def test_schedule_partial_labels_and_preserved_case():
         lesson["id"] for module in manifest["modules"] for lesson in module["lessons"]
     }
     weeks = manifest["duration"]["weeks"]
-    assert len(weeks) == 12 and len(lessons) == 17
+    assert len(weeks) == 12 and len(lessons) == 22
     assert sorted(lid for week in weeks for lid in week["lesson_ids"]) == sorted(
         lessons
     )
     assert manifest["version"] and manifest["maturity"] == "partial"
     assert manifest["review"]["status"] == "unreviewed"
     assert (
-        len(BANK) == 125
-        and len(load(COURSE / "question-banks/retrieval-cards.json")["cards"]) == 63
+        len(BANK) == 142
+        and len(load(COURSE / "question-banks/retrieval-cards.json")["cards"]) == 80
     )
     assert all(
         a["mode"] in ("practice", "self-assessment") for a in manifest["assessments"]

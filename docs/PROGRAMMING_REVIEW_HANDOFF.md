@@ -1,6 +1,6 @@
 # Programming & Numerical Methods review handoff
 
-This handoff targets Programming package version 0.5.0. The [review snapshot](PROGRAMMING_REVIEW_SNAPSHOT.md) identifies the exact public files. The course remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+This handoff targets Programming package version 0.6.0. The [review snapshot](PROGRAMMING_REVIEW_SNAPSHOT.md) identifies the exact public files. The course remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
 
 ## Review scope
 
@@ -20,3 +20,7 @@ Repository content validation passed for 25 packages, 423 lessons, 2,636 questio
 ## Review record to complete only after review
 
 After an actual review, record reviewer qualifications, date, exact package version and archive digest, artifacts examined, concrete findings and disposition. Keep separate judgments for numerical correctness, instructional design, assessment, code implementation, accessibility, workload and release. A matching hash is an identity check, not approval.
+
+## Semester-depth expansion target (2026-10-22)
+
+Current review target: 0.6.0, pinned by the current snapshot. Review the six new algorithm readings and five implementation packets for conceptual depth, error claims, test adequacy, coding expectations and workload. All data and worked cases are synthetic. Code runs locally; browser checkpoints do not score implementations or prose. No owner walkthrough or qualified approval is recorded by this release.

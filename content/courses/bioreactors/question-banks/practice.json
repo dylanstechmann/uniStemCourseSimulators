@@ -4308,6 +4308,1739 @@
           }
         ]
       }
+    },
+    {
+      "id": "bioreactors-16:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Rehearsal retained model: D=0.25,b=0.2,epsilon=0.1,kd=0.03,mumax=0.5,Ks=0.4,Sin=2,YG=0.4,m=0.05. All quantities normalized; L=D[b+epsilon(1−b)]. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "bioreactors-16-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "loss",
+          "type": "numeric",
+          "prompt": "Effective viable loss coefficient L.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "growth",
+          "type": "numeric",
+          "prompt": "Gross steady production coefficient mu.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "substrate",
+          "type": "numeric",
+          "prompt": "Positive steady substrate state for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "biomass",
+          "type": "numeric",
+          "prompt": "Positive steady viable-biomass state for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "loss",
+            "type": "numeric",
+            "answer": 0.07,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "growth",
+            "type": "numeric",
+            "answer": 0.1,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "substrate",
+            "type": "numeric",
+            "answer": 0.1,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "biomass",
+            "type": "numeric",
+            "answer": 1.5833333333333333,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How does cell retention change a constant-volume viable balance?",
+        "solution": "The effective outlet fraction is 0.2+0.1×0.8=0.28, so L=0.07 and mu=kd+L=0.1. Monod inversion gives S=0.1; qS=0.1/0.4+0.05=0.3. Thus X=0.25(2−0.1)/0.3=19/12. The bleed is part of total hydraulic flow and must not be removed a second time.",
+        "lesson_ids": [
+          "bioreactors-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic process-model practice developed with substantial AI assistance; no external problem, process recipe, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "bioreactors-16:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use that same positive rehearsal state X=19/12,mu=0.1,L=0.07,kd=0.03 and qS=mu/YG+m. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "bioreactors-16-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "specific",
+          "type": "numeric",
+          "prompt": "Specific substrate-consumption coefficient qS for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "gross",
+          "type": "numeric",
+          "prompt": "Gross viable production amount rate.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "export",
+          "type": "numeric",
+          "prompt": "Viable export amount rate for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "death",
+          "type": "numeric",
+          "prompt": "Viable-death amount rate for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "specific",
+            "type": "numeric",
+            "answer": 0.3,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "gross",
+            "type": "numeric",
+            "answer": 0.15833333333333333,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "export",
+            "type": "numeric",
+            "answer": 0.11083333333333334,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "death",
+            "type": "numeric",
+            "answer": 0.0475,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Can a steady viable concentration hide ongoing death and replacement?",
+        "solution": "Specific consumption is 0.3. Gross production is (0.1)(19/12)=19/120; export is (0.07)(19/12)=133/1200 and death is (0.03)(19/12)=19/400. Export plus death equals production even though net viable accumulation is zero. A stationary viable concentration does not imply inactive turnover.",
+        "lesson_ids": [
+          "bioreactors-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic process-model practice developed with substantial AI assistance; no external problem, process recipe, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "bioreactors-16:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Use the same rehearsal state and the optional unretained dead-material balance Z prime=kd X−D Z. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "bioreactors-16-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "consumption",
+          "type": "numeric",
+          "prompt": "Net substrate supply/use amount rate.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "dead",
+          "type": "numeric",
+          "prompt": "Optional steady dead-material state Z.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "yield",
+          "type": "numeric",
+          "prompt": "Viable exported biomass per consumed substrate.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "consumption",
+            "type": "numeric",
+            "answer": 0.475,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "dead",
+            "type": "numeric",
+            "answer": 0.19,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "yield",
+            "type": "numeric",
+            "answer": 0.23333333333333334,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why define the numerator of a yield ratio?",
+        "solution": "Substrate supply/use is 0.25(2−0.1)=0.475. The optional unretained dead pool is kdX/D=0.19. Exported viable biomass per consumed substrate is L/qS=0.07/0.3=7/30, different from gross production per consumption and from the stipulated growth-associated yield. This simplified inventory is not complete elemental closure.",
+        "lesson_ids": [
+          "bioreactors-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic process-model practice developed with substantial AI assistance; no external problem, process recipe, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "bioreactors-16:depth-4",
+      "type": "data_interpretation",
+      "prompt": "For a separate boundary test retain the rehearsal coefficients but set S=0 and X=20 in the constant-maintenance law. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "bioreactors-16-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "derivative",
+          "type": "numeric",
+          "prompt": "Original model substrate derivative at that boundary.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "boundary",
+          "type": "single_choice",
+          "prompt": "Which conclusion follows? for the supplied normalized model.",
+          "options": [
+            "The negative derivative must disappear merely by halving an Euler step, because every consumption law preserves nonnegative substrate.",
+            "Clipping negative states after every update preserves the original amount balance without changing the model.",
+            "The exact constant-maintenance model points outside nonnegative substrate here; restrict its domain or justify a replacement law."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "derivative",
+            "type": "numeric",
+            "answer": -0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "boundary",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How do model-domain and discretization failures differ?",
+        "solution": "At S=0 the gross Monod term vanishes but constant maintenance still consumes mX=one. Feed contributes D Sin=0.5, leaving S prime=−0.5. This failure exists in the exact vector field, so refinement cannot repair the model-domain assumption; event termination or a justified revised law is needed.",
+        "lesson_ids": [
+          "bioreactors-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic process-model practice developed with substantial AI assistance; no external problem, process recipe, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "bioreactors-17:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Rehearsal no-consumption normalized model: C prime=k(1−C),P prime=a(C−P),zero initial states,k=1,a=3. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "bioreactors-17-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "liquid",
+          "type": "numeric",
+          "prompt": "Liquid state C at t=1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "probe",
+          "type": "numeric",
+          "prompt": "Observed probe state P at t=1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "curvature",
+          "type": "numeric",
+          "prompt": "Initial second derivative of the probe state.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "liquid",
+            "type": "numeric",
+            "answer": 0.6321205588285577,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "probe",
+            "type": "numeric",
+            "answer": 0.4730743724267684,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "curvature",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can an oxygen probe show a delayed rise while liquid transfer starts immediately?",
+        "solution": "The liquid is 1−e^−t. Solving the probe equation gives P=1−(3e^−t−e^−3t)/2, while initial P prime is zero and P double-prime=ak=three. At one the liquid and probe differ even though both ultimately approach one. A measured-state fit must retain that observation mapping.",
+        "lesson_ids": [
+          "bioreactors-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic process-model practice developed with substantial AI assistance; no external problem, process recipe, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "bioreactors-17:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Swap the same rehearsal rates to process k=3 and probe a=1, retaining zero initial states and the same boundary input. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "bioreactors-17-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "liquid",
+          "type": "numeric",
+          "prompt": "Alternative hidden liquid state at t=1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "probe",
+          "type": "numeric",
+          "prompt": "Alternative observed probe state at t=1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "identification",
+          "type": "single_choice",
+          "prompt": "What does the complete ideal probe trace establish?",
+          "options": [
+            "An unordered rate pair under the model; independent information is required to assign process and probe labels.",
+            "A unique process rate simply because many samples can be collected from the same probe trace.",
+            "Identical liquid trajectories after exchanging the process and probe rates."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "liquid",
+            "type": "numeric",
+            "answer": 0.950212931632136,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "probe",
+            "type": "numeric",
+            "answer": 0.4730743724267684,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "identification",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How does structural nonidentifiability differ from noisy fitting?",
+        "solution": "Exchanging k and a leaves the probe formula unchanged because its numerator and denominator both change sign. The liquid instead becomes 1−e^−3t, so at one it differs from the original hidden state. More samples of the same ideal P do not remove this exact symmetry; parameter labeling needs additional information.",
+        "lesson_ids": [
+          "bioreactors-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic process-model practice developed with substantial AI assistance; no external problem, process recipe, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "bioreactors-17:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Use a separate equal-rate no-consumption case k=a=2,zero initial states,t=0.5. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "bioreactors-17-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "liquid",
+          "type": "numeric",
+          "prompt": "Liquid state at that time.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "probe",
+          "type": "numeric",
+          "prompt": "Probe state using the equal-rate limit.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "liquid",
+            "type": "numeric",
+            "answer": 0.6321205588285577,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "probe",
+            "type": "numeric",
+            "answer": 0.26424111765711533,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How should a near-coincident exponential formula be verified?",
+        "solution": "At coincident rates the unequal-rate formula has a removable singularity. The valid solution is P=1−(1+kt)e^−kt, giving 1−2/e at this time, while C=1−1/e. A zero denominator in one expression does not imply a divergent two-state trajectory or a nonexistent model solution.",
+        "lesson_ids": [
+          "bioreactors-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic process-model practice developed with substantial AI assistance; no external problem, process recipe, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "bioreactors-17:depth-4",
+      "type": "data_interpretation",
+      "prompt": "For a separate constant-uptake model use C prime=2(1−C)−0.4 and P prime=a(C−P) with any a>0. The stipulated lower admissible concentration is 0.3. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "bioreactors-17-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "steady",
+          "type": "numeric",
+          "prompt": "Common steady liquid/probe state for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "capacity",
+          "type": "numeric",
+          "prompt": "Maximum constant uptake compatible with C>=0.3 in this model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "lag",
+          "type": "single_choice",
+          "prompt": "Which statement is supported? for the supplied normalized model.",
+          "options": [
+            "Every probe rate changes the physical steady transfer capacity even when the process equation is held fixed.",
+            "Probe lag changes the transient but not this open-loop steady value; closed-loop behavior needs separate analysis.",
+            "One plateau always identifies uptake and transfer separately without additional information."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "steady",
+            "type": "numeric",
+            "answer": 0.8,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "capacity",
+            "type": "numeric",
+            "answer": 1.4,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "lag",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What can a steady oxygen plateau identify in this model?",
+        "solution": "At steady state P=C and 2(1−C)=0.4, giving 0.8. The specified lower level permits uptake at most 2(1−0.3)=1.4. Those steady relations do not specify a closed-loop controller or identify both uptake and transfer from one plateau; the observation dynamics and process boundary remain distinct.",
+        "lesson_ids": [
+          "bioreactors-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic process-model practice developed with substantial AI assistance; no external problem, process recipe, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "bioreactors-18:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Rehearsal two-zone model: V1=V2=2,k1=3,k2=0,Cstar=1,u1=u2=0.3,E=1.5. Use equal/opposite exchange amount E(C1−C2). Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "bioreactors-18-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "first",
+          "type": "numeric",
+          "prompt": "Steady zone-one state for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second",
+          "type": "numeric",
+          "prompt": "Steady zone-two state for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "mean",
+          "type": "numeric",
+          "prompt": "Volume-weighted mean state for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "first",
+            "type": "numeric",
+            "answer": 0.8,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "second",
+            "type": "numeric",
+            "answer": 0.4,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "mean",
+            "type": "numeric",
+            "answer": 0.6,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why must internal exchange be written as an amount rate first?",
+        "solution": "Total consumption is 1.2 and all external transfer occurs in zone one, so C1=1−1.2/(3×2)=0.8. Zone two requires 0.6 units of exchange amount, giving gap 0.4 and C2=0.4. Equal volumes make the mean 0.6; local and aggregate concentrations are different evidence.",
+        "lesson_ids": [
+          "bioreactors-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic process-model practice developed with substantial AI assistance; no external problem, process recipe, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "bioreactors-18:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use the same rehearsal to inspect total uptake, interzone exchange and a falsely uniform approximation. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "bioreactors-18-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "demand",
+          "type": "numeric",
+          "prompt": "Total uptake amount rate for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "exchange",
+          "type": "numeric",
+          "prompt": "Steady exchange amount into zone two.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "uniform",
+          "type": "numeric",
+          "prompt": "Falsely uniform predicted concentration using volume-averaged k=1.5 and uptake=0.3.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "demand",
+            "type": "numeric",
+            "answer": 1.2,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "exchange",
+            "type": "numeric",
+            "answer": 0.6,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "uniform",
+            "type": "numeric",
+            "answer": 0.8,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does a closed total balance fail to establish by itself?",
+        "solution": "Uptake is 0.3×four=1.2, while zone-two exchange is 0.3×two=0.6. A uniform reduction using k=1.5 predicts 1−0.3/1.5=0.8, missing the actual mean 0.6 and local low state. The average of transfer coefficient times local driving force is not generally the product of separate averages.",
+        "lesson_ids": [
+          "bioreactors-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic process-model practice developed with substantial AI assistance; no external problem, process recipe, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "bioreactors-18:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Keep the rehearsal supply/uptake/volumes fixed. Require zone two C>=0.5, then separately set E=3. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "bioreactors-18-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "minimum",
+          "type": "numeric",
+          "prompt": "Minimum exchange E for the local requirement.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second",
+          "type": "numeric",
+          "prompt": "Zone-two state at E=3 for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "mean",
+          "type": "numeric",
+          "prompt": "Volume-weighted mean at E=3 for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "minimum",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "second",
+            "type": "numeric",
+            "answer": 0.6,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "mean",
+            "type": "numeric",
+            "answer": 0.7,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "When can better exchange solve a local deficit?",
+        "solution": "Zone one stays at 0.8 under these fixed total-demand/supply assumptions. The local requirement gives E>=0.6/(0.8−0.5)=two. At E=three, the gap is 0.2, zone two is 0.6 and the mean is 0.7. This comparison does not assert that real mixing changes leave transfer, uptake or shear unchanged.",
+        "lesson_ids": [
+          "bioreactors-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic process-model practice developed with substantial AI assistance; no external problem, process recipe, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "bioreactors-18:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Interpret a bulk mean above a stated lower level and a negative local root from a constant-uptake model. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "bioreactors-18-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "mean",
+          "type": "single_choice",
+          "prompt": "Which statement is justified? for the supplied normalized model.",
+          "options": [
+            "A passing mean proves every local concentration passes the same level.",
+            "Internal exchange creates extra total oxygen whenever the zones differ.",
+            "A passing weighted mean can coexist with a failing local zone; inspect the local states."
+          ],
+          "points": 1
+        },
+        {
+          "id": "negative",
+          "type": "single_choice",
+          "prompt": "How should a negative formal local concentration be treated?",
+          "options": [
+            "As failure of the stipulated constant-uptake/admissibility assumptions there, requiring a boundary or revised law.",
+            "As a physical negative oxygen concentration validated by a small algebraic residual.",
+            "As evidence that silently clipping states leaves the original equations unchanged."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "mean",
+            "type": "single_choice",
+            "answer": 2
+          },
+          {
+            "id": "negative",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What should a local-exposure study report beyond a bulk curve?",
+        "solution": "Averages combine different local states and do not establish a minimum. Internal exchange cancels from the total amount balance. A negative formal constant-uptake state lies outside the model’s admissible physical domain; an algebraic solve or clipped numerical path cannot convert it into a valid concentration prediction.",
+        "lesson_ids": [
+          "bioreactors-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic process-model practice developed with substantial AI assistance; no external problem, process recipe, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "bioreactors-19:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 1 normalized model: D=0.3,b=0.25,epsilon=0.2,kd=0.03,mumax=0.6,Ks=0.5,Sin=2,YG=0.5,m=0.1. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "bioreactors-19-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "loss",
+          "type": "numeric",
+          "prompt": "Effective viable loss coefficient for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "growth",
+          "type": "numeric",
+          "prompt": "Gross steady production coefficient for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "substrate",
+          "type": "numeric",
+          "prompt": "Positive steady substrate state for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "biomass",
+          "type": "numeric",
+          "prompt": "Positive steady viable state for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "loss",
+            "type": "numeric",
+            "answer": 0.12,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "growth",
+            "type": "numeric",
+            "answer": 0.15,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "substrate",
+            "type": "numeric",
+            "answer": 0.16666666666666666,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "biomass",
+            "type": "numeric",
+            "answer": 1.375,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What belongs in a retained-state report?",
+        "solution": "The outlet fraction is 0.25+0.2×0.75=0.4, giving L=0.12 and mu=0.15 after death replacement. Monod inversion gives S=1/6, while qS=0.4 and X=0.3(2−1/6)/0.4=11/8. Verify the original two balances and the feed-supported positive branch before interpreting the state.",
+        "lesson_ids": [
+          "bioreactors-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic process-model practice developed with substantial AI assistance; no external problem, process recipe, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "bioreactors-19:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use Assignment 1’s steady state X=11/8,mu=0.15,L=0.12,kd=0.03 and qS=0.4. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "bioreactors-19-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "gross",
+          "type": "numeric",
+          "prompt": "Gross viable production amount rate.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "export",
+          "type": "numeric",
+          "prompt": "Viable export amount rate for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "death",
+          "type": "numeric",
+          "prompt": "Viable-death amount rate for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "substrate_use",
+          "type": "numeric",
+          "prompt": "Net substrate supply/use amount rate.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "gross",
+            "type": "numeric",
+            "answer": 0.20625,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "export",
+            "type": "numeric",
+            "answer": 0.165,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "death",
+            "type": "numeric",
+            "answer": 0.04125,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "substrate_use",
+            "type": "numeric",
+            "answer": 0.55,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why retain separate viable and substrate ledgers?",
+        "solution": "Gross production is 0.15×1.375=0.20625, split into export 0.165 and death 0.04125. Substrate supply/use is 0.3(2−1/6)=0.55=0.4×1.375. These ledgers explain a stationary viable state with ongoing turnover, but do not constitute elemental closure of unmodeled substrate products and gases.",
+        "lesson_ids": [
+          "bioreactors-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic process-model practice developed with substantial AI assistance; no external problem, process recipe, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "bioreactors-20:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2 separate model: k=1.5,a=3,zero initial states,no consumption. Evaluate at t=2/3. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "bioreactors-20-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "liquid",
+          "type": "numeric",
+          "prompt": "True liquid state for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "probe",
+          "type": "numeric",
+          "prompt": "Observed probe state for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "curvature",
+          "type": "numeric",
+          "prompt": "Initial probe second derivative for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "apparent",
+          "type": "numeric",
+          "prompt": "One-point apparent rate −ln(1−P)/t when the probe is incorrectly treated as liquid.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "liquid",
+            "type": "numeric",
+            "answer": 0.6321205588285577,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "probe",
+            "type": "numeric",
+            "answer": 0.39957640089372803,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "curvature",
+            "type": "numeric",
+            "answer": 4.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "apparent",
+            "type": "numeric",
+            "answer": 0.765179811532875,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How can an accurate-looking fit estimate the wrong process coefficient?",
+        "solution": "At the specified time kt=one and at=two, so C=1−e^−1 and P=1−2e^−1+e^−2. Curvature is ak=4.5; the naive one-point rate is about 0.765180, not the process rate 1.5. A low-residual incorrect observation model need not identify the physical coefficient.",
+        "lesson_ids": [
+          "bioreactors-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic process-model practice developed with substantial AI assistance; no external problem, process recipe, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "bioreactors-20:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Assignment 2 Part B separately has equal rates k=a=1,t=1,no consumption. Part C instead has constant uptake k=1.5,Cstar=1,u=0.3 and lower admissible concentration 0.4. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "bioreactors-20-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "equal_probe",
+          "type": "numeric",
+          "prompt": "Probe value in the equal-rate no-consumption case.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "steady",
+          "type": "numeric",
+          "prompt": "Common liquid/probe steady value in Part C.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "capacity",
+          "type": "numeric",
+          "prompt": "Part C maximum constant uptake compatible with the lower level.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "equal_probe",
+            "type": "numeric",
+            "answer": 0.26424111765711533,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "steady",
+            "type": "numeric",
+            "answer": 0.8,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "capacity",
+            "type": "numeric",
+            "answer": 0.9,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why label separate model variants in an observation report?",
+        "solution": "The equal-rate formula gives P=1−(1+one)e^−1=1−2/e. In the separate uptake model, C=P=1−0.3/1.5=0.8 at steady state, and the lower-level capacity is 1.5(1−0.4)=0.9. Combining the cases without changing the equations would mix different boundary and consumption assumptions.",
+        "lesson_ids": [
+          "bioreactors-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic process-model practice developed with substantial AI assistance; no external problem, process recipe, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "bioreactors-21:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 3 two-zone model: V1=1,V2=2,k1=5,k2=0,Cstar=1,u1=u2=0.2,E=1. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "bioreactors-21-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "first",
+          "type": "numeric",
+          "prompt": "Steady zone-one state for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second",
+          "type": "numeric",
+          "prompt": "Steady zone-two state for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "mean",
+          "type": "numeric",
+          "prompt": "Volume-weighted mean state for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "first",
+            "type": "numeric",
+            "answer": 0.88,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "second",
+            "type": "numeric",
+            "answer": 0.48,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "mean",
+            "type": "numeric",
+            "answer": 0.6133333333333333,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What distinguishes a spatial balance report from a single bulk fit?",
+        "solution": "Total consumption is 0.6, so C1=1−0.6/5=0.88. Zone two needs exchange amount 0.4, giving C2=0.48 at E=one. Weighted mean is (0.88+2×0.48)/three=46/75. The mean passes 0.5 while zone two fails; reconstruct both original zone equations to verify the result.",
+        "lesson_ids": [
+          "bioreactors-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic process-model practice developed with substantial AI assistance; no external problem, process recipe, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "bioreactors-21:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For Assignment 3 hold supply, uptake and volumes fixed. Require C2>=0.5, then separately set E=2. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "bioreactors-21-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "minimum",
+          "type": "numeric",
+          "prompt": "Minimum exchange satisfying the local requirement.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "second",
+          "type": "numeric",
+          "prompt": "Zone-two state at E=2 for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "mean",
+          "type": "numeric",
+          "prompt": "Volume-weighted mean at E=2 for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "conservation",
+          "type": "single_choice",
+          "prompt": "Which statement is supported? for the supplied normalized model.",
+          "options": [
+            "Raising E creates an extra oxygen source even with unchanged external supply.",
+            "Internal exchange cancels from total amount balance; it redistributes local oxygen without creating it.",
+            "A total residual alone establishes every local concentration and observation model."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "minimum",
+            "type": "numeric",
+            "answer": 1.0526315789473684,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "second",
+            "type": "numeric",
+            "answer": 0.68,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "mean",
+            "type": "numeric",
+            "answer": 0.7466666666666667,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "conservation",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why distinguish an internal mixing limit from external capacity?",
+        "solution": "The local threshold gives E>=0.4/(0.88−0.5)=20/19. At E=two, C1 remains 0.88, C2=0.68 and the mean is 56/75. The equal/opposite exchange amounts cancel globally. This fixed-coefficient model comparison does not establish that real agitation changes leave transfer, uptake and shear unchanged.",
+        "lesson_ids": [
+          "bioreactors-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic process-model practice developed with substantial AI assistance; no external problem, process recipe, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "bioreactors-22:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Use Assignment 4’s eight-row synthetic factorial table with A/B codes ±1 and two constructed responses per factor combination. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "bioreactors-22-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "minus_minus",
+          "type": "numeric",
+          "prompt": "Mean at A=−1,B=−1 for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "plus_minus",
+          "type": "numeric",
+          "prompt": "Mean at A=+1,B=−1 for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "minus_plus",
+          "type": "numeric",
+          "prompt": "Mean at A=−1,B=+1 for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "plus_plus",
+          "type": "numeric",
+          "prompt": "Mean at A=+1,B=+1 for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "minus_minus",
+            "type": "numeric",
+            "answer": 12.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "plus_minus",
+            "type": "numeric",
+            "answer": 10.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "minus_plus",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "plus_plus",
+            "type": "numeric",
+            "answer": 14.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What should a factorial endpoint report establish before interpreting effects?",
+        "solution": "The raw pairs average to 12,10,4 and14 for the four declared A/B combinations. Distinct fictional run identifiers define the table rows; deterministic plus/minus-half offsets provide arithmetic residuals, not measured biological variability or evidence that a physical experiment was randomized, replicated or performed.",
+        "lesson_ids": [
+          "bioreactors-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic process-model practice developed with substantial AI assistance; no external problem, process recipe, measurements or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "bioreactors-22:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Fit y=beta0+betaA A+betaB B+betaAB AB to that same table. Use high-minus-low effects and residual MSE=SSE/(8−4). Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 6,
+      "objective_ids": [
+        "bioreactors-22-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "effect_a",
+          "type": "numeric",
+          "prompt": "A high-minus-low effect for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "effect_b",
+          "type": "numeric",
+          "prompt": "B high-minus-low effect for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "effect_ab",
+          "type": "numeric",
+          "prompt": "AB contrast effect under the stated convention.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "simple_low",
+          "type": "numeric",
+          "prompt": "Simple A effect at B=−1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "simple_high",
+          "type": "numeric",
+          "prompt": "Simple A effect at B=+1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "mse",
+          "type": "numeric",
+          "prompt": "Residual mean squared error for the supplied normalized model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "effect_a",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "effect_b",
+            "type": "numeric",
+            "answer": -2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "effect_ab",
+            "type": "numeric",
+            "answer": 6.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "simple_low",
+            "type": "numeric",
+            "answer": -2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "simple_high",
+            "type": "numeric",
+            "answer": 10.0,
+            "unit": "",
+            "tolerance": 0.051000000000000004,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "mse",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can an averaged factor effect be misleading with interaction?",
+        "solution": "The coded coefficients are beta0=10,betaA=two,betaB=minus one,betaAB=three; effects are twice their corresponding coefficients. Simple A effects are −two and ten, so averaged effect four describes neither condition alone. Constructed residual SSE=two and four residual degrees of freedom give MSE=0.5, not a validated real-process error distribution.",
+        "lesson_ids": [
+          "bioreactors-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic process-model practice developed with substantial AI assistance; no external problem, process recipe, measurements or dataset imported."
+        ]
+      }
     }
   ]
 }

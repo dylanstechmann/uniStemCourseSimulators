@@ -7,7 +7,7 @@
   "domain": "Quantitative methods",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.4.8",
+  "version": "0.6.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -72,6 +72,26 @@
     {
       "id": "statistics-outcome-8",
       "description": "Update a continuous Beta prior with binomial observations and compute posterior predictive probabilities under stated assumptions.",
+      "bloom": "analyze"
+    },
+    {
+      "id": "statistics-outcome-9",
+      "description": "Derive supported joint, marginal and conditional laws and verify covariance and total-variance relationships.",
+      "bloom": "analyze"
+    },
+    {
+      "id": "statistics-outcome-10",
+      "description": "Construct a likelihood from observed data and exposure, solve selected maximum-likelihood estimates and qualify curvature and boundary conclusions.",
+      "bloom": "analyze"
+    },
+    {
+      "id": "statistics-outcome-11",
+      "description": "Update a normal mean with known observation variance and distinguish posterior, predictive and shared-parameter uncertainty.",
+      "bloom": "analyze"
+    },
+    {
+      "id": "statistics-outcome-12",
+      "description": "Fit and diagnose a multiple linear model, verify rank and residual structure and distinguish mean-response from new-observation uncertainty.",
       "bloom": "analyze"
     }
   ],
@@ -494,6 +514,267 @@
       "course_outcome_ids": [
         "statistics-outcome-8"
       ]
+    },
+    {
+      "id": "statistics-project-objective-1",
+      "description": "Align randomization, analysis and sample-size units in a nested observation design.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-1",
+        "statistics-outcome-2",
+        "statistics-outcome-4"
+      ]
+    },
+    {
+      "id": "statistics-project-objective-2",
+      "description": "Specify a primary contrast, target effect and analysis before observing a new outcome.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-2",
+        "statistics-outcome-3",
+        "statistics-outcome-4"
+      ]
+    },
+    {
+      "id": "statistics-project-objective-3",
+      "description": "Calculate an approximate independent-unit requirement and show variance and attrition sensitivity.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-1",
+        "statistics-outcome-2",
+        "statistics-outcome-4"
+      ]
+    },
+    {
+      "id": "statistics-project-objective-4",
+      "description": "Quantify a declared secondary-family threshold while keeping the primary question separate.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-2",
+        "statistics-outcome-3",
+        "statistics-outcome-4"
+      ]
+    },
+    {
+      "id": "statistics-project-objective-5",
+      "description": "Create a reproducible analysis and reporting plan with accessible independent-unit displays.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-2",
+        "statistics-outcome-3",
+        "statistics-outcome-4",
+        "statistics-outcome-5"
+      ]
+    },
+    {
+      "id": "statistics-18-objective-1",
+      "description": "Normalize a supported joint density and derive marginal means.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-9"
+      ]
+    },
+    {
+      "id": "statistics-18-objective-2",
+      "description": "Compute covariance/correlation while distinguishing them from independence.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-9"
+      ]
+    },
+    {
+      "id": "statistics-18-objective-3",
+      "description": "Use the event region and the conditional reference density.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-9"
+      ]
+    },
+    {
+      "id": "statistics-18-objective-4",
+      "description": "Close the total-variance decomposition and bound a CLT interpretation.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-9"
+      ]
+    },
+    {
+      "id": "statistics-19-objective-1",
+      "description": "Construct the correct event/exposure likelihood and maximum.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-10"
+      ]
+    },
+    {
+      "id": "statistics-19-objective-2",
+      "description": "Derive observed curvature and qualify an approximate standard error.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-10"
+      ]
+    },
+    {
+      "id": "statistics-19-objective-3",
+      "description": "Interpret relative likelihood and an open-domain boundary supremum.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-10"
+      ]
+    },
+    {
+      "id": "statistics-19-objective-4",
+      "description": "Distinguish a maximum-likelihood summary from posterior inference.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-10"
+      ]
+    },
+    {
+      "id": "statistics-20-objective-1",
+      "description": "Complete a normal posterior with explicit variance/precision units.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-11"
+      ]
+    },
+    {
+      "id": "statistics-20-objective-2",
+      "description": "Distinguish future observation and future-average uncertainty.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-11"
+      ]
+    },
+    {
+      "id": "statistics-20-objective-3",
+      "description": "Account for marginal predictive dependence from shared parameter uncertainty.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-11"
+      ]
+    },
+    {
+      "id": "statistics-20-objective-4",
+      "description": "Construct a conditional credible interval and separate it from a coverage claim.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-11"
+      ]
+    },
+    {
+      "id": "statistics-21-objective-1",
+      "description": "Solve a full-rank multiple regression from original rows.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-12"
+      ]
+    },
+    {
+      "id": "statistics-21-objective-2",
+      "description": "Explain a reduced-model slope through correlated predictors.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-12"
+      ]
+    },
+    {
+      "id": "statistics-21-objective-3",
+      "description": "Verify residual variance and correct residual degrees of freedom.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-12"
+      ]
+    },
+    {
+      "id": "statistics-21-objective-4",
+      "description": "Separate mean-response and new-observation uncertainty and causal limits.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-12"
+      ]
+    },
+    {
+      "id": "statistics-22-objective-1",
+      "description": "Derive a finite count distribution and covariance-aware variance.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-9"
+      ]
+    },
+    {
+      "id": "statistics-22-objective-2",
+      "description": "Derive distinct marginal and conditional quantities from a supported density.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-9"
+      ]
+    },
+    {
+      "id": "statistics-23-objective-1",
+      "description": "Enumerate finite-sample coverage and interpret a boundary bootstrap.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-2",
+        "statistics-outcome-3",
+        "statistics-outcome-4"
+      ]
+    },
+    {
+      "id": "statistics-23-objective-2",
+      "description": "Enumerate a prespecified randomization tail with the correct allocation count.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-2",
+        "statistics-outcome-3",
+        "statistics-outcome-4"
+      ]
+    },
+    {
+      "id": "statistics-24-objective-1",
+      "description": "Verify a distinct multiple fit through original residual equations.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-2",
+        "statistics-outcome-4",
+        "statistics-outcome-12"
+      ]
+    },
+    {
+      "id": "statistics-24-objective-2",
+      "description": "Use prediction target and design information to bound a regression claim.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-2",
+        "statistics-outcome-4",
+        "statistics-outcome-12"
+      ]
+    },
+    {
+      "id": "statistics-25-objective-1",
+      "description": "Integrate event/exposure, likelihood, curvature and parameter units.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-1",
+        "statistics-outcome-2",
+        "statistics-outcome-3",
+        "statistics-outcome-4",
+        "statistics-outcome-10",
+        "statistics-outcome-11"
+      ]
+    },
+    {
+      "id": "statistics-25-objective-2",
+      "description": "Separate posterior, predictive and shared-parameter uncertainty in a cumulative report.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-1",
+        "statistics-outcome-2",
+        "statistics-outcome-3",
+        "statistics-outcome-4",
+        "statistics-outcome-10",
+        "statistics-outcome-11"
+      ]
     }
   ],
   "duration": {
@@ -514,20 +795,24 @@
         "week": 2,
         "title": "Sources of variability: biological variation, technical error and the standard error",
         "lesson_ids": [
-          "statistics-9"
+          "statistics-9",
+          "statistics-18"
         ],
         "assessment_ids": [
-          "statistics-9-practice"
+          "statistics-9-practice",
+          "statistics-18-practice"
         ]
       },
       {
         "week": 3,
         "title": "Descriptive differences and the limits of inference",
         "lesson_ids": [
-          "statistics-5"
+          "statistics-5",
+          "statistics-22"
         ],
         "assessment_ids": [
-          "statistics-5-practice"
+          "statistics-5-practice",
+          "statistics-22-practice"
         ]
       },
       {
@@ -535,11 +820,13 @@
         "title": "Estimation, confidence intervals, effect sizes and regression to the mean",
         "lesson_ids": [
           "statistics-2",
-          "statistics-8"
+          "statistics-8",
+          "statistics-19"
         ],
         "assessment_ids": [
           "statistics-2-practice",
-          "statistics-8-practice"
+          "statistics-8-practice",
+          "statistics-19-practice"
         ]
       },
       {
@@ -557,11 +844,13 @@
         "title": "Hypothesis tests, multiple comparisons and the false discovery rate",
         "lesson_ids": [
           "statistics-3",
-          "statistics-7"
+          "statistics-7",
+          "statistics-23"
         ],
         "assessment_ids": [
           "statistics-3-practice",
-          "statistics-7-practice"
+          "statistics-7-practice",
+          "statistics-23-practice"
         ]
       },
       {
@@ -588,20 +877,24 @@
         "week": 9,
         "title": "Least squares, calibration curves and inverse prediction",
         "lesson_ids": [
-          "statistics-12"
+          "statistics-12",
+          "statistics-21"
         ],
         "assessment_ids": [
-          "statistics-12-practice"
+          "statistics-12-practice",
+          "statistics-21-practice"
         ]
       },
       {
         "week": 10,
         "title": "Resampling and rank-based methods: permutation tests, the bootstrap and the Mann–Whitney test",
         "lesson_ids": [
-          "statistics-13"
+          "statistics-13",
+          "statistics-24"
         ],
         "assessment_ids": [
-          "statistics-13-practice"
+          "statistics-13-practice",
+          "statistics-24-practice"
         ]
       },
       {
@@ -630,23 +923,30 @@
         "lesson_ids": [
           "statistics-14",
           "statistics-16",
-          "statistics-17"
+          "statistics-17",
+          "statistics-20"
         ],
         "assessment_ids": [
           "statistics-14-practice",
           "statistics-16-practice",
-          "statistics-17-practice"
+          "statistics-17-practice",
+          "statistics-20-practice"
         ]
       },
       {
         "week": 14,
-        "title": "Planning a confirmatory study from a pilot",
+        "title": "Planning a confirmatory study from a pilot; optional confirmatory-protocol dossier project",
         "lesson_ids": [
-          "statistics-15"
+          "statistics-15",
+          "statistics-project-guide",
+          "statistics-25"
         ],
         "assessment_ids": [
           "statistics-15-practice",
-          "statistics-case"
+          "statistics-case",
+          "statistics-project-rehearsal-practice",
+          "statistics-project-milestones",
+          "statistics-25-practice"
         ]
       }
     ]
@@ -1272,6 +1572,293 @@
           ]
         }
       ]
+    },
+    {
+      "id": "statistics-module-project",
+      "title": "Confirmatory-protocol dossier project guide (optional, ungraded)",
+      "source_ids": [
+        "statistics",
+        "mit-ocw-statistics-calendar",
+        "mit-ocw-statistics-confidence",
+        "mit-ocw-statistics-nhst"
+      ],
+      "lessons": [
+        {
+          "id": "statistics-project-guide",
+          "title": "Confirmatory-protocol dossier project guide (optional, ungraded)",
+          "reading": "assignments/confirmatory-protocol-project-guide.md",
+          "objectives": [
+            "statistics-project-objective-1",
+            "statistics-project-objective-2",
+            "statistics-project-objective-3",
+            "statistics-project-objective-4",
+            "statistics-project-objective-5"
+          ],
+          "worked_example": "For a separate two-arm normal approximation with target difference 2 points, sigma 3, alpha 0.05 and power 0.8, use z = 1.96 and 0.84: n = 35.28 rounds to 36 retained units per arm; a 20% attrition allowance gives 45 allocated per arm. At sigma 4, 63 retained becomes 79 allocated.",
+          "question_ids": [
+            "statistics-project:rehearsal-1",
+            "statistics-project:rehearsal-2",
+            "statistics-project:rehearsal-3",
+            "statistics-project:rehearsal-4",
+            "statistics-project:rehearsal-5"
+          ],
+          "card_ids": [
+            "statistics-project-card-1",
+            "statistics-project-card-2",
+            "statistics-project-card-3",
+            "statistics-project-card-4",
+            "statistics-project-card-5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "statistics-module-18",
+      "title": "Joint laws, conditioning and total variance",
+      "source_ids": [
+        "statistics-semester-calendar",
+        "statistics-semester-syllabus"
+      ],
+      "lessons": [
+        {
+          "id": "statistics-18",
+          "title": "Joint laws, conditioning and total variance",
+          "reading": "modules/joint-laws-conditioning-and-total-variance.md",
+          "objectives": [
+            "statistics-18-objective-1",
+            "statistics-18-objective-2",
+            "statistics-18-objective-3",
+            "statistics-18-objective-4"
+          ],
+          "worked_example": "The triangular support has area one half and density two, giving total one. Integrating y from zero to x gives fX=two x, while integrating x from y to one gives fY=two(1−y). Their means are two thirds and one third.",
+          "question_ids": [
+            "statistics-18:depth-1",
+            "statistics-18:depth-2",
+            "statistics-18:depth-3",
+            "statistics-18:depth-4"
+          ],
+          "card_ids": [
+            "statistics-18-card-1",
+            "statistics-18-card-2",
+            "statistics-18-card-3",
+            "statistics-18-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "statistics-module-19",
+      "title": "Likelihood estimation and censored exposure",
+      "source_ids": [
+        "statistics-semester-calendar",
+        "statistics-semester-syllabus"
+      ],
+      "lessons": [
+        {
+          "id": "statistics-19",
+          "title": "Likelihood estimation and censored exposure",
+          "reading": "modules/likelihood-estimation-and-censored-exposure.md",
+          "objectives": [
+            "statistics-19-objective-1",
+            "statistics-19-objective-2",
+            "statistics-19-objective-3",
+            "statistics-19-objective-4"
+          ],
+          "worked_example": "There are two events and sixteen exposure units, so lambda_hat=two/sixteen=one/eight and estimated mean is eight. Censored records contribute survival exposure without another event factor. Dropping their durations or counting them as events changes the supplied model.",
+          "question_ids": [
+            "statistics-19:depth-1",
+            "statistics-19:depth-2",
+            "statistics-19:depth-3",
+            "statistics-19:depth-4"
+          ],
+          "card_ids": [
+            "statistics-19-card-1",
+            "statistics-19-card-2",
+            "statistics-19-card-3",
+            "statistics-19-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "statistics-module-20",
+      "title": "Normal conjugacy and shared prediction",
+      "source_ids": [
+        "statistics-semester-calendar",
+        "statistics-semester-syllabus"
+      ],
+      "lessons": [
+        {
+          "id": "statistics-20",
+          "title": "Normal conjugacy and shared prediction",
+          "reading": "modules/normal-conjugacy-and-shared-prediction.md",
+          "objectives": [
+            "statistics-20-objective-1",
+            "statistics-20-objective-2",
+            "statistics-20-objective-3",
+            "statistics-20-objective-4"
+          ],
+          "worked_example": "Prior precision is one/four and data precision three/sixteen, giving total seven/sixteen and posterior variance sixteen/seven. Multiplying by the linear coefficient four/four+eighteen/sixteen gives posterior mean thirty-four/seven. These are conditional on the supplied prior and known observation variance.",
+          "question_ids": [
+            "statistics-20:depth-1",
+            "statistics-20:depth-2",
+            "statistics-20:depth-3",
+            "statistics-20:depth-4"
+          ],
+          "card_ids": [
+            "statistics-20-card-1",
+            "statistics-20-card-2",
+            "statistics-20-card-3",
+            "statistics-20-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "statistics-module-21",
+      "title": "Multiple regression and prediction",
+      "source_ids": [
+        "statistics-semester-calendar",
+        "statistics-semester-syllabus"
+      ],
+      "lessons": [
+        {
+          "id": "statistics-21",
+          "title": "Multiple regression and prediction",
+          "reading": "modules/multiple-regression-residualization-and-prediction.md",
+          "objectives": [
+            "statistics-21-objective-1",
+            "statistics-21-objective-2",
+            "statistics-21-objective-3",
+            "statistics-21-objective-4"
+          ],
+          "worked_example": "The original normal equations give coefficients one, two, three and residuals (one, minus one, minus two, two, one, minus one). Verify that residuals are orthogonal to every design column. That projection property does not prove independent random errors or causality. Verify the original probability, support, design and conditioning assumptions independently before interpreting this selected result.",
+          "question_ids": [
+            "statistics-21:depth-1",
+            "statistics-21:depth-2",
+            "statistics-21:depth-3",
+            "statistics-21:depth-4"
+          ],
+          "card_ids": [
+            "statistics-21-card-1",
+            "statistics-21-card-2",
+            "statistics-21-card-3",
+            "statistics-21-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "statistics-module-22",
+      "title": "Assignment 1: probability ledgers",
+      "source_ids": [
+        "statistics-semester-calendar",
+        "statistics-semester-syllabus"
+      ],
+      "lessons": [
+        {
+          "id": "statistics-22",
+          "title": "Assignment 1: probability ledgers",
+          "reading": "assignments/coursework-01-probability-ledgers.md",
+          "objectives": [
+            "statistics-22-objective-1",
+            "statistics-22-objective-2"
+          ],
+          "worked_example": "There are ten pairs, with counts three, six, one for K=zero, one, two. The mean is 0.8 and second moment one, giving variance 0.36. The ordered joint-marked probability is one/tenth, so covariance is 0.1−0.16=−0.06; both representations agree when denominators stay consistent. Verify the original probability, support, design and conditioning assumptions independently before interpreting this selected result.",
+          "question_ids": [
+            "statistics-22:depth-1",
+            "statistics-22:depth-2"
+          ],
+          "card_ids": [
+            "statistics-22-card-1",
+            "statistics-22-card-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "statistics-module-23",
+      "title": "Assignment 2: exact coverage and randomization",
+      "source_ids": [
+        "statistics-semester-calendar",
+        "statistics-semester-syllabus"
+      ],
+      "lessons": [
+        {
+          "id": "statistics-23",
+          "title": "Assignment 2: exact coverage and randomization",
+          "reading": "assignments/coursework-02-exact-coverage-and-randomization.md",
+          "objectives": [
+            "statistics-23-objective-1",
+            "statistics-23-objective-2"
+          ],
+          "worked_example": "Only k=zero and four miss one/half under the Wald rule, with total probability two/sixteen. Thus coverage is fourteen/sixteen. The exact all-failure upper endpoint solves (one−p)^four=0.025. Resampling the all-failure empirical distribution cannot repair its boundary degeneracy. Verify the original probability, support, design and conditioning assumptions independently before interpreting this selected result.",
+          "question_ids": [
+            "statistics-23:depth-1",
+            "statistics-23:depth-2"
+          ],
+          "card_ids": [
+            "statistics-23-card-1",
+            "statistics-23-card-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "statistics-module-24",
+      "title": "Assignment 3: regression and design evidence",
+      "source_ids": [
+        "statistics-semester-calendar",
+        "statistics-semester-syllabus"
+      ],
+      "lessons": [
+        {
+          "id": "statistics-24",
+          "title": "Assignment 3: regression and design evidence",
+          "reading": "assignments/coursework-03-regression-and-design-evidence.md",
+          "objectives": [
+            "statistics-24-objective-1",
+            "statistics-24-objective-2"
+          ],
+          "worked_example": "The coefficients are three, four, minus two and residuals (one half, minus one half, minus one, one, one half, minus one half). They are orthogonal to all three design columns and have squared sum three. The exact constructed fit does not establish a real error distribution.",
+          "question_ids": [
+            "statistics-24:depth-1",
+            "statistics-24:depth-2"
+          ],
+          "card_ids": [
+            "statistics-24-card-1",
+            "statistics-24-card-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "statistics-module-25",
+      "title": "Assignment 4: inference and prediction dossier",
+      "source_ids": [
+        "statistics-semester-calendar",
+        "statistics-semester-syllabus"
+      ],
+      "lessons": [
+        {
+          "id": "statistics-25",
+          "title": "Assignment 4: inference and prediction dossier",
+          "reading": "assignments/coursework-04-inference-and-prediction-dossier.md",
+          "objectives": [
+            "statistics-25-objective-1",
+            "statistics-25-objective-2"
+          ],
+          "worked_example": "Three observed events and twelve exposure units give rate one/four and mean four. Information is three/(one/four)²=48 and approximate rate SE one/sqrt48. This local approximation does not establish finite-sample coverage or correct censoring in an empirical study.",
+          "question_ids": [
+            "statistics-25:depth-1",
+            "statistics-25:depth-2"
+          ],
+          "card_ids": [
+            "statistics-25-card-1",
+            "statistics-25-card-2"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -1699,6 +2286,214 @@
         "statistics-17:mode-vs-mean"
       ],
       "points": 9
+    },
+    {
+      "id": "statistics-project-rehearsal-practice",
+      "type": "data-analysis",
+      "mode": "practice",
+      "title": "Confirmatory-protocol dossier rehearsal (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 14,
+      "objective_ids": [
+        "statistics-project-objective-1",
+        "statistics-project-objective-2",
+        "statistics-project-objective-3",
+        "statistics-project-objective-4",
+        "statistics-project-objective-5",
+        "statistics-outcome-1",
+        "statistics-outcome-2",
+        "statistics-outcome-3",
+        "statistics-outcome-4",
+        "statistics-outcome-5"
+      ],
+      "question_ids": [
+        "statistics-project:rehearsal-1",
+        "statistics-project:rehearsal-2",
+        "statistics-project:rehearsal-3",
+        "statistics-project:rehearsal-4",
+        "statistics-project:rehearsal-5"
+      ],
+      "points": 18
+    },
+    {
+      "id": "statistics-project-milestones",
+      "type": "project",
+      "mode": "self-assessment",
+      "title": "Confirmatory-protocol dossier milestones M1–M5 in the Case studio (optional, ungraded)",
+      "path": "rubrics/case-studio.json",
+      "week": 14,
+      "objective_ids": [],
+      "question_ids": [],
+      "points": 0
+    },
+    {
+      "id": "statistics-18-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Joint laws, conditioning and total variance (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 2,
+      "objective_ids": [
+        "statistics-18-objective-1",
+        "statistics-18-objective-2",
+        "statistics-18-objective-3",
+        "statistics-18-objective-4",
+        "statistics-outcome-9"
+      ],
+      "question_ids": [
+        "statistics-18:depth-1",
+        "statistics-18:depth-2",
+        "statistics-18:depth-3",
+        "statistics-18:depth-4"
+      ],
+      "points": 11
+    },
+    {
+      "id": "statistics-19-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Likelihood estimation and censored exposure (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 4,
+      "objective_ids": [
+        "statistics-19-objective-1",
+        "statistics-19-objective-2",
+        "statistics-19-objective-3",
+        "statistics-19-objective-4",
+        "statistics-outcome-10"
+      ],
+      "question_ids": [
+        "statistics-19:depth-1",
+        "statistics-19:depth-2",
+        "statistics-19:depth-3",
+        "statistics-19:depth-4"
+      ],
+      "points": 10
+    },
+    {
+      "id": "statistics-20-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Normal conjugacy and shared prediction (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 13,
+      "objective_ids": [
+        "statistics-20-objective-1",
+        "statistics-20-objective-2",
+        "statistics-20-objective-3",
+        "statistics-20-objective-4",
+        "statistics-outcome-11"
+      ],
+      "question_ids": [
+        "statistics-20:depth-1",
+        "statistics-20:depth-2",
+        "statistics-20:depth-3",
+        "statistics-20:depth-4"
+      ],
+      "points": 9
+    },
+    {
+      "id": "statistics-21-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Multiple regression and prediction (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 9,
+      "objective_ids": [
+        "statistics-21-objective-1",
+        "statistics-21-objective-2",
+        "statistics-21-objective-3",
+        "statistics-21-objective-4",
+        "statistics-outcome-12"
+      ],
+      "question_ids": [
+        "statistics-21:depth-1",
+        "statistics-21:depth-2",
+        "statistics-21:depth-3",
+        "statistics-21:depth-4"
+      ],
+      "points": 13
+    },
+    {
+      "id": "statistics-22-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 1: probability ledgers (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 3,
+      "objective_ids": [
+        "statistics-22-objective-1",
+        "statistics-22-objective-2",
+        "statistics-outcome-9"
+      ],
+      "question_ids": [
+        "statistics-22:depth-1",
+        "statistics-22:depth-2"
+      ],
+      "points": 8
+    },
+    {
+      "id": "statistics-23-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 2: exact coverage and randomization (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 6,
+      "objective_ids": [
+        "statistics-23-objective-1",
+        "statistics-23-objective-2",
+        "statistics-outcome-2",
+        "statistics-outcome-3",
+        "statistics-outcome-4"
+      ],
+      "question_ids": [
+        "statistics-23:depth-1",
+        "statistics-23:depth-2"
+      ],
+      "points": 8
+    },
+    {
+      "id": "statistics-24-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 3: regression and design evidence (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 10,
+      "objective_ids": [
+        "statistics-24-objective-1",
+        "statistics-24-objective-2",
+        "statistics-outcome-2",
+        "statistics-outcome-4",
+        "statistics-outcome-12"
+      ],
+      "question_ids": [
+        "statistics-24:depth-1",
+        "statistics-24:depth-2"
+      ],
+      "points": 8
+    },
+    {
+      "id": "statistics-25-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 4: inference and prediction dossier (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 14,
+      "objective_ids": [
+        "statistics-25-objective-1",
+        "statistics-25-objective-2",
+        "statistics-outcome-1",
+        "statistics-outcome-2",
+        "statistics-outcome-3",
+        "statistics-outcome-4",
+        "statistics-outcome-10",
+        "statistics-outcome-11"
+      ],
+      "question_ids": [
+        "statistics-25:depth-1",
+        "statistics-25:depth-2"
+      ],
+      "points": 8
     }
   ],
   "grading_policy": {
@@ -1808,21 +2603,38 @@
       "version": "0.4.8",
       "date": "2026-10-13",
       "summary": "The syllabus outcome list now quotes the manifest's course outcomes exactly; the newest outcome had been paraphrased. No lesson, item, key or card changed. The course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.5.0",
+      "date": "2026-10-22",
+      "summary": "Made the planned confirmatory-protocol dossier project usable as optional ungraded practice: an original guide, a separate worked example and rehearsal, 5 open practice items and 5 private Case studio milestone self-checks. Pinned learner datasets locally. The inactive review draft stays separate; the package remains partial and unreviewed."
+    },
+    {
+      "version": "0.6.0",
+      "date": "2026-10-22",
+      "summary": "Added four original joint-law/total-variance, censored-likelihood/MLE, normal-conjugacy/prediction and multiple-regression foundations with four connected reports and twenty-four checkpoints/cards. Developed exact finite coverage/randomization and conditional-versus-empirical evidence. All inputs are synthetic; package remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "The four readings migrated from the compact prototype now contain expanded instruction, alongside fourteen original readings including one synthetic-data virtual lab; this package is not equivalent to a full university semester.",
-    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm, cumulative final, or graded integrative project.",
+    "The four expanded prototype readings accompany seventeen other topic readings, four connected reports, one synthetic lab and the optional project guide; this package is not equivalent to a full university semester.",
+    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and four open connected reports but no experimental laboratory sequence, midterm, cumulative final or graded integrative project.",
     "Practice items remain short formative checks (two to three per expanded prototype unit and two to nine per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
-    "Of the 71 numerical answers in this package, two require a unit, three check significant figures and one checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
     "Total workload and weekly duration are unknown; former nominal credit values and hardcoded reading times do not establish workload.",
     "The graph exercise checks coordinate placement on author-specified axes; it does not assess axis selection, uncertainty bars, model fitting, or interpretation.",
     "All data, animals and numbers are synthetic teaching examples; this package gives no laboratory protocols or medical advice and says nothing about any real compound, organism or person. Sample-size calculations use normal approximations with rounded critical values unless an exact calculation is stated.",
-    "Bayesian coverage includes finite-prior updating and one Beta–Binomial conjugate model; normal conjugacy, broad maximum-likelihood theory and richer hierarchical or covariate models remain outside the authored sequence."
+    "Bayesian coverage includes finite-prior, Beta–Binomial and one known-variance normal conjugate model. General unknown-variance conjugacy, broad likelihood theory and richer hierarchical/covariate inference remain outside this selected treatment.",
+    "The optional confirmatory-protocol dossier project is ungraded. Its milestone drafts are private self-checks; no software check evaluates the learner’s written derivation, diagram or interpretation. The proposed schedule and time estimate have not been measured.",
+    "Four foundations and four connected open reports deepen supported joint laws/total variance, selected censored exponential likelihood and binomial MLE, known-variance normal conjugacy, multiple-regression algebra/prediction and exact finite coverage/randomization. These selected models do not reproduce the comparator’s full probability/distribution/theory/problem-set/studio/exam sequence; measured workload and qualified review remain open.",
+    "All records and normalized tables are invented. Censoring is stipulated noninformative and parameter-independent; normal observation variance is known by assumption. Constructed least-squares residuals do not establish empirical independent normal errors. Checkpoints evaluate selected responses, not code, proofs, plots, reports, causal identification or real biological model validity.",
+    "Of the 147 numerical answers, 2 require units, 69 check significant figures and 1 check dimensions. New continuous responses request three significant figures in named reporting units; exact allocation and degree counts have no significant-figure requirement."
   ],
   "intentionally_omitted": [
     "Graded assessments and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package."
+  ],
+  "learner_resources": [
+    "assignments/confirmatory-protocol-rehearsal.csv",
+    "labs/nested-biomarker-readings.csv"
   ]
 }

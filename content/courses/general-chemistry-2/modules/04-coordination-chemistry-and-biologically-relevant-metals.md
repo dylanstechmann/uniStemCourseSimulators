@@ -35,7 +35,7 @@ Ligands differ in how strongly they split the d-orbital energies. Replacing weak
 
 Changes among d-orbital energy levels can allow a complex to absorb visible light; the observed color often reflects which wavelengths remain or are transmitted. Some complexes have no d–d transition in the visible range or show color dominated by other transitions, so not every metal complex is vividly colored. Spectra and magnetic measurements provide evidence about electronic structure; a color name alone does not uniquely determine geometry, oxidation state, or spin.
 
-The week-12 practice item asks what a strong-field substitution tends to do in an octahedral complex. The supported general answer is that it increases the splitting and can favor low spin for appropriate electron counts, while also changing possible absorption and redox behavior. It does not follow that every such change has one fixed magnitude or direction. The separate quantitative coordination lesson uses stipulated d⁶ energies to compare two idealized occupations and explicitly limits that calculation to its model.
+The coordination practice item asks what a strong-field substitution tends to do in an octahedral complex. The supported general answer is that it increases the splitting and can favor low spin for appropriate electron counts, while also changing possible absorption and redox behavior. It does not follow that every such change has one fixed magnitude or direction. The separate quantitative coordination lesson uses stipulated d⁶ energies to compare two idealized occupations and explicitly limits that calculation to its model.
 
 ## Why protein environments can tune metal behavior
 

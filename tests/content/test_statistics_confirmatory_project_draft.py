@@ -21,7 +21,12 @@ def test_confirmatory_project_is_an_inactive_protocol_draft():
 
     assert manifest["version"] == manifest["history"][-1]["version"]
     assert "statistics-15-practice" in assessment_ids
-    assert not any("project" in assessment_id for assessment_id in assessment_ids)
+    # The review draft stays inactive; the new open rehearsal/self-check route is separate.
+    assert all(item["path"] != str(PROJECT.relative_to(COURSE)) for item in manifest["assessments"])
+    active = {item["id"]: item for item in manifest["assessments"]}
+    assert active["statistics-project-milestones"]["mode"] == "self-assessment"
+    assert active["statistics-project-milestones"]["points"] == 0
+    assert active["statistics-project-rehearsal-practice"]["mode"] == "practice"
     assert "Inactive authoring draft" in project
     assert "no points or course grade" in project
     assert "not part of the course manifest's assessment schedule" in project
@@ -47,7 +52,7 @@ def test_statistics_review_snapshot_matches_public_package():
     snapshot = (ROOT / "docs/STATISTICS_REVIEW_SNAPSHOT.md").read_text(encoding="utf-8")
 
     assert actual["course_id"] == "statistics"
-    assert actual["content_version"] == "0.4.8"
+    assert actual["content_version"] == "0.6.0"
     assert re.search(
         r"Public package archive SHA-256:\*\*\s*`([0-9a-f]{64})`", snapshot
     ).group(1) == actual["package_sha256"]

@@ -59,6 +59,8 @@ For a charging-capacitor field calculation, first identify the loop and the surf
 
 These wave relations assume a source-free plane wave in vacuum, sinusoidal steady fields, and no reflecting interface, dispersion or absorption. Dielectrics, conductive media, standing waves, interfaces and radiation from a particular antenna require additional boundary conditions and models. This lesson does not calculate an antenna's radiation pattern or prescribe electrical equipment. All numerical values are synthetic.
 
+The [source/reflection companion](radiating-sheet-reflection-and-standing-energy.md) develops separate original current-sheet generation and perfect-conductor standing-field models; it does not extend these traveling-wave formulas unchanged to a standing sum.
+
 ## Reference
 
 MIT OpenCourseWare, **8.02 Physics II: Electricity and Magnetism**, Spring 2007, [class topics](https://ocw.mit.edu/courses/8-02-physics-ii-electricity-and-magnetism-spring-2007/pages/class-topics/). Its week 12 topics include Maxwell's equations, electromagnetic radiation and energy flow after the circuit units. This is a scope comparator only; the present explanation and problems are original and do not copy MIT notes, activities or problem sets.

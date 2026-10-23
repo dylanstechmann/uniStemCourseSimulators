@@ -932,15 +932,16 @@ def test_schedule_and_conservative_labels():
     assert weeks[-1]["assessment_ids"] == [
         "calculus-3-week14-flux-lab",
         "calculus-3-case",
-        "calculus-3-field-project",  # 0.5.0: the optional project's milestone record
+        "calculus-3-field-project",  # optional project milestone record
+        "calculus-3-21-practice",
     ]
     # 15 topic and lab lessons plus the optional field project guide added in 0.5.0.
-    assert len(lessons) == 16 and len(BANK) == 115
+    assert len(lessons) == 23 and len(BANK) == 135
     cards = len(load(COURSE / "question-banks/retrieval-cards.json")["cards"])
     syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8")
     assert (
-        f"There are {len(lessons)} readings, {len(BANK)} public practice items and {cards} retrieval cards"
+        f"There are {len(lessons)} reading/activity routes, {len(BANK)} public practice items and {cards} retrieval cards"
         in syllabus
     )
     assert "Weeks 1, 5, 8, 10 and 13 now have expanded" in syllabus
-    assert "No compact prototype readings remain" in syllabus
+    assert "first four readings remain concise expanded primers" in syllabus

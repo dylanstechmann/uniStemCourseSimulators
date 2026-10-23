@@ -3910,6 +3910,1728 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "general-chemistry-1-project:rehearsal-1",
+      "type": "data_interpretation",
+      "prompt": "Gas-equilibrium ledger rehearsal · Extent domain and conservation. Rehearsal model A ⇌ 2B: initial A = 2.00 mol, B = 0, beta = 0.250 mol⁻¹, K = 1.00 and reaction enthalpy −8.00 kJ/mol of extent. Activities are beta times amount. Heat equality is conditional on a separately stipulated constant-pressure, pressure-volume-work-only boundary. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 3,
+      "objective_ids": [
+        "general-chemistry-1-project-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "extent_max",
+          "type": "numeric",
+          "prompt": "Largest inventory-feasible rehearsal extent, in mol.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "conserved",
+          "type": "numeric",
+          "prompt": "Rehearsal conserved-unit total 2n_A+n_B, in mol of units.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "reverse",
+          "type": "single_choice",
+          "prompt": "Can the rehearsal proceed to negative extent from its stated initial B amount?",
+          "options": [
+            "No: reaction extent can never be negative for any reversible system.",
+            "No: initial B is zero, so negative extent would make B negative; in a different initial mixture with B present, reverse extent can be feasible.",
+            "Yes: negative species amounts are permitted when a root is algebraically valid."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "extent_max",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "conserved",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "reverse",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How is an extent domain obtained for A ⇌ 2B?",
+        "solution": "For initial A = 2.00 mol and B = 0, n_A = 2−ξ and n_B = 2ξ require 0≤ξ≤2 mol. The conserved-unit total is 2×2+0 = 4 mol of units. This lower bound comes from this initial B amount, not from a universal prohibition on negative extent.",
+        "lesson_ids": [
+          "general-chemistry-1-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-1-project:rehearsal-2",
+      "type": "data_interpretation",
+      "prompt": "Gas-equilibrium ledger rehearsal · Activities and the initial quotient. Rehearsal model A ⇌ 2B: initial A = 2.00 mol, B = 0, beta = 0.250 mol⁻¹, K = 1.00 and reaction enthalpy −8.00 kJ/mol of extent. Activities are beta times amount. Heat equality is conditional on a separately stipulated constant-pressure, pressure-volume-work-only boundary. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 3,
+      "objective_ids": [
+        "general-chemistry-1-project-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "activity_a",
+          "type": "numeric",
+          "prompt": "Initial rehearsal activity of A, with beta = 0.250 mol⁻¹.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "direction",
+          "type": "single_choice",
+          "prompt": "With initial B = 0 and K = 1.00, what is the initial model direction?",
+          "options": [
+            "Q = 0 is below K, so the net direction is forward in the declared model.",
+            "Q = 0 is above K because there are twice as many B coefficients.",
+            "Q is undefined whenever a product activity is zero."
+          ],
+          "points": 1
+        },
+        {
+          "id": "constant",
+          "type": "single_choice",
+          "prompt": "Why is K dimensionless here?",
+          "options": [
+            "All equilibrium constants are numbers without needing an activity convention.",
+            "Dropping the beta factor automatically normalizes any quotient.",
+            "Each a_i = beta n_i is dimensionless because beta has inverse-mole units."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "activity_a",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "direction",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "constant",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why does beta not cancel completely for A ⇌ 2B?",
+        "solution": "The initial A activity is 0.250 mol⁻¹ × 2.00 mol = 0.500. With B absent, Q = a_B²/a_A = 0<K=1, so the model initially moves forward. The beta factor must remain in Q = beta n_B²/n_A because the stoichiometric powers differ.",
+        "lesson_ids": [
+          "general-chemistry-1-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-1-project:rehearsal-3",
+      "type": "data_interpretation",
+      "prompt": "Gas-equilibrium ledger rehearsal · Admissible equilibrium solution. Rehearsal model A ⇌ 2B: initial A = 2.00 mol, B = 0, beta = 0.250 mol⁻¹, K = 1.00 and reaction enthalpy −8.00 kJ/mol of extent. Activities are beta times amount. Heat equality is conditional on a separately stipulated constant-pressure, pressure-volume-work-only boundary. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 4,
+      "objective_ids": [
+        "general-chemistry-1-project-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "extent",
+          "type": "numeric",
+          "prompt": "Admissible rehearsal equilibrium extent, in mol.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "amount_a",
+          "type": "numeric",
+          "prompt": "Equilibrium A amount, in mol.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "amount_b",
+          "type": "numeric",
+          "prompt": "Equilibrium B amount, in mol.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "root",
+          "type": "single_choice",
+          "prompt": "Why is the other rehearsal root ξ = −2 mol inadmissible?",
+          "options": [
+            "All negative roots are inadmissible in every reversible reaction.",
+            "It makes B negative under n_B = 2ξ, even though it solves the rearranged quadratic.",
+            "A quadratic must always use its larger root, regardless of species inventories."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "extent",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "amount_a",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "amount_b",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "root",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What checks must follow a numerical equilibrium root?",
+        "solution": "Set 1 = 0.250(2ξ)²/(2−ξ), giving ξ²+ξ−2 = 0. Roots are 1 and −2 mol; only 1 lies in [0,2]. Equilibrium amounts are A = 1 mol and B = 2 mol. Substitute back into the unsimplified activity ratio to check K.",
+        "lesson_ids": [
+          "general-chemistry-1-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-1-project:rehearsal-4",
+      "type": "data_interpretation",
+      "prompt": "Gas-equilibrium ledger rehearsal · Energy ledger and boundary conditions. Rehearsal model A ⇌ 2B: initial A = 2.00 mol, B = 0, beta = 0.250 mol⁻¹, K = 1.00 and reaction enthalpy −8.00 kJ/mol of extent. Activities are beta times amount. Heat equality is conditional on a separately stipulated constant-pressure, pressure-volume-work-only boundary. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 4,
+      "objective_ids": [
+        "general-chemistry-1-project-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "enthalpy",
+          "type": "numeric",
+          "prompt": "Rehearsal total enthalpy change for ΔH = −8.00 kJ/mol of extent, in kJ.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "equilibrium_q",
+          "type": "numeric",
+          "prompt": "Equilibrium activity quotient of the rehearsal mixture.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "unit_total",
+          "type": "numeric",
+          "prompt": "Conserved-unit total at rehearsal equilibrium, in mol of units.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "heat",
+          "type": "single_choice",
+          "prompt": "Does fixed temperature alone establish q = ΔH_total?",
+          "options": [
+            "No. Heat equality needs an additional boundary such as constant pressure with only pressure-volume work; the abstract ledger must state that stipulation.",
+            "Yes. Fixed temperature makes heat and enthalpy identical under every path.",
+            "No. Enthalpy can never equal heat under any boundary."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "enthalpy",
+            "type": "numeric",
+            "answer": -8.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "equilibrium_q",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "unit_total",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "heat",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why must a heat statement name its boundary even after ΔH is known?",
+        "solution": "At ξ = 1 mol, total enthalpy change is 1×(−8.00) = −8.00 kJ. The equilibrium quotient is 0.250×2²/1 = 1 and conserved units are 2×1+2 = 4. A heat statement additionally needs a specified work/pressure boundary; fixed temperature alone does not supply it.",
+        "lesson_ids": [
+          "general-chemistry-1-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-1-project:rehearsal-5",
+      "type": "data_interpretation",
+      "prompt": "Gas-equilibrium ledger rehearsal · Perturbation and inference limits. Rehearsal model A ⇌ 2B: initial A = 2.00 mol, B = 0, beta = 0.250 mol⁻¹, K = 1.00 and reaction enthalpy −8.00 kJ/mol of extent. Activities are beta times amount. Heat equality is conditional on a separately stipulated constant-pressure, pressure-volume-work-only boundary. Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 4,
+      "objective_ids": [
+        "general-chemistry-1-project-objective-5"
+      ],
+      "response_fields": [
+        {
+          "id": "perturbed_q",
+          "type": "numeric",
+          "prompt": "From rehearsal equilibrium A = 1 mol and B = 2 mol, remove half the B at fixed beta and temperature. New Q?",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "restore",
+          "type": "single_choice",
+          "prompt": "With that perturbed Q and K = 1, what net model direction is favored?",
+          "options": [
+            "Reverse: removing a product increases its quotient.",
+            "Forward: Q is below the unchanged K, so the model initially tends to replenish B.",
+            "No direction can be inferred even under the supplied activity model."
+          ],
+          "points": 1
+        },
+        {
+          "id": "rate",
+          "type": "single_choice",
+          "prompt": "Which statement about time to equilibrium is supported?",
+          "options": [
+            "The equilibrium and enthalpy data alone do not determine a rate constant or approach time.",
+            "K = 1 fixes the reaction time at one minute.",
+            "A negative enthalpy guarantees an instantaneous reaction."
+          ],
+          "points": 1
+        },
+        {
+          "id": "identity",
+          "type": "single_choice",
+          "prompt": "What do the A and B tokens identify?",
+          "options": [
+            "A unique real gas reaction with known mechanism.",
+            "An experimentally measured reaction pathway.",
+            "Only the stipulated conserved-unit model, not real compounds, handling conditions or a laboratory procedure."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "perturbed_q",
+            "type": "numeric",
+            "answer": 0.25,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "restore",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "rate",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "identity",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Does a correct equilibrium composition determine reaction rate or a laboratory method?",
+        "solution": "After halving B, Q = 0.250×1²/1 = 0.250<K, giving an initial forward tendency under the same activity convention. K does not provide a kinetic timescale, and fictitious stoichiometric tokens do not identify a real substance or process.",
+        "lesson_ids": [
+          "general-chemistry-1-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-1-15:depth-1",
+      "type": "data_interpretation",
+      "prompt": "One-electron normalized Coulomb model:E_n/E*=−Z²/n². Use Z=2 and a3 to2 emission, then ionization from n=2. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "general-chemistry-1-15-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "photon",
+          "type": "numeric",
+          "prompt": "Positive emitted photon energy in E*.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "ionization",
+          "type": "numeric",
+          "prompt": "Required ionization energy from n=2 in E*.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "photon",
+            "type": "numeric",
+            "answer": 0.5555555555555556,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "ionization",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How are photon and ionization energies defined?",
+        "solution": "The emitted difference is four(one/four−one/nine)=five/nine. Ionization from the second level requires four/four=one. Neither is a negative photon energy; bound levels are negative relative to the separated reference.",
+        "lesson_ids": [
+          "general-chemistry-1-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-1-15:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For Z=2, use normalized1s radial density p(r)=4Z³r²exp(−2Zr), with r in a*. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "general-chemistry-1-15-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "mode",
+          "type": "numeric",
+          "prompt": "Most probable positive radial distance in a*.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "mean",
+          "type": "numeric",
+          "prompt": "Mean radial distance in a*.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "inside_mode",
+          "type": "numeric",
+          "prompt": "Probability inside the modal radius.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "mode",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "mean",
+            "type": "numeric",
+            "answer": 0.75,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "inside_mode",
+            "type": "numeric",
+            "answer": 0.3233235838169365,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can radial probability peak away from the nucleus?",
+        "solution": "The radial mode solves two/r−two Z=zero and is one/Z. Direct integration gives mean three/(two Z). Integrating to one/Z gives one−five exp(−two), independent of Z after the stipulated radius rescaling.",
+        "lesson_ids": [
+          "general-chemistry-1-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-1-15:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Consider the hydrogenic4d subshell:principal number n=4 and angular label l=2. Count spatial states and nodes. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "general-chemistry-1-15-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "orbitals",
+          "type": "numeric",
+          "prompt": "Exact number of spatial orbitals in the4d subshell.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "radial_nodes",
+          "type": "numeric",
+          "prompt": "Exact radial node count in one4d orbital.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "angular_nodes",
+          "type": "numeric",
+          "prompt": "Exact angular node count in one4d orbital.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "shell_capacity",
+          "type": "numeric",
+          "prompt": "Exact spin-inclusive capacity of the full n=4 shell.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "orbitals",
+            "type": "numeric",
+            "answer": 5.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "radial_nodes",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "angular_nodes",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "shell_capacity",
+            "type": "numeric",
+            "answer": 32.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which objects must be distinguished in electron counting?",
+        "solution": "A d subshell has two l+one=five spatial states. Radial nodes are n−l−one=one and angular nodes l=two. The entire fourth shell has n²=sixteen spatial states and capacity thirty-two electrons; that shell count is not the d-subshell count.",
+        "lesson_ids": [
+          "general-chemistry-1-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-1-15:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Interpret the single-electron hydrogenic model and an orbital sign change. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "general-chemistry-1-15-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "sign",
+          "type": "single_choice",
+          "prompt": "What does a global sign change of one complete orbital do?",
+          "options": [
+            "Its squared modulus and probability distribution are unchanged;relative phases in a superposition can still affect interference.",
+            "It turns every positive probability into a negative probability.",
+            "It changes the orbital normalization by a factor of minus one."
+          ],
+          "points": 1
+        },
+        {
+          "id": "scope",
+          "type": "single_choice",
+          "prompt": "Which extension is justified without a new model?",
+          "options": [
+            "Insert any neutral atom atomic number and obtain its exact many-electron spectrum.",
+            "An orbital radius distribution supplies a classical electron trajectory.",
+            "The equations describe the stipulated one-electron Coulomb model;many-electron interactions require additional treatment."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "sign",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "scope",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What distinguishes an internal model check from experimental validation?",
+        "solution": "A whole-amplitude sign cancels in its squared modulus. Many-electron repulsion is omitted from the one-electron Hamiltonian, so the ideal Z scaling is not a universal measured atomic-size rule.",
+        "lesson_ids": [
+          "general-chemistry-1-15"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-1-16:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Two individually normalized real basis functions have overlap S=0.2, equal H diagonal alpha=−1E* and off-diagonal beta=−0.4E*. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "general-chemistry-1-16-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "plus",
+          "type": "numeric",
+          "prompt": "Equal-sign state energy in E*.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "minus",
+          "type": "numeric",
+          "prompt": "Opposite-sign state energy in E*.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "plus",
+            "type": "numeric",
+            "answer": -1.1666666666666667,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "minus",
+            "type": "numeric",
+            "answer": -0.75,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why does overlap appear in the energy equation?",
+        "solution": "Substituting cB=plus/minus cA gives energies(alpha+beta)/(one+S)=minus seven/six and(alpha−beta)/(one−S)=minus three/four. Treating the nonorthogonal basis as orthogonal would solve a different energy problem.",
+        "lesson_ids": [
+          "general-chemistry-1-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-1-16:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use the same overlapping basis and its equal/opposite-sign combinations. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "general-chemistry-1-16-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "plus_coefficient",
+          "type": "numeric",
+          "prompt": "Magnitude of each equal-sign coefficient.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "minus_coefficient",
+          "type": "numeric",
+          "prompt": "Magnitude of each opposite-sign coefficient.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "plus_coefficient",
+            "type": "numeric",
+            "answer": 0.6454972243679028,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "minus_coefficient",
+            "type": "numeric",
+            "answer": 0.7905694150420948,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why cannot overlapping basis coefficient squares simply be added?",
+        "solution": "The full norm is cA²+cB²+two S cA cB. Equal and opposite signs require coefficients one/sqrt(two(one+S))and one/sqrt(two(one−S)). Their magnitudes differ even though both combinations have unit norm.",
+        "lesson_ids": [
+          "general-chemistry-1-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-1-16:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Fill the lower state with two opposite-spin electrons and upper state with one, within that stipulated independent-electron model. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "general-chemistry-1-16-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "lower_electrons",
+          "type": "numeric",
+          "prompt": "Exact electron count in the lower state.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "upper_electrons",
+          "type": "numeric",
+          "prompt": "Exact electron count in the upper state.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "order",
+          "type": "numeric",
+          "prompt": "Occupancy bond-order indicator for the specified chemistry model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "energy",
+          "type": "numeric",
+          "prompt": "Independent-electron energy sum in E*.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "lower_electrons",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "upper_electrons",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "order",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "energy",
+            "type": "numeric",
+            "answer": -3.0833333333333335,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What is required for an energy comparison?",
+        "solution": "Two times minus seven/six plus minus three/four is minus thirty-seven/twelve. The occupancy indicator(two−one)/two is one half. These are model quantities; omitted nuclear and electron interactions prevent calling the sum a real dissociation energy.",
+        "lesson_ids": [
+          "general-chemistry-1-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-1-16:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Assess phase conventions and physical claims for the same two-function model. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "general-chemistry-1-16-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "phase",
+          "type": "single_choice",
+          "prompt": "How should phiB to−phiB be implemented?",
+          "options": [
+            "Change only the sign of beta while keeping every other matrix entry and amplitude convention fixed.",
+            "Change both S and beta consistently;the energy set is unchanged although combination labels can exchange.",
+            "Reverse the sign of every probability."
+          ],
+          "points": 1
+        },
+        {
+          "id": "claim",
+          "type": "single_choice",
+          "prompt": "Which statement is supported? for the specified chemistry model.",
+          "options": [
+            "The normalized electronic calculation is internally checkable,but a real dissociation energy requires additional physical terms and evidence.",
+            "A half-integer occupancy indicator uniquely specifies every real bond energy.",
+            "Omitted nuclear repulsion has no possible effect on a molecular energy curve."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "phase",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "claim",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why keep bond order and energy distinct?",
+        "solution": "The phase transformation changes basis representations consistently. A two-state electronic sum omits nuclear repulsion, other orbitals and electron interactions; selected state counts and energy equations cannot fill those gaps.",
+        "lesson_ids": [
+          "general-chemistry-1-16"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-1-17:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment1 uses the one-electron model with Z=3, a4 to2 emission and ionization from n=4. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "general-chemistry-1-17-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "photon",
+          "type": "numeric",
+          "prompt": "Positive emitted photon energy in E*.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "ionization",
+          "type": "numeric",
+          "prompt": "Required ionization energy from n=4 in E*.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "photon",
+            "type": "numeric",
+            "answer": 1.6875,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "ionization",
+            "type": "numeric",
+            "answer": 0.5625,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What prevents a level value from being mistaken for a photon energy?",
+        "solution": "The bound levels are minus nine/sixteen and minus nine/four. Their emitted difference is twenty-seven/sixteen; ionization from the initial fourth level requires nine/sixteen.",
+        "lesson_ids": [
+          "general-chemistry-1-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-1-17:depth-2",
+      "type": "data_interpretation",
+      "prompt": "For that Z=3 assignment, use1s radial density and radius R=0.5a*. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "general-chemistry-1-17-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "mode",
+          "type": "numeric",
+          "prompt": "Modal radial distance in a*.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "mean",
+          "type": "numeric",
+          "prompt": "Mean radial distance in a*.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "probability",
+          "type": "numeric",
+          "prompt": "Probability inside R=0.5a* for the specified chemistry model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "mode",
+            "type": "numeric",
+            "answer": 0.3333333333333333,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "mean",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "probability",
+            "type": "numeric",
+            "answer": 0.5768099188731565,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which independent checks support a cumulative probability?",
+        "solution": "The mode and mean are one/three and one/half. With two ZR=three, the cumulative bracket is one+three+four point five=eight point five, hence one−eight point five exp(−three). Integral normalization and endpoint checks remain part of the local report.",
+        "lesson_ids": [
+          "general-chemistry-1-17"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-1-18:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment2:S=0.1, alpha=−2E*, beta=−0.5E* for individually normalized real basis functions. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "general-chemistry-1-18-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "plus",
+          "type": "numeric",
+          "prompt": "Equal-sign state energy in E*.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "minus",
+          "type": "numeric",
+          "prompt": "Opposite-sign state energy in E*.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "coefficient",
+          "type": "numeric",
+          "prompt": "Equal-sign coefficient magnitude for the specified chemistry model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "plus",
+            "type": "numeric",
+            "answer": -2.272727272727273,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "minus",
+            "type": "numeric",
+            "answer": -1.6666666666666667,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "coefficient",
+            "type": "numeric",
+            "answer": 0.674199862463242,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How can the energy calculation be checked independently?",
+        "solution": "The energies are minus two point five/one point one=minus twenty-five/eleven and minus one point five/zero point nine=minus five/three. The equal-sign coefficient is one/sqrt(two point two), which normalizes the full cross-term expression.",
+        "lesson_ids": [
+          "general-chemistry-1-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-1-18:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use two electrons in the lower state and one in the upper state, with particle-matched stipulated reference3alpha=−6E*. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "general-chemistry-1-18-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "energy",
+          "type": "numeric",
+          "prompt": "Independent-electron energy sum in E*.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "lowering",
+          "type": "numeric",
+          "prompt": "Positive electronic lowering relative to the stated reference in E*.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "order",
+          "type": "numeric",
+          "prompt": "Occupancy bond-order indicator for the specified chemistry model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "energy",
+            "type": "numeric",
+            "answer": -6.212121212121212,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "lowering",
+            "type": "numeric",
+            "answer": 0.21212121212121213,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "order",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why is a particle-matched reference necessary but insufficient?",
+        "solution": "The sum is minus two hundred five/thirty-three, which lies seven/thirty-three below minus six. The indicator is one half. This comparison retains three electrons but still omits nuclear repulsion and other interactions needed for a real molecular dissociation claim.",
+        "lesson_ids": [
+          "general-chemistry-1-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-1-19:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment3:A2 to2A, start1A2 and0.5A, RT/V=0.5 in the named pressure scale, p°=1, Kp=2/3. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "general-chemistry-1-19-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "extent",
+          "type": "numeric",
+          "prompt": "Physical equilibrium extent for the specified chemistry model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "molecules",
+          "type": "numeric",
+          "prompt": "Final total molecular amount for the specified chemistry model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "pressure",
+          "type": "numeric",
+          "prompt": "Final total pressure for the specified chemistry model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "atoms",
+          "type": "numeric",
+          "prompt": "Conserved atom-amount total for the specified chemistry model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "extent",
+            "type": "numeric",
+            "answer": 0.25,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "molecules",
+            "type": "numeric",
+            "answer": 1.75,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "pressure",
+            "type": "numeric",
+            "answer": 0.875,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "atoms",
+            "type": "numeric",
+            "answer": 2.5,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which reaction quantities can change while atoms are conserved?",
+        "solution": "Amounts are one−xi and one half+two xi, with−one quarter<=xi<=one. The quotient equation admits physical xi=one quarter, total molecular amount seven/four, pressure seven/eight and conserved atom total five/halves. Test candidates in the original ratio and domain.",
+        "lesson_ids": [
+          "general-chemistry-1-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-1-19:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Same actual rigid isothermal vessel:RT=2, Delta_r H=+6 per extent unit, only pressure–volume work and stipulated negligible other energy changes. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "general-chemistry-1-19-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "internal",
+          "type": "numeric",
+          "prompt": "Reaction internal energy per extent unit.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "heat",
+          "type": "numeric",
+          "prompt": "Heat into the actual rigid vessel at xi=0.25.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "boundary",
+          "type": "single_choice",
+          "prompt": "Which energy statement is correct?",
+          "options": [
+            "Fixed temperature implies all reaction heat and internal-energy change are zero.",
+            "The same process is simultaneously rigid and expanding at constant pressure without further conditions.",
+            "The rigid vessel has zero boundary work and qV=DeltaU under the stated omissions;using reaction enthalpy as heat requires a different boundary justification."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "internal",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "heat",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "boundary",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What belongs next to every reaction-heat result?",
+        "solution": "Delta_r U=Delta_r H−Delta_n RT=six−two=four. At extent one quarter, qV=one. A hypothetical pressure-controlled process needs its own work and equilibrium constraints; the fixed-volume state cannot simply inherit q=DeltaH.",
+        "lesson_ids": [
+          "general-chemistry-1-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-1-20:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Separate spectral model:A1=2cX+cY, A2=cX+3cY. Unknown reports0.720, 1.12. Reference true predictions0.400, 0.700 but reports0.420, 0.720. Assume a common additive offset. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "general-chemistry-1-20-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "offset",
+          "type": "numeric",
+          "prompt": "Common additive signal offset for the specified chemistry model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "x",
+          "type": "numeric",
+          "prompt": "Corrected cX for the specified chemistry model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "y",
+          "type": "numeric",
+          "prompt": "Corrected cY for the specified chemistry model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "total",
+          "type": "numeric",
+          "prompt": "Corrected total solute concentration for the specified chemistry model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "offset",
+            "type": "numeric",
+            "answer": 0.02,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "x",
+            "type": "numeric",
+            "answer": 0.2,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "y",
+            "type": "numeric",
+            "answer": 0.3,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "total",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must accompany a calibration correction?",
+        "solution": "The reference identifies a stipulated common offset0.02. Corrected unknown signals0.700 and1.10 solve the two linear equations at cX0.2, cY0.3, total0.5. This does not validate linearity or exclude all alternative interfering species.",
+        "lesson_ids": [
+          "general-chemistry-1-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "general-chemistry-1-20:depth-2",
+      "type": "data_interpretation",
+      "prompt": "SEPARATE rigid gas model:B2 to2B, start2B2 and1B, RT/V=0.25, p°=1, Kp=1. Also RT=1, Delta_r H=+5, and only the stated pressure–volume work model. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "general-chemistry-1-20-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "extent",
+          "type": "numeric",
+          "prompt": "Physical equilibrium extent for the specified chemistry model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "pressure",
+          "type": "numeric",
+          "prompt": "Final total pressure for the specified chemistry model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "heat",
+          "type": "numeric",
+          "prompt": "Heat into the actual rigid vessel.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "atoms",
+          "type": "numeric",
+          "prompt": "Conserved atom-amount total for the specified chemistry model.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "extent",
+            "type": "numeric",
+            "answer": 0.6583123951776999,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "pressure",
+            "type": "numeric",
+            "answer": 0.914578098794425,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "heat",
+            "type": "numeric",
+            "answer": 2.6332495807107996,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "atoms",
+            "type": "numeric",
+            "answer": 5.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What makes a cumulative ledger coherent?",
+        "solution": "The quotient equation is one quarter(one+two xi)²/(two−xi)=one. Its physical root is sqrt11/two−one; the other violates species nonnegativity. Total pressure is(two+sqrt11/two)/four. Reaction internal energy is five−one=four, so heat is four xi=two sqrt11−four. The atom total remains five.",
+        "lesson_ids": [
+          "general-chemistry-1-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic chemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
     }
   ]
 }

@@ -6173,3 +6173,375 @@ Key checks before publication:
 | Not run | Docker Compose stack, Playwright end-to-end suite and the production compose file locally; CI runs the first two on push. No browser walkthrough of the new pages was performed here. |
 
 Runner: `bash ~/.claude/skills/courselab-dev/scripts/verify.sh --frontend`, Python 3.12.3 and Node 24 in the dev container. These checks were run by an AI coding agent (Claude Code) at the owner's request. The package remains partial, unreviewed and formative-only; passing tests are consistency evidence, not human review.
+
+## Learner reliability repairs and Physics E&M corrections (2026-10-22)
+
+Codex, an AI coding agent, preserved the pending Physics E&M project work and repaired note-save races, startup recovery, the rehearsal's missing outcome mapping and two numeric precision mismatches. Four note regressions cover delayed loads, editing during saves, undo during a save and retry after failure; a startup regression checks recovery without losing the requested route. The lazy math test waits for its dynamic imports. Nine E&M project tests independently recalculate all 13 numeric answers, exercise the actual grader at the requested precision, check both halfway-rounding conventions, verify the conceptual selections and worked example, and check learner routes. The authored-answer test builder uses scientific notation for whole-number answers that require explicit significant figures.
+
+| Check | Result |
+| --- | --- |
+| Offline content validation | Passed: 25 courses, 474 lessons, 3,053 questions, 1,647 cards and 111 cases; zero errors or explicit limitation/depth warnings. |
+| Root pytest coverage | 3,462 passed, 1 skipped across the completed runs described below. |
+| Backend `python -m pytest -q` | 6,437 passed, 2 skipped. The existing symbolic response-builder skips remain; one Starlette test-client deprecation warning was emitted. |
+| Legacy `npm run test:legacy` | 7 passed. |
+| Frontend `npm run lint`, `npm test`, `npm run build` | Passed; 82 tests across 18 files. |
+| Chromium learning-flow, study-tools and case-studio suites | 29 passed, including startup recovery, typing during a delayed note save, save/reload persistence, account flows, practice grading, blocked private paths, mobile layouts and automated accessibility checks. |
+| Python Ruff and `git diff --check` | Passed. |
+| Source and production-bundle security scan | 1,717 source files; zero findings. |
+| Assessment-candidate, objective-coverage, Cell Biology response-mode and review-evidence drift checks | Passed, including the public numeric and table recalculation artifacts. |
+
+The root suite ran against a checksum-verified copy of the source and content under `/tmp` to avoid repeated reads from the slow workspace mount. After the outcome mapping was corrected, the full run passed 2,845 tests and skipped one before reaching an obsolete assertion that restricted E&M to version `0.4.x`. Three such assertions were removed; scientific content checks remain intact, and the dedicated snapshot test still pins the exact version and hashes. The remaining 59 test files, starting with that failing file and including all three corrected tests, then passed all 617 tests. Earlier passing test files were unchanged.
+
+Docker is unavailable in this environment, so Docker Compose and image-build checks were not run. Browser checks used the built frontend with a temporary Nginx 1.24 binary and the repository's Nginx server rules, adapting only local paths, listening port and API upstream; a local FastAPI process used a migrated throwaway SQLite database. An earlier Vite run returned its SPA fallback for blocked paths and could not verify the Nginx-only HTTP rules; the final Nginx run passed all 29 checks. Nginx and the API were stopped afterward. Protected graded-fixture browser QA and live external-link probes were not run in this batch. These checks do not establish production-container readiness, qualified course review or an owner walkthrough.
+
+Physics E&M 0.5.0's corrected public package contains 27 files and 416,110 bytes. Archive SHA-256: `c8428a5678646bebda231b3f00ffc0e0b1cee67ace2d831c85b75bb74f159561`; manifest SHA-256: `a4e4b88f2d3489cb0290195f7aeef2af7344194ad4afb6d03f55bfe8b2a5fe00`. The previous 0.4.8 snapshot remains preserved.
+
+## Eight remaining project routes and Programming semester-depth expansion (2026-10-22)
+
+Codex authored and checked the final eight project routes, then responded to the owner's broader semester-depth instruction with Programming 0.6.0's six algorithm readings and five local implementation assignments. The package adds original explanations, distinct worked/rehearsal cases, explicit failure tasks and self-review evidence. The [completion index](COURSE_PLAN_COMPLETION.md) compares actual local readings/examples/practice with official sources for the eight project routes. The [semester-depth record](SEMESTER_DEPTH_EXPANSION.md) compares the expanded Programming sequence with MIT OCW 2.086 Fall 2014 and records the unfinished work across all 25 courses.
+
+| Check | Result |
+| --- | --- |
+| Final offline content validation | Passed: 25 courses, 493 lessons/activity guides, 3,127 questions, 1,721 cards and 151 cases; zero errors or explicit limitation/depth warnings. |
+| Root pytest coverage | 3,552 test cases passed across the full run and corrected targeted follow-up; one skipped. See run details below. |
+| Backend full pytest suite | 6,585 passed, 2 existing symbolic-response-builder skips; one existing Starlette test-client deprecation warning. |
+| Frontend lint, component tests and build | Passed; 82 tests across 18 files. Final lint includes the new browser specifications. |
+| Chromium browser coverage | 38 distinct tests passed; 2 protected-fixture tests skipped. Coverage includes all eight project guides, CSVs, practice submission, automated accessibility and private milestone save/reload/export; all eleven new Programming pages also pass grading/accessibility and dataset-delivery checks. |
+| New content regressions | 25 plan-route checks, 20 project/numeric checks, 7 exact-count precision checks and 38 Programming arithmetic/algorithm/route/snapshot checks. Every new numeric field is independently recomputed and its actual grader rejects a perturbed answer. |
+| Legacy, source/bundle security and Python Ruff | Passed: 7 legacy tests; security scan of 1,765 source files with zero findings. |
+| Generated artifact drift checks | Assessment candidates and objective coverage passed after regeneration. Cell Biology response-mode/review/numeric/table evidence checks also passed; that course's authored bytes were unchanged. |
+| Whitespace validation | `git diff --check` passed. |
+
+The first full root run for the eight projects exposed eleven regressions: stale calendar/count assertions, an obsolete ban on any Statistics project assessment, and displayed decimals with excessive precision. The calendar/count expectations were updated for the delivered routes; the Statistics check now verifies that the actual review draft remains inactive while the open rehearsal and zero-point milestones are separate. Display text was rounded without changing precise grader keys. The affected scientific checks were retained and passed in the focused run.
+
+After the Programming expansion, the full root run passed 3,550 tests and skipped one, with two remaining failures in `test_programming_integrative_project_draft.py`: the syllabus had lost its link/explicit inactive wording for the historical draft, and the current-snapshot test still pinned 0.5.0. The link and wording were restored, the current snapshot pin advanced to 0.6.0, and the previous 0.5.0 snapshot remained archived. The final targeted run passed 30 checks: all four tests in that file, the expanded package's hash test and all 25 plan-index checks. Final content validation also passed. The final focused-check copy was compared by SHA-256 with workspace content, backend, tools and tests. Root/backend runs used temporary source copies to avoid the slow workspace mount; Python 3.12 and Node 24 used the existing local environment.
+
+The initial browser run passed 36 tests, skipped two protected-fixture tests and found one stale mobile locator that assumed Circuits had a single case. It now asserts six prompts and targets the first heading; its recheck passed. The additional Programming test passed all eleven new lesson/assignment pages in one enrolled-session flow. Frontend component code was unchanged by the content expansion. Browser checks used the built frontend and temporary Nginx with the repository's server rules, plus FastAPI and a migrated disposable SQLite database. The API and Nginx were stopped afterward.
+
+Docker is unavailable, so Compose, production image builds and PostgreSQL-container checks were not run. Protected graded-fixture browser QA and a live probe of every external course link were not run. Official scope pages used in authoring were retrieved directly; link access is not scientific review. No automated result evaluates learner code, written derivations or report quality, establishes measured workload, approves a full semester, or substitutes for qualified human review. The broader 25-course semester-depth expansion remains active and unfinished.
+
+Programming 0.6.0's final public package contains 40 files and 600,853 bytes. Archive SHA-256: `236a88d1919a88eeed8ecddb1b4cbe8ff2b015f57612910a8ebf5d7c8fb66a0c`; manifest SHA-256: `c59d38698c875deec139560324f7cd81cf37674cd5c60e20bd21fa4a709c7d70`. The eight other current snapshots pin their final course bytes and preserve their previous records separately.
+
+## Final four-course depth-batch verification (2026-10-22)
+
+Codex, an AI coding agent, extended the preceding Programming batch with Transport, Organic Chemistry and Statics & Materials 0.6.0. The four packages add 13 foundation readings and 12 connected assignments; actual content/comparator evidence and remaining work are recorded in [SEMESTER_DEPTH_EXPANSION.md](SEMESTER_DEPTH_EXPANSION.md). All 25 packages remain partial, unreviewed and formative-only. The broader semester-depth request is unfinished.
+
+| Actual check | Final result |
+| --- | --- |
+| Content validation | Passed: 25 courses, 507 lesson/activity routes, 3,169 questions, 1,763 cards and 151 cases; zero errors and zero warnings. |
+| Full root pytest | 3,604 passed, 1 skipped, 356.59 seconds. This clean full run supersedes the earlier corrected targeted follow-ups. |
+| Full backend pytest | 6,669 passed, 2 existing symbolic-response-builder skips; one existing test-client deprecation warning. |
+| Frontend lint, component tests and build | Passed; 82 tests across 18 files. |
+| Full Chromium browser suite | 41 passed, 2 protected-graded-fixture tests skipped. Includes all eight new project routes and the four expanded course flows, grading, retrieval, learner resources, automated accessibility and private milestone persistence/export. |
+| New independent depth regressions | Programming 38, Transport 22, Organic Chemistry 15 and Statics 15 checks; independent arithmetic/algorithm, route and physical/logical consistency checks. |
+| Legacy / Ruff / generated report drift | Passed: seven legacy tests, Python Ruff and assessment-candidate/objective-coverage drift checks. Cell Biology generated evidence checks passed earlier; its authored bytes were unchanged. |
+| Source and built-bundle security | 1,785 source files; zero findings. |
+| Whitespace | `git diff --check` passed. |
+
+The Transport shared-face update test caught a faulty draft counterexample: an endpoint pulse at the chosen step did not produce the stated negative value. The released reading uses a center pulse whose independently computed update is [0.6, −0.2, 0.6], conserving total amount while violating nonnegativity. A stale Transport schedule-count assertion was updated, then included in the later clean full run. Organic original-carbon maps, exact zero stereocenter counts and forward dependency orders were independently recomputed. Statics reactions were independently recovered by integrating the beam differential equation and applying boundary conditions; unloading energy/residual forces were checked using exact rational piecewise histories.
+
+Root/backend suites ran on a temporary source copy with the existing Python 3.12 environment to avoid the slow workspace mount. Node 24 used existing frontend dependencies. Browser checks served the production frontend through temporary Nginx using the repository's server rules and FastAPI with a migrated disposable SQLite database. The temporary Nginx/API processes were stopped after the full suite. Docker is unavailable, so Compose, production image and PostgreSQL-container checks were not run. Protected graded-fixture browser QA and a live probe of every external link were not run. No tests evaluate learner code, written derivations, reports or real experimental/structural behavior. Agent recalculation is not qualified human review or measured workload; no approval or complete-semester claim is inferred.
+
+## Genetics and Calculus I depth-batch verification (2026-10-22)
+
+Codex added Genetics 0.7.0 (three foundations, three evidence/modeling assignments, eighteen checkpoints/cards and an original clone-count CSV) and Calculus I 0.6.0 (one integral-hypothesis foundation, four mixed assignments and sixteen checkpoints/cards). At this stage the six-course expansion contains seventeen foundation readings and nineteen assignments; the inventory is 25 partial courses, 518 lesson/activity routes, 3,203 questions, 1,797 cards and 151 cases. Repository-wide semester depth remains unfinished.
+
+| Actual check | Result |
+| --- | --- |
+| Content validation | Passed with the stage inventory above, zero errors and zero warnings. |
+| Full Python collection from repository root | 10,381 passed, 3 skipped, one existing test-client warning, 591.64 seconds. This command collected both root tests and backend tests; it is not 10,381 content-only tests. |
+| Separate full backend suite | 6,737 passed, two existing symbolic-response-builder skips, one existing warning, 209.13 seconds. Genetics-only stage separately passed 6,705 backend tests. |
+| Focused course/route regressions | Genetics and related checks: 553 passed; Calculus I and related checks: 123 passed. The subsequent full collection includes the corrected final snapshots and wording. |
+| New scientific regressions | Genetics: 21 tests, including all eighteen new item computations plus probability/fixed-point, count/coding and delivery checks. Calculus I: 19 tests, including all sixteen items plus exact-sum/jump, independent root/branch and route checks. |
+| Browser / frontend | The six new Genetics pages and five new Calculus I pages each passed one complete grading/accessibility flow; Genetics CSV served byte for byte. Together with the previous full 41-pass suite, 43 distinct browser tests passed; two protected-fixture checks remain unrun. Lint/format passed. Component code was unchanged from the preceding 82-test/build pass. |
+| Ruff / security / artifact drift | Ruff passed. Source/bundle security scanned 1,801 files with zero findings. Objective coverage and assessment-candidate checks passed after regeneration. |
+| Source-copy identity | SHA-256 comparison of content/backend/tools/tests: 1,180 files, zero differences; environment/cache directories excluded. |
+| Whitespace | `git diff --check` passed. |
+
+Genetics independently enumerates allele draws/functional partitions, evaluates direct binomial likelihoods, checks the exact recessive fixed point and recomputes dosage/junction/coding counts. Calculus I independently differentiates the explicit curve branch, computes finite sums and checks the root-error certificate against high-precision bisection. Actual graders accept the recomputed three-significant-figure responses and reject each perturbed numeric/choice field. Browser checks cover pages and selected responses; they do not evaluate learners' code, proofs, diagrams or reports.
+
+Initial validation caught uppercase response-field IDs, which were renamed to the established lowercase schema. Short field/worked-example text was made explicit. Historical abstract-access wording was preserved, and resource/count/current-version assertions advanced without dropping the scientific checks. Earlier snapshots remain archived. Same-agent checks are not qualified human review, measured workload or university equivalence.
+
+Tests used a temporary source copy, existing Python 3.12 and Node 24 environments, built frontend, temporary Nginx with repository rules and FastAPI with migrated disposable SQLite. API/Nginx processes were stopped after browser verification. Docker remains unavailable, so Compose/image/PostgreSQL-container checks were not run; protected graded-fixture browser checks were not run. Legacy seven-test/build/component passes are retained from the preceding unchanged-code stage. No human approval or owner walkthrough is claimed. Physics: Mechanics is the next bounded authoring batch.
+
+## Mechanics coupled/contact depth verification (2026-10-22)
+
+Physics: Mechanics 0.6.0 adds two foundations, four report/simulation assignments, sixteen checkpoints/cards and a synthetic analytic oscillator-reference CSV. Stage inventory: 25 partial courses, 524 lesson/activity routes, 3,219 questions, 1,813 cards and 151 cases. The seven-course depth expansion remains incomplete repository-wide.
+
+| Actual check | Result |
+| --- | --- |
+| Content validation | Passed; zero errors and zero warnings at the stage inventory above. |
+| Full root tests (`pytest -q tests`) | 3,664 passed, 1 skipped, 388.57 seconds. |
+| Full backend suite | 6,769 passed, 2 existing symbolic-response-builder skips, one existing test-client warning, 128.35 seconds. |
+| Focused mechanics/route checks | 146 passed, including 20 new independent checkpoint/force/impulse/power/oscillator/delivery regressions. |
+| New Chromium course flow | Passed all six new pages, selected grading, automated accessibility, private attempt export and byte-identical oscillator CSV delivery. Across the preceding full suite and subsequent new flows, 44 distinct browser tests passed; two protected-fixture checks remain unrun. |
+| Frontend lint / Ruff / security | Passed; security scanned 1,810 source files with zero findings. Component code remains unchanged from the preceding 82-test/build pass. |
+| Generated reports / whitespace | Regenerated objective coverage and assessment-candidate report; `git diff --check` passed. |
+
+The independent checks solve the pulley equations with rational elimination, derive rolling endpoints through impulse/rotation constraints, integrate contact power, evaluate external work/capture loss by separate numerical quadrature and compare the rounded synthetic oscillator CSV with an independently integrated damped equation and dissipation state. Actual graders accept each recomputed response and reject individually perturbed fields. Written diagrams, proofs, simulations and reports remain unevaluated by the browser.
+
+Full suites used a temporary source copy and existing Python 3.12 environment; Node 24 used existing dependencies. Browser verification used the built frontend, temporary Nginx with repository rules and FastAPI with migrated disposable SQLite. API/Nginx processes were stopped afterward. Docker/Compose/image/PostgreSQL-container and protected graded-fixture checks remain unavailable/unrun as previously recorded. No qualified human review, owner walkthrough, measured workload, equipment validation or full-semester approval is inferred. The next batch develops Linear Algebra proof/application depth.
+
+## Linear Algebra proof/map/dynamics verification (2026-10-22)
+
+Linear Algebra 0.5.0 adds two foundations, four mixed proof/application reports and twenty checkpoints/cards. Stage inventory: 25 partial courses, 530 lesson/activity routes, 3,239 questions, 1,833 cards and 151 cases. The eight-course depth expansion remains unfinished repository-wide.
+
+| Actual check | Result |
+| --- | --- |
+| Content validation | Passed at the stage inventory above; zero errors and zero warnings. |
+| Full root tests | 3,688 passed, 1 skipped, 391.22 seconds. |
+| Full backend tests | 6,809 passed, two existing symbolic-response-builder skips, one existing test-client warning, 131.00 seconds. |
+| Focused algebra/route checks | 129 passed. The full run also includes the final dominant-output truncation cross-check. |
+| New independent regressions | 24 tests: all twenty checkpoint computations/actual-grader perturbations plus exact transformation, subspace/projection/quadratic, defective-dynamics and route checks. |
+| New Chromium flow | Passed all six pages, selected grading, automated accessibility and private attempt export. Across the earlier full suite and subsequent course flows, 45 distinct browser tests passed; two protected-fixture checks remain unrun. |
+| Lint / Ruff / security | Passed; security scanned 1,818 source files with zero findings. Frontend component code remains unchanged from its preceding 82-test/build pass. |
+| Artifact drift / source identity | Reports regenerated; final SHA-256 comparison of content/backend/tools/tests found 1,195 files with zero differences, excluding environments/caches. |
+| Whitespace | `git diff --check` passed. |
+
+Exact computations independently recover pivoted LU, coordinate/functional/metric identities, subspace dimensions and consistency, QR coefficients, weighted residual orthogonality, a completed-square certificate, repeated powers and matrix exponentials. The truncated inverse reference is recovered from the dominant eigen-direction of the output Gram matrix rather than hardcoding the authored reconstruction. Actual graders accept every recalculated field and reject individual numeric/choice perturbations. These are same-agent consistency checks, not qualified proof review, learner-code/report evaluation or real-model validation.
+
+The full suites used a temporary source copy and existing Python 3.12; Node 24 used existing dependencies. Browser verification used the built frontend, temporary repository-rule Nginx and FastAPI with migrated disposable SQLite. API/Nginx were stopped afterward. Docker/Compose/image/PostgreSQL-container and protected graded-fixture checks remain unavailable/unrun. The stage retains the preceding unchanged component/build/legacy evidence. No owner walkthrough, human sign-off, measured workload or full-semester approval is inferred. General Chemistry II is the next bounded batch.
+
+## General Chemistry II coupled/evidence verification (2026-10-22)
+
+General Chemistry II 0.6.0 adds three foundations, three connected reports, eighteen checkpoints/cards and an analytic reduced-rate CSV. Stage inventory: 25 partial courses, 536 lesson/activity routes, 3,257 questions, 1,851 cards and 151 cases. The nine-course semester-depth expansion remains unfinished repository-wide.
+
+| Actual check | Result |
+| --- | --- |
+| Content validation | Passed at the stage inventory above; zero errors and zero warnings. |
+| Full root suite | 3,710 passed, 1 skipped, 388.79 seconds. |
+| Full backend suite | 6,845 passed, two existing symbolic-response-builder skips, one existing test-client warning, 143.17 seconds. |
+| Focused chemistry/route checks | 150 passed. |
+| New independent regressions | 22 tests: all eighteen checkpoint recomputations/actual-grader perturbations plus closed-state, occupation/spectral, reduced/full-network and delivery checks. |
+| New Chromium flow | Passed all six pages, selected grading, automated accessibility, private attempt export and byte-identical rate CSV delivery. Across the earlier full suite and subsequent course flows, 46 distinct browser tests passed; two protected-fixture checks remain unrun. |
+| Lint / Ruff / security | Passed; source/bundle security scanned 1,827 files with zero findings. Component code is unchanged from the earlier 82-test/build pass. |
+| Reports / source identity / whitespace | Reports regenerated; SHA-256 comparison of content/backend/tools/tests found 1,203 files with zero differences, excluding environments/caches. `git diff --check` passed. |
+
+The speciation reference solves for free ligand and then charge in log(h), checks original mass/equilibrium relations and verifies a changed spectator inventory cannot preserve an arbitrary imposed pH. Occupations are independently enumerated under the stated pair/field model, and photon-frequency/unit steps reproduce the displayed SI-based examples. Reduced exchange curves agree algebraically while separate numerical integration of a conserved full network quantifies their approximation limit. The redox reference reconstructs free concentrations before applying Nernst. Actual graders accept each recalculated field and reject individual perturbations; a pH response rounded to three decimal places passes while the incompatible three-significant-figure rounding fails.
+
+Initial schema validation found a shared authoring-list alias that duplicated OpenStax references across new modules. Mappings were scoped to the relevant lessons and deduplicated, the helper was corrected, the package snapshot/reports were repinned, and both validation and the focused/full suites then passed. A brittle prose check was removed while preserving the numeric displayed-energy check and independent spectral calculations. Earlier snapshots remain archived. These checks do not evaluate solvers, reports, proposed studies or real chemical mechanisms, and are not qualified human review or workload measurement.
+
+Full suites used a temporary source copy and existing Python 3.12 environment; Node 24 used existing dependencies. Browser verification used the built frontend, temporary repository-rule Nginx and FastAPI with migrated disposable SQLite. API/Nginx were stopped afterward. Docker/Compose/image/PostgreSQL-container and protected graded-fixture checks remain unavailable/unrun. Earlier unchanged component/build/legacy evidence is retained. No owner walkthrough, human approval or semester-equivalence claim is inferred. Human Physiology is the next bounded authoring batch.
+
+## Physiology organ/control verification (2026-10-22)
+
+Physiology 0.6.0 adds three foundations, four connected reports and twenty checkpoints/cards. Stage inventory: 25 partial courses, 543 lesson/activity routes, 3,277 questions, 1,871 cards and 151 cases. The ten-course semester-depth expansion remains unfinished repository-wide.
+
+| Actual check | Result |
+| --- | --- |
+| Content validation | Passed at this inventory; zero errors and zero warnings. |
+| Full root run | 3,733 passed, one skipped and one obsolete schedule-count assertion failed, 366.29 seconds. The assertion expected 18 routes instead of 25; it was updated and included in the focused rerun below. |
+| Full backend suite | 6,885 passed, two existing symbolic-response-builder skips, one existing test-client warning, 126.08 seconds. |
+| Focused Physiology/route rerun | 84 passed in 9.70 seconds, including the updated schedule count and preserved primer calculations. |
+| New independent regressions | 24 tests cover all twenty checkpoint recomputations/actual-grader perturbations plus controller, content/flow, gate-slope and delivery checks. |
+| New Chromium flow | All seven pages passed selected grading, automated accessibility and private attempt export (9.3 seconds). Across the earlier full suite and subsequent course flows, 47 distinct browser tests passed; two protected-fixture checks remain unrun. |
+| Lint / Ruff / security | Passed; source/bundle security scanned 1,836 files with zero findings. Component code remains unchanged from the earlier 82-test/build pass. |
+| Reports / source identity / whitespace | Reports regenerated; content/backend/tools/tests SHA-256 comparison found 1,211 files with zero differences excluding environments/caches. The subsequent count-only regression fix was copied identically. `git diff --check` passed. |
+
+The serial transport reference explicitly subtracts recovered Fraction amounts at every segment and closes input/output ledgers. Controller equilibria/modes are recovered from an independently built matrix; Cartesian integration is compared with its matrix exponential and checked under refinement, clipping and bias. Content conservation exposes pressure-averaging and fixed-pressure delivery counterexamples. Gate integration and a finite-difference conductance derivative confirm the nonzero initial slope. Actual graders accept all recalculated fields and reject individual perturbations.
+
+The initial focused run had four old syllabus-prose assertions that enforced inaccurate blanket short-primer wording; their numerical scientific checks were preserved and the assertions now check scheduled reading links and the actual concise primer. The initial full-root invocation also needed the temporary root on PYTHONPATH for tools imports before collection could proceed. The browser sample's bare trailing-zero answers were replaced with explicit three-significant-figure scientific notation; the grader correctly rejected the ambiguous earlier sample. These are same-agent consistency checks, not qualified physiology review or report/code scoring.
+
+Full suites used a temporary source copy and the existing Python 3.12 environment; Node 24 used existing dependencies. The browser used built frontend assets, temporary repository-rule Nginx and FastAPI with migrated disposable SQLite; the API/Nginx processes were stopped afterward. Docker/Compose/image/PostgreSQL-container and protected graded-fixture checks remain unavailable/unrun. Earlier unchanged component/build/legacy evidence is retained. No owner walkthrough, human approval, actual physiological validation or measured workload is implied.
+
+## Differential Equations IVP/harmonic/nonlinear verification (2026-10-22)
+
+Differential Equations 0.6.0 adds three foundations, four connected reports and twenty checkpoints/cards. Stage inventory: 25 partial courses, 550 lesson/activity routes, 3,297 questions, 1,891 cards and 151 cases. The eleven-course semester-depth expansion remains unfinished repository-wide.
+
+| Actual check | Result |
+| --- | --- |
+| Content validation | Passed at the stage inventory above; zero errors and zero warnings. |
+| Full root suite | 3,759 passed, one skipped, 375.82 seconds. This also covers the preceding Physiology count/prose fixes. |
+| Full backend suite | 6,925 passed, two existing symbolic-response-builder skips, one existing test-client warning, 131.04 seconds. |
+| New independent regressions | 25 tests: all twenty checkpoint recomputations/actual-grader perturbations plus IVP-domain, Fourier/map, forcing/matrix, nonlinear Cartesian and delivery checks. |
+| Focused run | 74 passed and one older week-6 list assertion failed because the Fourier foundation was added. Its expected calendar was updated; the corrected assertion passes in the full root suite. |
+| New Chromium flow | All seven pages passed selected grading, automated accessibility and private attempt export, 14.1 seconds. Across earlier full-suite and later course flows, 48 distinct browser tests passed; two protected-fixture checks remain unrun. |
+| Lint / Ruff / security | Passed; source/bundle security scanned 1,845 files with zero findings. Component code remains unchanged from the earlier 82-test/build pass. |
+| Reports / source identity / whitespace | Reports regenerated; content/backend/tools/tests SHA-256 comparison found 1,219 files with zero differences excluding environments/caches. `git diff --check` passed. |
+
+Independent references integrate the variable-coefficient product equation, recover Fourier coefficients by direct integrals and solve sine/cosine equations, find the exact periodic start through a full-cycle map, and derive radial trajectories from a reciprocal linear equation. Convolution recovers the resonant solution; exact matrix exponentials and forced integrals verify coupled dynamics. Tests check explicit branch/residual/join conditions, finite escape, harmonic-tail consistency against a piecewise exact reference, impulse jumps, implicit conservation/positivity and Cartesian radial refinement. Actual graders accept all recalculated values and reject individual perturbations. These remain same-agent consistency checks rather than qualified mathematical review or proof/code/report evaluation.
+
+The initial browser attempt reached the frontend before the disposable API was ready and displayed its 502 recovery view. After the session endpoint returned HTTP 200, the course flow passed without product-code changes. Full suites used a matching temporary source copy and the existing Python 3.12 environment; Node 24 used existing dependencies. Browser verification used built frontend assets, temporary repository-rule Nginx and FastAPI with migrated disposable SQLite; API/Nginx were stopped afterward. Docker/Compose/image/PostgreSQL-container and protected graded-fixture checks remain unavailable/unrun. Earlier unchanged component/build/legacy evidence is retained. No real-model validation, owner walkthrough, human sign-off or measured workload is inferred. Bioreactors is the next substantive batch.
+
+## Bioreactors balance/observation/local-exposure verification (2026-10-22)
+
+Bioreactors 0.6.0 adds three foundations, four connected reports, twenty checkpoints/cards and two analytic/arithmetic synthetic tables. Stage inventory: 25 partial courses, 557 lesson/activity routes, 3,317 questions, 1,911 cards and 151 cases. The twelve-course semester-depth expansion remains unfinished repository-wide.
+
+| Actual check | Result |
+| --- | --- |
+| Content validation | Passed at the stage inventory above; zero errors and zero warnings. |
+| Full root suite | 3,784 passed, one skipped, 380.23 seconds. |
+| Full backend suite | 6,965 passed, two existing symbolic-response-builder skips, one existing test-client warning, 128.87 seconds. |
+| New independent regressions | 25 tests: all twenty key recomputations/actual-grader perturbations plus viable-ledger/domain, probe/CSV, spatial-transient, factorial and delivery checks. |
+| Focused run | 63 passed and one older learner-resource-list assertion failed because two assignment tables were added. Its expected resources were updated; it passes in the full root run. |
+| New Chromium flow | All seven pages passed selected grading, automated accessibility, private export and both byte-identical CSV downloads, 14.2 seconds. Across the earlier full suite and later course flows, 49 distinct browser tests passed; two protected-fixture checks remain unrun. |
+| Lint / Ruff / security | Passed; source/bundle security scanned 1,856 files with zero findings. Frontend component code remains unchanged from the earlier 82-test/build pass. |
+| Reports / source identity / whitespace | Reports regenerated; content/backend/tools/tests SHA-256 comparison found 1,229 files with zero differences excluding environments/caches. `git diff --check` passed. |
+
+Independent references solve the original coupled viable/substrate equations and select their positive branch, verify local Jacobian signs and separate production/export/death/yield ledgers, and expose the exact substrate-boundary derivative failure. Probe references use a deficit-state matrix exponential and direct ODE integration, verifying swapped-rate identity, distinct hidden states, the equal-rate limit and rounded CSV values. Spatial references solve the original affine matrix system, derive exchange thresholds and compare integrated local states and total input-minus-uptake with exact evolution under refinement. The factorial reference builds the raw-row design matrix, solves least squares and checks residual orthogonality, simple effects and MSE. Actual graders accept every recomputed response and reject each individual perturbation.
+
+These are same-agent consistency checks, not qualified process review, real calibration, biological replication, proof/code/report scoring or experimental competence. New parameters and tables are normalized invented inputs. Full suites used a matching temporary source copy and the existing Python 3.12 environment; Node 24 used existing dependencies. Browser verification used built frontend assets, temporary repository-rule Nginx and FastAPI with migrated disposable SQLite. The session endpoint was checked for HTTP 200 before starting the browser after an initial readiness poll returned 502; the API/Nginx processes were stopped afterward. Docker/Compose/image/PostgreSQL-container and protected graded-fixture checks remain unavailable/unrun. Earlier unchanged component/build/legacy evidence is retained. No owner walkthrough, human approval, measured workload or university equivalence is inferred. Physics: E&M is the next bounded batch.
+
+## E&M field/induction/wave-boundary verification (2026-10-22)
+
+Physics: E&M 0.6.0 adds three foundations, four reports and twenty checkpoints/cards. Stage inventory: 25 partial courses, 564 lesson/activity routes, 3,337 questions, 1,931 cards and 151 cases. The thirteen-course semester-depth expansion remains unfinished repository-wide.
+
+| Actual check | Result |
+| --- | --- |
+| Content validation | Passed at the stage inventory above; zero errors and zero warnings. |
+| Full root suite | 3,809 passed, one skipped, 382.50 seconds. |
+| Full backend suite | 7,005 passed, two existing symbolic-response-builder skips, one existing test-client warning, 132.45 seconds. |
+| Focused EM/route checks | 194 passed, 8.78 seconds. |
+| New independent regressions | 25 tests: all twenty key recomputations/actual-grader perturbations plus cylindrical-energy, coupled-power, source/standing-wave, capacitor and delivery checks. |
+| New Chromium flow | All seven pages passed selected grading, automated accessibility and private attempt export, 12.2 seconds. Across the earlier full suite and later course flows, fifty distinct browser tests passed; two protected-fixture checks remain unrun. |
+| Lint / Ruff / security | Passed; source/bundle security scanned 1,865 files with zero findings. Component code remains unchanged from the earlier 82-test/build pass. |
+| Reports / source identity / whitespace | Reports regenerated; content/backend/tools/tests SHA-256 comparison found 1,237 files with zero differences excluding environments/caches. `git diff --check` passed. |
+
+Independent references integrate the original nonuniform charge, recover field/potential through Gauss/gradient relations, compare field and charge-potential energy integrals and reject selected-potential shortcuts. Exact matrix calculations verify mutual energy, complete reference reversal and an invalid passive coefficient example; independent transient/source/loss integration checks stored-energy change. Wave references solve the source continuity/jump equations and independently average real source work, both outward fluxes, standing electric/magnetic energy and Poynting flux over a cycle. Capacitor integration verifies conserved charge and dissipation against the final field energy. Actual graders accept all recomputed fields and reject each individual perturbation.
+
+These are same-agent consistency checks rather than qualified physics review, evaluated proofs/diagrams/code/reports or equipment validation. Full suites used a matching temporary source copy and the existing Python 3.12 environment; Node 24 used existing dependencies. Browser verification used built frontend assets, temporary repository-rule Nginx and FastAPI with migrated disposable SQLite. The session endpoint returned HTTP 200 before the browser began; API/Nginx were stopped afterward. Docker/Compose/image/PostgreSQL-container and protected graded-fixture checks remain unavailable/unrun. Earlier unchanged component/build/legacy evidence is retained. No owner walkthrough, human approval, experimental competence, measured workload or university equivalence is inferred. Calculus II is the next bounded authoring batch.
+
+## Calculus II geometric/convergence verification (2026-10-22)
+
+Calculus II 0.6.0 adds two foundations, four reports and sixteen checkpoints/cards. Stage inventory: 25 partial courses, 570 lesson/activity routes, 3,353 questions, 1,947 cards and 151 cases. The fourteen-course semester-depth expansion remains unfinished repository-wide.
+
+| Actual check | Result |
+| --- | --- |
+| Content validation | Passed at the stage inventory above; zero errors and zero warnings. |
+| Full root suite | 3,828 passed, one skipped, two learner-visible decimal-format assertions failed, 427.20 seconds. Long displays were rewritten as exact fractions, shorter approximations or scientific notation; the final focused run below passes both checks. No fresh full-root pass is claimed at this stage. |
+| Full backend suite | 7,037 passed, two existing symbolic-response-builder skips, one existing test-client warning, 134.91 seconds. Subsequent changes only format explanatory displays. |
+| Final focused course/route/format checks | 159 passed, 9.04 seconds; includes the twenty-one new independent regressions and all four display-format checks. |
+| New Chromium flow | All six pages passed selected grading, automated accessibility and private attempt export, 9.5 seconds (11.0 total). Across the earlier full suite and later course flows, 51 distinct browser tests passed; two protected-fixture checks remain unrun. |
+| Lint / Ruff / security | Passed; source/bundle security scanned 1,873 files with zero findings. Component code remains unchanged from the earlier 82-test/build pass. |
+| Reports / source identity / whitespace | Reports regenerated; final content/backend/tools/tests SHA-256 comparison found 1,244 files with zero differences excluding environments/caches. `git diff --check` passed. |
+
+Independent references integrate the original surface, volume, density and rational/logarithmic problems, obtain the radial median from a distinct trigonometric cubic solution, verify minimal integer thresholds at 70-digit Decimal precision, and evaluate counterexample limits and a separate arctangent quadrature. Actual graders accept every recomputed field and reject each individual perturbation. Initial focused failures corrected a test's principal-complex-log branch by using the real negative-domain antiderivative and exposed an actual overly loose six-figure tolerance. The final approximation tolerance is 5.1e-7, and regressions reject both the three-figure collapsed value and the reference passed as the estimate. Exact formulas are retained while long decimal displays satisfy the existing learner-format policy.
+
+These are same-agent consistency checks, not qualified mathematical review or evaluated proofs/code/reports. Full suites used a matching temporary source copy and the existing Python 3.12 environment; Node 24 used existing dependencies. The first final browser rerun was blocked by the disposable database's earlier same-version draft archive, correctly returning 409. A newly migrated disposable SQLite database held the final package; the six-page flow then passed after the session endpoint returned HTTP 200. Temporary API/Nginx processes were stopped. Docker/Compose/image/PostgreSQL-container and protected graded-fixture checks remain unavailable/unrun. Earlier unchanged component/build/legacy evidence is retained. No owner walkthrough, human approval, measured workload or university equivalence is inferred. Circuits is the next bounded authoring batch.
+
+## Circuits nonlinear-device/feedback verification (2026-10-22)
+
+Circuits 0.6.0 adds three foundations, four reports and twenty checkpoints/cards. Stage inventory: 25 partial courses, 577 lesson/activity routes, 3,373 questions, 1,967 cards and 151 cases. The fifteen-course semester-depth expansion remains unfinished repository-wide.
+
+| Actual check | Result |
+| --- | --- |
+| Content validation | Passed at the stage inventory above; zero errors and zero warnings. |
+| Full root suite | 3,854 passed, one skipped, one generated candidate-report assertion failed, 415.20 seconds. The report was regenerated against the matching stage copy; all ten candidate-report tests then passed in 2.46 seconds. No new full-root pass is claimed at this stage. This run passes the finalized Calculus II format checks. |
+| Full backend suite | 7,077 passed, two existing symbolic-response-builder skips, one existing test-client warning, 127.78 seconds. |
+| Focused checks | Initial combined Circuits/Calculus II/route/format run: 327 passed, one visible-format failure. Final new-science and all-format run after display fixes: 29 passed, 5.30 seconds, including twenty-five new independent regressions. |
+| New Chromium flow | All seven pages passed selected grading, automated accessibility and private attempt export, 11.4 seconds (13.2 total). Across the earlier full suite and later course flows, 52 distinct browser tests passed; two protected-fixture checks remain unrun. |
+| Lint / Ruff / security | Passed; source/bundle security scanned 1,882 files with zero findings. Component code remains unchanged from the earlier 82-test/build pass. |
+| Reports / source identity / whitespace | Reports regenerated; content/backend/tools/tests SHA-256 comparison found 1,252 files with zero differences excluding environments/caches. `git diff --check` passed. |
+
+Independent references solve the original exponential residual by bisection, verify source/load-line uniqueness, numerically re-solve perturbations and close passive-sign power. Piecewise MOS roots are selected by the original region inequalities and checked against finite-difference gain and power. Exact state-matrix eigenvalues independently recover feedback modes; direct RK4 refinement verifies decaying/growing modal trajectories and the imaginary-axis boundary. A trigonometric transformed integral verifies the two-pole one-sided bandwidth, a direct differential residual verifies the step response, and positive covariance/completed-square calculations verify subtraction and the minimum-variance coefficient. Actual graders accept all recomputed fields and reject every individual perturbation.
+
+Display fixes replace raw exponent notation and excessive decimal strings while preserving numerical keys. An early root run was stopped after the already-known formatting failure; the reported complete run used the corrected package. These are same-agent consistency checks rather than qualified circuit review, evaluated code/diagrams/reports or physical device validation. Full suites used a matching temporary source copy and the existing Python 3.12 environment; Node 24 used existing dependencies. Browser verification used built assets, temporary repository-rule Nginx and FastAPI with migrated disposable SQLite; readiness returned HTTP 200 and API/Nginx were stopped afterward. The security tool requires Git inventory: an attempted source-copy invocation could not run without `.git`, so the actual successful scan ran in the working repository. Docker/Compose/image/PostgreSQL-container and protected graded-fixture checks remain unavailable/unrun. No owner walkthrough, human approval, measured workload or university equivalence is inferred. Statistics is the next bounded authoring batch.
+
+## Statistics joint-law/likelihood/regression verification (2026-10-22)
+
+Statistics 0.6.0 adds four foundations, four reports and twenty-four checkpoints/cards. Stage inventory: 25 partial courses, 585 lesson/activity routes, 3,397 questions, 1,991 cards and 151 cases. The sixteen-course semester-depth expansion remains unfinished repository-wide.
+
+| Actual check | Result |
+| --- | --- |
+| Content validation | Passed at the stage inventory above; zero errors and zero warnings. |
+| Full root suite | 3,885 passed, one skipped, 412.08 seconds. This includes the finalized Calculus II displays and corrected Circuits candidate-report generation. |
+| Full backend suite | 7,125 passed, two existing symbolic-response-builder skips, one existing test-client warning, 134.75 seconds. |
+| Focused checks | 589 passed and one old eight-outcome assertion failed. The package now has twelve explicit outcomes; the updated assertion passed individually in 0.20 seconds and in the full root run. |
+| New independent regressions | Thirty tests: all twenty-four key recomputations/actual-grader perturbations plus joint-law, likelihood, Gaussian, regression, exact finite-inference and delivery checks. |
+| New Chromium flow | All eight pages passed selected grading, automated accessibility and private attempt export, 9.3 seconds (11.0 total). Across the earlier full suite and later course flows, 53 distinct browser tests passed; two protected-fixture checks remain unrun. |
+| Lint / Ruff / security | Passed; source/bundle security scanned 1,892 files with zero findings. Component code remains unchanged from the earlier 82-test/build pass. |
+| Reports / source identity / whitespace | Reports regenerated; content/backend/tools/tests SHA-256 comparison found 1,261 files with zero differences excluding environments/caches. `git diff --check` passed. |
+
+Independent references integrate original supported joint densities, verify marginals/conditional moments/total variance and enumerate zero-covariance dependence. Symbolic original log-likelihood derivatives verify maxima, curvature, exposure scaling, mean reparameterization and the zero-event open-domain boundary. Completing the original Gaussian exponent and integrating its density verifies posterior moments, while total covariance gives the shared future component. QR regression and a separate residualization calculation verify coefficients, rank, reduced slopes, residual degrees of freedom and mean-versus-new uncertainty. Exact enumeration checks binomial Wald/exact pointwise coverage, the degenerate all-failure bootstrap and inclusive sharp-null allocation tails. Actual graders accept every recomputed response and reject every individual perturbation.
+
+These are same-agent consistency checks rather than qualified statistical review, evaluated reports/plots/code, empirical model validation or causal identification. Full suites used a matching temporary source copy and the existing Python 3.12 environment; Node 24 used existing dependencies. Browser verification used built assets, temporary repository-rule Nginx and FastAPI with migrated disposable SQLite; readiness returned HTTP 200 and API/Nginx were stopped afterward. Docker/Compose/image/PostgreSQL-container and protected graded-fixture checks remain unavailable/unrun. Earlier unchanged component/build/legacy evidence is retained. No owner walkthrough, human approval, measured workload or university equivalence is inferred. Robotics is the next bounded authoring batch.
+
+## Robotics distributed-dynamics/contact/clearance verification (2026-10-22)
+
+Robotics 0.6.0 adds three foundations, four reports and twenty checkpoints/cards. Stage inventory: 25 partial courses, 592 lesson/activity routes, 3,417 questions, 2,011 cards and 151 cases. The seventeen-course semester-depth expansion remains unfinished repository-wide.
+
+| Actual check | Result |
+| --- | --- |
+| Content validation | Passed at the stage inventory above; zero errors and zero warnings. |
+| Full root suite | 3,910 passed, one skipped, 412.28 seconds. |
+| Full backend suite | 7,165 passed, two existing symbolic-response-builder skips, one existing test-client warning, 131.96 seconds. |
+| Focused checks | 190 passed and one new test used exact floating-point equality for geometrically equal endpoint distances. The test now compares both against the expected distance within tolerance; it and the Circuits snapshot check passed in 5.59 seconds, then in the full root run. |
+| New independent regressions | Twenty-five tests: all twenty key recomputations/actual-grader perturbations plus body-energy/work, constraints, swept geometry, clipped control and delivery checks. |
+| New Chromium flow | All seven pages passed selected grading, automated accessibility and private attempt export, 8.4 seconds (10.1 total). Across the earlier full suite and later course flows, 54 distinct browser tests passed; two protected-fixture checks remain unrun. |
+| Lint / Ruff / security | Passed; source/bundle security scanned 1,901 files with zero findings. Component code remains unchanged from the earlier 82-test/build pass. |
+| Reports / source identity / whitespace | Reports regenerated; final content/backend/tools/tests SHA-256 comparison found 1,269 files with zero differences excluding environments/caches. `git diff --check` passed. |
+
+Independent references assemble center translation and absolute body rotation, derive inertia as the kinetic Hessian and obtain torque through Euler–Lagrange differentiation. Symbolic power and a separately integrated trajectory verify energy change and refinement. Block constraint equations and a Schur calculation verify active reactions, normal inertia, redundant-row failure, release and curved-boundary power. Direct segment geometry verifies clear endpoints and middle overlap; an independent smooth path checks the all-material-point speed bound. Original plant inversion verifies requested versus clipped torque, coupled acceleration and actual versus ideal error equations; the unclipped critically damped reference is differentiated directly. Actual graders accept every recomputed field and reject every individual perturbation.
+
+A TI source-rights note copied from an OCW template was clarified to describe TI link-only use; no numerical/content asset changed and the Circuits package snapshot remains valid. These are same-agent consistency checks rather than qualified mechanics/control review, evaluated code/diagrams/reports, real robot identification or protective-function validation. Full suites used a matching temporary source copy and the existing Python 3.12 environment; Node 24 used existing dependencies. Browser verification used built assets, temporary repository-rule Nginx and FastAPI with migrated disposable SQLite; readiness returned HTTP 200 and API/Nginx were stopped afterward. Docker/Compose/image/PostgreSQL-container and protected graded-fixture checks remain unavailable/unrun. Earlier unchanged component/build/legacy evidence is retained. No owner walkthrough, human approval, measured workload or university equivalence is inferred. Cellular Biomechanics is the next bounded authoring batch.
+
+## Cellular Biomechanics tensor/membrane/force-history verification (2026-10-22)
+
+Cellular Biomechanics 0.5.0 adds three foundations, four reports and twenty checkpoints/cards. Stage inventory: 25 partial courses, 599 lesson/activity routes, 3,437 questions, 2,031 cards and 151 cases. The eighteen-course semester-depth expansion remains unfinished repository-wide.
+
+| Actual check | Result |
+| --- | --- |
+| Content validation | Passed at the stage inventory above; zero errors and zero warnings. |
+| Full root suite | 3,935 passed, one skipped, 391.03 seconds. |
+| Full backend suite | 7,205 passed, two existing symbolic-response-builder skips, one existing test-client warning, 128.66 seconds. |
+| Focused checks | 598 passed, 11.34 seconds. |
+| New independent regressions | Twenty-five tests: all twenty key recomputations/actual-grader perturbations plus tensor/frame/identifiability, membrane, force-history, competing-model/bibliographic and delivery checks. |
+| New Chromium flow | All seven pages passed selected grading, automated accessibility and private attempt export, 7.8 seconds (9.4 total). Across the earlier full suite and later course flows, 55 distinct browser tests passed; two protected-fixture checks remain unrun. |
+| Lint / Ruff / security | Passed; source/bundle security scanned 1,910 files with zero findings. Component code remains unchanged from the earlier 82-test/build pass. |
+| Reports / source identity / whitespace | Reports regenerated; content/backend/tools/tests SHA-256 comparison found 1,277 files with zero differences excluding environments/caches. `git diff --check` passed. |
+
+Independent references derive symmetric-gradient strain, tensor/vector work and traction, verify passive-frame transformations and rank-two coefficient sensitivity, and reconstruct signed normal/tangent components. Original energy differentiation and simultaneous stationary/force equations verify membrane minima, scaling, inverse residuals and equal-force parameter degeneracy. Time-integrated hazard, a separate survivor quantile root, transformed density normalization and RK4 refinement verify force-history predictions and boundary modes. Distinct constitutive matrices agree on one test and differ on the supplied biaxial/shear comparisons. Actual graders accept every recomputed field and reject every individual perturbation; expected intact count is explicitly continuous rather than an observed integer.
+
+Classical Helfrich/Bell title/date/volume/pages/PMID/DOI metadata was checked through official NCBI ESummary. Publisher/full-paper text was unavailable or not examined; no full-text scientific review is claimed and no source assets were imported. These are same-agent consistency checks rather than qualified biomechanics review, evaluated reports/code, empirical parameter identification or biological mechanism evidence. Full suites used a matching temporary source copy and the existing Python 3.12 environment; Node 24 used existing dependencies. Browser verification used built assets, temporary repository-rule Nginx and FastAPI with migrated disposable SQLite; readiness returned HTTP 200 and API/Nginx were stopped afterward. Docker/Compose/image/PostgreSQL-container and protected graded-fixture checks remain unavailable/unrun. Earlier unchanged component/build/legacy evidence is retained. No owner walkthrough, human approval, measured workload or university equivalence is inferred. Signals & Control is the next bounded authoring batch.
+
+## Signals & Control Fourier/compensator/state/sampled verification (2026-10-22)
+
+Signals & Control 0.6.0 adds four foundations, four reports and twenty-four checkpoints/cards. Stage inventory: 25 partial courses, 607 lesson/activity routes, 3,461 questions, 2,055 cards and 151 cases. The nineteen-course semester-depth expansion remains unfinished repository-wide.
+
+| Actual check | Result |
+| --- | --- |
+| Content validation | Passed at the stage inventory above; zero errors and zero warnings. |
+| Full root suite | 3,965 passed, one skipped, 396.75 seconds. |
+| Full backend suite | 7,253 passed, two existing symbolic-response-builder skips, one existing test-client warning, 131.87 seconds. |
+| Focused checks | 597 passed and one exact complex-expression assertion was not simplified by the algebra system. Expanding real/imaginary components fixed the assertion; it passed individually in 3.80 seconds and in the full root run. |
+| New independent regressions | Thirty tests: all twenty-four key recomputations/actual-grader perturbations plus continuous/discrete energy, proper lead realization, state/hidden modes, sampled/Jury/recurrence, hold/timing and delivery checks. |
+| New Chromium flow | All eight pages passed selected grading, automated accessibility and private attempt export, 9.0 seconds (11.0 total). Across the earlier full suite and later course flows, 56 distinct browser tests passed; two protected-fixture checks remain unrun. |
+| Lint / Ruff / security | Passed; source/bundle security scanned 1,920 files with zero findings. Component code remains unchanged from the earlier 82-test/build pass. |
+| Reports / source identity / whitespace | Reports regenerated; content/backend/tools/tests SHA-256 comparison found 1,286 files with zero differences excluding environments/caches. `git diff --check` passed. |
+
+Independent references integrate original piecewise pulses, verify complex transform products and exact time-domain energy, sum discrete convolution/tail energy and check it through independent periodic frequency quadrature. Original characteristic matching and a full three-state realization verify proper compensators, phase-stationary frequencies and final-value tracking; phase-peak loop magnitude is explicitly below one. State rank, feedback/observer characteristics, equilibrium reference gain and a combined four-state matrix verify separation, while nonzero autonomous initial state exposes reduced-transfer/internal-stability differences. Bilinear polynomial expansion verifies strict Schur conditions, direct eigenvalues check the gain boundary, matrix nilpotency verifies repeated-pole decay, and direct recurrence checks early samples. The held-input frequency integral verifies both amplitude and phase, and original feedback equations distinguish direct feedthrough from a one-step plant. Actual graders accept every recomputed field and reject every individual perturbation.
+
+These are same-agent consistency checks rather than qualified control review, evaluated code/proofs/reports, measured noise/robustness or real implementation evidence. Full suites used a matching temporary source copy and the existing Python 3.12 environment; Node 24 used existing dependencies. Browser verification used built assets, temporary repository-rule Nginx and FastAPI with migrated disposable SQLite; readiness returned HTTP 200 and API/Nginx were stopped afterward. Docker/Compose/image/PostgreSQL-container and protected graded-fixture checks remain unavailable/unrun. Earlier unchanged component/build/legacy evidence is retained. No owner walkthrough, human approval, measured workload or university equivalence is inferred. Calculus III is the next bounded authoring batch.
+
+## Calculus III local/global hypothesis expansion (2026-10-22)
+
+AI-assisted original authoring added three foundations and four reports (about 5,000 words), twenty checkpoints/cards and one outcome; current package 0.6.0 has 23 routes, 135 questions and 78 cards. Source comparison and remaining analysis/topology boundaries are recorded in SEMESTER_DEPTH_EXPANSION.md. The first-four-primer overclaim was corrected. Agent-run checks: focused suite 132 passed with one structural SymPy-equality assertion failure; corrected new suite 25 passed in 4.92s, then full repository 3,990 passed/one skipped in 404.84s and backend 7,293 passed/two skipped in 125.91s. The seven-page Chromium learner flow passed in 8.0s (9.8s total), including selected grading, axe checks, private export and guest deletion. Content validation reports 614 routes/3,481 questions/2,075 cards/151 cases, zero errors/warnings. Frontend lint, Ruff and whitespace checks passed; security scan 1,929 files/zero findings; 1,294 source-file SHA comparisons had zero differences. Snapshot: 31 files/473,450 bytes, archive b40abb0913daee20283f660b9de4c10b42ac0625e12daab82359a502253a65c5, manifest 7d04cb32b99a52daa9f1b5d99e16a8138797c627a56bec9c649c1667093d7f0a. Previous snapshot preserved. Docker remains unavailable; local Python/Node and disposable SQLite/Nginx were used. Human review, measured workload, protected fixtures and deployment remain unverified. No owner work or approval is inferred.
+
+## General Chemistry I electronic and coupled-ledger expansion (2026-10-22)
+
+AI-assisted authoring added two foundations and four reports (about 4,500 words), sixteen checkpoints/cards and four dedicated calendar blocks, preserving compact/expanded pairs. Current0.6.0 has22routes134questions79cards. Source comparison and model limits are recorded in SEMESTER_DEPTH_EXPANSION.md. Initial focused checks found stale calendar assertions;guide dates,index and tests were corrected and the bundle repinned. Final focused176passed7.28s;full repository4,011passed/one skipped422.39s;backend7,325passed/two skipped131.37s. Six-page Chromium flow passed5.8s(7.3s total) with selected grading,axe,private export and guest deletion. Content validation620routes/3,497questions/2,091cards/151cases,zero errors/warnings. Frontend lint,Ruff and whitespace checks passed;security1,937files/zero findings;source SHA1,301files/zero differences. Final snapshot31files500,460bytes,archive eed37160318a8cdfd5febe1441ff5a8b09914c8f0c0dbd97192719e7815a42a0,manifest31ac25d8a0c4bf140c567e9bac0b4b4395597bd06845c4072597fb99855c26f3. Previous0.5.0 preserved. Docker unavailable;local Python/Node and disposable SQLite/Nginx used. Human review,workload,protected fixtures and deployment remain unverified. These are agent-run checks,not owner review or approval.
+
+## Biomaterials interface and assay expansion (2026-10-22)
+
+AI-assisted original authoring added two foundations and three reports (about3,800words),fourteen checkpoints/cards;current0.5.0 has22routes122questions73cards. Actual-instruction comparison and remaining undergraduate/graduate boundary are in SEMESTER_DEPTH_EXPANSION.md. Focused582passed9.01s;full repository4,030passed/one skipped414.02s;backend7,353passed/two skipped138.45s. Five-page Chromium flow passed5.4s(6.9s total),including selected grading,axe,private export and guest deletion. Content validation625routes/3,511questions/2,105cards/151cases,zero errors/warnings. Frontend lint,Ruff and whitespace checks passed;security1,944files/zero findings;source SHA1,307files/zero differences. Snapshot33files501,269bytes,archive4e7a4c492970d36816d4ead11d5d4d10bbab93a07dcfcc94217cb6b1e3531bbc,manifest3c39984b26465542ced57984e193f05cf0320959373464d8ce7ae77e96d6443c. Previous0.4.0 preserved. Docker unavailable;local Python/Node and disposable SQLite/Nginx used. No real material,assay,experiment or complete-report quality is certified;human review,workload,protected fixtures and deployment remain unverified. These checks were agent-run,not owner approval.
+
+## Geroscience telomere and comparative-evidence expansion (2026-10-22)
+
+Original AI-assisted authoring added one foundation and three seminar dossiers (about3,050words),ten checkpoints/cards;current0.7.0 has23routes105questions83cards. Source corrections distinguish NIA2012 from joint2017 rhesus evidence and2002 zebrafish regeneration from2010 lineage tracing. Telomere descriptions use indexed primary abstracts because full text was blocked;the2017 primary article was accessible. Focused593passed11.51s;full repository4,045passed/one skipped404.96s;backend7,373passed/two skipped126.52s. Four-page Chromium flow passed4.5s(6.0s total) with selected grading,axe,private export and guest deletion. Content validation629routes/3,521questions/2,115cards/151cases,zero errors/warnings. Frontend lint,Ruff and whitespace checks passed;security1,950files/zero findings;source SHA1,312files/zero differences. Snapshot34files515,824bytes,archive c25e98f65eca4b00f71b7e16775ce3259084d5f6442c689e210d2f4350e296a6,manifest a627a00ceb186cadae715ed83aad4d7aac30704b3ac50f662bbd5e1e8045e1f7. Previous0.6.0 preserved. Local Python/Node and disposable SQLite/Nginx used because Docker is unavailable. No full-paper appraisal,human efficacy,qualified review,workload,protected-fixture or deployment approval is inferred from these agent-run checks.
+
+## Final repository-wide semester authoring verification (2026-10-22)
+
+The owner requested completion of the course plans and expansion to full semester depth. The delivered authoring pass adds 66 original foundations and 86 connected assignments across 24 packages, and inspects the already developed Cell Biology core rather than duplicating its eight homework packets, three virtual labs and cumulative reviews. All 25 existing plans have usable project routes. The resulting public inventory is 634 learner routes, 3,537 formative questions, 2,131 retrieval cards and 151 case prompts. These are authored-content counts, not measured workload or independent subject approval. All packages remain partial, unreviewed and formative-only; the semester work record identifies substantive remaining boundaries.
+
+Biochemistry 0.6.0 closes the verified dedicated transport, translation and photosynthetic-mechanism gaps with three foundations and two bridge reports (about 3,950 words), sixteen checkpoints/cards and one outcome. Its 43 routes preserve the eight earlier homework packets, two data labs, cumulative reviews, inactive candidates and prerequisite readings. Initial focused checks found four stale calendar/candidate-scope assertions. Tests now preserve the inactive 0.4.85 candidates' original scope rather than falsely requiring them to cover later public additions; no candidate, private key or frozen reading was rebound. Corrected focused checks passed 677 tests with one existing skip in 11.15s. New numerical/snapshot checks passed 25 tests in 14.14s. The final browser flow passed all five new pages in 5.6s.
+
+Final integrated agent-run evidence:
+
+- Repository suite: **4,066 passed, one skipped**, 436.99s. Backend suite: **7,405 passed, two skipped**, 135.30s. Existing backend skips concern symbolic response builders; the existing Starlette TestClient deprecation warning remains.
+- Frontend: **82 tests passed in 18 files**, 25.61s; production TypeScript/Vite build passed (Vite 5.24s); ESLint/Prettier and Ruff passed. Whitespace checks passed.
+- Full Chromium browser suite: **61 passed, two skipped**, 4.8 minutes. This fresh integrated run includes project guides/rehearsals/private milestones, all 24 deeper course sequences, every Cell Biology lesson route with automated accessibility checks, notes/startup recovery, course-version enrollment, grading, private export/deletion and scientific calculators. Two protected-assessment tests require unavailable fixtures and were not exercised. This is not protected-release approval or a manual accessibility audit.
+- Content validator: **25 courses, 634 routes, 3,537 questions, 2,131 cards, 151 cases; zero errors and zero explicit warnings**. The absence of validator warnings does not establish complete-course depth.
+- Security scan: **1,957 source files, zero findings**. SHA comparison of content/backend/tools/tests between the working tree and disposable final test copy: **1,318 files, zero differences**. Frontend checks ran in the working tree. Later edits only update root-level reporting and the concise course index.
+- Biochemistry snapshot: **95 files, 1,604,259 bytes**, archive SHA-256 `043374ea5475bb72341bf5c9a4e1a1b72288ed72c80ba42fbf9e22be14829fff`, manifest SHA-256 `4719713ef8e08e3fef2ab4f90964228132733966675a1e07f91f15f04be22e79`. The previous 0.5.1 snapshot is preserved. Other current package snapshots passed the final repository checks.
+
+Docker was unavailable, so compatible checks used the existing Python 3.12 environment, Node dependencies and temporary SQLite/Nginx delivery. The disposable database was migrated through Alembic 0012. Temporary API/Nginx services were stopped after the browser run. No owner learner data, credentials or pre-existing private storage was modified. No commit, push, deployment, human review, measured workload, university equivalence or owner approval is inferred. These results describe AI-assisted authoring and agent-run verification; qualified review and experimental evidence must remain separately attributed.

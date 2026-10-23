@@ -7,7 +7,7 @@
   "domain": "Bioengineering",
   "level": "Year 3",
   "maturity": "partial",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -50,6 +50,21 @@
       "id": "cellular-biomechanics-outcome-4",
       "description": "Design an experiment that separates stiffness from ligand density.",
       "bloom": "create"
+    },
+    {
+      "id": "cellular-biomechanics-outcome-5",
+      "description": "Derive selected membrane bending/tension equilibria and identify their coefficients from independent force and geometry observations.",
+      "bloom": "analyze"
+    },
+    {
+      "id": "cellular-biomechanics-outcome-6",
+      "description": "Integrate a force-dependent rupture rate over a prescribed history and interpret survival, quantiles and mechanochemical inference limits.",
+      "bloom": "analyze"
+    },
+    {
+      "id": "cellular-biomechanics-outcome-7",
+      "description": "Use competing mechanical predictions to identify unresolved parameters and propose discriminating comparisons under stated model assumptions.",
+      "bloom": "evaluate"
     }
   ],
   "lesson_objectives": [
@@ -423,6 +438,166 @@
         "cellular-biomechanics-outcome-1",
         "cellular-biomechanics-outcome-3"
       ]
+    },
+    {
+      "id": "cellular-biomechanics-16-objective-1",
+      "description": "Derive engineering strain and stress from a supported displacement gradient.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-1"
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-16-objective-2",
+      "description": "Resolve a stress tensor into a boundary traction vector.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-1"
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-16-objective-3",
+      "description": "Check elastic work,positive energy and the shear convention.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-1"
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-16-objective-4",
+      "description": "Identify what one prescribed strain leaves unresolved.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-1"
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-17-objective-1",
+      "description": "Minimize a declared membrane energy and compute its extension force.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-5"
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-17-objective-2",
+      "description": "Invert independent force and geometry observations into two model parameters.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-5"
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-17-objective-3",
+      "description": "Check energy units and the equal optimum contributions.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-5"
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-17-objective-4",
+      "description": "Verify scaling and separate bilayer and cortical interpretations.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-5"
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-18-objective-1",
+      "description": "Integrate force history into cumulative hazard and survival.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-6"
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-18-objective-2",
+      "description": "Distinguish an eligible interior mode from a cumulative median.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-6"
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-18-objective-3",
+      "description": "Track a specified loading-rate change through distribution summaries.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-6"
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-18-objective-4",
+      "description": "Apply a quantile relation and reject a negative interior-mode candidate.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-6"
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-19-objective-1",
+      "description": "Verify a distinct continuum stress and work ledger.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-1"
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-19-objective-2",
+      "description": "Resolve traction and reconstruct its signed normal and tangent components.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-1"
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-20-objective-1",
+      "description": "Verify a distinct membrane minimum and extension derivative.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-5"
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-20-objective-2",
+      "description": "Use joint inverse evidence and identify the limitation of force alone.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-5"
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-21-objective-1",
+      "description": "Derive distinct mode and median under a specified history.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-6"
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-21-objective-2",
+      "description": "Distinguish integrated hazard,expected count and a controlled loading-rate comparison.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-6"
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-22-objective-1",
+      "description": "Identify competing constitutive predictions after an insufficient first loading test.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-7"
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-22-objective-2",
+      "description": "Compare equal force with distinct geometry as inverse-model evidence.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cellular-biomechanics-outcome-7"
+      ]
     }
   ],
   "duration": {
@@ -443,10 +618,12 @@
         "week": 2,
         "title": "Applying strain to cells: engineering and true strain, Poisson contraction and strain rate",
         "lesson_ids": [
-          "cellular-biomechanics-12"
+          "cellular-biomechanics-12",
+          "cellular-biomechanics-16"
         ],
         "assessment_ids": [
-          "cellular-biomechanics-12-practice"
+          "cellular-biomechanics-12-practice",
+          "cellular-biomechanics-16-practice"
         ]
       },
       {
@@ -465,10 +642,12 @@
         "week": 4,
         "title": "Oscillatory rheology: storage and loss moduli of a viscoelastic gel",
         "lesson_ids": [
-          "cellular-biomechanics-7"
+          "cellular-biomechanics-7",
+          "cellular-biomechanics-19"
         ],
         "assessment_ids": [
-          "cellular-biomechanics-7-practice"
+          "cellular-biomechanics-7-practice",
+          "cellular-biomechanics-19-practice"
         ]
       },
       {
@@ -497,10 +676,12 @@
         "week": 7,
         "title": "Bonds under force and rigidity sensing: lifetimes, loading rates and the molecular clutch",
         "lesson_ids": [
-          "cellular-biomechanics-9"
+          "cellular-biomechanics-9",
+          "cellular-biomechanics-18"
         ],
         "assessment_ids": [
-          "cellular-biomechanics-9-practice"
+          "cellular-biomechanics-9-practice",
+          "cellular-biomechanics-18-practice"
         ]
       },
       {
@@ -517,30 +698,36 @@
         "week": 9,
         "title": "Cortical tension and micropipette aspiration",
         "lesson_ids": [
-          "cellular-biomechanics-10"
+          "cellular-biomechanics-10",
+          "cellular-biomechanics-17"
         ],
         "assessment_ids": [
-          "cellular-biomechanics-10-practice"
+          "cellular-biomechanics-10-practice",
+          "cellular-biomechanics-17-practice"
         ]
       },
       {
         "week": 10,
         "title": "Experimental design for cell mechanics",
         "lesson_ids": [
-          "cellular-biomechanics-4"
+          "cellular-biomechanics-4",
+          "cellular-biomechanics-20"
         ],
         "assessment_ids": [
-          "cellular-biomechanics-4-practice"
+          "cellular-biomechanics-4-practice",
+          "cellular-biomechanics-20-practice"
         ]
       },
       {
         "week": 11,
         "title": "Dose–response to stiffness: the Hill function and how to choose the levels",
         "lesson_ids": [
-          "cellular-biomechanics-11"
+          "cellular-biomechanics-11",
+          "cellular-biomechanics-21"
         ],
         "assessment_ids": [
-          "cellular-biomechanics-11-practice"
+          "cellular-biomechanics-11-practice",
+          "cellular-biomechanics-21-practice"
         ]
       },
       {
@@ -569,12 +756,14 @@
         "week": 14,
         "title": "Decoupling stiffness from ligand density and mobility: redesigning the experiment",
         "lesson_ids": [
-          "cellular-biomechanics-13"
+          "cellular-biomechanics-13",
+          "cellular-biomechanics-22"
         ],
         "assessment_ids": [
           "cellular-biomechanics-13-practice",
           "cellular-biomechanics-case",
-          "cellular-biomechanics-viscoelastic-project"
+          "cellular-biomechanics-viscoelastic-project",
+          "cellular-biomechanics-22-practice"
         ]
       }
     ]
@@ -1178,6 +1367,225 @@
           ]
         }
       ]
+    },
+    {
+      "id": "cellular-biomechanics-module-16",
+      "title": "Tensor strain, traction and constitutive evidence",
+      "source_ids": [
+        "cellmech-semester-calendar",
+        "cellmech-semester-syllabus"
+      ],
+      "lessons": [
+        {
+          "id": "cellular-biomechanics-16",
+          "title": "Tensor strain, traction and constitutive evidence",
+          "reading": "modules/tensor-strain-traction-and-constitutive-evidence.md",
+          "objectives": [
+            "cellular-biomechanics-16-objective-1",
+            "cellular-biomechanics-16-objective-2",
+            "cellular-biomechanics-16-objective-3",
+            "cellular-biomechanics-16-objective-4"
+          ],
+          "worked_example": "The symmetric displacement gradient gives epsilon_xx=0.01, epsilon_yy=0.02, epsilon_xy=0.01, so gamma=0.02. The aligned constitutive matrix gives stress(0.10, 0.12, 0.06)kPa. Using epsilon_xy in place of engineering gamma would lose the shear factor two. Verify the original mechanical,history and evidence assumptions independently before interpreting this selected result.",
+          "question_ids": [
+            "cellular-biomechanics-16:depth-1",
+            "cellular-biomechanics-16:depth-2",
+            "cellular-biomechanics-16:depth-3",
+            "cellular-biomechanics-16:depth-4"
+          ],
+          "card_ids": [
+            "cellular-biomechanics-16-card-1",
+            "cellular-biomechanics-16-card-2",
+            "cellular-biomechanics-16-card-3",
+            "cellular-biomechanics-16-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-module-17",
+      "title": "Membrane curvature and tether inference",
+      "source_ids": [
+        "cellmech-semester-calendar",
+        "cellmech-semester-syllabus",
+        "cellmech-semester-helfrich"
+      ],
+      "lessons": [
+        {
+          "id": "cellular-biomechanics-17",
+          "title": "Membrane curvature and tether inference",
+          "reading": "modules/membrane-curvature-and-tether-inference.md",
+          "objectives": [
+            "cellular-biomechanics-17-objective-1",
+            "cellular-biomechanics-17-objective-2",
+            "cellular-biomechanics-17-objective-3",
+            "cellular-biomechanics-17-objective-4"
+          ],
+          "worked_example": "The stationary radius is sqrt[kappa/(two sigma)]=sqrt1800 nm and the positive second derivative verifies a minimum. The force is 2pi sqrt(two kappa sigma), about 10.662919 pN. This applies to the stated reservoir/geometry model, not an arbitrary whole-cell pulling experiment.",
+          "question_ids": [
+            "cellular-biomechanics-17:depth-1",
+            "cellular-biomechanics-17:depth-2",
+            "cellular-biomechanics-17:depth-3",
+            "cellular-biomechanics-17:depth-4"
+          ],
+          "card_ids": [
+            "cellular-biomechanics-17-card-1",
+            "cellular-biomechanics-17-card-2",
+            "cellular-biomechanics-17-card-3",
+            "cellular-biomechanics-17-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-module-18",
+      "title": "Force-history survival and rupture distributions",
+      "source_ids": [
+        "cellmech-semester-calendar",
+        "cellmech-semester-syllabus",
+        "cellmech-semester-bell"
+      ],
+      "lessons": [
+        {
+          "id": "cellular-biomechanics-18",
+          "title": "Force-history survival and rupture distributions",
+          "reading": "modules/force-history-survival-and-rupture-distributions.md",
+          "objectives": [
+            "cellular-biomechanics-18-objective-1",
+            "cellular-biomechanics-18-objective-2",
+            "cellular-biomechanics-18-objective-3",
+            "cellular-biomechanics-18-objective-4"
+          ],
+          "worked_example": "Changing time to force gives H=(k0 Fb/r)[exp(F/Fb)−one]. Here the coefficient is one half and F/Fb=one, so H=(e−one)/two and survivor exp(−H), about 0.42352577. A changing off-rate must be integrated;it is not a probability itself. Verify the original mechanical,history and evidence assumptions independently before interpreting this selected result.",
+          "question_ids": [
+            "cellular-biomechanics-18:depth-1",
+            "cellular-biomechanics-18:depth-2",
+            "cellular-biomechanics-18:depth-3",
+            "cellular-biomechanics-18:depth-4"
+          ],
+          "card_ids": [
+            "cellular-biomechanics-18-card-1",
+            "cellular-biomechanics-18-card-2",
+            "cellular-biomechanics-18-card-3",
+            "cellular-biomechanics-18-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-module-19",
+      "title": "Assignment 1: continuum and boundary work",
+      "source_ids": [
+        "cellmech-semester-calendar",
+        "cellmech-semester-syllabus"
+      ],
+      "lessons": [
+        {
+          "id": "cellular-biomechanics-19",
+          "title": "Assignment 1: continuum and boundary work",
+          "reading": "assignments/coursework-01-continuum-and-boundary-work.md",
+          "objectives": [
+            "cellular-biomechanics-19-objective-1",
+            "cellular-biomechanics-19-objective-2"
+          ],
+          "worked_example": "The engineering strain is(0.02, minus 0.01, 0.02), giving stress(0.09, minus 0.02, 0.04)kPa. One-half tensor contraction or paired engineering work gives0.0014 kPa=1.4 J/m³. The negative normal stress is compatible with positive total stored energy under the stated constitutive model.",
+          "question_ids": [
+            "cellular-biomechanics-19:depth-1",
+            "cellular-biomechanics-19:depth-2"
+          ],
+          "card_ids": [
+            "cellular-biomechanics-19-card-1",
+            "cellular-biomechanics-19-card-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-module-20",
+      "title": "Assignment 2: membrane energy and inverse evidence",
+      "source_ids": [
+        "cellmech-semester-calendar",
+        "cellmech-semester-syllabus",
+        "cellmech-semester-helfrich"
+      ],
+      "lessons": [
+        {
+          "id": "cellular-biomechanics-20",
+          "title": "Assignment 2: membrane energy and inverse evidence",
+          "reading": "assignments/coursework-02-membrane-energy-and-inverse-evidence.md",
+          "objectives": [
+            "cellular-biomechanics-20-objective-1",
+            "cellular-biomechanics-20-objective-2"
+          ],
+          "worked_example": "The minimum occurs at sqrt[fifty/(two times0.04)]=25 nm. Each energy-per-length contribution is 2pi pN, so force is 4pi pN. The result depends on the selected fixed-reservoir effective energy and is not a whole-cell force prediction. Verify the original mechanical,history and evidence assumptions independently before interpreting this selected result.",
+          "question_ids": [
+            "cellular-biomechanics-20:depth-1",
+            "cellular-biomechanics-20:depth-2"
+          ],
+          "card_ids": [
+            "cellular-biomechanics-20-card-1",
+            "cellular-biomechanics-20-card-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-module-21",
+      "title": "Assignment 3: loading history and rupture evidence",
+      "source_ids": [
+        "cellmech-semester-calendar",
+        "cellmech-semester-syllabus",
+        "cellmech-semester-bell"
+      ],
+      "lessons": [
+        {
+          "id": "cellular-biomechanics-21",
+          "title": "Assignment 3: loading history and rupture evidence",
+          "reading": "assignments/coursework-03-loading-history-and-rupture-evidence.md",
+          "objectives": [
+            "cellular-biomechanics-21-objective-1",
+            "cellular-biomechanics-21-objective-2"
+          ],
+          "worked_example": "The cumulative-hazard coefficient is one quarter. Mode is 4ln4, about 5.5451774 pN, and median4ln[one+four ln2], about 5.3110457. Both refer to the same supplied distribution;their difference does not imply two distinct bond populations. Verify the original mechanical,history and evidence assumptions independently before interpreting this selected result.",
+          "question_ids": [
+            "cellular-biomechanics-21:depth-1",
+            "cellular-biomechanics-21:depth-2"
+          ],
+          "card_ids": [
+            "cellular-biomechanics-21-card-1",
+            "cellular-biomechanics-21-card-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cellular-biomechanics-module-22",
+      "title": "Assignment 4: constitutive discrimination dossier",
+      "source_ids": [
+        "cellmech-semester-calendar",
+        "cellmech-semester-syllabus",
+        "cellmech-semester-helfrich"
+      ],
+      "lessons": [
+        {
+          "id": "cellular-biomechanics-22",
+          "title": "Assignment 4: constitutive discrimination dossier",
+          "reading": "assignments/coursework-04-constitutive-discrimination-dossier.md",
+          "objectives": [
+            "cellular-biomechanics-22-objective-1",
+            "cellular-biomechanics-22-objective-2"
+          ],
+          "worked_example": "Both models agree on the earlier prescribed strain(0.01, zero, zero). The new biaxial predictions differ in yy stress:0.07 versus0.10 kPa. The separate shear predictions are 0.06 versus0.03. These distinct loadings expose unresolved coefficients without proving either model describes an actual cell.",
+          "question_ids": [
+            "cellular-biomechanics-22:depth-1",
+            "cellular-biomechanics-22:depth-2"
+          ],
+          "card_ids": [
+            "cellular-biomechanics-22-card-1",
+            "cellular-biomechanics-22-card-2"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -1609,6 +2017,144 @@
       "objective_ids": [],
       "question_ids": [],
       "points": 0
+    },
+    {
+      "id": "cellular-biomechanics-16-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Tensor strain,traction and constitutive evidence (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 2,
+      "objective_ids": [
+        "cellular-biomechanics-16-objective-1",
+        "cellular-biomechanics-16-objective-2",
+        "cellular-biomechanics-16-objective-3",
+        "cellular-biomechanics-16-objective-4",
+        "cellular-biomechanics-outcome-1"
+      ],
+      "question_ids": [
+        "cellular-biomechanics-16:depth-1",
+        "cellular-biomechanics-16:depth-2",
+        "cellular-biomechanics-16:depth-3",
+        "cellular-biomechanics-16:depth-4"
+      ],
+      "points": 11
+    },
+    {
+      "id": "cellular-biomechanics-17-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Membrane curvature and tether inference (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 9,
+      "objective_ids": [
+        "cellular-biomechanics-17-objective-1",
+        "cellular-biomechanics-17-objective-2",
+        "cellular-biomechanics-17-objective-3",
+        "cellular-biomechanics-17-objective-4",
+        "cellular-biomechanics-outcome-5"
+      ],
+      "question_ids": [
+        "cellular-biomechanics-17:depth-1",
+        "cellular-biomechanics-17:depth-2",
+        "cellular-biomechanics-17:depth-3",
+        "cellular-biomechanics-17:depth-4"
+      ],
+      "points": 10
+    },
+    {
+      "id": "cellular-biomechanics-18-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Force-history survival and rupture distributions (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 7,
+      "objective_ids": [
+        "cellular-biomechanics-18-objective-1",
+        "cellular-biomechanics-18-objective-2",
+        "cellular-biomechanics-18-objective-3",
+        "cellular-biomechanics-18-objective-4",
+        "cellular-biomechanics-outcome-6"
+      ],
+      "question_ids": [
+        "cellular-biomechanics-18:depth-1",
+        "cellular-biomechanics-18:depth-2",
+        "cellular-biomechanics-18:depth-3",
+        "cellular-biomechanics-18:depth-4"
+      ],
+      "points": 8
+    },
+    {
+      "id": "cellular-biomechanics-19-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 1: continuum and boundary work (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 4,
+      "objective_ids": [
+        "cellular-biomechanics-19-objective-1",
+        "cellular-biomechanics-19-objective-2",
+        "cellular-biomechanics-outcome-1"
+      ],
+      "question_ids": [
+        "cellular-biomechanics-19:depth-1",
+        "cellular-biomechanics-19:depth-2"
+      ],
+      "points": 8
+    },
+    {
+      "id": "cellular-biomechanics-20-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 2: membrane energy and inverse evidence (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 10,
+      "objective_ids": [
+        "cellular-biomechanics-20-objective-1",
+        "cellular-biomechanics-20-objective-2",
+        "cellular-biomechanics-outcome-5"
+      ],
+      "question_ids": [
+        "cellular-biomechanics-20:depth-1",
+        "cellular-biomechanics-20:depth-2"
+      ],
+      "points": 6
+    },
+    {
+      "id": "cellular-biomechanics-21-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 3: loading history and rupture evidence (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 11,
+      "objective_ids": [
+        "cellular-biomechanics-21-objective-1",
+        "cellular-biomechanics-21-objective-2",
+        "cellular-biomechanics-outcome-6"
+      ],
+      "question_ids": [
+        "cellular-biomechanics-21:depth-1",
+        "cellular-biomechanics-21:depth-2"
+      ],
+      "points": 6
+    },
+    {
+      "id": "cellular-biomechanics-22-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 4: constitutive discrimination dossier (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 14,
+      "objective_ids": [
+        "cellular-biomechanics-22-objective-1",
+        "cellular-biomechanics-22-objective-2",
+        "cellular-biomechanics-outcome-7"
+      ],
+      "question_ids": [
+        "cellular-biomechanics-22:depth-1",
+        "cellular-biomechanics-22:depth-2"
+      ],
+      "points": 8
     }
   ],
   "grading_policy": {
@@ -1708,18 +2254,25 @@
       "version": "0.4.0",
       "date": "2026-10-20",
       "summary": "Made the planned viscoelastic material-selection project usable by learners as ungraded practice. Week 13 gains an optional project guide with the project's model, thresholds and seven tasks, a worked example on a separate candidate, two synthetic rehearsal candidates examined at different conditions and five open rehearsal practice items; five project milestones are Case studio self-checks with a week-14 project record. The project table becomes a learner resource, and the stiffness-ligand lab's dataset link now points to the package-pinned CSV instead of a mutable repository URL. The inactive project draft is unchanged; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.5.0",
+      "date": "2026-10-22",
+      "summary": "Added three original tensor/traction/constitutive,membrane curvature/inverse and force-history rupture foundations with four connected reports and twenty checkpoints/cards. Added explicit membrane,history and model-discrimination outcomes. Classical Helfrich/Bell bibliographic metadata was verified without claiming full-text review;all examples are synthetic and package remains partial,unreviewed and formative-only."
     }
   ],
   "limitations": [
     "All four former compact prototype units now have expanded primers beside the other readings; the package also includes one synthetic-data virtual lab and is not equivalent to a full university semester.",
-    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no substantive homework sequence, laboratory sequence, midterm, cumulative final, or graded integrative project; an optional viscoelastic material-selection project guide with rehearsal practice and Case studio milestone self-checks (weeks 13–14) is ungraded practice, and the separate paper-only project draft stays inactive.",
+    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and four open connected reports but no experimental laboratory sequence, midterm, cumulative final or graded integrative project; an optional viscoelastic material-selection project guide with rehearsal practice and Case studio milestone self-checks (weeks 13–14) is ungraded practice, and the separate paper-only project draft stays inactive.",
     "Practice items are short formative checks (two to three per prototype unit and six to eleven per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
-    "Of the 83 numerical answers in this package, 14 require a unit, 11 check significant figures and none checks dimensions; the others accept a number within a stated tolerance, with the unit optional.",
     "Total workload and weekly duration are unknown; former nominal credit values and hardcoded reading times do not establish workload.",
     "All gels, cells, forces, material candidates and numbers are synthetic teaching examples; this package gives no laboratory protocols, handling procedures or medical advice and says nothing about any real cell type, material or measurement. The models are simplified textbook descriptions, not analysis methods for real data.",
-    "The viscoelastic material-selection project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses separate synthetic candidates and conditions, and no software check evaluates a learner's project calculations or written interpretation. Milestone weeks are planning suggestions, not measured workload or deadlines."
+    "The viscoelastic material-selection project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses separate synthetic candidates and conditions, and no software check evaluates a learner's project calculations or written interpretation. Milestone weeks are planning suggestions, not measured workload or deadlines.",
+    "Three foundations and four reports deepen aligned small-strain tensors and work-conjugate shear, selected fixed-reservoir membrane curvature/force-radius inversion and prescribed single-bond force-history hazard/quantiles. Broader molecular/tissue/muscle/electromechanical theory, finite strain, full membrane/cortex/bond models, experimental competence, workload and qualified review remain open.",
+    "All fields, coefficients, thermal energies, tube geometries and bond histories are stipulated models. Force alone can leave membrane parameters confounded, and one strain condition can leave constitutive coefficients unresolved. Bell/Helfrich metadata was verified through NCBI;full source papers were not examined. Checkpoints do not evaluate code, proofs, plots, reports or empirical mechanism identification.",
+    "Of the 133 numerical answers, 14 require units, 60 check significant figures and 0 check dimensions. New continuous responses request three significant figures in named units;the exact undetermined-coefficient count has no significant-figure requirement. Expected counts are continuous model quantities rather than observed exact counts."
   ],
   "intentionally_omitted": [
     "Graded assessments and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the inactive material-selection draft is not an assigned or graded project."

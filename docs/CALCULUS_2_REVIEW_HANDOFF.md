@@ -1,6 +1,6 @@
 # Calculus II course review handoff
 
-This handoff targets Calculus II: Integration, Series & Applications, package version 0.5.0. The [review snapshot](CALCULUS_2_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded. The local Calculus I/II sequence divides the single 18.01SC comparator and does not claim two independent course equivalents.
+This handoff targets Calculus II: Integration, Series & Applications, package version 0.6.0. The [review snapshot](CALCULUS_2_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded. The local Calculus I/II sequence divides the single 18.01SC comparator and does not claim two independent course equivalents.
 
 ## Review scope
 
@@ -20,3 +20,7 @@ Historical version 0.4.6 records a focused suite of 89 passing tests, including 
 ## Review record to complete only after review
 
 After a review actually occurs, record reviewer name and qualifications, date, package version and archive digest, artifacts examined, concrete findings and disposition. Keep separate decisions for mathematical correctness, instructional design, assessment, accessibility, workload and release. Do not infer approval from the package hash or test results.
+
+## Mixed integration/geometry/convergence target (2026-10-22)
+
+Current target 0.6.0 adds two foundations, four connected reports and sixteen checkpoints/cards. Check frustum/arc elements, end caps and surface-map multiplicity; weighted radial amount/quantile domains; method transformations and shared-cutoff improper limits; minimal integer bounds versus actual errors; uniform/pointwise and derivative/integral conditions; flat-function Taylor representation; and the six-figure arctangent approximation with separate truncation/display budgets. Exact integer outputs have no significant-figure penalty. Code/proofs/reports, full analysis theory, workload and qualified review remain open. The local I/II split still divides one comparator. Earlier evidence above is historical; the current snapshot pins the new target.

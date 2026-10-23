@@ -3374,6 +3374,1305 @@
         "kind": "original",
         "modifications": []
       }
+    },
+    {
+      "id": "geroscience-project:rehearsal-1",
+      "type": "data_interpretation",
+      "prompt": "Surrogate-evidence dossier rehearsal · Endpoints, nulls and interval widths. Separate fictional dossier: X is an observational age comparison with marker +3.0 (CI 2.0,4.0), function −0.8 (−1.4,−0.2), survival unmeasured. Y is randomized with marker −1.2 (−1.8,−0.6), function +0.1 (−0.4,+0.6), HR 1.02 (0.82,1.28). Z is randomized in another context with marker +0.2 (−0.3,+0.7), function +0.9 (+0.3,+1.5), HR 0.80 (0.65,0.98). Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 4,
+      "objective_ids": [
+        "geroscience-project-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "marker_width",
+          "type": "numeric",
+          "prompt": "Rehearsal X marker-interval width, in arbitrary marker units.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "function_width",
+          "type": "numeric",
+          "prompt": "Rehearsal X function-interval width, in assay points.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "nulls",
+          "type": "single_choice",
+          "prompt": "Which null values apply to the supplied effect measures?",
+          "options": [
+            "One for every difference and zero for every hazard ratio.",
+            "Zero for a mean difference and one for a hazard ratio.",
+            "Zero for every effect measure because all null effects are additive."
+          ],
+          "points": 1
+        },
+        {
+          "id": "precision",
+          "type": "single_choice",
+          "prompt": "Can the two interval widths directly rank marker and function precision?",
+          "options": [
+            "Yes. The numerically smaller width is always the more informative endpoint.",
+            "Yes. Interval width removes the need to name units.",
+            "No. They are on different scales; any precision comparison needs a common, justified basis."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "marker_width",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "function_width",
+            "type": "numeric",
+            "answer": 1.2,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "nulls",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "precision",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must be named before deciding whether an interval crosses its null?",
+        "solution": "X marker width is 4.0−2.0 = 2.0 marker units; function width is −0.2−(−1.4) = 1.2 assay points. Difference intervals are screened against zero, while hazard-ratio intervals are screened against one. Different units prevent a direct precision ranking from the raw widths.",
+        "lesson_ids": [
+          "geroscience-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "geroscience-project:rehearsal-2",
+      "type": "data_interpretation",
+      "prompt": "Surrogate-evidence dossier rehearsal · Association and intervention evidence. Separate fictional dossier: X is an observational age comparison with marker +3.0 (CI 2.0,4.0), function −0.8 (−1.4,−0.2), survival unmeasured. Y is randomized with marker −1.2 (−1.8,−0.6), function +0.1 (−0.4,+0.6), HR 1.02 (0.82,1.28). Z is randomized in another context with marker +0.2 (−0.3,+0.7), function +0.9 (+0.3,+1.5), HR 0.80 (0.65,0.98). Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 3,
+      "objective_ids": [
+        "geroscience-project-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "design",
+          "type": "single_choice",
+          "prompt": "What does rehearsal X’s cross-sectional age-group design support?",
+          "options": [
+            "An age-group association in the fictional context, not evidence that changing the marker causes a functional change.",
+            "An intervention effect because both intervals exclude zero.",
+            "A randomized comparison because younger and older groups differ."
+          ],
+          "points": 1
+        },
+        {
+          "id": "confounding",
+          "type": "single_choice",
+          "prompt": "Which limitation remains even if the age-group marker association is precise?",
+          "options": [
+            "A narrow interval proves that every alternative explanation is absent.",
+            "An observational association cannot be measured at all.",
+            "Age groups can differ in other causes or selection processes, and the marker may be a correlate rather than a mediator."
+          ],
+          "points": 1
+        },
+        {
+          "id": "transport",
+          "type": "single_choice",
+          "prompt": "Can X alone establish that a marker response in another model predicts benefit?",
+          "options": [
+            "Yes. An age-associated marker is automatically a universal surrogate.",
+            "No. Prediction of intervention benefit in a new context requires its own outcome-linked validation evidence.",
+            "Yes. A marker’s measurement units establish its causal role."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "design",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "confounding",
+            "type": "single_choice",
+            "answer": 2
+          },
+          {
+            "id": "transport",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can a reliable age predictor still be an unvalidated surrogate?",
+        "solution": "A cross-sectional contrast compares age groups rather than randomized marker changes. It can support association under the supplied observation model but does not identify mediation or establish that an intervention-induced marker shift predicts function or survival in a different context.",
+        "lesson_ids": [
+          "geroscience-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "geroscience-project:rehearsal-3",
+      "type": "data_interpretation",
+      "prompt": "Surrogate-evidence dossier rehearsal · A marker response without resolved benefit. Separate fictional dossier: X is an observational age comparison with marker +3.0 (CI 2.0,4.0), function −0.8 (−1.4,−0.2), survival unmeasured. Y is randomized with marker −1.2 (−1.8,−0.6), function +0.1 (−0.4,+0.6), HR 1.02 (0.82,1.28). Z is randomized in another context with marker +0.2 (−0.3,+0.7), function +0.9 (+0.3,+1.5), HR 0.80 (0.65,0.98). Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 4,
+      "objective_ids": [
+        "geroscience-project-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "marker_width",
+          "type": "numeric",
+          "prompt": "Rehearsal Y marker-interval width, in arbitrary marker units.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "hr_distance",
+          "type": "numeric",
+          "prompt": "Absolute distance of Y’s hazard-ratio point estimate from its null value one.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "result",
+          "type": "single_choice",
+          "prompt": "Which result statement matches Y?",
+          "options": [
+            "A marker shift proves improved function and longer survival despite their intervals.",
+            "The fictional randomized comparison has a marker shift, while supplied function and survival intervals leave their nulls compatible.",
+            "Intervals crossing their null prove every corresponding effect is exactly zero."
+          ],
+          "points": 1
+        },
+        {
+          "id": "absence",
+          "type": "single_choice",
+          "prompt": "What does Y’s unresolved function interval establish?",
+          "options": [
+            "Uncertainty under the stated analysis, not proof of equivalence or exact absence of a functional effect.",
+            "A formal equivalence result without a predeclared equivalence margin.",
+            "A guarantee that another study must reproduce zero effect."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "marker_width",
+            "type": "numeric",
+            "answer": 1.2,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "hr_distance",
+            "type": "numeric",
+            "answer": 0.02,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "result",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "absence",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Does an interval crossing the null prove no effect or equivalence?",
+        "solution": "Y’s marker width is −0.6−(−1.8) = 1.2 units. Its hazard-ratio point estimate is 1.02, only 0.02 from the null of one, but interpretation also requires its interval 0.82–1.28. The marker interval excludes zero; the function interval includes zero and survival interval includes one. Those results do not prove equivalence or benefit.",
+        "lesson_ids": [
+          "geroscience-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "geroscience-project:rehearsal-4",
+      "type": "data_interpretation",
+      "prompt": "Surrogate-evidence dossier rehearsal · Outcome signals without a resolved marker change. Separate fictional dossier: X is an observational age comparison with marker +3.0 (CI 2.0,4.0), function −0.8 (−1.4,−0.2), survival unmeasured. Y is randomized with marker −1.2 (−1.8,−0.6), function +0.1 (−0.4,+0.6), HR 1.02 (0.82,1.28). Z is randomized in another context with marker +0.2 (−0.3,+0.7), function +0.9 (+0.3,+1.5), HR 0.80 (0.65,0.98). Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 4,
+      "objective_ids": [
+        "geroscience-project-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "hazard_reduction",
+          "type": "numeric",
+          "prompt": "For rehearsal Z’s HR = 0.80, compute 1−HR as a fraction, not a lifespan increase.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "function_margin",
+          "type": "numeric",
+          "prompt": "Distance of Z’s functional lower interval endpoint above zero, in assay points.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "marker",
+          "type": "single_choice",
+          "prompt": "How should Z’s marker interval −0.3 to +0.7 be described?",
+          "options": [
+            "It proves every marker response is exactly zero.",
+            "It assigns a human biological-age reduction.",
+            "It leaves zero marker difference compatible; it does not prove the marker is unchanged exactly."
+          ],
+          "points": 1
+        },
+        {
+          "id": "hazard",
+          "type": "single_choice",
+          "prompt": "What does an HR below one measure in this supplied analysis?",
+          "options": [
+            "A direct percentage increase in every subject’s lifespan.",
+            "A relative event-hazard estimate for the stated comparison, not a proportional increase in lifespan or a median-survival change.",
+            "A negative hazard, because the effect is beneficial."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "hazard_reduction",
+            "type": "numeric",
+            "answer": 0.2,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "function_margin",
+            "type": "numeric",
+            "answer": 0.3,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "significant_figures": 3,
+            "dimensions": null
+          },
+          {
+            "id": "marker",
+            "type": "single_choice",
+            "answer": 2
+          },
+          {
+            "id": "hazard",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can an HR of 0.8 not be rewritten as 20% longer lifespan?",
+        "solution": "Z’s HR point estimate 0.80 corresponds to 1−0.80 = 0.20 lower relative hazard on the stated scale, not 20% longer life. Its function lower endpoint is +0.3 assay points and its HR upper endpoint 0.98 excludes one; its marker interval crosses zero. A model-context result does not transport itself to humans.",
+        "lesson_ids": [
+          "geroscience-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "geroscience-project:rehearsal-5",
+      "type": "data_interpretation",
+      "prompt": "Surrogate-evidence dossier rehearsal · Surrogate validation and a bounded dossier. Separate fictional dossier: X is an observational age comparison with marker +3.0 (CI 2.0,4.0), function −0.8 (−1.4,−0.2), survival unmeasured. Y is randomized with marker −1.2 (−1.8,−0.6), function +0.1 (−0.4,+0.6), HR 1.02 (0.82,1.28). Z is randomized in another context with marker +0.2 (−0.3,+0.7), function +0.9 (+0.3,+1.5), HR 0.80 (0.65,0.98). Report continuous numeric responses as bare numbers in the units requested, to three significant figures; enter exact counts as whole numbers. Select one response for each interpretation field.",
+      "points": 4,
+      "objective_ids": [
+        "geroscience-project-objective-5"
+      ],
+      "response_fields": [
+        {
+          "id": "randomized_contexts",
+          "type": "numeric",
+          "prompt": "Exact number of randomized intervention contexts in the rehearsal dossier.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "validated",
+          "type": "single_choice",
+          "prompt": "Do the three synthetic comparisons validate the marker as a universal surrogate?",
+          "options": [
+            "Yes. Any two randomized marker comparisons validate universal surrogacy.",
+            "No. They illustrate different associations and responses; validation needs outcome-linked evidence for a defined context of use.",
+            "Yes. A cross-sectional age association replaces outcome-linked intervention evidence."
+          ],
+          "points": 1
+        },
+        {
+          "id": "comparison",
+          "type": "single_choice",
+          "prompt": "Can Y and Z be ranked as a head-to-head intervention trial?",
+          "options": [
+            "No. They use different fictional model contexts and endpoint scales; a controlled common-comparator comparison is not supplied.",
+            "Yes. Compare raw marker units directly with hazard ratios.",
+            "Yes. The smaller point estimate is automatically the better intervention."
+          ],
+          "points": 1
+        },
+        {
+          "id": "next_evidence",
+          "type": "single_choice",
+          "prompt": "What would strengthen a context-specific surrogate claim?",
+          "options": [
+            "More precise age prediction alone, without any meaningful outcome data.",
+            "A renamed marker and a larger point estimate without validation.",
+            "Reliable measurement and replicated intervention evidence linking marker effects to meaningful outcomes across the relevant intended context."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "randomized_contexts",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "validated",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "comparison",
+            "type": "single_choice",
+            "answer": 0
+          },
+          {
+            "id": "next_evidence",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What belongs in the final evidence map?",
+        "solution": "There are two randomized intervention contexts and one observational age comparison. None is real evidence about an intervention. A surrogate claim needs a defined endpoint and use context, reliable measurement and substantial evidence connecting intervention effects on the marker to meaningful outcomes. The dossier neither validates nor formally disproves every possible context-specific surrogate relationship.",
+        "lesson_ids": [
+          "geroscience-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic rehearsal with AI-assisted authoring; public ungraded practice, not a protected key."
+        ]
+      }
+    },
+    {
+      "id": "geroscience-18:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Synthetic six-end model:lengths3.2, 4.0, 4.8, 5.6, 6.4, 7.2. Shorten0.1 per lineage division; trigger when minimum first reaches or falls below2.8. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "geroscience-18-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "mean",
+          "type": "numeric",
+          "prompt": "Initial mean tracked-end length in the stipulated aging-evidence model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "minimum",
+          "type": "numeric",
+          "prompt": "Initial minimum tracked-end length in the stipulated aging-evidence model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "divisions",
+          "type": "numeric",
+          "prompt": "Exact first trigger division count.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "mean",
+            "type": "numeric",
+            "answer": 5.2,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "minimum",
+            "type": "numeric",
+            "answer": 3.2,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "divisions",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why can a population average miss a short-end threshold?",
+        "solution": "The mean is5.2 and minimum3.2. At four divisions minimum reaches2.8; at three it is2.9. These are six selected synthetic ends, not a whole human genome or a universal arrest threshold.",
+        "lesson_ids": [
+          "geroscience-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic geroscience practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "geroscience-18:depth-2",
+      "type": "data_interpretation",
+      "prompt": "A separate six-end set is2.9, 4.1, 4.8, 5.6, 6.4, 7.4, with the same shortening and trigger. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "geroscience-18-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "mean",
+          "type": "numeric",
+          "prompt": "Initial mean in this second set.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "divisions",
+          "type": "numeric",
+          "prompt": "Exact first trigger division count.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "inference",
+          "type": "single_choice",
+          "prompt": "Which comparison is justified? in the stipulated aging-evidence model.",
+          "options": [
+            "Equal means can hide different short ends and model trigger times;these toy counts do not establish a universal biological arrest rule.",
+            "Equal average length forces equal minimum and trigger time.",
+            "The six selected ends are the complete chromosome-end population of every human cell."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "mean",
+            "type": "numeric",
+            "answer": 5.2,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "divisions",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "inference",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does a counterexample establish here?",
+        "solution": "The same mean5.2 now coexists with minimum2.9, which reaches2.8 after one division. Both the first-integer calculation and its biological limits must be retained.",
+        "lesson_ids": [
+          "geroscience-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic geroscience practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "geroscience-18:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Return to the first set and add a stipulated uniform maintenance increment0.05 per division while shortening remains0.1. SEPARATE population count:64 to1024. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "geroscience-18-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "net_shortening",
+          "type": "numeric",
+          "prompt": "Net length loss per lineage division.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "trigger",
+          "type": "numeric",
+          "prompt": "Exact first trigger division count with maintenance.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "population_doublings",
+          "type": "numeric",
+          "prompt": "Exact net doublings from the separate population ratio.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "net_shortening",
+            "type": "numeric",
+            "answer": 0.05,
+            "unit": "",
+            "tolerance": 5.1000000000000006e-05,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "trigger",
+            "type": "numeric",
+            "answer": 8.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "population_doublings",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why are population doublings not automatically lineage divisions?",
+        "solution": "Net shortening is0.05, so the0.4 gap closes in eight lineage divisions. The separate compatible population ratio16 gives four net doublings; unequal growth, loss and selection mean that ratio need not describe every lineage history.",
+        "lesson_ids": [
+          "geroscience-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic geroscience practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "geroscience-18:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Interpret the linked primary telomerase culture and engineered-deficiency mouse reports. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "geroscience-18-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "culture",
+          "type": "single_choice",
+          "prompt": "What follows from a reported culture replicative-lifespan extension?",
+          "options": [
+            "It establishes that every human tissue safely doubles its lifespan.",
+            "It concerns the tested cell system and does not establish extended human organismal lifespan.",
+            "It proves telomere length is the only cause of all aging."
+          ],
+          "points": 1
+        },
+        {
+          "id": "mouse",
+          "type": "single_choice",
+          "prompt": "What is central to the Jaskelioff model boundary?",
+          "options": [
+            "It uses a late-generation telomerase-deficient mouse background;selected rescue phenotypes cannot be silently generalized to ordinary human aging.",
+            "It is a completed randomized human longevity trial.",
+            "Its title removes any need to inspect the model or endpoint."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "culture",
+            "type": "single_choice",
+            "answer": 1
+          },
+          {
+            "id": "mouse",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What belongs in a rescue claim?",
+        "solution": "Bodnar1998 and Jaskelioff2011 support bounded mechanistic comparisons from indexed primary abstracts. Full-text retrieval was blocked; no detailed method, complete adverse-outcome audit or human benefit is inferred. Other maintenance, checkpoint and functional pathways remain relevant.",
+        "lesson_ids": [
+          "geroscience-18"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic geroscience practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "geroscience-19:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment1 selected ends3.1, 4.1, 5.1, 6.1; trigger at minimum<=2.6. Shortening0.1 per lineage division. A separate variant adds0.05 maintenance. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "geroscience-19-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "mean",
+          "type": "numeric",
+          "prompt": "Initial tracked-end mean in the stipulated aging-evidence model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "minimum",
+          "type": "numeric",
+          "prompt": "Initial tracked-end minimum in the stipulated aging-evidence model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "without",
+          "type": "numeric",
+          "prompt": "Exact trigger count without maintenance.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "with",
+          "type": "numeric",
+          "prompt": "Exact trigger count with the stipulated maintenance.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "mean",
+            "type": "numeric",
+            "answer": 4.6,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "minimum",
+            "type": "numeric",
+            "answer": 3.1,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "without",
+            "type": "numeric",
+            "answer": 5.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "with",
+            "type": "numeric",
+            "answer": 10.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What verifies a discrete threshold count?",
+        "solution": "The mean is4.6 and minimum3.1. The gap0.5 closes in five0.1 decrements or ten0.05 net decrements. Verify the inequality just before and at the event; the model is synthetic and does not predict safe proliferation in real cells.",
+        "lesson_ids": [
+          "geroscience-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic geroscience practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "geroscience-19:depth-2",
+      "type": "data_interpretation",
+      "prompt": "SEPARATE compatible population count64 to2048, and the two primary rescue-model comparisons. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 2,
+      "objective_ids": [
+        "geroscience-19-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "doublings",
+          "type": "numeric",
+          "prompt": "Exact net population doublings in the stipulated aging-evidence model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "claim",
+          "type": "single_choice",
+          "prompt": "Which appraisal is justified? in the stipulated aging-evidence model.",
+          "options": [
+            "A culture count ratio directly proves the same organismal lifespan extension.",
+            "An unavailable full-text detail is proof that the study never measured it.",
+            "Keep culture replicative lifespan and engineered-deficiency tissue rescue separate;neither indexed report establishes a human longevity intervention."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "doublings",
+            "type": "numeric",
+            "answer": 5.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "claim",
+            "type": "single_choice",
+            "answer": 2
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must an evidence dossier do with an unexamined paper detail?",
+        "solution": "The ratio32 is two to the fifth power. That net count alone does not establish every lineage history. Source-access limits should be stated rather than filled with invented results or converted into scientific null findings.",
+        "lesson_ids": [
+          "geroscience-19"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic geroscience practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "geroscience-20:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Synthetic complete-status fixed-horizon data:A control20/50 alive, intervention40/50; B control40/50, intervention45/50. These are not published monkey data. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "geroscience-20-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "a_difference",
+          "type": "numeric",
+          "prompt": "A intervention-minus-control survival difference in the stipulated aging-evidence model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "b_difference",
+          "type": "numeric",
+          "prompt": "B intervention-minus-control survival difference in the stipulated aging-evidence model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "contrast",
+          "type": "numeric",
+          "prompt": "A difference minus B difference.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "a_difference",
+            "type": "numeric",
+            "answer": 0.4,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "b_difference",
+            "type": "numeric",
+            "answer": 0.1,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "contrast",
+            "type": "numeric",
+            "answer": 0.3,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What accompanies an effect-modification comparison?",
+        "solution": "Within-setting differences are0.8−0.4=0.4 and0.9−0.8=0.1; their contrast is0.3. These describe one fixed-horizon additive scale rather than a hazard ratio or an identified molecular mechanism.",
+        "lesson_ids": [
+          "geroscience-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic geroscience practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "geroscience-20:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Use that synthetic table and a target population with equal setting weights. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "geroscience-20-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "control",
+          "type": "numeric",
+          "prompt": "Target-standardized control survival in the stipulated aging-evidence model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "intervention",
+          "type": "numeric",
+          "prompt": "Target-standardized intervention survival in the stipulated aging-evidence model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "difference",
+          "type": "numeric",
+          "prompt": "Standardized intervention-minus-control difference in the stipulated aging-evidence model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "time",
+          "type": "single_choice",
+          "prompt": "What can the endpoint table establish?",
+          "options": [
+            "It uniquely determines every death time and a constant hazard ratio.",
+            "It supplies fixed-horizon proportions;death times and censoring are needed for survival curves,medians or time-varying hazards.",
+            "Its risk difference proves a universal intervention benefit across species."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "control",
+            "type": "numeric",
+            "answer": 0.6,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "intervention",
+            "type": "numeric",
+            "answer": 0.85,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "difference",
+            "type": "numeric",
+            "answer": 0.25,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "time",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Why specify the target population weights?",
+        "solution": "Equal weighting gives control(0.4+0.8)/two=0.6 and intervention(0.8+0.9)/two=0.85, difference0.25. A different target composition changes the aggregate; endpoint counts alone do not reconstruct a time-to-event process.",
+        "lesson_ids": [
+          "geroscience-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic geroscience practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "geroscience-21:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Synthetic lineage mixture:p=f e+(1−f)q, with source detection e=0.6, other-lineage label probability q=0.1 and labeled new mature-cell fraction p=0.36. New mature-cell count1000. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "geroscience-21-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "fraction",
+          "type": "numeric",
+          "prompt": "Model-inferred source-A fraction f in the stipulated aging-evidence model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "cells",
+          "type": "numeric",
+          "prompt": "Exact model-implied source-A cell count.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "naive",
+          "type": "numeric",
+          "prompt": "Naive p/e fraction that incorrectly omits other-lineage labeling.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "fraction",
+            "type": "numeric",
+            "answer": 0.52,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "cells",
+            "type": "numeric",
+            "answer": 520.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "naive",
+            "type": "numeric",
+            "answer": 0.6,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "When does this label-mixture model identify a source fraction?",
+        "solution": "Subtracting background gives f=(0.36−0.1)/(0.6−0.1)=0.52, or520 of1000. The naive ratio is0.6. Stable, equal detection and source-specific label behavior are assumptions; label selection, fusion or changed detection can invalidate the inference.",
+        "lesson_ids": [
+          "geroscience-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic geroscience practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "geroscience-21:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Synthetic scar control0.24, intervention0.12. Separate normalized function:injury control0.5, intervention0.7, uninjured reference0.9. Report continuous numeric responses as bare numbers in the requested units to three significant figures;  enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 5,
+      "objective_ids": [
+        "geroscience-21-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "scar_change",
+          "type": "numeric",
+          "prompt": "Intervention-minus-control scar fraction change in the stipulated aging-evidence model.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "relative_reduction",
+          "type": "numeric",
+          "prompt": "Relative scar reduction versus control.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "improvement",
+          "type": "numeric",
+          "prompt": "Functional improvement versus injury control.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "deficit",
+          "type": "numeric",
+          "prompt": "Remaining functional deficit versus uninjured reference.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "claim",
+          "type": "single_choice",
+          "prompt": "Which conclusion is justified? in the stipulated aging-evidence model.",
+          "options": [
+            "These endpoints show the stipulated structural and functional differences but not complete restoration or proof that a particular source lineage caused them.",
+            "Any scar reduction proves full regeneration and its cell-mediated mechanism.",
+            "A lineage label alone establishes mature function and long-term safety."
+          ],
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "scar_change",
+            "type": "numeric",
+            "answer": -0.12,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "relative_reduction",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "improvement",
+            "type": "numeric",
+            "answer": 0.2,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "deficit",
+            "type": "numeric",
+            "answer": 0.2,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "claim",
+            "type": "single_choice",
+            "answer": 0
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What is needed beyond a favorable regeneration marker?",
+        "solution": "Scar changes−0.12, a50percent relative reduction. Function improves0.2 yet remains0.2 below the uninjured reference. Lineage, structure, function, durability and causal mediation require their own evidence and cannot be merged into an unmeasured rejuvenation outcome.",
+        "lesson_ids": [
+          "geroscience-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic geroscience practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
     }
   ]
 }

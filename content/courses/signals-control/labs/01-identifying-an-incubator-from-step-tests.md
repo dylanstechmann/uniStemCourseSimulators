@@ -3,7 +3,7 @@
 **Activity type:** synthetic-data analysis with public, ungraded formative checks
 **Course package:** Signals, Systems & Feedback Control. **Estimated learner time:** 2–3 hours
 **Data status:** all measurements are constructed for instruction. They describe no real incubator, heater or sensor, and nothing here is evidence about any device.
-**Dataset:** [synthetic step tests (CSV)](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/signals-control/labs/incubator-step-tests.csv).
+**Dataset:** [synthetic step tests (CSV)](incubator-step-tests.csv).
 
 ## Experimental question
 

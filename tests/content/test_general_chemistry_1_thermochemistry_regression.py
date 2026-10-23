@@ -13,7 +13,6 @@ COURSE = ROOT / "content/courses/general-chemistry-1"
 
 def test_thermochemistry_signs_and_formation_enthalpy_preserve_keys():
     manifest = json.loads((COURSE / "course.json").read_text(encoding="utf-8"))
-    assert manifest["version"].startswith("0.4.")
     assert manifest["maturity"] == "partial"
     assert manifest["review"]["status"] == "unreviewed"
     assert manifest["grading_policy"]["mode"] == "formative-only"
@@ -116,4 +115,6 @@ def test_thermochemistry_signs_and_formation_enthalpy_preserve_keys():
 
     syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8").lower()
     assert f"version: {manifest['version']}." in syllabus
-    assert "| 6 | thermochemistry, state functions and hess' law |" in syllabus
+    calendar_row = next(row for row in syllabus.splitlines() if row.startswith("| 8 |"))
+    assert lesson["title"].lower() in calendar_row
+    assert lesson["id"] in manifest["duration"]["weeks"][7]["lesson_ids"]

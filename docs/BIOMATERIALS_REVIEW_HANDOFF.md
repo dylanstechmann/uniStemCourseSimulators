@@ -21,3 +21,7 @@ The previous package's recorded seven focused Biomaterials tests, including cand
 ## Review record to complete only after review
 
 After a review actually occurs, record reviewer name and qualifications, date, package version and archive digest, artifacts examined, concrete findings and disposition. Keep separate decisions for scientific accuracy, instructional design, assessment, accessibility, workload and release. Do not infer approval from the package hash or test results.
+
+## Interface and assay target (2026-10-22)
+
+Target 0.5.0 develops accessible reaction ceilings, ideal cosine wetting, competing reversible common sites and bounded ligand masking; count-compatible attachment/net growth, blank/per-cell signal and division/loss nonidentifiability; distinct interface/assay reports and a coupled architecture/access/function dossier. Verify equilibrium, invariant occupancy domain, transient matrix/slopes, chemical-versus-wetting inference limits, population denominators, recovery assumptions and threshold boundaries. No experiment, material performance or full-report quality is certified. Qualified review, broader mechanisms and measured workload remain open.

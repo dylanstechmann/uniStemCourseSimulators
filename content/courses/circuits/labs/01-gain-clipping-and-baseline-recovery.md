@@ -18,7 +18,7 @@ For a separate drifting condition, differential and common-mode inputs are both 
 
 ## Report construction and data dictionary
 
-[Download the synthetic CSV](https://raw.githubusercontent.com/dylanstechmann/uniStemCourseSimulators/main/content/courses/circuits/labs/channel-reports.csv). There are 48 rows in sixteen groups. `sample` identifies a group; `condition` is low, high, common or drift; `input_diff_mv` is the supplied differential reference in millivolts; `input_common_v` is its common-mode reference in volts; `time_s` is elapsed time for drift rows; `replicate` labels one of three constructed outputs; and `reported_output_v` is the observed model output in volts.
+[Download the synthetic CSV](channel-reports.csv). There are 48 rows in sixteen groups. `sample` identifies a group; `condition` is low, high, common or drift; `input_diff_mv` is the supplied differential reference in millivolts; `input_common_v` is its common-mode reference in volts; `time_s` is elapsed time for drift rows; `replicate` labels one of three constructed outputs; and `reported_output_v` is the observed model output in volts.
 
 Each internal prediction has deterministic perturbations −0.001,zero,+0.001 V added before clipping. The resulting outputs are rounded to six decimals. Unsaturated groups balance around their rounded central output. The two high-gain endpoint groups have all three outputs clamped at the same rail because their internal predictions remain beyond it even after the perturbations. These are not independently sampled errors or evidence of Gaussian noise or instrument precision.
 

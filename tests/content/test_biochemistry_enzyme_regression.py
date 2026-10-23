@@ -70,7 +70,7 @@ def test_michaelis_menten_inhibition_and_efficiency():
     )
 
     syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8")
-    assert "| 5 | Enzyme mechanisms and inhibition |" in syllabus
+    assert "Enzyme mechanisms and inhibition](modules/02-enzyme-mechanisms-and-inhibition.md)" in next(row for row in syllabus.splitlines() if row.startswith("| 5 |"))
     assert "The citric acid cycle: carbon, reduci" in syllabus
 
     source_registry = json.loads(
