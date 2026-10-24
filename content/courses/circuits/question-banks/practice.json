@@ -6513,6 +6513,816 @@
           "Original synthetic circuit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
         ]
       }
+    },
+    {
+      "id": "circuits-23:depth-1",
+      "type": "data_interpretation",
+      "prompt": "The digital-abstraction lesson audits F(A,B,C)=A AND B + B AND NOT C under the declared row index 4A+2B+C, with A the most significant bit. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "circuits-23-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "active_rows",
+          "type": "numeric",
+          "prompt": "Number of the eight rows where F is 1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "index_sum",
+          "type": "numeric",
+          "prompt": "Sum of the minterm indices where F is 1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "value_at_index_5",
+          "type": "numeric",
+          "prompt": "Value of F at the row with index 5.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "active_rows",
+            "type": "numeric",
+            "answer": 3,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "index_sum",
+            "type": "numeric",
+            "answer": 15,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "value_at_index_5",
+            "type": "numeric",
+            "answer": 0,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which row-index convention are the minterms quoted under?",
+        "solution": "F is one at indices two, six and seven, so three of the eight rows are active and the indices sum to fifteen; at index five the row is one-zero-one and both products vanish.",
+        "lesson_ids": [
+          "circuits-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic digital-logic practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-23:depth-2",
+      "type": "data_interpretation",
+      "prompt": "The lesson routes G=NOT(A + B AND C) through two-input NAND gates only, using self-NAND inversion and a self-NAND AND. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "circuits-23-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "nand_gate_count",
+          "type": "numeric",
+          "prompt": "Two-input NAND gates in the stated realization.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "value_at_011",
+          "type": "numeric",
+          "prompt": "G at (A,B,C)=(0,1,1).",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "value_at_000",
+          "type": "numeric",
+          "prompt": "G at (A,B,C)=(0,0,0).",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "nand_gate_count",
+            "type": "numeric",
+            "answer": 4,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "value_at_011",
+            "type": "numeric",
+            "answer": 0,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "value_at_000",
+            "type": "numeric",
+            "answer": 1,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does De Morgan do to the inner sum before any gate is placed?",
+        "solution": "Complementing the sum gives not-A times NAND(B,C); invert A, NAND the pair, then self-NAND for the AND, using four two-input gates. At zero-one-one the inner sum is one so G is zero; at zero-zero-zero the sum is zero so G is one.",
+        "lesson_ids": [
+          "circuits-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic digital-logic practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-23:depth-3",
+      "type": "data_interpretation",
+      "prompt": "A route S=A AND B + NOT A AND C uses stipulated delays: NOT 1 ns, two-input AND 2 ns, two-input OR 3 ns, with a 10 ns clock period. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "circuits-23-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "critical_path_ns",
+          "type": "numeric",
+          "prompt": "Critical-path delay in ns.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "slack_at_10ns",
+          "type": "numeric",
+          "prompt": "Slack at the stipulated 10 ns period, in ns.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "critical_path_gates",
+          "type": "numeric",
+          "prompt": "Number of gates on the critical path.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "critical_path_ns",
+            "type": "numeric",
+            "answer": 6,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "slack_at_10ns",
+            "type": "numeric",
+            "answer": 4,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "critical_path_gates",
+            "type": "numeric",
+            "answer": 3,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which term carries the inverter, and what does that add to its path?",
+        "solution": "The direct term costs two plus three; the complemented term passes NOT, AND and OR for one plus two plus three, six ns through three gates. Slack at ten ns is four.",
+        "lesson_ids": [
+          "circuits-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic digital-logic practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-23:depth-4",
+      "type": "data_interpretation",
+      "prompt": "A heater enable H=(T AND NOT L) OR M is audited over flags T (temperature below setpoint), L (lamp active) and M (manual override), with row index 4T+2L+M. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "circuits-23-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "enable_rows",
+          "type": "numeric",
+          "prompt": "Number of the eight rows where H is 1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "value_at_101",
+          "type": "numeric",
+          "prompt": "H at (T,L,M)=(1,0,1).",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "value_at_110",
+          "type": "numeric",
+          "prompt": "H at (T,L,M)=(1,1,0).",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "enable_rows",
+            "type": "numeric",
+            "answer": 5,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "value_at_101",
+            "type": "numeric",
+            "answer": 1,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "value_at_110",
+            "type": "numeric",
+            "answer": 0,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which rows does the override alone light up?",
+        "solution": "Override alone lights four rows; without it only temperature-below-setpoint with the lamp off contributes one more, for five active rows. At one-zero-one H is one; at one-one-zero both terms vanish.",
+        "lesson_ids": [
+          "circuits-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic digital-logic practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-24:depth-1",
+      "type": "data_interpretation",
+      "prompt": "A NOR SR latch is audited over its four (S,R) input pairs. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "circuits-24-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "excluded_pairs",
+          "type": "numeric",
+          "prompt": "Number of the four (S,R) pairs that are excluded.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "q_set_then_hold",
+          "type": "numeric",
+          "prompt": "Q after S=1,R=0 followed by S=0,R=0.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "q_after_reset",
+          "type": "numeric",
+          "prompt": "Q after S=0,R=1.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "excluded_pairs",
+            "type": "numeric",
+            "answer": 1,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "q_set_then_hold",
+            "type": "numeric",
+            "answer": 1,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "q_after_reset",
+            "type": "numeric",
+            "answer": 0,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What happens to the outputs when both inputs are asserted?",
+        "solution": "Set then hold leaves Q one; reset drives Q zero; the simultaneous S=R=1 pair forces both outputs low and is excluded, one of the four pairs.",
+        "lesson_ids": [
+          "circuits-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic digital-logic practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-24:depth-2",
+      "type": "data_interpretation",
+      "prompt": "A four-bit shift register shifts from Q0 toward Q3 on each rising edge; the serial input presents the bits 1, 1, 0, 1 in that order. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "circuits-24-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "state_after_4",
+          "type": "numeric",
+          "prompt": "Register state Q3..Q0 read as a decimal after four edges.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "edges_to_load",
+          "type": "numeric",
+          "prompt": "Rising edges needed to load four bits.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "state_after_2",
+          "type": "numeric",
+          "prompt": "Register state read as a decimal after two edges.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "state_after_4",
+            "type": "numeric",
+            "answer": 13,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "edges_to_load",
+            "type": "numeric",
+            "answer": 4,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "state_after_2",
+            "type": "numeric",
+            "answer": 3,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Where does each new bit enter, and where do the older bits move?",
+        "solution": "The states run one, three, six, then thirteen; four edges load four bits, and two edges leave three.",
+        "lesson_ids": [
+          "circuits-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic digital-logic practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-24:depth-3",
+      "type": "data_interpretation",
+      "prompt": "Three cascaded toggle stages count input pulses modulo 8, driven by a 2 MHz input. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "circuits-24-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "distinct_states",
+          "type": "numeric",
+          "prompt": "Number of distinct counter states.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "last_stage_khz",
+          "type": "numeric",
+          "prompt": "Last-stage output frequency in kHz.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "count_after_13",
+          "type": "numeric",
+          "prompt": "Count after thirteen input pulses.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "distinct_states",
+            "type": "numeric",
+            "answer": 8,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "last_stage_khz",
+            "type": "numeric",
+            "answer": 250,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "count_after_13",
+            "type": "numeric",
+            "answer": 5,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How does the last stage's period relate to the input period?",
+        "solution": "Eight states; the last stage divides by eight, so two thousand kHz becomes two hundred fifty; thirteen mod eight is five.",
+        "lesson_ids": [
+          "circuits-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic digital-logic practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-24:depth-4",
+      "type": "data_interpretation",
+      "prompt": "A synchronous route is checked at a 20 ns clock period with clock-to-Q 4 ns, combinational route delay 8 ns, setup 5 ns and hold 2 ns. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "circuits-24-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "setup_slack_ns",
+          "type": "numeric",
+          "prompt": "Setup slack for the stipulated route, in ns.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "hold_slack_ns",
+          "type": "numeric",
+          "prompt": "Hold slack for the stipulated route, in ns.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "max_route_delay_ns",
+          "type": "numeric",
+          "prompt": "Maximum combinational route delay that still meets setup at this period, in ns.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "setup_slack_ns",
+            "type": "numeric",
+            "answer": 3,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "hold_slack_ns",
+            "type": "numeric",
+            "answer": 10,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "max_route_delay_ns",
+            "type": "numeric",
+            "answer": 11,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which two inequalities decide the check?",
+        "solution": "Setup slack is twenty minus four minus eight minus five, three; hold slack is four plus eight minus two, ten; the route may grow to twenty minus four minus five, eleven ns, before setup fails.",
+        "lesson_ids": [
+          "circuits-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic digital-logic practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-25:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 5 audits the majority interlock S=O AND C + C AND D + O AND D under the declared row index 4O+2C+D. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "circuits-25-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "trip_rows",
+          "type": "numeric",
+          "prompt": "Number of the eight rows where S is 1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "index_sum",
+          "type": "numeric",
+          "prompt": "Sum of the minterm indices where S is 1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "two_input_gates",
+          "type": "numeric",
+          "prompt": "Two-input gates in the two-level realization.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "trip_rows",
+            "type": "numeric",
+            "answer": 4,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "index_sum",
+            "type": "numeric",
+            "answer": 21,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "two_input_gates",
+            "type": "numeric",
+            "answer": 5,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which rows have at least two flags set?",
+        "solution": "S is one at indices three, five, six and seven, four trips summing to twenty-one; three ANDs and two ORs realize it.",
+        "lesson_ids": [
+          "circuits-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic digital-logic practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-25:depth-2",
+      "type": "data_interpretation",
+      "prompt": "The assignment latches the trip through a D flip-flop at 25 MHz (40 ns period) with a 22 ns combinational route, clock-to-Q 4 ns, setup 6 ns and hold 3 ns. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "circuits-25-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "setup_slack_ns",
+          "type": "numeric",
+          "prompt": "Setup slack of the latched route, in ns.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "hold_slack_ns",
+          "type": "numeric",
+          "prompt": "Hold slack of the latched route, in ns.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "passes_stipulated_checks",
+          "type": "numeric",
+          "prompt": "1 if both slacks are nonnegative, else 0.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "setup_slack_ns",
+            "type": "numeric",
+            "answer": 8,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "hold_slack_ns",
+            "type": "numeric",
+            "answer": 23,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "passes_stipulated_checks",
+            "type": "numeric",
+            "answer": 1,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which slack could actually go negative first on this route?",
+        "solution": "Setup slack is forty minus four minus twenty-two minus six, eight; hold slack is four plus twenty-two minus three, twenty-three; both are nonnegative, so record one.",
+        "lesson_ids": [
+          "circuits-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic digital-logic practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
     }
   ]
 }

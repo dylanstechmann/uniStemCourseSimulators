@@ -1,6 +1,6 @@
 # Electrical Circuits & Instrumentation review handoff
 
-This handoff targets Electrical Circuits & Instrumentation, package version 0.6.0. The [review snapshot](CIRCUITS_REVIEW_SNAPSHOT.md) identifies the exact package. The course remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+This handoff targets Electrical Circuits & Instrumentation, package version 0.7.0. The [review snapshot](CIRCUITS_REVIEW_SNAPSHOT.md) identifies the exact package. The course remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
 
 ## Review scope
 
@@ -29,3 +29,7 @@ The current guide, separate worked example, rehearsal and five private milestone
 ## Device/feedback/noise target (2026-10-22)
 
 Current target 0.6.0 adds three foundations, four reports and twenty checkpoints/cards. Check nonlinear load-line root uniqueness/residual, exact derivative versus DC quotient and passive-sign power; the explicit kappa convention, MOS branch inequalities, rejected roots and finite-perturbation limits; three-state feedback roots, formal DC gain versus attracting equilibrium and model-specific stability; buffered two-pole one-sided noise bandwidth and step response; positive covariance, subtraction and conditional minimum-variance weight. Code/diagrams/reports, physical validation, broader digital foundations, full compensation design, workload and qualified review remain open. Earlier evidence above is historical; the current snapshot pins the new target.
+
+## Digital foundations target (2026-10-23)
+
+Current target 0.7.0 adds two digital foundations, one connected interlock route audit and ten checkpoints/cards. Check the declared level map and its noise-margin bookkeeping; the row-index convention behind every quoted minterm list; the De Morgan NAND-only construction and its stated (not proven-minimal) gate count; the propagation-delay ledger's critical path and slack; the NOR SR-latch state table and its excluded pair; the shift-register bit order; the ripple-counter wrap arithmetic; and both setup/hold slack inequalities, including the latched 25 MHz re-check in Assignment 5. The Boolean/memory strands deferred by the 0.6.0 boundary are now partially supplied; CMOS gate-level construction, memory arrays, logic energy/power, hardware validation, measured workload and qualified review remain open. Earlier evidence above is historical; the current snapshot pins the new target.

@@ -795,6 +795,106 @@
         "circuits-22-objective-2"
       ],
       "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-23-card-1",
+      "lesson_id": "circuits-23",
+      "front": "Minterm index convention",
+      "back": "Declare the bit order (for example 4A+2B+C with A most significant) before quoting indices; a different order relabels identical rows.",
+      "objective_ids": [
+        "circuits-23-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-23-card-2",
+      "lesson_id": "circuits-23",
+      "front": "De Morgan route to NAND-only",
+      "back": "NOT(A+BC) equals not-A times NAND(B,C); realize the remaining AND by self-NAND, giving the stated four two-input-gate construction.",
+      "objective_ids": [
+        "circuits-23-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-23-card-3",
+      "lesson_id": "circuits-23",
+      "front": "Critical path and slack",
+      "back": "The longest stipulated delay path through a two-level route; slack at a period is the period minus that path delay.",
+      "objective_ids": [
+        "circuits-23-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-23-card-4",
+      "lesson_id": "circuits-23",
+      "front": "Combinational enable audit",
+      "back": "Count the truth-table rows where the enable is one under its declared variables and index order before quoting a decimal state.",
+      "objective_ids": [
+        "circuits-23-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-24-card-1",
+      "lesson_id": "circuits-24",
+      "front": "SR latch excluded input",
+      "back": "S=R=1 forces both outputs low, so the pair is not complementary; exactly one of the four input pairs is excluded.",
+      "objective_ids": [
+        "circuits-24-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-24-card-2",
+      "lesson_id": "circuits-24",
+      "front": "Transparent latch versus edge-triggered flip-flop",
+      "back": "A transparent D latch follows its input while enabled; an edge-triggered flip-flop samples only near the clock edge.",
+      "objective_ids": [
+        "circuits-24-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-24-card-3",
+      "lesson_id": "circuits-24",
+      "front": "Ripple counter modulus",
+      "back": "Three cascaded toggle stages count modulo 8, and the last stage toggles at one eighth of the input rate.",
+      "objective_ids": [
+        "circuits-24-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-24-card-4",
+      "lesson_id": "circuits-24",
+      "front": "Setup and hold slack",
+      "back": "Setup slack is period minus clock-to-Q minus route minus setup; hold slack is clock-to-Q plus route minus hold. Both must be nonnegative.",
+      "objective_ids": [
+        "circuits-24-objective-4"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-25-card-1",
+      "lesson_id": "circuits-25",
+      "front": "Majority trip interlock",
+      "back": "At least two of three trip flags must be one; single-flag OR logic would trip the bench on any one stuck sensor.",
+      "objective_ids": [
+        "circuits-25-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "circuits-25-card-2",
+      "lesson_id": "circuits-25",
+      "front": "Latched timing audit",
+      "back": "Recheck setup and hold slacks with the latch's own clock period, clock-to-Q and route delays before declaring the route timing-clean.",
+      "objective_ids": [
+        "circuits-25-objective-2"
+      ],
+      "license": "CC-BY-4.0"
     }
   ]
 }

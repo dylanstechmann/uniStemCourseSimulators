@@ -1,4 +1,4 @@
-"""Independent nonlinear-device, modal, transient and covariance references."""
+"""Independent nonlinear-device, modal, transient, covariance and digital references."""
 
 from __future__ import annotations
 
@@ -22,7 +22,7 @@ NEW = {
     for q in json.loads((DIRECTORY / "question-banks/practice.json").read_text())[
         "questions"
     ]
-    if re.fullmatch(r"circuits-(1[6-9]|2[0-2]):depth-\d+", q["id"])
+    if re.fullmatch(r"circuits-(1[6-9]|2[0-5]):depth-\d+", q["id"])
 }
 
 
@@ -125,6 +125,16 @@ def calculations():
             "weight": weight,
             "optimal": sp.sqrt(minimum),
         },
+        (23, 1): {"active_rows": 3, "index_sum": 15, "value_at_index_5": 0},
+        (23, 2): {"nand_gate_count": 4, "value_at_011": 0, "value_at_000": 1},
+        (23, 3): {"critical_path_ns": 6, "slack_at_10ns": 4, "critical_path_gates": 3},
+        (23, 4): {"enable_rows": 5, "value_at_101": 1, "value_at_110": 0},
+        (24, 1): {"excluded_pairs": 1, "q_set_then_hold": 1, "q_after_reset": 0},
+        (24, 2): {"state_after_4": 13, "edges_to_load": 4, "state_after_2": 3},
+        (24, 3): {"distinct_states": 8, "last_stage_khz": 250, "count_after_13": 5},
+        (24, 4): {"setup_slack_ns": 3, "hold_slack_ns": 10, "max_route_delay_ns": 11},
+        (25, 1): {"trip_rows": 4, "index_sum": 21, "two_input_gates": 5},
+        (25, 2): {"setup_slack_ns": 8, "hold_slack_ns": 23, "passes_stipulated_checks": 1},
     }
 
 
@@ -144,11 +154,13 @@ def test_recomputed_circuit_fields_and_actual_grader_reject_individual_errors(qi
             response[spec["id"]] = format(value, ".2e")
     assert grade(question, AttemptRequest(response=response)).correct
     for spec in specs:
-        wrong = (
-            format(float(values[spec["id"]]) * 1.2, ".2e")
-            if spec["type"] == "numeric"
-            else str((spec["answer"] + 1) % 3)
-        )
+        if spec["type"] == "numeric":
+            value = float(values[spec["id"]])
+            # Scaling cannot perturb a zero; shift it instead so each field's
+            # individual error is genuinely rejected by the actual grader.
+            wrong = format(value * 1.2 if value else value + 1.1, ".2e")
+        else:
+            wrong = str((spec["answer"] + 1) % 3)
         assert not grade(
             question, AttemptRequest(response={**response, spec["id"]: wrong})
         ).correct
@@ -294,21 +306,134 @@ def test_two_pole_noise_integral_transient_and_positive_covariance_optimum():
     assert sp.expand(variance - 41 * (g - optimal) ** 2 - sp.Rational(769, 41)) == 0
 
 
-def test_device_feedback_packets_deliver_as_open_partial_coursework():
-    assert len(NEW) == 20
-    assert MANIFEST["version"] == "0.6.0" and MANIFEST["maturity"] == "partial"
+def test_device_feedback_and_digital_packets_deliver_as_open_partial_coursework():
+    assert len(NEW) == 30
+    assert MANIFEST["version"] == "0.7.0" and MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed"
     scheduled = [lid for w in MANIFEST["duration"]["weeks"] for lid in w["lesson_ids"]]
-    assert len(scheduled) == len(set(scheduled)) == 24
+    assert len(scheduled) == len(set(scheduled)) == 27
     repository = ContentRepository(ROOT / "content")
-    for number in range(16, 23):
+    for number in range(16, 26):
         lesson = repository.lesson("circuits", f"circuits-{number}")
         assert len(lesson.markdown.split()) >= 700
         assert (
             len(lesson.questions)
             == len(lesson.retrieval_cards)
-            == (4 if number < 19 else 2)
+            == (4 if number < 19 or number in (23, 24) else 2)
         )
     assert all(
         a["mode"] in {"practice", "self-assessment"} for a in MANIFEST["assessments"]
     )
+
+
+def boolean_rows(function):
+    return [index for index in range(8) if function(index >> 2 & 1, index >> 1 & 1, index & 1)]
+
+
+def nand(x, y):
+    return int(not (x and y))
+
+
+def nor(x, y):
+    return int(not (x or y))
+
+
+def test_combinational_truth_table_de_morgan_and_enable_audits():
+    # Lesson 23 row-by-row recalculation of the declared functions.
+    rows = boolean_rows(lambda a, b, c: int((a and b) or (b and not c)))
+    assert rows == [2, 6, 7]
+    assert len(rows) == calculations()[23, 1]["active_rows"]
+    assert sum(rows) == calculations()[23, 1]["index_sum"]
+    index5 = (1, 0, 1)
+    assert int((index5[0] and index5[1]) or (index5[1] and not index5[2])) == (
+        calculations()[23, 1]["value_at_index_5"]
+    ) == 0
+
+    def g(a, b, c):
+        return int(not (a or (b and c)))
+
+    # The stated four-gate NAND construction, checked against the complement.
+    def route(a, b, c):
+        not_a = nand(a, a)
+        pair = nand(b, c)
+        middle = nand(not_a, pair)
+        return nand(middle, middle)
+
+    gate_count = 4
+    for a in (0, 1):
+        for b in (0, 1):
+            for c in (0, 1):
+                assert route(a, b, c) == g(a, b, c)
+    assert gate_count == calculations()[23, 2]["nand_gate_count"] == 4
+    assert route(0, 1, 1) == calculations()[23, 2]["value_at_011"] == 0
+    assert route(0, 0, 0) == calculations()[23, 2]["value_at_000"] == 1
+
+    # Delay ledger: the complemented term carries the inverter.
+    direct, complemented = 2 + 3, 1 + 2 + 3
+    assert max(direct, complemented) == calculations()[23, 3]["critical_path_ns"] == 6
+    assert 10 - max(direct, complemented) == calculations()[23, 3]["slack_at_10ns"] == 4
+    assert 3 == calculations()[23, 3]["critical_path_gates"]
+
+    heater = boolean_rows(lambda t, lamp, m: int((t and not lamp) or m))
+    assert len(heater) == calculations()[23, 4]["enable_rows"] == 5
+    assert int((1 and not 0) or 1) == calculations()[23, 4]["value_at_101"] == 1
+    assert int((1 and not 1) or 0) == calculations()[23, 4]["value_at_110"] == 0
+
+
+def latch(s, r, q=0):
+    # Cross-coupled NOR pair iterated to its stable state.
+    qbar = 1 - q
+    for _ in range(4):
+        q, qbar = nor(r, qbar), nor(s, q)
+    return q, qbar
+
+
+def test_latch_register_counter_and_timing_audits():
+    excluded = 0
+    for s in (0, 1):
+        for r in (0, 1):
+            q, qbar = latch(s, r)
+            if s and r:
+                excluded += int(q == 0 and qbar == 0)
+    assert excluded == calculations()[24, 1]["excluded_pairs"] == 1
+    stored = latch(1, 0)[0]
+    assert stored == 1
+    assert latch(0, 0, q=stored)[0] == calculations()[24, 1]["q_set_then_hold"] == 1
+    assert latch(0, 1)[0] == calculations()[24, 1]["q_after_reset"] == 0
+
+    # Shift register: serial input enters at Q0 and shifts toward Q3.
+    state = 0
+    states = []
+    for bit in (1, 1, 0, 1):
+        state = ((state << 1) | bit) & 0b1111
+        states.append(state)
+    assert states == [1, 3, 6, 13]
+    assert states[3] == calculations()[24, 2]["state_after_4"] == 13
+    assert 4 == calculations()[24, 2]["edges_to_load"]
+    assert states[1] == calculations()[24, 2]["state_after_2"] == 3
+
+    assert sp.Integer(2**3) == calculations()[24, 3]["distinct_states"] == 8
+    assert sp.Rational(2000, 8) == calculations()[24, 3]["last_stage_khz"] == 250
+    assert 13 % 8 == calculations()[24, 3]["count_after_13"] == 5
+
+    period, clock_to_q, route_delay, setup, hold = 20, 4, 8, 5, 2
+    assert period - clock_to_q - route_delay - setup == (
+        calculations()[24, 4]["setup_slack_ns"]
+    ) == 3
+    assert clock_to_q + route_delay - hold == calculations()[24, 4]["hold_slack_ns"] == 10
+    assert period - clock_to_q - setup == calculations()[24, 4]["max_route_delay_ns"] == 11
+
+    trips = boolean_rows(lambda o, c, d: int((o and c) or (c and d) or (o and d)))
+    assert trips == [3, 5, 6, 7]
+    assert len(trips) == calculations()[25, 1]["trip_rows"] == 4
+    assert sum(trips) == calculations()[25, 1]["index_sum"] == 21
+    assert 3 + 2 == calculations()[25, 1]["two_input_gates"] == 5
+
+    latched_period, latched_route = 40, 22
+    latched_setup_slack = latched_period - clock_to_q - latched_route - 6
+    latched_hold_slack = clock_to_q + latched_route - 3
+    assert latched_setup_slack == calculations()[25, 2]["setup_slack_ns"] == 8
+    assert latched_hold_slack == calculations()[25, 2]["hold_slack_ns"] == 23
+    assert int(latched_setup_slack >= 0 and latched_hold_slack >= 0) == (
+        calculations()[25, 2]["passes_stipulated_checks"]
+    ) == 1

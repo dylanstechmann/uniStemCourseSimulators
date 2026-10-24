@@ -3,11 +3,11 @@
   "id": "circuits",
   "legacy_code": "EE 230",
   "title": "Electrical Circuits & Instrumentation",
-  "description": "Circuit analysis, analog electronics, filters, sensors, noise, and data acquisition for physiological and laboratory measurement.",
+  "description": "Circuit analysis, analog electronics, filters, sensors, noise, data acquisition and digital gate/timing logic for physiological and laboratory measurement.",
   "domain": "Electrical engineering",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -15,7 +15,8 @@
     "source_sha256": "a77a7cb7f5be2ffa12068877042ac775c6d9b79b83ac2f316fe4f26a0d3d783b",
     "migration_version": "1.0",
     "modifications": [
-      "Linked the original DC, amplifier, sampling and sensor lessons to their directly assessed course outcomes. Added a node-voltage calculation for KCL and a direct anti-alias-filter decision item; preserved questions and numeric keys remain unchanged. All scheduled lessons already have expanded or original instructional text, and the package remains partial, unreviewed and formative-only."
+      "Linked the original DC, amplifier, sampling and sensor lessons to their directly assessed course outcomes. Added a node-voltage calculation for KCL and a direct anti-alias-filter decision item; preserved questions and numeric keys remain unchanged. All scheduled lessons already have expanded or original instructional text, and the package remains partial, unreviewed and formative-only.",
+      "Added original digital-abstraction, Boolean gate-route, latch/flip-flop and timing instruction with a connected interlock route audit and a fifth course outcome. CMOS gate-level construction, memory arrays, logic energy/power and hardware laboratory work remain outside the package."
     ]
   },
   "prerequisites": {
@@ -48,6 +49,11 @@
     {
       "id": "circuits-outcome-4",
       "description": "Quantify noise, loading, and calibration limits.",
+      "bloom": "apply"
+    },
+    {
+      "id": "circuits-outcome-5",
+      "description": "Translate instrument trip conditions into combinational and sequential digital logic with timing checks.",
       "bloom": "apply"
     }
   ],
@@ -615,6 +621,89 @@
         "circuits-outcome-2",
         "circuits-outcome-4"
       ]
+    },
+    {
+      "id": "circuits-23-objective-1",
+      "description": "Build a declared truth table with minterm indices and a sum-of-products form.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "circuits-outcome-5"
+      ]
+    },
+    {
+      "id": "circuits-23-objective-2",
+      "description": "Apply De Morgan identities to route a stipulated complement through NAND gates only.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "circuits-outcome-5"
+      ]
+    },
+    {
+      "id": "circuits-23-objective-3",
+      "description": "Trace stipulated propagation delays through a two-level route and report its critical path and slack.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "circuits-outcome-5",
+        "circuits-outcome-2"
+      ]
+    },
+    {
+      "id": "circuits-23-objective-4",
+      "description": "Translate instrument trip conditions into a combinational enable and count its activating states.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "circuits-outcome-5"
+      ]
+    },
+    {
+      "id": "circuits-24-objective-1",
+      "description": "Determine SR-latch and D flip-flop state behavior for each declared input condition.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "circuits-outcome-5"
+      ]
+    },
+    {
+      "id": "circuits-24-objective-2",
+      "description": "Track a declared serial bit sequence through a shift register.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "circuits-outcome-5"
+      ]
+    },
+    {
+      "id": "circuits-24-objective-3",
+      "description": "Compute ripple-counter state counts and frequency division.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "circuits-outcome-5"
+      ]
+    },
+    {
+      "id": "circuits-24-objective-4",
+      "description": "Check setup and hold slacks for a stipulated synchronous route.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "circuits-outcome-5",
+        "circuits-outcome-2"
+      ]
+    },
+    {
+      "id": "circuits-25-objective-1",
+      "description": "Audit a complete interlock route from trip flags through a two-level realization.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "circuits-outcome-5"
+      ]
+    },
+    {
+      "id": "circuits-25-objective-2",
+      "description": "Audit a latched timing route with setup and hold slacks.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "circuits-outcome-5",
+        "circuits-outcome-2"
+      ]
     }
   ],
   "duration": {
@@ -739,22 +828,28 @@
       },
       {
         "week": 11,
-        "title": "Sampling, quantization and acquisition settling",
+        "title": "Sampling, quantization, acquisition settling and digital gate routes",
         "lesson_ids": [
-          "circuits-12"
+          "circuits-12",
+          "circuits-23"
         ],
         "assessment_ids": [
-          "circuits-12-practice"
+          "circuits-12-practice",
+          "circuits-23-practice"
         ]
       },
       {
         "week": 12,
-        "title": "Sensors, calibration, and uncertainty",
+        "title": "Sensors, calibration, uncertainty; memory elements, timing discipline and the interlock audit",
         "lesson_ids": [
-          "circuits-4"
+          "circuits-4",
+          "circuits-24",
+          "circuits-25"
         ],
         "assessment_ids": [
-          "circuits-4-practice"
+          "circuits-4-practice",
+          "circuits-24-practice",
+          "circuits-25-practice"
         ]
       },
       {
@@ -1612,6 +1707,102 @@
           ]
         }
       ]
+    },
+    {
+      "id": "circuits-module-23",
+      "title": "Digital abstraction, Boolean algebra and combinational gate routes",
+      "source_ids": [
+        "circuits-digital-calendar",
+        "circuits-digital-syllabus"
+      ],
+      "lessons": [
+        {
+          "id": "circuits-23",
+          "title": "Digital abstraction, Boolean algebra and combinational gate routes",
+          "reading": "modules/23-digital-abstraction-boolean-algebra-and-combinational-logic.md",
+          "objectives": [
+            "circuits-23-objective-1",
+            "circuits-23-objective-2",
+            "circuits-23-objective-3",
+            "circuits-23-objective-4"
+          ],
+          "worked_example": "The stipulated function F=AB+B not-C is one at indices 2, 6 and 7 of the declared (A,B,C) order, so three of eight rows are active and the indices sum to 15. The NAND-only route to not(A+BC) uses four two-input gates: invert A, NAND B with C, NAND those, then self-NAND for the AND.",
+          "question_ids": [
+            "circuits-23:depth-1",
+            "circuits-23:depth-2",
+            "circuits-23:depth-3",
+            "circuits-23:depth-4"
+          ],
+          "card_ids": [
+            "circuits-23-card-1",
+            "circuits-23-card-2",
+            "circuits-23-card-3",
+            "circuits-23-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "circuits-module-24",
+      "title": "Memory elements and timing discipline",
+      "source_ids": [
+        "circuits-digital-calendar",
+        "circuits-digital-syllabus"
+      ],
+      "lessons": [
+        {
+          "id": "circuits-24",
+          "title": "Memory elements and timing discipline",
+          "reading": "modules/24-latches-flip-flops-and-timing-discipline.md",
+          "objectives": [
+            "circuits-24-objective-1",
+            "circuits-24-objective-2",
+            "circuits-24-objective-3",
+            "circuits-24-objective-4"
+          ],
+          "worked_example": "At a 20 ns period with 4 ns clock-to-Q, an 8 ns route, 5 ns setup and 2 ns hold, the setup slack is 3 ns and the hold slack is 10 ns, so the stipulated route passes. A 2 MHz ripple counter's third stage runs at 250 kHz.",
+          "question_ids": [
+            "circuits-24:depth-1",
+            "circuits-24:depth-2",
+            "circuits-24:depth-3",
+            "circuits-24:depth-4"
+          ],
+          "card_ids": [
+            "circuits-24-card-1",
+            "circuits-24-card-2",
+            "circuits-24-card-3",
+            "circuits-24-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "circuits-module-25",
+      "title": "Assignment 5: digital interlock route audit",
+      "source_ids": [
+        "circuits-digital-calendar",
+        "circuits-digital-syllabus"
+      ],
+      "lessons": [
+        {
+          "id": "circuits-25",
+          "title": "Assignment 5: digital interlock route audit",
+          "reading": "assignments/coursework-05-digital-interlock-route-audit.md",
+          "objectives": [
+            "circuits-25-objective-1",
+            "circuits-25-objective-2"
+          ],
+          "worked_example": "The majority interlock OC+CD+OD is one at indices 3, 5, 6 and 7: four trips, index sum 21, realized by five two-input gates. Latched at 25 MHz with a 22 ns route, the setup slack is 8 ns and the hold slack is 23 ns.",
+          "question_ids": [
+            "circuits-25:depth-1",
+            "circuits-25:depth-2"
+          ],
+          "card_ids": [
+            "circuits-25-card-1",
+            "circuits-25-card-2"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -2177,6 +2368,71 @@
         "circuits-22:depth-2"
       ],
       "points": 7
+    },
+    {
+      "id": "circuits-23-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Digital abstraction, Boolean algebra and combinational gate routes (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 11,
+      "objective_ids": [
+        "circuits-23-objective-1",
+        "circuits-23-objective-2",
+        "circuits-23-objective-3",
+        "circuits-23-objective-4",
+        "circuits-outcome-5",
+        "circuits-outcome-2"
+      ],
+      "question_ids": [
+        "circuits-23:depth-1",
+        "circuits-23:depth-2",
+        "circuits-23:depth-3",
+        "circuits-23:depth-4"
+      ],
+      "points": 12
+    },
+    {
+      "id": "circuits-24-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Memory elements and timing discipline (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 12,
+      "objective_ids": [
+        "circuits-24-objective-1",
+        "circuits-24-objective-2",
+        "circuits-24-objective-3",
+        "circuits-24-objective-4",
+        "circuits-outcome-5",
+        "circuits-outcome-2"
+      ],
+      "question_ids": [
+        "circuits-24:depth-1",
+        "circuits-24:depth-2",
+        "circuits-24:depth-3",
+        "circuits-24:depth-4"
+      ],
+      "points": 12
+    },
+    {
+      "id": "circuits-25-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 5: digital interlock route audit (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 12,
+      "objective_ids": [
+        "circuits-25-objective-1",
+        "circuits-25-objective-2",
+        "circuits-outcome-5",
+        "circuits-outcome-2"
+      ],
+      "question_ids": [
+        "circuits-25:depth-1",
+        "circuits-25:depth-2"
+      ],
+      "points": 6
     }
   ],
   "grading_policy": {
@@ -2281,6 +2537,11 @@
       "version": "0.6.0",
       "date": "2026-10-22",
       "summary": "Added three original nonlinear-load-line, piecewise MOS bias/small-signal and dynamic-feedback foundations with four connected reports and twenty checkpoints/cards. Developed independent port/power, operating-region, modal stability, two-pole transient/noise and covariance evidence. Corrected the categorical claim that no compact primers remain. All supplied parameters are synthetic; package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.7.0",
+      "date": "2026-10-23",
+      "summary": "Added two original digital-abstraction/Boolean and memory/timing foundations with one connected interlock route-audit assignment, ten checkpoints/cards and a fifth course outcome. Developed independent truth-table, De Morgan, delay-ledger, shift-register, counter and setup/hold evidence. The package remains partial and unreviewed."
     }
   ],
   "limitations": [

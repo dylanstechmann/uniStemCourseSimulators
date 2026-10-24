@@ -6,7 +6,7 @@ This is a personal hobby and learning project developed with substantial AI assi
 
 ## Current plans
 
-“Blocks” means grouped calendar entries, not measured study weeks. General Chemistry II has 11 and Organic Chemistry I has 12; the other plans, including the expanded General Chemistry I sequence, have 14. Every project has a rehearsal and private Case studio milestones. Cell Biology and Biochemistry expose their eight original homework packets and cumulative reviews; Biochemistry also has two new bridge reports. The semester authoring pass adds 66 foundations and 86 connected assignments across 24 packages. Course-specific content, sources and remaining limits are in the [semester record](SEMESTER_DEPTH_EXPANSION.md). No project or practice sequence is a protected exam or a reviewed university course.
+“Blocks” means grouped calendar entries, not measured study weeks. General Chemistry II has 11 and Organic Chemistry I has 12; the other plans, including the expanded General Chemistry I sequence, have 14. Every project has a rehearsal and private Case studio milestones. Cell Biology and Biochemistry expose their eight original homework packets and cumulative reviews; Biochemistry also has two new bridge reports. The semester authoring pass adds 66 foundations and 86 connected assignments across 24 packages; a later Circuits 0.7.0 batch adds two digital foundations and a fifth connected report. Course-specific content, sources and remaining limits are in the [semester record](SEMESTER_DEPTH_EXPANSION.md). No project or practice sequence is a protected exam or a reviewed university course.
 
 | Course and syllabus | Version | Calendar blocks | Project guide block | Guide |
 | --- | --- | ---: | ---: | --- |
@@ -18,7 +18,7 @@ This is a personal hobby and learning project developed with substantial AI assi
 | [Calculus III: Multivariable & Vector Calculus](../content/courses/calculus-3/syllabus.md) | 0.6.0 | 14 | 13 | [Project guide](../content/courses/calculus-3/assignments/integrative-field-project-guide.md) |
 | [Foundations of Cell and Molecular Biology](../content/courses/cell-biology/syllabus.md) | 0.62.1 | 14 | 10 | [Project guide](../content/courses/cell-biology/assignments/integrative-project-guide.md) |
 | [Cellular Biomechanics & Mechanobiology](../content/courses/cellular-biomechanics/syllabus.md) | 0.5.0 | 14 | 13 | [Project guide](../content/courses/cellular-biomechanics/assignments/viscoelastic-material-selection-project-guide.md) |
-| [Electrical Circuits & Instrumentation](../content/courses/circuits/syllabus.md) | 0.6.0 | 14 | 13 | [Project guide](../content/courses/circuits/assignments/sensor-channel-project-guide.md) |
+| [Electrical Circuits & Instrumentation](../content/courses/circuits/syllabus.md) | 0.7.0 | 14 | 13 | [Project guide](../content/courses/circuits/assignments/sensor-channel-project-guide.md) |
 | [Differential Equations for Living & Engineered Systems](../content/courses/differential-equations/syllabus.md) | 0.6.0 | 14 | 12 | [Project guide](../content/courses/differential-equations/assignments/stiff-two-compartment-project-guide.md) |
 | [General Chemistry I](../content/courses/general-chemistry-1/syllabus.md) | 0.6.0 | 14 | 10 | [Project guide](../content/courses/general-chemistry-1/assignments/gas-equilibrium-project-guide.md) |
 | [General Chemistry II](../content/courses/general-chemistry-2/syllabus.md) | 0.6.0 | 11 | 8 | [Project guide](../content/courses/general-chemistry-2/assignments/redox-cell-project-guide.md) |
