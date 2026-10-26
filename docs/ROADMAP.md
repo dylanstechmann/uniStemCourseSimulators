@@ -22,7 +22,7 @@ Use a demonstrated learner failure or a defined broader boundary to choose the n
 - Calculus III now integrates theorem choice, boundary orientation, cylindrical volume bounds and direct checks in its existing week-13 Stokes lesson.
 - Link common Statistics/Programming foundations rather than repeatedly teach experimental units, uncertainty and data validation in every applied course. Retain domain-specific reasoning and distinct worked problems.
 
-The audit retains open work for every package. Cellular Biomechanics, Geroscience, Biochemistry I, Organic Chemistry I, Statistics, Thermodynamics & Transport, Programming & Numerical Methods, Cell & Molecular Biology, Physics II: E&M, General Chemistry I/II, Biomaterials & Tissue Engineering, Signals & Feedback Control and Circuits (digital foundations, 2026-10-23) have recent bounded deliveries. Future substantive batches should select a demonstrated remaining gap and check the actual course boundary before authoring.
+The audit retains open work for every package. Cellular Biomechanics, Geroscience, Biochemistry I, Organic Chemistry I, Statistics, Thermodynamics & Transport, Programming & Numerical Methods, Cell & Molecular Biology, Physics II: E&M, General Chemistry I/II, Biomaterials & Tissue Engineering, Signals & Feedback Control, Circuits (authored to its declared typical-course scope, 2026-10-23) and Genetics (transposition and homologous-targeting foundations with a cumulative audit, 2026-10-24) have recent bounded deliveries. Future substantive batches should select a demonstrated remaining gap and check the actual course boundary before authoring.
 
 ## Shared platform
 

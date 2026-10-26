@@ -1,6 +1,6 @@
 # Electrical Circuits & Instrumentation review handoff
 
-This handoff targets Electrical Circuits & Instrumentation, package version 0.7.0. The [review snapshot](CIRCUITS_REVIEW_SNAPSHOT.md) identifies the exact package. The course remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+This handoff targets Electrical Circuits & Instrumentation, package version 0.8.0. The [review snapshot](CIRCUITS_REVIEW_SNAPSHOT.md) identifies the exact package. The course remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
 
 ## Review scope
 
@@ -33,3 +33,7 @@ Current target 0.6.0 adds three foundations, four reports and twenty checkpoints
 ## Digital foundations target (2026-10-23)
 
 Current target 0.7.0 adds two digital foundations, one connected interlock route audit and ten checkpoints/cards. Check the declared level map and its noise-margin bookkeeping; the row-index convention behind every quoted minterm list; the De Morgan NAND-only construction and its stated (not proven-minimal) gate count; the propagation-delay ledger's critical path and slack; the NOR SR-latch state table and its excluded pair; the shift-register bit order; the ripple-counter wrap arithmetic; and both setup/hold slack inequalities, including the latched 25 MHz re-check in Assignment 5. The Boolean/memory strands deferred by the 0.6.0 boundary are now partially supplied; CMOS gate-level construction, memory arrays, logic energy/power, hardware validation, measured workload and qualified review remain open. Earlier evidence above is historical; the current snapshot pins the new target.
+
+## AC power and final-audit completion target (2026-10-23)
+
+Current target 0.8.0 adds the alternating-current power, RMS and energy foundation (week 8) and the cumulative Assignment 6 channel audit (week 14), with eight checkpoints/cards. Check the mean-square RMS derivation and crest factor; the series-RL load angle, real power, reactive power and the Q = ω·W identity; the parallel-capacitor correction arithmetic, the corrected source current and the line-loss change; and in Assignment 6 the end-to-end budget: divider loading and its percent error, gain and output headroom, 8·ln(2)·τ settling to half-LSB of eight bits, LSB size and channel noise in LSB units, the Nyquist margin, both latched setup/hold slacks at the stipulated 40 ns clock, the A·(B+C) route's active rows and index sum, and the 12 V × 25 mA supply budget. This closes the last declared typical-core strand of the 14-week scope; CMOS gate-level construction, memory arrays and logic energy/power are recorded as an optional beyond-scope strand in the syllabus, and oscillator/compensation design, hardware validation, measured workload and qualified review remain open. Earlier evidence above is historical; the current snapshot pins the new target.

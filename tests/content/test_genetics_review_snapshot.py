@@ -29,7 +29,7 @@ def test_genetics_review_snapshot_matches_public_package():
     snapshot = (ROOT / "docs/GENETICS_REVIEW_SNAPSHOT.md").read_text(encoding="utf-8")
 
     assert actual["course_id"] == "genetics"
-    assert actual["content_version"] == "0.7.0"
+    assert actual["content_version"] == "0.8.0"
     assert re.search(
         r"Public package archive SHA-256:\*\*\s*`([0-9a-f]{64})`", snapshot
     ).group(1) == actual["package_sha256"]

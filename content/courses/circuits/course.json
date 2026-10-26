@@ -7,7 +7,7 @@
   "domain": "Electrical engineering",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -704,6 +704,66 @@
         "circuits-outcome-5",
         "circuits-outcome-2"
       ]
+    },
+    {
+      "id": "circuits-26-objective-1",
+      "description": "Compute root-mean-square values and crest factors for a stipulated sinusoid and its resistive dissipation.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "circuits-outcome-2"
+      ]
+    },
+    {
+      "id": "circuits-26-objective-2",
+      "description": "Separate average real power from reactive cycling in a series RL load and state its power factor and peak stored energy.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "circuits-outcome-2"
+      ]
+    },
+    {
+      "id": "circuits-26-objective-3",
+      "description": "Correct a lagging power factor with a parallel capacitor and recompute the source current and line loss.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "circuits-outcome-2"
+      ]
+    },
+    {
+      "id": "circuits-27-objective-1",
+      "description": "Reduce a loaded Thevenin sensor source to its divider value and carry it through a gain stage.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "circuits-outcome-1",
+        "circuits-outcome-3"
+      ]
+    },
+    {
+      "id": "circuits-27-objective-2",
+      "description": "Budget RC settling against converter resolution and channel noise.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "circuits-outcome-2",
+        "circuits-outcome-4"
+      ]
+    },
+    {
+      "id": "circuits-27-objective-3",
+      "description": "Re-check sampling margin and latched interlock timing in one final audit.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "circuits-outcome-4",
+        "circuits-outcome-5"
+      ]
+    },
+    {
+      "id": "circuits-27-objective-4",
+      "description": "State the channel supply power draw and size protective ratings from steady quantities.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "circuits-outcome-2",
+        "circuits-outcome-4"
+      ]
     }
   ],
   "duration": {
@@ -797,11 +857,13 @@
         "title": "First- and second-order frequency response: RC and RLC networks",
         "lesson_ids": [
           "circuits-6",
-          "circuits-14"
+          "circuits-14",
+          "circuits-26"
         ],
         "assessment_ids": [
           "circuits-6-practice",
-          "circuits-14-practice"
+          "circuits-14-practice",
+          "circuits-26-practice"
         ]
       },
       {
@@ -870,12 +932,14 @@
         "week": 14,
         "title": "Virtual lab 1: gain, clipping, common mode and baseline recovery",
         "lesson_ids": [
-          "circuits-lab-01"
+          "circuits-lab-01",
+          "circuits-27"
         ],
         "assessment_ids": [
           "circuits-week14-channel-lab",
           "circuits-case",
-          "circuits-project-milestones"
+          "circuits-project-milestones",
+          "circuits-27-practice"
         ]
       }
     ]
@@ -1803,6 +1867,73 @@
           ]
         }
       ]
+    },
+    {
+      "id": "circuits-module-26",
+      "title": "AC power, RMS and energy in dynamic elements",
+      "source_ids": [
+        "circuits-power-calendar",
+        "circuits-power-readings"
+      ],
+      "lessons": [
+        {
+          "id": "circuits-26",
+          "title": "AC power, RMS and energy in dynamic elements",
+          "reading": "modules/26-ac-power-rms-and-energy-in-dynamic-elements.md",
+          "objectives": [
+            "circuits-26-objective-1",
+            "circuits-26-objective-2",
+            "circuits-26-objective-3"
+          ],
+          "worked_example": "A 5.00 V RMS source across 30 ohm and 40 mH at 1000 rad/s draws 0.100 A at power factor 0.600: real power 0.300 W, reactive 0.400 var, peak stored energy 0.400 mJ; a 16.0 uF parallel capacitor returns the line to 0.0600 A and 18.0 mW of 5 ohm line loss.",
+          "question_ids": [
+            "circuits-26:depth-1",
+            "circuits-26:depth-2",
+            "circuits-26:depth-3",
+            "circuits-26:depth-4"
+          ],
+          "card_ids": [
+            "circuits-26-card-1",
+            "circuits-26-card-2",
+            "circuits-26-card-3",
+            "circuits-26-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "circuits-module-27",
+      "title": "Assignment 6: cumulative final channel audit",
+      "source_ids": [
+        "circuits-power-calendar",
+        "circuits-power-readings"
+      ],
+      "lessons": [
+        {
+          "id": "circuits-27",
+          "title": "Assignment 6: cumulative final channel audit",
+          "reading": "assignments/coursework-06-cumulative-final-channel-audit.md",
+          "objectives": [
+            "circuits-27-objective-1",
+            "circuits-27-objective-2",
+            "circuits-27-objective-3",
+            "circuits-27-objective-4"
+          ],
+          "worked_example": "A 10.0 mV, 1 kOhm sensor into 4 kOhm loads to 8.00 mV (20.0% error) and gain 100 gives 0.800 V; tau 1 ms settles to half-LSB of 8 bits in 5.55 ms; 40 Hz needs 80 Hz, sampled at 200 for 2.50x; the A(B+C) trip is 1 at indices 5, 6, 7 with setup slack 15 ns and hold slack 16 ns at a 40 ns clock.",
+          "question_ids": [
+            "circuits-27:depth-1",
+            "circuits-27:depth-2",
+            "circuits-27:depth-3",
+            "circuits-27:depth-4"
+          ],
+          "card_ids": [
+            "circuits-27-card-1",
+            "circuits-27-card-2",
+            "circuits-27-card-3",
+            "circuits-27-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -2433,6 +2564,53 @@
         "circuits-25:depth-2"
       ],
       "points": 6
+    },
+    {
+      "id": "circuits-26-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "AC power, RMS and energy in dynamic elements (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 8,
+      "objective_ids": [
+        "circuits-26-objective-1",
+        "circuits-26-objective-2",
+        "circuits-26-objective-3",
+        "circuits-outcome-2"
+      ],
+      "question_ids": [
+        "circuits-26:depth-1",
+        "circuits-26:depth-2",
+        "circuits-26:depth-3",
+        "circuits-26:depth-4"
+      ],
+      "points": 12
+    },
+    {
+      "id": "circuits-27-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Assignment 6: cumulative final channel audit (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 14,
+      "objective_ids": [
+        "circuits-27-objective-1",
+        "circuits-27-objective-2",
+        "circuits-27-objective-3",
+        "circuits-27-objective-4",
+        "circuits-outcome-1",
+        "circuits-outcome-2",
+        "circuits-outcome-3",
+        "circuits-outcome-4",
+        "circuits-outcome-5"
+      ],
+      "question_ids": [
+        "circuits-27:depth-1",
+        "circuits-27:depth-2",
+        "circuits-27:depth-3",
+        "circuits-27:depth-4"
+      ],
+      "points": 13
     }
   ],
   "grading_policy": {
@@ -2542,6 +2720,11 @@
       "version": "0.7.0",
       "date": "2026-10-23",
       "summary": "Added two original digital-abstraction/Boolean and memory/timing foundations with one connected interlock route-audit assignment, ten checkpoints/cards and a fifth course outcome. Developed independent truth-table, De Morgan, delay-ledger, shift-register, counter and setup/hold evidence. The package remains partial and unreviewed."
+    },
+    {
+      "version": "0.8.0",
+      "date": "2026-10-23",
+      "summary": "Added the original AC-power/RMS/energy foundation and a cumulative final channel-audit assignment with eight checkpoints/cards, closing the last typical-core strand of the declared 14-week scope. Developed independent quadrature-RMS, power-factor, correction, channel-budget and latched-timing evidence. The package remains partial and unreviewed."
     }
   ],
   "limitations": [

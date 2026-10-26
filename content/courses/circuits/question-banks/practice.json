@@ -7323,6 +7323,671 @@
           "Original synthetic digital-logic practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
         ]
       }
+    },
+    {
+      "id": "circuits-26:depth-1",
+      "type": "data_interpretation",
+      "prompt": "The AC-power lesson audits a stipulated sinusoidal excitation of 5.00 times root-two, about 7.07 V peak, driving a 50.0 ohm resistor. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations.",
+      "points": 3,
+      "objective_ids": [
+        "circuits-26-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "rms_voltage",
+          "type": "numeric",
+          "prompt": "Root-mean-square voltage of the source in volts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "crest_factor",
+          "type": "numeric",
+          "prompt": "Crest factor, the ratio of peak to root-mean-square voltage.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "resistor_power",
+          "type": "numeric",
+          "prompt": "Average power dissipated in the 50.0 ohm resistor in watts.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "rms_voltage",
+            "type": "numeric",
+            "answer": 5.0,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "crest_factor",
+            "type": "numeric",
+            "answer": 1.4142135623730951,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "resistor_power",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which average does the RMS definition take, and of what?",
+        "solution": "The mean square of a sinusoid is half its peak square, so the RMS value is peak over root two, about 5.00 V, with crest factor root two; the resistor then dissipates twenty-five over fifty, 0.500 W.",
+        "lesson_ids": [
+          "circuits-26"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic AC-power and final-audit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-26:depth-2",
+      "type": "data_interpretation",
+      "prompt": "The AC-power lesson audits a 5.00 V RMS source at 1000 rad/s driving 30.0 ohm in series with a 40.0 mH inductor. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations.",
+      "points": 3,
+      "objective_ids": [
+        "circuits-26-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "impedance_magnitude",
+          "type": "numeric",
+          "prompt": "Magnitude of the series impedance in ohms.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "current_rms_ma",
+          "type": "numeric",
+          "prompt": "Root-mean-square current drawn in milliamperes.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "real_power",
+          "type": "numeric",
+          "prompt": "Average real power delivered in watts.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "impedance_magnitude",
+            "type": "numeric",
+            "answer": 50.0,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "current_rms_ma",
+            "type": "numeric",
+            "answer": 100.0,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "real_power",
+            "type": "numeric",
+            "answer": 0.3,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which impedance does the inductor present at this frequency?",
+        "solution": "The inductor presents forty ohm, so the series magnitude is fifty ohm; the current is five over fifty, 0.100 A RMS, and the real power is the current squared times thirty, 0.300 W.",
+        "lesson_ids": [
+          "circuits-26"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic AC-power and final-audit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-26:depth-3",
+      "type": "data_interpretation",
+      "prompt": "The AC-power lesson audits the same 5.00 V RMS, 30.0 ohm plus 40.0 mH series load at 1000 rad/s. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations.",
+      "points": 3,
+      "objective_ids": [
+        "circuits-26-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "power_factor",
+          "type": "numeric",
+          "prompt": "Power factor, the cosine of the load angle.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "reactive_power",
+          "type": "numeric",
+          "prompt": "Reactive power supported by the quadrature current in var.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "peak_stored_energy_mj",
+          "type": "numeric",
+          "prompt": "Peak energy stored in the inductor in millijoules.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "power_factor",
+            "type": "numeric",
+            "answer": 0.6,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "reactive_power",
+            "type": "numeric",
+            "answer": 0.4,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "peak_stored_energy_mj",
+            "type": "numeric",
+            "answer": 0.4,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does the load angle do to the current, and where does the quadrature energy go?",
+        "solution": "The current lags by fifty-three degrees, so the power factor is zero point six; the reactive power is five times zero point one times zero point eight, 0.400 var, and the peak stored energy is that var divided by omega, 0.400 mJ.",
+        "lesson_ids": [
+          "circuits-26"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic AC-power and final-audit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-26:depth-4",
+      "type": "data_interpretation",
+      "prompt": "The AC-power lesson audits power-factor correction of the same load, with a 5.00 ohm delivery resistance ahead of it. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations.",
+      "points": 3,
+      "objective_ids": [
+        "circuits-26-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "capacitor_uf",
+          "type": "numeric",
+          "prompt": "Parallel capacitance that cancels the reactive power in microfarads.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "source_current_after_ma",
+          "type": "numeric",
+          "prompt": "Source current after correction in milliamperes.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "line_loss_after_mw",
+          "type": "numeric",
+          "prompt": "Delivery-resistance loss after correction in milliwatts.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "capacitor_uf",
+            "type": "numeric",
+            "answer": 16.0,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "source_current_after_ma",
+            "type": "numeric",
+            "answer": 60.0,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "line_loss_after_mw",
+            "type": "numeric",
+            "answer": 18.0,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What must the capacitor supply locally, and what does the line then carry?",
+        "solution": "The capacitor must supply the 0.400 var locally, needing 0.400 over one thousand times twenty-five farads, 16.0 microfarad; the line then carries only real power, 0.300 W over 5.00 V is 0.0600 A, and its loss is that current squared times five, 18.0 mW.",
+        "lesson_ids": [
+          "circuits-26"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic AC-power and final-audit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-27:depth-1",
+      "type": "data_interpretation",
+      "prompt": "The final channel audit follows a pressure sensor of 10.0 mV open-circuit and 1.00 kOhm source resistance into a 4.00 kOhm amplifier input, then a non-inverting gain of 100.0. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations.",
+      "points": 3,
+      "objective_ids": [
+        "circuits-27-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "loaded_source_mv",
+          "type": "numeric",
+          "prompt": "Voltage the loaded channel actually sees in millivolts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "loading_error_percent",
+          "type": "numeric",
+          "prompt": "Loading error of the divider in percent.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "channel_output_v",
+          "type": "numeric",
+          "prompt": "Channel output after the gain stage in volts.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "loaded_source_mv",
+            "type": "numeric",
+            "answer": 8.0,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "loading_error_percent",
+            "type": "numeric",
+            "answer": 20.0,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "channel_output_v",
+            "type": "numeric",
+            "answer": 0.8,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which divider does the input resistance form with the source resistance?",
+        "solution": "The divider keeps four over five of the open-circuit value, 8.00 mV, a 20.0 percent loading error; gain one hundred then delivers 0.800 V into the span.",
+        "lesson_ids": [
+          "circuits-27"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic AC-power and final-audit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-27:depth-2",
+      "type": "data_interpretation",
+      "prompt": "The final channel audit budgets a first-order anti-alias RC of 1.00 ms time constant ahead of an 8-bit converter spanning 10.0 V, with 12.0 mV RMS channel noise referred to its input. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations.",
+      "points": 3,
+      "objective_ids": [
+        "circuits-27-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "settling_half_lsb_ms",
+          "type": "numeric",
+          "prompt": "Settling time to within a half-LSB of 8 bits in milliseconds.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "lsb_mv",
+          "type": "numeric",
+          "prompt": "Size of one converter step in millivolts.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "noise_lsb",
+          "type": "numeric",
+          "prompt": "Channel noise expressed in LSB units.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "settling_half_lsb_ms",
+            "type": "numeric",
+            "answer": 5.545177444479562,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "lsb_mv",
+            "type": "numeric",
+            "answer": 39.0625,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "noise_lsb",
+            "type": "numeric",
+            "answer": 0.3072,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How many time constants clear eight bits, and how large is one step?",
+        "solution": "Eight bits need eight natural-log-of-two time constants, 5.55 ms; one step is ten over two hundred fifty-six, 39.1 mV, and the 12.0 mV noise is 0.307 of it.",
+        "lesson_ids": [
+          "circuits-27"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic AC-power and final-audit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-27:depth-3",
+      "type": "data_interpretation",
+      "prompt": "The final channel audit checks a 40.0 Hz signal band sampled at 200 Hz, and the trip route T equals A AND (B OR C) latched at a 40 ns period through a 15 ns route with 4 ns clock-to-Q, 6 ns setup and 3 ns hold. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations.",
+      "points": 4,
+      "objective_ids": [
+        "circuits-27-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "nyquist_rate_hz",
+          "type": "numeric",
+          "prompt": "Nyquist rate of the stipulated signal band in hertz.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "sample_margin_ratio",
+          "type": "numeric",
+          "prompt": "Sampling margin as a ratio of the sampling rate to the Nyquist rate.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "setup_slack_ns",
+          "type": "numeric",
+          "prompt": "Setup slack of the latched trip route in nanoseconds.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "hold_slack_ns",
+          "type": "numeric",
+          "prompt": "Hold slack of the latched trip route in nanoseconds.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "nyquist_rate_hz",
+            "type": "numeric",
+            "answer": 80.0,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "sample_margin_ratio",
+            "type": "numeric",
+            "answer": 2.5,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "setup_slack_ns",
+            "type": "numeric",
+            "answer": 15.0,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "hold_slack_ns",
+            "type": "numeric",
+            "answer": 16.0,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What doubles the band rate, and how do both slacks close?",
+        "solution": "The Nyquist rate is twice forty, 80.0 Hz, so 200 Hz sampling carries a 2.50 margin; the setup slack is forty minus four minus fifteen minus six, 15 ns, and the hold slack is four plus fifteen minus three, 16 ns.",
+        "lesson_ids": [
+          "circuits-27"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic AC-power and final-audit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "circuits-27:depth-4",
+      "type": "data_interpretation",
+      "prompt": "The final channel audit enumerates the trip route T equals A AND (B OR C) under the declared row index 4A plus 2B plus C with A the most significant bit, and budgets the 12.0 V supply drawing 25.0 mA. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations.",
+      "points": 3,
+      "objective_ids": [
+        "circuits-27-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "trip_rows",
+          "type": "numeric",
+          "prompt": "Number of the eight rows where T is 1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "index_sum",
+          "type": "numeric",
+          "prompt": "Sum of the row indices where T is 1.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "supply_power_w",
+          "type": "numeric",
+          "prompt": "Supply power drawn by the channel in watts.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "trip_rows",
+            "type": "numeric",
+            "answer": 3,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "index_sum",
+            "type": "numeric",
+            "answer": 18,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "supply_power_w",
+            "type": "numeric",
+            "answer": 0.3,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which rows activate the AND-of-OR route, and what does the supply dissipate?",
+        "solution": "The route is one exactly at indices five, six and seven, three rows summing to eighteen; the supply dissipates twelve times twenty-five milliamps, 0.300 W.",
+        "lesson_ids": [
+          "circuits-27"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic AC-power and final-audit practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
+        ]
+      }
     }
   ]
 }

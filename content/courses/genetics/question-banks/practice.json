@@ -6210,6 +6210,969 @@
           "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
         ]
       }
+    },
+    {
+      "id": "genetics-25:depth-1",
+      "type": "data_interpretation",
+      "prompt": "A stipulated insertion sequence carries one transposase gene between terminal inverted repeats, and two such cassettes flank a marker gene to form a composite transposon. Starting from one genomic element copy, one transposition event proceeds by each stipulated mechanism. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "genetics-25-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "ir_pairs",
+          "type": "numeric",
+          "prompt": "Exact number of inverted-repeat pairs in one insertion sequence.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "copypaste_copies",
+          "type": "numeric",
+          "prompt": "Element copies remaining after one cut-and-paste event.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "replicative_copies",
+          "type": "numeric",
+          "prompt": "Element copies after one replicative event from the same single starting copy.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "signature",
+          "type": "single_choice",
+          "prompt": "Which signature separates replicative transposition from cut-and-paste?",
+          "unit": "",
+          "points": 1,
+          "options": [
+            "Copy number is unchanged by either mechanism.",
+            "Copy number rises by one per replicative event while the donor copy remains.",
+            "Cut-and-paste doubles the element because both ends move."
+          ]
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "ir_pairs",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "copypaste_copies",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "replicative_copies",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "signature",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What happens to the donor copy in each mechanism?",
+        "solution": "An insertion sequence carries two inverted-repeat pairs, one per end. Cut-and-paste conserves copy number: one copy remains. A replicative event leaves the donor behind and adds a copy: two.",
+        "lesson_ids": [
+          "genetics-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-25:depth-2",
+      "type": "data_interpretation",
+      "prompt": "A terminator-bearing element inserts into gene 2 of a three-gene operon transcribed as one messenger. Stipulated transcript assays: gene 1, upstream of the insertion, runs at 100 percent of wild type, while gene 3, downstream, collapses to 2.0 percent. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "genetics-25-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "gene1_pct",
+          "type": "numeric",
+          "prompt": "Gene-1 transcript level as a percent of wild type.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "gene3_pct",
+          "type": "numeric",
+          "prompt": "Gene-3 transcript level as a percent of wild type.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "mechanism",
+          "type": "single_choice",
+          "prompt": "What does the assay call this insertion?",
+          "unit": "",
+          "points": 1,
+          "options": [
+            "Direct: the element lands in gene 3 and deletes it.",
+            "Polar: termination inside gene 2 destroys downstream gene-3 transcription.",
+            "Trans-acting: a diffusible suppressor silences gene 3."
+          ]
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "gene1_pct",
+            "type": "numeric",
+            "answer": 100.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "gene3_pct",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "mechanism",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which transcript survives the terminator?",
+        "solution": "Upstream gene 1 stays at 100 percent; downstream gene 3 collapses to 2.00 percent because termination inside gene 2 halts its transcription. The insertion is polar on gene 3 without touching gene 3.",
+        "lesson_ids": [
+          "genetics-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-25:depth-3",
+      "type": "data_interpretation",
+      "prompt": "A culture of 1.0×10⁹ cells carries a transposition frequency of 2.0×10⁻⁷ events per cell, and lands distribute Poisson-wise over 50 equally sized target genes. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "genetics-25-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "expected_total",
+          "type": "numeric",
+          "prompt": "Expected independent insertion mutants in the culture.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "expected_per_gene",
+          "type": "numeric",
+          "prompt": "Expected insertion mutants per target gene.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "zero_gene_pct",
+          "type": "numeric",
+          "prompt": "Percent chance that one given target gene still has zero insertion mutants.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "coverage",
+          "type": "single_choice",
+          "prompt": "A target gene with zero observed insertion mutants is best read as",
+          "unit": "",
+          "points": 1,
+          "options": [
+            "immune to insertion, because the series is complete.",
+            "un-sampled so far, with about a 1.8 percent per-gene chance of that gap under the stipulated model.",
+            "proof that the gene does not exist."
+          ]
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "expected_total",
+            "type": "numeric",
+            "answer": 200.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "expected_per_gene",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "zero_gene_pct",
+            "type": "numeric",
+            "answer": 1.8315638888734178,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "coverage",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does an empty class say when the expectation per class is small?",
+        "solution": "2.0×10⁻⁷ × 1.0×10⁹ = 200 expected mutants; 200/50 = 4.00 per gene; the zero-class chance is e⁻⁴ ≈ 1.83 percent. An empty class is a statement about sampling, not about the gene's immunity.",
+        "lesson_ids": [
+          "genetics-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-25:depth-4",
+      "type": "data_interpretation",
+      "prompt": "Revertants of an insertion mutant arise at a stipulated one per billion progeny by precise excision and 0.5 per million progeny by second-site suppression. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "genetics-25-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "excision_per_billion",
+          "type": "numeric",
+          "prompt": "Precise-excision revertants expected per billion progeny.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "suppressor_per_billion",
+          "type": "numeric",
+          "prompt": "Second-site suppressor revertants expected per billion progeny.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "fold",
+          "type": "numeric",
+          "prompt": "How many times more common suppression is than precise excision.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "diagnosis",
+          "type": "single_choice",
+          "prompt": "A revertant colony that still hybridizes to an element probe at the original site is best explained as",
+          "unit": "",
+          "points": 1,
+          "options": [
+            "a precise excision that restored the wild-type sequence.",
+            "a second-site suppressor, because precise excision removes the element.",
+            "a contamination of the culture by wild type."
+          ]
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "excision_per_billion",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "suppressor_per_billion",
+            "type": "numeric",
+            "answer": 500.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "fold",
+            "type": "numeric",
+            "answer": 500.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "diagnosis",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does precise excision do to the element itself?",
+        "solution": "Suppression at 0.5 per million is 500 per billion, 500-fold over excision. A revertant still carrying the element cannot be a precise excision; it is a suppressor until sequence evidence says otherwise.",
+        "lesson_ids": [
+          "genetics-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-26:depth-1",
+      "type": "data_interpretation",
+      "prompt": "A replacement targeting vector carries a 5.0 kb left homology arm, a 3.0 kb right arm, and between them a 2.0 kb marker that replaces a 1.5 kb stretch containing exon 2. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "genetics-26-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "homology_kb",
+          "type": "numeric",
+          "prompt": "Total homology carried by the arms, in kb.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "crossovers",
+          "type": "numeric",
+          "prompt": "Exchange events a replacement requires.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "net_change_kb",
+          "type": "numeric",
+          "prompt": "Net length change of the replaced locus, in kb.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "event_type",
+          "type": "single_choice",
+          "prompt": "What distinguishes a replacement from a simple insertion?",
+          "unit": "",
+          "points": 1,
+          "options": [
+            "A single crossover anywhere in the left arm suffices.",
+            "Two exchanges, one in each homology arm.",
+            "Four exchanges, two per allele."
+          ]
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "homology_kb",
+            "type": "numeric",
+            "answer": 8.0,
+            "unit": "",
+            "tolerance": 0.0051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "crossovers",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "net_change_kb",
+            "type": "numeric",
+            "answer": 0.5,
+            "unit": "",
+            "tolerance": 0.00051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "event_type",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "How many exchange events does a replacement need, and where?",
+        "solution": "5.0 + 3.0 = 8.00 kb of homology; a replacement needs one crossover per arm, two events; the marker adds 2.0 kb where 1.5 kb of coding sequence left, a net change of +0.500 kb.",
+        "lesson_ids": [
+          "genetics-26"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-26:depth-2",
+      "type": "data_interpretation",
+      "prompt": "2.0×10⁷ electroporated stem cells take up the vector: homologous integration at 1.0×10⁻⁶ and random integration at 1.0×10⁻⁴; negative selection against the outside marker kills 99 percent of random integrants. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 5,
+      "objective_ids": [
+        "genetics-26-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "targeted",
+          "type": "numeric",
+          "prompt": "Expected colonies from homologous targeting.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "random_unselected",
+          "type": "numeric",
+          "prompt": "Expected random integrants before negative selection.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "random_survivors",
+          "type": "numeric",
+          "prompt": "Random integrants surviving negative selection.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "targeted_fraction_pct",
+          "type": "numeric",
+          "prompt": "Percent of the double-resistant pool that is correctly targeted.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "verification",
+          "type": "single_choice",
+          "prompt": "Before use, each double-resistant colony must get",
+          "unit": "",
+          "points": 1,
+          "options": [
+            "nothing: half of the pool is already correct.",
+            "DNA verification, because enrichment is not identification.",
+            "re-electroporation until every colony is targeted."
+          ]
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "targeted",
+            "type": "numeric",
+            "answer": 20.0,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "random_unselected",
+            "type": "numeric",
+            "answer": 2000.0,
+            "unit": "",
+            "tolerance": 5.1,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "random_survivors",
+            "type": "numeric",
+            "answer": 20.0,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "targeted_fraction_pct",
+            "type": "numeric",
+            "answer": 50.0,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "verification",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does selection change, and what does it not change?",
+        "solution": "2.0×10⁷ × 1.0×10⁻⁶ = 20.0 targeted and × 1.0×10⁻⁴ = 2000 random; 1 percent survive counter-selection, 20.0, so the 40-colony pool is half targeted. Each colony still needs DNA confirmation before it is called a clone.",
+        "lesson_ids": [
+          "genetics-26"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-26:depth-3",
+      "type": "data_interpretation",
+      "prompt": "A confirmed heterozygous replacement carrier derives from a chimera with a 40 percent donor coat contribution. Two such confirmed carriers are crossed. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 4,
+      "objective_ids": [
+        "genetics-26-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "testcross_pct",
+          "type": "numeric",
+          "prompt": "Expected donor-colored percent among testcross offspring, if the contribution is germline.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "homozygous_pct",
+          "type": "numeric",
+          "prompt": "Percent homozygous replacement among two carriers' offspring.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "carrier_pct",
+          "type": "numeric",
+          "prompt": "Percent heterozygous carrier among two carriers' offspring.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "wildtype_pct",
+          "type": "numeric",
+          "prompt": "Percent wild type among two carriers' offspring.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "testcross_pct",
+            "type": "numeric",
+            "answer": 40.0,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "homozygous_pct",
+            "type": "numeric",
+            "answer": 25.0,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "carrier_pct",
+            "type": "numeric",
+            "answer": 50.0,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "wildtype_pct",
+            "type": "numeric",
+            "answer": 25.0,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which cross converts the contribution into an inheritable fact?",
+        "solution": "A germline contribution shows as about 40.0 percent donor-colored testcross offspring. Crossing two heterozygous carriers gives the Mendelian 25.0/50.0/25.0 split, ordinary bookkeeping for a replacement allele.",
+        "lesson_ids": [
+          "genetics-26"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-26:depth-4",
+      "type": "data_interpretation",
+      "prompt": "A conditional design flanks exon 4 with loxP sites, two per allele, and drives Cre recombinase from one tissue-specific promoter in a homozygous floxed cell. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "genetics-26-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "loxp_per_allele",
+          "type": "numeric",
+          "prompt": "loxP sites recorded per floxed allele.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "loxp_homozygous",
+          "type": "numeric",
+          "prompt": "loxP sites in one homozygous floxed cell.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "state",
+          "type": "single_choice",
+          "prompt": "Without Cre, the floxed allele is",
+          "unit": "",
+          "points": 1,
+          "options": [
+            "a null allele in every tissue.",
+            "functionally wild type, marked for deletion.",
+            "not inheritable through the germline."
+          ]
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "loxp_per_allele",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "loxp_homozygous",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "state",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does Cre actually change, and where?",
+        "solution": "Two loxP sites per allele mean four in a homozygous floxed cell. Without Cre the allele stays functionally wild type; Cre excises exon 4 only where its promoter is active.",
+        "lesson_ids": [
+          "genetics-26"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-27:depth-1",
+      "type": "data_interpretation",
+      "prompt": "Assignment 4 Part A: a terminator-bearing element mutagenizes a three-gene operon; M1 lands in gene 1, M2 in gene 2, M3 in gene 3 and M4 again in gene 2. Gene-3 transcripts collapse in M1, M2 and M4, while an M3-derived transcript 5-prime of its insertion site persists. A wild-type gene-3 plasmid complements the gene-3-dependent phenotype in all four mutants. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 3,
+      "objective_ids": [
+        "genetics-27-objective-1"
+      ],
+      "response_fields": [
+        {
+          "id": "polar_count",
+          "type": "numeric",
+          "prompt": "Polar insertions in the four-mutant series.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "direct_count",
+          "type": "numeric",
+          "prompt": "Direct gene-3 disruptions in the four-mutant series.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "rescue_limit",
+          "type": "single_choice",
+          "prompt": "The wild-type gene-3 plasmid rescues all four mutants. What does that NOT establish?",
+          "unit": "",
+          "points": 1,
+          "options": [
+            "That the gene-3-dependent phenotype is rescuable in trans.",
+            "Which insertions are direct and which are polar.",
+            "That gene 3's product participates in the assayed pathway."
+          ]
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "polar_count",
+            "type": "numeric",
+            "answer": 3.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "direct_count",
+            "type": "numeric",
+            "answer": 1.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          },
+          {
+            "id": "rescue_limit",
+            "type": "single_choice",
+            "answer": 1
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "What does a rescued phenotype prove about the lesion?",
+        "solution": "M1, M2 and M4 are polar on gene 3, three of four; M3 is the single direct disruption. Complementation rescue says the phenotype is rescuable, never which lesion is direct and which is polar.",
+        "lesson_ids": [
+          "genetics-27"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
+    },
+    {
+      "id": "genetics-27:depth-2",
+      "type": "data_interpretation",
+      "prompt": "Assignment 4 Parts B–E: 4.0×10⁷ electroporated cells, homologous targeting at 2.5×10⁻⁶, random integration at 2.5×10⁻⁴, negative selection killing 98 percent of random integrants; the audit then crosses confirmed heterozygous carriers and records two loxP sites per floxed allele. Report continuous numeric responses as bare numbers in the requested units to three significant figures; enter exact counts as whole numbers. Keep full precision in intermediate calculations. Select one interpretation per choice field.",
+      "points": 5,
+      "objective_ids": [
+        "genetics-27-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "pool",
+          "type": "numeric",
+          "prompt": "Double-resistant colonies in the audited pool.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "targeted_fraction_pct",
+          "type": "numeric",
+          "prompt": "Percent of the pool that is correctly targeted.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "enrichment_fold",
+          "type": "numeric",
+          "prompt": "Enrichment fold of the targeted fraction over its pre-selection value.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "f2_null_pct",
+          "type": "numeric",
+          "prompt": "Percent homozygous replacement expected from crossing two confirmed carriers.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "loxp_per_allele",
+          "type": "numeric",
+          "prompt": "loxP sites per floxed allele in the audit table.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "pool",
+            "type": "numeric",
+            "answer": 300.0,
+            "unit": "",
+            "tolerance": 0.51,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "targeted_fraction_pct",
+            "type": "numeric",
+            "answer": 33.333333333333336,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "enrichment_fold",
+            "type": "numeric",
+            "answer": 33.666666666666664,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "f2_null_pct",
+            "type": "numeric",
+            "answer": 25.0,
+            "unit": "",
+            "tolerance": 0.051,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "loxp_per_allele",
+            "type": "numeric",
+            "answer": 2.0,
+            "unit": "",
+            "tolerance": 0,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": null
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Which ledger does each selection step actually change?",
+        "solution": "4.0×10⁷ × 2.5×10⁻⁶ = 100 targeted and × 2.5×10⁻⁴ = 10,000 random; 2 percent survive, 200, so the 300-colony pool is 33.3 percent targeted, a 33.7-fold enrichment over 100/10,100 = 0.99 percent. Carrier × carrier gives 25.0 percent null; the floxed allele records two loxP sites.",
+        "lesson_ids": [
+          "genetics-27"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
+        ]
+      }
     }
   ]
 }

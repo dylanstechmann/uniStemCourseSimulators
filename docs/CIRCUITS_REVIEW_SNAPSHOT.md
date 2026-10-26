@@ -2,11 +2,11 @@
 
 This identifies the public package; a digest does not approve circuit models or course depth.
 
-- **Course package:** `circuits` 0.7.0
-- **Public package archive SHA-256:** `26837f79f8d2cb90946ef46878e1961e7a6631fa6616da994dac8b53959829dd`
-- **Manifest SHA-256:** `71875fdc426185168fa76ea7c29f7debcd2b75ac4e3fecd6780566fa654fed81`
-- **Archive inventory:** 36 files, 586,283 bytes
-- **Calculated:** 2026-10-23
+- **Course package:** `circuits` 0.8.0
+- **Public package archive SHA-256:** `db4a21f2b1bcbc58b43f4c9b0dc522ded840b31519a736fe14d4cdd243ff8afd`
+- **Manifest SHA-256:** `68304b4652e37c60c83615d3ea87c5780142020fa6a9b98fdf88ea98c53271be`
+- **Archive inventory:** 38 files, 634,254 bytes
+- **Calculated:** 2026-10-24
 - **Reproduce:** `python tools/course_package_digest.py --course-id circuits`
 
-Five original foundations plus the digital pair and five connected reports add thirty checkpoints/cards, with ten new digital checkpoints/cards at 0.7.0. All parameters are stipulated synthetic models, not measured component specifications. Code, derivations, diagrams and reports are not graded. The course remains partial, unreviewed and formative-only; the previous 0.5.0 snapshot is preserved.
+Six original foundations plus the digital pair and six connected reports add thirty-eight checkpoints/cards, with the 0.8.0 batch supplying the AC power, RMS and energy foundation and the cumulative final channel audit that close the declared 14-week typical-course scope. All parameters are stipulated synthetic models, not measured component specifications. Code, derivations, diagrams and reports are not graded. The course remains partial, unreviewed and formative-only; the [0.5.0](CIRCUITS_REVIEW_SNAPSHOT-0.5.0.md), [0.6.0](CIRCUITS_REVIEW_SNAPSHOT-0.6.0.md) and [0.7.0](CIRCUITS_REVIEW_SNAPSHOT-0.7.0.md) snapshots are preserved.

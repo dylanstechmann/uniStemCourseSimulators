@@ -64,7 +64,7 @@ def analyse(counts: dict):
 
 
 def test_route_is_scheduled_optional_and_ungraded():
-    assert MANIFEST["version"] == "0.7.0" and MANIFEST["maturity"] == "partial"
+    assert MANIFEST["version"] == "0.8.0" and MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed"
     assert MANIFEST["grading_policy"]["mode"] == "formative-only"
     rehearsal = ASSESSMENTS["genetics-project-rehearsal-practice"]

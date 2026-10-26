@@ -7,7 +7,7 @@
   "domain": "Life sciences",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -21,7 +21,8 @@
       "Expanded the original week-11 prototype reading with synthetic association-effect and uncertainty calculations, population-context checks, linkage-disequilibrium limits, and the distinction between statistical and functional evidence; added one link-only primary reference.",
       "Added original instruction and synthetic formative practice on bacterial conjugation, transformation, phage-mediated transduction, Hfr entry mapping, cotransduction, and plasmid complementation.",
       "Added original instruction and synthetic formative practice on tetrad-class recombination estimates and on negative and positive control in prokaryotic regulatory circuits.",
-      "Re-sequenced the proposed 14-week outline to place microbial genetics before regulatory-circuit and expression work, and marked Mendelian randomization and locus follow-up as one optional advanced human-genetics extension."
+      "Re-sequenced the proposed 14-week outline to place microbial genetics before regulatory-circuit and expression work, and marked Mendelian randomization and locus follow-up as one optional advanced human-genetics extension.",
+      "Added original instruction and synthetic formative practice on insertion-sequence and composite-transposon structure, cut-and-paste versus replicative transposition, insertion polarity, Poisson coverage bounds, precise excision versus suppression, replacement-construct audits, positive and negative selection, stem-cell chimera routes and conditional loxP alleles, with a connected cumulative insertion/targeting audit assignment."
     ]
   },
   "prerequisites": {
@@ -67,6 +68,11 @@
     {
       "id": "genetics-outcome-7",
       "description": "Analyze one-locus selection/mutation and genotype-association models and distinguish linkage likelihood from causal probability.",
+      "bloom": "analyze"
+    },
+    {
+      "id": "genetics-outcome-8",
+      "description": "Analyze transposition, insertion-mutagenesis and homologous-targeting evidence.",
       "bloom": "analyze"
     }
   ],
@@ -673,11 +679,97 @@
       "course_outcome_ids": [
         "genetics-outcome-7"
       ]
+    },
+    {
+      "id": "genetics-25-objective-1",
+      "description": "Distinguish cut-and-paste from replicative transposition by copy-number signature.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-8"
+      ]
+    },
+    {
+      "id": "genetics-25-objective-2",
+      "description": "Classify polar insertions in a multi-gene operon from expression evidence.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-5",
+        "genetics-outcome-8"
+      ]
+    },
+    {
+      "id": "genetics-25-objective-3",
+      "description": "Bound insertion-series coverage with Poisson expectations.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-5",
+        "genetics-outcome-8"
+      ]
+    },
+    {
+      "id": "genetics-25-objective-4",
+      "description": "Separate precise excision from second-site suppression in revertants.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-5",
+        "genetics-outcome-8"
+      ]
+    },
+    {
+      "id": "genetics-26-objective-1",
+      "description": "Audit a replacement targeting construct's arms, exchanges and net length change.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-8"
+      ]
+    },
+    {
+      "id": "genetics-26-objective-2",
+      "description": "Apply positive and negative selection arithmetic without treating enrichment as identification.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-8"
+      ]
+    },
+    {
+      "id": "genetics-26-objective-3",
+      "description": "Read chimera contribution and carrier crosses as Mendelian bookkeeping.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-1",
+        "genetics-outcome-8"
+      ]
+    },
+    {
+      "id": "genetics-26-objective-4",
+      "description": "Interpret a conditional loxP allele per tissue.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-8"
+      ]
+    },
+    {
+      "id": "genetics-27-objective-1",
+      "description": "Classify an insertion series for polarity and rescue evidence.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-5",
+        "genetics-outcome-8"
+      ]
+    },
+    {
+      "id": "genetics-27-objective-2",
+      "description": "Re-derive the targeting, germline and conditional ledgers for the audit.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-1",
+        "genetics-outcome-8"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week undergraduate scope only. Weeks 9–11 bring microbial exchange, prokaryotic negative/positive regulation, gene perturbation and expression measurement into a connected sequence; week 5 now includes unordered tetrad recombination alongside three-point mapping. Week 13 is a synthetic association lab. Week 14 is an optional advanced human-genetics extension covering Mendelian randomization and locus follow-up, not a substitute for core foundations. All work is open, ungraded formative practice, including an optional three-point mapping project with rehearsal practice and milestone self-checks in weeks 6–7; there are no graded homework sets or exams, and workload has not been measured. The schedule does not establish equivalence to MIT 7.03 or a complete semester.",
+    "equivalent_structure": "Proposed 14-week undergraduate scope only. Weeks 9–11 bring microbial exchange, prokaryotic negative/positive regulation, gene perturbation and expression measurement into a connected sequence; week 5 now includes unordered tetrad recombination alongside three-point mapping. Week 9 adds transposition and insertion mutagenesis to microbial exchange, week 13 adds homologous targeting to the synthetic association lab, and week 14 adds a cumulative insertion/targeting audit. Week 14 is an optional advanced human-genetics extension covering Mendelian randomization and locus follow-up, not a substitute for core foundations. All work is open, ungraded formative practice, including an optional three-point mapping project with rehearsal practice and milestone self-checks in weeks 6–7; there are no graded homework sets or exams, and workload has not been measured. The schedule does not establish equivalence to MIT 7.03 or a complete semester.",
     "weeks": [
       {
         "week": 1,
@@ -766,14 +858,16 @@
       },
       {
         "week": 9,
-        "title": "Bacterial genetic exchange: transfer, mapping and complementation",
+        "title": "Bacterial genetic exchange and mobile elements: transfer, mapping, complementation and transposition",
         "lesson_ids": [
           "genetics-16",
-          "genetics-19"
+          "genetics-19",
+          "genetics-25"
         ],
         "assessment_ids": [
           "genetics-16-practice",
-          "genetics-19-practice"
+          "genetics-19-practice",
+          "genetics-25-practice"
         ]
       },
       {
@@ -820,29 +914,33 @@
       },
       {
         "week": 13,
-        "title": "Virtual lab: an association study with population structure",
+        "title": "Genome and targeting evidence: virtual association lab, transcript dossier and homologous replacement",
         "lesson_ids": [
           "genetics-lab-01",
-          "genetics-23"
+          "genetics-23",
+          "genetics-26"
         ],
         "assessment_ids": [
           "genetics-week12-association-lab",
-          "genetics-23-practice"
+          "genetics-23-practice",
+          "genetics-26-practice"
         ]
       },
       {
         "week": 14,
-        "title": "Optional extension: human genetic causal inference and locus follow-up",
+        "title": "Optional extension: human causal inference, locus follow-up and the insertion/targeting audit",
         "lesson_ids": [
           "genetics-9",
           "genetics-15",
-          "genetics-24"
+          "genetics-24",
+          "genetics-27"
         ],
         "assessment_ids": [
           "genetics-9-practice",
           "genetics-15-practice",
           "genetics-case",
-          "genetics-24-practice"
+          "genetics-24-practice",
+          "genetics-27-practice"
         ]
       }
     ]
@@ -1733,6 +1831,102 @@
           ]
         }
       ]
+    },
+    {
+      "id": "genetics-module-25",
+      "title": "Transposable elements and insertion mutagenesis",
+      "source_ids": [
+        "genetics-703",
+        "genetics-703-notes"
+      ],
+      "lessons": [
+        {
+          "id": "genetics-25",
+          "title": "Transposable elements and insertion mutagenesis",
+          "reading": "modules/25-transposable-elements-and-insertion-mutagenesis.md",
+          "objectives": [
+            "genetics-25-objective-1",
+            "genetics-25-objective-2",
+            "genetics-25-objective-3",
+            "genetics-25-objective-4"
+          ],
+          "worked_example": "An insertion sequence carries two inverted-repeat pairs; one cut-and-paste event leaves one copy while one replicative event leaves two. A terminator landing in gene 2 of a three-gene operon leaves gene 1 at 100 percent and collapses gene 3 to 2.00 percent.",
+          "question_ids": [
+            "genetics-25:depth-1",
+            "genetics-25:depth-2",
+            "genetics-25:depth-3",
+            "genetics-25:depth-4"
+          ],
+          "card_ids": [
+            "genetics-25-card-1",
+            "genetics-25-card-2",
+            "genetics-25-card-3",
+            "genetics-25-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "genetics-module-26",
+      "title": "Transgenes and homologous gene targeting",
+      "source_ids": [
+        "genetics-703",
+        "genetics-703-notes"
+      ],
+      "lessons": [
+        {
+          "id": "genetics-26",
+          "title": "Transgenes and homologous gene targeting",
+          "reading": "modules/26-transgenes-and-homologous-gene-targeting.md",
+          "objectives": [
+            "genetics-26-objective-1",
+            "genetics-26-objective-2",
+            "genetics-26-objective-3",
+            "genetics-26-objective-4"
+          ],
+          "worked_example": "5.0 + 3.0 = 8.00 kb of homology and two exchanges replace a 1.5 kb stretch with a 2.0 kb marker, a net +0.500 kb. Of 2.0×10⁷ cells, 20.0 are targeted and 2000 random; 20.0 survive counter-selection, so the 40-colony pool is half targeted. A 40 percent chimera tests about 40.0 percent germline; carriers cross to 25.0/50.0/25.0.",
+          "question_ids": [
+            "genetics-26:depth-1",
+            "genetics-26:depth-2",
+            "genetics-26:depth-3",
+            "genetics-26:depth-4"
+          ],
+          "card_ids": [
+            "genetics-26-card-1",
+            "genetics-26-card-2",
+            "genetics-26-card-3",
+            "genetics-26-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "genetics-module-27",
+      "title": "Assignment 4: insertion and targeting audit",
+      "source_ids": [
+        "genetics-703",
+        "genetics-703-notes"
+      ],
+      "lessons": [
+        {
+          "id": "genetics-27",
+          "title": "Assignment 4: insertion and targeting audit",
+          "reading": "assignments/coursework-04-insertion-and-targeting-audit.md",
+          "objectives": [
+            "genetics-27-objective-1",
+            "genetics-27-objective-2"
+          ],
+          "worked_example": "M1, M2 and M4 are polar, three of four, and M3 is direct. 4.0×10⁷ cells give 100 targeted and 10,000 random; 200 survive, so the 300-colony pool is 33.3 percent targeted, a 33.7-fold enrichment over 0.99 percent. Carriers cross to 25.0 percent null, and the floxed allele records two loxP sites.",
+          "question_ids": [
+            "genetics-27:depth-1",
+            "genetics-27:depth-2"
+          ],
+          "card_ids": [
+            "genetics-27-card-1",
+            "genetics-27-card-2"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -2330,6 +2524,72 @@
         "genetics-24:depth-2"
       ],
       "points": 8
+    },
+    {
+      "id": "genetics-25-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Transposable elements and insertion mutagenesis (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 9,
+      "objective_ids": [
+        "genetics-25-objective-1",
+        "genetics-25-objective-2",
+        "genetics-25-objective-3",
+        "genetics-25-objective-4",
+        "genetics-outcome-5",
+        "genetics-outcome-8"
+      ],
+      "question_ids": [
+        "genetics-25:depth-1",
+        "genetics-25:depth-2",
+        "genetics-25:depth-3",
+        "genetics-25:depth-4"
+      ],
+      "points": 15
+    },
+    {
+      "id": "genetics-26-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Transgenes and homologous gene targeting (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 13,
+      "objective_ids": [
+        "genetics-26-objective-1",
+        "genetics-26-objective-2",
+        "genetics-26-objective-3",
+        "genetics-26-objective-4",
+        "genetics-outcome-1",
+        "genetics-outcome-8"
+      ],
+      "question_ids": [
+        "genetics-26:depth-1",
+        "genetics-26:depth-2",
+        "genetics-26:depth-3",
+        "genetics-26:depth-4"
+      ],
+      "points": 16
+    },
+    {
+      "id": "genetics-27-practice",
+      "type": "homework",
+      "mode": "practice",
+      "title": "Assignment 4: insertion and targeting audit (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 14,
+      "objective_ids": [
+        "genetics-27-objective-1",
+        "genetics-27-objective-2",
+        "genetics-outcome-1",
+        "genetics-outcome-5",
+        "genetics-outcome-8"
+      ],
+      "question_ids": [
+        "genetics-27:depth-1",
+        "genetics-27:depth-2"
+      ],
+      "points": 8
     }
   ],
   "grading_policy": {
@@ -2444,10 +2704,15 @@
       "version": "0.7.0",
       "date": "2026-10-22",
       "summary": "Expanded functional/genome/population evidence depth with three original foundations, three connected report/simulation assignments, eighteen checkpoints/cards and a synthetic clone-count dataset. Develops phage complementation/recombination/suppression, dosage-normalized allelic/transcript reasoning, normalized selection/mutation/inbreeding and known-phase linkage likelihood. Preserves the mapping project and association lab. No source asset, real organism data, qualified review or clinical inference is supplied; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.8.0",
+      "date": "2026-10-24",
+      "summary": "Added transposition and targeting foundations with a connected cumulative audit: insertion-sequence and composite-transposon structure, cut-and-paste versus replicative signatures, insertion polarity, Poisson coverage bounds, precise excision versus suppression, replacement-construct design, double selection, the stem-cell chimera route and conditional loxP alleles, plus Assignment 4 scheduled across weeks 9, 13 and 14, with ten checkpoints/cards and one new course outcome."
     }
   ],
   "limitations": [
-    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and three connected open report/simulation assignments but no graded homework/exam or multi-session laboratory sequence. An optional three-point mapping project guide with rehearsal practice and Case studio milestone self-checks (weeks 6–7) is ungraded practice; the separate paper-only project draft stays inactive.",
+    "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and four connected open report/simulation assignments but no graded homework/exam or multi-session laboratory sequence. An optional three-point mapping project guide with rehearsal practice and Case studio milestone self-checks (weeks 6–7) is ungraded practice; the separate paper-only project draft stays inactive.",
     "Practice items are short formative checks (two per prototype unit and six to twelve per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
@@ -2455,10 +2720,11 @@
     "Risk calculations for families are synthetic teaching examples; this package gives no genetic-counselling or medical advice and says nothing about any person's risk.",
     "The three-point mapping project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses separate synthetic counts and a different penetrance, and no software check evaluates a learner's project calculations or written interpretation. Milestone weeks are planning suggestions, not measured workload or deadlines.",
     "Three new foundation readings and three connected assignments develop selected phage functional maps/suppression, eukaryotic copy/transcript evidence, normalized one-locus population models and known-phase linkage likelihood. These do not complete broad transposition, phage life-cycle, genome-targeting, cancer-genetics or multi-locus/pedigree scope. Written reports, implementations, causal diagrams and protein/organism function are not automatically evaluated; workload and qualified review remain open.",
-    "Of the 106 numerical answers, 1 require units, 46 check significant figures and 0 check dimensions. New continuous checkpoint quantities request three significant figures; exact counts have no significant-figure requirement."
+    "Two further foundation readings and one connected audit assignment develop insertion-sequence structure, copy-number signatures, insertion polarity, Poisson coverage bounds, excision versus suppression, replacement-construct design, double-selection arithmetic, the stem-cell chimera route and conditional loxP alleles. These do not complete broad phage life cycles, genome-scale targeting applications or cancer genetics, and no protocol, cell line or animal work is described or authorized.",
+    "Of the 137 numerical answers, 1 require units, 66 check significant figures and 0 check dimensions. New continuous checkpoint quantities request three significant figures; exact counts have no significant-figure requirement."
   ],
   "intentionally_omitted": [
-    "Graded assessments and a multi-session laboratory sequence remain unauthored. Selected phage fine-structure/complementation/suppression and eukaryotic dosage/transcript evidence now supplement the microbial/operon/tetrad core; detailed transposition, broader phage life cycles, gene targeting, cancer genetics, two-locus ordered tetrads, multiple-exchange corrections, gene conversion and comprehensive genome analysis remain incomplete. Population models are one-locus deterministic examples and linkage likelihood assumes known phase/error-free independent transmissions; broader drift/migration/multi-locus/pedigree inference is deferred. Mendelian randomization and variant-to-mechanism follow-up remain optional advanced human-genetics applications."
+    "Graded assessments and a multi-session laboratory sequence remain unauthored. Selected phage fine-structure/complementation/suppression, eukaryotic dosage/transcript evidence, transposition mechanics and targeted replacement with conditional loxP alleles now supplement the microbial/operon/tetrad core; broader phage life cycles, genome-scale targeting applications, cancer genetics, two-locus ordered tetrads, multiple-exchange corrections, gene conversion and comprehensive genome analysis remain incomplete. Population models are one-locus deterministic examples and linkage likelihood assumes known phase/error-free independent transmissions; broader drift/migration/multi-locus/pedigree inference is deferred. Mendelian randomization and variant-to-mechanism follow-up remain optional advanced human-genetics applications."
   ],
   "learner_resources": [
     "labs/case-control-genotypes.csv",

@@ -1,4 +1,4 @@
-"""Independent nonlinear-device, modal, transient, covariance and digital references."""
+"""Independent nonlinear-device, modal, transient, covariance, digital and AC-power references."""
 
 from __future__ import annotations
 
@@ -22,7 +22,7 @@ NEW = {
     for q in json.loads((DIRECTORY / "question-banks/practice.json").read_text())[
         "questions"
     ]
-    if re.fullmatch(r"circuits-(1[6-9]|2[0-5]):depth-\d+", q["id"])
+    if re.fullmatch(r"circuits-(1[6-9]|2[0-7]):depth-\d+", q["id"])
 }
 
 
@@ -135,6 +135,43 @@ def calculations():
         (24, 4): {"setup_slack_ns": 3, "hold_slack_ns": 10, "max_route_delay_ns": 11},
         (25, 1): {"trip_rows": 4, "index_sum": 21, "two_input_gates": 5},
         (25, 2): {"setup_slack_ns": 8, "hold_slack_ns": 23, "passes_stipulated_checks": 1},
+        (26, 1): {
+            "rms_voltage": 5.0,
+            "crest_factor": math.sqrt(2),
+            "resistor_power": 25.0 / 50.0,
+        },
+        (26, 2): {
+            "impedance_magnitude": math.hypot(30.0, 40.0),
+            "current_rms_ma": 1000 * 5.0 / math.hypot(30.0, 40.0),
+            "real_power": (5.0 / math.hypot(30.0, 40.0)) ** 2 * 30.0,
+        },
+        (26, 3): {
+            "power_factor": 30.0 / 50.0,
+            "reactive_power": (5.0 / 50.0) ** 2 * 40.0,
+            "peak_stored_energy_mj": 1000 * 0.5 * 0.040 * (math.sqrt(2) * 0.1) ** 2,
+        },
+        (26, 4): {
+            "capacitor_uf": 1e6 * 0.4 / (1000 * 25.0),
+            "source_current_after_ma": 1000 * (0.3 / 5.0),
+            "line_loss_after_mw": 1000 * (0.3 / 5.0) ** 2 * 5.0,
+        },
+        (27, 1): {
+            "loaded_source_mv": 10.0 * 4.0 / 5.0,
+            "loading_error_percent": 20.0,
+            "channel_output_v": 10.0 * 4.0 / 5.0 * 100 / 1000,
+        },
+        (27, 2): {
+            "settling_half_lsb_ms": 8 * math.log(2),
+            "lsb_mv": 10000 / 256,
+            "noise_lsb": 12 / (10000 / 256),
+        },
+        (27, 3): {
+            "nyquist_rate_hz": 80.0,
+            "sample_margin_ratio": 200 / 80,
+            "setup_slack_ns": 40 - 4 - 15 - 6,
+            "hold_slack_ns": 4 + 15 - 3,
+        },
+        (27, 4): {"trip_rows": 3, "index_sum": 18, "supply_power_w": 12.0 * 0.025},
     }
 
 
@@ -307,19 +344,19 @@ def test_two_pole_noise_integral_transient_and_positive_covariance_optimum():
 
 
 def test_device_feedback_and_digital_packets_deliver_as_open_partial_coursework():
-    assert len(NEW) == 30
-    assert MANIFEST["version"] == "0.7.0" and MANIFEST["maturity"] == "partial"
+    assert len(NEW) == 38
+    assert MANIFEST["version"] == "0.8.0" and MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed"
     scheduled = [lid for w in MANIFEST["duration"]["weeks"] for lid in w["lesson_ids"]]
-    assert len(scheduled) == len(set(scheduled)) == 27
+    assert len(scheduled) == len(set(scheduled)) == 29
     repository = ContentRepository(ROOT / "content")
-    for number in range(16, 26):
+    for number in range(16, 28):
         lesson = repository.lesson("circuits", f"circuits-{number}")
         assert len(lesson.markdown.split()) >= 700
         assert (
             len(lesson.questions)
             == len(lesson.retrieval_cards)
-            == (4 if number < 19 or number in (23, 24) else 2)
+            == (4 if number < 19 or number in (23, 24, 26, 27) else 2)
         )
     assert all(
         a["mode"] in {"practice", "self-assessment"} for a in MANIFEST["assessments"]
@@ -437,3 +474,103 @@ def test_latch_register_counter_and_timing_audits():
     assert int(latched_setup_slack >= 0 and latched_hold_slack >= 0) == (
         calculations()[25, 2]["passes_stipulated_checks"]
     ) == 1
+
+
+def test_ac_power_rms_quadrature_power_factor_and_correction_audits():
+    omega = 1000.0
+    period = 2 * math.pi / omega
+    steps = 4096
+    # Numerical quadrature over one full period avoids the authored closed forms.
+    mean_square = (
+        sum(
+            (math.sqrt(2) * 5.0 * math.sin(omega * period * step / steps)) ** 2
+            for step in range(steps)
+        )
+        / steps
+    )
+    assert math.sqrt(mean_square) == pytest.approx(
+        calculations()[26, 1]["rms_voltage"], rel=1e-6
+    )
+    assert math.sqrt(2) == pytest.approx(calculations()[26, 1]["crest_factor"])
+    assert mean_square / 50.0 == pytest.approx(
+        calculations()[26, 1]["resistor_power"], rel=1e-6
+    )
+
+    resistance, inductance, voltage = 30.0, 0.040, 5.0
+    reactance = omega * inductance
+    magnitude = math.hypot(resistance, reactance)
+    current = voltage / magnitude
+    assert magnitude == calculations()[26, 2]["impedance_magnitude"] == 50.0
+    assert 1000 * current == pytest.approx(
+        calculations()[26, 2]["current_rms_ma"], rel=1e-12
+    )
+    assert current**2 * resistance == pytest.approx(
+        calculations()[26, 2]["real_power"], rel=1e-12
+    )
+
+    lag = math.atan2(reactance, resistance)
+    stored = 0.5 * inductance * (math.sqrt(2) * current) ** 2
+    assert math.cos(lag) == pytest.approx(
+        calculations()[26, 3]["power_factor"], rel=1e-12
+    )
+    assert voltage * current * math.sin(lag) == pytest.approx(
+        calculations()[26, 3]["reactive_power"], rel=1e-12
+    )
+    assert 1000 * stored == pytest.approx(
+        calculations()[26, 3]["peak_stored_energy_mj"], rel=1e-12
+    )
+    # The reactive power and the peak stored exchange are one bookkeeping.
+    assert omega * stored == pytest.approx(
+        calculations()[26, 3]["reactive_power"], rel=1e-9
+    )
+
+    capacitance = calculations()[26, 3]["reactive_power"] / (omega * voltage**2)
+    corrected = calculations()[26, 2]["real_power"] / voltage
+    assert 1e6 * capacitance == pytest.approx(
+        calculations()[26, 4]["capacitor_uf"], rel=1e-12
+    )
+    assert 1000 * corrected == pytest.approx(
+        calculations()[26, 4]["source_current_after_ma"], rel=1e-12
+    )
+    assert 1000 * corrected**2 * 5.0 == pytest.approx(
+        calculations()[26, 4]["line_loss_after_mw"], rel=1e-12
+    )
+
+
+def test_final_channel_audit_recomputes_the_whole_budget():
+    # Divider loading, gain and the delivered output.
+    fraction = 4.0 / (1.0 + 4.0)
+    assert 10.0 * fraction == calculations()[27, 1]["loaded_source_mv"] == 8.0
+    assert (1 - fraction) * 100 == pytest.approx(
+        calculations()[27, 1]["loading_error_percent"]
+    )
+    assert calculations()[27, 1]["loading_error_percent"] == 20.0
+    assert 10.0 * fraction * 100 / 1000 == pytest.approx(
+        calculations()[27, 1]["channel_output_v"], rel=1e-12
+    )
+
+    # Settling to a half-LSB of eight bits, step size and noise in LSB units.
+    assert 8 * math.log(2) == pytest.approx(
+        calculations()[27, 2]["settling_half_lsb_ms"], rel=1e-12
+    )
+    assert 10000 / 256 == calculations()[27, 2]["lsb_mv"]
+    assert 12 / (10000 / 256) == pytest.approx(
+        calculations()[27, 2]["noise_lsb"], rel=1e-12
+    )
+
+    # Sampling margin against the Nyquist rate of the stipulated band.
+    assert 2 * 40.0 == calculations()[27, 3]["nyquist_rate_hz"] == 80.0
+    assert 200 / 80 == calculations()[27, 3]["sample_margin_ratio"] == 2.5
+
+    # Both latched interlock slacks at the stipulated 40 ns clock.
+    assert 40 - 4 - 15 - 6 == calculations()[27, 3]["setup_slack_ns"] == 15
+    assert 4 + 15 - 3 == calculations()[27, 3]["hold_slack_ns"] == 16
+
+    # Interlock route rows and the supply-power budget.
+    rows = boolean_rows(lambda a, b, c: int(a and (b or c)))
+    assert rows == [5, 6, 7]
+    assert len(rows) == calculations()[27, 4]["trip_rows"] == 3
+    assert sum(rows) == calculations()[27, 4]["index_sum"] == 18
+    assert 12.0 * 0.025 == pytest.approx(
+        calculations()[27, 4]["supply_power_w"], rel=1e-12
+    )

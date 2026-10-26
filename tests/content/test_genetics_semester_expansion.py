@@ -27,7 +27,7 @@ BANK = {
 NEW = {
     qid: q
     for qid, q in BANK.items()
-    if re.fullmatch(r"genetics-(19|2[0-4]):depth-\d+", qid)
+    if re.fullmatch(r"genetics-(19|2[0-7]):depth-\d+", qid)
 }
 
 
@@ -165,6 +165,49 @@ def calculations():
             "lod": lod(4, 40, Fraction(4, 40)),
             "balance": math.sqrt(Fraction(8, 10**6) / Fraction(1, 2)),
         },
+        (25, 1): {
+            "ir_pairs": 2,
+            "copypaste_copies": 1,
+            "replicative_copies": 2,
+        },
+        (25, 2): {"gene1_pct": Fraction(100), "gene3_pct": Fraction(2)},
+        (25, 3): {
+            "expected_total": Fraction(10**9) * Fraction(2, 10**7),
+            "expected_per_gene": Fraction(10**9) * Fraction(2, 10**7) / 50,
+            "zero_gene_pct": math.exp(-4) * 100,
+        },
+        (25, 4): {
+            "excision_per_billion": 1,
+            "suppressor_per_billion": Fraction(1, 2) * 1000,
+            "fold": Fraction(500),
+        },
+        (26, 1): {
+            "homology_kb": Fraction(5) + Fraction(3),
+            "crossovers": 2,
+            "net_change_kb": Fraction(2) - Fraction(3, 2),
+        },
+        (26, 2): {
+            "targeted": Fraction(2 * 10**7) * Fraction(1, 10**6),
+            "random_unselected": Fraction(2 * 10**7) * Fraction(1, 10**4),
+            "random_survivors": Fraction(2 * 10**7) * Fraction(1, 10**4) / 100,
+            "targeted_fraction_pct": Fraction(100, 2),
+        },
+        (26, 3): {
+            "testcross_pct": Fraction(40),
+            "homozygous_pct": Fraction(100, 4),
+            "carrier_pct": Fraction(100, 2),
+            "wildtype_pct": Fraction(100, 4),
+        },
+        (26, 4): {"loxp_per_allele": 2, "loxp_homozygous": 4},
+        (27, 1): {"polar_count": 3, "direct_count": 1},
+        (27, 2): {
+            "pool": Fraction(4 * 10**7) * Fraction(25, 10**7)
+            + Fraction(4 * 10**7) * Fraction(25, 10**5) * Fraction(2, 100),
+            "targeted_fraction_pct": Fraction(100, 3),
+            "enrichment_fold": Fraction(101, 3),
+            "f2_null_pct": Fraction(100, 4),
+            "loxp_per_allele": 2,
+        },
     }
 
 
@@ -223,6 +266,37 @@ def test_probability_invariants_exact_fixed_point_and_constrained_likelihood():
     )
 
 
+def test_transposition_targeting_invariants_and_audit_ledgers():
+    # Poisson coverage: an empty class tightens as the per-gene expectation grows.
+    frequency = Fraction(2, 10**7)
+    expected = frequency * 10**9
+    per_gene = expected / 50
+    assert expected == 200 and per_gene == 4
+    assert math.exp(-per_gene) < math.exp(-2)
+    # Reversion ledger: suppression is 500-fold over precise excision.
+    assert Fraction(1, 2) * 1000 == 500 and Fraction(500) == 500
+    # Lesson selection ledger: half of the double-resistant pool is targeted.
+    targeted = Fraction(2 * 10**7) * Fraction(1, 10**6)
+    random_all = Fraction(2 * 10**7) * Fraction(1, 10**4)
+    survivors = random_all * Fraction(1, 100)
+    assert targeted == 20 and random_all == 2000 and survivors == 20
+    assert Fraction(targeted, targeted + survivors) == Fraction(1, 2)
+    # Audit ledger: the enrichment fold is a ratio of two fractions, not a guess.
+    audit_targeted = Fraction(4 * 10**7) * Fraction(25, 10**7)
+    audit_random = Fraction(4 * 10**7) * Fraction(25, 10**5)
+    audit_survivors = audit_random * Fraction(2, 100)
+    pool = audit_targeted + audit_survivors
+    assert audit_targeted == 100 and audit_random == 10000 and audit_survivors == 200
+    assert pool == 300
+    pre = Fraction(audit_targeted, audit_targeted + audit_random)
+    post = Fraction(audit_targeted, pool)
+    assert pre == Fraction(100, 10100) and post == Fraction(100, 300)
+    assert post / pre == Fraction(101, 3)
+    # Carrier cross and conditional bookkeeping stay exact.
+    assert Fraction(100, 4) == 25 and Fraction(100, 2) == 50
+    assert 2 * 2 == 4  # loxP sites double in a homozygous floxed cell
+
+
 def test_clone_table_allelic_junction_and_coding_ledgers():
     rows = list(
         csv.DictReader((DIRECTORY / "assignments/genome-evidence-counts.csv").open())
@@ -253,19 +327,19 @@ def test_clone_table_allelic_junction_and_coding_ledgers():
 
 
 def test_new_foundations_and_reports_deliver_resources_and_scheduled_open_practice():
-    assert len(NEW) == 18
-    assert MANIFEST["version"] == "0.7.0" and MANIFEST["maturity"] == "partial"
+    assert len(NEW) == 28
+    assert MANIFEST["version"] == "0.8.0" and MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed"
     scheduled = [lid for w in MANIFEST["duration"]["weeks"] for lid in w["lesson_ids"]]
-    assert len(scheduled) == len(set(scheduled)) == 26
+    assert len(scheduled) == len(set(scheduled)) == 29
     content = ContentRepository(ROOT / "content")
-    for number in range(19, 25):
+    for number in range(19, 28):
         lesson = content.lesson("genetics", f"genetics-{number}")
         assert len(lesson.markdown.split()) >= 700
         assert (
             len(lesson.questions)
             == len(lesson.retrieval_cards)
-            == (4 if number < 22 else 2)
+            == (4 if number < 22 or number in (25, 26) else 2)
         )
     lesson = content.lesson("genetics", "genetics-23")
     assert (
