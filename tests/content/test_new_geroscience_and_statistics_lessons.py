@@ -45,7 +45,7 @@ LESSONS = [("geroscience", f"geroscience-{n}") for n in range(9, 15)] + [
     ("general-chemistry-2", f"general-chemistry-2-{n}") for n in range(8, 16)] + [
     ("organic-chemistry", f"organic-chemistry-{n}") for n in range(7, 14)] + [
     ("physics-mechanics", f"physics-mechanics-{n}") for n in range(7, 14)] + [("physics-mechanics", "physics-mechanics-15")] + [
-    ("physics-em", f"physics-em-{n}") for n in range(7, 14)] + [("physics-em", "physics-em-16")] + [
+    ("physics-em", f"physics-em-{n}") for n in range(7, 14)] + [("physics-em", f"physics-em-{n}") for n in (16, 24, 25)] + [
     ("circuits", f"circuits-{n}") for n in range(7, 14)] + [("circuits", "circuits-15")] + [
     ("programming", f"programming-{n}") for n in range(8, 14)] + [
     ("robotics", f"robotics-{n}") for n in range(7, 15)]

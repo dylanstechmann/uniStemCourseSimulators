@@ -6521,6 +6521,656 @@
           "Original synthetic electromagnetic-model practice developed with substantial AI assistance; no external problem, equipment measurements, external problem or dataset imported."
         ]
       }
+    },
+    {
+      "id": "physics-em-24:dipole-moment",
+      "type": "numeric",
+      "prompt": "Charges of +1.5 nC and −1.5 nC are held 6.0 mm apart. What is the magnitude of their electric dipole moment, in units of 10⁻¹² C·m? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-24-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 9.0,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The moment is the charge magnitude times the separation.",
+        "solution": "p = qd = 1.5 × 10⁻⁹ C × 6.0 × 10⁻³ m = 9.0 × 10⁻¹² C·m, directed from the negative charge to the positive charge.",
+        "lesson_ids": [
+          "physics-em-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-24:axis-far-field",
+      "type": "numeric",
+      "prompt": "Stipulate k = 9.00 × 10⁹ N·m²/C². A dipole of moment 9.0 × 10⁻¹² C·m (charges ±1.5 nC, 6.0 mm apart) is observed on its axis 6.0 cm from its centre. Using the far-field form, what is the field magnitude in N/C? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-24-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 750,
+        "unit": "",
+        "tolerance": 4,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "On the axis the far field is 2kp/z³, twice the bisector value at the same distance.",
+        "solution": "2kp/z³ = 2 × 9.00 × 10⁹ × 9.0 × 10⁻¹²/(0.060)³ = 0.162/(2.16 × 10⁻⁴) = 750 N/C. At z = 10d the exact two-charge sum is about 0.5% larger, 754 N/C, so either value is accepted.",
+        "lesson_ids": [
+          "physics-em-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-24:axis-near-exact",
+      "type": "numeric",
+      "prompt": "Stipulate k = 9.00 × 10⁹ N·m²/C². For charges ±1.5 nC held 6.0 mm apart, add the two point-charge fields to find the exact axial field 1.2 cm from the centre, in kN/C. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-24-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 106.7,
+        "unit": "",
+        "tolerance": 0.3,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The charges are 0.90 cm and 1.50 cm from the point; add kq/r² for each with its sign.",
+        "solution": "E = kq(1/0.0090² − 1/0.0150²) = 13.5 × (12,346 − 4444) ≈ 1.067 × 10⁵ N/C = 106.7 kN/C. The far-field form 2kp/z³ gives 93.75 kN/C, about 12% low, because z is only twice the separation.",
+        "lesson_ids": [
+          "physics-em-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-24:bisector-comparison",
+      "type": "single_choice",
+      "prompt": "Far from a small dipole, compare the field at a point on its perpendicular bisector with the field at a point on its axis at the same distance from the centre.",
+      "options": [
+        "The two fields are equal in magnitude, and both point along p",
+        "The bisector field is half as large and points opposite to p; the axial field points along p",
+        "The bisector field is twice as large, and both point along p",
+        "The bisector field is zero, because the potential there is zero"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "physics-em-24-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Compare kp/r³ with 2kp/r³, and check which components survive on the bisector.",
+        "solution": "On the axis E ≈ 2kp/r³ along p. On the bisector the components along the bisector cancel, and the remaining components, parallel to the axis, point from + toward −, so E ≈ kp/r³ opposite to p.",
+        "lesson_ids": [
+          "physics-em-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-24:bisector-potential",
+      "type": "single_choice",
+      "prompt": "With zero potential at infinity, the potential is zero everywhere on the perpendicular bisector of a two-charge dipole. What follows at a point on that bisector?",
+      "options": [
+        "A test charge placed there feels no force",
+        "The electric field there is zero",
+        "The electric field there is nonzero and points opposite to p, so zero potential does not imply zero field",
+        "The point is a stable equilibrium for any test charge"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "physics-em-24-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 2
+      },
+      "feedback": {
+        "hint": "The field depends on how the potential changes nearby, not on its value at one point.",
+        "solution": "Each point on the bisector is equidistant from +q and −q, so V = 0 there, but V changes along the axis direction. The field kp/(y² + d²/4)^(3/2) points opposite to p, and a test charge there feels a force.",
+        "lesson_ids": [
+          "physics-em-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-24:uniform-torque",
+      "type": "numeric",
+      "prompt": "A dipole of moment 9.0 × 10⁻¹² C·m makes a 45° angle with a uniform 4.0 × 10⁴ N/C field. What is the magnitude of the torque on it, in units of 10⁻⁷ N·m? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-24-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 2.55,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "τ = pE sin θ.",
+        "solution": "τ = 9.0 × 10⁻¹² × 4.0 × 10⁴ × sin 45° = 3.6 × 10⁻⁷ × 0.7071 = 2.55 × 10⁻⁷ N·m, turning p toward E.",
+        "lesson_ids": [
+          "physics-em-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-24:rotation-work",
+      "type": "numeric",
+      "prompt": "A dipole of moment 9.0 × 10⁻¹² C·m sits at 45° to a uniform 4.0 × 10⁴ N/C field. How much work must an external agent do to turn it slowly to 180°, anti-aligned with the field, in units of 10⁻⁷ J? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-24-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 6.15,
+        "unit": "",
+        "tolerance": 0.02,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The work equals the change in U = −pE cos θ.",
+        "solution": "W = U(180°) − U(45°) = pE(cos 45° − cos 180°) = 3.6 × 10⁻⁷ × (0.7071 + 1) = 6.15 × 10⁻⁷ J.",
+        "lesson_ids": [
+          "physics-em-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-24:uniform-net-force",
+      "type": "single_choice",
+      "prompt": "A rigid dipole is held at 70° to a uniform electric field and then released. Which description of the electric forces on it is correct?",
+      "options": [
+        "There is no net force, and a torque turns p toward E",
+        "A net force pulls it along the field, and there is no torque",
+        "There is no net force and no torque",
+        "A net force and a torque both act, turning p away from E"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "physics-em-24-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "In a uniform field the two charges feel equal and opposite forces at different points.",
+        "solution": "qE and −qE cancel as forces but form a couple, τ = p × E, which turns p toward E. A net force needs a field that differs at the two charges.",
+        "lesson_ids": [
+          "physics-em-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-24:nonuniform-force",
+      "type": "numeric",
+      "prompt": "Stipulate k = 9.00 × 10⁹ N·m²/C². A dipole of moment 9.0 × 10⁻¹² C·m lies on the radial line 8.0 cm from a fixed +3.0 nC point charge, aligned with that charge's field. Treating it as a point dipole, what is the magnitude of the net force on it, in units of 10⁻⁷ N? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-24-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 9.49,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The force is p times how fast the field kQ/r² changes with r.",
+        "solution": "F = 2kQp/r³ = 2 × 9.00 × 10⁹ × 3.0 × 10⁻⁹ × 9.0 × 10⁻¹²/(0.080)³ = 9.49 × 10⁻⁷ N, toward the charge. The dipole's axial field at the charge, 2kp/r³ = 316 N/C, exerts the equal and opposite force on it. Summing the two point-charge forces exactly gives 9.52 × 10⁻⁷ N, which is also accepted.",
+        "lesson_ids": [
+          "physics-em-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-24:far-field-claims",
+      "type": "multiple_select",
+      "prompt": "Which statements about point-dipole far-field formulas are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "physics-em-24-objective-3"
+      ],
+      "options": [
+        "They assume the observation distance is much larger than the charge separation.",
+        "At twice the separation along the axis, the far-field formula is within 1% of the exact field.",
+        "The far field falls as 1/r³ because the two charges' fields nearly cancel.",
+        "The far field of a neutral dipole falls as 1/r², like that of a single point charge.",
+        "A dipole aligned with a point charge's field is pulled toward the charge, and the charge feels an equal and opposite force."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          2,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "feedback": {
+        "hint": "Check the 1/r³ residue, the size of the error at z = 2d, and Newton's third law.",
+        "solution": "The far-field forms are the leading terms of the exact sums and need r ≫ d; at z = 2d the axial formula is about 12% low. The far field is the small residue of two nearly cancelling fields and falls as 1/r³. Near a point charge an aligned dipole is pulled toward stronger field, and its own field exerts the equal and opposite force on the charge.",
+        "lesson_ids": [
+          "physics-em-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-25:lc-frequency",
+      "type": "numeric",
+      "prompt": "An ideal LC circuit has L = 50 mH and C = 0.80 µF. What is its natural oscillation frequency f₀ in hertz (cycles per second)? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-25-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 795.8,
+        "unit": "",
+        "tolerance": 0.5,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "1/√(LC) is an angular frequency in rad/s; divide by 2π.",
+        "solution": "ω₀ = 1/√(0.050 × 0.80 × 10⁻⁶) = 1/√(4.0 × 10⁻⁸) = 5000 rad/s, so f₀ = 5000/(2π) ≈ 795.8 Hz.",
+        "lesson_ids": [
+          "physics-em-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-25:lc-peak-current",
+      "type": "numeric",
+      "prompt": "In an ideal LC circuit with L = 50 mH and C = 0.80 µF, the capacitor is charged to 9.0 V and connected to the uncharged inductor at t = 0. What is the largest current magnitude that flows, in mA? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-25-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 36.0,
+        "unit": "",
+        "tolerance": 0.2,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use I_max = ω₀q₀, or equate ½CV₀² with ½LI².",
+        "solution": "q₀ = CV₀ = 7.2 µC and ω₀ = 5000 rad/s, so I_max = ω₀q₀ = 0.036 A = 36 mA. Equivalently, V₀/√(L/C) = 9.0/250 = 36 mA.",
+        "lesson_ids": [
+          "physics-em-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-25:lc-initial-slope",
+      "type": "numeric",
+      "prompt": "An ideal LC circuit with L = 50 mH and C = 0.80 µF starts with the capacitor at 9.0 V and zero current. What is the magnitude of di/dt immediately after the connection, in A/s? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-25-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 180,
+        "unit": "",
+        "tolerance": 1,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "With zero current, the whole capacitor voltage appears across the inductor.",
+        "solution": "L di/dt = −q/C at t = 0, so |di/dt| = V₀/L = 9.0/0.050 = 180 A/s. The current starts at zero but begins changing at this rate.",
+        "lesson_ids": [
+          "physics-em-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-25:lc-equal-energy-time",
+      "type": "numeric",
+      "prompt": "An ideal LC circuit with L = 50 mH and C = 0.80 µF is released from a charged capacitor with zero current. How long after release are the capacitor and inductor energies first equal, in µs? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-25-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 157.1,
+        "unit": "",
+        "tolerance": 0.5,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The capacitor energy goes as cos² ω₀t and the inductor energy as sin² ω₀t.",
+        "solution": "The shares are first equal at ω₀t = π/4, one eighth of a period. With ω₀ = 5000 rad/s, T = 2π/ω₀ = 1.2566 ms and T/8 ≈ 157.1 µs.",
+        "lesson_ids": [
+          "physics-em-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-25:energy-oscillation-rate",
+      "type": "single_choice",
+      "prompt": "In an ideal LC circuit whose charge oscillates at angular frequency ω₀, at what angular frequency does the energy stored in the capacitor alone oscillate?",
+      "options": [
+        "ω₀/2",
+        "ω₀",
+        "2ω₀",
+        "It does not oscillate; the capacitor energy stays constant"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "physics-em-25-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 2
+      },
+      "feedback": {
+        "hint": "Write cos² ω₀t with a double-angle identity.",
+        "solution": "U_C = U cos² ω₀t = (U/2)(1 + cos 2ω₀t), so it oscillates at 2ω₀ about its average U/2. Only the total of the capacitor and inductor energies is constant.",
+        "lesson_ids": [
+          "physics-em-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-25:critical-resistance",
+      "type": "numeric",
+      "prompt": "What series resistance makes an RLC circuit with L = 50 mH and C = 0.80 µF critically damped, in ohms? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-25-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 500,
+        "unit": "",
+        "tolerance": 1,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Critical damping is where α = R/2L equals ω₀.",
+        "solution": "R_c = 2√(L/C) = 2√(0.050/(0.80 × 10⁻⁶)) = 2 × 250 = 500 Ω.",
+        "lesson_ids": [
+          "physics-em-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-25:quality-factor",
+      "type": "numeric",
+      "prompt": "A series RLC circuit has L = 50 mH and C = 0.80 µF and R = 25 Ω. What is its quality factor Q = ω₀L/R? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-25-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 10.0,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Q can also be written (1/R)√(L/C).",
+        "solution": "ω₀ = 5000 rad/s, so Q = 5000 × 0.050/25 = 10.0, the same as 250 Ω/25 Ω.",
+        "lesson_ids": [
+          "physics-em-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-25:damped-frequency",
+      "type": "numeric",
+      "prompt": "A series RLC circuit with L = 50 mH and C = 0.80 µF and R = 150 Ω is released from a charged capacitor. What is the angular frequency of its damped oscillation, in rad/s? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-25-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 4769.7,
+        "unit": "",
+        "tolerance": 1.0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Find α = R/2L, then ω_d = √(ω₀² − α²).",
+        "solution": "α = 150/(2 × 0.050) = 1500 s⁻¹ and ω₀ = 5000 rad/s, so ω_d = √(5000² − 1500²) ≈ 4769.7 rad/s, about 4.6% below ω₀.",
+        "lesson_ids": [
+          "physics-em-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-25:energy-per-cycle",
+      "type": "numeric",
+      "prompt": "A series RLC circuit with L = 50 mH and C = 0.80 µF and R = 25 Ω is released from a charged capacitor with zero current. What fraction of the stored energy remains after one full damped period, comparing successive positive charge maxima? Enter a decimal between 0 and 1.",
+      "points": 1,
+      "objective_ids": [
+        "physics-em-25-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0.533,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "At a charge maximum the current is zero, so the energy is q²/2C. Successive same-sign maxima differ in charge by the factor exp(−αT_d).",
+        "solution": "α = 250 s⁻¹, ω_d ≈ 4993.7 rad/s and T_d = 2π/ω_d ≈ 1.2582 ms. The energy ratio is exp(−2αT_d) = exp(−0.629) ≈ 0.533. The small-loss estimate 1 − 2π/Q = 0.37 fails here because 2π/Q is not small.",
+        "lesson_ids": [
+          "physics-em-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-25:regime",
+      "type": "single_choice",
+      "prompt": "A capacitor in a series loop with L = 50 mH and C = 0.80 µF is charged and then released through R = 650 Ω. Which natural response follows?",
+      "options": [
+        "Underdamped: it oscillates at 5000 rad/s inside a decaying envelope",
+        "Underdamped: it oscillates at a reduced damped frequency",
+        "Critically damped: the fastest return to zero without crossing it",
+        "Overdamped: the charge decays without changing sign, more slowly than with critical damping"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "physics-em-25-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 3
+      },
+      "feedback": {
+        "hint": "Compare R with 2√(L/C).",
+        "solution": "2√(L/C) = 500 Ω, so 650 Ω overdamps the loop: α = 6500 s⁻¹ exceeds ω₀ = 5000 rad/s, and both roots are real, about −2347 s⁻¹ and −10,653 s⁻¹. The slow root makes the decay slower than in the critical case.",
+        "lesson_ids": [
+          "physics-em-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "physics-em-25:switching-claims",
+      "type": "multiple_select",
+      "prompt": "A charged capacitor is connected at t = 0 to an uncharged ideal inductor, forming an ideal LC loop. Which statements are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "physics-em-25-objective-1",
+        "physics-em-25-objective-2"
+      ],
+      "options": [
+        "The current is zero just after t = 0, because the inductor current cannot change instantaneously.",
+        "The current is largest just after t = 0, because the capacitor voltage is largest then.",
+        "Just after t = 0 the current changes at a rate of magnitude V₀/L.",
+        "The capacitor charge first reaches zero a quarter period after the connection.",
+        "The total stored energy falls as energy moves into the inductor."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "feedback": {
+        "hint": "Apply current continuity at the inductor and energy conservation in the ideal loop.",
+        "solution": "The inductor keeps its zero current at the switching instant, so the whole capacitor voltage drives |di/dt| = V₀/L. The charge q₀ cos ω₀t first reaches zero at T/4, when the current magnitude peaks. In the ideal loop the total energy stays constant; it only moves between the fields.",
+        "lesson_ids": [
+          "physics-em-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
     }
   ]
 }

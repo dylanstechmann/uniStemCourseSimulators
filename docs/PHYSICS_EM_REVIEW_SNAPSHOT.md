@@ -2,11 +2,11 @@
 
 This identifies the public package; a digest does not approve physical interpretation or course depth.
 
-- **Course package:** `physics-em` 0.6.0
-- **Public package archive SHA-256:** `544c205ca3cd3b11b071ccbb0c846dde322276c3d3db3d5c8bec07c9171e34e3`
-- **Manifest SHA-256:** `e34d488599c0e408a8c59a6d6ef8101d53b01a7199ba9f8d73d2970f277a4946`
-- **Archive inventory:** 34 files, 552,322 bytes
-- **Calculated:** 2026-10-22
+- **Course package:** `physics-em` 0.7.0
+- **Public package archive SHA-256:** `516fb6656179e3801ee70410d5f6e1873146d45dd68dbef35c7b6b51eda1ed0d`
+- **Manifest SHA-256:** `7a386d826aa18f147bf2f46415f70f7e2415e2643c42ca797ade27de65e1c20b`
+- **Archive inventory:** 37 files, 621,815 bytes
+- **Calculated:** 2026-10-27
 - **Reproduce:** `python tools/course_package_digest.py --course-id physics-em`
 
-Three original continuous-charge/boundary, mutual-energy and source/reflection foundations plus four connected reports add twenty checkpoints/cards. All geometries, circuits and waves are prescribed synthetic models. Browser checks do not evaluate derivations, diagrams, code or reports. The course remains partial, unreviewed and formative-only; the previous 0.5.0 snapshot is preserved.
+A scope crosswalk compares the package with MIT OCW 8.02 Spring 2007 and Open Yale Courses PHYS 201 by session and lecture titles and overviews. Two original readings close the gaps it found in topics both comparators teach: electric dipoles in week 1 and LC oscillation with the undriven series RLC response in week 9, with six objectives, 21 practice items and eight cards. All charges, circuits and values are synthetic. The course remains partial, unreviewed and formative-only; the previous 0.6.0 snapshot is preserved.

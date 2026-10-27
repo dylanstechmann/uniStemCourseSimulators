@@ -7,7 +7,7 @@
   "domain": "Physics",
   "level": "Year 1",
   "maturity": "partial",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -19,7 +19,8 @@
       "Expanded the week-5 current and RC reading with current and ohmic-resistance definitions, unit-checked time constants, charging/discharging step responses, and instrument-loading limits; clarified both objectives and mapped them to outcome 2.",
       "Expanded the week-8 magnetic-forces and induction reading with cross-product force direction, magnetic flux, Faraday emf magnitude, Lenz-law direction and circuit limits; clarified objectives and mapped them to outcome 3.",
       "Expanded the week-12 electrode and impedance reading with bounded interface models, resistance-divider loading, differential measurement, and careful interpretation of baseline drift; clarified objectives and mapped them to outcome 4.",
-      "Added original two-source electromagnetic-wave interference instruction and formative practice in the existing week-11 wave block. MIT OCW 8.02 Spring 2007 class topics and interference problem-solving note are link-only scope references; antenna radiation generation and diffraction remain outside this bounded addition."
+      "Added original two-source electromagnetic-wave interference instruction and formative practice in the existing week-11 wave block. MIT OCW 8.02 Spring 2007 class topics and interference problem-solving note are link-only scope references; antenna radiation generation and diffraction remain outside this bounded addition.",
+      "Added original electric-dipole and LC/undriven-RLC readings with formative practice in the existing weeks 1 and 9. MIT OCW 8.02 Spring 2007 class topics and Open Yale Courses PHYS 201 lecture pages are link-only scope comparators recorded in a new scope crosswalk; no source text, figure or problem is imported."
     ]
   },
   "prerequisites": {
@@ -598,22 +599,72 @@
         "physics-em-outcome-3",
         "physics-em-outcome-5"
       ]
+    },
+    {
+      "id": "physics-em-24-objective-1",
+      "description": "Build the field and potential of a two-charge dipole by superposition, and use the far-field forms on its axis and perpendicular bisector.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "physics-em-outcome-1"
+      ]
+    },
+    {
+      "id": "physics-em-24-objective-2",
+      "description": "Calculate the torque, potential energy and rotation work for a dipole in a uniform field, and identify its stable and unstable orientations.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "physics-em-outcome-1"
+      ]
+    },
+    {
+      "id": "physics-em-24-objective-3",
+      "description": "Find the net force on a dipole in a nonuniform field, check it against the force on the source charge, and judge when the point-dipole approximation is adequate.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-em-outcome-1"
+      ]
+    },
+    {
+      "id": "physics-em-25-objective-1",
+      "description": "Derive the LC equation from the loop rule and element laws, and calculate the oscillation frequency, period and charge and current amplitudes from stated initial conditions.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "physics-em-outcome-3"
+      ]
+    },
+    {
+      "id": "physics-em-25-objective-2",
+      "description": "Track energy between the capacitor's electric field and the inductor's magnetic field, and use energy conservation to check amplitudes and timing.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "physics-em-outcome-3"
+      ]
+    },
+    {
+      "id": "physics-em-25-objective-3",
+      "description": "Classify a series RLC circuit's natural response as underdamped, critically damped or overdamped, and calculate its decay rate, damped frequency, quality factor and energy per period.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-em-outcome-2"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week undergraduate scope only. Week 1 groups the two related electrostatics readings; week 8 pairs magnetic vectors with field sources and dipoles; week 11 combines original displacement-current, Ampere-Maxwell, ideal plane-wave energy and two-source interference instruction after magnetic induction. The 16 instructional readings and synthetic-data lab use public ungraded practice. Antenna radiation generation and diffraction remain outside this package; the RLC portfolio remains inactive, there are no graded homework sets or exams, and workload is unmeasured. This schedule is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week undergraduate scope only. Week 1 groups three related electrostatics readings, ending with electric dipoles; week 8 pairs magnetic vectors with field sources and magnetic dipoles; week 9 adds LC oscillation and the undriven RLC response after inductor energy and coupled coils; week 11 combines original displacement-current, Ampere-Maxwell, ideal plane-wave energy and two-source interference instruction after magnetic induction. The 21 topic readings, four connected reports and the synthetic-data lab use public ungraded practice. Antenna radiation generation and diffraction remain outside this package; the RLC portfolio remains inactive, there are no graded homework sets or exams, and workload is unmeasured. This schedule is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
-        "title": "Electrostatics: fields, potential, superposition and Gauss law",
+        "title": "Electrostatics: fields, potential, superposition, Gauss law and dipoles",
         "lesson_ids": [
           "physics-em-1",
-          "physics-em-7"
+          "physics-em-7",
+          "physics-em-24"
         ],
         "assessment_ids": [
           "physics-em-1-practice",
-          "physics-em-7-practice"
+          "physics-em-7-practice",
+          "physics-em-24-practice"
         ]
       },
       {
@@ -694,14 +745,16 @@
       },
       {
         "week": 9,
-        "title": "Induction, Lenz signs and inductor energy",
+        "title": "Induction, inductor energy, coupled coils and LC/RLC natural response",
         "lesson_ids": [
           "physics-em-12",
-          "physics-em-18"
+          "physics-em-18",
+          "physics-em-25"
         ],
         "assessment_ids": [
           "physics-em-12-practice",
-          "physics-em-18-practice"
+          "physics-em-18-practice",
+          "physics-em-25-practice"
         ]
       },
       {
@@ -1638,6 +1691,85 @@
           ]
         }
       ]
+    },
+    {
+      "id": "physics-em-module-24",
+      "title": "Electric dipoles: field, torque, energy and force",
+      "source_ids": [
+        "em-semester-calendar",
+        "em-yale-phys201"
+      ],
+      "lessons": [
+        {
+          "id": "physics-em-24",
+          "title": "Electric dipoles: field, torque, energy and force",
+          "reading": "modules/24-electric-dipoles-fields-torque-energy-and-force.md",
+          "objectives": [
+            "physics-em-24-objective-1",
+            "physics-em-24-objective-2",
+            "physics-em-24-objective-3"
+          ],
+          "worked_example": "A synthetic dipole of ±3.0 nC charges 2.0 mm apart has p = 6.0 × 10⁻¹² C·m. On its axis 3.0 cm away the far-field form gives 4000 N/C against an exact 4009 N/C; at 60° in a uniform 2.0 × 10⁴ N/C field the torque is 1.04 × 10⁻⁷ N·m and turning it there from alignment takes 6.0 × 10⁻⁸ J; aligned 5.0 cm from a +4.0 nC charge it is pulled inward with 3.46 × 10⁻⁶ N, the same force its own field exerts on that charge.",
+          "question_ids": [
+            "physics-em-24:dipole-moment",
+            "physics-em-24:axis-far-field",
+            "physics-em-24:axis-near-exact",
+            "physics-em-24:bisector-comparison",
+            "physics-em-24:bisector-potential",
+            "physics-em-24:uniform-torque",
+            "physics-em-24:rotation-work",
+            "physics-em-24:uniform-net-force",
+            "physics-em-24:nonuniform-force",
+            "physics-em-24:far-field-claims"
+          ],
+          "card_ids": [
+            "physics-em-24-card-1",
+            "physics-em-24-card-2",
+            "physics-em-24-card-3",
+            "physics-em-24-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "physics-em-module-25",
+      "title": "LC oscillation and the undriven series RLC circuit",
+      "source_ids": [
+        "em-semester-calendar",
+        "em-yale-phys201"
+      ],
+      "lessons": [
+        {
+          "id": "physics-em-25",
+          "title": "LC oscillation and the undriven series RLC circuit",
+          "reading": "modules/25-lc-oscillation-and-the-undriven-series-rlc-circuit.md",
+          "objectives": [
+            "physics-em-25-objective-1",
+            "physics-em-25-objective-2",
+            "physics-em-25-objective-3"
+          ],
+          "worked_example": "For a synthetic loop with L = 25 mH and C = 2.5 µF charged to 12 V and released through 20 Ω, ω₀ = 4000 rad/s (636.6 Hz), the current starts changing at 480 A/s, a lossless loop would peak at 0.120 A with 180 µJ shared between the fields, α = 400 s⁻¹ gives Q = 5.0 and ω_d ≈ 3980 rad/s, and after one damped period of 1.579 ms only 50.9 µJ of the 180 µJ remains.",
+          "question_ids": [
+            "physics-em-25:lc-frequency",
+            "physics-em-25:lc-peak-current",
+            "physics-em-25:lc-initial-slope",
+            "physics-em-25:lc-equal-energy-time",
+            "physics-em-25:energy-oscillation-rate",
+            "physics-em-25:critical-resistance",
+            "physics-em-25:quality-factor",
+            "physics-em-25:damped-frequency",
+            "physics-em-25:energy-per-cycle",
+            "physics-em-25:regime",
+            "physics-em-25:switching-claims"
+          ],
+          "card_ids": [
+            "physics-em-25-card-1",
+            "physics-em-25-card-2",
+            "physics-em-25-card-3",
+            "physics-em-25-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -2216,6 +2348,60 @@
         "physics-em-23:depth-2"
       ],
       "points": 7
+    },
+    {
+      "id": "physics-em-24-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Electric dipoles practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "physics-em-24-objective-1",
+        "physics-em-24-objective-2",
+        "physics-em-24-objective-3",
+        "physics-em-outcome-1"
+      ],
+      "question_ids": [
+        "physics-em-24:dipole-moment",
+        "physics-em-24:axis-far-field",
+        "physics-em-24:axis-near-exact",
+        "physics-em-24:bisector-comparison",
+        "physics-em-24:bisector-potential",
+        "physics-em-24:uniform-torque",
+        "physics-em-24:rotation-work",
+        "physics-em-24:uniform-net-force",
+        "physics-em-24:nonuniform-force",
+        "physics-em-24:far-field-claims"
+      ],
+      "points": 11
+    },
+    {
+      "id": "physics-em-25-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "LC oscillation and RLC natural response practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "physics-em-25-objective-1",
+        "physics-em-25-objective-2",
+        "physics-em-25-objective-3",
+        "physics-em-outcome-2",
+        "physics-em-outcome-3"
+      ],
+      "question_ids": [
+        "physics-em-25:lc-frequency",
+        "physics-em-25:lc-peak-current",
+        "physics-em-25:lc-initial-slope",
+        "physics-em-25:lc-equal-energy-time",
+        "physics-em-25:energy-oscillation-rate",
+        "physics-em-25:critical-resistance",
+        "physics-em-25:quality-factor",
+        "physics-em-25:damped-frequency",
+        "physics-em-25:energy-per-cycle",
+        "physics-em-25:regime",
+        "physics-em-25:switching-claims"
+      ],
+      "points": 12
     }
   ],
   "grading_policy": {
@@ -2325,11 +2511,16 @@
       "version": "0.6.0",
       "date": "2026-10-22",
       "summary": "Added original continuous-charge/grounded-boundary energy, coupled-inductor/mechanical power and radiating-sheet/reflection/standing-energy foundations; four connected field/induction/wave/cumulative reports and twenty checkpoints/cards. Preserves earlier project, lab and numeric keys. Explicit source/state/boundary, signed-power and distributed-energy distinctions; partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.7.0",
+      "date": "2026-10-27",
+      "summary": "Compared the course with a second university comparator, Open Yale Courses PHYS 201, alongside MIT OCW 8.02 Spring 2007, in a new scope crosswalk that records covered, shallow, absent and deferred topics. Two topics both comparators teach were absent and now have original readings: electric dipoles (superposed field and potential, far-field forms, torque, energy and the force in a nonuniform field), grouped in week 1, and LC oscillation with the undriven series RLC response (energy exchange, damping regimes, quality factor and energy per period), grouped in week 9. Added six objectives, 21 practice items and eight retrieval cards. Driven resonance is still taught only in the optional project guide, and diffraction, antenna radiation and magnetic materials remain deferred. The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "Nineteen topic readings and four connected reports accompany one synthetic data lab and the optional project guide; this is not a full university semester.",
-    "The proposed 14-week sequence is unmeasured and unreviewed; its opening electrostatics block combines two related readings, and week 8 pairs magnetic vectors with field sources and dipoles. Graded homework, exams and a full laboratory sequence remain absent; the new RLC portfolio is inactive and ungraded.",
+    "Twenty-one topic readings and four connected reports accompany one synthetic data lab and the optional project guide; this is not a full university semester.",
+    "The proposed 14-week sequence is unmeasured and unreviewed; its opening electrostatics block combines three related readings ending with electric dipoles, week 8 pairs magnetic vectors with field sources and magnetic dipoles, and week 9 groups three induction and LC/RLC readings. Graded homework, exams and a full laboratory sequence remain absent; the new RLC portfolio is inactive and ungraded.",
     "New worked systems and parameters are synthetic; selected electrostatic, lumped-element and prescribed-field models provide no real apparatus or human-subject procedure.",
     "Public keys and feedback remain formative authoring specifications; practice points are not course grades.",
     "Subject-matter, accessibility and workload review remain outstanding; the original text circuit map has a verbal description but no assistive-technology review.",
@@ -2338,7 +2529,8 @@
     "The series-resonance project is optional and ungraded. Its six milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses a separate synthetic circuit, and no software check evaluates a learner's derivation or written interpretation. Milestone weeks are planning suggestions, not measured workload or deadlines.",
     "Three selected foundations and four connected open reports deepen continuous nonuniform charge/boundaries/energy, mutual coupling and mechanical induction power, source generation from an ideal infinite sheet, conducting reflection and standing-field storage/transport. Four reports do not reproduce the source course’s TEAL experimental/group format or complete assessment depth. Workload and qualified review remain open.",
     "All new geometries, circuits and waves are prescribed synthetic mathematical models, not tissue fields, finite antenna designs, exposure limits or equipment validation. The infinite sheet has finite power per area, not finite total antenna power. Grounded and isolated boundaries, signed source work and stored/transported energy require separate ledgers. Code, diagrams, derivations, plots and reports are retained locally and ungraded; finite-end/antenna/diffraction, lossy materials and nonlinear cores remain deferred.",
-    "Of the 145 numerical answers, 15 require units, 63 check significant figures and 0 check dimensions. New continuous checkpoint quantities request three significant figures; written arguments are not automatically evaluated."
+    "Of the 159 numerical answers, 15 require units, 63 check significant figures and 0 check dimensions. New continuous checkpoint quantities request three significant figures; written arguments are not automatically evaluated.",
+    "The scope crosswalk compares the comparators' public session and lecture titles and overviews with the local readings, not their lectures, problem sets or exams. Driven resonance is taught only in the optional project guide; diffraction, finite antennas and magnetic materials remain deferred."
   ],
   "intentionally_omitted": [
     "Graded assessments, a complete laboratory sequence, an active graded project, measured workload and qualified human review remain outstanding."

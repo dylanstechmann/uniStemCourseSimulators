@@ -123,6 +123,47 @@ def loop_torque(turns, current, radius, field, angle, pieces=4000):
     return math.sqrt(torque[0] ** 2 + torque[1] ** 2 + tz**2)
 
 
+K_E = 9.00e9  # rounded Coulomb constant stipulated by the electrostatics lessons
+
+
+def pair_axis_field(charge, separation, distance):
+    """Superpose the two point-charge fields on the axis of a +/- charge pair."""
+    near = K_E * charge / (distance - separation / 2) ** 2
+    far = K_E * charge / (distance + separation / 2) ** 2
+    return near - far
+
+
+def pair_torque(charge, separation, field, angle):
+    """Sum the z-component of r x F for both charges of a pair at angle to a uniform field along x."""
+    torque = 0.0
+    for sign in (1, -1):
+        lever = sign * separation / 2 * math.sin(angle)
+        torque -= lever * sign * charge * field
+    return abs(torque)
+
+
+def pair_force_near_charge(charge, separation, source, distance):
+    """Net Coulomb force on an aligned pair whose centre lies distance from a fixed source charge."""
+    near = K_E * source * charge / (distance - separation / 2) ** 2
+    far = K_E * source * charge / (distance + separation / 2) ** 2
+    return near - far
+
+
+def loop_rhs(inductance, capacitance, resistance):
+    return lambda s: [s[1], -(resistance * s[1] + s[0] / capacitance) / inductance]
+
+
+def loop_state(inductance, capacitance, resistance, volts, time, steps=400):
+    """Charge and current of a series loop released at rest from a capacitor charged to volts."""
+    rhs = loop_rhs(inductance, capacitance, resistance)
+    return integrate(rhs, [capacitance * volts, 0.0], time, steps)
+
+
+def loop_energy_split(inductance, capacitance, volts, time):
+    charge, current = loop_state(inductance, capacitance, 0, volts, time)
+    return charge**2 / (2 * capacitance) - inductance * current**2 / 2
+
+
 def lab_data():
     with (COURSE / "labs/loading-reports.csv").open(
         encoding="utf-8", newline=""
@@ -282,6 +323,33 @@ def expected_answers():
         )
         * 1e3,
     )
+    # Lesson 24: exact two-charge sums; the far-field key also admits the exact value.
+    pair = (1.5e-9, 6.0e-3)
+    add(
+        24,
+        dipole_moment=pair[0] * pair[1] * 1e12,
+        axis_far_field=pair_axis_field(*pair, 0.060),
+        axis_near_exact=pair_axis_field(*pair, 0.012) / 1000,
+        uniform_torque=pair_torque(*pair, 4.0e4, math.pi / 4) * 1e7,
+        rotation_work=quadrature(lambda a: pair_torque(*pair, 4.0e4, a), math.pi / 4, math.pi) * 1e7,
+        nonuniform_force=pair_force_near_charge(*pair, 3.0e-9, 0.080) * 1e7,
+    )
+    # Lesson 25: RK4 loop states; zero crossings give the quarter and damped periods.
+    lc = (0.050, 0.80e-6)
+    quarter = bisect(lambda t: loop_state(*lc, 0, 9.0, t)[0], 2e-4, 4e-4)
+    damped_half = bisect(lambda t: loop_state(*lc, 150, 9.0, t)[1], 5e-4, 8e-4)
+    period_25 = bisect(lambda t: loop_state(*lc, 25, 9.0, t)[1], 1.1e-3, 1.4e-3)
+    add(
+        25,
+        lc_frequency=1 / (4 * quarter),
+        lc_peak_current=abs(loop_state(*lc, 0, 9.0, quarter)[1]) * 1000,
+        lc_initial_slope=abs(loop_rhs(*lc, 0)([lc[1] * 9.0, 0.0])[1]),
+        lc_equal_energy_time=bisect(lambda t: loop_energy_split(*lc, 9.0, t), 1e-5, quarter) * 1e6,
+        critical_resistance=bisect(lambda r: (r / (2 * lc[0])) ** 2 - 1 / (lc[0] * lc[1]), 1, 2000),
+        quality_factor=2 * math.pi / (4 * quarter) * lc[0] / 25,
+        damped_frequency=math.pi / damped_half,
+        energy_per_cycle=(loop_state(*lc, 25, 9.0, period_25)[0] / (lc[1] * 9.0)) ** 2,
+    )
     _, _, means = lab_data()
     source = 1e6 * (1 / calibrated(means, "ass") - 1)
     time = -0.05 / math.log(1 - calibrated(means, "b05") / calibrated(means, "bss"))
@@ -310,7 +378,7 @@ def test_numeric_key_matches_separate_calculation(item_id, expected):
 
 def test_all_numeric_keys_are_recalculated():
     numeric = {q["id"] for q in BANK.values() if q["type"] == "numeric"}
-    assert set(EXPECTED) == numeric and len(numeric) == 82
+    assert set(EXPECTED) == numeric and len(numeric) == 96
 
 
 def test_field_source_lesson_statements_match_numerical_biot_savart():

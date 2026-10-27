@@ -312,10 +312,12 @@ def test_isolated_capacitor_charge_and_integrated_dissipation():
 
 def test_connected_physics_reports_deliver_with_ungraded_partial_boundary():
     assert len(NEW) == 20
-    assert MANIFEST["version"] == "0.6.0" and MANIFEST["maturity"] == "partial"
+    assert tuple(int(part) for part in MANIFEST["version"].split(".")) >= (0, 6, 0)
+    assert MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed"
     scheduled = [lid for w in MANIFEST["duration"]["weeks"] for lid in w["lesson_ids"]]
-    assert len(scheduled) == len(set(scheduled)) == 25
+    # 0.7.0 adds the week-1 dipole and week-9 LC/RLC readings.
+    assert len(scheduled) == len(set(scheduled)) == 27
     repository = ContentRepository(ROOT / "content")
     for number in range(17, 24):
         lesson = repository.lesson("physics-em", f"physics-em-{number}")
