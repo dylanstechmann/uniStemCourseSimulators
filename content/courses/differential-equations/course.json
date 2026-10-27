@@ -7,7 +7,7 @@
   "domain": "Mathematics",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -17,7 +17,8 @@
     "modifications": [
       "Linked the four original lesson pairs to the course outcomes: first-order solution methods to outcome 1, equilibrium and mechanical response to outcome 2, local linearization and stability to outcome 2, and Euler stability and accuracy to outcome 4. Clarified the damping-ratio objective, reassociated the preserved coupled-system stability item with its eigenvalue objective, and added direct formative checks for damping regime and local linearization; existing numeric prompts and keys remain unchanged.",
       "Added an original Laplace-transform initial-value lesson with shifted-step forcing, partial-fraction practice and direct solution checks; reorganized the proposed 14-week sequence and combined related logistic readings in one week without claiming measured workload or semester equivalence.",
-      "Extended the existing forced-first-order lesson with an original Fourier-series example for a synthetic periodic input, harmonic-by-harmonic filtering, convergence limits and four formative checks. The 14-week schedule remains unchanged and the package remains partial, unreviewed and formative-only."
+      "Extended the existing forced-first-order lesson with an original Fourier-series example for a synthetic periodic input, harmonic-by-harmonic filtering, convergence limits and four formative checks. The 14-week schedule remains unchanged and the package remains partial, unreviewed and formative-only.",
+      "Added an original forced-linear-equations reading with formative practice in the existing week 4. MIT OCW 18.03SC Fall 2011 Units I and II and the Harvard Math 21b Spring 2015 syllabus are link-only scope comparators recorded in a new scope crosswalk; no source text, figure or problem is imported."
     ]
   },
   "prerequisites": {
@@ -632,11 +633,36 @@
         "differential-equations-outcome-3",
         "differential-equations-outcome-4"
       ]
+    },
+    {
+      "id": "differential-equations-23-objective-1",
+      "description": "Write a constant-coefficient linear equation as p(D)x = f(t), split its general solution into particular and homogeneous parts, and fit the homogeneous constants to initial conditions.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "differential-equations-outcome-1"
+      ]
+    },
+    {
+      "id": "differential-equations-23-objective-2",
+      "description": "Find particular solutions for exponential, sinusoidal and polynomial forcing with the exponential response formula, complex replacement and undetermined coefficients, using superposition for sums of forcing terms.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "differential-equations-outcome-1"
+      ]
+    },
+    {
+      "id": "differential-equations-23-objective-3",
+      "description": "Handle forcing at a characteristic root and interpret the amplitude, phase and transient of a forced response.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "differential-equations-outcome-1",
+        "differential-equations-outcome-2"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week sequence only, not a measured or reviewed semester. It covers first- and second-order methods, adds bounded Laplace initial-value and impulse-response/convolution/transfer-function units in one week after constant-coefficient response, groups related logistic equilibrium and solution readings in one week, and ends with a synthetic-data lab and a validation case. Weeks 12–13 add an optional stiff two-compartment project with rehearsal practice and milestone self-checks. All activities are open, ungraded practice; there are no graded homework sets, exams or graded project, and workload has not been measured, so the sequence is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week sequence only, not a measured or reviewed semester. It covers first- and second-order methods, including a week-4 reading on forced linear equations that derives the steady response the resonance lesson uses, adds bounded Laplace initial-value and impulse-response/convolution/transfer-function units in one week after constant-coefficient response, groups related logistic equilibrium and solution readings in one week, and ends with a synthetic-data lab and a validation case. Weeks 12–13 add an optional stiff two-compartment project with rehearsal practice and milestone self-checks. All activities are open, ungraded practice; there are no graded homework sets, exams or graded project, and workload has not been measured, so the sequence is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
@@ -674,12 +700,14 @@
       },
       {
         "week": 4,
-        "title": "Second-order systems and mechanical response",
+        "title": "Second-order systems, forced linear equations and mechanical response",
         "lesson_ids": [
-          "differential-equations-2"
+          "differential-equations-2",
+          "differential-equations-23"
         ],
         "assessment_ids": [
-          "differential-equations-2-practice"
+          "differential-equations-2-practice",
+          "differential-equations-23-practice"
         ]
       },
       {
@@ -1646,6 +1674,48 @@
           ]
         }
       ]
+    },
+    {
+      "id": "differential-equations-module-23",
+      "title": "Forced linear equations: exponential response, complex replacement and undetermined coefficients",
+      "source_ids": [
+        "de-semester-unit-ii",
+        "de-semester-unit-i",
+        "de-harvard-math21b-2015"
+      ],
+      "lessons": [
+        {
+          "id": "differential-equations-23",
+          "title": "Forced linear equations: exponential response, complex replacement and undetermined coefficients",
+          "reading": "modules/23-forced-linear-equations-exponential-response-and-undetermined-coefficients.md",
+          "objectives": [
+            "differential-equations-23-objective-1",
+            "differential-equations-23-objective-2",
+            "differential-equations-23-objective-3"
+          ],
+          "worked_example": "For a synthetic mount with m = 0.5 kg, c = 2.0 N·s/m and k = 50 N/m driven by 1.0 cos 8t N from rest, p(j8) = 18 + j16 gives a 41.5 mm steady amplitude lagging by 41.6°, matching the resonance-lesson formula at r = 0.8 and ζ = 0.2; the transient e^(−2t)(A cos 9.80t + B sin 9.80t) with A = −31.0 mm and B = −28.9 mm falls to 0.7% of its starting size by 2.5 s.",
+          "question_ids": [
+            "differential-equations-23:erf-coefficient",
+            "differential-equations-23:complex-amplitude",
+            "differential-equations-23:complex-phase",
+            "differential-equations-23:polynomial-constant",
+            "differential-equations-23:resonant-coefficient",
+            "differential-equations-23:pure-resonance-envelope",
+            "differential-equations-23:initial-condition-constant",
+            "differential-equations-23:steady-amplitude",
+            "differential-equations-23:trial-form",
+            "differential-equations-23:constants-fit",
+            "differential-equations-23:erf-failure",
+            "differential-equations-23:forced-claims"
+          ],
+          "card_ids": [
+            "differential-equations-23-card-1",
+            "differential-equations-23-card-2",
+            "differential-equations-23-card-3",
+            "differential-equations-23-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -2237,6 +2307,35 @@
         "differential-equations-22:depth-2"
       ],
       "points": 8
+    },
+    {
+      "id": "differential-equations-23-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Forced linear equations practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "differential-equations-23-objective-1",
+        "differential-equations-23-objective-2",
+        "differential-equations-23-objective-3",
+        "differential-equations-outcome-1",
+        "differential-equations-outcome-2"
+      ],
+      "question_ids": [
+        "differential-equations-23:erf-coefficient",
+        "differential-equations-23:complex-amplitude",
+        "differential-equations-23:complex-phase",
+        "differential-equations-23:polynomial-constant",
+        "differential-equations-23:resonant-coefficient",
+        "differential-equations-23:pure-resonance-envelope",
+        "differential-equations-23:initial-condition-constant",
+        "differential-equations-23:steady-amplitude",
+        "differential-equations-23:trial-form",
+        "differential-equations-23:constants-fit",
+        "differential-equations-23:erf-failure",
+        "differential-equations-23:forced-claims"
+      ],
+      "points": 13
     }
   ],
   "grading_policy": {
@@ -2356,6 +2455,11 @@
       "version": "0.6.0",
       "date": "2026-10-22",
       "summary": "Added original variable-coefficient IVP/domain, Fourier-filter/error-bound and nonlinear radial-cycle foundations; four connected method/forcing/coupled/nonlinear numerical reports; twenty checkpoints/cards. Derivations distinguish local/global claims, transients/tails, orbital attraction and positivity/stability/conservation. Preserves the existing synthetic lab and stiff project. Partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.7.0",
+      "date": "2026-10-27",
+      "summary": "Compared the course with a second university comparator, the Harvard Math 21b Spring 2015 syllabus, alongside MIT OCW 18.03SC Fall 2011, in a new scope crosswalk that records covered, shallow, absent and elsewhere topics. A general method for forced linear equations, which both comparators teach, was missing: the resonance lesson stated the steady amplitude without one. An original week-4 reading now develops Euler's formula and complex magnitude and angle, the exponential response formula, complex replacement, undetermined coefficients, superposition, the resonant cases and the split into steady state and transient. Added three objectives, 12 practice items and four retrieval cards. Partial differential equations, named only by Harvard 21b, remain a recorded gap. The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
@@ -2367,7 +2471,8 @@
     "The stiff two-compartment project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses a separate system, and no software check evaluates a learner's derivation or written interpretation. Milestone weeks are planning suggestions, not measured workload or deadlines.",
     "Three selected foundations and four connected open assignments deepen variable-coefficient solution/domain evidence, harmonic response/error bounds, repeated-mode forced systems, nonlinear invariant sets and numerical verification. Four reports do not establish a measured semester workload, complete assessment/lab sequence or qualified mathematical review. No midterm, cumulative final or active graded project exists; the existing synthetic lab and optional project remain formative-only.",
     "Browser checkpoints assess selected outputs and interpretations, not proofs, solver code, convergence studies or written reports. Examples are synthetic normalized mathematical models, not fitted biological systems. General existence proofs, broad Fourier/bifurcation/chaos theory, PDEs and boundary-value theory remain outside the selected treatment. Local prerequisites differ from MIT 18.03SC’s 18.02 corequisite; no equivalence is claimed.",
-    "Of the 153 numerical answers, 27 require units, 63 check significant figures and 0 check dimensions. New continuous checkpoint quantities request three significant figures; exact harmonic indices have no significant-figure requirement. Written reasoning is not evaluated automatically."
+    "Of the 161 numerical answers, 27 require units, 63 check significant figures and 0 check dimensions. New continuous checkpoint quantities request three significant figures; exact harmonic indices have no significant-figure requirement. Written reasoning is not evaluated automatically.",
+    "The scope crosswalk compares the comparators' public session and lecture titles with the local readings, not their lectures, problem sets or exams. Harvard Math 21b's first 24 lectures are linear algebra and bear on the Linear Algebra course instead. Partial differential equations, Parseval's identity and chaos remain recorded gaps."
   ],
   "intentionally_omitted": [
     "Graded assessments, an activated integrative project and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package."

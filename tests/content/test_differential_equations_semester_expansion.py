@@ -306,10 +306,12 @@ def test_radial_identity_and_independent_cartesian_integration():
 
 def test_new_reports_and_foundations_deliver_as_open_practice():
     assert len(NEW) == 20
-    assert MANIFEST["version"] == "0.6.0" and MANIFEST["maturity"] == "partial"
+    assert tuple(int(part) for part in MANIFEST["version"].split(".")) >= (0, 6, 0)
+    assert MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed"
     scheduled = [lid for w in MANIFEST["duration"]["weeks"] for lid in w["lesson_ids"]]
-    assert len(scheduled) == len(set(scheduled)) == 24
+    # 0.7.0 adds the week-4 forced-linear-equations reading.
+    assert len(scheduled) == len(set(scheduled)) == 25
     repository = ContentRepository(ROOT / "content")
     for number in range(16, 23):
         lesson = repository.lesson(

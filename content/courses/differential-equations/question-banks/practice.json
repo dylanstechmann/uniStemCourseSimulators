@@ -6317,6 +6317,377 @@
           "Original synthetic differential-equation practice developed with substantial AI assistance; no external problem, external solution, code or measured dataset imported."
         ]
       }
+    },
+    {
+      "id": "differential-equations-23:erf-coefficient",
+      "type": "numeric",
+      "prompt": "For x″ + 4x′ + 3x = 10e^(−2t), the exponential response formula gives a particular solution x_p = A e^(−2t). What is A? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-23-objective-2"
+      ],
+      "solution_spec": {
+        "answer": -10,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Evaluate p(r) = r² + 4r + 3 at r = −2 and divide.",
+        "solution": "p(−2) = 4 − 8 + 3 = −1, so A = 10/(−1) = −10 and x_p = −10e^(−2t).",
+        "lesson_ids": [
+          "differential-equations-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-23:complex-amplitude",
+      "type": "numeric",
+      "prompt": "For x″ + 2x′ + 5x = 10 cos 2t, what is the amplitude of the steady-state oscillation? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-23-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 2.425,
+        "unit": "",
+        "tolerance": 0.005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use complex replacement: the amplitude is 10/|p(j2)| with p(r) = r² + 2r + 5.",
+        "solution": "p(j2) = −4 + j4 + 5 = 1 + j4, so |p(j2)| = √17 = 4.123 and the amplitude is 10/4.123 = 2.425.",
+        "lesson_ids": [
+          "differential-equations-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-23:complex-phase",
+      "type": "numeric",
+      "prompt": "For x″ + 2x′ + 5x = 10 cos 2t, by how many degrees does the steady-state response lag the forcing? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-23-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 75.96,
+        "unit": "",
+        "tolerance": 0.1,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The lag is the angle of p(j2).",
+        "solution": "p(j2) = 1 + j4 has angle arctan(4/1) = 75.96°, so x_p = 2.425 cos(2t − 75.96°).",
+        "lesson_ids": [
+          "differential-equations-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-23:polynomial-constant",
+      "type": "numeric",
+      "prompt": "For x″ + x′ + 2x = 4t, undetermined coefficients give a particular solution x_p = at + b. What is b? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-23-objective-2"
+      ],
+      "solution_spec": {
+        "answer": -1,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Substitute at + b and match the t terms and the constant terms.",
+        "solution": "x_p″ = 0 and x_p′ = a, so a + 2(at + b) = 4t: 2a = 4 gives a = 2, and a + 2b = 0 gives b = −1.",
+        "lesson_ids": [
+          "differential-equations-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-23:resonant-coefficient",
+      "type": "numeric",
+      "prompt": "For x″ − x′ − 6x = 10e^(3t), the forcing exponent 3 is a characteristic root, so the particular solution has the form x_p = A t e^(3t). What is A? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-23-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 2,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "With p(3) = 0, use A = 10/p′(3).",
+        "solution": "p(r) = r² − r − 6 has p(3) = 0 and p′(r) = 2r − 1, so p′(3) = 5 and A = 10/5 = 2.",
+        "lesson_ids": [
+          "differential-equations-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-23:pure-resonance-envelope",
+      "type": "numeric",
+      "prompt": "Starting from rest, x″ + 9x = 6 cos 3t. The resonant-case particular solution also satisfies x(0) = 0 and x′(0) = 0, so it is the whole solution. What is the amplitude of its oscillation envelope at t = 4? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-23-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 4.0,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Use x_p = Re(6t e^(j3t)/p′(j3)) with p′(r) = 2r.",
+        "solution": "p′(j3) = j6, so x_p = Re(6t e^(j3t)/(j6)) = t sin 3t. Its envelope is t, which is 4.0 at t = 4: the undamped response grows without bound.",
+        "lesson_ids": [
+          "differential-equations-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-23:initial-condition-constant",
+      "type": "numeric",
+      "prompt": "Solve x″ + 4x′ + 3x = 8e^(−5t) with x(0) = 0 and x′(0) = 0. The solution is x_p + c₁e^(−t) + c₂e^(−3t). What is c₁? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-23-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 1,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Find x_p first, then impose both initial conditions on the full solution.",
+        "solution": "p(−5) = 25 − 20 + 3 = 8, so x_p = e^(−5t). Then 1 + c₁ + c₂ = 0 and −5 − c₁ − 3c₂ = 0 give c₂ = −2 and c₁ = 1.",
+        "lesson_ids": [
+          "differential-equations-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-23:steady-amplitude",
+      "type": "numeric",
+      "prompt": "A synthetic mass–spring–damper has m = 0.4 kg, c = 1.6 N·s/m and k = 40 N/m and is driven by 0.8 cos 5t N. What is the steady-state amplitude, in mm? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-23-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 25.77,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Compute p(j5) = k − mω² + jcω and divide the force amplitude by its magnitude.",
+        "solution": "p(j5) = 40 − 10 + j8 = 30 + j8, with magnitude 31.05 N/m, so the amplitude is 0.8/31.05 m = 25.77 mm.",
+        "lesson_ids": [
+          "differential-equations-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-23:trial-form",
+      "type": "single_choice",
+      "prompt": "For x″ + 3x′ + 2x = t e^(−3t), which trial form should undetermined coefficients use?",
+      "options": [
+        "A t e^(−3t)",
+        "(at + b) e^(−3t)",
+        "A e^(−3t)",
+        "(at + b) t e^(−3t)"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-23-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Is −3 a root of r² + 3r + 2? Then match the polynomial degree in front of the exponential.",
+        "solution": "The roots are −1 and −2, so −3 is not resonant and no extra factor of t is needed, but the factor t needs a full first-degree polynomial: (at + b)e^(−3t).",
+        "lesson_ids": [
+          "differential-equations-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-23:constants-fit",
+      "type": "single_choice",
+      "prompt": "When fitting initial conditions for a forced linear equation, which statement is correct?",
+      "options": [
+        "Fit the particular solution's coefficients to the initial conditions",
+        "Ignore the particular solution, because it does not affect x(0) or x′(0)",
+        "Add the particular solution first, then fit the homogeneous constants to x(0) and x′(0)",
+        "The initial conditions determine the forcing amplitude"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-23-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 2
+      },
+      "feedback": {
+        "hint": "Which part of the solution carries the arbitrary constants?",
+        "solution": "The particular solution is fixed by the forcing; the homogeneous part carries the constants. Its values at t = 0 still count, so add it before fitting.",
+        "lesson_ids": [
+          "differential-equations-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-23:erf-failure",
+      "type": "single_choice",
+      "prompt": "For x″ + 3x′ + 2x = 5e^(−t), why does the formula A e^(−t)/p(−1) fail?",
+      "options": [
+        "Because exponential forcing never produces an exponential response",
+        "Because the equation is nonlinear",
+        "Because the damping is too large for a particular solution to exist",
+        "Because −1 is a characteristic root, so p(−1) = 0 and e^(−t) already solves the unforced equation; use t e^(−t) instead"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "differential-equations-23-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 3
+      },
+      "feedback": {
+        "hint": "Evaluate p(−1).",
+        "solution": "p(−1) = 1 − 3 + 2 = 0. No multiple of e^(−t) can produce the forcing, so the resonant formula A t e^(−t)/p′(−1) applies: x_p = 5t e^(−t).",
+        "lesson_ids": [
+          "differential-equations-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "differential-equations-23:forced-claims",
+      "type": "multiple_select",
+      "prompt": "Which statements about forced constant-coefficient linear equations are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "differential-equations-23-objective-1",
+        "differential-equations-23-objective-3"
+      ],
+      "options": [
+        "Every solution is one particular solution plus a solution of the unforced equation.",
+        "With damping, the homogeneous part decays and leaves the steady state.",
+        "Complex replacement takes the real part before solving the complex equation.",
+        "Superposition lets you add particular solutions found for separate forcing terms.",
+        "Undamped forcing at the natural frequency gives a bounded steady amplitude."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "feedback": {
+        "hint": "Linearity, decay of the homogeneous part, and the order of the complex-replacement steps.",
+        "solution": "Linearity gives x = x_p + x_h and superposition. With damping x_h decays. Complex replacement solves first and takes the real part last. Undamped resonance grows like t without bound.",
+        "lesson_ids": [
+          "differential-equations-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
     }
   ]
 }

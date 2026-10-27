@@ -17,7 +17,7 @@ No course or candidate is activated by this command. `--check` detects report dr
 | cell-biology | 0.62.1 | partial | unreviewed | formative-only | 15 |
 | cellular-biomechanics | 0.5.0 | partial | unreviewed | formative-only | 0 |
 | circuits | 0.8.0 | partial | unreviewed | formative-only | 0 |
-| differential-equations | 0.6.0 | partial | unreviewed | formative-only | 0 |
+| differential-equations | 0.7.0 | partial | unreviewed | formative-only | 0 |
 | general-chemistry-1 | 0.6.0 | partial | unreviewed | formative-only | 0 |
 | general-chemistry-2 | 0.6.0 | partial | unreviewed | formative-only | 0 |
 | genetics | 0.8.0 | partial | unreviewed | formative-only | 0 |

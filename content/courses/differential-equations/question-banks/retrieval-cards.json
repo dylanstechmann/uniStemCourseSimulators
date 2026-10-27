@@ -806,6 +806,46 @@
         "differential-equations-22-objective-2"
       ],
       "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-23-card-1",
+      "lesson_id": "differential-equations-23",
+      "front": "The shape of every solution of a forced linear equation",
+      "back": "x = x_p + x_h: one particular solution plus the general unforced solution. Fit the constants in x_h only after adding x_p. Superposition adds particular solutions for separate forcing terms.",
+      "objective_ids": [
+        "differential-equations-23-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-23-card-2",
+      "lesson_id": "differential-equations-23",
+      "front": "Exponential response formula",
+      "back": "p(D)e^(rt) = p(r)e^(rt), so forcing A e^(rt) gives x_p = A e^(rt)/p(r) when p(r) ≠ 0. If p(r) = 0 but p′(r) ≠ 0, use x_p = A t e^(rt)/p′(r).",
+      "objective_ids": [
+        "differential-equations-23-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-23-card-3",
+      "lesson_id": "differential-equations-23",
+      "front": "Complex replacement",
+      "back": "F cos ωt = Re(F e^(jωt)), so x_p = Re(F e^(jωt)/p(jω)) = (F/|p(jω)|) cos(ωt − φ) with φ = arg p(jω). For m x″ + c x′ + k x, p(jω) = k − mω² + jcω.",
+      "objective_ids": [
+        "differential-equations-23-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "differential-equations-23-card-4",
+      "lesson_id": "differential-equations-23",
+      "front": "Undetermined coefficients and resonance",
+      "back": "Polynomial forcing: guess a polynomial of the same degree. t e^(rt) forcing: guess (at + b)e^(rt), with an extra t if r is a root. Undamped x″ + ω₀²x = F cos ω₀t gives (F t/2ω₀) sin ω₀t, which grows without bound.",
+      "objective_ids": [
+        "differential-equations-23-objective-3"
+      ],
+      "license": "CC-BY-4.0"
     }
   ]
 }

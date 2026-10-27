@@ -2835,6 +2835,27 @@ def _de_spiral_turn() -> tuple[float, float]:
 _DE_TURN_T, _DE_TURN_R = _de_spiral_turn()
 _DE_MM = _de_integrate(lambda t, x: [-2.0 * x[0] / (0.5 + x[0])], [5.0], 3.5, 1e-4)
 
+
+def _de_apply(coefficients, x, t: float, h: float = 1e-4) -> float:
+    """Apply a2 D^2 + a1 D + a0 to the function x at t by central differences."""
+    a2, a1, a0 = coefficients
+    return a2 * (x(t + h) - 2 * x(t) + x(t - h)) / h**2 + a1 * (x(t + h) - x(t - h)) / (2 * h) + a0 * x(t)
+
+
+def _de_late(f, t_end: float, dt: float) -> float:
+    """State x at t_end from rest, for long-time limits of a forced second-order equation."""
+    return _de_at(_de_integrate(f, [0.0, 0.0], t_end, dt), t_end)
+
+
+def _de_cosine_response(t_end: float = 32.0) -> tuple[float, float]:
+    """Steady amplitude and lag (degrees) of x'' + 2x' + 5x = 10 cos 2t from an RK4 trajectory; the window ends before t_end."""
+    traj = _de_integrate(lambda t, x: [x[1], 10 * math.cos(2 * t) - 2 * x[1] - 5 * x[0]], [0.0, 0.0], t_end, 1e-3)
+    amplitude, lag_from_sine = _de_sine_fit(traj, 2.0, t_end - 4.0)
+    return amplitude, math.degrees(lag_from_sine) + 90  # the forcing is a cosine, the fit measures lag from a sine
+
+
+_DE_COSINE_23 = _de_cosine_response()
+
 DIFFERENTIAL_EQUATIONS_NUMERIC = {
     # items written before 2026-10-08, recomputed from the numbers in their prompts
     "differential-equations-1:check": 8 * math.exp(-0.25 * 4),
@@ -2937,6 +2958,15 @@ DIFFERENTIAL_EQUATIONS_NUMERIC = {
     "differential-equations-15:gain-at-four": 1 / abs(complex(25 - 16, 6 * 4)),
     "differential-equations-15:phase-lag-at-four": math.degrees(math.atan2(6 * 4, 25 - 16)),
     "differential-equations-15:peak-gain-frequency": math.sqrt(25 - 6**2 / 2),
+    # 0.7.0 forced-equation lesson: finite-difference operators, RK4 steady states and long-time limits
+    "differential-equations-23:erf-coefficient": 10 * math.exp(-0.6) / _de_apply([1, 4, 3], lambda t: math.exp(-2 * t), 0.3),
+    "differential-equations-23:complex-amplitude": _DE_COSINE_23[0],
+    "differential-equations-23:complex-phase": _DE_COSINE_23[1],
+    "differential-equations-23:polynomial-constant": _de_late(lambda t, x: [x[1], 4 * t - x[1] - 2 * x[0]], 40.0, 1e-3) - 2 * 40.0,
+    "differential-equations-23:resonant-coefficient": 10 * math.exp(0.6) / _de_apply([1, -1, -6], lambda t: t * math.exp(3 * t), 0.2),
+    "differential-equations-23:pure-resonance-envelope": _de_late(lambda t, x: [x[1], 6 * math.cos(3 * t) - 9 * x[0]], 4.0, 1e-4) / math.sin(12),
+    "differential-equations-23:initial-condition-constant": _de_late(lambda t, x: [x[1], 8 * math.exp(-5 * t) - 4 * x[1] - 3 * x[0]], 10.0, 1e-3) * math.exp(10),
+    "differential-equations-23:steady-amplitude": _de_forced_amplitude(0.5, zeta=0.2, wn=10.0, m=0.4, force=0.8),
 }
 
 

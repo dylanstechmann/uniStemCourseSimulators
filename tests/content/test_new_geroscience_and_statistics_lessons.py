@@ -36,7 +36,7 @@ LESSONS = [("geroscience", f"geroscience-{n}") for n in range(9, 15)] + [
     ("cellular-biomechanics", f"cellular-biomechanics-{n}") for n in range(7, 14)] + [("cellular-biomechanics", "cellular-biomechanics-15")] + [
     ("statics-materials", f"statics-materials-{n}") for n in range(7, 14)] + [("statics-materials", "statics-materials-15")] + [
     ("signals-control", f"signals-control-{n}") for n in range(7, 14)] + [
-    ("differential-equations", f"differential-equations-{n}") for n in range(7, 14)] + [("differential-equations", "differential-equations-15")] + [
+    ("differential-equations", f"differential-equations-{n}") for n in range(7, 14)] + [("differential-equations", f"differential-equations-{n}") for n in (15, 23)] + [
     ("linear-algebra", f"linear-algebra-{n}") for n in range(7, 14)] + [
     ("calculus-1", f"calculus-1-{n}") for n in range(7, 14)] + [("calculus-1", "calculus-1-15")] + [
     ("calculus-2", f"calculus-2-{n}") for n in range(7, 14)] + [("calculus-2", "calculus-2-15")] + [
@@ -716,8 +716,9 @@ def test_differential_equations_schedule_places_every_lesson_once_and_stays_part
     assert [w["week"] for w in weeks] == list(range(1, 15))
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
-    # Existing topic/lab/project routes plus three foundations and four reports in 0.6.0.
-    assert len(all_lessons) == 24
+    # Existing topic/lab/project routes plus three foundations and four reports in 0.6.0, and the
+    # week-4 forced-linear-equations reading in 0.7.0.
+    assert len(all_lessons) == 25
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])
