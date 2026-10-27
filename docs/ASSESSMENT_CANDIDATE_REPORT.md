@@ -23,7 +23,7 @@ No course or candidate is activated by this command. `--check` detects report dr
 | genetics | 0.8.0 | partial | unreviewed | formative-only | 0 |
 | geroscience | 0.7.0 | partial | unreviewed | formative-only | 0 |
 | linear-algebra | 0.5.0 | partial | unreviewed | formative-only | 0 |
-| organic-chemistry | 0.6.0 | partial | unreviewed | formative-only | 0 |
+| organic-chemistry | 0.7.0 | partial | unreviewed | formative-only | 0 |
 | physics-em | 0.7.0 | partial | unreviewed | formative-only | 0 |
 | physics-mechanics | 0.6.0 | partial | unreviewed | formative-only | 0 |
 | physiology | 0.6.0 | partial | unreviewed | formative-only | 0 |

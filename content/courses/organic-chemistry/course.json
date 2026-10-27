@@ -7,7 +7,7 @@
   "domain": "Chemistry",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -21,7 +21,8 @@
       "Expanded the week-7 elimination prototype with E1/E2/E1cB step order, rate-law models, beta-hydrogen inventory, anti-periplanar and trans-diaxial constraints, and qualified alkene-regioselectivity reasoning.",
       "Expanded the week-9 carbonyl prototype with carbonyl polarization, charge-audited tetrahedral intermediates, addition-versus-acyl-substitution criteria, leaving-group/resonance comparisons, and biomolecular context.",
       "MIT OCW 5.12 Organic Chemistry I, Spring 2005 calendar was checked for aromaticity/EAS placement and used as a curriculum comparator only; the new lesson is original.",
-      "Added original aromaticity and electrophilic aromatic-substitution instruction with cyclic electron counting, sigma-complex reasoning and directing effects; combined four related primer/expanded pairs in the proposed schedule. The 11-block grouped sequence remains unmeasured and makes no semester-equivalence claim."
+      "Added original aromaticity and electrophilic aromatic-substitution instruction with cyclic electron counting, sigma-complex reasoning and directing effects; combined four related primer/expanded pairs in the proposed schedule. The 11-block grouped sequence remains unmeasured and makes no semester-equivalence claim.",
+      "Added an original reaction-energetics reading with formative practice in the existing week 2. MIT OCW 5.12 Spring 2005 calendar and UCI OpenCourseWare Chem 51A lecture list are link-only scope comparators recorded in a new scope crosswalk; no source text, figure or problem is imported."
     ]
   },
   "prerequisites": {
@@ -615,11 +616,36 @@
         "organic-chemistry-outcome-3",
         "organic-chemistry-outcome-4"
       ]
+    },
+    {
+      "id": "organic-chemistry-21-objective-1",
+      "description": "Relate a standard free-energy difference to an equilibrium constant and to populations for conformer, acid–base and reaction equilibria, separate enthalpy and entropy contributions, and estimate a reaction enthalpy from stipulated bond dissociation energies.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "organic-chemistry-outcome-1"
+      ]
+    },
+    {
+      "id": "organic-chemistry-21-objective-2",
+      "description": "Read a reaction energy diagram to identify transition states, intermediates and the rate-determining step, convert barrier differences into rate ratios, and match the diagram to a rate law.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "organic-chemistry-outcome-2"
+      ]
+    },
+    {
+      "id": "organic-chemistry-21-objective-3",
+      "description": "Apply the Hammond postulate and the distinction between kinetic and thermodynamic control to predict the dominant product under stated conditions, and explain why a catalyst changes rates but not the equilibrium constant.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "organic-chemistry-outcome-2",
+        "organic-chemistry-outcome-3"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 12,
-    "equivalent_structure": "Proposed 12-block scope, not measured workload or a complete university semester. Four compact-primer/expanded-reading pairs remain grouped. A new alkene/alkyne block follows elimination and alkene formation and precedes aromaticity; MIT OCW 5.12 Spring 2005 allocates weeks 5–7 to alkene and alkyne reactions, so this local treatment remains selective. The synthetic-data virtual lab and preserved self-assessment case are practice activities.",
+    "equivalent_structure": "Proposed 12-block scope, not measured workload or a complete university semester. Four compact-primer/expanded-reading pairs remain grouped. Week 2 adds reaction energetics after conformations, the position MIT OCW 5.12 and UCI Chem 51A give it before substitution. A new alkene/alkyne block follows elimination and alkene formation and precedes aromaticity; MIT OCW 5.12 Spring 2005 allocates weeks 5–7 to alkene and alkyne reactions, so this local treatment remains selective. The synthetic-data virtual lab and preserved self-assessment case are practice activities.",
     "weeks": [
       {
         "week": 1,
@@ -635,12 +661,14 @@
       },
       {
         "week": 2,
-        "title": "Conformations, Fischer maps and stereochemical labels",
+        "title": "Conformations, Fischer maps, stereochemical labels and reaction energetics",
         "lesson_ids": [
-          "organic-chemistry-8"
+          "organic-chemistry-8",
+          "organic-chemistry-21"
         ],
         "assessment_ids": [
-          "organic-chemistry-8-practice"
+          "organic-chemistry-8-practice",
+          "organic-chemistry-21-practice"
         ]
       },
       {
@@ -1567,6 +1595,48 @@
           ]
         }
       ]
+    },
+    {
+      "id": "organic-chemistry-module-21",
+      "title": "Reaction energetics: equilibria, barriers and energy diagrams",
+      "source_ids": [
+        "mit-5-12-organic-chemistry-2005",
+        "orgo-uci-chem51a"
+      ],
+      "lessons": [
+        {
+          "id": "organic-chemistry-21",
+          "title": "Reaction energetics: equilibria, barriers and energy diagrams",
+          "reading": "modules/21-reaction-energetics-equilibria-barriers-and-energy-diagrams.md",
+          "objectives": [
+            "organic-chemistry-21-objective-1",
+            "organic-chemistry-21-objective-2",
+            "organic-chemistry-21-objective-3"
+          ],
+          "worked_example": "For a synthetic SN1 profile with TS₁ at 96 kJ/mol, a carbocation at 60 kJ/mol, TS₂ at 68 kJ/mol and products at −20 kJ/mol, K ≈ 3.2 × 10³ at 298 K, ionization is rate-determining so rate = k[RX], the transition-state-theory rate constant is 9.2 × 10⁻⁵ s⁻¹ with a half-life near 2.1 hours, and a substituent that stabilizes the carbocation by 30 kJ/mol with 70% felt at TS₁ cuts the barrier to 75 kJ/mol and the half-life to about 1.6 s.",
+          "question_ids": [
+            "organic-chemistry-21:conformer-minor-fraction",
+            "organic-chemistry-21:pka-free-energy",
+            "organic-chemistry-21:bde-enthalpy",
+            "organic-chemistry-21:entropy-crossover",
+            "organic-chemistry-21:rate-ratio",
+            "organic-chemistry-21:barrier-for-hundredfold",
+            "organic-chemistry-21:tst-half-life",
+            "organic-chemistry-21:kinetic-ratio",
+            "organic-chemistry-21:thermodynamic-ratio",
+            "organic-chemistry-21:rate-determining-step",
+            "organic-chemistry-21:catalyst-effect",
+            "organic-chemistry-21:hammond",
+            "organic-chemistry-21:energy-claims"
+          ],
+          "card_ids": [
+            "organic-chemistry-21-card-1",
+            "organic-chemistry-21-card-2",
+            "organic-chemistry-21-card-3",
+            "organic-chemistry-21-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -2112,6 +2182,37 @@
         "organic-chemistry-20:depth-2"
       ],
       "points": 8
+    },
+    {
+      "id": "organic-chemistry-21-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Reaction energetics practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "organic-chemistry-21-objective-1",
+        "organic-chemistry-21-objective-2",
+        "organic-chemistry-21-objective-3",
+        "organic-chemistry-outcome-1",
+        "organic-chemistry-outcome-2",
+        "organic-chemistry-outcome-3"
+      ],
+      "question_ids": [
+        "organic-chemistry-21:conformer-minor-fraction",
+        "organic-chemistry-21:pka-free-energy",
+        "organic-chemistry-21:bde-enthalpy",
+        "organic-chemistry-21:entropy-crossover",
+        "organic-chemistry-21:rate-ratio",
+        "organic-chemistry-21:barrier-for-hundredfold",
+        "organic-chemistry-21:tst-half-life",
+        "organic-chemistry-21:kinetic-ratio",
+        "organic-chemistry-21:thermodynamic-ratio",
+        "organic-chemistry-21:rate-determining-step",
+        "organic-chemistry-21:catalyst-effect",
+        "organic-chemistry-21:hammond",
+        "organic-chemistry-21:energy-claims"
+      ],
+      "points": 14
     }
   ],
   "grading_policy": {
@@ -2231,10 +2332,15 @@
       "version": "0.6.0",
       "date": "2026-10-22",
       "summary": "Expanded aromatic mechanism and multistep synthesis depth with original benzyne elimination–addition/blocked-ring atom maps, protection/forward-compatibility and stereochemical/yield reasoning, plus two connected paper assignments and twelve checkpoint items/cards. Preserved the twelve grouped blocks, existing lab and aldol project. The course remains partial, unreviewed and formative-only; no real preparation, operating procedure or experimentally verified selectivity is supplied."
+    },
+    {
+      "version": "0.7.0",
+      "date": "2026-10-27",
+      "summary": "Compared the course with a second university comparator, UCI OpenCourseWare Chem 51A (Fall 2009), alongside MIT OCW 5.12 Spring 2005, in a new scope crosswalk that records covered, shallow, absent and deferred topics. Reaction energetics, which both comparators teach in several lectures, was absent and now has an original reading grouped in week 2: free energy and equilibrium for conformer, acid–base and reaction equilibria, enthalpy and entropy, bond-energy estimates, barriers and rates, energy diagrams and rate-determining steps, the Hammond postulate, kinetic versus thermodynamic control and catalysts. Added three objectives, 13 practice items and four retrieval cards. Nomenclature and alcohol reactions, each named by only one comparator, remain recorded gaps. The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "The four primer/expanded pairs remain grouped in twelve calendar blocks. Twenty-two reading/activity routes now include selected additions, aryne mechanism evidence, multistep compatibility and two new paper assignments. The proposed grouping and workload remain unmeasured and unreviewed; these counts do not establish a complete university semester.",
+    "The four primer/expanded pairs remain grouped in twelve calendar blocks. Twenty-three reading/activity routes now include selected additions, aryne mechanism evidence, multistep compatibility and two new paper assignments. The proposed grouping and workload remain unmeasured and unreviewed; these counts do not establish a complete university semester.",
     "The proposed 12-block content grouping is unmeasured and unreviewed. Graded homework, exams and a full laboratory sequence remain absent; the paper-only project draft is inactive and ungraded.",
     "New parameters and observations are synthetic; selected electron-flow, conformation, ideal-kinetic and reporting models provide no synthesis or handling procedure or biological recommendation.",
     "Public keys and feedback remain formative authoring specifications; practice points are not course grades.",
@@ -2242,7 +2348,8 @@
     "OpenStax sections are link-only factual references; no teaching text, problem, figure or dataset was imported. MIT OCW 5.12 Spring 2005 is a course-calendar comparator only; no source course asset was adapted.",
     "The optional aldol-identity dossier project is ungraded. Its milestone drafts are private self-checks; no software check evaluates the learner’s written derivation, diagram or interpretation. The proposed schedule and time estimate have not been measured.",
     "New aryne and multistep-synthesis readings fill the previously omitted introductory benzyne/route-planning strands with explicit atom maps and two paper assignments. General synthesis scope, real chemoselective conditions, broad protecting-group chemistry and experimental route validation remain beyond the stated models. Code, prose, structures and reports are not automatically evaluated; workload and qualified review remain open.",
-    "Of the 95 numerical answers, 4 require units, 11 check significant figures and 0 check dimensions. Exact structural/stoichiometric counts use integers; new continuous fractions/amounts request three significant figures."
+    "Of the 104 numerical answers, 4 require units, 11 check significant figures and 0 check dimensions. Exact structural/stoichiometric counts use integers; new continuous fractions/amounts request three significant figures.",
+    "The scope crosswalk compares the comparators' public session and lecture titles with the local readings, not their lectures, problem sets or exams. UCI Chem 51A is the first course of a three-quarter sequence, so it bears only on the first four blocks. Nomenclature and alcohol and phenol reactions remain recorded gaps."
   ],
   "intentionally_omitted": [
     "Graded assessments, a complete laboratory sequence, an active graded project, measured workload and qualified human review remain outstanding. Alkene/alkyne reagent breadth, general multistep synthesis, experimental selectivity and broad protecting-group chemistry remain selective or deferred. New benzyne and compatibility readings develop introductory paper-model strands; the local combined scope remains narrower than the complete 5.12 sequence."

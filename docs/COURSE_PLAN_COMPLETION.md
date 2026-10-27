@@ -25,7 +25,7 @@ This is a personal hobby and learning project developed with substantial AI assi
 | [Genetics & Genomics](../content/courses/genetics/syllabus.md) | 0.8.0 | 14 | 6 | [Project guide](../content/courses/genetics/assignments/three-point-mapping-project-guide.md) |
 | [Geroscience & Regenerative Biology](../content/courses/geroscience/syllabus.md) | 0.7.0 | 14 | 14 | [Project guide](../content/courses/geroscience/assignments/surrogate-evidence-project-guide.md) |
 | [Linear Algebra for Modeling & Robotics](../content/courses/linear-algebra/syllabus.md) | 0.5.0 | 14 | 12 | [Project guide](../content/courses/linear-algebra/assignments/hidden-state-reconstruction-project-guide.md) |
-| [Organic Chemistry I for Life Sciences](../content/courses/organic-chemistry/syllabus.md) | 0.6.0 | 12 | 11 | [Project guide](../content/courses/organic-chemistry/assignments/aldol-identity-project-guide.md) |
+| [Organic Chemistry I for Life Sciences](../content/courses/organic-chemistry/syllabus.md) | 0.7.0 | 12 | 11 | [Project guide](../content/courses/organic-chemistry/assignments/aldol-identity-project-guide.md) |
 | [Physics: Electricity & Magnetism](../content/courses/physics-em/syllabus.md) | 0.7.0 | 14 | 13 | [Project guide](../content/courses/physics-em/assignments/series-resonance-project-guide.md) |
 | [Physics: Mechanics for Biomedical Engineers](../content/courses/physics-mechanics/syllabus.md) | 0.6.0 | 14 | 11 | [Project guide](../content/courses/physics-mechanics/assignments/rotor-tradeoff-project-guide.md) |
 | [Human Physiology for Engineers](../content/courses/physiology/syllabus.md) | 0.6.0 | 14 | 11 | [Project guide](../content/courses/physiology/assignments/renal-clearance-project-guide.md) |

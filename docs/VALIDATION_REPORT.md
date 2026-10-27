@@ -6581,3 +6581,20 @@ Physics II: E&M 0.7.0 adds a scope crosswalk against MIT OCW 8.02 Spring 2007 an
 Independent references recompute the 14 new numeric keys by exact two-charge superposition, r × F torque sums, trapezoid quadrature of the torque over angle, and RK4 integration of the series-loop equation with bisection on its zero crossings. A lesson test recomputes every number the two readings state, integrates i²R over one damped period to confirm the worked example's dissipated energy, and checks the crosswalk's labels. Writing that test exposed one wording point: the worked example quotes the point-dipole field 2kp/r³ = 864 N/C where the exact two-charge field is 865 N/C. Both steps use the point-dipole model consistently, so the test now checks the stated model, and the exact pair force is checked separately against Newton's third law.
 
 All Python suites ran in this Linux dev container on Python 3.12.3 against the mounted working tree. The frontend was unchanged and not rebuilt, and no Docker Compose stack or Playwright browser flow was run here; CI runs the end-to-end suite. These are same-agent consistency checks, not qualified review, measured workload or university equivalence. The package remains partial, unreviewed and formative-only.
+
+## Organic Chemistry I second-comparator verification (2026-10-27)
+
+Organic Chemistry I 0.7.0 adds a scope crosswalk against MIT OCW 5.12 Spring 2005 and UCI OpenCourseWare Chem 51A Fall 2009 and a week-2 reaction-energetics reading with three objectives, 13 practice items and four retrieval cards. Stage inventory: 25 partial courses, 645 lessons, 3,599 formative questions, 2,171 retrieval cards and 151 cases.
+
+| Actual check | Result |
+| --- | --- |
+| Content validation | Passed at the stage inventory above; zero errors and zero explicit warnings. |
+| Full root suite | 4,160 passed, one existing skip, 2,120.69 seconds (35:20). |
+| Full backend suite | 7,529 passed, two existing symbolic-response-builder skips, one existing test-client warning, 165.33 seconds. |
+| Legacy / security / ruff | Legacy tests 7 of 7 passed; security scan 1,978 source files, zero findings; ruff passed. |
+| Grader check | Every new item was graded with the backend grader before commit: all nine numeric keys and their independent recalculations earn credit, named misconceptions and malformed responses do not, the three single-choice keys are the only accepted options, and the multiple-select item gives 2, 1.33 and 0 points for the key, the key plus one wrong option, and wrong options only. |
+| Reports / snapshot | `ASSESSMENT_CANDIDATE_REPORT.md` and `COURSE_GAP_REPORT.md` regenerated and current under `--check`. Organic Chemistry snapshot: 35 files, 583,866 bytes, archive SHA-256 `c3590007082819f0a9221b5046f8e93cbed925a3575ee708630a920df2d25f94`, manifest SHA-256 `c1321ef01549b94ab947209c3d439dfd6ba0a5207e61c25f9352014fa174c2ee`; the 0.6.0 snapshot is preserved. |
+
+Independent references recompute the nine new numeric keys by bisection on the free-energy, population, crossover, barrier and half-life relations, an explicit bond ledger, RK4 integration of parallel first-order channels for the rate and kinetic ratios, and normalized three-state populations for the thermodynamic ratio. A lesson test recomputes every number the reading states from Boltzmann weights and transition-state-theory rate constants, checks the schedule position and prerequisite links, and checks the crosswalk's labels and links. Writing the recalculation exposed one test-side indexing slip, unpacking the remaining substrate instead of a product, which was corrected before any run.
+
+All Python suites ran in this Linux dev container on Python 3.12.3 against the mounted working tree. The frontend was unchanged and not rebuilt, and no Docker Compose stack or Playwright browser flow was run here; CI runs the end-to-end suite. These are same-agent consistency checks, not qualified review, measured workload or university equivalence. The package remains partial, unreviewed and formative-only.

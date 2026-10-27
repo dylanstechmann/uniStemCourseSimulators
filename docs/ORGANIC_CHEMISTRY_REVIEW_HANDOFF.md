@@ -1,6 +1,6 @@
 # Organic Chemistry I course review handoff
 
-This handoff targets Organic Chemistry I for Life Sciences, package version 0.6.0. The [review snapshot](ORGANIC_CHEMISTRY_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+This handoff targets Organic Chemistry I for Life Sciences, package version 0.7.0. The [review snapshot](ORGANIC_CHEMISTRY_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
 
 ## Review scope
 
@@ -25,4 +25,8 @@ The current guide, separate worked example, rehearsal and five private milestone
 
 ## Deeper mechanism and synthesis target (2026-10-22)
 
-Review target 0.6.0 adds original aryne/blocked-ring atom maps and multistep forward-compatibility/protection instruction, plus two paper assignments. Review electron/charge flow, original-carbon mapping, formation-rule restrictions, compatibility stipulations, formula/stereochemical reasoning and yield denominators. No real route selectivity, preparation or procedure is established. Written work, workload and qualified review remain open; the current snapshot pins the package.
+Version 0.6.0 added original aryne/blocked-ring atom maps and multistep forward-compatibility/protection instruction, plus two paper assignments. Review electron/charge flow, original-carbon mapping, formation-rule restrictions, compatibility stipulations, formula/stereochemical reasoning and yield denominators. No real route selectivity, preparation or procedure is established. Written work, workload and qualified review remain open; the current snapshot pins the package.
+
+## Second-comparator target (2026-10-27)
+
+Current target 0.7.0 adds the [scope crosswalk](../content/courses/organic-chemistry/scope-crosswalk.md) against MIT OCW 5.12 Spring 2005 and UCI OpenCourseWare Chem 51A Fall 2009, and a week-2 reaction-energetics reading for a topic both courses teach (three objectives, 13 items, four cards). Check whether the crosswalk's covered, shallow, absent and local-extension labels are fair, given that it compares titles rather than lecture content. In the reading, check the free-energy and population relations, the entropy crossover and its link to elimination, the bond-energy ledger and its gas-phase limits, the transition-state-theory half-lives, the SN1 energy profile and rate law, the Hammond estimate and its stated 70% assumption, kinetic versus thermodynamic product ratios, and the catalyst statement. [The recalculation file](../tests/content/test_organic_chemistry_recalculations.py) recomputes the nine new numeric keys by root-finding, a bond ledger, RK4 integration of parallel channels and normalized state populations, and [the lesson test](../tests/content/test_organic_chemistry_reaction_energetics_lesson.py) checks every number the reading states and that each key rejects a named misconception. These checks were written and run by an AI coding agent; they are not independent review. The current snapshot pins this target, and the 0.6.0 snapshot is preserved.

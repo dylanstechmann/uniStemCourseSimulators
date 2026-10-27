@@ -168,12 +168,14 @@ def test_structural_counts_amounts_and_precision_recompute_and_grade(qid):
 
 def test_new_mechanism_and_route_pages_are_scheduled_and_ungraded():
     assert len(NEW) == 12
-    assert MANIFEST["version"] == "0.6.0" and MANIFEST["maturity"] == "partial"
+    assert tuple(int(part) for part in MANIFEST["version"].split(".")) >= (0, 6, 0)
+    assert MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed"
     scheduled = [
         lid for week in MANIFEST["duration"]["weeks"] for lid in week["lesson_ids"]
     ]
-    assert len(scheduled) == len(set(scheduled)) == 22
+    # 0.7.0 adds the week-2 reaction-energetics reading.
+    assert len(scheduled) == len(set(scheduled)) == 23
     assert len(MANIFEST["duration"]["weeks"]) == 12
     content = ContentRepository(ROOT / "content")
     for number in range(17, 21):

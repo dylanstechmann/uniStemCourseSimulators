@@ -5951,6 +5951,407 @@
           "Original paper atom-map/route and synthetic-yield practice with substantial AI assistance. No external problem, procedure or data copied."
         ]
       }
+    },
+    {
+      "id": "organic-chemistry-21:conformer-minor-fraction",
+      "type": "numeric",
+      "prompt": "Stipulate T = 298 K and R = 8.314 J/(mol·K). A substituent's axial chair lies 4.0 kJ/mol above its equatorial chair. What percentage of molecules is axial at equilibrium? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "organic-chemistry-21-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 16.6,
+        "unit": "",
+        "tolerance": 0.2,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "The axial/equatorial ratio is an equilibrium constant, K = e^(−ΔG°/RT); the axial fraction is K/(1 + K).",
+        "solution": "RT = 2.478 kJ/mol, so K = e^(−4.0/2.478) = 0.199 and the axial fraction is 0.199/1.199 = 16.6%.",
+        "lesson_ids": [
+          "organic-chemistry-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "organic-chemistry-21:pka-free-energy",
+      "type": "numeric",
+      "prompt": "Stipulate T = 298 K and R = 8.314 J/(mol·K). For HA + B ⇌ A⁻ + BH⁺, K = 10^(pKa(BH⁺) − pKa(HA)). With stipulated pKa(HA) = 6.0 and pKa(BH⁺) = 9.0, what is ΔG° in kJ/mol? Include the sign.",
+      "points": 1,
+      "objective_ids": [
+        "organic-chemistry-21-objective-1"
+      ],
+      "solution_spec": {
+        "answer": -17.1,
+        "unit": "",
+        "tolerance": 0.1,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Find K from the pKa difference, then use ΔG° = −RT ln K.",
+        "solution": "K = 10³, so ΔG° = −2.478 × ln 1000 = −2.478 × 6.908 = −17.1 kJ/mol: products are favored.",
+        "lesson_ids": [
+          "organic-chemistry-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "organic-chemistry-21:bde-enthalpy",
+      "type": "numeric",
+      "prompt": "Estimate ΔH° for the gas-phase step R–H + Cl–Cl → R–Cl + H–Cl from stipulated bond dissociation energies C–H 400, Cl–Cl 240, C–Cl 330 and H–Cl 430 kJ/mol. Enter ΔH° in kJ/mol, including the sign.",
+      "points": 1,
+      "objective_ids": [
+        "organic-chemistry-21-objective-1"
+      ],
+      "solution_spec": {
+        "answer": -120,
+        "unit": "",
+        "tolerance": 0.5,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "ΔH° ≈ (bonds broken) − (bonds formed).",
+        "solution": "Bonds broken: 400 + 240 = 640 kJ/mol. Bonds formed: 330 + 430 = 760 kJ/mol. ΔH° ≈ 640 − 760 = −120 kJ/mol, a gas-phase enthalpy estimate, not a free energy in solution.",
+        "lesson_ids": [
+          "organic-chemistry-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "organic-chemistry-21:entropy-crossover",
+      "type": "numeric",
+      "prompt": "A step that releases an extra molecule has stipulated ΔH° = +30 kJ/mol and ΔS° = +100 J/(mol·K), both taken as independent of temperature. Above what temperature does ΔG° become negative, in kelvin? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "organic-chemistry-21-objective-1"
+      ],
+      "solution_spec": {
+        "answer": 300,
+        "unit": "",
+        "tolerance": 0.5,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Set ΔG° = ΔH° − TΔS° to zero, keeping J and kJ consistent.",
+        "solution": "T = ΔH°/ΔS° = 30,000/100 = 300 K. Below it ΔG° is positive; at 350 K, ΔG° = 30 − 35 = −5.0 kJ/mol. Heating favors steps that create molecules.",
+        "lesson_ids": [
+          "organic-chemistry-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "organic-chemistry-21:rate-ratio",
+      "type": "numeric",
+      "prompt": "Stipulate T = 298 K and R = 8.314 J/(mol·K). Two competing pathways from the same reactants have barriers that differ by 8.0 kJ/mol. By what factor is the lower-barrier pathway faster? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "organic-chemistry-21-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 25.3,
+        "unit": "",
+        "tolerance": 0.2,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "k₁/k₂ = e^(ΔΔG‡/RT).",
+        "solution": "e^(8.0/2.478) = e^3.229 ≈ 25.3. Each 5.7 kJ/mol is a factor of ten, so 8 kJ/mol is a little more than one power of ten.",
+        "lesson_ids": [
+          "organic-chemistry-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "organic-chemistry-21:barrier-for-hundredfold",
+      "type": "numeric",
+      "prompt": "Stipulate T = 298 K and R = 8.314 J/(mol·K). By how much must a reaction's barrier fall to make it 100 times faster, in kJ/mol? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "organic-chemistry-21-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 11.4,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Solve e^(ΔΔG‡/RT) = 100 for ΔΔG‡.",
+        "solution": "ΔΔG‡ = RT ln 100 = 2.478 × 4.605 = 11.4 kJ/mol, twice the 5.7 kJ/mol that gives a factor of ten.",
+        "lesson_ids": [
+          "organic-chemistry-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "organic-chemistry-21:tst-half-life",
+      "type": "numeric",
+      "prompt": "Stipulate T = 298 K and R = 8.314 J/(mol·K). Using k = (k_B T/h) e^(−ΔG‡/RT) with k_B T/h = 6.21 × 10¹² s⁻¹, what is the half-life of a first-order step with ΔG‡ = 85 kJ/mol, in seconds? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "organic-chemistry-21-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 88.6,
+        "unit": "",
+        "tolerance": 0.5,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Find k, then t½ = ln 2/k.",
+        "solution": "k = 6.21 × 10¹² × e^(−85/2.478) = 6.21 × 10¹² × e^(−34.31) ≈ 7.82 × 10⁻³ s⁻¹, so t½ = 0.693/k ≈ 88.6 s.",
+        "lesson_ids": [
+          "organic-chemistry-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "organic-chemistry-21:kinetic-ratio",
+      "type": "numeric",
+      "prompt": "Stipulate T = 298 K and R = 8.314 J/(mol·K). One reactant forms product P_K through a 70 kJ/mol barrier and product P_T through a 76 kJ/mol barrier, and neither reaction reverses under the conditions. What is the product ratio P_K/P_T? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "organic-chemistry-21-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 11.3,
+        "unit": "",
+        "tolerance": 0.1,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "Under irreversible conditions the products form in the ratio of their rates.",
+        "solution": "P_K/P_T = e^(6/2.478) = e^2.422 ≈ 11.3: kinetic control favors the lower-barrier product.",
+        "lesson_ids": [
+          "organic-chemistry-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "organic-chemistry-21:thermodynamic-ratio",
+      "type": "numeric",
+      "prompt": "Stipulate T = 298 K and R = 8.314 J/(mol·K). If the same two products can re-form the reactant and equilibrate, with P_K at −12 kJ/mol and P_T at −21 kJ/mol relative to the reactant, what is the equilibrium ratio P_T/P_K? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "organic-chemistry-21-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 37.8,
+        "unit": "",
+        "tolerance": 0.3,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "feedback": {
+        "hint": "At equilibrium only the free energies of the products matter, not the barriers.",
+        "solution": "The products differ by 9 kJ/mol, so P_T/P_K = e^(9/2.478) = e^3.632 ≈ 37.8: thermodynamic control favors the more stable product.",
+        "lesson_ids": [
+          "organic-chemistry-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "organic-chemistry-21:rate-determining-step",
+      "type": "single_choice",
+      "prompt": "A synthetic mechanism passes through TS₁ at 70 kJ/mol, an intermediate at 45 kJ/mol and TS₂ at 82 kJ/mol, all relative to the reactants, before reaching products at −30 kJ/mol. Which statement is correct?",
+      "options": [
+        "Step 1 is rate-determining, because its 70 kJ/mol climb is the largest single climb",
+        "Step 2 is rate-determining, because TS₂ is the highest point on the diagram",
+        "The products' energy, −30 kJ/mol, sets the rate",
+        "The species at 45 kJ/mol is a transition state"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "organic-chemistry-21-objective-2"
+      ],
+      "solution_spec": {
+        "answer": 1
+      },
+      "feedback": {
+        "hint": "Compare the heights of the transition states measured from the starting point, not the size of each climb.",
+        "solution": "Step 2 climbs only 37 kJ/mol from the intermediate, but TS₂ at 82 kJ/mol is the highest point reached from the reactants, so it limits the rate. The species at 45 kJ/mol is a minimum, an intermediate; the product energy sets the equilibrium, not the rate.",
+        "lesson_ids": [
+          "organic-chemistry-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "organic-chemistry-21:catalyst-effect",
+      "type": "single_choice",
+      "prompt": "A catalyst lowers the barrier of a reversible reaction by 15 kJ/mol. Which statement is correct?",
+      "options": [
+        "It increases K by a factor of e^(15/RT)",
+        "It speeds only the forward reaction",
+        "It makes ΔG° more negative by 15 kJ/mol",
+        "It speeds the forward and reverse reactions by the same factor and leaves K unchanged"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "organic-chemistry-21-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 3
+      },
+      "feedback": {
+        "hint": "The catalyst lowers the energy of a transition state, not of the reactants or products.",
+        "solution": "Both directions pass through the same lowered transition state, so both speed up by e^(15/RT) and K, set by ΔG°, is unchanged; equilibrium is simply reached sooner.",
+        "lesson_ids": [
+          "organic-chemistry-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "organic-chemistry-21:hammond",
+      "type": "single_choice",
+      "prompt": "Ionization of a substrate to a carbocation is strongly endergonic. According to the Hammond postulate, which statement best describes its transition state?",
+      "options": [
+        "It resembles the carbocation, so substituents that stabilize the carbocation also lower the barrier",
+        "It resembles the starting substrate, so carbocation stability has no effect on the rate",
+        "It lies exactly halfway in structure between substrate and carbocation in every case",
+        "It resembles the final substitution product"
+      ],
+      "points": 1,
+      "objective_ids": [
+        "organic-chemistry-21-objective-3"
+      ],
+      "solution_spec": {
+        "answer": 0
+      },
+      "feedback": {
+        "hint": "A transition state resembles the species closest to it in energy.",
+        "solution": "For an endergonic step the transition state lies late, near the carbocation in energy and structure, so carbocation-stabilizing groups lower the barrier. This is why SN1 rates and Markovnikov addition follow carbocation stability.",
+        "lesson_ids": [
+          "organic-chemistry-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
+    },
+    {
+      "id": "organic-chemistry-21:energy-claims",
+      "type": "multiple_select",
+      "prompt": "Which statements about reaction energetics are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "organic-chemistry-21-objective-1",
+        "organic-chemistry-21-objective-2"
+      ],
+      "options": [
+        "A reaction with K = 10⁶ can still be too slow to observe at room temperature.",
+        "An intermediate is a local minimum on the energy diagram and has a finite lifetime.",
+        "At 298 K, every 5.7 kJ/mol of ΔG° changes K by about a factor of ten.",
+        "A negative ΔH° guarantees a negative ΔG° at every temperature.",
+        "The nucleophile's concentration appears in the SN1 rate law."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "feedback": {
+        "hint": "Separate how far (ΔG°) from how fast (ΔG‡), and check what appears before the rate-determining transition state.",
+        "solution": "K describes the equilibrium, not the barrier, so a favorable reaction can be slow. Intermediates are minima; RT ln 10 = 5.7 kJ/mol at 298 K. A negative ΔH° with a negative ΔS° turns unfavorable at high temperature, and the SN1 nucleophile enters after the rate-determining ionization.",
+        "lesson_ids": [
+          "organic-chemistry-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      }
     }
   ]
 }

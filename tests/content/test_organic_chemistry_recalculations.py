@@ -227,6 +227,27 @@ def expected_answers():
         complete_hydrogenation=0.42 * 2,
         butane_formula=6 + 2 * 2,
     )
+    # Lesson 21 at 298 K: root-finding, a bond ledger, parallel-channel integration and state populations.
+    rt = 8.314 * 298
+    axial_weight = bisect(lambda w: rt * math.log(w) + 4000, 0.01, 1)
+    broken, formed = {"C-H": 400, "Cl-Cl": 240}, {"C-Cl": 330, "H-Cl": 430}
+    _, fast, slow = parallel(1, 2, 1.0, math.exp(-8000 / rt))
+    _, kinetic, thermodynamic = parallel(1, 2, 1.0, math.exp(-6000 / rt))
+    tst_rate = 6.21e12 * math.exp(-85000 / rt)
+    populations = [math.exp(-energy / rt) for energy in (0, -12000, -21000)]
+    add(
+        21,
+        conformer_minor_fraction=100
+        * bisect(lambda p: p / (1 - p) - axial_weight, 0, 0.99),
+        pka_free_energy=bisect(lambda g: math.exp(-g * 1000 / rt) - 10 ** (9 - 6), -40, 0),
+        bde_enthalpy=math.fsum(broken.values()) - math.fsum(formed.values()),
+        entropy_crossover=bisect(lambda t: 30000 - t * 100, 100, 1000),
+        rate_ratio=fast / slow,
+        barrier_for_hundredfold=bisect(lambda g: math.exp(g * 1000 / rt) - 100, 0, 30),
+        tst_half_life=bisect(lambda t: math.exp(-tst_rate * t) - 0.5, 0, 1000),
+        kinetic_ratio=kinetic / thermodynamic,
+        thermodynamic_ratio=populations[2] / populations[1],
+    )
     _, _, means = lab_data()
     mix_two = calibrated(means, "mix_2")
     mix_four = calibrated(means, "mix_4")
@@ -252,7 +273,7 @@ def test_numeric_key_matches_separate_calculation(item_id, expected):
 
 def test_every_numeric_item_is_covered_and_enforcement_is_disclosed():
     numeric = {key for key, q in BANK.items() if q["type"] == "numeric"}
-    assert set(EXPECTED) == numeric and len(numeric) == 55
+    assert set(EXPECTED) == numeric and len(numeric) == 64
     assert (
         sum(q["solution_spec"].get("unit_required", False) for q in BANK.values()) == 4
     )
@@ -457,15 +478,15 @@ def test_schedule_partial_labels_and_preserved_case():
         lesson["id"] for module in manifest["modules"] for lesson in module["lessons"]
     }
     weeks = manifest["duration"]["weeks"]
-    assert len(weeks) == 12 and len(lessons) == 22
+    assert len(weeks) == 12 and len(lessons) == 23
     assert sorted(lid for week in weeks for lid in week["lesson_ids"]) == sorted(
         lessons
     )
     assert manifest["version"] and manifest["maturity"] == "partial"
     assert manifest["review"]["status"] == "unreviewed"
     assert (
-        len(BANK) == 142
-        and len(load(COURSE / "question-banks/retrieval-cards.json")["cards"]) == 80
+        len(BANK) == 155
+        and len(load(COURSE / "question-banks/retrieval-cards.json")["cards"]) == 84
     )
     assert all(
         a["mode"] in ("practice", "self-assessment") for a in manifest["assessments"]
