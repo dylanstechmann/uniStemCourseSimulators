@@ -765,6 +765,88 @@
         "calculus-3-21-objective-2"
       ],
       "license": "CC-BY-4.0"
+    },
+    {
+      "id": "calculus-3-22-card-1",
+      "lesson_id": "calculus-3-22",
+      "front": "Acceleration along a curve",
+      "back": "a = (d|v|/dt)T + κ|v|²N. a_T = d|v|/dt = a·v/|v| changes the speed; a_N = κ|v|² = √(|a|² − a_T²) ≥ 0 turns the direction. Constant speed gives a ⟂ v.",
+      "objective_ids": [
+        "calculus-3-22-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "calculus-3-22-card-2",
+      "lesson_id": "calculus-3-22",
+      "front": "Curvature",
+      "back": "κ = |T′|/|v| = a_N/|v|² = |v × a|/|v|³; the radius of curvature is 1/κ. It belongs to the path, not to the speed. A circle has κ = 1/R and a_N = v²/R; a line has κ = 0.",
+      "objective_ids": [
+        "calculus-3-22-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "calculus-3-22-card-3",
+      "lesson_id": "calculus-3-22",
+      "front": "Arc length without a closed form",
+      "back": "s = ∫|v|dt. When |v| has no elementary antiderivative, as for an ellipse, integrate numerically and check against bounds such as the inscribed and circumscribed circles.",
+      "objective_ids": [
+        "calculus-3-22-objective-2"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "calculus-3-22-card-4",
+      "lesson_id": "calculus-3-22",
+      "front": "Central acceleration and swept area",
+      "back": "d/dt(r × v) = r × a. If a is parallel to r, then r × v is constant and the areal speed ½|r × v| is constant (Kepler's second law), with r measured from the center of the acceleration.",
+      "objective_ids": [
+        "calculus-3-22-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "calculus-3-23-card-1",
+      "lesson_id": "calculus-3-23",
+      "front": "Mass and center of mass",
+      "back": "M = ∬ δ dA; x̄ = (∬ xδ dA)/M, ȳ = (∬ yδ dA)/M. The center of mass lies within the body's extent, shifts toward denser regions and lies on any line of symmetry.",
+      "objective_ids": [
+        "calculus-3-23-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "calculus-3-23-card-2",
+      "lesson_id": "calculus-3-23",
+      "front": "Average value",
+      "back": "f̄ = (1/A)∬ f dA. It lies between the least and greatest values of f on the region, and M = δ̄A.",
+      "objective_ids": [
+        "calculus-3-23-objective-1"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "calculus-3-23-card-3",
+      "lesson_id": "calculus-3-23",
+      "front": "Moment of inertia",
+      "back": "I = ∬ d²δ dA. About the z-axis d² = x² + y² = r², and the polar Jacobian r still multiplies. Uniform disk ½MR²; ring MR²; δ = kr gives 0.6MR²; rectangle M(a² + b²)/12.",
+      "objective_ids": [
+        "calculus-3-23-objective-2",
+        "calculus-3-23-objective-3"
+      ],
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "calculus-3-23-card-4",
+      "lesson_id": "calculus-3-23",
+      "front": "Parallel-axis theorem",
+      "back": "I = I_cm + Md², where one axis passes through the center of mass and d is the distance between parallel axes. I_cm is the smallest. Density varying only along a cylinder's axis leaves I about that axis at ½MR².",
+      "objective_ids": [
+        "calculus-3-23-objective-2",
+        "calculus-3-23-objective-3"
+      ],
+      "license": "CC-BY-4.0"
     }
   ]
 }

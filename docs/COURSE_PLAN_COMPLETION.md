@@ -15,7 +15,7 @@ This is a personal hobby and learning project developed with substantial AI assi
 | [Bioreactors & Tissue Culture Engineering](../content/courses/bioreactors/syllabus.md) | 0.6.0 | 14 | 8 | [Project guide](../content/courses/bioreactors/assignments/oxygen-capacity-project-guide.md) |
 | [Calculus I: Differential and Integral Calculus](../content/courses/calculus-1/syllabus.md) | 0.6.0 | 14 | 12 | [Project guide](../content/courses/calculus-1/assignments/washout-model-project-guide.md) |
 | [Calculus II: Integration, Series & Applications](../content/courses/calculus-2/syllabus.md) | 0.6.0 | 14 | 13 | [Project guide](../content/courses/calculus-2/assignments/exponential-tail-project-guide.md) |
-| [Calculus III: Multivariable & Vector Calculus](../content/courses/calculus-3/syllabus.md) | 0.6.0 | 14 | 13 | [Project guide](../content/courses/calculus-3/assignments/integrative-field-project-guide.md) |
+| [Calculus III: Multivariable & Vector Calculus](../content/courses/calculus-3/syllabus.md) | 0.7.0 | 14 | 13 | [Project guide](../content/courses/calculus-3/assignments/integrative-field-project-guide.md) |
 | [Foundations of Cell and Molecular Biology](../content/courses/cell-biology/syllabus.md) | 0.62.1 | 14 | 10 | [Project guide](../content/courses/cell-biology/assignments/integrative-project-guide.md) |
 | [Cellular Biomechanics & Mechanobiology](../content/courses/cellular-biomechanics/syllabus.md) | 0.5.0 | 14 | 13 | [Project guide](../content/courses/cellular-biomechanics/assignments/viscoelastic-material-selection-project-guide.md) |
 | [Electrical Circuits & Instrumentation](../content/courses/circuits/syllabus.md) | 0.8.0 | 14 | 13 | [Project guide](../content/courses/circuits/assignments/sensor-channel-project-guide.md) |

@@ -5742,6 +5742,807 @@
           "Original synthetic multivariable calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
         ]
       }
+    },
+    {
+      "id": "calculus-3-22:acceleration-magnitude",
+      "type": "numeric",
+      "prompt": "A synthetic particle moves along r(t) = (3t, 3t², 2t³), with t in seconds and lengths in metres. What is the magnitude of its acceleration at t = 1, in m/s²? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-22-objective-1"
+      ],
+      "feedback": {
+        "hint": "Differentiate the position twice.",
+        "solution": "a = r″ = (0, 6, 12t), so at t = 1, |a| = √(36 + 144) = √180 = 13.42 m/s².",
+        "lesson_ids": [
+          "calculus-3-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 13.416,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-3-22:tangential-acceleration",
+      "type": "numeric",
+      "prompt": "A synthetic particle moves along r(t) = (3t, 3t², 2t³), with t in seconds and lengths in metres. What is the tangential component of its acceleration, a_T = d|v|/dt, at t = 1, in m/s²? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-22-objective-1"
+      ],
+      "feedback": {
+        "hint": "Find the speed first; for this curve |v|² is a perfect square.",
+        "solution": "v = (3, 6t, 6t²) and |v|² = 9 + 36t² + 36t⁴ = (3 + 6t²)², so |v| = 3 + 6t² and d|v|/dt = 12t = 12 m/s² at t = 1. Equivalently a·v/|v| = (0 + 36 + 72)/9 = 12.",
+        "lesson_ids": [
+          "calculus-3-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 12,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-3-22:normal-acceleration",
+      "type": "numeric",
+      "prompt": "A synthetic particle moves along r(t) = (3t, 3t², 2t³), with t in seconds and lengths in metres. What is the normal component of its acceleration at t = 1, in m/s²? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-22-objective-1"
+      ],
+      "feedback": {
+        "hint": "The two components are perpendicular, so |a|² = a_T² + a_N².",
+        "solution": "a_N = √(|a|² − a_T²) = √(180 − 144) = 6 m/s².",
+        "lesson_ids": [
+          "calculus-3-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 6,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-3-22:curvature-cross-product",
+      "type": "numeric",
+      "prompt": "A synthetic particle moves along r(t) = (3t, 3t², 2t³), with t in seconds and lengths in metres. What is the curvature of its path at t = 1, in m⁻¹? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-22-objective-2"
+      ],
+      "feedback": {
+        "hint": "Use κ = |v × a|/|v|³, and divide by the cube of the speed.",
+        "solution": "v = (3, 6, 6) and a = (0, 6, 12), so v × a = (36, −36, 18) with length 54. With |v| = 9, κ = 54/729 = 0.0741 m⁻¹, which equals a_N/|v|² = 6/81.",
+        "lesson_ids": [
+          "calculus-3-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.0741,
+        "unit": "",
+        "tolerance": 0.0005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-3-22:traced-length",
+      "type": "numeric",
+      "prompt": "A synthetic particle moves along r(t) = (3t, 3t², 2t³), with t in seconds and lengths in metres. What is the length of path traced from t = 0 to t = 2, in metres? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-22-objective-2"
+      ],
+      "feedback": {
+        "hint": "Integrate the speed 3 + 6t².",
+        "solution": "∫₀²(3 + 6t²) dt = 6 + 16 = 22 m.",
+        "lesson_ids": [
+          "calculus-3-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 22,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-3-22:ellipse-curvature-long-axis",
+      "type": "numeric",
+      "prompt": "An ellipse r(t) = (5 cos t, 2 sin t) has semi-axes 5 m and 2 m. What is its curvature at the end of the long axis, (5, 0), in m⁻¹? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-22-objective-2"
+      ],
+      "feedback": {
+        "hint": "Compute the third component of v × a for this ellipse.",
+        "solution": "v = (−5 sin t, 2 cos t, 0) and a = (−5 cos t, −2 sin t, 0), so (v × a)₃ = 10 sin²t + 10 cos²t = 10 and κ = 10/(25 sin²t + 4 cos²t)^(3/2). At t = 0, κ = 10/8 = 1.25 m⁻¹, which equals a/b² = 5/4.",
+        "lesson_ids": [
+          "calculus-3-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 1.25,
+        "unit": "",
+        "tolerance": 0.005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-3-22:ellipse-radius-short-axis",
+      "type": "numeric",
+      "prompt": "An ellipse r(t) = (5 cos t, 2 sin t) has semi-axes 5 m and 2 m. What is its radius of curvature at the end of the short axis, (0, 2), in metres? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-22-objective-2"
+      ],
+      "feedback": {
+        "hint": "The radius of curvature is the reciprocal of the curvature.",
+        "solution": "At t = π/2, |v| = 5, so κ = 10/125 = 0.08 m⁻¹ and the radius of curvature is 1/κ = 12.5 m, which equals a²/b = 25/2.",
+        "lesson_ids": [
+          "calculus-3-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 12.5,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-3-22:ellipse-perimeter",
+      "type": "numeric",
+      "prompt": "An ellipse r(t) = (5 cos t, 2 sin t) has semi-axes 5 m and 2 m. Use numerical integration of the speed to find its perimeter, in metres, to two decimal places. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-22-objective-2"
+      ],
+      "feedback": {
+        "hint": "No elementary formula exists; integrate the speed over a quarter turn and multiply by 4.",
+        "solution": "The perimeter is 4∫₀^(π/2)√(25 sin²t + 4 cos²t) dt ≈ 23.01 m. It must lie between the inscribed circle's 2π·2 = 12.57 and the circumscribed circle's 2π·5 = 31.42, and Ramanujan's approximation also gives 23.01.",
+        "lesson_ids": [
+          "calculus-3-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 23.01,
+        "unit": "",
+        "tolerance": 0.03,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-3-22:centripetal-acceleration",
+      "type": "numeric",
+      "prompt": "A synthetic particle moves at a constant 3.0 m/s around a circle of radius 0.75 m. What is the magnitude of its acceleration, in m/s²? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-22-objective-2"
+      ],
+      "feedback": {
+        "hint": "At constant speed the tangential part is zero, and a circle has κ = 1/R.",
+        "solution": "a_T = 0, so |a| = a_N = κ|v|² = v²/R = 9.0/0.75 = 12 m/s².",
+        "lesson_ids": [
+          "calculus-3-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 12,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-3-22:areal-speed",
+      "type": "numeric",
+      "prompt": "A synthetic position vector r(t) = (6 cos 3t, 2 sin 3t, 0), in metres with t in seconds, has the central acceleration a = −9r. What is the area swept per second, ½|r × v|, in m²/s? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-22-objective-3"
+      ],
+      "feedback": {
+        "hint": "Compute the third component of r × v and note that it is constant.",
+        "solution": "v = (−18 sin 3t, 6 cos 3t, 0), so (r × v)₃ = 36 cos²3t + 36 sin²3t = 36 and the areal speed is 18 m²/s. Check: the ellipse has area π·6·2 = 12π m² and a period 2π/3 s, so 12π/(2π/3) = 18.",
+        "lesson_ids": [
+          "calculus-3-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 18,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-3-22:constant-speed",
+      "type": "single_choice",
+      "prompt": "A particle moves along a curved path at constant speed. Which statement is correct?",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-22-objective-1"
+      ],
+      "feedback": {
+        "hint": "Constant speed means d|v|/dt = 0.",
+        "solution": "Then a_T = 0 and a = a_N N with a_N = κ|v|², which is perpendicular to the velocity on any smooth curve, not only on a circle.",
+        "lesson_ids": [
+          "calculus-3-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "Its acceleration is zero",
+        "Its acceleration is perpendicular to its velocity and has magnitude κ|v|²",
+        "Its acceleration is parallel to its velocity",
+        "Its acceleration is perpendicular to its velocity only on a circle"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "calculus-3-22:straight-line-speed-up",
+      "type": "single_choice",
+      "prompt": "A particle speeds up along a straight line. Which statement is correct?",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-22-objective-1",
+        "calculus-3-22-objective-2"
+      ],
+      "feedback": {
+        "hint": "What is the curvature of a straight line?",
+        "solution": "A straight line has κ = 0, so a_N = κ|v|² = 0 and all of the acceleration is tangential, a = (d|v|/dt)T.",
+        "lesson_ids": [
+          "calculus-3-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "Its acceleration is entirely tangential and its curvature is zero",
+        "Its acceleration is entirely normal",
+        "Its curvature equals its acceleration divided by its speed",
+        "Its acceleration is zero because the direction does not change"
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "calculus-3-22:curve-claims",
+      "type": "multiple_select",
+      "prompt": "Which statements about a smooth space curve with nonzero velocity are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "calculus-3-22-objective-2",
+        "calculus-3-22-objective-3"
+      ],
+      "feedback": {
+        "hint": "Think about what curvature depends on, and what r × a = 0 allows.",
+        "solution": "Curvature belongs to the path, so traversing it faster leaves it unchanged. a_N = κ|v|² cannot be negative. κ = |v × a|/|v|³ is correct. Constant speed says nothing about swept area, and only a central acceleration makes r × v constant.",
+        "lesson_ids": [
+          "calculus-3-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "Curvature is unchanged if the same path is traversed at twice the speed.",
+        "The normal component of acceleration can be negative.",
+        "κ = |v × a|/|v|³.",
+        "Equal areas are swept in equal times whenever the speed is constant.",
+        "If a is parallel to r at every instant, then r × v is constant."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          2,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "calculus-3-23:plate-mass",
+      "type": "numeric",
+      "prompt": "A synthetic plate occupies 0 ≤ x ≤ 3, 0 ≤ y ≤ 2 (metres) with area density δ = 2 + y kg/m². What is its mass, in kg? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-23-objective-1"
+      ],
+      "feedback": {
+        "hint": "Integrate the density over the rectangle.",
+        "solution": "M = ∫₀³∫₀²(2 + y) dy dx = 3·(4 + 2) = 18 kg.",
+        "lesson_ids": [
+          "calculus-3-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 18,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-3-23:plate-y-center",
+      "type": "numeric",
+      "prompt": "The plate occupies 0 ≤ x ≤ 3, 0 ≤ y ≤ 2 (metres) with density δ = 2 + y kg/m². What is the y-coordinate of its center of mass, in metres? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-23-objective-1"
+      ],
+      "feedback": {
+        "hint": "Divide the first moment ∬ yδ dA by the mass, not by the area.",
+        "solution": "M_x = ∫₀³∫₀² y(2 + y) dy dx = 3·(4 + 8/3) = 20, so ȳ = 20/18 = 1.111 m, above the geometric center y = 1 because the density grows with y.",
+        "lesson_ids": [
+          "calculus-3-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 1.111,
+        "unit": "",
+        "tolerance": 0.005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-3-23:triangle-average",
+      "type": "numeric",
+      "prompt": "What is the average value of f(x, y) = xy over the triangle x ≥ 0, y ≥ 0, x + y ≤ 2? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-23-objective-1"
+      ],
+      "feedback": {
+        "hint": "Divide the integral by the area of the triangle.",
+        "solution": "∬ xy dA = ∫₀² x(2 − x)²/2 dx = 2/3, and the area is 2, so the average is 1/3.",
+        "lesson_ids": [
+          "calculus-3-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.3333,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-3-23:uniform-disk-inertia",
+      "type": "numeric",
+      "prompt": "A uniform disk has mass 3.0 kg and radius 0.40 m. What is its moment of inertia about the axis through its center perpendicular to the disk, in kg·m²? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-23-objective-2"
+      ],
+      "feedback": {
+        "hint": "In polar coordinates I = ∬ r²δ r dr dθ.",
+        "solution": "I = ½MR² = ½·3.0·0.16 = 0.24 kg·m².",
+        "lesson_ids": [
+          "calculus-3-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.24,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-3-23:weighted-disk-inertia",
+      "type": "numeric",
+      "prompt": "A disk of radius 0.30 m has density δ = kr with k = 20 kg/m³. What is its moment of inertia about the axis through its center perpendicular to the disk, in kg·m²? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-23-objective-2"
+      ],
+      "feedback": {
+        "hint": "Include both the r² from the distance and the r from the Jacobian.",
+        "solution": "I = ∫₀^(2π)∫₀^R r²·kr·r dr dθ = 2πkR⁵/5 = 2π·20·0.00243/5 = 0.0611 kg·m².",
+        "lesson_ids": [
+          "calculus-3-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.0611,
+        "unit": "",
+        "tolerance": 0.0005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-3-23:weighted-disk-ratio",
+      "type": "numeric",
+      "prompt": "For a disk with density δ = kr, for any k and radius R, what is I/(MR²) about the central perpendicular axis? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-23-objective-3"
+      ],
+      "feedback": {
+        "hint": "Compute M and I as integrals of kr and kr³ over the disk.",
+        "solution": "M = 2πkR³/3 and I = 2πkR⁵/5, so I/(MR²) = (1/5)/(1/3) = 0.6, larger than the uniform disk's 0.5 because the mass lies farther from the axis.",
+        "lesson_ids": [
+          "calculus-3-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.6,
+        "unit": "",
+        "tolerance": 0.005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-3-23:parallel-axis",
+      "type": "numeric",
+      "prompt": "The uniform disk of mass 3.0 kg and radius 0.40 m spins about an axis through a point on its rim, perpendicular to the disk. What is its moment of inertia about that axis, in kg·m²? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-23-objective-2"
+      ],
+      "feedback": {
+        "hint": "Use I = I_cm + Md² with d equal to the radius.",
+        "solution": "I = ½MR² + MR² = 1.5·3.0·0.16 = 0.72 kg·m².",
+        "lesson_ids": [
+          "calculus-3-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.72,
+        "unit": "",
+        "tolerance": 0.005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-3-23:rectangle-inertia",
+      "type": "numeric",
+      "prompt": "A uniform rectangular plate 2.0 m by 1.5 m has mass 6.0 kg. What is its moment of inertia about the axis through its center perpendicular to the plate, in kg·m²? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-23-objective-2"
+      ],
+      "feedback": {
+        "hint": "Integrate x² + y² over the rectangle centered on the axis.",
+        "solution": "I = ∬(x² + y²)δ dA over −1 ≤ x ≤ 1 and −0.75 ≤ y ≤ 0.75, which equals M(a² + b²)/12 = 6.0·(4 + 2.25)/12 = 3.125 kg·m².",
+        "lesson_ids": [
+          "calculus-3-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 3.125,
+        "unit": "",
+        "tolerance": 0.005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-3-23:cylinder-center-height",
+      "type": "numeric",
+      "prompt": "A solid cylinder of height 0.60 m has density δ = δ₀(1 + z/0.60), with z measured up from the bottom. At what height above the bottom is its center of mass, in metres? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-23-objective-1"
+      ],
+      "feedback": {
+        "hint": "Divide ∫ zδ dz by ∫ δ dz; the cross-section cancels.",
+        "solution": "z̄ = ∫₀^h z(1 + z/h) dz / ∫₀^h (1 + z/h) dz = (5h²/6)/(3h/2) = 5h/9 = 0.333 m, above the mid-height 0.30 m because the top is denser.",
+        "lesson_ids": [
+          "calculus-3-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.3333,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-3-23:cylinder-mass",
+      "type": "numeric",
+      "prompt": "A solid cylinder of radius 0.050 m and height 0.60 m has density δ = 1000(1 + z/0.60) kg/m³, with z measured up from the bottom. What is its mass, in kg? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-23-objective-1"
+      ],
+      "feedback": {
+        "hint": "Integrate the density times the cross-sectional area over the height.",
+        "solution": "M = 1000·π(0.050)²·∫₀^0.6(1 + z/0.6) dz = 1000·π·0.0025·0.9 = 7.07 kg.",
+        "lesson_ids": [
+          "calculus-3-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 7.07,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-3-23:inertia-integrand",
+      "type": "single_choice",
+      "prompt": "Which integral gives the moment of inertia about the z-axis of a plate in the xy-plane with area density δ(x, y)?",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-23-objective-2"
+      ],
+      "feedback": {
+        "hint": "Each bit of mass contributes its squared distance from the axis.",
+        "solution": "The squared distance from the z-axis is x² + y², so I_z = ∬(x² + y²)δ dA. The other forms use the distance to the first power, omit the density, or weight by the wrong power.",
+        "lesson_ids": [
+          "calculus-3-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "∬ (x + y) δ dA",
+        "∬ (x² + y²) δ dA",
+        "∬ √(x² + y²) δ dA",
+        "∬ (x² + y²) dA"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "calculus-3-23:which-disk-larger",
+      "type": "single_choice",
+      "prompt": "Two disks have the same mass and radius. Disk A is uniform, and disk B's density increases with distance from the center. Which has the larger moment of inertia about the central perpendicular axis?",
+      "points": 1,
+      "objective_ids": [
+        "calculus-3-23-objective-3"
+      ],
+      "feedback": {
+        "hint": "Compare how far from the axis each disk puts its mass.",
+        "solution": "Disk B puts more of its mass at larger radius, so I is larger: I/(MR²) is 0.6 for δ = kr against 0.5 for the uniform disk.",
+        "lesson_ids": [
+          "calculus-3-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "Disk A",
+        "Disk B",
+        "They are equal because the masses are equal",
+        "It depends on the size of the radius"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "calculus-3-23:mass-claims",
+      "type": "multiple_select",
+      "prompt": "Which statements about centers of mass and moments of inertia are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "calculus-3-23-objective-1",
+        "calculus-3-23-objective-3"
+      ],
+      "feedback": {
+        "hint": "Check the extent of the body, the effect of density weighting, which axis gives the smallest moment, and what the cylinder's moment depends on.",
+        "solution": "A center of mass lies within the body's extent, and density that grows with x pulls it to the right of the rectangle's center. The moment about the center-of-mass axis is the smallest of all parallel axes, and no function can average above its maximum. For a cylinder about its axis only distance from the axis enters, so density varying along the axis leaves I = ½MR² at fixed mass.",
+        "lesson_ids": [
+          "calculus-3-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "The center of mass lies between the least and greatest x-coordinates of the body.",
+        "A rectangular plate whose density increases with x has its center of mass to the right of its geometric center.",
+        "Among parallel axes, the one through the center of mass has the largest moment of inertia.",
+        "For a solid cylinder, varying the density along its axis does not change its moment of inertia about that axis at fixed mass.",
+        "The average value of a function over a region can exceed the maximum value of the function on the region."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
     }
   ]
 }

@@ -11,7 +11,7 @@ comprehensive coverage. Every package is still `partial` and unreviewed.
 | bioreactors | partial | 24 | 65 | 132 | 82 | 0 | 0 | 0 | 4 | 0 | 0 |
 | calculus-1 | partial | 22 | 60 | 134 | 75 | 0 | 0 | 0 | 5 | 0 | 0 |
 | calculus-2 | partial | 23 | 60 | 133 | 75 | 0 | 0 | 0 | 5 | 0 | 0 |
-| calculus-3 | partial | 23 | 61 | 135 | 78 | 0 | 0 | 0 | 5 | 0 | 0 |
+| calculus-3 | partial | 25 | 67 | 161 | 86 | 0 | 0 | 0 | 5 | 0 | 0 |
 | cell-biology | partial | 45 | 69 | 183 | 96 | 0 | 0 | 0 | 4 | 0 | 0 |
 | cellular-biomechanics | partial | 24 | 64 | 131 | 79 | 0 | 0 | 0 | 7 | 0 | 0 |
 | circuits | partial | 29 | 84 | 158 | 99 | 0 | 0 | 0 | 5 | 0 | 0 |
@@ -32,7 +32,7 @@ comprehensive coverage. Every package is still `partial` and unreviewed.
 | statistics | partial | 27 | 78 | 135 | 92 | 0 | 0 | 0 | 12 | 0 | 0 |
 | transport | partial | 24 | 65 | 137 | 81 | 0 | 0 | 0 | 7 | 0 | 0 |
 
-Totals: 25 packages, 646 lessons, 1709 objectives, 3611 practice items, 0 lesson objectives with no assessment mapping, 0 with no practice item, 0 linked to no course outcome; 0 of 130 course outcomes that no lesson objective links to, 0 that no assessment lists.
+Totals: 25 packages, 648 lessons, 1715 objectives, 3637 practice items, 0 lesson objectives with no assessment mapping, 0 with no practice item, 0 linked to no course outcome; 0 of 130 course outcomes that no lesson objective links to, 0 that no assessment lists.
 
 Each assessment with items lists the course outcomes its own items assess (item, then its tagged lesson objective,
 then that objective's outcome links), and `tools/validate_content.py` rejects an outcome that none of the

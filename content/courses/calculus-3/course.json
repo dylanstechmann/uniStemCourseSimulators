@@ -7,7 +7,7 @@
   "domain": "Mathematics",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -15,7 +15,8 @@
     "source_sha256": "a77a7cb7f5be2ffa12068877042ac775c6d9b79b83ac2f316fe4f26a0d3d783b",
     "migration_version": "1.0",
     "modifications": [
-      "Linked the first four lesson objective pairs to course outcomes, corrected three item-to-objective associations, and added direct practice for vector components, stationary-point classification, and line-integral work."
+      "Linked the first four lesson objective pairs to course outcomes, corrected three item-to-objective associations, and added direct practice for vector components, stationary-point classification, and line-integral work.",
+      "Added original space-curve acceleration and curvature and multiple-integral application readings with formative practice in the existing weeks 2 and 9. MIT OCW 18.02SC Fall 2010 and the Harvard Math 21a Summer 2003 lecture plan are link-only scope comparators recorded in a new scope crosswalk; no source text, figure or problem is imported."
     ]
   },
   "prerequisites": {
@@ -579,11 +580,59 @@
         "calculus-3-outcome-4",
         "calculus-3-outcome-5"
       ]
+    },
+    {
+      "id": "calculus-3-22-objective-1",
+      "description": "Differentiate a parametrized space curve twice and split the acceleration into tangential and normal components.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "calculus-3-outcome-1"
+      ]
+    },
+    {
+      "id": "calculus-3-22-objective-2",
+      "description": "Compute curvature from |v × a|/|v|³ and a_N/|v|², interpret the radius of curvature, and evaluate arc length numerically when the speed has no antiderivative.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "calculus-3-outcome-1"
+      ]
+    },
+    {
+      "id": "calculus-3-22-objective-3",
+      "description": "Show with r × v that a central acceleration sweeps equal areas in equal times, and state when the argument fails.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-3-outcome-1"
+      ]
+    },
+    {
+      "id": "calculus-3-23-objective-1",
+      "description": "Set up and evaluate integrals for mass, first moments and the center of mass of a plate or solid with variable density, and for the average value of a function over a region.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "calculus-3-outcome-3"
+      ]
+    },
+    {
+      "id": "calculus-3-23-objective-2",
+      "description": "Set up the moment of inertia about a stated axis, evaluate it in rectangular and polar coordinates, and apply the parallel-axis theorem.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "calculus-3-outcome-3"
+      ]
+    },
+    {
+      "id": "calculus-3-23-objective-3",
+      "description": "Use symmetry, weighting and bounds to predict and check a center of mass and to compare the moments of inertia of two bodies of equal mass.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-3-outcome-3"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week scope with expanded or original instructional text for every scheduled lesson; weeks 13–14 add an optional concentration-and-flux field project guide with rehearsal practice and milestone self-checks. Workload and qualified review are absent; this is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week scope with expanded or original instructional text for every scheduled lesson, including week-2 acceleration and curvature and week-9 mass and moment-of-inertia applications; weeks 13–14 add an optional concentration-and-flux field project guide with rehearsal practice and milestone self-checks. Workload and qualified review are absent; this is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
@@ -597,12 +646,14 @@
       },
       {
         "week": 2,
-        "title": "Vectors, planes and spatial curves",
+        "title": "Vectors, planes, spatial curves, acceleration and curvature",
         "lesson_ids": [
-          "calculus-3-7"
+          "calculus-3-7",
+          "calculus-3-22"
         ],
         "assessment_ids": [
-          "calculus-3-7-practice"
+          "calculus-3-7-practice",
+          "calculus-3-22-practice"
         ]
       },
       {
@@ -675,13 +726,15 @@
       },
       {
         "week": 9,
-        "title": "Multiple integrals and Jacobian measures",
+        "title": "Multiple integrals, Jacobian measures and applications",
         "lesson_ids": [
           "calculus-3-10",
+          "calculus-3-23",
           "calculus-3-17"
         ],
         "assessment_ids": [
           "calculus-3-10-practice",
+          "calculus-3-23-practice",
           "calculus-3-17-practice"
         ]
       },
@@ -1541,6 +1594,91 @@
           ]
         }
       ]
+    },
+    {
+      "id": "calculus-3-module-22",
+      "title": "Space curves: acceleration, curvature and swept area",
+      "source_ids": [
+        "calc3-unit1-parametric-curves",
+        "calc3-harvard-21a-2003"
+      ],
+      "lessons": [
+        {
+          "id": "calculus-3-22",
+          "title": "Space curves: acceleration, curvature and swept area",
+          "reading": "modules/22-acceleration-curvature-and-swept-area-of-space-curves.md",
+          "objectives": [
+            "calculus-3-22-objective-1",
+            "calculus-3-22-objective-2",
+            "calculus-3-22-objective-3"
+          ],
+          "worked_example": "For a synthetic wheel of radius 0.3 m rolling at 1 rad/s, a rim point traces the cycloid R(t − sin t, 1 − cos t) with speed 2R sin(t/2): one arch is 8R = 2.4 m long, at t = π/2 the speed is 0.424 m/s with a_T = a_N = 0.212 m/s² and radius of curvature 0.849 m, and at the top the speed is 0.6 m/s, a_T = 0, a_N = 0.3 m/s² and the radius of curvature is 4R = 1.2 m.",
+          "question_ids": [
+            "calculus-3-22:acceleration-magnitude",
+            "calculus-3-22:tangential-acceleration",
+            "calculus-3-22:normal-acceleration",
+            "calculus-3-22:curvature-cross-product",
+            "calculus-3-22:traced-length",
+            "calculus-3-22:ellipse-curvature-long-axis",
+            "calculus-3-22:ellipse-radius-short-axis",
+            "calculus-3-22:ellipse-perimeter",
+            "calculus-3-22:centripetal-acceleration",
+            "calculus-3-22:areal-speed",
+            "calculus-3-22:constant-speed",
+            "calculus-3-22:straight-line-speed-up",
+            "calculus-3-22:curve-claims"
+          ],
+          "card_ids": [
+            "calculus-3-22-card-1",
+            "calculus-3-22-card-2",
+            "calculus-3-22-card-3",
+            "calculus-3-22-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "calculus-3-module-23",
+      "title": "Applications of multiple integrals: mass, average value and moments of inertia",
+      "source_ids": [
+        "calc3-semester-integrals",
+        "calc3-unit4-triple-integrals",
+        "calc3-harvard-21a-2003"
+      ],
+      "lessons": [
+        {
+          "id": "calculus-3-23",
+          "title": "Applications of multiple integrals: mass, average value and moments of inertia",
+          "reading": "modules/23-mass-average-value-and-moments-of-inertia.md",
+          "objectives": [
+            "calculus-3-23-objective-1",
+            "calculus-3-23-objective-2",
+            "calculus-3-23-objective-3"
+          ],
+          "worked_example": "For a uniform semicircular plate of radius 0.6 m and mass 5.0 kg, ȳ = 4R/(3π) = 0.255 m, the moment of inertia about the z-axis through the origin is ½MR² = 0.90 kg·m², and the parallel-axis theorem gives I_cm = 0.90 − 5.0·(0.2546)² = 0.576 kg·m² about the parallel axis through the center of mass.",
+          "question_ids": [
+            "calculus-3-23:plate-mass",
+            "calculus-3-23:plate-y-center",
+            "calculus-3-23:triangle-average",
+            "calculus-3-23:uniform-disk-inertia",
+            "calculus-3-23:weighted-disk-inertia",
+            "calculus-3-23:weighted-disk-ratio",
+            "calculus-3-23:parallel-axis",
+            "calculus-3-23:rectangle-inertia",
+            "calculus-3-23:cylinder-center-height",
+            "calculus-3-23:cylinder-mass",
+            "calculus-3-23:inertia-integrand",
+            "calculus-3-23:which-disk-larger",
+            "calculus-3-23:mass-claims"
+          ],
+          "card_ids": [
+            "calculus-3-23-card-1",
+            "calculus-3-23-card-2",
+            "calculus-3-23-card-3",
+            "calculus-3-23-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -2094,6 +2232,64 @@
         "calculus-3-21:depth-2"
       ],
       "points": 7
+    },
+    {
+      "id": "calculus-3-22-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Acceleration and curvature practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "calculus-3-22-objective-1",
+        "calculus-3-22-objective-2",
+        "calculus-3-22-objective-3",
+        "calculus-3-outcome-1"
+      ],
+      "question_ids": [
+        "calculus-3-22:acceleration-magnitude",
+        "calculus-3-22:tangential-acceleration",
+        "calculus-3-22:normal-acceleration",
+        "calculus-3-22:curvature-cross-product",
+        "calculus-3-22:traced-length",
+        "calculus-3-22:ellipse-curvature-long-axis",
+        "calculus-3-22:ellipse-radius-short-axis",
+        "calculus-3-22:ellipse-perimeter",
+        "calculus-3-22:centripetal-acceleration",
+        "calculus-3-22:areal-speed",
+        "calculus-3-22:constant-speed",
+        "calculus-3-22:straight-line-speed-up",
+        "calculus-3-22:curve-claims"
+      ],
+      "points": 14
+    },
+    {
+      "id": "calculus-3-23-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Applications of multiple integrals practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "calculus-3-23-objective-1",
+        "calculus-3-23-objective-2",
+        "calculus-3-23-objective-3",
+        "calculus-3-outcome-3"
+      ],
+      "question_ids": [
+        "calculus-3-23:plate-mass",
+        "calculus-3-23:plate-y-center",
+        "calculus-3-23:triangle-average",
+        "calculus-3-23:uniform-disk-inertia",
+        "calculus-3-23:weighted-disk-inertia",
+        "calculus-3-23:weighted-disk-ratio",
+        "calculus-3-23:parallel-axis",
+        "calculus-3-23:rectangle-inertia",
+        "calculus-3-23:cylinder-center-height",
+        "calculus-3-23:cylinder-mass",
+        "calculus-3-23:inertia-integrand",
+        "calculus-3-23:which-disk-larger",
+        "calculus-3-23:mass-claims"
+      ],
+      "points": 14
     }
   ],
   "grading_policy": {
@@ -2203,6 +2399,11 @@
       "version": "0.6.0",
       "date": "2026-10-22",
       "summary": "Added three original implicit-chart/fold,nonlinear-Jacobian/coverage and singular-order/cutoff foundations with four connected reports and twenty checkpoints/cards. Developed curved complete-boundary flux/Stokes/area evidence and local-versus-global hypotheses,with one explicit outcome. Corrected the categorical no-compact-primer claim;all examples remain original synthetic mathematics and package partial,unreviewed and formative-only."
+    },
+    {
+      "version": "0.7.0",
+      "date": "2026-10-28",
+      "summary": "Compared the course with a second university comparator, the Harvard Math 21a Summer 2003 lecture plan, alongside MIT OCW 18.02SC Fall 2010, in a new scope crosswalk that records covered, shallow, absent and elsewhere topics. Two gaps were found. The spatial-curves lesson stated that curvature was not developed and nothing differentiated a path twice, although both comparators teach acceleration along a curve and Harvard teaches curvature; a new week-2 reading develops tangential and normal acceleration, curvature, numerical arc length and swept area, with a cycloid worked example. The multiple-integrals block had no application of the integrals, although MIT 18.02SC gives sessions to mass, average value and moment of inertia; a new week-9 reading develops mass, center of mass, average value, moments of inertia in rectangular and polar coordinates, the parallel-axis theorem and a solid with variable density. Added six objectives, 26 practice items and eight retrieval cards. Quadric and parametric surfaces and surface area as a topic (Harvard only) and gravitational attraction (MIT only) remain recorded gaps. The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
@@ -2218,7 +2419,8 @@
     "The concentration-and-flux field project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses a separate field, and no software check evaluates a learner's derivation, figure or written interpretation. Milestone weeks are planning suggestions, not measured workload or deadlines.",
     "Three foundations and four open reports develop local implicit charts/folds, nonlinear Jacobian coverage, signed singular-order/cutoff conditions, global constrained comparisons and curved-boundary flux/curl/area. These selected polynomial/singular counterexamples clarify calculus hypotheses rather than delivering general manifold, complex-analysis, topology or measure-theory courses. Broader coursework, workload and qualified review remain open.",
     "Every function, density, map, region and path is a synthetic mathematical construction. Local nonvanishing conditions do not imply global uniqueness or once-only coverage; balanced singular cutoffs need not define an ordinary integral. Checkpoints assess selected values and interpretations, not proofs, code, plots, full reports or physical flux/source laws.",
-    "Of the 131 numerical answers, 3 require units, 55 check significant figures and 0 check dimensions. New continuous fields request three significant figures in named normalized units; exact branch, coverage and maximizing-point counts have no significant-figure requirement. Keep full intermediate precision when calculating a small approximation error."
+    "Of the 151 numerical answers, 3 require units, 55 check significant figures and 0 check dimensions. New continuous fields request three significant figures in named normalized units; exact branch, coverage and maximizing-point counts have no significant-figure requirement. Keep full intermediate precision when calculating a small approximation error.",
+    "The scope crosswalk compares the comparators' public part, session and lecture titles with the local readings, not their lectures, problem sets or exams. The Harvard offering is a seven-week summer course, so its pace is not a semester's. Quadric and parametric surfaces and surface area as a topic, named only by Harvard, and gravitational attraction, named only by MIT, remain recorded gaps."
   ],
   "intentionally_omitted": [
     "Graded assessments, a full laboratory sequence, a cumulative graded project, measured workload and qualified human review remain outstanding."

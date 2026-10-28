@@ -2,11 +2,11 @@
 
 This identifies a public package, not mathematical approval or course equivalence.
 
-- **Course package:** `calculus-3` 0.6.0
-- **Public package archive SHA-256:** `b40abb0913daee20283f660b9de4c10b42ac0625e12daab82359a502253a65c5`
-- **Manifest SHA-256:** `7d04cb32b99a52daa9f1b5d99e16a8138797c627a56bec9c649c1667093d7f0a`
-- **Archive inventory:** 31 files, 473,450 bytes
-- **Calculated:** 2026-10-22
+- **Course package:** `calculus-3` 0.7.0
+- **Public package archive SHA-256:** `15b61ff18c764042776fae5d0df790a97398c08e71a10c5928cfc1c7d0ab46b7`
+- **Manifest SHA-256:** `6a80b5c812d0d0b55880ed5b9bd612e89c0062ea7e8fbd18dda4acb681627326`
+- **Archive inventory:** 34 files, 546,126 bytes
+- **Calculated:** 2026-10-28
 - **Reproduce:** `python tools/course_package_digest.py --course-id calculus-3`
 
-Three original foundations, four connected reports and twenty checkpoints/cards develop implicit charts, nonlinear coverage, singular integral hypotheses and curved complete-boundary evidence. All functions and domains are synthetic. Proofs, code and reports are ungraded. Partial and unreviewed; previous 0.5.0 snapshot preserved.
+A scope crosswalk compares the package with MIT OCW 18.02SC Fall 2010 and the Harvard Math 21a Summer 2003 lecture plan by part, session and lecture titles. Two original readings close the gaps it found: acceleration, curvature and swept area for space curves in week 2, and mass, average value and moments of inertia in week 9, with six objectives, 26 practice items and eight cards. All curves, plates and solids are synthetic. The package remains partial, unreviewed and formative-only; the previous 0.6.0 snapshot is preserved.

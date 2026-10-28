@@ -210,14 +210,16 @@ def test_curved_flux_curl_scalar_measure_and_loop_orientation():
 
 
 def test_multivariable_packets_deliver_original_open_reports():
-    assert len(NEW) == 20 and MANIFEST["version"] == "0.6.0"
+    assert len(NEW) == 20
+    assert tuple(int(part) for part in MANIFEST["version"].split(".")) >= (0, 6, 0)
     assert (
         MANIFEST["maturity"] == "partial"
         and MANIFEST["review"]["status"] == "unreviewed"
     )
     repo = ContentRepository(ROOT / "content")
     scheduled = [x for w in MANIFEST["duration"]["weeks"] for x in w["lesson_ids"]]
-    assert len(scheduled) == len(set(scheduled)) == 23
+    # 0.7.0 adds the week-2 curve-kinematics and week-9 application readings.
+    assert len(scheduled) == len(set(scheduled)) == 25
     for n in range(15, 22):
         lesson = repo.lesson("calculus-3", f"calculus-3-{n}")
         assert len(lesson.markdown.split()) >= 700

@@ -227,6 +227,37 @@ def lab_data():
     return rows, groups, means, areas
 
 
+def vector_derivative(curve, t, order=1, h=1e-4):
+    """Central differences of a vector-valued curve: the first or the second derivative."""
+    before, here, after = curve(t - h), curve(t), curve(t + h)
+    if order == 1:
+        return [(p - m) / (2 * h) for p, m in zip(after, before)]
+    return [(p - 2 * c + m) / h**2 for p, c, m in zip(after, here, before)]
+
+
+def vector_length(vector):
+    return math.sqrt(math.fsum(c * c for c in vector))
+
+
+def curve_kinematics(curve, t):
+    """Acceleration, tangential and normal parts and curvature from finite differences."""
+    velocity, acceleration = vector_derivative(curve, t), vector_derivative(curve, t, 2)
+    speed = vector_length(velocity)
+    tangential = dot(acceleration, velocity) / speed
+    normal = math.sqrt(max(vector_length(acceleration) ** 2 - tangential**2, 0.0))
+    return acceleration, tangential, normal, vector_length(cross(velocity, acceleration)) / speed**3
+
+
+def polar_integral(function, radius):
+    """Integral of function(r, theta) over a disk of the given radius, including the Jacobian r."""
+    return integral(
+        lambda r: integral(lambda theta: function(r, theta) * r, 0, 2 * math.pi, 200),
+        0,
+        radius,
+        200,
+    )
+
+
 def expected_answers():
     answers = {}
 
@@ -496,6 +527,52 @@ def expected_answers():
         held_z_derivative=derivative(lambda x: x * x + (3 - 2 * x) * 3, 1),
         triple_product_factor=derivative(lambda t: 10 * t / 4, 2),
     )
+    # 0.7.0 lesson 22: finite-difference kinematics, a quadrature perimeter and a swept-area cross product.
+    cubic = lambda t: (3 * t, 3 * t * t, 2 * t**3)  # noqa: E731
+    ellipse = lambda t: (5 * math.cos(t), 2 * math.sin(t), 0.0)  # noqa: E731
+    ring = lambda t: (0.75 * math.cos(4 * t), 0.75 * math.sin(4 * t), 0.0)  # noqa: E731
+    swirl = lambda t: (6 * math.cos(3 * t), 2 * math.sin(3 * t), 0.0)  # noqa: E731
+    acceleration, tangential, normal, bend = curve_kinematics(cubic, 1.0)
+    add(
+        22,
+        acceleration_magnitude=vector_length(acceleration),
+        tangential_acceleration=tangential,
+        normal_acceleration=normal,
+        curvature_cross_product=bend,
+        traced_length=integral(lambda t: vector_length(vector_derivative(cubic, t)), 0, 2, 400),
+        ellipse_curvature_long_axis=curve_kinematics(ellipse, 0.0)[3],
+        ellipse_radius_short_axis=1 / curve_kinematics(ellipse, math.pi / 2)[3],
+        ellipse_perimeter=4
+        * integral(lambda t: vector_length(vector_derivative(ellipse, t)), 0, math.pi / 2, 2000),
+        centripetal_acceleration=vector_length(curve_kinematics(ring, 0.3)[0]),
+        areal_speed=0.5 * cross(swirl(0.7), vector_derivative(swirl, 0.7))[2],
+    )
+    # 0.7.0 lesson 23: nested Simpson integrals over rectangles, a triangle and disks, and a solid by slices.
+    plate_density = lambda x, y: 2 + y  # noqa: E731
+    plate_mass = integral(lambda x: integral(lambda y: plate_density(x, y), 0, 2, 200), 0, 3, 200)
+    uniform_density = 3.0 / (math.pi * 0.4**2)
+    weight, radius = 20.0, 0.30
+    weighted_mass = polar_integral(lambda r, theta: weight * r, radius)
+    weighted_moment = polar_integral(lambda r, theta: r * r * weight * r, radius)
+    add(
+        23,
+        plate_mass=plate_mass,
+        plate_y_center=integral(lambda x: integral(lambda y: y * plate_density(x, y), 0, 2, 200), 0, 3, 200)
+        / plate_mass,
+        triangle_average=integral(lambda x: integral(lambda y: x * y, 0, 2 - x, 200), 0, 2, 200) / 2,
+        uniform_disk_inertia=polar_integral(lambda r, theta: r * r * uniform_density, 0.4),
+        weighted_disk_inertia=weighted_moment,
+        weighted_disk_ratio=weighted_moment / (weighted_mass * radius**2),
+        parallel_axis=polar_integral(
+            lambda r, theta: (r * r + 0.4**2 - 2 * r * 0.4 * math.cos(theta)) * uniform_density, 0.4
+        ),
+        rectangle_inertia=integral(
+            lambda x: integral(lambda y: (x * x + y * y) * 6.0 / 3.0, -0.75, 0.75, 200), -1, 1, 200
+        ),
+        cylinder_center_height=integral(lambda z: z * (1 + z / 0.6), 0, 0.6)
+        / integral(lambda z: 1 + z / 0.6, 0, 0.6),
+        cylinder_mass=integral(lambda z: 1000 * (1 + z / 0.6) * math.pi * 0.05**2, 0, 0.6),
+    )
     _, _, means, areas = lab_data()
     raw = math.fsum(means[k] * areas[k] for k in means)
     corrected = math.fsum((means[k] - 1) * areas[k] for k in means)
@@ -522,7 +599,7 @@ def test_all_numeric_keys_with_separate_methods(question_id):
 
 def test_numeric_inventory_is_exhaustive():
     assert set(EXPECTED) == {key for key, q in BANK.items() if q["type"] == "numeric"}
-    assert len(EXPECTED) == 72
+    assert len(EXPECTED) == 92
 
 
 def test_gradient_directional_derivative_and_local_linearization():
@@ -935,8 +1012,9 @@ def test_schedule_and_conservative_labels():
         "calculus-3-field-project",  # optional project milestone record
         "calculus-3-21-practice",
     ]
-    # 15 topic and lab lessons plus the optional field project guide added in 0.5.0.
-    assert len(lessons) == 23 and len(BANK) == 135
+    # 15 topic and lab lessons plus the optional field project guide added in 0.5.0, and the
+    # week-2 and week-9 application readings added in 0.7.0.
+    assert len(lessons) == 25 and len(BANK) == 161
     cards = len(load(COURSE / "question-banks/retrieval-cards.json")["cards"])
     syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8")
     assert (
