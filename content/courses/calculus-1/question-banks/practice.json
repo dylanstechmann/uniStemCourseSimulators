@@ -5595,6 +5595,408 @@
           "Original synthetic calculus-evidence practice developed with substantial AI assistance; no external problem, function, geometry or dataset imported."
         ]
       }
+    },
+    {
+      "id": "calculus-1-21:sine-multiple-limit",
+      "type": "numeric",
+      "prompt": "What is the limit of sin(5x)/x as x approaches 0? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-21-objective-1"
+      ],
+      "feedback": {
+        "hint": "Rewrite sin(5x)/x as 5·sin(5x)/(5x).",
+        "solution": "sin(5x)/x = 5·sin(5x)/(5x) → 5·1 = 5, since (sin u)/u → 1 as u = 5x → 0.",
+        "lesson_ids": [
+          "calculus-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 5,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-1-21:cosine-quadratic-limit",
+      "type": "numeric",
+      "prompt": "What is the limit of (1 − cos x)/x² as x approaches 0? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-21-objective-1"
+      ],
+      "feedback": {
+        "hint": "Multiply the numerator and denominator by 1 + cos x.",
+        "solution": "(1 − cos x)/x² = sin²x/(x²(1 + cos x)) = ((sin x)/x)²/(1 + cos x) → 1²/2 = 0.5.",
+        "lesson_ids": [
+          "calculus-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.5,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-1-21:trig-derivative-value",
+      "type": "numeric",
+      "prompt": "Let f(x) = 3 sin x − 2 cos x, with x in radians. What is f′(π/3)? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-21-objective-2"
+      ],
+      "feedback": {
+        "hint": "d/dx sin x = cos x and d/dx cos x = −sin x.",
+        "solution": "f′(x) = 3 cos x + 2 sin x, so f′(π/3) = 3·0.5 + 2·0.8660 = 1.5 + 1.732 = 3.232.",
+        "lesson_ids": [
+          "calculus-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 3.232,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-1-21:chain-rule-slope",
+      "type": "numeric",
+      "prompt": "A synthetic signal is x(t) = 4 sin(3t), with t in seconds and the angle in radians. What is x′(0.5)? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-21-objective-2"
+      ],
+      "feedback": {
+        "hint": "Include the inner derivative 3.",
+        "solution": "x′(t) = 4·3·cos(3t) = 12 cos(3t), so x′(0.5) = 12 cos 1.5 = 12·0.07074 = 0.8488.",
+        "lesson_ids": [
+          "calculus-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.8488,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-1-21:tangent-slope",
+      "type": "numeric",
+      "prompt": "What is the slope of the graph of y = tan x at x = π/3? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-21-objective-2"
+      ],
+      "feedback": {
+        "hint": "Use the quotient rule on sin x/cos x.",
+        "solution": "d/dx tan x = (cos x·cos x + sin x·sin x)/cos²x = 1/cos²x = sec²x, and at π/3, cos = 1/2, so the slope is 1/(1/4) = 4.",
+        "lesson_ids": [
+          "calculus-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 4,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-1-21:product-rule-slope",
+      "type": "numeric",
+      "prompt": "What is the derivative of y = x sin x at x = π/3? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-21-objective-2"
+      ],
+      "feedback": {
+        "hint": "Apply the product rule.",
+        "solution": "y′ = sin x + x cos x, so y′(π/3) = 0.8660 + (π/3)(0.5) = 0.8660 + 0.5236 = 1.390.",
+        "lesson_ids": [
+          "calculus-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 1.39,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-1-21:peak-slope",
+      "type": "numeric",
+      "prompt": "A synthetic flow is Q(t) = 3 + 1.5 sin(2πt/1.2) mL/s with t in seconds. What is the largest rate of change of Q, in mL/s²? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-21-objective-3"
+      ],
+      "feedback": {
+        "hint": "The derivative is Aω cos(ωt), and the cosine reaches 1.",
+        "solution": "Q′(t) = 1.5·(2π/1.2) cos(2πt/1.2) = 7.854 cos(5.236t), so the largest slope is Aω = 1.5·5.236 = 7.854 mL/s².",
+        "lesson_ids": [
+          "calculus-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 7.854,
+        "unit": "",
+        "tolerance": 0.005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-1-21:oscillator-acceleration",
+      "type": "numeric",
+      "prompt": "A synthetic displacement is x(t) = 2 cos(4t), with the angle in radians. What is x″(0.3)? Enter the number only, including the sign.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-21-objective-3"
+      ],
+      "feedback": {
+        "hint": "Differentiate twice, or use x″ = −ω²x.",
+        "solution": "x′ = −8 sin 4t and x″ = −32 cos 4t = −16x, so x″(0.3) = −32 cos 1.2 = −32·0.3624 = −11.60.",
+        "lesson_ids": [
+          "calculus-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": -11.6,
+        "unit": "",
+        "tolerance": 0.02,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-1-21:degree-slope",
+      "type": "numeric",
+      "prompt": "If x is measured in degrees, the function s(x) = sin(x°) has the derivative s′(x) = k cos(x°). What is k? Enter the number to four decimal places.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-21-objective-3"
+      ],
+      "feedback": {
+        "hint": "Write sin(x°) = sin(πx/180) and use the chain rule.",
+        "solution": "sin(x°) = sin(πx/180), so s′(x) = (π/180) cos(x°), and k = π/180 = 0.01745.",
+        "lesson_ids": [
+          "calculus-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.0175,
+        "unit": "",
+        "tolerance": 0.0001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-1-21:small-angle-error",
+      "type": "numeric",
+      "prompt": "What is the relative error of the small-angle approximation sin x ≈ x at x = 0.5 radians, as a percentage of the true value sin 0.5? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-21-objective-3"
+      ],
+      "feedback": {
+        "hint": "Relative error is (x − sin x)/sin x.",
+        "solution": "sin 0.5 = 0.47943, so the error is (0.5 − 0.47943)/0.47943 = 0.04291 = 4.29%.",
+        "lesson_ids": [
+          "calculus-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 4.29,
+        "unit": "",
+        "tolerance": 0.02,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-1-21:radian-reason",
+      "type": "single_choice",
+      "prompt": "Why does the formula d/dx sin x = cos x require x to be in radians?",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-21-objective-1",
+        "calculus-1-21-objective-3"
+      ],
+      "feedback": {
+        "hint": "Which limit does the derivation use, and what does it assume about angle measure?",
+        "solution": "The derivation needs (sin h)/h → 1, which comes from the sector area ½h and holds only for radians. In degrees the limit is π/180 instead, and the derivative picks up that factor.",
+        "lesson_ids": [
+          "calculus-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "Because (sin h)/h approaches 1 only when h is measured in radians",
+        "Because cosine is defined only for radian angles",
+        "Because degrees cannot be negative",
+        "It does not; the formula holds in any angle unit"
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "calculus-1-21:squeeze-inequality",
+      "type": "single_choice",
+      "prompt": "For small positive h in radians, which pair of bounds squeezes (sin h)/h toward its limit?",
+      "points": 1,
+      "objective_ids": [
+        "calculus-1-21-objective-1"
+      ],
+      "feedback": {
+        "hint": "Compare the areas of two triangles and a sector, then divide by sin h.",
+        "solution": "From sin h < h < tan h, dividing by sin h gives 1 < h/sin h < 1/cos h, and taking reciprocals gives cos h < (sin h)/h < 1. Both bounds approach 1.",
+        "lesson_ids": [
+          "calculus-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "h < sin h < tan h",
+        "cos h < (sin h)/h < 1",
+        "1 < (sin h)/h < sec h",
+        "sin h < cos h < h"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "calculus-1-21:trig-claims",
+      "type": "multiple_select",
+      "prompt": "Which statements are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "calculus-1-21-objective-1",
+        "calculus-1-21-objective-2",
+        "calculus-1-21-objective-3"
+      ],
+      "feedback": {
+        "hint": "Check each sign, each inner factor and each size of error.",
+        "solution": "The limit of (cos h − 1)/h is 0, d/dt sin(ωt) = ω cos(ωt), and x″ = −ω²x for x = A sin ωt. But d/dx cos x = −sin x, and sin x ≈ x has about 19% error at 1 radian.",
+        "lesson_ids": [
+          "calculus-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "The limit of (cos h − 1)/h as h approaches 0 is 0.",
+        "d/dx cos x = sin x.",
+        "d/dt sin(ωt) = ω cos(ωt).",
+        "sin x ≈ x is accurate to better than 1% for every x up to 1 radian.",
+        "If x(t) = A sin ωt, then x″ = −ω²x."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          2,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
     }
   ]
 }

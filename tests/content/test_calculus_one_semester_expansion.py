@@ -214,10 +214,12 @@ def test_domain_optimization_and_root_certificate_have_independent_checks():
 
 def test_sustained_packets_deliver_and_remain_open_unreviewed_practice():
     assert len(NEW) == 16
-    assert MANIFEST["version"] == "0.6.0" and MANIFEST["maturity"] == "partial"
+    assert tuple(int(part) for part in MANIFEST["version"].split(".")) >= (0, 6, 0)
+    assert MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed"
     scheduled = [lid for w in MANIFEST["duration"]["weeks"] for lid in w["lesson_ids"]]
-    assert len(scheduled) == len(set(scheduled)) == 22
+    # 0.7.0 adds the week-3 trigonometric reading.
+    assert len(scheduled) == len(set(scheduled)) == 23
     repository = ContentRepository(ROOT / "content")
     for number in range(16, 21):
         lesson = repository.lesson("calculus-1", f"calculus-1-{number}")

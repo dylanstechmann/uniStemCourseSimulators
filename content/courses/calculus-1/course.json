@@ -7,7 +7,7 @@
   "domain": "Mathematics",
   "level": "Year 1",
   "maturity": "partial",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -16,7 +16,8 @@
     "migration_version": "1.0",
     "modifications": [
       "Linked the first four lesson pairs to course outcomes, corrected the introductory derivative item association, and added a direct limit check.",
-      "Added an original Mean Value Theorem sequence with hypothesis checks and monotonicity, uniqueness and finite-change consequences."
+      "Added an original Mean Value Theorem sequence with hypothesis checks and monotonicity, uniqueness and finite-change consequences.",
+      "Added an original trigonometric limits and derivatives reading with formative practice in the existing week 3. MIT OCW 18.01SC Fall 2010 and the Harvard Math 1a Spring 2005 calendar are link-only scope comparators recorded in a new scope crosswalk; no source text, figure or problem is imported."
     ]
   },
   "prerequisites": {
@@ -556,11 +557,36 @@
       "course_outcome_ids": [
         "calculus-1-outcome-4"
       ]
+    },
+    {
+      "id": "calculus-1-21-objective-1",
+      "description": "Prove and use the limits of (sin h)/h and (cos h − 1)/h with the squeeze theorem, and evaluate related trigonometric limits.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "calculus-1-outcome-1"
+      ]
+    },
+    {
+      "id": "calculus-1-21-objective-2",
+      "description": "Differentiate sine, cosine and tangent, alone and combined through the product, quotient and chain rules.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "calculus-1-outcome-2"
+      ]
+    },
+    {
+      "id": "calculus-1-21-objective-3",
+      "description": "Interpret the derivative of a sinusoidal model: its largest slope, its zero-slope points, the oscillator relation x″ = −ω²x, the factor that radians introduce, and the small-angle approximation.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-1-outcome-2",
+        "calculus-1-outcome-3"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week scope, with four compact prototype readings in weeks 1, 3, 6 and 9. The Mean Value Theorem sequence is integrated with derivative-sign analysis in week 7. Week 4 pairs implicit differentiation with inverse, exponential and logarithmic derivatives. Weeks 12–14 add an optional washout-model project with rehearsal practice and milestone self-checks. All activities are formative; workload and human review are absent, so this is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week scope, with four compact prototype readings in weeks 1, 3, 6 and 9. The Mean Value Theorem sequence is integrated with derivative-sign analysis in week 7. Week 3 follows the derivative rules with trigonometric limits and the derivatives of sine and cosine. Week 4 pairs implicit differentiation with inverse, exponential and logarithmic derivatives. Weeks 12–14 add an optional washout-model project with rehearsal practice and milestone self-checks. All activities are formative; workload and human review are absent, so this is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
@@ -584,13 +610,15 @@
       },
       {
         "week": 3,
-        "title": "Derivative rules and chain rule",
+        "title": "Derivative rules, the chain rule and trigonometric derivatives",
         "lesson_ids": [
           "calculus-1-2",
+          "calculus-1-21",
           "calculus-1-17"
         ],
         "assessment_ids": [
           "calculus-1-2-practice",
+          "calculus-1-21-practice",
           "calculus-1-17-practice"
         ]
       },
@@ -1488,6 +1516,48 @@
           ]
         }
       ]
+    },
+    {
+      "id": "calculus-1-module-21",
+      "title": "Trigonometric limits and the derivatives of sine and cosine",
+      "source_ids": [
+        "calc1-unit1-parta-derivatives",
+        "calc1-harvard-math1a-2005"
+      ],
+      "lessons": [
+        {
+          "id": "calculus-1-21",
+          "title": "Trigonometric limits and the derivatives of sine and cosine",
+          "reading": "modules/21-trigonometric-limits-and-derivatives-of-sine-and-cosine.md",
+          "objectives": [
+            "calculus-1-21-objective-1",
+            "calculus-1-21-objective-2",
+            "calculus-1-21-objective-3"
+          ],
+          "worked_example": "For the synthetic signal S(t) = 10 + 4 sin(0.5t − 0.6), S′(t) = 2 cos(0.5t − 0.6) has its largest value 2 at t = 1.2 s where S crosses its baseline 10, S′(2) = 2 cos 0.4 = 1.842, S″(2) = −sin 0.4 = −0.389 equals −0.25(S − 10) because ω² = 0.25, and S peaks at 14 when t = 4.34 s.",
+          "question_ids": [
+            "calculus-1-21:sine-multiple-limit",
+            "calculus-1-21:cosine-quadratic-limit",
+            "calculus-1-21:trig-derivative-value",
+            "calculus-1-21:chain-rule-slope",
+            "calculus-1-21:tangent-slope",
+            "calculus-1-21:product-rule-slope",
+            "calculus-1-21:peak-slope",
+            "calculus-1-21:oscillator-acceleration",
+            "calculus-1-21:degree-slope",
+            "calculus-1-21:small-angle-error",
+            "calculus-1-21:radian-reason",
+            "calculus-1-21:squeeze-inequality",
+            "calculus-1-21:trig-claims"
+          ],
+          "card_ids": [
+            "calculus-1-21-card-1",
+            "calculus-1-21-card-2",
+            "calculus-1-21-card-3",
+            "calculus-1-21-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -2024,6 +2094,37 @@
         "calculus-1-20:depth-3"
       ],
       "points": 11
+    },
+    {
+      "id": "calculus-1-21-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Trigonometric limits and derivatives practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "calculus-1-21-objective-1",
+        "calculus-1-21-objective-2",
+        "calculus-1-21-objective-3",
+        "calculus-1-outcome-1",
+        "calculus-1-outcome-2",
+        "calculus-1-outcome-3"
+      ],
+      "question_ids": [
+        "calculus-1-21:sine-multiple-limit",
+        "calculus-1-21:cosine-quadratic-limit",
+        "calculus-1-21:trig-derivative-value",
+        "calculus-1-21:chain-rule-slope",
+        "calculus-1-21:tangent-slope",
+        "calculus-1-21:product-rule-slope",
+        "calculus-1-21:peak-slope",
+        "calculus-1-21:oscillator-acceleration",
+        "calculus-1-21:degree-slope",
+        "calculus-1-21:small-angle-error",
+        "calculus-1-21:radian-reason",
+        "calculus-1-21:squeeze-inequality",
+        "calculus-1-21:trig-claims"
+      ],
+      "points": 14
     }
   ],
   "grading_policy": {
@@ -2138,6 +2239,11 @@
       "version": "0.6.0",
       "date": "2026-10-22",
       "summary": "Added original Riemann-sum/signed-versus-absolute accumulation and local FTC-hypothesis instruction, plus four sustained mixed assignments covering limit/counterexample proofs, implicit/inverse/related rates, constrained optimization/MVT/root certificates and cumulative accumulation/numerical checks. Sixteen new public checkpoints/cards assess selected results only; reports, proofs and implementations need actual review. Preserves the washout lab and project. The course remains partial, unreviewed and formative-only within the paired Calculus I/II boundary."
+    },
+    {
+      "version": "0.7.0",
+      "date": "2026-10-28",
+      "summary": "Compared the course with a second university comparator, the Harvard Math 1a Spring 2005 calendar, alongside MIT OCW 18.01SC Fall 2010 Units 1–3, in a new scope crosswalk that records covered, absent and elsewhere topics. The package differentiated products, quotients, composites, inverse functions, exponentials and logarithms but not the trigonometric functions, which both comparators teach: 18.01SC Unit 1 Part A has sessions on the derivatives of sine and cosine and on their limits, and Harvard's meeting 3.4 covers derivatives of trigonometric functions. A new week-3 reading proves the limits of (sin h)/h and (cos h − 1)/h with the squeeze theorem, derives the derivatives of sine, cosine and tangent, and applies them to sinusoidal signals, the oscillator relation, radian measure and the small-angle approximation. Added three objectives, 13 practice items and four retrieval cards. No other topic is named by both comparators and missing; L'Hôpital's rule, parametric curves and volumes belong to the Calculus II course and differential equations to the Differential Equations course. The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
@@ -2150,7 +2256,8 @@
     "All new functions, concentrations and observations are synthetic teaching examples. No real clearance rate, biological mechanism, dosing advice, device specification or experimental protocol is established.",
     "The washout-model project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses a separate constructed signal, blank and target, and no software check evaluates a learner's project calculations or written interpretation. Milestone weeks are planning suggestions, not measured workload or deadlines.",
     "Four new open mixed assignments require locally saved proofs/counterexamples, implicit/explicit cross-checks, constrained-sign and theorem-hypothesis arguments, root certificates and sign-aware accumulation/numerical verification. Selected browser checkpoints do not evaluate written proofs, diagrams or code. The new FTC reading proves a local continuity implication and tests a piecewise-rate counterexample; it is not a general integration/real-analysis treatment. Full coursework breadth, qualified review and measured workload remain open. Advanced integration, geometry and series belong to paired Calculus II under the shared 18.01SC comparator.",
-    "Of the 126 numerical answers, 9 require units, 50 check significant figures and 0 check dimensions. New continuous checkpoint quantities request three significant figures; exact interval counts have no significant-figure requirement."
+    "Of the 136 numerical answers, 9 require units, 50 check significant figures and 0 check dimensions. New continuous checkpoint quantities request three significant figures; exact interval counts have no significant-figure requirement.",
+    "The scope crosswalk compares the comparators' public unit, part, session and class-meeting titles with the local readings, not their lectures, problem sets or exams. MIT 18.01SC Units 4 and 5 belong to the Calculus II course, and MIT's differential-equations session belongs to the Differential Equations course."
   ],
   "intentionally_omitted": [
     "Graded assessments, a laboratory sequence, an activated cumulative project, measured workload, accessibility review and qualified human content review remain outstanding."

@@ -302,6 +302,22 @@ def expected_answers():
         e_limit_fifty=compound_limit(50),
         ph_sensitivity=0.05 * derivative(lambda c: -math.log10(c), 1.0),
     )
+    # 0.7.0 lesson 21: one-sided evaluation at a tiny step, central differences, a scan for the largest slope.
+    flow = lambda t: 3 + 1.5 * math.sin(2 * math.pi * t / 1.2)  # noqa: E731
+    displacement = lambda t: 2 * math.cos(4 * t)  # noqa: E731
+    add(
+        21,
+        sine_multiple_limit=math.sin(5 * 1e-6) / 1e-6,
+        cosine_quadratic_limit=(1 - math.cos(1e-3)) / 1e-6,
+        trig_derivative_value=derivative(lambda x: 3 * math.sin(x) - 2 * math.cos(x), math.pi / 3),
+        chain_rule_slope=derivative(lambda t: 4 * math.sin(3 * t), 0.5),
+        tangent_slope=derivative(math.tan, math.pi / 3),
+        product_rule_slope=derivative(lambda x: x * math.sin(x), math.pi / 3),
+        peak_slope=max(derivative(flow, i * 0.001) for i in range(1200)),
+        oscillator_acceleration=(displacement(0.3 + 1e-4) - 2 * displacement(0.3) + displacement(0.3 - 1e-4)) / 1e-8,
+        degree_slope=derivative(lambda x: math.sin(math.radians(x)), 0.0),
+        small_angle_error=100 * (0.5 - math.sin(0.5)) / math.sin(0.5),
+    )
     return expected
 
 
@@ -310,7 +326,7 @@ EXPECTED = expected_answers()
 
 def test_every_numeric_key_is_recalculated():
     assert set(EXPECTED) == {qid for qid, q in BANK.items() if q["type"] == "numeric"}
-    assert len(EXPECTED) == 75
+    assert len(EXPECTED) == 85
 
 
 @pytest.mark.parametrize("qid,value", sorted(EXPECTED.items()))
@@ -595,8 +611,9 @@ def test_schedule_syllabus_and_labels():
     weeks = c["duration"]["weeks"]
     scheduled = [lid for week in weeks for lid in week["lesson_ids"]]
     lessons = {lesson["id"] for module in c["modules"] for lesson in module["lessons"]}
-    # Existing core/lab/project routes plus the new FTC reading and four mixed assignments.
-    assert len(weeks) == 14 and len(set(scheduled)) == len(scheduled) == 22
+    # Existing core/lab/project routes plus the new FTC reading and four mixed assignments, and the
+    # week-3 trigonometric reading added in 0.7.0.
+    assert len(weeks) == 14 and len(set(scheduled)) == len(scheduled) == 23
     assert set(scheduled) == lessons
     assert weeks[12]["lesson_ids"] == ["calculus-1-lab-01"]
     assert "calculus-1-case" in weeks[13]["assessment_ids"]
@@ -610,4 +627,4 @@ def test_schedule_syllabus_and_labels():
     )
     syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8")
     assert all(outcome["description"] in syllabus for outcome in c["outcomes"])
-    assert f"Version: {c['version']}" in syllabus and "134 public practice items" in syllabus
+    assert f"Version: {c['version']}" in syllabus and "147 public practice items" in syllabus

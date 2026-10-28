@@ -1,12 +1,12 @@
 # Calculus I review snapshot
 
-This identifies the public package; it does not approve teaching depth or proof quality.
+This identifies the public package; a digest does not approve mathematics or course depth.
 
-- **Course package:** `calculus-1` 0.6.0
-- **Public package archive SHA-256:** `0df4ad940696735fa19dab220903965f2be43761cf72cbb8fb6be0f6e5c95336`
-- **Manifest SHA-256:** `ee7d6a4ae02dd9a7b7c4437baede67e7ee0dab04bddd0e67b0507b63808ca170`
-- **Archive inventory:** 32 files, 450,906 bytes
-- **Calculated:** 2026-10-22
+- **Course package:** `calculus-1` 0.7.0
+- **Public package archive SHA-256:** `3c86069737155e97195f90473d93da71f60f52aca62a12a4cb0747b26ee5de35`
+- **Manifest SHA-256:** `7d7be3c5c4cfede3ca937354437bac2c0c675dc11287f9c61e3d1eb8c4a4cd18`
+- **Archive inventory:** 34 files, 490,658 bytes
+- **Calculated:** 2026-10-28
 - **Reproduce:** `python tools/course_package_digest.py --course-id calculus-1`
 
-One original finite-sum/signed-accumulation/FTC-hypothesis reading and four mixed assignments add sixteen checkpoints/cards. Written proofs, counterexamples, diagrams and implementations are not automatically evaluated. All functions and geometry are constructed. The package remains partial, unreviewed and formative-only within the paired single-variable scope. The previous 0.5.0 snapshot remains archived.
+A scope crosswalk compares the package with MIT OCW 18.01SC Fall 2010 Units 1–3 and the Harvard Math 1a Spring 2005 calendar by unit, part, session and class-meeting titles. One original week-3 reading closes the gap it found in a strand both comparators teach, trigonometric limits and the derivatives of sine and cosine, with three objectives, 13 practice items and four cards. All signals and flows are synthetic. The package remains partial, unreviewed and formative-only; the previous 0.6.0 snapshot is preserved.

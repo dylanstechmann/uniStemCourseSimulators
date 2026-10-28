@@ -77,7 +77,8 @@ def newton(f, start: float, steps: int):
 
 
 def test_route_is_scheduled_optional_and_ungraded():
-    assert MANIFEST["version"] == "0.6.0" and MANIFEST["maturity"] == "partial"
+    assert tuple(int(part) for part in MANIFEST["version"].split(".")) >= (0, 6, 0)
+    assert MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed" and MANIFEST["grading_policy"]["mode"] == "formative-only"
     rehearsal = ASSESSMENTS["calculus-1-project-rehearsal-practice"]
     project = ASSESSMENTS["calculus-1-washout-project"]

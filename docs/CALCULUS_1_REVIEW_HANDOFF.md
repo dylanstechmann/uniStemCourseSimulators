@@ -1,6 +1,6 @@
 # Calculus I course review handoff
 
-This handoff targets Calculus I: Differential and Integral Calculus, package version 0.6.0. The [review snapshot](CALCULUS_1_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+This handoff targets Calculus I: Differential and Integral Calculus, package version 0.7.0. The [review snapshot](CALCULUS_1_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
 
 ## Review scope
 
@@ -23,4 +23,8 @@ After a review actually occurs, record reviewer name and qualifications, date, p
 
 ## Mixed coursework and integral-hypothesis target (2026-10-22)
 
-Current target 0.6.0 adds an original finite-sum/signed-accumulation/local-FTC reading and four sustained mixed assignments. Review quantified and sequence counterexamples, piecewise joins, implicit/explicit/inverse/related rates, feasible optimization, MVT existence versus uniqueness, derivative-bound root certificates, sign reversals, quadrature references and jump/moving-bound hypotheses. Sixteen checkpoints/cards assess selected outputs; written work, implementations, workload and qualified review remain open. Earlier evidence remains historical; the current snapshot pins the package.
+Version 0.6.0 added an original finite-sum/signed-accumulation/local-FTC reading and four sustained mixed assignments. Review quantified and sequence counterexamples, piecewise joins, implicit/explicit/inverse/related rates, feasible optimization, MVT existence versus uniqueness, derivative-bound root certificates, sign reversals, quadrature references and jump/moving-bound hypotheses. Sixteen checkpoints/cards assess selected outputs; written work, implementations, workload and qualified review remain open. Earlier evidence remains historical; the current snapshot pins the package.
+
+## Second-comparator target (2026-10-28)
+
+Current target 0.7.0 adds the [scope crosswalk](../content/courses/calculus-1/scope-crosswalk.md) against MIT OCW 18.01SC Fall 2010 (Units 1–3) and the Harvard Math 1a Spring 2005 calendar, and a week-3 reading on trigonometric limits and the derivatives of sine and cosine, a strand both courses teach (three objectives, 13 items, four cards). Check whether the crosswalk's labels are fair, given that it compares unit, part, session and class-meeting titles rather than lecture content, and that MIT's Units 4 and 5 are assigned to the Calculus II course. In the reading, check the squeeze-theorem proof of the limit of (sin h)/h and its dependence on radian measure, the derivation of the limit of (cos h − 1)/h and the related limits, the derivatives of sine, cosine and tangent, the sinusoidal flow and signal examples (largest slope, zero-slope points, the oscillator relation), the degree factor, and the small-angle errors. [The recalculation file](../tests/content/test_calculus_one_recalculations.py) recomputes the ten new numeric keys by direct evaluation at a small step, central differences and a scan for the largest slope, and [the lesson test](../tests/content/test_calculus_one_trigonometric_lesson.py) recomputes every number the reading states and checks that each key rejects a named misconception. These checks were written and run by an AI coding agent; they are not independent review. No other topic is named by both comparators and missing. The current snapshot pins this target, and the 0.6.0 snapshot is preserved.

@@ -13,7 +13,7 @@ This is a personal hobby and learning project developed with substantial AI assi
 | [Biochemistry I: Proteins, Enzymes & Metabolism](../content/courses/biochemistry/syllabus.md) | 0.6.0 | 14 | 5 | [Project guide](../content/courses/biochemistry/assignments/protein-state-project-guide.md) |
 | [Biomaterials & Tissue Engineering](../content/courses/biomaterials/syllabus.md) | 0.5.0 | 14 | 12 | [Project guide](../content/courses/biomaterials/assignments/scaffold-property-project-guide.md) |
 | [Bioreactors & Tissue Culture Engineering](../content/courses/bioreactors/syllabus.md) | 0.6.0 | 14 | 8 | [Project guide](../content/courses/bioreactors/assignments/oxygen-capacity-project-guide.md) |
-| [Calculus I: Differential and Integral Calculus](../content/courses/calculus-1/syllabus.md) | 0.6.0 | 14 | 12 | [Project guide](../content/courses/calculus-1/assignments/washout-model-project-guide.md) |
+| [Calculus I: Differential and Integral Calculus](../content/courses/calculus-1/syllabus.md) | 0.7.0 | 14 | 12 | [Project guide](../content/courses/calculus-1/assignments/washout-model-project-guide.md) |
 | [Calculus II: Integration, Series & Applications](../content/courses/calculus-2/syllabus.md) | 0.7.0 | 14 | 13 | [Project guide](../content/courses/calculus-2/assignments/exponential-tail-project-guide.md) |
 | [Calculus III: Multivariable & Vector Calculus](../content/courses/calculus-3/syllabus.md) | 0.7.0 | 14 | 13 | [Project guide](../content/courses/calculus-3/assignments/integrative-field-project-guide.md) |
 | [Foundations of Cell and Molecular Biology](../content/courses/cell-biology/syllabus.md) | 0.62.1 | 14 | 10 | [Project guide](../content/courses/cell-biology/assignments/integrative-project-guide.md) |

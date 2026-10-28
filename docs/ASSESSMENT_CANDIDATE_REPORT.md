@@ -11,7 +11,7 @@ No course or candidate is activated by this command. `--check` detects report dr
 | biochemistry | 0.6.0 | partial | unreviewed | formative-only | 11 |
 | biomaterials | 0.5.0 | partial | unreviewed | formative-only | 0 |
 | bioreactors | 0.6.0 | partial | unreviewed | formative-only | 0 |
-| calculus-1 | 0.6.0 | partial | unreviewed | formative-only | 0 |
+| calculus-1 | 0.7.0 | partial | unreviewed | formative-only | 0 |
 | calculus-2 | 0.7.0 | partial | unreviewed | formative-only | 0 |
 | calculus-3 | 0.7.0 | partial | unreviewed | formative-only | 0 |
 | cell-biology | 0.62.1 | partial | unreviewed | formative-only | 15 |
