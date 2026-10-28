@@ -255,10 +255,12 @@ def test_synthetic_oscillator_table_by_rk4_and_energy_dissipation():
 
 def test_new_reports_and_resources_deliver_without_graded_activation():
     assert len(NEW) == 16
-    assert MANIFEST["version"] == "0.6.0" and MANIFEST["maturity"] == "partial"
+    assert tuple(int(part) for part in MANIFEST["version"].split(".")) >= (0, 6, 0)
+    assert MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed"
     scheduled = [lid for w in MANIFEST["duration"]["weeks"] for lid in w["lesson_ids"]]
-    assert len(scheduled) == len(set(scheduled)) == 23
+    # 0.7.0 adds the week-8 center-of-mass reading.
+    assert len(scheduled) == len(set(scheduled)) == 24
     repository = ContentRepository(ROOT / "content")
     for number in range(16, 22):
         lesson = repository.lesson("physics-mechanics", f"physics-mechanics-{number}")

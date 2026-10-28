@@ -7,7 +7,7 @@
   "domain": "Physics",
   "level": "Year 1",
   "maturity": "partial",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -19,7 +19,8 @@
       "Expanded the week-4 work, energy and power reading with the work–energy theorem, gravitational and spring potential energy, energy accounting for a drop, conservative and dissipative transfers, and power units. Clarified both objectives and linked them to outcomes 2 and 4.",
       "Expanded the week-6 momentum, collisions and impulse reading with signed momentum, external-impulse conditions, force–time area, momentum change and the distinction between momentum and kinetic-energy conservation. Clarified both objectives and linked them to outcomes 2 and 4.",
       "Expanded week 9 with perpendicular moment arms, signed planar torque, moments about a common axis, engineering stress and strain, small-strain modulus calculations, dimensional checks, and model limits. Clarified both objectives and linked them and the unchanged practice assessment to outcomes 3 and 4.",
-      "Added an original variable-mass momentum lesson deriving momentum flux for inflow and outflow, applying it to an ideal rocket and a mass-capturing cart, and stating system/frame assumptions; added eight formative items and four cards with synthetic values. The package remains partial, unreviewed and formative-only."
+      "Added an original variable-mass momentum lesson deriving momentum flux for inflow and outflow, applying it to an ideal rocket and a mass-capturing cart, and stating system/frame assumptions; added eight formative items and four cards with synthetic values. The package remains partial, unreviewed and formative-only.",
+      "Added an original center-of-mass, parallel-axis and system-energy reading with formative practice in the existing week 8. MIT OCW 8.01SC Fall 2016 and Open Yale Courses PHYS 200 are link-only scope comparators recorded in a new scope crosswalk; no source text, figure or problem is imported."
     ]
   },
   "prerequisites": {
@@ -572,11 +573,36 @@
         "physics-mechanics-outcome-2",
         "physics-mechanics-outcome-4"
       ]
+    },
+    {
+      "id": "physics-mechanics-22-objective-1",
+      "description": "Locate the center of mass of discrete and continuous one-dimensional systems, and use M a_cm = F_ext and P = M v_cm.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2"
+      ]
+    },
+    {
+      "id": "physics-mechanics-22-objective-2",
+      "description": "Separate a system's kinetic energy into a center-of-mass part and a relative part, and use the split to find the energy lost in a perfectly inelastic collision.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-2"
+      ]
+    },
+    {
+      "id": "physics-mechanics-22-objective-3",
+      "description": "Compute the moments of inertia of rods and disks, derive and apply the parallel-axis theorem, and split a rolling or swinging body's energy into translation and spin.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physics-mechanics-outcome-3",
+        "physics-mechanics-outcome-4"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week undergraduate scope only. Week 6 now links the fixed-mass momentum/impulse foundation to a variable-mass momentum and mass-flow lesson; week 10 pairs centrifuge circular motion with universal gravitation and circular orbits; week 14 remains a synthetic machine-compliance/orientation lab. Weeks 11–12 add an optional rotor trade-off project with rehearsal practice and milestone self-checks. All activities are open, ungraded practice. There are no graded homework sets, exams or graded project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week undergraduate scope only. Week 6 now links the fixed-mass momentum/impulse foundation to a variable-mass momentum and mass-flow lesson; week 8 groups a center-of-mass, parallel-axis and system-energy reading with the torque and rolling lessons; week 10 pairs centrifuge circular motion with universal gravitation and circular orbits; week 14 remains a synthetic machine-compliance/orientation lab. Weeks 11–12 add an optional rotor trade-off project with rehearsal practice and milestone self-checks. All activities are open, ungraded practice. There are no graded homework sets, exams or graded project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
@@ -654,14 +680,16 @@
       },
       {
         "week": 8,
-        "title": "Torque, angular momentum and rolling",
+        "title": "Torque, angular momentum, center of mass and rolling",
         "lesson_ids": [
           "physics-mechanics-10",
+          "physics-mechanics-22",
           "physics-mechanics-16",
           "physics-mechanics-17"
         ],
         "assessment_ids": [
           "physics-mechanics-10-practice",
+          "physics-mechanics-22-practice",
           "physics-mechanics-16-practice",
           "physics-mechanics-17-practice"
         ]
@@ -1532,6 +1560,49 @@
           ]
         }
       ]
+    },
+    {
+      "id": "physics-mechanics-module-22",
+      "title": "Center of mass, parallel axes and the energy of a system",
+      "source_ids": [
+        "mech-mit-801sc-week5-momentum",
+        "mech-mit-801sc-week10-rotation",
+        "mech-yale-phys200"
+      ],
+      "lessons": [
+        {
+          "id": "physics-mechanics-22",
+          "title": "Center of mass, parallel axes and the energy of a system",
+          "reading": "modules/22-center-of-mass-parallel-axes-and-system-energy.md",
+          "objectives": [
+            "physics-mechanics-22-objective-1",
+            "physics-mechanics-22-objective-2",
+            "physics-mechanics-22-objective-3"
+          ],
+          "worked_example": "For a synthetic uniform rod of mass 0.80 kg and length 0.50 m pivoted at one end and released from horizontal, I_cm = 0.01667 kg·m² and the parallel-axis theorem gives I_pivot = 0.06667 kg·m²; energy gives ω = 7.672 rad/s at the vertical, the center moves at 1.918 m/s and the tip at 3.836 m/s, and the split ½Mv_cm² + ½I_cmω² = 1.4715 + 0.4905 = 1.962 J equals the energy released.",
+          "question_ids": [
+            "physics-mechanics-22:cm-three-masses",
+            "physics-mechanics-22:cm-rod-density",
+            "physics-mechanics-22:cm-acceleration",
+            "physics-mechanics-22:skater-displacement",
+            "physics-mechanics-22:inelastic-loss",
+            "physics-mechanics-22:rod-end-inertia",
+            "physics-mechanics-22:disk-rim-inertia",
+            "physics-mechanics-22:parallel-axis-offset",
+            "physics-mechanics-22:rolling-kinetic-energy",
+            "physics-mechanics-22:sphere-rotational-fraction",
+            "physics-mechanics-22:internal-forces",
+            "physics-mechanics-22:parallel-axis-condition",
+            "physics-mechanics-22:system-claims"
+          ],
+          "card_ids": [
+            "physics-mechanics-22-card-1",
+            "physics-mechanics-22-card-2",
+            "physics-mechanics-22-card-3",
+            "physics-mechanics-22-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -2084,6 +2155,37 @@
         "physics-mechanics-21:depth-2"
       ],
       "points": 7
+    },
+    {
+      "id": "physics-mechanics-22-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Center of mass, parallel axes and system energy practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "physics-mechanics-22-objective-1",
+        "physics-mechanics-22-objective-2",
+        "physics-mechanics-22-objective-3",
+        "physics-mechanics-outcome-2",
+        "physics-mechanics-outcome-3",
+        "physics-mechanics-outcome-4"
+      ],
+      "question_ids": [
+        "physics-mechanics-22:cm-three-masses",
+        "physics-mechanics-22:cm-rod-density",
+        "physics-mechanics-22:cm-acceleration",
+        "physics-mechanics-22:skater-displacement",
+        "physics-mechanics-22:inelastic-loss",
+        "physics-mechanics-22:rod-end-inertia",
+        "physics-mechanics-22:disk-rim-inertia",
+        "physics-mechanics-22:parallel-axis-offset",
+        "physics-mechanics-22:rolling-kinetic-energy",
+        "physics-mechanics-22:sphere-rotational-fraction",
+        "physics-mechanics-22:internal-forces",
+        "physics-mechanics-22:parallel-axis-condition",
+        "physics-mechanics-22:system-claims"
+      ],
+      "points": 14
     }
   ],
   "grading_policy": {
@@ -2193,6 +2295,11 @@
       "version": "0.6.0",
       "date": "2026-10-22",
       "summary": "Added original massive-pulley/constraint and slip-to-roll/contact-power foundations, four connected momentum/energy/constraint/contact/simulation assignments, sixteen checkpoint items/cards and an analytic synthetic oscillator table. Distinguishes tension/torque coupling, contact-event laws and physical versus numerical energy changes. Preserves the rotor project and compliance lab; all models are synthetic, partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.7.0",
+      "date": "2026-10-28",
+      "summary": "Compared the course with a second university comparator, Open Yale Courses PHYS 200, alongside MIT OCW 8.01SC Fall 2016, in a new scope crosswalk that records covered, absent, elsewhere and local-extension topics. Two strands both comparators teach were absent: the center of mass (MIT Week 5 Lesson 17; Yale Lecture 8) and the parallel-axis theorem (MIT Week 10 Lesson 29; Yale Lecture 10). A new week-8 reading develops the center of mass for discrete and one-dimensional continuous systems, the motion of the center of mass, the split of kinetic energy into center-of-mass and relative parts with its use in collisions, moments of inertia of rods and disks, a derivation of the parallel-axis theorem, and the translation-plus-spin energy of rolling and swinging bodies. Added three objectives, 13 practice items and four retrieval cards. Resistive forces and gyroscopes (MIT only) and waves and fluid statics (Yale only) remain recorded gaps; thermodynamics belongs to the Thermodynamics & Transport course. The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
@@ -2205,7 +2312,8 @@
     "The new variable-mass lesson is a one-dimensional point-body model with uniform stream velocities and stated external forces. It does not cover engine thermodynamics, pressure thrust, multidimensional flow, vehicle control or real propulsion design.",
     "The rotor trade-off project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses separate invented candidates at a different target, and no software check evaluates a learner's project calculations or written comparison. Milestone weeks are planning suggestions, not measured workload or deadlines.",
     "Two new selected coupled-constraint/contact-power foundations and four open report/simulation assignments deepen forces, momentum/energy, rolling and oscillator verification. Browser checkpoints do not evaluate diagrams, written arguments, implementations or a real apparatus. General three-dimensional rigid-body/contact, deformable rope/traction/impact characterization and measured laboratory work remain beyond these models. Workload, scientific review and broader coursework/laboratory depth remain open.",
-    "Of the 126 numerical answers, 8 require units, 52 check significant figures and 0 check dimensions. New continuous checkpoint quantities request three significant figures in the stated scales."
+    "Of the 136 numerical answers, 8 require units, 52 check significant figures and 0 check dimensions. New continuous checkpoint quantities request three significant figures in the stated scales.",
+    "The scope crosswalk compares the comparators' public week, lesson and lecture titles, plus Yale lecture overviews and MIT sub-lesson titles for two topics, with the local readings, not their lectures, problem sets or exams. Resistive forces and gyroscopes, named only by MIT, and waves and fluid statics, named only by Yale, remain recorded gaps. Thermodynamics belongs to the Thermodynamics & Transport course and special relativity is outside the package."
   ],
   "intentionally_omitted": [
     "Graded assessments, complete laboratory sequence, cumulative graded project, measured workload and qualified human review remain outstanding.",

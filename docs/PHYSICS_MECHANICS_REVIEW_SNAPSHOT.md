@@ -2,11 +2,11 @@
 
 This identifies the public package; it does not approve a real mechanical system or course depth.
 
-- **Course package:** `physics-mechanics` 0.6.0
-- **Public package archive SHA-256:** `67a3d90a8837fd6d35e0b0b6da16db6d1f729ea633cbcfc72bea4c8373a0b4ac`
-- **Manifest SHA-256:** `d313bd29d7bfe019faf19d2786620640d605490c0e78856ee870cfff272fa465`
-- **Archive inventory:** 34 files, 511,130 bytes
-- **Calculated:** 2026-10-22
+- **Course package:** `physics-mechanics` 0.7.0
+- **Public package archive SHA-256:** `384ab166fc7b6c40f8b93182c80f2b9cd920aedbf7ff130b31817640cd2c07bd`
+- **Manifest SHA-256:** `0ed70098992117fc7e506e84b93ec099bd989abdcd5dd23ff1d23c38ae8b0185`
+- **Archive inventory:** 36 files, 554,436 bytes
+- **Calculated:** 2026-10-28
 - **Reproduce:** `python tools/course_package_digest.py --course-id physics-mechanics`
 
-Two original coupled-constraint/contact-power foundations and four connected report/simulation assignments add sixteen checkpoint items/cards and an analytic synthetic oscillator CSV. Browser checks do not assess diagrams, reports, code or real apparatus behavior. All geometry and motions are stipulated. The course remains partial, unreviewed and formative-only; the prior 0.5.0 snapshot remains preserved.
+A scope crosswalk compares the package with MIT OCW 8.01SC Fall 2016 and Open Yale Courses PHYS 200 by week, lesson and lecture titles. One original week-8 reading closes the gaps it found in two strands both comparators teach, the center of mass and the parallel-axis theorem, with three objectives, 13 practice items and four cards. All bodies and measurements are synthetic. The package remains partial, unreviewed and formative-only; the previous 0.6.0 snapshot is preserved.

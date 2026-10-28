@@ -53,7 +53,8 @@ def rotor(row: dict[str, float]) -> dict[str, float]:
 
 
 def test_route_is_scheduled_optional_and_ungraded():
-    assert MANIFEST["version"] == "0.6.0" and MANIFEST["maturity"] == "partial"
+    assert tuple(int(part) for part in MANIFEST["version"].split(".")) >= (0, 6, 0)
+    assert MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed" and MANIFEST["grading_policy"]["mode"] == "formative-only"
     rehearsal = ASSESSMENTS["physics-mechanics-project-rehearsal-practice"]
     project = ASSESSMENTS["physics-mechanics-rotor-project"]

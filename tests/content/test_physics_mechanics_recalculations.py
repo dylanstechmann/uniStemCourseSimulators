@@ -275,6 +275,57 @@ def expected_answers():
         a_stiffness=1000 / (lab_fit("a")[1] - machine),
         b_stiffness=1000 / (lab_fit("b")[1] - machine),
     )
+    # 0.7.0 lesson 22: weighted sums, density quadrature, a coupled-block simulation, a push-time root,
+    # a direct two-mass inertia, ring and rolling-energy quadrature, and a sphere's inertia coefficient.
+    def two_blocks(state):
+        spring = 50.0 * (state[2] - state[0] - 1.0)
+        return [state[1], spring / 2.0, state[3], (16.0 - spring) / 6.0]
+
+    blocks = integrate(two_blocks, [0.0, 0.0, 1.0, 0.0], 0.5, 2000)
+    push_time = bisect(lambda t: 0.5 * (100.0 / 50.0) * t * t - 3.5, 0.1, 10.0)
+    rim_radius, disk_mass = 0.20, 2.5
+    rim_density = disk_mass / (math.pi * rim_radius**2)
+    rim_inertia = rim_density * trapezoid(
+        lambda r: trapezoid(
+            lambda a: (r * r + rim_radius**2 - 2 * r * rim_radius * math.cos(a)) * r, 0, 2 * math.pi, 300
+        ),
+        0,
+        rim_radius,
+        300,
+    )
+    half_spacing = math.sqrt(0.30 / (2 * 2.0))
+    roll_radius, roll_speed, roll_mass = 0.10, 1.5, 2.0
+    roll_density = roll_mass / (math.pi * roll_radius**2)
+    roll_spin = roll_speed / roll_radius
+    rolling_energy = 0.5 * roll_density * trapezoid(
+        lambda r: trapezoid(
+            lambda a: (
+                (roll_speed + roll_spin * r * math.sin(a)) ** 2 + (roll_spin * r * math.cos(a)) ** 2
+            )
+            * r,
+            0,
+            2 * math.pi,
+            300,
+        ),
+        0,
+        roll_radius,
+        300,
+    )
+    sphere_coefficient = (2 / 3) * trapezoid(lambda r: r**4, 0, 1) / trapezoid(lambda r: r**2, 0, 1)
+    rod_density = lambda x: 4 + 3 * x  # noqa: E731
+    add(
+        22,
+        cm_three_masses=sum(m * x for m, x in [(3.0, 0.0), (1.0, 0.40), (2.0, 0.90)]) / 6.0,
+        cm_rod_density=trapezoid(lambda x: x * rod_density(x), 0, 2.0) / trapezoid(rod_density, 0, 2.0),
+        cm_acceleration=(2.0 * blocks[1] + 6.0 * blocks[3]) / 8.0 / 0.5,
+        skater_displacement=0.5 * (100.0 / 70.0) * push_time**2,
+        inelastic_loss=0.5 * 3.0 * 4.0**2 - 0.5 * 4.0 * (3.0 * 4.0 / 4.0) ** 2,
+        rod_end_inertia=trapezoid(lambda x: (1.2 / 0.60) * x * x, 0, 0.60),
+        disk_rim_inertia=rim_inertia,
+        parallel_axis_offset=2 * 2.0 * (half_spacing**2 + 0.25**2),
+        rolling_kinetic_energy=rolling_energy,
+        sphere_rotational_fraction=sphere_coefficient / (1 + sphere_coefficient),
+    )
     return answers
 
 
@@ -289,7 +340,7 @@ def test_numeric_key_matches_separate_calculation(item_id, expected):
 
 def test_all_numeric_keys_are_recalculated():
     numeric = {q["id"] for q in BANK.values() if q["type"] == "numeric"}
-    assert set(EXPECTED) == numeric and len(numeric) == 74
+    assert set(EXPECTED) == numeric and len(numeric) == 84
 
 
 def test_gravitation_lesson_statements_match_simulated_orbits():

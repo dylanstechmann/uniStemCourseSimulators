@@ -27,7 +27,7 @@ This is a personal hobby and learning project developed with substantial AI assi
 | [Linear Algebra for Modeling & Robotics](../content/courses/linear-algebra/syllabus.md) | 0.5.0 | 14 | 12 | [Project guide](../content/courses/linear-algebra/assignments/hidden-state-reconstruction-project-guide.md) |
 | [Organic Chemistry I for Life Sciences](../content/courses/organic-chemistry/syllabus.md) | 0.7.0 | 12 | 11 | [Project guide](../content/courses/organic-chemistry/assignments/aldol-identity-project-guide.md) |
 | [Physics: Electricity & Magnetism](../content/courses/physics-em/syllabus.md) | 0.7.0 | 14 | 13 | [Project guide](../content/courses/physics-em/assignments/series-resonance-project-guide.md) |
-| [Physics: Mechanics for Biomedical Engineers](../content/courses/physics-mechanics/syllabus.md) | 0.6.0 | 14 | 11 | [Project guide](../content/courses/physics-mechanics/assignments/rotor-tradeoff-project-guide.md) |
+| [Physics: Mechanics for Biomedical Engineers](../content/courses/physics-mechanics/syllabus.md) | 0.7.0 | 14 | 11 | [Project guide](../content/courses/physics-mechanics/assignments/rotor-tradeoff-project-guide.md) |
 | [Human Physiology for Engineers](../content/courses/physiology/syllabus.md) | 0.6.0 | 14 | 11 | [Project guide](../content/courses/physiology/assignments/renal-clearance-project-guide.md) |
 | [Programming & Numerical Methods for Bioengineering](../content/courses/programming/syllabus.md) | 0.6.0 | 14 | 13 | [Project guide](../content/courses/programming/assignments/sensor-calibration-project-guide.md) |
 | [Robotics & Mechatronics](../content/courses/robotics/syllabus.md) | 0.6.0 | 14 | 13 | [Project guide](../content/courses/robotics/assignments/trajectory-margin-project-guide.md) |

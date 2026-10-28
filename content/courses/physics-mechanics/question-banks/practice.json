@@ -5654,6 +5654,407 @@
           "Original synthetic mechanical-evidence practice developed with substantial AI assistance; no external problem, motion, geometry or dataset imported."
         ]
       }
+    },
+    {
+      "id": "physics-mechanics-22:cm-three-masses",
+      "type": "numeric",
+      "prompt": "Three synthetic masses of 3.0, 1.0 and 2.0 kg lie on a line at x = 0.00, 0.40 and 0.90 m. Where is their center of mass, in metres? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-mechanics-22-objective-1"
+      ],
+      "feedback": {
+        "hint": "Weight each position by its mass.",
+        "solution": "x_cm = (3.0·0.00 + 1.0·0.40 + 2.0·0.90)/6.0 = 2.20/6.0 = 0.3667 m, nearer the heavy mass at the origin than the unweighted mean 0.433 m.",
+        "lesson_ids": [
+          "physics-mechanics-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.3667,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physics-mechanics-22:cm-rod-density",
+      "type": "numeric",
+      "prompt": "A synthetic rod occupies 0 ≤ x ≤ 2.0 m with linear density λ(x) = 4 + 3x kg/m. Where is its center of mass, in metres? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-mechanics-22-objective-1"
+      ],
+      "feedback": {
+        "hint": "Divide ∫ xλ dx by the mass ∫ λ dx.",
+        "solution": "M = ∫₀² (4 + 3x) dx = 14 kg and ∫₀² x(4 + 3x) dx = 8 + 8 = 16, so x_cm = 16/14 = 1.143 m, beyond the midpoint 1.0 m because the rod is denser at the far end.",
+        "lesson_ids": [
+          "physics-mechanics-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 1.1429,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physics-mechanics-22:cm-acceleration",
+      "type": "numeric",
+      "prompt": "Two blocks of 2.0 kg and 6.0 kg are joined by a light spring on a frictionless table. A 16 N external force along the spring pulls the 6.0 kg block. What is the acceleration of the center of mass, in m/s²? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-mechanics-22-objective-1"
+      ],
+      "feedback": {
+        "hint": "Only external forces enter, and the whole system's mass is the divisor.",
+        "solution": "M a_cm = F_ext, so a_cm = 16/(2.0 + 6.0) = 2.0 m/s², however the spring stretches. The spring force is internal and cancels.",
+        "lesson_ids": [
+          "physics-mechanics-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 2.0,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physics-mechanics-22:skater-displacement",
+      "type": "numeric",
+      "prompt": "Two skaters of 50 kg and 70 kg stand together at rest on frictionless ice and push apart along a line. When the 50 kg skater has moved 3.5 m from the starting point, how far from the starting point is the 70 kg skater, in metres? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-mechanics-22-objective-1"
+      ],
+      "feedback": {
+        "hint": "Their center of mass cannot move.",
+        "solution": "With no external horizontal force the center of mass stays at the starting point, so 50·3.5 = 70·d and d = 2.5 m, on the opposite side.",
+        "lesson_ids": [
+          "physics-mechanics-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 2.5,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physics-mechanics-22:inelastic-loss",
+      "type": "numeric",
+      "prompt": "A 3.0 kg body moving at 4.0 m/s strikes a 1.0 kg body at rest, and the two stick together. How much kinetic energy is lost, in joules? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-mechanics-22-objective-2"
+      ],
+      "feedback": {
+        "hint": "Only the energy of the motion relative to the center of mass can be lost.",
+        "solution": "v_cm = 12/4.0 = 3.0 m/s. The initial energy is 24 J and the final energy is ½·4.0·3.0² = 18 J, so 6.0 J is lost. This equals ½μv_rel² with μ = 0.75 kg: ½·0.75·4.0² = 6.0 J.",
+        "lesson_ids": [
+          "physics-mechanics-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 6.0,
+        "unit": "",
+        "tolerance": 0.02,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physics-mechanics-22:rod-end-inertia",
+      "type": "numeric",
+      "prompt": "A uniform rod of mass 1.2 kg and length 0.60 m rotates about an axis through one end and perpendicular to the rod. What is its moment of inertia, in kg·m²? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-mechanics-22-objective-3"
+      ],
+      "feedback": {
+        "hint": "Start from the value about the center, ML²/12, and shift the axis.",
+        "solution": "I = ML²/12 + M(L/2)² = ML²/3 = 1.2·0.36/3 = 0.144 kg·m².",
+        "lesson_ids": [
+          "physics-mechanics-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.144,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physics-mechanics-22:disk-rim-inertia",
+      "type": "numeric",
+      "prompt": "A uniform disk of mass 2.5 kg and radius 0.20 m rotates about an axis perpendicular to the disk through a point on its rim. What is its moment of inertia, in kg·m²? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-mechanics-22-objective-3"
+      ],
+      "feedback": {
+        "hint": "Use I = I_cm + Md² with d equal to the radius.",
+        "solution": "I = ½MR² + MR² = (3/2)MR² = 1.5·2.5·0.04 = 0.150 kg·m².",
+        "lesson_ids": [
+          "physics-mechanics-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.15,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physics-mechanics-22:parallel-axis-offset",
+      "type": "numeric",
+      "prompt": "A body of mass 4.0 kg has a moment of inertia 0.30 kg·m² about an axis through its center of mass. What is its moment of inertia about a parallel axis 0.25 m from the center of mass, in kg·m²? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-mechanics-22-objective-3"
+      ],
+      "feedback": {
+        "hint": "Add Md² to the value about the center of mass.",
+        "solution": "I = I_cm + Md² = 0.30 + 4.0·0.25² = 0.30 + 0.25 = 0.55 kg·m².",
+        "lesson_ids": [
+          "physics-mechanics-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.55,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physics-mechanics-22:rolling-kinetic-energy",
+      "type": "numeric",
+      "prompt": "A solid disk of mass 2.0 kg and radius 0.10 m rolls without slipping with its center moving at 1.5 m/s. What is its total kinetic energy, in joules? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physics-mechanics-22-objective-3"
+      ],
+      "feedback": {
+        "hint": "Add the translational energy of the center of mass and the spin energy about it, with ω = v/R.",
+        "solution": "K = ½Mv² + ½(½MR²)(v/R)² = 2.25 + 1.125 = 3.375 J = ¾Mv².",
+        "lesson_ids": [
+          "physics-mechanics-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 3.375,
+        "unit": "",
+        "tolerance": 0.005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physics-mechanics-22:sphere-rotational-fraction",
+      "type": "numeric",
+      "prompt": "A solid sphere, with I_cm = (2/5)MR², rolls without slipping. What fraction of its total kinetic energy is rotational? Enter a decimal.",
+      "points": 1,
+      "objective_ids": [
+        "physics-mechanics-22-objective-3"
+      ],
+      "feedback": {
+        "hint": "Compare ½I_cmω² with ½Mv², using ω = v/R.",
+        "solution": "K_rot = ½(2/5)MR²(v/R)² = (1/5)Mv² and K_trans = ½Mv², so the fraction is 0.2/(0.5 + 0.2) = 2/7 = 0.2857.",
+        "lesson_ids": [
+          "physics-mechanics-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.2857,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physics-mechanics-22:internal-forces",
+      "type": "single_choice",
+      "prompt": "A stationary shell explodes in empty space into fragments of unequal mass. Ignoring gravity, which statement about the fragments' center of mass is correct?",
+      "points": 1,
+      "objective_ids": [
+        "physics-mechanics-22-objective-1"
+      ],
+      "feedback": {
+        "hint": "Are the explosion forces internal or external?",
+        "solution": "The explosion forces are internal, so the total momentum is still zero and the center of mass of the fragments stays where the shell was.",
+        "lesson_ids": [
+          "physics-mechanics-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "It stays at rest at the shell's original position",
+        "It moves in the direction of the heaviest fragment",
+        "It moves in the direction of the fastest fragment",
+        "It moves along a path that depends on the force of the explosion"
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "physics-mechanics-22:parallel-axis-condition",
+      "type": "single_choice",
+      "prompt": "When can the parallel-axis theorem I = I_cm + Md² be applied directly?",
+      "points": 1,
+      "objective_ids": [
+        "physics-mechanics-22-objective-3"
+      ],
+      "feedback": {
+        "hint": "What must be true of the axis that gives I_cm?",
+        "solution": "I_cm is defined for an axis through the center of mass, and d is the distance from that axis. To move between two other axes, go through the center of mass.",
+        "lesson_ids": [
+          "physics-mechanics-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "Between any two parallel axes",
+        "When one of the two axes passes through the center of mass",
+        "Only for uniform bodies",
+        "Only when the two axes are perpendicular"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "physics-mechanics-22:system-claims",
+      "type": "multiple_select",
+      "prompt": "Which statements about systems and rigid bodies are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "physics-mechanics-22-objective-1",
+        "physics-mechanics-22-objective-2",
+        "physics-mechanics-22-objective-3"
+      ],
+      "feedback": {
+        "hint": "Check what internal forces change, where the center of mass can lie, which axis gives the smallest moment, and what the energy split contains.",
+        "solution": "The momentum of a system is M v_cm, and the moment of inertia about a center-of-mass axis is the smallest among parallel axes. Rolling energy is ½Mv_cm² + ½I_cmω². But internal forces cannot change a_cm, and a center of mass can lie outside the body, as for a ring.",
+        "lesson_ids": [
+          "physics-mechanics-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "The total momentum of a system equals its total mass times the velocity of its center of mass.",
+        "Internal forces change the acceleration of the center of mass.",
+        "Among parallel axes, the one through the center of mass gives the smallest moment of inertia.",
+        "The center of mass of a body must lie inside the body.",
+        "For a rolling object, the kinetic energy is ½Mv_cm² + ½I_cmω²."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          2,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
     }
   ]
 }
