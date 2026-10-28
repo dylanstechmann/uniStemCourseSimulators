@@ -32,7 +32,7 @@ No course or candidate is activated by this command. `--check` detects report dr
 | signals-control | 0.6.0 | partial | unreviewed | formative-only | 0 |
 | statics-materials | 0.6.0 | partial | unreviewed | formative-only | 0 |
 | statistics | 0.6.0 | partial | unreviewed | formative-only | 0 |
-| transport | 0.6.0 | partial | unreviewed | formative-only | 0 |
+| transport | 0.7.0 | partial | unreviewed | formative-only | 0 |
 
 ## Candidate inventory
 

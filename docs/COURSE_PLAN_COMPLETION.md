@@ -34,7 +34,7 @@ This is a personal hobby and learning project developed with substantial AI assi
 | [Signals, Systems & Feedback Control](../content/courses/signals-control/syllabus.md) | 0.6.0 | 14 | 13 | [Project guide](../content/courses/signals-control/assignments/sampled-loop-project-guide.md) |
 | [Statics & Mechanics of Materials](../content/courses/statics-materials/syllabus.md) | 0.6.0 | 14 | 8 | [Project guide](../content/courses/statics-materials/assignments/beam-strength-and-stiffness-project-guide.md) |
 | [Probability, Biostatistics & Experimental Design](../content/courses/statistics/syllabus.md) | 0.6.0 | 14 | 14 | [Project guide](../content/courses/statistics/assignments/confirmatory-protocol-project-guide.md) |
-| [Thermodynamics & Transport in Bioengineering](../content/courses/transport/syllabus.md) | 0.6.0 | 14 | 13 | [Project guide](../content/courses/transport/assignments/heat-generation-slab-project-guide.md) |
+| [Thermodynamics & Transport in Bioengineering](../content/courses/transport/syllabus.md) | 0.7.0 | 14 | 13 | [Project guide](../content/courses/transport/assignments/heat-generation-slab-project-guide.md) |
 
 ## Work through a plan
 

@@ -177,12 +177,14 @@ def test_new_numeric_fields_recompute_and_grade(qid):
 
 def test_new_foundations_and_coursework_are_delivered_and_scheduled_once():
     assert len(NEW) == 18
-    assert MANIFEST["version"] == "0.6.0" and MANIFEST["maturity"] == "partial"
+    assert tuple(int(part) for part in MANIFEST["version"].split(".")) >= (0, 6, 0)
+    assert MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed"
     scheduled = [
         lid for week in MANIFEST["duration"]["weeks"] for lid in week["lesson_ids"]
     ]
-    assert len(scheduled) == len(set(scheduled)) == 24
+    # 0.7.0 adds the week-1 closed-system first-law reading.
+    assert len(scheduled) == len(set(scheduled)) == 25
     content = ContentRepository(ROOT / "content")
     for number in range(17, 23):
         lesson = content.lesson("transport", f"transport-{number}")

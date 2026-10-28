@@ -510,8 +510,8 @@ def test_transport_schedule_places_every_lesson_once_and_stays_partial():
     assert [w["week"] for w in weeks] == list(range(1, 15))
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
-    # The prior 18 routes plus three foundations and three assignments in 0.6.0.
-    assert len(all_lessons) == 24
+    # The prior 18 routes plus three foundations and three assignments in 0.6.0, and the closed-system first-law reading in 0.7.0.
+    assert len(all_lessons) == 25
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])

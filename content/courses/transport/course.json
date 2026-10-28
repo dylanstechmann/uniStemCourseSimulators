@@ -7,7 +7,7 @@
   "domain": "Bioengineering",
   "level": "Year 3",
   "maturity": "partial",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -19,7 +19,8 @@
       "Expanded week 3 with Fickian flux direction and units, transient diffusion, boundary conditions, diffusion and reaction time scales, the Damköhler comparison, reaction-diffusion length, and geometry and kinetic limits. Mapped both objectives to outcomes 2 and 4. Reassociated the preserved diffusion-time check with the time-scale objective and added direct flux-direction and diffusion-versus-reaction checks. Added MIT OpenCourseWare 10.37 Lecture 20 as a link-only technical reference.",
       "Expanded week 9 with Reynolds scaling, characteristic-length conventions, the fully developed Poiseuille relation, radius sensitivity, resistance networks, entrance effects, and limits for microvascular suspensions. Mapped both objectives to outcomes 3 and 4. Added a Reynolds-number interpretation item so the stated limits are practiced directly; existing numeric prompts and keys remain unchanged. Added MIT OpenCourseWare microfluidics and fluid-mechanics resources as link-only references.",
       "Expanded week 12 with conduction, convection and radiation rate laws; steady thermal-resistance networks; transient energy storage; lumped-capacitance assumptions; Biot and Fourier numbers; and model limits. Mapped the heat-transfer-mode objective to outcome 4 and the resistance-network objective to outcomes 1 and 4. Corrected the preserved slab-resistance item association and added direct practice comparing transfer modes; existing numeric prompts and keys remain unchanged. MIT OpenCourseWare 2.51 readings are a link-only reference.",
-      "Added an original chemical-potential and reaction-equilibrium lesson to week 1, connecting ideal-mixture activities, reaction Gibbs energy, K and an A⇌B equilibrium composition. Added nine formative items and four retrieval cards. MIT OCW 20.110J Fall 2005 calendar and Lecture 9 are link-only scope and technical references; no source text, figure or assessment was imported. The course remains partial, unreviewed and formative-only."
+      "Added an original chemical-potential and reaction-equilibrium lesson to week 1, connecting ideal-mixture activities, reaction Gibbs energy, K and an A⇌B equilibrium composition. Added nine formative items and four retrieval cards. MIT OCW 20.110J Fall 2005 calendar and Lecture 9 are link-only scope and technical references; no source text, figure or assessment was imported. The course remains partial, unreviewed and formative-only.",
+      "Added an original closed-system first-law and ideal-gas reading with formative practice to week 1. MIT OCW 20.110J Fall 2005 and Open Yale Courses PHYS 200 are link-only scope comparators recorded in a new scope crosswalk; no source text, figure or problem is imported."
     ]
   },
   "prerequisites": {
@@ -631,22 +632,48 @@
         "transport-outcome-2",
         "transport-outcome-4"
       ]
+    },
+    {
+      "id": "transport-23-objective-1",
+      "description": "Apply ΔU = Q − W to a closed system with the course's sign convention, and distinguish state functions from path functions.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "transport-outcome-1"
+      ]
+    },
+    {
+      "id": "transport-23-objective-2",
+      "description": "Compute the work, heat and temperature change of isothermal, isobaric, isochoric and reversible adiabatic processes of an ideal gas from C_v, C_p and γ.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "transport-outcome-1"
+      ]
+    },
+    {
+      "id": "transport-23-objective-3",
+      "description": "Compare reversible and irreversible expansions between the same states, and connect the difference to entropy generation.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "transport-outcome-5"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week undergraduate scope only. Week 1 now links control-volume, entropy-balance, and chemical-potential/reaction-equilibrium readings in one thermodynamic foundation; the four former compact prototype readings in weeks 1, 3, 9 and 12 also have expanded instruction alongside original lessons on residence time, transient diffusion, oxygen limits in slabs and spheroids, saturable uptake, tubing and pressure drop, advection and diffusion together, and lumped heat transfer. Week 10 pairs the tubing balances with steady-flow energy balances, Bernoulli and friction losses. Week 8 is a synthetic-data lab on oxygen depth profiles and week 14 is a lesson on a perfused construct with a hypoxic center that prepares the course case. Weeks 13–14 add an optional heat-generation slab project with rehearsal practice and milestone self-checks. All activities are open, ungraded practice. There are no graded homework sets, exams or graded project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week undergraduate scope only. Week 1 now links control-volume, closed-system first-law and ideal-gas, entropy-balance, and chemical-potential/reaction-equilibrium readings in one thermodynamic foundation; the four former compact prototype readings in weeks 1, 3, 9 and 12 also have expanded instruction alongside original lessons on residence time, transient diffusion, oxygen limits in slabs and spheroids, saturable uptake, tubing and pressure drop, advection and diffusion together, and lumped heat transfer. Week 10 pairs the tubing balances with steady-flow energy balances, Bernoulli and friction losses. Week 8 is a synthetic-data lab on oxygen depth profiles and week 14 is a lesson on a perfused construct with a hypoxic center that prepares the course case. Weeks 13–14 add an optional heat-generation slab project with rehearsal practice and milestone self-checks. All activities are open, ungraded practice. There are no graded homework sets, exams or graded project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
-        "title": "Thermodynamic foundations: control volumes, entropy and chemical equilibrium",
+        "title": "Thermodynamic foundations: control volumes, the closed-system first law, entropy and chemical equilibrium",
         "lesson_ids": [
           "transport-1",
+          "transport-23",
           "transport-14",
           "transport-15"
         ],
         "assessment_ids": [
           "transport-1-practice",
+          "transport-23-practice",
           "transport-14-practice",
           "transport-15-practice"
         ]
@@ -1627,6 +1654,48 @@
           ]
         }
       ]
+    },
+    {
+      "id": "transport-module-23",
+      "title": "The closed-system first law: work, heat and ideal-gas processes",
+      "source_ids": [
+        "transport-entropy-thermo",
+        "transport-yale-phys200"
+      ],
+      "lessons": [
+        {
+          "id": "transport-23",
+          "title": "The closed-system first law: work, heat and ideal-gas processes",
+          "reading": "modules/23-closed-system-first-law-work-heat-and-ideal-gas-processes.md",
+          "objectives": [
+            "transport-23-objective-1",
+            "transport-23-objective-2",
+            "transport-23-objective-3"
+          ],
+          "worked_example": "A synthetic sealed syringe holds 0.0200 mol of a diatomic ideal gas at 300 K and 100 kPa (V₁ = 0.4988 L). Compressed reversibly to half its volume, the gas reaches 395.9 K and 263.9 kPa with 39.85 J of work done on it when the compression is adiabatic, and stays at 300 K and 200 kPa with 34.58 J of work done on it, all of it leaving as heat, when the compression is isothermal.",
+          "question_ids": [
+            "transport-23:isothermal-work",
+            "transport-23:adiabatic-final-temperature",
+            "transport-23:adiabatic-work",
+            "transport-23:isobaric-heat",
+            "transport-23:adiabatic-pressure",
+            "transport-23:body-temperature-volume",
+            "transport-23:isochoric-enthalpy",
+            "transport-23:internal-energy-change",
+            "transport-23:irreversible-work",
+            "transport-23:entropy-generation",
+            "transport-23:state-function",
+            "transport-23:free-expansion",
+            "transport-23:process-claims"
+          ],
+          "card_ids": [
+            "transport-23-card-1",
+            "transport-23-card-2",
+            "transport-23-card-3",
+            "transport-23-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -2199,6 +2268,36 @@
         "transport-22:depth-2"
       ],
       "points": 7
+    },
+    {
+      "id": "transport-23-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "The closed-system first law and ideal-gas processes practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "transport-23-objective-1",
+        "transport-23-objective-2",
+        "transport-23-objective-3",
+        "transport-outcome-1",
+        "transport-outcome-5"
+      ],
+      "question_ids": [
+        "transport-23:isothermal-work",
+        "transport-23:adiabatic-final-temperature",
+        "transport-23:adiabatic-work",
+        "transport-23:isobaric-heat",
+        "transport-23:adiabatic-pressure",
+        "transport-23:body-temperature-volume",
+        "transport-23:isochoric-enthalpy",
+        "transport-23:internal-energy-change",
+        "transport-23:irreversible-work",
+        "transport-23:entropy-generation",
+        "transport-23:state-function",
+        "transport-23:free-expansion",
+        "transport-23:process-claims"
+      ],
+      "points": 14
     }
   ],
   "grading_policy": {
@@ -2313,19 +2412,25 @@
       "version": "0.6.0",
       "date": "2026-10-22",
       "summary": "Expanded thermodynamics/transport toward semester depth with original instruction on activities/phase equilibrium and local nonideal stability, electrochemical/coupled/osmotic driving forces, and conservative finite-volume diffusion/boundary verification; three connected paper/simulation assignments and 18 public checkpoint items/cards join existing calendar blocks. The package remains partial, unreviewed and formative-only; no learner code or prose is graded."
+    },
+    {
+      "version": "0.7.0",
+      "date": "2026-10-28",
+      "summary": "Compared the course with a second university comparator, Open Yale Courses PHYS 200 Lectures 20–24, alongside MIT OCW 20.110J Fall 2005, in a new scope crosswalk that records covered, shallow, absent and local-extension topics. No local reading, practice item or card used the terms state function, internal energy, ideal gas, Carnot or heat engine, although both comparators teach the closed-system foundation (MIT Lectures 1–4; Yale Lectures 21–23). A new week-1 reading defines state and path functions, applies ΔU = Q − W with the course's sign convention, develops the ideal gas with C_v, C_p and γ, works the isothermal, adiabatic, isobaric and isochoric processes of one gas, and compares a reversible with an irreversible expansion, connecting the lost work to the entropy generated. Added three objectives, 13 practice items and four retrieval cards, and corrected the stated range of items per original lesson. Heat engines and the Carnot cycle (Yale only), thermochemistry and the Joule–Thomson experiment (MIT only), statistical thermodynamics, single-component phase equilibria, solvation and the Debye length remain recorded gaps. The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
     "All four former compact legacy readings now have expanded instruction beside original lessons, including one synthetic-data virtual lab; this package is not equivalent to a full university semester.",
     "A proposed 14-week schedule exists but is unmeasured and unreviewed. There is one synthetic-data virtual lab and no graded homework sequence, laboratory sequence, midterm or cumulative final. An optional heat-generation slab project guide with rehearsal practice and Case studio milestone self-checks (weeks 13–14) is ungraded practice; the separate project draft stays inactive.",
-    "Practice items are short formative checks (two to four per expanded prototype unit and five to eleven per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
+    "Practice items are short formative checks (two to four per expanded prototype unit and two to thirteen per original lesson); they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
     "Total workload and weekly duration are unknown; former nominal credit values and hardcoded reading times do not establish workload.",
     "All constructs, solutes, cells and numbers are synthetic teaching examples; this package gives no laboratory protocols, handling procedures or medical advice and says nothing about any real tissue, device or process. The formulas are first-order textbook estimates, not design methods.",
     "The heat-generation slab project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses a separate synthetic slab, and no software check evaluates a learner's derivation or written interpretation. Milestone weeks are planning suggestions, not measured workload or deadlines.",
     "New thermodynamics and finite-volume readings develop selected phase/activity, electrochemical/osmotic/coupled-energy and conservative discretization models with three open coursework packets. General nonideal phase diagrams, statistical thermodynamics, self-consistent multi-ion fields and general CFD remain outside the selected combined scope. Code, derivations, plots and reports are not automatically evaluated; workload and qualified review remain open.",
-    "Of the 129 numerical answers, 28 require a unit, 43 check significant figures and 0 check dimensions. New continuous checkpoints request three significant figures; exact stoichiometric counts use integers."
+    "Of the 139 numerical answers, 28 require a unit, 43 check significant figures and 0 check dimensions. New continuous checkpoints request three significant figures; exact stoichiometric counts use integers.",
+    "The scope crosswalk compares the comparators' public lecture titles and, for Yale Lectures 20–24, their overviews and chapter titles with the local readings, not their lectures, problem sets or exams. Heat engines and the Carnot cycle, named only by Yale; thermochemistry and the Joule–Thomson experiment, named only by MIT; statistical thermodynamics; single-component phase equilibria; solvation and the colligative properties other than osmotic pressure; and the Debye length remain recorded gaps."
   ],
   "intentionally_omitted": [
     "Graded assessments, an activated integrative project and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package."

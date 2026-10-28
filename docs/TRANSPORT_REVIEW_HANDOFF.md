@@ -1,6 +1,6 @@
 # Thermodynamics & Transport review handoff
 
-This handoff targets Thermodynamics & Transport package version 0.6.0. The [review snapshot](TRANSPORT_REVIEW_SNAPSHOT.md) identifies the exact public files. The course remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+This handoff targets Thermodynamics & Transport package version 0.7.0. The [review snapshot](TRANSPORT_REVIEW_SNAPSHOT.md) identifies the exact public files. The course remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
 
 ## Review scope
 
@@ -25,4 +25,8 @@ After an actual review, record reviewer qualifications, date, exact package vers
 
 ## Deeper thermodynamics/transport target (2026-10-22)
 
-Review target 0.6.0 adds phase/activity and local-stability derivations, ion/coupled/osmotic ledgers and conservative finite-volume geometry, with three connected assignments. Check transfer signs, standard states, concentration bases, equilibrium-versus-rate claims, boundary distances, positivity conditions and conservation/refinement evidence. Automated checkpoints do not evaluate learner code or written reasoning; workload and qualified review remain open. The current snapshot pins the exact package.
+Version 0.6.0 added phase/activity and local-stability derivations, ion/coupled/osmotic ledgers and conservative finite-volume geometry, with three connected assignments. Check transfer signs, standard states, concentration bases, equilibrium-versus-rate claims, boundary distances, positivity conditions and conservation/refinement evidence. Automated checkpoints do not evaluate learner code or written reasoning; workload and qualified review remain open. The current snapshot pins the exact package.
+
+## Second-comparator target (2026-10-28)
+
+Current target 0.7.0 adds the [scope crosswalk](../content/courses/transport/scope-crosswalk.md) against MIT OCW 20.110J Fall 2005 and Open Yale Courses PHYS 200, and a week-1 reading on the closed-system first law, ideal-gas processes and reversible versus irreversible expansion (three objectives, 13 items, four cards). Check whether the crosswalk's labels are fair, given that it compares lecture titles, with Yale overviews and chapter titles read for Lectures 20–24, that 20.110J is a physical-chemistry style course on biomolecular systems, and that PHYS 200 is an introductory physics course. In the reading, check the state-function and path-function distinction, the sign convention ΔU = Q − W against the control-volume lesson, the ideal-gas heat capacities and γ, the isothermal and reversible adiabatic results (137.0 J, 144.2 K, 97.1 J, 19.98 kPa), the constant-pressure and constant-volume heats, the irreversible-expansion work and entropy-generation numbers (83.1 J, 0.2771 J/K, 0.1796 J/K, 53.9 J), and the syringe worked example. [The recalculation registry](../tests/content/test_ai_assisted_checks.py) recomputes the ten new numeric keys from closed forms, and [the lesson test](../tests/content/test_transport_closed_system_first_law_lesson.py) recomputes every number the reading states by quadrature of P dV, an RK4 integration of the adiabat, an entropy integral and a staged expansion that approaches the reversible work. Heat engines and the Carnot cycle, thermochemistry, the Joule–Thomson experiment, statistical thermodynamics, single-component phase equilibria, solvation and the Debye length remain recorded gaps. Workload and qualified review remain open.

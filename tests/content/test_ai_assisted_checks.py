@@ -1571,6 +1571,18 @@ TRANSPORT_NUMERIC = {
     "transport-16:tubing-reynolds": 1000 * (5e-6 / 60) / (math.pi * 1.0e-3**2 / 4) * 1.0e-3 / 0.90e-3,
     "transport-16:pump-hydraulic-power": (128 * 0.90e-3 * 0.50 * (5e-6 / 60) / (math.pi * 1.0e-3**4) + 1000 * 9.81 * 0.20) * (5e-6 / 60) * 1e3,
     "transport-16:viscous-heating": 2000 / (1000 * 4180) * 1e3,
+    # 2026-10-28 closed-system first-law unit, from closed forms (a lesson test checks them by quadrature and an adiabat ODE)
+    "transport-23:isothermal-work": 0.030 * 8.314 * 320 * math.log(5.0 / 2.0),
+    "transport-23:adiabatic-final-temperature": 400 * (1 / 4) ** (2 / 3),
+    "transport-23:adiabatic-work": 0.020 * 1.5 * 8.314 * (400 - 400 * (1 / 4) ** (2 / 3)),
+    "transport-23:isobaric-heat": 0.040 * 3.5 * 8.314 * (340 - 290),
+    "transport-23:adiabatic-pressure": 150 * 3**1.4,
+    "transport-23:body-temperature-volume": 0.0100 * 8.314 * (37.0 + 273.15) / 101.3e3 * 1e3,
+    "transport-23:isochoric-enthalpy": 0.060 * 2.5 * 8.314 * (340 - 300),
+    "transport-23:internal-energy-change": 0.035 * 2.5 * 8.314 * (335 - 285),
+    "transport-23:irreversible-work": (0.020 * 8.314 * 350 / 2.0e-3) * (2.0e-3 - 0.50e-3),
+    "transport-23:entropy-generation": 0.020 * 8.314 * math.log(2.0 / 0.50)
+    - (0.020 * 8.314 * 350 / 2.0e-3) * (2.0e-3 - 0.50e-3) / 350,
 }
 
 

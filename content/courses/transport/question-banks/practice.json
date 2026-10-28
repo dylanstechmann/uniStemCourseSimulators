@@ -5990,6 +5990,407 @@
           "Original synthetic thermodynamics/transport practice developed with substantial AI assistance; no external exercise or data copied."
         ]
       }
+    },
+    {
+      "id": "transport-23:isothermal-work",
+      "type": "numeric",
+      "prompt": "A synthetic sealed cylinder holds 0.030 mol of an ideal gas at 320 K. The gas expands reversibly and isothermally from 2.0 L to 5.0 L. How much work does the gas do, in joules? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "transport-23-objective-2"
+      ],
+      "feedback": {
+        "hint": "For an isothermal ideal gas, integrate nRT/V from V₁ to V₂.",
+        "solution": "W = nRT ln(V₂/V₁) = 0.030·8.314·320·ln 2.5 = 79.81·0.9163 = 73.13 J. Because ΔU = 0, the gas absorbs the same 73.13 J as heat.",
+        "lesson_ids": [
+          "transport-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 73.13,
+        "unit": "",
+        "tolerance": 0.15,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "transport-23:adiabatic-final-temperature",
+      "type": "numeric",
+      "prompt": "A synthetic monatomic ideal gas (γ = 5/3) at 400 K expands reversibly and adiabatically to four times its initial volume. What is its final temperature, in kelvin? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "transport-23-objective-2"
+      ],
+      "feedback": {
+        "hint": "TV^(γ−1) stays constant along a reversible adiabat.",
+        "solution": "T₂ = T₁(V₁/V₂)^(γ−1) = 400·(1/4)^(2/3) = 400·0.3969 = 158.7 K. The gas cools because the work it does is paid for by its internal energy.",
+        "lesson_ids": [
+          "transport-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 158.74,
+        "unit": "",
+        "tolerance": 0.1,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "transport-23:adiabatic-work",
+      "type": "numeric",
+      "prompt": "A synthetic sample of 0.020 mol of a monatomic ideal gas at 400 K expands reversibly and adiabatically to four times its initial volume. How much work does the gas do, in joules? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "transport-23-objective-2"
+      ],
+      "feedback": {
+        "hint": "With Q = 0, W = −ΔU, and ΔU = nC_vΔT with C_v = 3R/2.",
+        "solution": "T₂ = 400·(1/4)^(2/3) = 158.74 K, so W = −ΔU = nC_v(T₁ − T₂) = 0.020·12.471·241.26 = 60.18 J.",
+        "lesson_ids": [
+          "transport-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 60.18,
+        "unit": "",
+        "tolerance": 0.15,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "transport-23:isobaric-heat",
+      "type": "numeric",
+      "prompt": "A synthetic sample of 0.040 mol of a diatomic ideal gas, with C_v = 5R/2 and C_p = 7R/2, is heated at constant pressure from 290 K to 340 K. How much heat does it absorb, in joules? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "transport-23-objective-2"
+      ],
+      "feedback": {
+        "hint": "At constant pressure the heat equals the enthalpy change, nC_pΔT.",
+        "solution": "Q = nC_pΔT = 0.040·(7/2)·8.314·50 = 58.20 J. Of this, nC_vΔT = 41.57 J raises the internal energy and nRΔT = 16.63 J is expansion work.",
+        "lesson_ids": [
+          "transport-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 58.2,
+        "unit": "",
+        "tolerance": 0.15,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "transport-23:adiabatic-pressure",
+      "type": "numeric",
+      "prompt": "A synthetic diatomic ideal gas (γ = 7/5) at 150 kPa is compressed reversibly and adiabatically to one third of its initial volume. What is its final pressure, in kPa? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "transport-23-objective-2"
+      ],
+      "feedback": {
+        "hint": "PV^γ stays constant along a reversible adiabat.",
+        "solution": "P₂ = P₁(V₁/V₂)^γ = 150·3^1.4 = 150·4.6555 = 698.3 kPa. An isothermal compression to one third of the volume would give only 450 kPa, because the adiabatic gas also heats.",
+        "lesson_ids": [
+          "transport-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 698.3,
+        "unit": "",
+        "tolerance": 1.0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "transport-23:body-temperature-volume",
+      "type": "numeric",
+      "prompt": "What volume does 0.0100 mol of an ideal gas occupy at 37.0 °C and 101.3 kPa, in litres? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "transport-23-objective-2"
+      ],
+      "feedback": {
+        "hint": "Convert the temperature to kelvin before using PV = nRT.",
+        "solution": "T = 37.0 + 273.15 = 310.15 K, so V = nRT/P = 0.0100·8.314·310.15/101,300 = 2.545 × 10⁻⁴ m³ = 0.2545 L. Using 37 in place of 310.15 would give 0.0304 L.",
+        "lesson_ids": [
+          "transport-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.2545,
+        "unit": "",
+        "tolerance": 0.0006,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "transport-23:isochoric-enthalpy",
+      "type": "numeric",
+      "prompt": "A synthetic rigid, sealed vessel holds 0.060 mol of a monatomic ideal gas that is heated from 300 K to 340 K. What is the change in the gas's enthalpy H = U + PV, in joules? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "transport-23-objective-2"
+      ],
+      "feedback": {
+        "hint": "H depends only on T for an ideal gas, so ΔH = nC_pΔT whatever the process.",
+        "solution": "ΔH = nC_pΔT = 0.060·(5/2)·8.314·40 = 49.88 J. As a check, ΔU = nC_vΔT = 29.93 J and Δ(PV) = nRΔT = 19.95 J add to 49.88 J. The heat absorbed in the rigid vessel is only ΔU = 29.93 J.",
+        "lesson_ids": [
+          "transport-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 49.88,
+        "unit": "",
+        "tolerance": 0.1,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "transport-23:internal-energy-change",
+      "type": "numeric",
+      "prompt": "A synthetic sample of 0.035 mol of a diatomic ideal gas (C_v = 5R/2) is heated at constant pressure from 285 K to 335 K. What is the change in its internal energy, in joules? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "transport-23-objective-1"
+      ],
+      "feedback": {
+        "hint": "For an ideal gas ΔU = nC_vΔT for every process, including this constant-pressure one.",
+        "solution": "ΔU = nC_vΔT = 0.035·(5/2)·8.314·50 = 36.37 J. The heat absorbed, nC_pΔT = 50.92 J, is larger because the gas also does nRΔT = 14.55 J of expansion work: 50.92 − 14.55 = 36.37 J.",
+        "lesson_ids": [
+          "transport-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 36.37,
+        "unit": "",
+        "tolerance": 0.1,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "transport-23:irreversible-work",
+      "type": "numeric",
+      "prompt": "A synthetic sample of 0.020 mol of an ideal gas at 350 K expands from 0.50 L to 2.0 L against a constant external pressure equal to its final pressure, exchanging heat so that it ends at 350 K. How much work does the gas do, in joules? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "transport-23-objective-3"
+      ],
+      "feedback": {
+        "hint": "With a constant external pressure, W = P_ext ΔV; find the final pressure from PV = nRT.",
+        "solution": "The final pressure is nRT/V₂ = 0.020·8.314·350/0.0020 = 29.10 kPa, so W = P_ext ΔV = 29.10 kPa·1.5 L = 43.65 J. The reversible isothermal path between the same states would deliver nRT ln 4 = 80.68 J.",
+        "lesson_ids": [
+          "transport-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 43.65,
+        "unit": "",
+        "tolerance": 0.1,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "transport-23:entropy-generation",
+      "type": "numeric",
+      "prompt": "A synthetic sample of 0.020 mol of an ideal gas expands from 0.50 L to 2.0 L at 350 K against a constant external pressure equal to its final pressure, taking heat from surroundings at 350 K so that it ends at 350 K. How much entropy is generated, in J/K? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "transport-23-objective-3"
+      ],
+      "feedback": {
+        "hint": "Entropy is a state function: ΔS = nR ln(V₂/V₁) for the gas. Subtract the entropy Q/T_b carried in by heat, with Q = W because ΔU = 0.",
+        "solution": "ΔS = nR ln 4 = 0.020·8.314·1.3863 = 0.2305 J/K. The heat taken in equals the work, 43.65 J, so Q/T_b = 43.65/350 = 0.1247 J/K and S_gen = 0.2305 − 0.1247 = 0.1058 J/K. Equivalently, the lost work 80.68 − 43.65 = 37.03 J divided by 350 K.",
+        "lesson_ids": [
+          "transport-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.1058,
+        "unit": "",
+        "tolerance": 0.0015,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "transport-23:state-function",
+      "type": "single_choice",
+      "prompt": "Which quantity is a state function of a closed system?",
+      "points": 1,
+      "objective_ids": [
+        "transport-23-objective-1"
+      ],
+      "feedback": {
+        "hint": "A state function depends only on the present state, not on how the state was reached.",
+        "solution": "Internal energy depends only on the state. Heat and work, and the area under a pressure–volume path (which equals the work), depend on the path.",
+        "lesson_ids": [
+          "transport-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "The heat absorbed during a process",
+        "The work done by the system during a process",
+        "The internal energy of the system",
+        "The area under the path on a pressure–volume diagram"
+      ],
+      "solution_spec": {
+        "answer": 2
+      }
+    },
+    {
+      "id": "transport-23:free-expansion",
+      "type": "single_choice",
+      "prompt": "A synthetic ideal gas expands freely into an evacuated, insulated container. Which statement is correct?",
+      "points": 1,
+      "objective_ids": [
+        "transport-23-objective-3"
+      ],
+      "feedback": {
+        "hint": "What does the gas push against, and what heat crosses the insulated boundary?",
+        "solution": "There is nothing to push against, so W = 0, and the insulation gives Q = 0. Then ΔU = 0, and because the internal energy of an ideal gas depends only on temperature, its temperature is unchanged. The process is irreversible, so entropy is generated.",
+        "lesson_ids": [
+          "transport-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "W = 0, Q = 0 and ΔU = 0, so the gas keeps its temperature",
+        "The gas does work PΔV on the vacuum, so it cools",
+        "Heat must flow in to keep the temperature constant",
+        "The gas cools as much as in a reversible adiabatic expansion"
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "transport-23:process-claims",
+      "type": "multiple_select",
+      "prompt": "Which statements about closed systems and ideal gases are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "transport-23-objective-1",
+        "transport-23-objective-2",
+        "transport-23-objective-3"
+      ],
+      "feedback": {
+        "hint": "Check which quantities depend on the path, what ΔU depends on for an ideal gas, and the ratio R/C_p.",
+        "solution": "ΔU depends only on temperature for an ideal gas, an irreversible expansion between the same states with heat exchanged at one temperature loses work and generates entropy, and W/Q = nRΔT/(nC_pΔT) = 2/5 for a monatomic gas. But a reversible adiabatic expansion cools the gas, and heat is a path function: only the difference Q − W is the same on every path between two states.",
+        "lesson_ids": [
+          "transport-23"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "ΔU = nC_vΔT for any process of an ideal gas.",
+        "In a reversible adiabatic expansion of an ideal gas, the temperature stays constant.",
+        "For an expansion between the same two states with heat exchanged at one fixed temperature, an irreversible path does less work than the reversible path and generates entropy.",
+        "Heat is a state function because ΔU = Q − W.",
+        "For a monatomic ideal gas heated at constant pressure, 40% of the heat absorbed becomes expansion work."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          2,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
     }
   ]
 }

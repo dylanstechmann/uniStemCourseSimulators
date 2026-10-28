@@ -1,6 +1,6 @@
 # Thermodynamics & Transport in Bioengineering
 
-**Maturity: partial. Version: 0.6.0.**
+**Maturity: partial. Version: 0.7.0.**
 
 Conservation laws, thermodynamic driving forces, fluid mechanics, heat and mass transfer, and scaling applied to cells, tissues, and bioprocess equipment.
 
@@ -20,11 +20,11 @@ Differential Equations; Physics: Mechanics; General Chemistry II. Structured req
 
 ## Proposed 14-week schedule
 
-This is a proposed scope, not a measured or reviewed semester. Week 1 links control-volume balances, entropy and chemical equilibrium in a thermodynamic foundation; the course retains a 14-week proposal.
+This is a proposed scope, not a measured or reviewed semester. Week 1 links control-volume balances, the closed-system first law and ideal-gas processes, entropy and chemical equilibrium in a thermodynamic foundation; the course retains a 14-week proposal. See the [scope crosswalk](scope-crosswalk.md) for the comparison with MIT OCW 20.110J and Open Yale Courses PHYS 200.
 
 | Week | Readings and activities |
 | --- | --- |
-| 1 | [Control volumes and conservation](modules/01-control-volumes-and-conservation.md); [Entropy balances and irreversibility](modules/14-entropy-balances-and-irreversibility.md); [Chemical potential and reaction equilibrium](modules/15-chemical-potential-and-reaction-equilibrium.md) |
+| 1 | [Control volumes and conservation](modules/01-control-volumes-and-conservation.md); [The closed-system first law: work, heat and ideal-gas processes](modules/23-closed-system-first-law-work-heat-and-ideal-gas-processes.md); [Entropy balances and irreversibility](modules/14-entropy-balances-and-irreversibility.md); [Chemical potential and reaction equilibrium](modules/15-chemical-potential-and-reaction-equilibrium.md) |
 | 2 | [Well-mixed chambers: residence time, wash-in and washout, and tanks in series](modules/12-residence-time-and-tanks-in-series.md); [Activities, phase partitioning and nonideal stability](modules/mixtures-and-phase-equilibrium.md) |
 | 3 | [Diffusion, reaction, and characteristic length](modules/02-diffusion-reaction-and-characteristic-length.md); [Electrochemical potentials, coupled energy and solvent flux](modules/electrochemical-coupling.md) |
 | 4 | [Transient diffusion: penetration depth, the error function and equilibration times](modules/07-transient-diffusion-and-the-error-function.md); [Finite-volume diffusion, boundary geometry and conservation](modules/conservative-diffusion-models.md) |
@@ -41,7 +41,7 @@ This is a proposed scope, not a measured or reviewed semester. Week 1 links cont
 
 ## Assessment and study policy
 
-The package has 24 readings/activity guides, 137 public practice items and 81 retrieval cards. Lessons use mapped formative checks, including numeric, choice, structured-response and CSV-upload items. Week 8 is a synthetic-data virtual lab; week 14 pairs an integrative transport lesson with an inactive course-case draft. These are open, ungraded activities with no institutional or transferable credit. Workload has not been measured.
+The package has 25 readings/activity guides, 150 public practice items and 85 retrieval cards. Lessons use mapped formative checks, including numeric, choice, structured-response and CSV-upload items. Week 8 is a synthetic-data virtual lab; week 14 pairs an integrative transport lesson with an inactive course-case draft. These are open, ungraded activities with no institutional or transferable credit. Workload has not been measured.
 
 ## Connected coursework (open, ungraded)
 
@@ -57,10 +57,12 @@ The [steady heat-generation slab portfolio](assessment-specs/heat-generation-sla
 
 ## Current limitations
 
-The 14-week proposal is unmeasured and unreviewed; there are no graded homework sets, midterm, cumulative final or completed laboratory sequence. The new phase/activity, electrochemical/coupled/osmotic and finite-volume readings extend the former single ideal-reaction example. They develop selected models; general nonideal phase diagrams, statistical thermodynamics, self-consistent multi-ion fields and general CFD remain beyond the selected combined scope. The oxygen-construct models are first-order teaching estimates, not design methods. All data and values are synthetic, and qualified human review is required before the course could meet a complete-course standard.
+The 14-week proposal is unmeasured and unreviewed; there are no graded homework sets, midterm, cumulative final or completed laboratory sequence. The new phase/activity, electrochemical/coupled/osmotic and finite-volume readings extend the former single ideal-reaction example. They develop selected models; general nonideal phase diagrams, statistical thermodynamics, self-consistent multi-ion fields and general CFD remain beyond the selected combined scope. The scope crosswalk also records heat engines and the Carnot cycle (named only by Open Yale PHYS 200), thermochemistry and the Joule–Thomson experiment (named only by MIT 20.110J), single-component phase equilibria, solvation and the Debye length as gaps. The oxygen-construct models are first-order teaching estimates, not design methods. All data and values are synthetic, and qualified human review is required before the course could meet a complete-course standard.
 
 ## Sources and licensing
 
 MIT OCW 20.110J Fall 2005 is a broad undergraduate thermodynamics comparator; its calendar places equilibrium/free energy, chemical potential and chemical equilibrium in sessions 8–12. The original A⇌B lesson is narrower. The calendar and Lecture 9 resource are link-only; no source assets are copied or adapted. See [content/SOURCES_AND_LICENSES.md](../../SOURCES_AND_LICENSES.md). No affiliation or equivalency is implied.
 
 The 2026-10-22 expansion compares the actual original readings/examples with 20.110J Fall 2005 phase/nonideal/osmotic topics and 20.330J Spring 2007 ion-transport/conservation/diffusion foundations. It adds original derivations and connected coursework, not imported university assignments. This personal hobby and learning project uses substantial AI assistance; no owner walkthrough or qualified approval is implied.
+
+The 0.7.0 second-comparator pass adds [Open Yale Courses PHYS 200 Fundamentals of Physics I](https://oyc.yale.edu/physics/phys-200) (CC BY-NC-SA 3.0, link-only) beside 20.110J. The 20.110J [calendar](https://ocw.mit.edu/courses/20-110j-thermodynamics-of-biomolecular-systems-fall-2005/pages/calendar/) places temperature, state functions and the first law, heat capacity, and reversible and irreversible processes in Lectures 1–4, and Yale's [Lecture 22](https://oyc.yale.edu/physics/phys-200/lecture-22) and [Lecture 23](https://oyc.yale.edu/physics/phys-200/lecture-23) have chapters on quasi-static processes, internal energy and the first law, specific heats and adiabatic processes. This package lacked those closed-system foundations, and the new original week-1 reading closes the gap. The [scope crosswalk](scope-crosswalk.md) records the comparison as an AI-assisted, unreviewed analysis of lecture titles and, for Yale Lectures 20–24, overviews and chapter titles, not of lecture content or assessment. No source prose, transcript, figure or problem is imported.
