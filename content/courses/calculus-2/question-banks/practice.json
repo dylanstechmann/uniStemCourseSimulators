@@ -5451,6 +5451,405 @@
           "Original synthetic calculus practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
         ]
       }
+    },
+    {
+      "id": "calculus-2-22:average-value",
+      "type": "numeric",
+      "prompt": "What is the average value of f(x) = 3x² − 2x on the interval [1, 3]? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-22-objective-1"
+      ],
+      "feedback": {
+        "hint": "Divide the integral by the length of the interval.",
+        "solution": "∫₁³(3x² − 2x) dx = [x³ − x²] from 1 to 3 = 18 − 0 = 18, and the interval has length 2, so the average value is 9.",
+        "lesson_ids": [
+          "calculus-2-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 9,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-2-22:average-rate",
+      "type": "numeric",
+      "prompt": "A synthetic assay takes up substrate at the rate r(t) = 8e^(−0.25t) µmol/min for 0 ≤ t ≤ 6 min. What is the average uptake rate over these 6 minutes, in µmol/min? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-22-objective-1"
+      ],
+      "feedback": {
+        "hint": "Find the total uptake first, then divide by the time.",
+        "solution": "The total is ∫₀⁶ 8e^(−0.25t) dt = 32(1 − e^(−1.5)) = 24.86 µmol, so the average rate is 24.86/6 = 4.143 µmol/min, between the initial rate 8 and the final rate 8e^(−1.5) = 1.79.",
+        "lesson_ids": [
+          "calculus-2-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 4.143,
+        "unit": "",
+        "tolerance": 0.005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-2-22:rod-mass",
+      "type": "numeric",
+      "prompt": "A synthetic rod occupies 0 ≤ x ≤ 3 m with linear density λ(x) = 1 + x² kg/m. What is its mass, in kg? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-22-objective-2"
+      ],
+      "feedback": {
+        "hint": "Slice the rod into pieces of length dx and add their masses.",
+        "solution": "M = ∫₀³(1 + x²) dx = 3 + 9 = 12 kg.",
+        "lesson_ids": [
+          "calculus-2-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 12,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-2-22:rod-weighted-position",
+      "type": "numeric",
+      "prompt": "For the same rod, with λ(x) = 1 + x² kg/m on 0 ≤ x ≤ 3 m, what is the density-weighted average position x̄, in metres? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-22-objective-2"
+      ],
+      "feedback": {
+        "hint": "Divide ∫ xλ dx by the mass, not by the length.",
+        "solution": "∫₀³ x(1 + x²) dx = 9/2 + 81/4 = 24.75, so x̄ = 24.75/12 = 2.0625 m, to the right of the midpoint 1.5 m because the rod is denser at the x = 3 end.",
+        "lesson_ids": [
+          "calculus-2-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 2.0625,
+        "unit": "",
+        "tolerance": 0.005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-2-22:cell-count",
+      "type": "numeric",
+      "prompt": "A synthetic capillary segment has cell density n(x) = 500e^(−x/3) cells/mm for 0 ≤ x ≤ 6 mm. How many cells does the segment hold? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-22-objective-2"
+      ],
+      "feedback": {
+        "hint": "Total the density along the segment.",
+        "solution": "N = ∫₀⁶ 500e^(−x/3) dx = 1500(1 − e^(−2)) = 1297 cells.",
+        "lesson_ids": [
+          "calculus-2-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 1297,
+        "unit": "",
+        "tolerance": 1,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-2-22:normalizing-constant",
+      "type": "numeric",
+      "prompt": "The function f(x) = kx² on 0 ≤ x ≤ 3, and 0 elsewhere, is a probability density. What is k? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-22-objective-3"
+      ],
+      "feedback": {
+        "hint": "The total area under a density must be 1.",
+        "solution": "∫₀³ kx² dx = 9k = 1, so k = 1/9 = 0.1111.",
+        "lesson_ids": [
+          "calculus-2-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.1111,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-2-22:interval-probability",
+      "type": "numeric",
+      "prompt": "A synthetic waiting time T has density f(t) = 0.2e^(−0.2t) for t ≥ 0. What is P(1 ≤ T ≤ 5)? Enter a decimal between 0 and 1.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-22-objective-3"
+      ],
+      "feedback": {
+        "hint": "Integrate the density over the interval.",
+        "solution": "P = ∫₁⁵ 0.2e^(−0.2t) dt = e^(−0.2) − e^(−1) = 0.45085, which rounds to 0.4509.",
+        "lesson_ids": [
+          "calculus-2-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.4509,
+        "unit": "",
+        "tolerance": 0.001,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-2-22:density-mean",
+      "type": "numeric",
+      "prompt": "The function f(x) = x/2 on 0 ≤ x ≤ 2, and 0 elsewhere, is a probability density. What is its mean? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-22-objective-3"
+      ],
+      "feedback": {
+        "hint": "The mean is ∫ x f(x) dx when the total is 1.",
+        "solution": "∫₀² x·(x/2) dx = [x³/6] from 0 to 2 = 8/6 = 1.333, to the right of the midpoint 1 because the density grows with x.",
+        "lesson_ids": [
+          "calculus-2-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 1.3333,
+        "unit": "",
+        "tolerance": 0.005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-2-22:exponential-median",
+      "type": "numeric",
+      "prompt": "A waiting time has density f(t) = 0.2e^(−0.2t) for t ≥ 0. What is its median, the value m with P(T ≤ m) = 1/2? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-22-objective-3"
+      ],
+      "feedback": {
+        "hint": "Solve 1 − e^(−0.2m) = 1/2.",
+        "solution": "1 − e^(−0.2m) = 1/2 gives e^(−0.2m) = 1/2 and m = ln 2/0.2 = 3.466. This is below the mean 1/0.2 = 5 because the long right tail pulls the mean up.",
+        "lesson_ids": [
+          "calculus-2-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 3.466,
+        "unit": "",
+        "tolerance": 0.005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-2-22:bell-curve-interval",
+      "type": "numeric",
+      "prompt": "The standard bell curve is φ(z) = e^(−z²/2)/√(2π). Use numerical integration to find P(−1.5 ≤ Z ≤ 1.5). Enter a decimal between 0 and 1 with four decimal places.",
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-22-objective-3"
+      ],
+      "feedback": {
+        "hint": "There is no elementary antiderivative; apply Simpson's rule on [−1.5, 1.5] with many panels.",
+        "solution": "Simpson's rule with 4000 panels gives ∫ from −1.5 to 1.5 of φ(z) dz = 0.8664. As a check it lies between the values 0.6827 for ±1 and 0.9545 for ±2.",
+        "lesson_ids": [
+          "calculus-2-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.8664,
+        "unit": "",
+        "tolerance": 0.0005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "calculus-2-22:density-above-one",
+      "type": "single_choice",
+      "prompt": "A uniform density on [0, 0.5] has the constant value f = 2 there. Which statement is correct?",
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-22-objective-3"
+      ],
+      "feedback": {
+        "hint": "Probabilities come from areas, not from values of f.",
+        "solution": "The total area is 2 × 0.5 = 1, so this is a valid density. A density value is probability per unit length and may exceed 1; only the area under it over an interval is a probability.",
+        "lesson_ids": [
+          "calculus-2-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "It is invalid, because a probability density can never exceed 1",
+        "It is valid, because probabilities come from areas and the total area is 2 × 0.5 = 1",
+        "It means the probability of the value 0.25 is 2",
+        "It is valid only if the mean is 2"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "calculus-2-22:infinite-mean",
+      "type": "single_choice",
+      "prompt": "For the density f(x) = 1/x² on x ≥ 1, which statement is correct?",
+      "points": 1,
+      "objective_ids": [
+        "calculus-2-22-objective-3"
+      ],
+      "feedback": {
+        "hint": "Compare ∫ f with ∫ x f, using the p-test.",
+        "solution": "The total is lim (1 − 1/B) = 1, so f is a density. But the mean is ∫₁^B x·(1/x²) dx = ln B, which grows without bound; the p = 1 case of the p-test diverges.",
+        "lesson_ids": [
+          "calculus-2-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "Its total area is infinite, so it is not a density",
+        "Its total area is 1 and its mean is finite",
+        "Its total area is 1, but its mean is infinite because ∫ dx/x diverges",
+        "Its total area is 1 and its mean equals 1"
+      ],
+      "solution_spec": {
+        "answer": 2
+      }
+    },
+    {
+      "id": "calculus-2-22:average-claims",
+      "type": "multiple_select",
+      "prompt": "Which statements about averages and densities are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "calculus-2-22-objective-1",
+        "calculus-2-22-objective-3"
+      ],
+      "feedback": {
+        "hint": "Think about extreme values, point probabilities, and what a total of 1 does and does not guarantee.",
+        "solution": "An average of a continuous function lies between its least and greatest values, and a single exact value has probability 0 under a continuous density. A density may exceed 1, the mean and median differ for skewed densities, and a total of 1 does not make the mean finite.",
+        "lesson_ids": [
+          "calculus-2-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "The average value of a continuous function on [a, b] lies between its least and greatest values there.",
+        "A probability density must satisfy f(x) ≤ 1 everywhere.",
+        "For a continuous density, the probability of any single exact value is 0.",
+        "The mean and the median of a density are always equal.",
+        "If f ≥ 0 and the integral of f over [1, ∞) equals 1, the mean ∫ x f(x) dx is automatically finite."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
     }
   ]
 }

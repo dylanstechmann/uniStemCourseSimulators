@@ -94,6 +94,19 @@ def geometric_tail(final_index, ratio=0.4):
     return math.fsum(ratio**k for k in range(final_index + 1, final_index + 101))
 
 
+def bisection(f, lo, hi):
+    """Root of a function that changes sign on [lo, hi]."""
+    flo = f(lo)
+    assert flo * f(hi) <= 0
+    for _ in range(80):
+        mid = (lo + hi) / 2
+        if flo * f(mid) <= 0:
+            hi = mid
+        else:
+            lo, flo = mid, f(mid)
+    return (lo + hi) / 2
+
+
 def expected_answers():
     answers = {}
 
@@ -240,6 +253,24 @@ def expected_answers():
         completed_square_arctangent=integral(lambda x: 1 / (x * x - 2 * x + 10), 1, 4),
         completed_square_arcsine=integral(lambda x: (3 + 2 * x - x * x) ** -0.5, 1, 2.5),
     )
+    # 0.7.0 lesson 22: Simpson quadrature of rates, densities and the bell curve; bisection for the median.
+    uptake = lambda t: 8 * math.exp(-0.25 * t)  # noqa: E731
+    rod = lambda x: 1 + x * x  # noqa: E731
+    waiting = lambda t: 0.2 * math.exp(-0.2 * t)  # noqa: E731
+    bell = lambda z: math.exp(-z * z / 2) / math.sqrt(2 * math.pi)  # noqa: E731
+    add(
+        22,
+        average_value=integral(lambda x: 3 * x * x - 2 * x, 1, 3) / 2,
+        average_rate=integral(uptake, 0, 6) / 6,
+        rod_mass=integral(rod, 0, 3),
+        rod_weighted_position=integral(lambda x: x * rod(x), 0, 3) / integral(rod, 0, 3),
+        cell_count=integral(lambda x: 500 * math.exp(-x / 3), 0, 6),
+        normalizing_constant=1 / integral(lambda x: x * x, 0, 3),
+        interval_probability=integral(waiting, 1, 5),
+        density_mean=integral(lambda x: x * x / 2, 0, 2),
+        exponential_median=bisection(lambda m: integral(waiting, 0, m, 400) - 0.5, 0.1, 30),
+        bell_curve_interval=integral(bell, -1.5, 1.5, 4000),
+    )
     _, _, _, nodes, force = lab_data()
     add(
         "lab-01",
@@ -266,7 +297,7 @@ def test_all_numeric_keys_with_separate_calculations(question_id):
 
 def test_numeric_calculation_inventory_is_exhaustive():
     assert set(EXPECTED) == {key for key, q in BANK.items() if q["type"] == "numeric"}
-    assert len(EXPECTED) == 75
+    assert len(EXPECTED) == 85
 
 
 CSV_CHECKS = BANK["calculus-2-lab-01:summary"]["solution_spec"]["validation_spec"][
@@ -507,8 +538,9 @@ def test_schedule_and_partial_status():
         "calculus-2-case",
         "calculus-2-tail-project",  # 0.5.0: the optional project's milestone record
     ]
-    # Existing topic/lab/project routes plus two foundations and four reports in 0.6.0.
-    assert len(lessons) == 23 and len(BANK) == 133
+    # Existing topic/lab/project routes plus two foundations and four reports in 0.6.0, and the
+    # week-6 averages and probability reading in 0.7.0.
+    assert len(lessons) == 24 and len(BANK) == 146
     cards = len(load(COURSE / "question-banks/retrieval-cards.json")["cards"])
     syllabus = (COURSE / "syllabus.md").read_text(encoding="utf-8")
     assert (

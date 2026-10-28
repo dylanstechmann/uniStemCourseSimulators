@@ -7,7 +7,7 @@
   "domain": "Mathematics",
   "level": "Year 1",
   "maturity": "partial",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -16,7 +16,8 @@
     "migration_version": "1.0",
     "modifications": [
       "Corrected the geometric-series tail arithmetic; the original approximation and exact sum are preserved.",
-      "Linked the first four lesson objectives to the matching outcomes, clarified the improper-integral outcome, and added direct checks for integration-method choice, Taylor-polynomial construction, and power-series convergence intervals."
+      "Linked the first four lesson objectives to the matching outcomes, clarified the improper-integral outcome, and added direct checks for integration-method choice, Taylor-polynomial construction, and power-series convergence intervals.",
+      "Added an original averages, density and probability reading with formative practice in the existing week 6. MIT OCW 18.01SC Fall 2010 and the Harvard Math 1b Spring 2004 syllabus are link-only scope comparators recorded in a new scope crosswalk; no source text, figure or problem is imported."
     ]
   },
   "prerequisites": {
@@ -556,11 +557,36 @@
         "calculus-2-outcome-3",
         "calculus-2-outcome-4"
       ]
+    },
+    {
+      "id": "calculus-2-22-objective-1",
+      "description": "Compute the average value of a function or a rate over an interval, locate where a continuous function attains it, and check it against the function's extreme values.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "calculus-2-outcome-2"
+      ]
+    },
+    {
+      "id": "calculus-2-22-objective-2",
+      "description": "Total a quantity from a linear or population density by slicing, and compute a density-weighted average position.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "calculus-2-outcome-2"
+      ]
+    },
+    {
+      "id": "calculus-2-22-objective-3",
+      "description": "Use a probability density: find a normalizing constant, interval and tail probabilities, the mean and the median, and decide with an improper integral whether a density's total and mean are finite.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "calculus-2-outcome-1",
+        "calculus-2-outcome-2"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week local sequence with 17 readings, including an optional exponential-tail project guide in week 13 with milestone self-checks through week 14; selected indeterminate limits are grouped with improper integrals. Workload and human review are absent; this is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week local sequence with 18 readings, including a week-6 reading on averages, weighted averages and probability densities, including an optional exponential-tail project guide in week 13 with milestone self-checks through week 14; selected indeterminate limits are grouped with improper integrals. Workload and human review are absent; this is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
@@ -622,13 +648,15 @@
       },
       {
         "week": 6,
-        "title": "Integrals as accumulation: total consumption from rate data, numerical rules with error bounds and improper integrals",
+        "title": "Integrals as accumulation: rate totals, numerical rules with error bounds, improper integrals, averages and probability densities",
         "lesson_ids": [
           "calculus-2-5",
+          "calculus-2-22",
           "calculus-2-19"
         ],
         "assessment_ids": [
           "calculus-2-5-practice",
+          "calculus-2-22-practice",
           "calculus-2-19-practice"
         ]
       },
@@ -1505,6 +1533,48 @@
           ]
         }
       ]
+    },
+    {
+      "id": "calculus-2-module-22",
+      "title": "Averages, weighted averages and probability densities",
+      "source_ids": [
+        "calc2-unit3-averages-probability",
+        "calc2-harvard-math1b-2004"
+      ],
+      "lessons": [
+        {
+          "id": "calculus-2-22",
+          "title": "Averages, weighted averages and probability densities",
+          "reading": "modules/22-averages-weighted-averages-and-probability-densities.md",
+          "objectives": [
+            "calculus-2-22-objective-1",
+            "calculus-2-22-objective-2",
+            "calculus-2-22-objective-3"
+          ],
+          "worked_example": "For the synthetic density f(x) = (3/32)x(4 − x) on [0, 4], the total area is 1, P(1 ≤ X ≤ 3) = 22/32 = 0.6875, the mean and median are both 2, the peak is f(2) = 0.375, and the average value of f on [0, 4] is 0.25 = 1/4, below the peak as it must be.",
+          "question_ids": [
+            "calculus-2-22:average-value",
+            "calculus-2-22:average-rate",
+            "calculus-2-22:rod-mass",
+            "calculus-2-22:rod-weighted-position",
+            "calculus-2-22:cell-count",
+            "calculus-2-22:normalizing-constant",
+            "calculus-2-22:interval-probability",
+            "calculus-2-22:density-mean",
+            "calculus-2-22:exponential-median",
+            "calculus-2-22:bell-curve-interval",
+            "calculus-2-22:density-above-one",
+            "calculus-2-22:infinite-mean",
+            "calculus-2-22:average-claims"
+          ],
+          "card_ids": [
+            "calculus-2-22-card-1",
+            "calculus-2-22-card-2",
+            "calculus-2-22-card-3",
+            "calculus-2-22-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -2051,6 +2121,36 @@
         "calculus-2-21:depth-2"
       ],
       "points": 7
+    },
+    {
+      "id": "calculus-2-22-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Averages and probability densities practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "calculus-2-22-objective-1",
+        "calculus-2-22-objective-2",
+        "calculus-2-22-objective-3",
+        "calculus-2-outcome-1",
+        "calculus-2-outcome-2"
+      ],
+      "question_ids": [
+        "calculus-2-22:average-value",
+        "calculus-2-22:average-rate",
+        "calculus-2-22:rod-mass",
+        "calculus-2-22:rod-weighted-position",
+        "calculus-2-22:cell-count",
+        "calculus-2-22:normalizing-constant",
+        "calculus-2-22:interval-probability",
+        "calculus-2-22:density-mean",
+        "calculus-2-22:exponential-median",
+        "calculus-2-22:bell-curve-interval",
+        "calculus-2-22:density-above-one",
+        "calculus-2-22:infinite-mean",
+        "calculus-2-22:average-claims"
+      ],
+      "points": 14
     }
   ],
   "grading_policy": {
@@ -2165,10 +2265,15 @@
       "version": "0.6.0",
       "date": "2026-10-22",
       "summary": "Added original surface/frustum/coverage and function-limit/Taylor-representation foundations, four connected mixed methods/geometry/convergence/approximation reports and sixteen checkpoints/cards. Explicitly distinguishes elements/multiplicity, theorem sufficiency, integer indices and approximation/reference/display precision. Preserves the existing force lab and exponential-tail project. Partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.7.0",
+      "date": "2026-10-28",
+      "summary": "Compared the course with a second university comparator, the Harvard Math 1b Spring 2004 syllabus, alongside MIT OCW 18.01SC Fall 2010, in a new scope crosswalk that records covered, absent and elsewhere topics. Averages and probability, which both comparators teach, were absent: 18.01SC gives Unit 3 Part C to integrals and averages, weighted averages, probability and the bell curve, and Harvard's integration block has average value, density and slicing, and probability. A new week-6 reading develops the average value, totals from linear and population densities, weighted averages, probability densities with normalization, interval and tail probabilities, the mean and median, the way improper integrals decide whether a total and a mean are finite, and the bell curve as a case for numerical integration. Added three objectives, 13 practice items and four retrieval cards. The binomial series (Harvard only) remains a recorded gap; Harvard's differential-equations block belongs to the Differential Equations course. The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "Seventeen topic readings and four connected reports accompany one synthetic lab and the optional project guide; this is not equivalent to a full university semester.",
+    "Eighteen topic readings and four connected reports accompany one synthetic lab and the optional project guide; this is not equivalent to a full university semester.",
     "The proposed 14-week sequence is unmeasured and unreviewed. Graded homework, exams and a laboratory sequence are absent. An optional exponential-tail project guide with rehearsal practice and Case studio milestone self-checks (weeks 13–14) is ungraded practice; the separate cumulative-project draft stays inactive.",
     "Formative item and objective links are provisional and do not establish comprehensive coverage or mastery.",
     "All examples and observations are synthetic. Mathematical force and radial concentration models establish no device behavior, experimental protocol or biological mechanism.",
@@ -2178,7 +2283,8 @@
     "The exponential-tail project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses a separate function, and no software check evaluates a learner's derivation or written interpretation. Milestone weeks are planning suggestions, not measured workload or deadlines.",
     "Two selected foundations and four connected open assignments deepen surface elements/coverage, integration-method selection, slow and alternating tail certificates, elementary function-limit/Taylor counterexamples and integrated approximation precision. They do not establish a measured semester workload, complete assessment/lab sequence or qualified mathematical review. General real-analysis and multivariable surface theory remain outside this paired single-variable scope.",
     "Browser checkpoints evaluate selected values/choices, not derivations, code, geometry diagrams, numerical studies or complete reports. The arctangent cubic-integral field requests six significant figures to distinguish its approximation from the reference; other new continuous fields request three, while exact integer counts/cutoffs carry no significant-figure penalty. Mathematical error certificates do not measure physical uncertainty or model discrepancy.",
-    "Of the 120 numerical answers, 8 require units, 38 check significant figures and 0 check dimensions. Exact integer outputs use whole-number responses without a significant-figure requirement."
+    "Of the 130 numerical answers, 8 require units, 38 check significant figures and 0 check dimensions. Exact integer outputs use whole-number responses without a significant-figure requirement.",
+    "The scope crosswalk compares the comparators' public unit, part, session and weekly-block titles with the local readings, not their lectures, problem sets or exams. Harvard Math 1b's final third is differential equations, which the Differential Equations course teaches. The binomial series, named only by Harvard, remains a recorded gap."
   ],
   "intentionally_omitted": [
     "Graded assessments, measured workload, a laboratory sequence, an activated cumulative project and named qualified review remain outstanding."

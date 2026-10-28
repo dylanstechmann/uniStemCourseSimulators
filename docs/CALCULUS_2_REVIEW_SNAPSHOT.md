@@ -2,11 +2,11 @@
 
 This identifies the public package; a digest does not approve mathematics or course depth.
 
-- **Course package:** `calculus-2` 0.6.0
-- **Public package archive SHA-256:** `4a5c047d1f26127f893171cdf8f25188fa7458d1605f898a56ec1bd0560d8736`
-- **Manifest SHA-256:** `9aaa004d5141b113b4516e41c922f5a851dae3bf24133e94124dfc6c82868781`
-- **Archive inventory:** 31 files, 458,321 bytes
-- **Calculated:** 2026-10-22
+- **Course package:** `calculus-2` 0.7.0
+- **Public package archive SHA-256:** `8599c73df740403c9eb18fa807727296914d24c103bd53fe87c1760604b82f7d`
+- **Manifest SHA-256:** `14a3266b0ef8ed9d9ee652113276af334d7b807bc22e4a3fe9a1d332ff681a38`
+- **Archive inventory:** 33 files, 498,798 bytes
+- **Calculated:** 2026-10-28
 - **Reproduce:** `python tools/course_package_digest.py --course-id calculus-2`
 
-Two original surface/coverage and function-limit/Taylor foundations plus four mixed reports add sixteen checkpoints/cards. One approximation field requests six significant figures for a meaningful estimate/reference comparison. Examples are synthetic mathematics; proofs, code, diagrams and reports are not graded. The paired course remains partial, unreviewed and formative-only; the previous 0.5.0 snapshot is preserved.
+A scope crosswalk compares the package with MIT OCW 18.01SC Fall 2010 and the Harvard Math 1b Spring 2004 syllabus by unit, part, session and weekly-block titles. One original week-6 reading closes the gap it found in a strand both comparators teach, averages, weighted averages and probability densities, with three objectives, 13 practice items and four cards. All rates, densities and distributions are synthetic. The package remains partial, unreviewed and formative-only; the previous 0.6.0 snapshot is preserved.

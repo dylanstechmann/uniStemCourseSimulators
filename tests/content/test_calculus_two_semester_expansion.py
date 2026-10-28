@@ -242,10 +242,12 @@ def test_integrated_approximation_precision_and_minimal_sufficient_degree():
 
 def test_mixed_calculus_packets_deliver_as_open_partial_coursework():
     assert len(NEW) == 16
-    assert MANIFEST["version"] == "0.6.0" and MANIFEST["maturity"] == "partial"
+    assert tuple(int(part) for part in MANIFEST["version"].split(".")) >= (0, 6, 0)
+    assert MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed"
     scheduled = [lid for w in MANIFEST["duration"]["weeks"] for lid in w["lesson_ids"]]
-    assert len(scheduled) == len(set(scheduled)) == 23
+    # 0.7.0 adds the week-6 averages and probability reading.
+    assert len(scheduled) == len(set(scheduled)) == 24
     repository = ContentRepository(ROOT / "content")
     for number in range(16, 22):
         lesson = repository.lesson("calculus-2", f"calculus-2-{number}")
