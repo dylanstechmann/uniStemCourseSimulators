@@ -7,7 +7,7 @@
   "domain": "Chemistry",
   "level": "Year 1",
   "maturity": "partial",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -18,7 +18,8 @@
       "Expanded the module-2 stoichiometry and solution-concentration prototype with unit-tracked mole ratios, a limiting-reagent calculation, molarity and dilution derivations, reporting precision, and model limits.",
       "Expanded the module-3/week-8 thermochemistry prototype with explicit system/work sign conventions, calorimetry heat balance, state-function reasoning, Hess-law scaling, and formation-enthalpy calculations.",
       "Expanded the module-4/week-11 equilibrium prototype with dynamic-equilibrium reasoning, mass-action expressions, fixed-temperature Q/K comparisons, disturbance effects, and explicit kinetic and activity limits.",
-      "Refined outcome 2 to explicitly cover electronic structure as well as bonding and molecular geometry. Linked the module-1 electron-configuration/periodic-trend and Lewis/VSEPR objectives to that outcome. Reassociated the preserved trigonal-planar geometry item with the VSEPR objective and added direct practice comparing Period 3 atomic radii; the existing question prompt and key are unchanged. The course remains partial, unreviewed and formative-only."
+      "Refined outcome 2 to explicitly cover electronic structure as well as bonding and molecular geometry. Linked the module-1 electron-configuration/periodic-trend and Lewis/VSEPR objectives to that outcome. Reassociated the preserved trigonal-planar geometry item with the VSEPR objective and added direct practice comparing Period 3 atomic radii; the existing question prompt and key are unchanged. The course remains partial, unreviewed and formative-only.",
+      "Added two original readings with formative practice: photons, matter waves and quantization in a box (week 2), and octet-rule exceptions with expanded-shell shapes (week 4). MIT OCW 5.111SC Fall 2014 and UC Irvine Chem 1A, 1B and 1C are link-only scope comparators recorded in a new scope crosswalk; no source text, figure or problem is imported."
     ]
   },
   "prerequisites": {
@@ -604,11 +605,59 @@
         "general-chemistry-1-outcome-3",
         "general-chemistry-1-outcome-4"
       ]
+    },
+    {
+      "id": "general-chemistry-1-21-objective-1",
+      "description": "Apply the photon picture to the photoelectric effect: find a threshold wavelength, a maximum kinetic energy and a stopping potential.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "general-chemistry-1-outcome-2"
+      ]
+    },
+    {
+      "id": "general-chemistry-1-21-objective-2",
+      "description": "Use the de Broglie relation and the uncertainty relation to decide when the wave nature of a particle matters.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "general-chemistry-1-outcome-2"
+      ]
+    },
+    {
+      "id": "general-chemistry-1-21-objective-3",
+      "description": "Derive the allowed wavelengths and energies of a particle in a one-dimensional box, and use them to predict an absorption wavelength and a probability.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "general-chemistry-1-outcome-2"
+      ]
+    },
+    {
+      "id": "general-chemistry-1-22-objective-1",
+      "description": "Count valence electrons and build Lewis structures for species with an incomplete octet, an odd number of electrons, or more than eight electrons around a central atom.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "general-chemistry-1-outcome-2"
+      ]
+    },
+    {
+      "id": "general-chemistry-1-22-objective-2",
+      "description": "Choose between competing structures with formal charge, and state what a structure does and does not claim.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "general-chemistry-1-outcome-2"
+      ]
+    },
+    {
+      "id": "general-chemistry-1-22-objective-3",
+      "description": "Predict the electron-domain geometry, molecular shape and polarity of species with steric numbers from 3 to 6, including lone pairs on the central atom.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "general-chemistry-1-outcome-2"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed fourteen-block sequence preserving compact/expanded pairs,with two electronic/bonding foundations and four connected original reports. Scheduling and counts do not establish measured workload or semester equivalence.",
+    "equivalent_structure": "Proposed fourteen-block sequence preserving compact/expanded pairs,with two electronic/bonding foundations, two second-comparator readings on matter waves and octet exceptions, and four connected original reports. Scheduling and counts do not establish measured workload or semester equivalence.",
     "weeks": [
       {
         "week": 1,
@@ -624,11 +673,13 @@
       },
       {
         "week": 2,
-        "title": "Hydrogenic orbital probability",
+        "title": "Photons, matter waves and hydrogenic orbital probability",
         "lesson_ids": [
+          "general-chemistry-1-21",
           "general-chemistry-1-15"
         ],
         "assessment_ids": [
+          "general-chemistry-1-21-practice",
           "general-chemistry-1-15-practice"
         ]
       },
@@ -644,14 +695,16 @@
       },
       {
         "week": 4,
-        "title": "Bonding, geometry, molecular properties, molecular orbitals and hybridization",
+        "title": "Bonding, geometry, molecular properties, octet exceptions, molecular orbitals and hybridization",
         "lesson_ids": [
           "general-chemistry-1-8",
+          "general-chemistry-1-22",
           "general-chemistry-1-14",
           "general-chemistry-1-16"
         ],
         "assessment_ids": [
           "general-chemistry-1-8-practice",
+          "general-chemistry-1-22-practice",
           "general-chemistry-1-14-practice",
           "general-chemistry-1-16-practice"
         ]
@@ -1537,6 +1590,90 @@
           ]
         }
       ]
+    },
+    {
+      "id": "general-chemistry-1-module-21",
+      "title": "Photons, matter waves and quantization in a box",
+      "source_ids": [
+        "chem1-semester-atom",
+        "gchem1-uci-chem1a"
+      ],
+      "lessons": [
+        {
+          "id": "general-chemistry-1-21",
+          "title": "Photons, matter waves and quantization in a box",
+          "reading": "modules/21-photons-matter-waves-and-quantization-in-a-box.md",
+          "objectives": [
+            "general-chemistry-1-21-objective-1",
+            "general-chemistry-1-21-objective-2",
+            "general-chemistry-1-21-objective-3"
+          ],
+          "worked_example": "A synthetic metal film with a 2.30 eV work function and 400 nm light: the photon carries 3.100 eV, so KE_max is 0.800 eV and the stopping potential 0.800 V, the threshold is 539 nm, and the fastest electron moves at 5.30 × 10⁵ m/s with a de Broglie wavelength of 1.37 nm; doubling the intensity doubles the electrons per second but leaves KE_max unchanged.",
+          "question_ids": [
+            "general-chemistry-1-21:photoelectron-energy",
+            "general-chemistry-1-21:threshold-wavelength",
+            "general-chemistry-1-21:stopping-potential",
+            "general-chemistry-1-21:de-broglie-electron",
+            "general-chemistry-1-21:electron-wavelength-voltage",
+            "general-chemistry-1-21:de-broglie-macroscopic",
+            "general-chemistry-1-21:uncertainty-speed",
+            "general-chemistry-1-21:box-ground-energy",
+            "general-chemistry-1-21:box-absorption-wavelength",
+            "general-chemistry-1-21:box-probability",
+            "general-chemistry-1-21:intensity-effect",
+            "general-chemistry-1-21:box-level-pattern",
+            "general-chemistry-1-21:wave-claims"
+          ],
+          "card_ids": [
+            "general-chemistry-1-21-card-1",
+            "general-chemistry-1-21-card-2",
+            "general-chemistry-1-21-card-3",
+            "general-chemistry-1-21-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "general-chemistry-1-module-22",
+      "title": "Beyond the octet: incomplete, odd-electron and expanded Lewis structures",
+      "source_ids": [
+        "chem1-semester-bonding",
+        "gchem1-uci-chem1a"
+      ],
+      "lessons": [
+        {
+          "id": "general-chemistry-1-22",
+          "title": "Beyond the octet: incomplete, odd-electron and expanded Lewis structures",
+          "reading": "modules/22-beyond-the-octet-lewis-structures-and-shape.md",
+          "objectives": [
+            "general-chemistry-1-22-objective-1",
+            "general-chemistry-1-22-objective-2",
+            "general-chemistry-1-22-objective-3"
+          ],
+          "worked_example": "XeF₄ has 36 valence electrons: four Xe–F bonds, three lone pairs on each fluorine and two on xenon, which holds 12 electrons with formal charge 0. Its steric number is 6, so the lone pairs sit opposite each other and the molecule is square planar and nonpolar; ClF₃ has 28 electrons, steric number 5 and a T shape, and is polar.",
+          "question_ids": [
+            "general-chemistry-1-22:valence-electrons-pcl5",
+            "general-chemistry-1-22:valence-electrons-icl4",
+            "general-chemistry-1-22:lone-pairs-xef2",
+            "general-chemistry-1-22:lone-pairs-icl4",
+            "general-chemistry-1-22:electrons-around-sulfur",
+            "general-chemistry-1-22:formal-charge-sulfate",
+            "general-chemistry-1-22:steric-number-clf3",
+            "general-chemistry-1-22:unpaired-electrons-no2",
+            "general-chemistry-1-22:total-lone-pairs-xef4",
+            "general-chemistry-1-22:angle-axial-equatorial",
+            "general-chemistry-1-22:clf3-shape",
+            "general-chemistry-1-22:bf3-lewis-acid",
+            "general-chemistry-1-22:octet-claims"
+          ],
+          "card_ids": [
+            "general-chemistry-1-22-card-1",
+            "general-chemistry-1-22-card-2",
+            "general-chemistry-1-22-card-3",
+            "general-chemistry-1-22-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -2075,6 +2212,64 @@
         "general-chemistry-1-20:depth-2"
       ],
       "points": 8
+    },
+    {
+      "id": "general-chemistry-1-21-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Photons, matter waves and quantization in a box practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "general-chemistry-1-21-objective-1",
+        "general-chemistry-1-21-objective-2",
+        "general-chemistry-1-21-objective-3",
+        "general-chemistry-1-outcome-2"
+      ],
+      "question_ids": [
+        "general-chemistry-1-21:photoelectron-energy",
+        "general-chemistry-1-21:threshold-wavelength",
+        "general-chemistry-1-21:stopping-potential",
+        "general-chemistry-1-21:de-broglie-electron",
+        "general-chemistry-1-21:electron-wavelength-voltage",
+        "general-chemistry-1-21:de-broglie-macroscopic",
+        "general-chemistry-1-21:uncertainty-speed",
+        "general-chemistry-1-21:box-ground-energy",
+        "general-chemistry-1-21:box-absorption-wavelength",
+        "general-chemistry-1-21:box-probability",
+        "general-chemistry-1-21:intensity-effect",
+        "general-chemistry-1-21:box-level-pattern",
+        "general-chemistry-1-21:wave-claims"
+      ],
+      "points": 14
+    },
+    {
+      "id": "general-chemistry-1-22-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Beyond the octet: Lewis structures and shape practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "general-chemistry-1-22-objective-1",
+        "general-chemistry-1-22-objective-2",
+        "general-chemistry-1-22-objective-3",
+        "general-chemistry-1-outcome-2"
+      ],
+      "question_ids": [
+        "general-chemistry-1-22:valence-electrons-pcl5",
+        "general-chemistry-1-22:valence-electrons-icl4",
+        "general-chemistry-1-22:lone-pairs-xef2",
+        "general-chemistry-1-22:lone-pairs-icl4",
+        "general-chemistry-1-22:electrons-around-sulfur",
+        "general-chemistry-1-22:formal-charge-sulfate",
+        "general-chemistry-1-22:steric-number-clf3",
+        "general-chemistry-1-22:unpaired-electrons-no2",
+        "general-chemistry-1-22:total-lone-pairs-xef4",
+        "general-chemistry-1-22:angle-axial-equatorial",
+        "general-chemistry-1-22:clf3-shape",
+        "general-chemistry-1-22:bf3-lewis-acid",
+        "general-chemistry-1-22:octet-claims"
+      ],
+      "points": 14
     }
   ],
   "grading_policy": {
@@ -2189,6 +2384,11 @@
       "version": "0.6.0",
       "date": "2026-10-22",
       "summary": "Added two original hydrogenic/radial-probability and overlapping-basis bonding foundations,four connected chemical-evidence reports and sixteen checkpoints/cards. Expanded the proposed sequence to fourteen blocks while retaining paired primers and all original IDs. All models are synthetic and package remains partial,unreviewed and formative-only."
+    },
+    {
+      "version": "0.7.0",
+      "date": "2026-10-28",
+      "summary": "Compared the course with a second university comparator, UC Irvine Chem 1A, 1B and 1C General Chemistry, alongside MIT OCW 5.111SC Fall 2014, in a new scope crosswalk that records covered, shallow, absent, elsewhere and local-extension topics. Two strands both comparators teach were absent: the photoelectric effect, de Broglie wavelength, uncertainty principle and particle in a box (MIT Lectures 3–4; UC Irvine Chem 1A Lectures 3–4 by its topic index), and the exceptions to the octet rule (MIT Lecture 11; UC Irvine Chem 1A Lectures 8–9). A new week-2 reading, lesson 21, develops photons, matter waves, uncertainty and the energies, absorption wavelengths and probabilities of a particle in a one-dimensional box. A new week-4 reading, lesson 22, develops incomplete octets, odd-electron species and expanded valence shells, extends shape prediction to steric numbers 5 and 6, and compares competing structures by formal charge without d-orbital hybrids. Added six objectives, 26 practice items and eight retrieval cards. Liquids and solids, effusion and the van der Waals equation, black-body radiation, nuclear chemistry and nomenclature remain recorded one-comparator gaps, and entropy with the second and third laws, taught by both comparators, is recorded for a General Chemistry II pass. The course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
@@ -2204,7 +2404,8 @@
     "The valence bond lesson uses s/p hybrids and the equivalent-hybrid angle relation as a descriptive model with illustrative average bond enthalpies; it does not predict geometries independently, treat delocalized bonding, or use d-orbital hybrids for main-group atoms.",
     "The optional gas-equilibrium ledger project is ungraded. Its milestone drafts are private self-checks; no software check evaluates the learner’s written derivation, diagram or interpretation. The proposed schedule and time estimate have not been measured.",
     "Hydrogenic radial probability is a one-electron point-nucleus model;the two-function generalized energy model omits nuclear repulsion and electron interactions. Neither establishes measured many-electron spectra or real bond dissociation energies. Four reports assess selected values rather than proofs,plots,code,full reports or experimental quality.",
-    "Of the 124 numerical answers, 12 require units, 52 check significant figures and 0 check dimensions. New continuous normalized fields request three significant figures;exact electron,state and node counts have no precision penalty."
+    "Of the 144 numerical answers, 12 require units, 52 check significant figures and 0 check dimensions. New continuous normalized fields request three significant figures;exact electron,state and node counts have no precision penalty.",
+    "The scope crosswalk compares the comparators' public lecture titles, three MIT lecture descriptions and the UC Irvine Chem 1A topic index with the local readings, not their lectures, problem sets or exams. Liquids, solids and phase equilibria, effusion, the van der Waals equation, black-body radiation, nuclear chemistry and nomenclature remain recorded gaps, and entropy with the second and third laws is recorded for General Chemistry II."
   ],
   "intentionally_omitted": [
     "Graded assessments, a complete laboratory sequence, an activated cumulative project, measured workload and qualified human review remain outstanding."

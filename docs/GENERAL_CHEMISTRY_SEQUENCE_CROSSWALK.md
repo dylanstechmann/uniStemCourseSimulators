@@ -21,3 +21,7 @@ The comparison is about topic organization and stated scope. It does not establi
 ## Original electronic and evidence extension (0.6.0)
 
 Chemistry I now develops normalized hydrogenic radial probability and a two-function overlapping-basis energy calculation alongside its existing MO/hybridization lessons. Four reports connect these mechanisms with distinct chemical amount, calibration, equilibrium and mechanical-energy ledgers. Existing paired primers remain together while new blocks extend the proposal from ten to fourteen weeks. This updates the local schedule, not the one-comparator/two-local-packages boundary. Many-electron theory, measured molecular energy surfaces and real laboratory work remain incomplete. No source asset is imported.
+
+## Second-comparator pass (0.7.0)
+
+A package-level [scope crosswalk](../content/courses/general-chemistry-1/scope-crosswalk.md) now compares General Chemistry I with UC Irvine Chem 1A, 1B and 1C as well as MIT 5.111SC. It found two strands both comparators teach and the package lacked: the photoelectric effect, de Broglie wavelength, uncertainty principle and particle in a box, and the exceptions to the octet rule. Two original readings now close them. The Schrödinger equation is still named rather than solved, and hypervalent d-orbital hybrid pictures remain excluded. Entropy with the second and third laws is taught by both comparators and is recorded for General Chemistry II.

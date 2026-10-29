@@ -5632,6 +5632,808 @@
           "Original synthetic chemistry practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
         ]
       }
+    },
+    {
+      "id": "general-chemistry-1-21:photoelectron-energy",
+      "type": "numeric",
+      "prompt": "A synthetic metal has a work function of 2.10 eV. Light of wavelength 450 nm falls on it. What is the maximum kinetic energy of the ejected electrons, in eV? Use hc = 1239.84 eV·nm. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-21-objective-1"
+      ],
+      "feedback": {
+        "hint": "Find the photon energy in eV from hc/λ, then subtract the work function.",
+        "solution": "E = 1239.84/450 = 2.755 eV, so KE_max = 2.755 − 2.10 = 0.655 eV.",
+        "lesson_ids": [
+          "general-chemistry-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.655,
+        "unit": "",
+        "tolerance": 0.003,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "general-chemistry-1-21:threshold-wavelength",
+      "type": "numeric",
+      "prompt": "A synthetic metal has a work function of 3.20 eV. What is the longest wavelength of light, in nm, that can eject electrons from it? Use hc = 1239.84 eV·nm. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-21-objective-1"
+      ],
+      "feedback": {
+        "hint": "At threshold the photon energy equals the work function.",
+        "solution": "λ₀ = hc/φ = 1239.84/3.20 = 387.5 nm. Longer wavelengths carry less energy per photon and eject nothing, however intense the light.",
+        "lesson_ids": [
+          "general-chemistry-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 387.45,
+        "unit": "",
+        "tolerance": 0.3,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "general-chemistry-1-21:stopping-potential",
+      "type": "numeric",
+      "prompt": "Light of frequency 8.00 × 10¹⁴ Hz falls on a synthetic metal with a work function of 2.50 eV. What stopping potential, in volts, just halts the fastest electrons? Use h = 6.626 × 10⁻³⁴ J·s and e = 1.602 × 10⁻¹⁹ C. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-21-objective-1"
+      ],
+      "feedback": {
+        "hint": "Convert the photon energy to eV, subtract the work function, and remember that eV_s = KE_max.",
+        "solution": "E = hν/e = 6.626 × 10⁻³⁴ × 8.00 × 10¹⁴/(1.602 × 10⁻¹⁹) = 3.309 eV, so KE_max = 3.309 − 2.50 = 0.809 eV and V_s = 0.809 V.",
+        "lesson_ids": [
+          "general-chemistry-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.809,
+        "unit": "",
+        "tolerance": 0.003,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "general-chemistry-1-21:de-broglie-electron",
+      "type": "numeric",
+      "prompt": "An electron moves at 2.00 × 10⁶ m/s. What is its de Broglie wavelength, in nm? Use h = 6.626 × 10⁻³⁴ J·s and m = 9.109 × 10⁻³¹ kg. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-21-objective-2"
+      ],
+      "feedback": {
+        "hint": "λ = h/(mv). Convert metres to nanometres at the end.",
+        "solution": "λ = 6.626 × 10⁻³⁴/(9.109 × 10⁻³¹ × 2.00 × 10⁶) = 3.637 × 10⁻¹⁰ m = 0.3637 nm.",
+        "lesson_ids": [
+          "general-chemistry-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.3637,
+        "unit": "",
+        "tolerance": 0.002,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "general-chemistry-1-21:electron-wavelength-voltage",
+      "type": "numeric",
+      "prompt": "An electron is accelerated from rest through 150 V. What is its de Broglie wavelength, in nm? Use h = 6.626 × 10⁻³⁴ J·s, m = 9.109 × 10⁻³¹ kg and e = 1.602 × 10⁻¹⁹ C. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-21-objective-2"
+      ],
+      "feedback": {
+        "hint": "The kinetic energy gained is eV, so p = √(2meV).",
+        "solution": "p = √(2 × 9.109 × 10⁻³¹ × 1.602 × 10⁻¹⁹ × 150) = 6.616 × 10⁻²⁴ kg·m/s, so λ = h/p = 1.001 × 10⁻¹⁰ m = 0.1001 nm.",
+        "lesson_ids": [
+          "general-chemistry-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.1001,
+        "unit": "",
+        "tolerance": 0.0008,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "general-chemistry-1-21:de-broglie-macroscopic",
+      "type": "numeric",
+      "prompt": "A 0.0450 kg golf ball moves at 60.0 m/s. What is its de Broglie wavelength, in units of 10⁻³⁴ m? Use h = 6.626 × 10⁻³⁴ J·s. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-21-objective-2"
+      ],
+      "feedback": {
+        "hint": "λ = h/(mv) with the mass in kilograms.",
+        "solution": "λ = 6.626 × 10⁻³⁴/(0.0450 × 60.0) = 2.454 × 10⁻³⁴ m, far smaller than a nucleus, so no wave behaviour is observable.",
+        "lesson_ids": [
+          "general-chemistry-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 2.454,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "general-chemistry-1-21:uncertainty-speed",
+      "type": "numeric",
+      "prompt": "An electron is located within Δx = 0.050 nm. What is the smallest possible uncertainty in its speed, in units of 10⁶ m/s, from Δx Δp ≥ ħ/2? Use ħ = 1.0546 × 10⁻³⁴ J·s and m = 9.109 × 10⁻³¹ kg. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-21-objective-2"
+      ],
+      "feedback": {
+        "hint": "Δv = Δp/m, with Δp = ħ/(2Δx) and Δx in metres.",
+        "solution": "Δp = 1.0546 × 10⁻³⁴/(2 × 5.0 × 10⁻¹¹) = 1.055 × 10⁻²⁴ kg·m/s, so Δv = Δp/m = 1.158 × 10⁶ m/s.",
+        "lesson_ids": [
+          "general-chemistry-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 1.158,
+        "unit": "",
+        "tolerance": 0.006,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "general-chemistry-1-21:box-ground-energy",
+      "type": "numeric",
+      "prompt": "What is the ground-state energy, in eV, of an electron in a one-dimensional box of length 0.800 nm with infinitely high walls? Use h = 6.626 × 10⁻³⁴ J·s, m = 9.109 × 10⁻³¹ kg and 1 eV = 1.602 × 10⁻¹⁹ J. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-21-objective-3"
+      ],
+      "feedback": {
+        "hint": "E₁ = h²/(8mL²). Convert L to metres and the result to eV.",
+        "solution": "E₁ = (6.626 × 10⁻³⁴)²/(8 × 9.109 × 10⁻³¹ × (0.800 × 10⁻⁹)²) = 9.41 × 10⁻²⁰ J = 0.5876 eV.",
+        "lesson_ids": [
+          "general-chemistry-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.5876,
+        "unit": "",
+        "tolerance": 0.003,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "general-chemistry-1-21:box-absorption-wavelength",
+      "type": "numeric",
+      "prompt": "An electron in a one-dimensional box of length 0.700 nm absorbs a photon and is promoted from n = 1 to n = 2. What is the photon wavelength, in nm? Use hc = 1239.84 eV·nm, h = 6.626 × 10⁻³⁴ J·s, m = 9.109 × 10⁻³¹ kg and 1 eV = 1.602 × 10⁻¹⁹ J. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-21-objective-3"
+      ],
+      "feedback": {
+        "hint": "ΔE = (2² − 1²)E₁ = 3E₁ with E₁ = h²/(8mL²); then λ = hc/ΔE.",
+        "solution": "E₁ = 0.7675 eV at L = 0.700 nm, so ΔE = 3E₁ = 2.3025 eV and λ = 1239.84/2.3025 = 538.5 nm.",
+        "lesson_ids": [
+          "general-chemistry-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 538.5,
+        "unit": "",
+        "tolerance": 1.5,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "general-chemistry-1-21:box-probability",
+      "type": "numeric",
+      "prompt": "An electron in the n = 1 state of a one-dimensional box of length L is measured. What is the probability of finding it in the left quarter of the box, 0 ≤ x ≤ L/4? Enter a decimal.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-21-objective-3"
+      ],
+      "feedback": {
+        "hint": "Use P = a/L − sin(2nπa/L)/(2nπ) with a = L/4 and n = 1.",
+        "solution": "P = 1/4 − sin(π/2)/(2π) = 0.2500 − 0.1592 = 0.0908, less than 0.25 because the ground-state wave is largest in the middle.",
+        "lesson_ids": [
+          "general-chemistry-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 0.0908,
+        "unit": "",
+        "tolerance": 0.0006,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "general-chemistry-1-21:intensity-effect",
+      "type": "single_choice",
+      "prompt": "A beam of light above a metal's threshold frequency ejects electrons. What happens when the beam's intensity is doubled at the same frequency?",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-21-objective-1"
+      ],
+      "feedback": {
+        "hint": "Intensity sets how many photons arrive; frequency sets the energy of each photon.",
+        "solution": "Each photon still delivers hν, so the maximum kinetic energy is unchanged. Twice as many photons arrive each second, so twice as many electrons are ejected.",
+        "lesson_ids": [
+          "general-chemistry-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "Twice as many electrons are ejected per second, with the same maximum kinetic energy",
+        "The same number of electrons is ejected, each with twice the maximum kinetic energy",
+        "Twice as many electrons are ejected, each with twice the maximum kinetic energy",
+        "No electrons are ejected until the frequency is raised"
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "general-chemistry-1-21:box-level-pattern",
+      "type": "single_choice",
+      "prompt": "For an electron in an infinite one-dimensional box, which statement about the energy levels is correct?",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-21-objective-3"
+      ],
+      "feedback": {
+        "hint": "Fit whole numbers of half-wavelengths into the box.",
+        "solution": "L = nλ/2 with n = 1, 2, 3, … gives E_n = n²h²/(8mL²). The gaps (2n + 1)E₁ grow, and the lowest energy E₁ is not zero. The −1/n² pattern belongs to the Coulomb potential of the hydrogen atom.",
+        "lesson_ids": [
+          "general-chemistry-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "E_n is proportional to n², n starts at 1, and the gaps grow as n increases",
+        "E_n is proportional to −1/n², so the levels crowd together as n increases",
+        "E_n is proportional to n, so the levels are evenly spaced",
+        "The lowest level has zero energy because the electron can be at rest"
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "general-chemistry-1-21:wave-claims",
+      "type": "multiple_select",
+      "prompt": "Which statements about photons, matter waves and the particle in a box are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "general-chemistry-1-21-objective-1",
+        "general-chemistry-1-21-objective-2",
+        "general-chemistry-1-21-objective-3"
+      ],
+      "feedback": {
+        "hint": "Check each statement against KE_max = hν − φ, λ = h/p, the meaning of Δx Δp ≥ ħ/2, and E₁ = h²/(8mL²).",
+        "solution": "Only photons above threshold eject electrons, a larger momentum gives a shorter wavelength, and confinement forces a nonzero ground-state energy. But KE_max rises with frequency, and the uncertainty relation limits what a wave-like state can have, not what instruments can read.",
+        "lesson_ids": [
+          "general-chemistry-1-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "Below the threshold frequency no electrons are ejected, however intense the light.",
+        "The maximum kinetic energy of photoelectrons depends on the metal's work function but not on the light's frequency.",
+        "A particle's de Broglie wavelength decreases when its momentum increases.",
+        "The uncertainty relation says a sufficiently precise instrument could measure position and momentum exactly at the same time.",
+        "A particle confined to a box must have nonzero kinetic energy even in its lowest state."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          2,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "general-chemistry-1-22:valence-electrons-pcl5",
+      "type": "numeric",
+      "prompt": "How many valence electrons must be placed in the Lewis structure of PCl₅? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-22-objective-1"
+      ],
+      "feedback": {
+        "hint": "Add the group-number valence electrons of every atom.",
+        "solution": "P contributes 5 and each of the five Cl atoms contributes 7: 5 + 5 × 7 = 40.",
+        "lesson_ids": [
+          "general-chemistry-1-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 40,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "general-chemistry-1-22:valence-electrons-icl4",
+      "type": "numeric",
+      "prompt": "How many valence electrons must be placed in the Lewis structure of the ICl₄⁻ ion? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-22-objective-1"
+      ],
+      "feedback": {
+        "hint": "Add one electron for each unit of negative charge.",
+        "solution": "I contributes 7, the four Cl atoms contribute 28, and the charge adds 1: 7 + 28 + 1 = 36.",
+        "lesson_ids": [
+          "general-chemistry-1-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 36,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "general-chemistry-1-22:lone-pairs-xef2",
+      "type": "numeric",
+      "prompt": "In the Lewis structure of XeF₂ with two single Xe–F bonds and an octet on each fluorine, how many lone pairs are on xenon? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-22-objective-1"
+      ],
+      "feedback": {
+        "hint": "Subtract the bonding electrons and the fluorine lone pairs from the 22 valence electrons.",
+        "solution": "8 + 2 × 7 = 22 electrons. Two bonds use 4 and the fluorines take 12, leaving 22 − 16 = 6 electrons, or three lone pairs, on xenon.",
+        "lesson_ids": [
+          "general-chemistry-1-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 3,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "general-chemistry-1-22:lone-pairs-icl4",
+      "type": "numeric",
+      "prompt": "In the Lewis structure of ICl₄⁻ with four single I–Cl bonds and an octet on each chlorine, how many lone pairs are on iodine? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-22-objective-1"
+      ],
+      "feedback": {
+        "hint": "Start from the 36 valence electrons.",
+        "solution": "Four bonds use 8 and the chlorines take 24, leaving 36 − 32 = 4 electrons, or two lone pairs, on iodine.",
+        "lesson_ids": [
+          "general-chemistry-1-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 2,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "general-chemistry-1-22:electrons-around-sulfur",
+      "type": "numeric",
+      "prompt": "In the Lewis structure of SF₆ with six single S–F bonds, how many electrons surround sulfur? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-22-objective-1"
+      ],
+      "feedback": {
+        "hint": "Each bond puts two electrons around the central atom.",
+        "solution": "Six bonds give 12 electrons and sulfur has no lone pairs. Its formal charge is 6 − 0 − 12/2 = 0.",
+        "lesson_ids": [
+          "general-chemistry-1-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 12,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "general-chemistry-1-22:formal-charge-sulfate",
+      "type": "numeric",
+      "prompt": "In the sulfate ion drawn with four S–O single bonds and an octet on every atom, what is the formal charge on sulfur? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-22-objective-2"
+      ],
+      "feedback": {
+        "hint": "Formal charge = valence electrons − nonbonding electrons − half the bonding electrons.",
+        "solution": "6 − 0 − 8/2 = +2. Each oxygen is −1, so the sum is +2 − 4 = −2, as required. Drawing two S=O double bonds lowers the formal charge on sulfur to 0.",
+        "lesson_ids": [
+          "general-chemistry-1-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 2,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "general-chemistry-1-22:steric-number-clf3",
+      "type": "numeric",
+      "prompt": "What is the steric number of chlorine in ClF₃? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-22-objective-3"
+      ],
+      "feedback": {
+        "hint": "Add the bonded atoms and the lone pairs on chlorine.",
+        "solution": "Three bonds plus two lone pairs give 5, a trigonal bipyramid with both lone pairs equatorial, which makes the molecule T-shaped.",
+        "lesson_ids": [
+          "general-chemistry-1-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 5,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "general-chemistry-1-22:unpaired-electrons-no2",
+      "type": "numeric",
+      "prompt": "How many unpaired electrons does the Lewis structure of NO₂ have? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-22-objective-1"
+      ],
+      "feedback": {
+        "hint": "Count the valence electrons first: is the total odd or even?",
+        "solution": "5 + 2 × 6 = 17 valence electrons, an odd number, so one electron is left unpaired, on nitrogen in the conventional structure.",
+        "lesson_ids": [
+          "general-chemistry-1-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 1,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "general-chemistry-1-22:total-lone-pairs-xef4",
+      "type": "numeric",
+      "prompt": "How many lone pairs are in the whole XeF₄ molecule, counting both xenon and fluorine? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-22-objective-1"
+      ],
+      "feedback": {
+        "hint": "Each fluorine has a full octet; find the lone pairs on xenon from the leftover electrons.",
+        "solution": "The four fluorines have three lone pairs each, 12 in all, and xenon has two, so 14 lone pairs hold 28 of the 36 valence electrons. The other 8 are in the four bonds.",
+        "lesson_ids": [
+          "general-chemistry-1-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 14,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "general-chemistry-1-22:angle-axial-equatorial",
+      "type": "numeric",
+      "prompt": "In an ideal trigonal bipyramid, what is the angle in degrees between an axial position and an equatorial position? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-22-objective-3"
+      ],
+      "feedback": {
+        "hint": "The axial positions lie along one axis and the equatorial positions lie in the plane perpendicular to it.",
+        "solution": "The axis is perpendicular to the equatorial plane, so the angle is 90°. Equatorial positions are 120° apart and the two axial positions are 180° apart.",
+        "lesson_ids": [
+          "general-chemistry-1-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "solution_spec": {
+        "answer": 90,
+        "unit": "",
+        "tolerance": 0.1,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "general-chemistry-1-22:clf3-shape",
+      "type": "single_choice",
+      "prompt": "What are the shape and polarity of ClF₃?",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-22-objective-3"
+      ],
+      "feedback": {
+        "hint": "Draw the 28-electron structure, count the lone pairs on chlorine and place them equatorially.",
+        "solution": "Chlorine has three bonds and two lone pairs, a steric number of 5. With both lone pairs equatorial the three fluorines form a T, and the bond dipoles do not cancel, so ClF₃ is polar.",
+        "lesson_ids": [
+          "general-chemistry-1-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "Trigonal planar and nonpolar",
+        "T-shaped and polar",
+        "Trigonal pyramidal and polar",
+        "Linear and nonpolar"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "general-chemistry-1-22:bf3-lewis-acid",
+      "type": "single_choice",
+      "prompt": "Which statement about BF₃ is correct?",
+      "points": 1,
+      "objective_ids": [
+        "general-chemistry-1-22-objective-2"
+      ],
+      "feedback": {
+        "hint": "Count the electrons around boron in the structure with three single bonds.",
+        "solution": "Boron has three bonds and no lone pair, so six electrons. The six-electron structure has no formal charges, and the electron-poor boron accepts a lone pair from ammonia to form H₃N–BF₃.",
+        "lesson_ids": [
+          "general-chemistry-1-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "Boron has six electrons around it, and BF₃ can accept a lone pair from NH₃",
+        "Boron has eight electrons because each B–F bond is a double bond",
+        "BF₃ is an odd-electron molecule with one unpaired electron",
+        "Boron has ten electrons, an expanded octet"
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "general-chemistry-1-22:octet-claims",
+      "type": "multiple_select",
+      "prompt": "Which statements about octet-rule exceptions and the shapes they give are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "general-chemistry-1-22-objective-1",
+        "general-chemistry-1-22-objective-2",
+        "general-chemistry-1-22-objective-3"
+      ],
+      "feedback": {
+        "hint": "Check the electron budget, the definition of the steric number, and which trigonal-bipyramid positions have fewer 90° neighbours.",
+        "solution": "Second-period atoms are limited to eight electrons in this model, lone pairs count as domains, and a Lewis count is bookkeeping rather than proof of orbital participation. An odd electron total cannot give every atom a full octet, and lone pairs take equatorial positions, which have fewer 90° neighbours.",
+        "lesson_ids": [
+          "general-chemistry-1-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": []
+      },
+      "options": [
+        "Nitrogen, oxygen and fluorine atoms never have more than eight electrons around them in a Lewis structure.",
+        "A molecule with an odd number of valence electrons can still have every atom surrounded by exactly eight electrons.",
+        "In an expanded Lewis structure, lone pairs on the central atom count toward its steric number.",
+        "In a trigonal bipyramid, lone pairs prefer the axial positions.",
+        "Counting more than eight electrons around sulfur is electron bookkeeping and does not by itself show that d orbitals take part in the bonding."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          2,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
     }
   ]
 }

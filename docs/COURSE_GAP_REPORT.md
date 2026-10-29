@@ -16,7 +16,7 @@ comprehensive coverage. Every package is still `partial` and unreviewed.
 | cellular-biomechanics | partial | 24 | 64 | 131 | 79 | 0 | 0 | 0 | 7 | 0 | 0 |
 | circuits | partial | 29 | 84 | 158 | 99 | 0 | 0 | 0 | 5 | 0 | 0 |
 | differential-equations | partial | 25 | 68 | 152 | 86 | 0 | 0 | 0 | 4 | 0 | 0 |
-| general-chemistry-1 | partial | 22 | 63 | 134 | 79 | 0 | 0 | 0 | 4 | 0 | 0 |
+| general-chemistry-1 | partial | 24 | 69 | 160 | 87 | 0 | 0 | 0 | 4 | 0 | 0 |
 | general-chemistry-2 | partial | 23 | 62 | 132 | 77 | 0 | 0 | 0 | 4 | 0 | 0 |
 | genetics | partial | 29 | 83 | 141 | 102 | 0 | 0 | 0 | 8 | 0 | 0 |
 | geroscience | partial | 23 | 66 | 105 | 83 | 0 | 0 | 0 | 4 | 0 | 0 |
@@ -32,7 +32,7 @@ comprehensive coverage. Every package is still `partial` and unreviewed.
 | statistics | partial | 27 | 78 | 135 | 92 | 0 | 0 | 0 | 12 | 0 | 0 |
 | transport | partial | 25 | 68 | 150 | 85 | 0 | 0 | 0 | 7 | 0 | 0 |
 
-Totals: 25 packages, 652 lessons, 1727 objectives, 3689 practice items, 0 lesson objectives with no assessment mapping, 0 with no practice item, 0 linked to no course outcome; 0 of 130 course outcomes that no lesson objective links to, 0 that no assessment lists.
+Totals: 25 packages, 654 lessons, 1733 objectives, 3715 practice items, 0 lesson objectives with no assessment mapping, 0 with no practice item, 0 linked to no course outcome; 0 of 130 course outcomes that no lesson objective links to, 0 that no assessment lists.
 
 Each assessment with items lists the course outcomes its own items assess (item, then its tagged lesson objective,
 then that objective's outcome links), and `tools/validate_content.py` rejects an outcome that none of the

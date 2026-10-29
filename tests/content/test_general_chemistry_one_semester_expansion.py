@@ -195,7 +195,7 @@ def test_reference_offset_composition_and_corrected_reconstruction():
 
 
 def test_chemistry_packets_have_open_delivery_and_preserve_paired_primers():
-    assert len(NEW) == 16 and MANIFEST["version"] == "0.6.0"
+    assert len(NEW) == 16 and tuple(int(part) for part in MANIFEST["version"].split(".")) >= (0, 6, 0)
     assert (
         MANIFEST["maturity"] == "partial"
         and MANIFEST["review"]["status"] == "unreviewed"
@@ -203,7 +203,7 @@ def test_chemistry_packets_have_open_delivery_and_preserve_paired_primers():
     repository = ContentRepository(ROOT / "content")
     weeks = MANIFEST["duration"]["weeks"]
     ids = [x for w in weeks for x in w["lesson_ids"]]
-    assert len(ids) == len(set(ids)) == 22 and len(weeks) == 14
+    assert len(ids) == len(set(ids)) == 24 and len(weeks) == 14
     for n in range(15, 21):
         lesson = repository.lesson("general-chemistry-1", f"general-chemistry-1-{n}")
         assert len(lesson.markdown.split()) >= 700

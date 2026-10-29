@@ -121,6 +121,22 @@ def bond_counts(bonds):
     return len(bonds), sum(order - 1 for _, _, order in bonds)
 
 
+VALENCE = {"H": 1, "B": 3, "C": 4, "N": 5, "O": 6, "F": 7, "P": 5, "S": 6, "Cl": 7, "Br": 7, "I": 7, "Xe": 8}
+
+
+def lewis_counts(center, terminals, charge=0):
+    """Electron bookkeeping: single-bonded terminals take octets and the remainder sits on the centre as lone pairs."""
+    total = VALENCE[center] + sum(VALENCE[atom] for atom in terminals) - charge
+    leftover = total - 8 * len(terminals)
+    return {
+        "total": total,
+        "center_lone_pairs": leftover // 2,
+        "around_center": 2 * len(terminals) + leftover,
+        "steric": len(terminals) + leftover // 2,
+        "total_lone_pairs": leftover // 2 + 3 * len(terminals),
+    }
+
+
 def lab_data():
     with (COURSE / "labs/buffer-reports.csv").open(
         encoding="utf-8", newline=""
@@ -300,6 +316,44 @@ def expected_answers():
         nominal_ten=inventory_ph(0.05 + 0.01, 0.03 - 0.01),
         full_thirty=-math.log10(hydrogen_root(0.16, (0.024 - 0.030) / 0.5)),
     )
+    # 0.7.0 lessons 21 and 22: photon, matter-wave and box keys from the prompts' own constants (the box probability by
+    # midpoint quadrature of the squared wave), and electron bookkeeping by counting.
+    hc_ev_nm, planck, electron_mass, electron_charge = 1239.84, 6.626e-34, 9.109e-31, 1.602e-19
+
+    def box_energy_ev(length_nm):
+        return planck**2 / (8 * electron_mass * (length_nm * 1e-9) ** 2) / electron_charge
+
+    slices = 4000
+    box_left_quarter = sum(2 * math.sin(math.pi * (i + 0.5) * 0.25 / slices) ** 2 * 0.25 / slices for i in range(slices))
+    add(
+        21,
+        photoelectron_energy=hc_ev_nm / 450 - 2.10,
+        threshold_wavelength=hc_ev_nm / 3.20,
+        stopping_potential=planck * 8.00e14 / electron_charge - 2.50,
+        de_broglie_electron=planck / (electron_mass * 2.00e6) * 1e9,
+        electron_wavelength_voltage=planck / math.sqrt(2 * electron_mass * electron_charge * 150) * 1e9,
+        de_broglie_macroscopic=planck / (0.0450 * 60.0) * 1e34,
+        uncertainty_speed=planck / (2 * math.pi) / (2 * electron_mass * 0.050e-9) / 1e6,
+        box_ground_energy=box_energy_ev(0.800),
+        box_absorption_wavelength=hc_ev_nm / (3 * box_energy_ev(0.700)),
+        box_probability=box_left_quarter,
+    )
+    pcl5, icl4, xef2 = lewis_counts("P", ["Cl"] * 5), lewis_counts("I", ["Cl"] * 4, charge=-1), lewis_counts("Xe", ["F"] * 2)
+    sf6, xef4, clf3 = lewis_counts("S", ["F"] * 6), lewis_counts("Xe", ["F"] * 4), lewis_counts("Cl", ["F"] * 3)
+    axial, equatorial = (0.0, 0.0, 1.0), (1.0, 0.0, 0.0)
+    add(
+        22,
+        valence_electrons_pcl5=pcl5["total"],
+        valence_electrons_icl4=icl4["total"],
+        lone_pairs_xef2=xef2["center_lone_pairs"],
+        lone_pairs_icl4=icl4["center_lone_pairs"],
+        electrons_around_sulfur=sf6["around_center"],
+        formal_charge_sulfate=VALENCE["S"] - 0 - 8 // 2,
+        steric_number_clf3=clf3["steric"],
+        unpaired_electrons_no2=(VALENCE["N"] + 2 * VALENCE["O"]) % 2,
+        total_lone_pairs_xef4=xef4["total_lone_pairs"],
+        angle_axial_equatorial=math.degrees(math.acos(sum(x * y for x, y in zip(axial, equatorial)))),
+    )
     return answers
 
 
@@ -344,7 +398,7 @@ def test_hybridization_lesson_statements_match_explicit_orbital_construction():
 
 def test_numeric_inventory_is_exhaustive():
     assert set(EXPECTED) == {key for key, q in BANK.items() if q["type"] == "numeric"}
-    assert len(EXPECTED) == 72
+    assert len(EXPECTED) == 92
 
 
 CHECKS = BANK["general-chemistry-1-lab-01:summary"]["solution_spec"]["validation_spec"][
@@ -542,7 +596,7 @@ def test_schedule_and_conservative_labels():
         "general-chemistry-1-week14-buffer-lab",
         "general-chemistry-1-case",
     ]
-    assert len(lessons) == 22 and len(BANK) == 134
+    assert len(lessons) == 24 and len(BANK) == 160
     cards = len(load(COURSE / "question-banks/retrieval-cards.json")["cards"])
     text = (COURSE / "syllabus.md").read_text(encoding="utf-8")
     assert (
