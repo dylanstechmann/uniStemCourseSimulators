@@ -317,8 +317,9 @@ def test_biochemistry_schedule_places_every_lesson_once_and_stays_partial():
     assert [w["week"] for w in weeks] == list(range(1, 15))
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
-    # 27 topic lessons plus 11 open homework, review and project lessons added in 0.5.0.
-    assert len(all_lessons) == 43
+    # 27 topic lessons, 11 open homework, review and project lessons (0.5.0), five 0.6.0 mechanism/bridge lessons
+    # and the 0.7.0 membrane and signalling lessons.
+    assert len(all_lessons) == 45
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])

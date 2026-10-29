@@ -20,11 +20,12 @@ AUDIT = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(AUDIT)
 # Version 0.5.0 schedules open homework, review and project lessons beside the topic lessons. They revisit
 # existing objectives; the inactive candidates stay mapped to the topic lessons they were drafted against.
-# The inactive 0.4.85 candidates also predate the five 0.6.0 mechanism/bridge lessons.
+# The inactive 0.4.85 candidates also predate the five 0.6.0 mechanism/bridge lessons and the two 0.7.0
+# membrane and signalling lessons.
 # Their original coverage contract stays frozen; new public objectives are not certified by these candidates.
 POST_CANDIDATE_LESSON_PREFIXES = (
     "biochemistry-hw", "biochemistry-review-", "biochemistry-project-",
-    *(f"biochemistry-{number}" for number in range(28, 33)),
+    *(f"biochemistry-{number}" for number in range(28, 35)),
 )
 
 

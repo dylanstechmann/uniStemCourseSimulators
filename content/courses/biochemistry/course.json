@@ -3,11 +3,11 @@
   "id": "biochemistry",
   "legacy_code": "BIOC 301",
   "title": "Biochemistry I: Proteins, Enzymes & Metabolism",
-  "description": "A mechanistic and quantitative introduction to proteins,enzymes and central metabolism,extended by dedicated transport,translation and photosynthetic carbon/energy foundations.",
+  "description": "A mechanistic and quantitative introduction to proteins,enzymes and central metabolism,extended by dedicated membrane,transport,signal-transduction,translation and photosynthetic carbon/energy foundations.",
   "domain": "Biochemistry",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -15,7 +15,8 @@
     "source_sha256": "a77a7cb7f5be2ffa12068877042ac775c6d9b79b83ac2f316fe4f26a0d3d783b",
     "migration_version": "1.0",
     "modifications": [
-      "Linked the first four lesson pairs to outcomes 1–4. Reassociated the preserved ligand-occupancy and pool-versus-flux questions with their binding and flux objectives, and added direct practice for protein structure levels and regulatory layers. Existing numeric prompts and keys remain unchanged. The course remains partial, unreviewed and formative-only."
+      "Linked the first four lesson pairs to outcomes 1–4. Reassociated the preserved ligand-occupancy and pool-versus-flux questions with their binding and flux objectives, and added direct practice for protein structure levels and regulatory layers. Existing numeric prompts and keys remain unchanged. The course remains partial, unreviewed and formative-only.",
+      "Added two original readings with formative practice: membrane lipids, bilayer organization and membrane proteins (week 8), and receptors, G-protein switches and second messengers (week 12). MIT OCW 7.05 Spring 2020 and University of Guelph BIOC*3560 Winter 2023 are link-only scope comparators recorded in a new scope crosswalk; no source text, figure or problem is imported."
     ]
   },
   "prerequisites": {
@@ -861,6 +862,60 @@
         "biochemistry-outcome-4",
         "biochemistry-outcome-6"
       ]
+    },
+    {
+      "id": "biochemistry-33-objective-1",
+      "description": "Relate lipid shape to the aggregate it forms with the packing parameter, and predict how chain length, unsaturation and cholesterol change a bilayer's physical state.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "biochemistry-outcome-1",
+        "biochemistry-outcome-6"
+      ]
+    },
+    {
+      "id": "biochemistry-33-objective-2",
+      "description": "Classify membrane proteins as integral, peripheral or lipid-anchored, and use a hydropathy window and helix geometry to judge whether a segment can cross the bilayer.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-1",
+        "biochemistry-outcome-6"
+      ]
+    },
+    {
+      "id": "biochemistry-33-objective-3",
+      "description": "Quantify lateral diffusion and mobile fraction from recovery data, and explain why transverse movement between leaflets is slow and how leaflet asymmetry decays.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "biochemistry-outcome-1",
+        "biochemistry-outcome-6"
+      ]
+    },
+    {
+      "id": "biochemistry-34-objective-1",
+      "description": "Compute receptor occupancy from a dissociation constant, and use a saturating transducer model to explain why a response can be half-maximal at low occupancy.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "biochemistry-outcome-1",
+        "biochemistry-outcome-4"
+      ]
+    },
+    {
+      "id": "biochemistry-34-objective-2",
+      "description": "Trace a G protein-coupled receptor to protein kinase A, calculating G-protein active lifetime, cascade amplification and steady-state cyclic AMP, and predict the effect of perturbing each step.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-1",
+        "biochemistry-outcome-4"
+      ]
+    },
+    {
+      "id": "biochemistry-34-objective-3",
+      "description": "Compare the phospholipase C, insulin-receptor and nuclear-receptor routes by their messengers, enzymes and termination steps.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "biochemistry-outcome-1",
+        "biochemistry-outcome-4"
+      ]
     }
   ],
   "duration": {
@@ -961,16 +1016,18 @@
       },
       {
         "week": 8,
-        "title": "Free energy, nucleotide biosynthesis and salvage",
+        "title": "Free energy, nucleotide biosynthesis, membranes and transport",
         "lesson_ids": [
           "biochemistry-6",
           "biochemistry-nucleotide-biosynthesis",
+          "biochemistry-33",
           "biochemistry-28"
         ],
         "assessment_ids": [
           "biochemistry-6-practice",
           "biochemistry-nucleotide-biosynthesis-practice",
           "biochemistry-protein-state-project",
+          "biochemistry-33-practice",
           "biochemistry-28-practice"
         ]
       },
@@ -1022,14 +1079,16 @@
       },
       {
         "week": 12,
-        "title": "Glycogen, cholesterol metabolism and pathway regulation",
+        "title": "Signal transduction, glycogen, cholesterol metabolism and pathway regulation",
         "lesson_ids": [
+          "biochemistry-34",
           "biochemistry-4",
           "biochemistry-glycogen-metabolism",
           "biochemistry-cholesterol-lipoproteins",
           "biochemistry-hw7"
         ],
         "assessment_ids": [
+          "biochemistry-34-practice",
           "biochemistry-4-practice",
           "biochemistry-glycogen-metabolism-practice",
           "biochemistry-cholesterol-lipoproteins-practice",
@@ -2615,6 +2674,89 @@
           ]
         }
       ]
+    },
+    {
+      "id": "biochemistry-module-33",
+      "title": "Membrane lipids, bilayer organization and membrane proteins",
+      "source_ids": [
+        "biochem-semester-calendar",
+        "biochem-guelph-bioc3560"
+      ],
+      "lessons": [
+        {
+          "id": "biochemistry-33",
+          "title": "Membrane lipids, bilayer organization and membrane proteins",
+          "reading": "modules/33-membrane-lipids-bilayers-and-membrane-proteins.md",
+          "objectives": [
+            "biochemistry-33-objective-1",
+            "biochemistry-33-objective-2",
+            "biochemistry-33-objective-3"
+          ],
+          "worked_example": "The synthetic segment LLVAIFGLLAVLMSCAVLW scores 16/19 = 0.842 on the stipulated scale and makes a 2.85 nm helix, a plausible single transmembrane span. FRAP readings of 1000, 200 and 760 give a mobile fraction of 560/800 = 0.70, and D = 0.10 µm²/s gives a 2.0 µm root-mean-square displacement in 10 s; FRAP alone does not say why 30 per cent is immobile.",
+          "question_ids": [
+            "biochemistry-33:packing-parameter-single-chain",
+            "biochemistry-33:packing-parameter-aggregate",
+            "biochemistry-33:small-headgroup-effect",
+            "biochemistry-33:transition-temperature-order",
+            "biochemistry-33:helix-residues-to-span",
+            "biochemistry-33:hydropathy-window-mean",
+            "biochemistry-33:peripheral-classification",
+            "biochemistry-33:frap-mobile-fraction",
+            "biochemistry-33:lateral-rms-displacement",
+            "biochemistry-33:lipid-diffusion-time",
+            "biochemistry-33:leaflet-asymmetry-decay",
+            "biochemistry-33:membrane-claims"
+          ],
+          "card_ids": [
+            "biochemistry-33-card-1",
+            "biochemistry-33-card-2",
+            "biochemistry-33-card-3",
+            "biochemistry-33-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biochemistry-module-34",
+      "title": "Receptors, G-protein switches and second messengers",
+      "source_ids": [
+        "biochem-semester-calendar",
+        "biochem-guelph-bioc3560"
+      ],
+      "lessons": [
+        {
+          "id": "biochemistry-34",
+          "title": "Receptors, G-protein switches and second messengers",
+          "reading": "modules/34-receptors-g-protein-switches-and-second-messengers.md",
+          "objectives": [
+            "biochemistry-34-objective-1",
+            "biochemistry-34-objective-2",
+            "biochemistry-34-objective-3"
+          ],
+          "worked_example": "A synthetic Gs-coupled receptor with K_d = 5.0 nM and τ = 9 is 75 per cent occupied at 15 nM and gives 7.5/7.75 = 0.968 of the maximal response, with EC₅₀ = 0.50 nM. Removing 80 per cent of the receptors lowers τ to 1.8, moving EC₅₀ to 1.79 nM and the maximum to 0.714 of the original. Cholera toxin raises cAMP without ligand by blocking Gαs GTP hydrolysis.",
+          "question_ids": [
+            "biochemistry-34:receptor-occupancy",
+            "biochemistry-34:ligand-for-ninety-percent",
+            "biochemistry-34:spare-receptor-ec50",
+            "biochemistry-34:receptor-loss-ec50",
+            "biochemistry-34:galpha-active-fraction",
+            "biochemistry-34:camp-per-activation",
+            "biochemistry-34:pka-catalytic-subunits",
+            "biochemistry-34:camp-steady-state",
+            "biochemistry-34:pde-inhibitor-steady-state",
+            "biochemistry-34:cholera-toxin-mechanism",
+            "biochemistry-34:phospholipase-c-messengers",
+            "biochemistry-34:insulin-route-order",
+            "biochemistry-34:signaling-claims"
+          ],
+          "card_ids": [
+            "biochemistry-34-card-1",
+            "biochemistry-34-card-2",
+            "biochemistry-34-card-3",
+            "biochemistry-34-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -3782,6 +3924,67 @@
         "biochemistry-32:depth-2"
       ],
       "points": 7
+    },
+    {
+      "id": "biochemistry-33-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Membrane lipids, bilayer organization and membrane proteins (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 8,
+      "objective_ids": [
+        "biochemistry-33-objective-1",
+        "biochemistry-33-objective-2",
+        "biochemistry-33-objective-3",
+        "biochemistry-outcome-1",
+        "biochemistry-outcome-6"
+      ],
+      "question_ids": [
+        "biochemistry-33:packing-parameter-single-chain",
+        "biochemistry-33:packing-parameter-aggregate",
+        "biochemistry-33:small-headgroup-effect",
+        "biochemistry-33:transition-temperature-order",
+        "biochemistry-33:helix-residues-to-span",
+        "biochemistry-33:hydropathy-window-mean",
+        "biochemistry-33:peripheral-classification",
+        "biochemistry-33:frap-mobile-fraction",
+        "biochemistry-33:lateral-rms-displacement",
+        "biochemistry-33:lipid-diffusion-time",
+        "biochemistry-33:leaflet-asymmetry-decay",
+        "biochemistry-33:membrane-claims"
+      ],
+      "points": 13
+    },
+    {
+      "id": "biochemistry-34-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Receptors, G-protein switches and second messengers (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 12,
+      "objective_ids": [
+        "biochemistry-34-objective-1",
+        "biochemistry-34-objective-2",
+        "biochemistry-34-objective-3",
+        "biochemistry-outcome-1",
+        "biochemistry-outcome-4"
+      ],
+      "question_ids": [
+        "biochemistry-34:receptor-occupancy",
+        "biochemistry-34:ligand-for-ninety-percent",
+        "biochemistry-34:spare-receptor-ec50",
+        "biochemistry-34:receptor-loss-ec50",
+        "biochemistry-34:galpha-active-fraction",
+        "biochemistry-34:camp-per-activation",
+        "biochemistry-34:pka-catalytic-subunits",
+        "biochemistry-34:camp-steady-state",
+        "biochemistry-34:pde-inhibitor-steady-state",
+        "biochemistry-34:cholera-toxin-mechanism",
+        "biochemistry-34:phospholipase-c-messengers",
+        "biochemistry-34:insulin-route-order",
+        "biochemistry-34:signaling-claims"
+      ],
+      "points": 14
     }
   ],
   "grading_policy": {
@@ -4295,10 +4498,15 @@
       "version": "0.6.0",
       "date": "2026-10-22",
       "summary": "Added three original alternating-access/coupled-transport,translation charging/selection and photosynthetic carbon/electron/proton/ATP foundations plus two bridge reports and sixteen checkpoints/cards. Broadens the earlier animal-cell-only boundary without duplicating eight existing homework packets. All model numbers are synthetic;package remains partial,unreviewed and formative-only."
+    },
+    {
+      "version": "0.7.0",
+      "date": "2026-10-29",
+      "summary": "Added a scope crosswalk against MIT OCW 7.05 Spring 2020 and University of Guelph BIOC*3560 Winter 2023, and two original readings on the strands both teach and the package lacked: membrane lipids, bilayer organization and membrane proteins (week 8), and receptors, G-protein switches and second messengers (week 12). Six objectives, 25 practice items and eight cards. All model numbers are synthetic; package remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "The original animal-cell metabolism core now has bounded dedicated transport,translation and photosynthetic electron/carbon/energy companions plus two bridge reports. General channel/transport structures,translation systems,photosynthetic physiology and the full comparator scope remain selective or deferred.",
+    "The original animal-cell metabolism core now has bounded dedicated membrane-structure,transport,signal-transduction,translation and photosynthetic electron/carbon/energy companions plus two bridge reports. General channel/transport structures,receptor families beyond the examples,translation systems,photosynthetic physiology and the full comparator scope remain selective or deferred.",
     "A proposed 14-week schedule and inactive grading-policy proposal exist but are unmeasured and unreviewed. Two synthetic-data virtual labs provide a limited paper-only sequence, not a physical laboratory sequence. Eight homework packets, midterm and final review practice and an optional protein-state project are available as open, ungraded practice; the separate homework, exam and project candidates remain inactive with private unreviewed solution/scoring drafts outside the public package. None is approved or active as graded work. Physical laboratory work is not authored.",
     "Practice items are short formative checks; they do not demonstrate comprehensive outcome coverage or mastery, and objective associations remain provisional.",
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
@@ -4309,10 +4517,11 @@
     "The week-7 midterm review and week-14 cumulative final review combine new cross-week items with earlier public items. Their answers and feedback are public practice specifications, so neither can serve as a secure exam; scores are practice feedback and do not demonstrate mastery.",
     "The protein-state project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice checks a separate synthetic condition C, and no software check evaluates a learner's condition A or B analysis or written interpretation. Milestone weeks are planning suggestions, not measured workload or deadlines.",
     "Transport,translation and photosynthetic counts use explicitly stipulated cycle/sign,coupling,overhead,selection and loss assumptions. They do not establish real flux,biochemical error rates,quantum efficiencies or a complete whole-cell energy budget. Existing inactive candidates,private keys and prerequisite readings are unchanged;new bridge reports are public ungraded practice.",
-    "Of the 201 numerical answers, 57 require units, 89 check significant figures and 0 check dimensions. New continuous normalized fields request three significant figures;exact nucleotide,bond,electron,photon and event counts have no precision penalty. Full reports,proofs,code and experiments are not automatically evaluated."
+    "Of the 217 numerical answers, 57 require units, 102 check significant figures and 0 check dimensions. New continuous normalized fields request three significant figures;exact nucleotide,bond,electron,photon,residue,molecule and event counts have no precision penalty. Full reports,proofs,code and experiments are not automatically evaluated.",
+    "Membrane and signalling counts use a stipulated packing-parameter guide, a stipulated three-level hydropathy scale and a stipulated saturating transducer law with first-order GTP and cAMP removal. They give no transition temperatures, diffusion coefficients, binding constants or rates for real lipids, proteins or receptors, and say nothing about any drug, dose or treatment."
   ],
   "intentionally_omitted": [
     "No grading policy or summative assessment is approved, and a physical laboratory sequence is not authored. Open homework, review and project practice is ungraded; the eight answer-free homework candidates, two exam candidates and the human-scored project candidate remain inactive drafts, each with a private unreviewed key or scoring draft held outside the public package. The original lessons extend a partial package.",
-    "Photosystem light harvesting and electron transport, photophosphorylation, Calvin–Benson CO₂ assimilation, membrane transport mechanisms and translation are deliberately deferred from this animal-cell-focused partial sequence; MIT OCW 7.05 Spring 2020 includes these topics."
+    "Photosystem light harvesting and electron transport, photophosphorylation, Calvin–Benson CO₂ assimilation, membrane transport mechanisms and translation were deferred from the original animal-cell-focused sequence and now have bounded companions; MIT OCW 7.05 Spring 2020 includes these topics. Nucleic-acid structure (7.05 session 16) and cyclin-dependent kinases (Guelph Part B) are taught in Cell Biology rather than here. The Bohr-effect mechanism and CO₂ transport (7.05 session 7; Guelph Part A), allosteric enzyme models, proteolytic activation (Guelph Part B) and carbohydrate structure beyond glycogen remain gaps recorded in the scope crosswalk."
   ]
 }

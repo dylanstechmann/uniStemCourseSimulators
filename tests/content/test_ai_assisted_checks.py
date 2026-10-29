@@ -354,6 +354,23 @@ BIOCHEMISTRY_NUMERIC = {
     "biochemistry-hw8:enzyme-turnover-time": 18 * math.log(1 / (1 - 0.75)) / math.log(2),
     "biochemistry-midterm:active-enzyme-vmax": 0.85 * 40e-3 * 25 * 60,
     "biochemistry-midterm:active-fraction-from-kcat": 100 * 96 / (1e-3 / 50_000 * 1e6 * 100 * 60),
+    # 0.7.0 membrane lesson 33 and signalling lesson 34
+    "biochemistry-33:packing-parameter-single-chain": 0.40 / 0.90 / 1.50,
+    "biochemistry-33:helix-residues-to-span": 33 / 1.5,
+    "biochemistry-33:hydropathy-window-mean": (13 * 1 + 4 * 0 + 2 * -1) / 19,
+    "biochemistry-33:frap-mobile-fraction": 540 / 900,
+    "biochemistry-33:lateral-rms-displacement": (4 * 0.30 * 3.0) ** 0.5,
+    "biochemistry-33:lipid-diffusion-time": 36 / 6.0,
+    "biochemistry-33:leaflet-asymmetry-decay": 0.5 + 0.5 * 0.5 ** (2 * 8.0 / 8.0),
+    "biochemistry-34:receptor-occupancy": 12 / 20,
+    "biochemistry-34:ligand-for-ninety-percent": 3.0 * 9,
+    "biochemistry-34:spare-receptor-ec50": 20 / 20,
+    "biochemistry-34:receptor-loss-ec50": 5.0 / (1 + 9 * (1 - 0.60)),
+    "biochemistry-34:galpha-active-fraction": math.exp(-0.5),
+    "biochemistry-34:camp-per-activation": 15 * 20,
+    "biochemistry-34:pka-catalytic-subunits": 2 * (25 * 400 // 4),
+    "biochemistry-34:camp-steady-state": 0.90 / 1.5,
+    "biochemistry-34:pde-inhibitor-steady-state": 0.90 / 0.50,
 }
 
 

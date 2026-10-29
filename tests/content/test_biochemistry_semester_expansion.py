@@ -189,14 +189,14 @@ def test_photosynthetic_coupling_resource_and_loss_boundaries():
 
 
 def test_biochemistry_bridge_delivery_and_existing_homework_are_preserved():
-    assert len(NEW) == 16 and MANIFEST["version"] == "0.6.0"
+    assert len(NEW) == 16 and MANIFEST["version"] == "0.7.0"
     assert (
         MANIFEST["maturity"] == "partial"
         and MANIFEST["review"]["status"] == "unreviewed"
     )
     repository = ContentRepository(ROOT / "content")
     ids = [x for w in MANIFEST["duration"]["weeks"] for x in w["lesson_ids"]]
-    assert len(ids) == len(set(ids)) == 43
+    assert len(ids) == len(set(ids)) == 45
     for n in range(28, 33):
         lesson = repository.lesson("biochemistry", f"biochemistry-{n}")
         assert len(lesson.markdown.split()) >= 700
