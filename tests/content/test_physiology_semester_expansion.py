@@ -267,10 +267,10 @@ def test_nonzero_initial_gate_conductance_slope_and_fixed_rate_integration():
 
 def test_connected_model_reports_deliver_with_honest_partial_scope():
     assert len(NEW) == 20
-    assert MANIFEST["version"] == "0.6.0" and MANIFEST["maturity"] == "partial"
+    assert MANIFEST["version"] == "0.7.0" and MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed"
     scheduled = [lid for w in MANIFEST["duration"]["weeks"] for lid in w["lesson_ids"]]
-    assert len(scheduled) == len(set(scheduled)) == 25
+    assert len(scheduled) == len(set(scheduled)) == 27
     repository = ContentRepository(ROOT / "content")
     for number in range(17, 24):
         lesson = repository.lesson("physiology", f"physiology-{number}")

@@ -147,6 +147,21 @@ def _rc_time_to(fraction, rm, cm, dt=1e-6):
     return t
 
 
+def _bicarbonate_ph(bicarbonate, pco2):
+    """Henderson-Hasselbalch for the CO2 system with pK' 6.1 and solubility 0.03 mmol/L per mmHg."""
+    return 6.1 + math.log10(bicarbonate / (0.03 * pco2))
+
+
+def _ventricle_filling(rate, tau=0.25):
+    """Fill dV/dt = (130 - V)/tau from ESV 50 mL for the stipulated diastole 0.8 T - 0.15 s; returns (diastole s, SV mL, CO L/min)."""
+    period = 60 / rate
+    diastole = period - (0.15 + 0.2 * period)
+    volume, steps = 50.0, 20000
+    for _ in range(steps):
+        volume += (130 - volume) / tau * diastole / steps
+    return diastole, volume - 50, rate * (volume - 50) / 1000
+
+
 PHYSIOLOGY_NUMERIC = {
     # items written before 2026-10-08, recomputed from the numbers in their prompts
     "physiology-1:check": 12 / (0.3 * 2),
@@ -230,6 +245,25 @@ PHYSIOLOGY_NUMERIC = {
     "physiology-16:gk-fold-rise": (0.587 / 0.318) ** 4,
     "physiology-16:ina-instant": 120 * 0.9**3 * 0.3 * (0 - 50),
     "physiology-16:h-recovery-time": 8.52 * math.log((0.596 - 0.10) / (0.596 - 0.40)),
+    # physiology 0.7.0: acid-base balance and the cardiac cycle, recomputed from the numbers in each prompt
+    "physiology-24:chronic-respiratory-ph": _bicarbonate_ph(30, 60),
+    "physiology-24:ventilation-fall-ph": _bicarbonate_ph(24, 40 / 0.6),
+    "physiology-24:compensated-ph": _bicarbonate_ph(12, 28),
+    "physiology-24:compensation-ventilation": 0.863 * 200 / 28,
+    "physiology-24:loop-gain": (7.401 - 7.100) / (7.401 - 7.255) - 1,
+    "physiology-24:daily-ledger-ph": _bicarbonate_ph(24 - 7 * (70 - 60) / 14, 40),
+    "physiology-24:filtered-shortfall": 0.01 * 180 * 24,
+    "physiology-24:anion-gap": 142 - 108 - 14,
+    "physiology-24:co2-fick": 250 / 5,
+    "physiology-25:ejection-fraction": (130 - 50) / 130,
+    "physiology-25:diastolic-time-100": _ventricle_filling(100)[0],
+    "physiology-25:stroke-volume-120": _ventricle_filling(120)[1],
+    "physiology-25:output-150": _ventricle_filling(150)[2],
+    "physiology-25:stiff-output-90": _ventricle_filling(90, tau=0.40)[2],
+    "physiology-25:av-node-delay": 0.005 / 0.04,
+    "physiology-25:pacemaker-slope": (-40 - -60) / (60 / 100),
+    "physiology-25:lead-three": 0.4 - 0.9,
+    "physiology-25:axis-angle": math.degrees(math.atan2((2 * 1.0 - 0.8) / math.sqrt(3), 0.8)),
 }
 
 

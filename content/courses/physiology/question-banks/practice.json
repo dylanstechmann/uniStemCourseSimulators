@@ -6184,6 +6184,802 @@
           "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
         ]
       }
+    },
+    {
+      "id": "physiology-24:chronic-respiratory-ph",
+      "type": "numeric",
+      "prompt": "A synthetic person has [HCO₃⁻] = 30 mmol/L and P_CO₂ = 60 mmHg. Use pH = 6.1 + log₁₀([HCO₃⁻]/(0.03 × P_CO₂)). What is the pH? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-24-objective-1"
+      ],
+      "feedback": {
+        "hint": "Dissolved CO₂ is 0.03 × P_CO₂ in mmol/L. Take the logarithm of the ratio, not the difference.",
+        "solution": "Dissolved CO₂ = 0.03 × 60 = 1.8 mmol/L. The ratio is 30/1.8 = 16.67, its base-10 logarithm is 1.222, and pH = 6.1 + 1.222 = 7.32.",
+        "lesson_ids": [
+          "physiology-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 7.321848749616356,
+        "unit": "",
+        "tolerance": 0.0051,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physiology-24:ventilation-fall-ph",
+      "type": "numeric",
+      "prompt": "A synthetic person has [HCO₃⁻] = 24 mmol/L and P_CO₂ = 40 mmHg. Alveolar ventilation then falls to 60% of its earlier value while CO₂ production and bicarbonate stay unchanged. What is the new pH? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-24-objective-1"
+      ],
+      "feedback": {
+        "hint": "P_CO₂ varies inversely with alveolar ventilation at fixed CO₂ production.",
+        "solution": "P_CO₂ = 40/0.6 = 66.7 mmHg, so dissolved CO₂ = 2.0 mmol/L. The ratio is 24/2.0 = 12 and pH = 6.1 + log₁₀ 12 = 6.1 + 1.079 = 7.18.",
+        "lesson_ids": [
+          "physiology-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 7.179181246047625,
+        "unit": "",
+        "tolerance": 0.0051,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physiology-24:compensated-ph",
+      "type": "numeric",
+      "prompt": "A metabolic acid load lowers [HCO₃⁻] to 12 mmol/L. Hyperventilation then lowers P_CO₂ from 40 to 28 mmHg. What is the pH after this compensation? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-24-objective-2"
+      ],
+      "feedback": {
+        "hint": "Only P_CO₂ changed between the uncompensated and compensated states; recompute dissolved CO₂ and the ratio.",
+        "solution": "Dissolved CO₂ = 0.03 × 28 = 0.84 mmol/L. The ratio is 12/0.84 = 14.29 and pH = 6.1 + log₁₀ 14.29 = 6.1 + 1.155 = 7.25. Uncompensated, the same bicarbonate at P_CO₂ = 40 gives 7.10.",
+        "lesson_ids": [
+          "physiology-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 7.254901959985743,
+        "unit": "",
+        "tolerance": 0.0051,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physiology-24:compensation-ventilation",
+      "type": "numeric",
+      "prompt": "A metabolic acid load lowers [HCO₃⁻] to 12 mmol/L, and CO₂ production is 200 mL/min. Using P_ACO₂ = 0.863 × V̇_CO₂ / V̇_A (V̇_CO₂ in mL/min, V̇_A in L/min), what alveolar ventilation, in L/min, holds P_CO₂ at 28 mmHg? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-24-objective-2"
+      ],
+      "feedback": {
+        "hint": "Rearrange the alveolar relation for V̇_A.",
+        "solution": "V̇_A = 0.863 × 200/28 = 6.16 L/min, compared with 0.863 × 200/40 = 4.32 L/min at 40 mmHg, an increase of about 43%.",
+        "lesson_ids": [
+          "physiology-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 6.164285714285714,
+        "unit": "",
+        "tolerance": 0.0051,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physiology-24:loop-gain",
+      "type": "numeric",
+      "prompt": "A normal pH is 7.401. The uncompensated pH of a metabolic disturbance is 7.100 and the compensated pH is 7.255. Treat the lungs as a proportional controller and find the loop gain G = d/e − 1, where d and e are the uncompensated and compensated deviations from normal. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-24-objective-2"
+      ],
+      "feedback": {
+        "hint": "Both deviations are measured from 7.401, not from each other.",
+        "solution": "d = 7.401 − 7.100 = 0.301 and e = 7.401 − 7.255 = 0.146, so G = 0.301/0.146 − 1 = 1.06. The compensation removes G/(1 + G) = 51% of the disturbance.",
+        "lesson_ids": [
+          "physiology-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1.0616438356164406,
+        "unit": "",
+        "tolerance": 0.0051,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physiology-24:daily-ledger-ph",
+      "type": "numeric",
+      "prompt": "A synthetic person produces 70 mmol/day of non-volatile acid but excretes a net 60 mmol/day. The shortfall is drawn from a bicarbonate pool spread through 14 L of extracellular fluid, starting at 24 mmol/L. Ignore other buffers and assume P_CO₂ stays 40 mmHg. What is the pH after seven days? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-24-objective-3"
+      ],
+      "feedback": {
+        "hint": "First find the bicarbonate concentration after seven days of a 10 mmol/day deficit.",
+        "solution": "The pool falls 10/14 = 0.714 mmol/L per day, so after seven days [HCO₃⁻] = 24 − 5.0 = 19.0 mmol/L. The ratio is 19/1.2 = 15.83 and pH = 6.1 + 1.200 = 7.30.",
+        "lesson_ids": [
+          "physiology-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 7.299572354905203,
+        "unit": "",
+        "tolerance": 0.0051,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physiology-24:filtered-shortfall",
+      "type": "numeric",
+      "prompt": "The glomerular filtration rate is 180 L/day and plasma bicarbonate is 24 mmol/L. How many mmol/day of bicarbonate would be lost if reabsorption fell short of the filtered load by 1%? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-24-objective-3"
+      ],
+      "feedback": {
+        "hint": "Compute the filtered load first.",
+        "solution": "The filtered load is 180 × 24 = 4320 mmol/day, and 1% of it is 43.2 mmol/day, which is comparable to the whole 70 mmol/day acid load of the model.",
+        "lesson_ids": [
+          "physiology-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 43.2,
+        "unit": "",
+        "tolerance": 0.0551,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physiology-24:anion-gap",
+      "type": "numeric",
+      "prompt": "A synthetic sample has [Na⁺] = 142, [Cl⁻] = 108 and [HCO₃⁻] = 14 mmol/L. Compute the anion gap, Na⁺ − Cl⁻ − HCO₃⁻, in mmol/L. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-24-objective-4"
+      ],
+      "feedback": {
+        "hint": "Subtract both anions from the sodium concentration.",
+        "solution": "142 − 108 − 14 = 20 mmol/L. By electroneutrality this is unmeasured anions minus unmeasured cations in the model.",
+        "lesson_ids": [
+          "physiology-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 20,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physiology-24:co2-fick",
+      "type": "numeric",
+      "prompt": "Cardiac output is 5 L/min and CO₂ production rises to 250 mL/min. Using the Fick balance for CO₂, what is the venous–arterial CO₂ content difference in mL per L of blood? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-24-objective-4"
+      ],
+      "feedback": {
+        "hint": "V̇_CO₂ = Q̇ × (C_vCO₂ − C_aCO₂); keep the units of flow in L/min.",
+        "solution": "C_vCO₂ − C_aCO₂ = 250 mL/min ÷ 5 L/min = 50 mL/L. At 200 mL/min the same output gives 40 mL/L.",
+        "lesson_ids": [
+          "physiology-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 50.0,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physiology-24:same-ph-different-cause",
+      "type": "single_choice",
+      "prompt": "One sample has [HCO₃⁻] = 24 mmol/L and P_CO₂ = 80 mmHg. Another has [HCO₃⁻] = 12 mmol/L and P_CO₂ = 40 mmHg. Both have pH 7.10. What follows?",
+      "points": 1,
+      "objective_ids": [
+        "physiology-24-objective-2"
+      ],
+      "feedback": {
+        "hint": "Compute the ratio of bicarbonate to dissolved CO₂ for each sample.",
+        "solution": "Both ratios are 10, so both have pH 7.10. The first is a respiratory acidosis (P_CO₂ rose) and the second a metabolic acidosis (bicarbonate fell). pH depends only on the ratio, so it cannot name the term that changed.",
+        "lesson_ids": [
+          "physiology-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      },
+      "options": [
+        "Both samples have the same disturbance, because the pH is the same.",
+        "Both must be respiratory disturbances, because both have an abnormal pH.",
+        "They differ in which term moved: the first is a rise in P_CO₂, the second a fall in bicarbonate, so a second measurement is needed to tell them apart.",
+        "The sample with the higher P_CO₂ must have the lower pH."
+      ],
+      "solution_spec": {
+        "answer": 2
+      }
+    },
+    {
+      "id": "physiology-24:which-changes-lower-ph",
+      "type": "multiple_select",
+      "prompt": "Which changes lower the pH in the bicarbonate–CO₂ relation? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "physiology-24-objective-1"
+      ],
+      "feedback": {
+        "hint": "Only the ratio of bicarbonate to dissolved CO₂ matters.",
+        "solution": "pH falls when the ratio falls: a higher P_CO₂ or lower bicarbonate does that, and so does the combined change in the last option (0.5/1.5 of the original ratio). Doubling both terms leaves the ratio, and therefore pH, unchanged.",
+        "lesson_ids": [
+          "physiology-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      },
+      "options": [
+        "P_CO₂ rises with bicarbonate unchanged.",
+        "Bicarbonate falls with P_CO₂ unchanged.",
+        "P_CO₂ falls with bicarbonate unchanged.",
+        "Bicarbonate and P_CO₂ both double.",
+        "Bicarbonate falls by half while P_CO₂ rises by half."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "physiology-24:anion-gap-statements",
+      "type": "multiple_select",
+      "prompt": "Which statements about the anion gap are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "physiology-24-objective-4"
+      ],
+      "feedback": {
+        "hint": "The gap is arithmetic on three concentrations; ask what it can and cannot see.",
+        "solution": "The gap is bookkeeping from electroneutrality, so chloride replacing bicarbonate leaves it unchanged while an unmeasured anion replacing bicarbonate raises it. It is not a pH measurement and says nothing about P_CO₂.",
+        "lesson_ids": [
+          "physiology-24"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      },
+      "options": [
+        "By electroneutrality it equals unmeasured anions minus unmeasured cations.",
+        "A fall in bicarbonate matched by a rise in chloride leaves the gap unchanged.",
+        "A fall in bicarbonate with chloride unchanged raises the gap.",
+        "It is a direct measurement of blood pH.",
+        "A normal gap shows that the respiratory term is normal."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "physiology-25:ejection-fraction",
+      "type": "numeric",
+      "prompt": "A ventricle has an end-diastolic volume of 130 mL and an end-systolic volume of 50 mL. What is the ejection fraction, as a fraction of 1? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-25-objective-1"
+      ],
+      "feedback": {
+        "hint": "Stroke volume is the difference of the two volumes; the fraction is taken of the end-diastolic volume.",
+        "solution": "SV = 130 − 50 = 80 mL and EF = 80/130 = 0.615.",
+        "lesson_ids": [
+          "physiology-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.6153846153846154,
+        "unit": "",
+        "tolerance": 0.00051,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physiology-25:diastolic-time-100",
+      "type": "numeric",
+      "prompt": "Use the stipulated model t_sys = 0.15 + 0.2 T seconds, where T = 60/HR. What is the duration of diastole, in seconds, at 100 beats per minute? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-25-objective-2"
+      ],
+      "feedback": {
+        "hint": "Diastole is the cycle length minus systole.",
+        "solution": "T = 0.60 s, t_sys = 0.15 + 0.12 = 0.27 s, so t_dia = 0.60 − 0.27 = 0.330 s.",
+        "lesson_ids": [
+          "physiology-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.32999999999999996,
+        "unit": "",
+        "tolerance": 0.0005,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physiology-25:stroke-volume-120",
+      "type": "numeric",
+      "prompt": "In the filling model EDV = V∞ − (V∞ − ESV) e^(−t_dia/τ) with V∞ = 130 mL, ESV = 50 mL, τ = 0.25 s and the diastole of the stipulated timing model, what is the stroke volume in mL at 120 beats per minute? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-25-objective-2"
+      ],
+      "feedback": {
+        "hint": "At 120 per minute T = 0.5 s; find t_dia first, then EDV.",
+        "solution": "t_dia = 0.8 × 0.5 − 0.15 = 0.250 s, so EDV = 130 − 80 e^(−1) = 100.6 mL and SV = 100.6 − 50 = 50.6 mL.",
+        "lesson_ids": [
+          "physiology-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 50.569644706284606,
+        "unit": "",
+        "tolerance": 0.051,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physiology-25:output-150",
+      "type": "numeric",
+      "prompt": "With the same model (V∞ = 130 mL, ESV = 50 mL, τ = 0.25 s, t_dia = 0.8 T − 0.15), what is the cardiac output in L/min at 150 beats per minute? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-25-objective-2"
+      ],
+      "feedback": {
+        "hint": "Compute stroke volume at 150 per minute, then multiply by rate and convert mL to L.",
+        "solution": "T = 0.4 s and t_dia = 0.17 s. EDV = 130 − 80 e^(−0.68) = 89.5 mL, SV = 39.5 mL and CO = 150 × 39.5 = 5.92 L/min, below the 6.07 L/min at 120 per minute.",
+        "lesson_ids": [
+          "physiology-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 5.920596091612926,
+        "unit": "",
+        "tolerance": 0.0051,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physiology-25:stiff-output-90",
+      "type": "numeric",
+      "prompt": "Make the ventricle stiffer by setting τ = 0.40 s, keeping V∞ = 130 mL, ESV = 50 mL and the stipulated timing. What is the cardiac output, in L/min, at 90 beats per minute? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-25-objective-2"
+      ],
+      "feedback": {
+        "hint": "Only the exponent in the filling relation changes; the timing model is the same.",
+        "solution": "At 90 per minute t_dia = 0.383 s, so EDV = 130 − 80 e^(−0.383/0.40) = 99.3 mL, SV = 49.3 mL and CO = 90 × 49.3 = 4.44 L/min, against 5.65 L/min with τ = 0.25 s.",
+        "lesson_ids": [
+          "physiology-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 4.438572675290563,
+        "unit": "",
+        "tolerance": 0.0051,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physiology-25:av-node-delay",
+      "type": "numeric",
+      "prompt": "The atrioventricular node is 0.005 m long. If its conduction velocity falls to 0.04 m/s, what is the delay across it, in seconds? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-25-objective-3"
+      ],
+      "feedback": {
+        "hint": "The delay across a segment is length divided by velocity.",
+        "solution": "t = 0.005/0.04 = 0.125 s, compared with 0.100 s at 0.05 m/s.",
+        "lesson_ids": [
+          "physiology-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.125,
+        "unit": "",
+        "tolerance": 0.0005,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physiology-25:pacemaker-slope",
+      "type": "numeric",
+      "prompt": "A pacemaker cell starts phase 4 at −60 mV and fires at a threshold of −40 mV. What slope of diastolic depolarization, in mV/s, gives a rate of 100 beats per minute? Ignore the duration of the action potential itself. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-25-objective-3"
+      ],
+      "feedback": {
+        "hint": "The interval is 60/100 s and the potential must rise 20 mV during it.",
+        "solution": "T = 0.60 s, so slope = 20 mV/0.60 s = 33.3 mV/s. At 25 mV/s the rate is 75 per minute.",
+        "lesson_ids": [
+          "physiology-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 33.333333333333336,
+        "unit": "",
+        "tolerance": 0.051,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physiology-25:lead-three",
+      "type": "numeric",
+      "prompt": "In a frontal-plane dipole model the QRS peaks are I = 0.9 mV and II = 0.4 mV. Using Einthoven's law, what is the lead III peak in mV (include the sign)? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-25-objective-4"
+      ],
+      "feedback": {
+        "hint": "Einthoven's law relates all three leads.",
+        "solution": "II = I + III, so III = II − I = 0.4 − 0.9 = −0.5 mV. A negative value means the vector's projection points opposite to the lead III axis.",
+        "lesson_ids": [
+          "physiology-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": -0.5,
+        "unit": "",
+        "tolerance": 0.005,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physiology-25:axis-angle",
+      "type": "numeric",
+      "prompt": "Lead I records 0.8 mV and lead II records 1.0 mV for a cardiac vector in the frontal plane, with lead axes at 0° and +60°. Use p sin θ = (2 II − I)/√3 and p cos θ = I to find the vector's angle θ, in degrees. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "physiology-25-objective-4"
+      ],
+      "feedback": {
+        "hint": "Compute the sine and cosine components, then take the inverse tangent.",
+        "solution": "p sin θ = (2.0 − 0.8)/1.732 = 0.693 and p cos θ = 0.800, so θ = atan(0.693/0.800) = 40.9°, with p = 1.06 mV.",
+        "lesson_ids": [
+          "physiology-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 40.893394649130904,
+        "unit": "",
+        "tolerance": 0.051,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "physiology-25:phase-from-pressures",
+      "type": "single_choice",
+      "prompt": "At one instant P_LV = 60 mmHg, P_LA = 8 mmHg and P_Ao = 100 mmHg, and the ventricular pressure is falling. Which phase is the ventricle in?",
+      "points": 1,
+      "objective_ids": [
+        "physiology-25-objective-1"
+      ],
+      "feedback": {
+        "hint": "Compare the ventricular pressure with each of its two neighbours, then use the direction of change.",
+        "solution": "P_LV is below P_Ao, so the aortic valve is closed, and above P_LA, so the mitral valve is closed. With both valves closed, volume is constant. Because pressure is falling after ejection, the phase is isovolumic relaxation; the same valve pattern with rising pressure would be isovolumic contraction.",
+        "lesson_ids": [
+          "physiology-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      },
+      "options": [
+        "Filling",
+        "Isovolumic contraction",
+        "Ejection",
+        "Isovolumic relaxation"
+      ],
+      "solution_spec": {
+        "answer": 3
+      }
+    },
+    {
+      "id": "physiology-25:filling-model-statements",
+      "type": "multiple_select",
+      "prompt": "In the stipulated filling model (fixed ESV, one filling time constant), which statements are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "physiology-25-objective-2"
+      ],
+      "feedback": {
+        "hint": "Follow the exponent: the fraction filled depends on t_dia/τ.",
+        "solution": "Systole is 0.15 + 0.2 T, so diastole absorbs most of the shortening; a smaller t_dia/τ means less filling and a smaller stroke volume. Output has an interior maximum near 126 per minute, and the model holds ESV fixed, so it does not predict a change in it.",
+        "lesson_ids": [
+          "physiology-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      },
+      "options": [
+        "Diastole shortens by a larger fraction than systole when heart rate rises.",
+        "Stroke volume falls as heart rate rises because less time remains to fill.",
+        "Cardiac output increases without limit as heart rate rises.",
+        "A larger filling time constant gives a smaller stroke volume at the same heart rate.",
+        "A stiffer ventricle raises the end-systolic volume."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "physiology-25:dipole-statements",
+      "type": "multiple_select",
+      "prompt": "Which statements about the limb leads and the cardiac dipole model are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "physiology-25-objective-4"
+      ],
+      "feedback": {
+        "hint": "A lead records a projection, p cos(θ − axis angle).",
+        "solution": "The cosine of 90° is zero, and II = (V_LL − V_LA) + (V_LA − V_RA) = III + I. Amplitude depends on both size and angle, so a single lead cannot fix the vector; two leads can in the frontal-plane model.",
+        "lesson_ids": [
+          "physiology-25"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic physiological-model practice developed with substantial AI assistance; no external problem, physiological measurements, study or dataset imported."
+        ]
+      },
+      "options": [
+        "A vector perpendicular to a lead axis produces no deflection in that lead.",
+        "Einthoven's law, II = I + III, follows because each lead is a difference of the same three limb potentials.",
+        "A lead's amplitude depends only on the size of the vector, not on its angle.",
+        "One lead is enough to determine both the size and angle of the vector."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
     }
   ]
 }

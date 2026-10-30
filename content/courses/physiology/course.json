@@ -7,7 +7,7 @@
   "domain": "Life sciences",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -15,7 +15,8 @@
     "source_sha256": "a77a7cb7f5be2ffa12068877042ac775c6d9b79b83ac2f316fe4f26a0d3d783b",
     "migration_version": "1.0",
     "modifications": [
-      "Linked the first four lesson objectives to outcomes, clarified the homeostasis objective, corrected the membrane-voltage item association, and added direct practice for feedback-loop components, membrane voltage as a state variable, and ventilation limitation."
+      "Linked the first four lesson objectives to outcomes, clarified the homeostasis objective, corrected the membrane-voltage item association, and added direct practice for feedback-loop components, membrane voltage as a state variable, and ventilation limitation.",
+      "0.7.0 adds two original readings with 24 practice items and nine retrieval cards after a second-university comparison: acid-base balance and the cardiac cycle with conduction and the ECG."
     ]
   },
   "prerequisites": {
@@ -697,11 +698,80 @@
         "physiology-outcome-1",
         "physiology-outcome-4"
       ]
+    },
+    {
+      "id": "physiology-24-objective-1",
+      "description": "Compute pH from bicarbonate concentration and P_CO₂ with the Henderson–Hasselbalch relation, and predict the direction and size of a change from the logarithm of the ratio.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "physiology-outcome-1"
+      ]
+    },
+    {
+      "id": "physiology-24-objective-2",
+      "description": "Classify a disturbance as respiratory or metabolic from the term that moved, and calculate the ventilation change, the compensated pH and the loop gain of a compensation.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physiology-outcome-1",
+        "physiology-outcome-4"
+      ]
+    },
+    {
+      "id": "physiology-24-objective-3",
+      "description": "Use a daily acid ledger and the filtered bicarbonate load to show how the slow renal term can drift when net acid excretion falls short.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "physiology-outcome-1",
+        "physiology-outcome-3"
+      ]
+    },
+    {
+      "id": "physiology-24-objective-4",
+      "description": "Use electroneutrality (the anion gap) and the CO₂ Fick balance to read ion and gas data without over-interpreting them.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physiology-outcome-1",
+        "physiology-outcome-3"
+      ]
+    },
+    {
+      "id": "physiology-25-objective-1",
+      "description": "Assign the phase of the cardiac cycle from chamber and aortic pressures using valve logic, and compute stroke volume and ejection fraction from end-diastolic and end-systolic volumes.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "physiology-outcome-2"
+      ]
+    },
+    {
+      "id": "physiology-25-objective-2",
+      "description": "Use a stipulated filling model to show how heart rate shortens diastole more than systole, why cardiac output can peak and then fall as rate rises, and how a stiffer ventricle changes the result.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physiology-outcome-2",
+        "physiology-outcome-4"
+      ]
+    },
+    {
+      "id": "physiology-25-objective-3",
+      "description": "Compute conduction delays from distance and velocity and a pacemaker rate from the slope of diastolic depolarization.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "physiology-outcome-3",
+        "physiology-outcome-4"
+      ]
+    },
+    {
+      "id": "physiology-25-objective-4",
+      "description": "Project a cardiac vector onto the limb-lead axes, apply Einthoven's law, recover the vector's size and angle from two leads, and state what the dipole model leaves out.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "physiology-outcome-3"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week undergraduate scope only. Two compact prototype units remain in weeks 5 and 11 beside original lessons on balance and feedback, membrane potential, hemodynamics, respiratory mechanics, oxygen delivery, capillary exchange, muscle mechanics and tissue repair; week 13 is a synthetic-data closure lab and week 14 a compensation-and-reserve lesson with the course case. All activities are open, ungraded practice. There are no graded homework sets, exams or project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week undergraduate scope only. Two compact prototype units remain in weeks 5 and 11 beside original lessons on balance and feedback, membrane potential, hemodynamics, the cardiac cycle and ECG, respiratory mechanics, acid-base balance, oxygen delivery, capillary exchange, muscle mechanics and tissue repair; week 13 is a synthetic-data closure lab and week 14 a compensation-and-reserve lesson with the course case. All activities are open, ungraded practice. There are no graded homework sets, exams or project, and workload has not been measured, so this schedule is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
@@ -751,12 +821,14 @@
       },
       {
         "week": 5,
-        "title": "Cardiovascular and respiratory transport",
+        "title": "Cardiovascular and respiratory transport; the cardiac cycle and ECG",
         "lesson_ids": [
-          "physiology-3"
+          "physiology-3",
+          "physiology-25"
         ],
         "assessment_ids": [
-          "physiology-3-practice"
+          "physiology-3-practice",
+          "physiology-25-practice"
         ]
       },
       {
@@ -771,12 +843,14 @@
       },
       {
         "week": 7,
-        "title": "Respiratory mechanics and gas exchange",
+        "title": "Respiratory mechanics, gas exchange and acid–base balance",
         "lesson_ids": [
-          "physiology-11"
+          "physiology-11",
+          "physiology-24"
         ],
         "assessment_ids": [
-          "physiology-11-practice"
+          "physiology-11-practice",
+          "physiology-24-practice"
         ]
       },
       {
@@ -1739,6 +1813,92 @@
           ]
         }
       ]
+    },
+    {
+      "id": "physiology-module-24",
+      "title": "Acid–base balance: the bicarbonate buffer, ventilation and the kidney",
+      "source_ids": [
+        "physiology-arizona-psio511",
+        "physiology-colorado-mcen4117"
+      ],
+      "lessons": [
+        {
+          "id": "physiology-24",
+          "title": "Acid–base balance: the bicarbonate buffer, ventilation and the kidney",
+          "reading": "modules/acid-base-balance-bicarbonate-buffer-and-compensation.md",
+          "objectives": [
+            "physiology-24-objective-1",
+            "physiology-24-objective-2",
+            "physiology-24-objective-3",
+            "physiology-24-objective-4"
+          ],
+          "worked_example": "With bicarbonate lowered to 15 mmol/L, P_CO₂ 40 mmHg gives ratio 12.5 and pH 7.197; hyperventilation to 30 mmHg gives ratio 16.7 and pH 7.322. The loop gain is 0.204/0.079 − 1 = 1.58 and the compensation removes 61% of the disturbance; the remaining 0.079 pH units is the steady-state error of proportional control.",
+          "question_ids": [
+            "physiology-24:chronic-respiratory-ph",
+            "physiology-24:ventilation-fall-ph",
+            "physiology-24:compensated-ph",
+            "physiology-24:compensation-ventilation",
+            "physiology-24:loop-gain",
+            "physiology-24:daily-ledger-ph",
+            "physiology-24:filtered-shortfall",
+            "physiology-24:anion-gap",
+            "physiology-24:co2-fick",
+            "physiology-24:same-ph-different-cause",
+            "physiology-24:which-changes-lower-ph",
+            "physiology-24:anion-gap-statements"
+          ],
+          "card_ids": [
+            "physiology-24-card-1",
+            "physiology-24-card-2",
+            "physiology-24-card-3",
+            "physiology-24-card-4",
+            "physiology-24-card-5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "physiology-module-25",
+      "title": "The cardiac cycle and the ECG: valve logic, filling time, conduction and the cardiac dipole",
+      "source_ids": [
+        "physiology-semester-organ-calendar",
+        "physiology-arizona-psio511",
+        "physiology-colorado-mcen4117"
+      ],
+      "lessons": [
+        {
+          "id": "physiology-25",
+          "title": "The cardiac cycle and the ECG: valve logic, filling time, conduction and the cardiac dipole",
+          "reading": "modules/cardiac-cycle-conduction-and-the-ecg.md",
+          "objectives": [
+            "physiology-25-objective-1",
+            "physiology-25-objective-2",
+            "physiology-25-objective-3",
+            "physiology-25-objective-4"
+          ],
+          "worked_example": "At 90 beats per minute the stipulated model gives diastole 0.383 s, EDV 112.7 mL, stroke volume 62.7 mL and output 5.65 L/min. A stiffer ventricle (τ = 0.40 s) gives 49.3 mL and 4.44 L/min, a loss of about 21% from a change in filling time constant alone.",
+          "question_ids": [
+            "physiology-25:ejection-fraction",
+            "physiology-25:diastolic-time-100",
+            "physiology-25:stroke-volume-120",
+            "physiology-25:output-150",
+            "physiology-25:stiff-output-90",
+            "physiology-25:av-node-delay",
+            "physiology-25:pacemaker-slope",
+            "physiology-25:lead-three",
+            "physiology-25:axis-angle",
+            "physiology-25:phase-from-pressures",
+            "physiology-25:filling-model-statements",
+            "physiology-25:dipole-statements"
+          ],
+          "card_ids": [
+            "physiology-25-card-1",
+            "physiology-25-card-2",
+            "physiology-25-card-3",
+            "physiology-25-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -2344,6 +2504,70 @@
         "physiology-23:depth-2"
       ],
       "points": 10
+    },
+    {
+      "id": "physiology-24-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Acid–base balance: the bicarbonate buffer, ventilation and the kidney (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 7,
+      "objective_ids": [
+        "physiology-24-objective-1",
+        "physiology-24-objective-2",
+        "physiology-24-objective-3",
+        "physiology-24-objective-4",
+        "physiology-outcome-1",
+        "physiology-outcome-3",
+        "physiology-outcome-4"
+      ],
+      "question_ids": [
+        "physiology-24:chronic-respiratory-ph",
+        "physiology-24:ventilation-fall-ph",
+        "physiology-24:compensated-ph",
+        "physiology-24:compensation-ventilation",
+        "physiology-24:loop-gain",
+        "physiology-24:daily-ledger-ph",
+        "physiology-24:filtered-shortfall",
+        "physiology-24:anion-gap",
+        "physiology-24:co2-fick",
+        "physiology-24:same-ph-different-cause",
+        "physiology-24:which-changes-lower-ph",
+        "physiology-24:anion-gap-statements"
+      ],
+      "points": 14
+    },
+    {
+      "id": "physiology-25-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "The cardiac cycle and the ECG: valve logic, filling time, conduction and the cardiac dipole (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 5,
+      "objective_ids": [
+        "physiology-25-objective-1",
+        "physiology-25-objective-2",
+        "physiology-25-objective-3",
+        "physiology-25-objective-4",
+        "physiology-outcome-2",
+        "physiology-outcome-3",
+        "physiology-outcome-4"
+      ],
+      "question_ids": [
+        "physiology-25:ejection-fraction",
+        "physiology-25:diastolic-time-100",
+        "physiology-25:stroke-volume-120",
+        "physiology-25:output-150",
+        "physiology-25:stiff-output-90",
+        "physiology-25:av-node-delay",
+        "physiology-25:pacemaker-slope",
+        "physiology-25:lead-three",
+        "physiology-25:axis-angle",
+        "physiology-25:phase-from-pressures",
+        "physiology-25:filling-model-statements",
+        "physiology-25:dipole-statements"
+      ],
+      "points": 14
     }
   ],
   "grading_policy": {
@@ -2458,6 +2682,11 @@
       "version": "0.6.0",
       "date": "2026-10-22",
       "summary": "Added three original nephron segment, delayed feedback and nonlinear parallel gas-exchange foundations, four connected membrane/gating, gas-flow, nephron and feedback reports, and twenty checkpoints/cards. Corrected the nonzero initial n^4 conductance slope and stale syllabus/cable scope statements. Synthetic models remain partial, unreviewed and formative-only; no real measurements or laboratory competence claimed."
+    },
+    {
+      "version": "0.7.0",
+      "date": "2026-10-30",
+      "summary": "Compared the package with the University of Arizona PSIO/BME 511 and University of Colorado Boulder MCEN 4117/5117 syllabi as well as the MIT HST.542J calendar by topic titles, and added two original readings for gaps they share: acid-base balance (bicarbonate buffer, ventilation, kidney ledger, anion gap, CO2 Fick) in week 7, and the cardiac cycle, filling time, conduction and the ECG as a dipole projection in week 5, with 24 practice items and nine retrieval cards. Filling, timing, conduction and ledger values are stipulated teaching models. The package remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
@@ -2469,11 +2698,13 @@
     "The optional renal-clearance ledger project is ungraded. Its milestone drafts are private self-checks; no software check evaluates the learner’s written derivation, diagram or interpretation. The proposed schedule and time estimate have not been measured.",
     "The first two prototype units remain concise primers; later transport/renal prototypes have longer explanations. Three new foundations and four connected open assignments deepen nephron transport, delayed feedback, nonlinear content mixing and membrane verification. One synthetic-data virtual lab does not replace an experimental laboratory sequence. No active graded homework, midterm, cumulative final or project exists; workload and qualified review remain open.",
     "Nephron fractions, scaled controller parameters and the oxygen-binding curve are invented teaching inputs, not human measurements or validated physiological estimates. Target clipping differs from clipping numerical states. Equivalent bypass fractions and regulated values do not uniquely identify real mechanisms. Browser checkpoints do not score solver code, proofs, reports or proposed investigations.",
-    "Of the 150 numerical answers, 36 require units, 72 check significant figures and 0 check dimensions. New continuous checkpoint quantities request three significant figures. Written reports and interpretations beyond selected fields are not automatically evaluated."
+    "Of the 168 numerical answers, 36 require units, 87 check significant figures and 0 check dimensions. New continuous checkpoint quantities request three significant figures. Written reports and interpretations beyond selected fields are not automatically evaluated.",
+    "The acid-base and cardiac readings use round textbook constants (pK' 6.1, solubility 0.03 mmol/L per mmHg), a stipulated systole-timing relation, one lumped filling time constant, invented conduction velocities and an invented daily acid ledger with a single extracellular volume. They show mechanisms, not measurements, omit non-bicarbonate buffers, atrial contraction and three-dimensional ECG geometry, and give no basis for reading any recording or sample from a person."
   ],
   "intentionally_omitted": [
     "Graded assessments and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package.",
-    "The synthetic renal-clearance ledger is an inactive, ungraded paper-exercise draft and is not activated or mapped to course completion."
+    "The synthetic renal-clearance ledger is an inactive, ungraded paper-exercise draft and is not activated or mapped to course completion.",
+    "Baroreflex and organ-blood-flow regulation, endocrine axes (glucose homeostasis, thyroid, calcium, adrenal), neurophysiology beyond the membrane, gastrointestinal and reproductive physiology, smooth muscle and the neuromuscular junction, arrhythmias and clinical ECG interpretation, and the depth of CO2 transport named by one or both second comparators are deferred. See the scope crosswalk."
   ],
   "learner_resources": [
     "assignments/renal-clearance-ledger.csv",
