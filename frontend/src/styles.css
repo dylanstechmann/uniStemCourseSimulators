@@ -1208,3 +1208,64 @@ footer {
     transition: none !important;
   }
 }
+
+.bench-start {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: end;
+}
+
+.bench-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.bench-panel {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-collapse: collapse;
+}
+
+.bench-panel caption {
+  text-align: left;
+  font-weight: 600;
+}
+
+.bench-panel th,
+.bench-panel td,
+.bench-checkpoints th,
+.bench-checkpoints td {
+  padding: 0.3rem 0.5rem;
+  border-bottom: 1px solid var(--border, #d0d7de);
+  text-align: left;
+  vertical-align: top;
+}
+
+.bench-action label {
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.bench-log > li {
+  margin-bottom: 0.6rem;
+}
+
+.bench-event-warning {
+  font-weight: 600;
+}
+
+.bench-event-consequence {
+  font-style: italic;
+}
+
+.bench-checkpoints {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.bench-met-false td:last-child {
+  font-weight: 700;
+}

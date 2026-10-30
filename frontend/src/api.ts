@@ -1,5 +1,9 @@
 import type {
   Attempt,
+  BenchAction,
+  BenchProtocol,
+  BenchProtocolSummary,
+  BenchRun,
   CardRating,
   CardReviewResult,
   CaseDraft,
@@ -91,6 +95,20 @@ export const api = {
     csrfToken = null;
   },
   courses: () => request<CourseSummary[]>("/courses"),
+  benchProtocols: () => request<BenchProtocolSummary[]>("/bench/protocols"),
+  benchProtocol: (id: string) =>
+    request<BenchProtocol>(`/bench/protocols/${encode(id)}`),
+  benchReplay: (
+    id: string,
+    seed: number,
+    mode: "guided" | "practice",
+    actions: BenchAction[],
+  ) =>
+    request<BenchRun>(`/bench/protocols/${encode(id)}/replay`, "POST", {
+      seed,
+      mode,
+      actions,
+    }),
   curriculum: () => request<CurriculumMap>("/curriculum"),
   course: (id: string) => request<Course>(`/courses/${encode(id)}`),
   archivedCourseVersions: (id: string) =>

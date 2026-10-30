@@ -321,6 +321,35 @@ def check_refs(
             report.error("reference", path, f"Unknown {kind} reference: {reference}")
 
 
+def validate_bench_protocols(
+    root: Path,
+    source_ids: set[str],
+    validators: dict[str, Draft202012Validator],
+    report: Report,
+) -> None:
+    """Bench-simulator protocols: schema, file naming and registered citations."""
+    for path in sorted((root / "content/bench/protocols").glob("*.json")):
+        protocol = load_json(path, report)
+        if protocol is None or not apply_schema(
+            protocol, "bench-protocol.schema.json", path, validators, report
+        ):
+            continue
+        if protocol["id"] != path.stem:
+            report.error("bench-protocol", path, "File name must match the protocol ID.")
+        cited = {item["source_id"] for item in protocol["sources"]}
+        check_refs(sorted(cited), source_ids, "source", path, report)
+        for group in ("parameters", "checkpoints"):
+            for item in protocol[group]:
+                source = item["source"]
+                if source["kind"] == "cited" and source["source_id"] not in cited:
+                    report.error(
+                        "bench-protocol",
+                        path,
+                        f"{group[:-1].capitalize()} {item.get('name') or item.get('id')} cites "
+                        f"{source['source_id']}, which the protocol's sources list does not name.",
+                    )
+
+
 def validate_graph(
     courses: dict[str, dict[str, Any]],
     report: Report,
@@ -1700,6 +1729,7 @@ def validate_repository(
         )
     catalog_ids = validate_curriculum_map(root, courses, sources, validators, report)
     validate_graph(courses, report, catalog_ids)
+    validate_bench_protocols(root, sources, validators, report)
     if source_document and isinstance(source_document, dict):
         for source in source_document.get("sources", []):
             if isinstance(source, dict):

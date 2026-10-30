@@ -8,6 +8,7 @@ import type {
   Source,
 } from "./types";
 import { AccountPanel } from "./components/AccountPanel";
+import { BenchPractice } from "./components/BenchPractice";
 import { CourseCatalog } from "./components/CourseCatalog";
 import { CourseWorkspace } from "./components/CourseWorkspace";
 import { InstructorReview } from "./components/InstructorReview";
@@ -136,15 +137,17 @@ export default function App() {
     ? "course"
     : segments[0] === "tools"
       ? "tools"
-      : segments[0] === "account"
-        ? "account"
-        : segments[0] === "notebook"
-          ? "notebook"
-          : segments[0] === "instructor"
-            ? "instructor"
-            : segments[0] === "learning"
-              ? "learning"
-              : "courses";
+      : segments[0] === "bench"
+        ? "bench"
+        : segments[0] === "account"
+          ? "account"
+          : segments[0] === "notebook"
+            ? "notebook"
+            : segments[0] === "instructor"
+              ? "instructor"
+              : segments[0] === "learning"
+                ? "learning"
+                : "courses";
   const currentEnrollments = enrollments.filter((enrollment) =>
     courses.some(
       (course) =>
@@ -218,6 +221,12 @@ export default function App() {
             aria-current={page === "tools" ? "page" : undefined}
           >
             Study tools
+          </a>
+          <a
+            href="#/bench"
+            aria-current={page === "bench" ? "page" : undefined}
+          >
+            Bench practice
           </a>
           <a
             href="#/account"
@@ -311,6 +320,8 @@ export default function App() {
             <InstructorReview />
           ) : page === "tools" ? (
             <StudyTools toolId={decode(segments[1])} courses={courses} />
+          ) : page === "bench" ? (
+            <BenchPractice protocolId={decode(segments[1])} />
           ) : page === "notebook" ? (
             <NotebookView
               hasSession={sessionReady && !!session.user}

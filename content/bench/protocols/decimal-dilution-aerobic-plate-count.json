@@ -1,0 +1,723 @@
+{
+  "schema_version": "1.0",
+  "id": "decimal-dilution-aerobic-plate-count",
+  "version": "0.1.0",
+  "title": "Decimal dilutions and the aerobic plate count",
+  "layer": 0,
+  "summary": "Prepare tenfold dilutions of a food homogenate, pour duplicate plates with tempered agar, incubate, count the plates in the countable range and report the aerobic plate count, following the conventional method of FDA BAM Chapter 3.",
+  "scenario": "A 1:10 homogenate (H) of a chilled food sample has just been prepared, which starts the clock. Six 90 mL bottles of Butterfield's phosphate-buffered dilution water (B1–B6), sterile 10 mL and 1 mL pipets, Petri dishes, plate count agar tempered in a water bath and a 35 °C incubator are ready. You do not know how contaminated the sample is, so choose dilutions that will give countable plates.",
+  "guided_steps": [
+    "Shake the homogenate 25 times through a 30 cm arc within 7 s.",
+    "With a separate sterile pipet for each step, move 10 mL of the previous dilution into 90 mL of diluent: H → B1 gives 10⁻², B1 → B2 gives 10⁻³, and so on as far as you need.",
+    "Shake every dilution 25 times in a 30 cm arc within 7 s before taking from it; reshake if it has stood more than 3 min.",
+    "Pipet 1 mL of each chosen dilution into two marked Petri dishes (duplicates).",
+    "Prepare a dilution-water control plate and an agar control plate.",
+    "Within 15 min of the original dilution, add 12–15 mL of plate count agar cooled to 45 ± 1 °C to every plate.",
+    "Mix each plate at once by alternate rotation and back-and-forth motion, then let the agar solidify without stacking.",
+    "Invert the plates and incubate promptly for 48 ± 2 h at 35 °C.",
+    "Count every plate. Use plates with 15–300 colonies: APC = total colonies on those plates ÷ total grams of sample they received.",
+    "Report two significant figures using the BAM rounding rule, mark the result as estimated if no plate was in range, and report a laboratory accident if a control shows contamination."
+  ],
+  "parameters": [
+    {
+      "name": "transfer_ml",
+      "value": 10,
+      "unit": "mL",
+      "label": "Volume carried to the next dilution",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Conventional Plate Count Method, B: 'transferring 10 ml of previous dilution to 90 ml of diluent'"
+      }
+    },
+    {
+      "name": "blank_ml",
+      "value": [
+        89,
+        91
+      ],
+      "unit": "mL",
+      "label": "Dilution blank volume",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section A, item 11: 'Dilution blanks, 90 ± 1 ml Butterfield's phosphate-buffered dilution water'"
+      }
+    },
+    {
+      "name": "shake_times",
+      "value": 25,
+      "unit": "times",
+      "label": "Shakes per dilution",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section B: 'Shake all dilutions 25 times in 30 cm (1 ft) arc within 7 s'"
+      }
+    },
+    {
+      "name": "shake_arc_cm",
+      "value": 30,
+      "unit": "cm",
+      "label": "Shaking arc",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section B, as above"
+      }
+    },
+    {
+      "name": "shake_max_seconds",
+      "value": 7,
+      "unit": "s",
+      "label": "Time allowed for 25 shakes",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section B, as above"
+      }
+    },
+    {
+      "name": "reshake_after_min",
+      "value": 3,
+      "unit": "min",
+      "label": "Standing time that requires reshaking",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section B: 'Reshake dilution bottle ... if it stands more than 3 min before it is pipetted'"
+      }
+    },
+    {
+      "name": "plate_volume_ml",
+      "value": 1,
+      "unit": "mL",
+      "label": "Inoculum per plate",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section B: 'Pipet 1 ml of each dilution into separate, duplicate, appropriately marked petri dishes'"
+      }
+    },
+    {
+      "name": "agar_volume_ml",
+      "value": [
+        12,
+        15
+      ],
+      "unit": "mL",
+      "label": "Agar per plate",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section B: 'Add 12-15 ml plate count agar (cooled to 45 ± 1° C)'"
+      }
+    },
+    {
+      "name": "agar_temperature_c",
+      "value": [
+        44,
+        46
+      ],
+      "unit": "°C",
+      "label": "Agar temperature",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section B, as above; water bath item 7, '45 ± 1°C'"
+      }
+    },
+    {
+      "name": "agar_within_min",
+      "value": 15,
+      "unit": "min",
+      "label": "Time from original dilution to agar",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section B: 'to each plate within 15 min of original dilution'"
+      }
+    },
+    {
+      "name": "solidify_min",
+      "value": 10,
+      "unit": "min",
+      "label": "Time allowed for agar to set",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "BAM says to let the agar solidify but gives no time; 10 min is the simulation's threshold."
+      }
+    },
+    {
+      "name": "incubation_temperature_c",
+      "value": [
+        34,
+        36
+      ],
+      "unit": "°C",
+      "label": "Incubation temperature",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section A, item 8: 'Incubator, 35 ± 1°C'; Section B: 'incubate promptly for 48 ± 2 h at 35°C'"
+      }
+    },
+    {
+      "name": "incubation_hours",
+      "value": [
+        46,
+        50
+      ],
+      "unit": "h",
+      "label": "Incubation time",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section B, as above"
+      }
+    },
+    {
+      "name": "countable_range",
+      "value": [
+        15,
+        300
+      ],
+      "unit": "colonies per plate",
+      "label": "Countable range",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Introduction: 'in this protocol, the suitable colony counting range is 15-300 per plate'"
+      }
+    },
+    {
+      "name": "rounding",
+      "value": "two significant figures, third-digit rule",
+      "unit": "",
+      "label": "Rounding of the APC",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section 3, 'Rounding of APC result'"
+      }
+    },
+    {
+      "name": "tntc_display_above",
+      "value": 1000,
+      "unit": "colonies",
+      "label": "Count shown as too numerous to count",
+      "source": {
+        "kind": "simulation-model"
+      }
+    },
+    {
+      "name": "carryover_ml",
+      "value": 0.1,
+      "unit": "mL",
+      "label": "Liquid carried over by a reused pipet",
+      "source": {
+        "kind": "simulation-model"
+      }
+    },
+    {
+      "name": "diluent_contamination_probability",
+      "value": 0.2,
+      "unit": "probability",
+      "label": "Chance the diluent is contaminated",
+      "source": {
+        "kind": "simulation-model"
+      }
+    }
+  ],
+  "actions": [
+    {
+      "name": "shake",
+      "label": "Shake a bottle",
+      "params": [
+        {
+          "name": "bottle",
+          "label": "Bottle",
+          "type": "choice",
+          "options": [
+            {
+              "value": "H",
+              "label": "H, homogenate 10⁻¹"
+            },
+            {
+              "value": "B1",
+              "label": "B1, dilution blank"
+            },
+            {
+              "value": "B2",
+              "label": "B2, dilution blank"
+            },
+            {
+              "value": "B3",
+              "label": "B3, dilution blank"
+            },
+            {
+              "value": "B4",
+              "label": "B4, dilution blank"
+            },
+            {
+              "value": "B5",
+              "label": "B5, dilution blank"
+            },
+            {
+              "value": "B6",
+              "label": "B6, dilution blank"
+            }
+          ]
+        },
+        {
+          "name": "times",
+          "label": "Number of shakes",
+          "type": "integer",
+          "min": 1,
+          "max": 60
+        },
+        {
+          "name": "arc_cm",
+          "label": "Arc",
+          "type": "number",
+          "min": 5,
+          "max": 60,
+          "unit": "cm"
+        },
+        {
+          "name": "seconds",
+          "label": "Time taken",
+          "type": "number",
+          "min": 1,
+          "max": 60,
+          "unit": "s"
+        }
+      ]
+    },
+    {
+      "name": "transfer",
+      "label": "Transfer between bottles",
+      "params": [
+        {
+          "name": "source",
+          "label": "From",
+          "type": "choice",
+          "options": [
+            {
+              "value": "H",
+              "label": "H, homogenate 10⁻¹"
+            },
+            {
+              "value": "B1",
+              "label": "B1, dilution blank"
+            },
+            {
+              "value": "B2",
+              "label": "B2, dilution blank"
+            },
+            {
+              "value": "B3",
+              "label": "B3, dilution blank"
+            },
+            {
+              "value": "B4",
+              "label": "B4, dilution blank"
+            },
+            {
+              "value": "B5",
+              "label": "B5, dilution blank"
+            },
+            {
+              "value": "B6",
+              "label": "B6, dilution blank"
+            }
+          ]
+        },
+        {
+          "name": "destination",
+          "label": "Into",
+          "type": "choice",
+          "options": [
+            {
+              "value": "B1",
+              "label": "B1, dilution blank"
+            },
+            {
+              "value": "B2",
+              "label": "B2, dilution blank"
+            },
+            {
+              "value": "B3",
+              "label": "B3, dilution blank"
+            },
+            {
+              "value": "B4",
+              "label": "B4, dilution blank"
+            },
+            {
+              "value": "B5",
+              "label": "B5, dilution blank"
+            },
+            {
+              "value": "B6",
+              "label": "B6, dilution blank"
+            }
+          ]
+        },
+        {
+          "name": "volume_ml",
+          "label": "Volume",
+          "type": "number",
+          "min": 0.1,
+          "max": 25,
+          "unit": "mL"
+        },
+        {
+          "name": "fresh_pipet",
+          "label": "Use a new sterile pipet",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "plate",
+      "label": "Pipet into a Petri dish",
+      "params": [
+        {
+          "name": "bottle",
+          "label": "From",
+          "type": "choice",
+          "options": [
+            {
+              "value": "H",
+              "label": "H, homogenate 10⁻¹"
+            },
+            {
+              "value": "B1",
+              "label": "B1, dilution blank"
+            },
+            {
+              "value": "B2",
+              "label": "B2, dilution blank"
+            },
+            {
+              "value": "B3",
+              "label": "B3, dilution blank"
+            },
+            {
+              "value": "B4",
+              "label": "B4, dilution blank"
+            },
+            {
+              "value": "B5",
+              "label": "B5, dilution blank"
+            },
+            {
+              "value": "B6",
+              "label": "B6, dilution blank"
+            }
+          ]
+        },
+        {
+          "name": "volume_ml",
+          "label": "Volume",
+          "type": "number",
+          "min": 0.1,
+          "max": 5,
+          "unit": "mL"
+        },
+        {
+          "name": "fresh_pipet",
+          "label": "Use a new sterile pipet",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "add_control",
+      "label": "Prepare a control plate",
+      "params": [
+        {
+          "name": "kind",
+          "label": "Control",
+          "type": "choice",
+          "options": [
+            {
+              "value": "diluent",
+              "label": "Dilution-water control (1 mL sterile diluent)"
+            },
+            {
+              "value": "agar",
+              "label": "Agar control (no inoculum)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pour_agar",
+      "label": "Pour agar into waiting plates",
+      "params": [
+        {
+          "name": "volume_ml",
+          "label": "Agar per plate",
+          "type": "number",
+          "min": 5,
+          "max": 30,
+          "unit": "mL"
+        },
+        {
+          "name": "temperature_c",
+          "label": "Agar temperature",
+          "type": "number",
+          "min": 35,
+          "max": 60,
+          "unit": "°C"
+        }
+      ]
+    },
+    {
+      "name": "mix_plates",
+      "label": "Mix the freshly poured plates",
+      "params": []
+    },
+    {
+      "name": "wait",
+      "label": "Wait",
+      "params": [
+        {
+          "name": "minutes",
+          "label": "Minutes",
+          "type": "number",
+          "min": 0.5,
+          "max": 120,
+          "unit": "min"
+        }
+      ]
+    },
+    {
+      "name": "incubate",
+      "label": "Incubate the plates",
+      "params": [
+        {
+          "name": "temperature_c",
+          "label": "Temperature",
+          "type": "number",
+          "min": 20,
+          "max": 45,
+          "unit": "°C"
+        },
+        {
+          "name": "hours",
+          "label": "Time",
+          "type": "number",
+          "min": 1,
+          "max": 96,
+          "unit": "h"
+        },
+        {
+          "name": "inverted",
+          "label": "Plates inverted",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "count_plates",
+      "label": "Count colonies",
+      "params": []
+    },
+    {
+      "name": "submit_result",
+      "label": "Report the aerobic plate count",
+      "params": [
+        {
+          "name": "apc_cfu_per_g",
+          "label": "APC",
+          "type": "number",
+          "min": 0,
+          "max": 1000000000000.0,
+          "unit": "CFU/g"
+        },
+        {
+          "name": "estimated",
+          "label": "Report as estimated (no plate in range)",
+          "type": "boolean"
+        },
+        {
+          "name": "laboratory_accident",
+          "label": "Report a laboratory accident (contaminated control)",
+          "type": "boolean"
+        }
+      ]
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "decimal-dilutions",
+      "severity": "critical",
+      "description": "Make each dilution by carrying 10 mL into a 90 mL blank.",
+      "rationale": "Every factor in the final calculation assumes exact tenfold steps.",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section B"
+      }
+    },
+    {
+      "id": "separate-pipets",
+      "severity": "major",
+      "description": "Use a separate sterile pipet for every transfer and every plate.",
+      "rationale": "Liquid left in a pipet carries cells from a stronger dilution into a weaker one and inflates the counts at high dilutions.",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section B: 'Using separate sterile pipets, prepare decimal dilutions'"
+      }
+    },
+    {
+      "id": "shake-before-sampling",
+      "severity": "major",
+      "description": "Shake each dilution 25 times in a 30 cm arc within 7 s before taking from it.",
+      "rationale": "Cells settle and clump; an unshaken bottle gives an unrepresentative sample.",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section B"
+      }
+    },
+    {
+      "id": "reshake-after-standing",
+      "severity": "minor",
+      "description": "Reshake a dilution that has stood more than 3 min before pipetting.",
+      "rationale": "Settling resumes as soon as shaking stops.",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section B"
+      }
+    },
+    {
+      "id": "plate-volume",
+      "severity": "major",
+      "description": "Pipet 1 mL of each dilution per plate.",
+      "rationale": "The grams of sample on each plate are dilution × inoculum; a different inoculum changes the factor.",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section B"
+      }
+    },
+    {
+      "id": "duplicate-plates",
+      "severity": "major",
+      "description": "Plate every chosen dilution in duplicate.",
+      "rationale": "Duplicates show plating variation and give a second plate if one is lost.",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section B"
+      }
+    },
+    {
+      "id": "agar-temperature",
+      "severity": "critical",
+      "description": "Pour agar tempered to 45 ± 1 °C.",
+      "rationale": "Hotter agar injures cells and lowers the count; cooler agar sets before it mixes.",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section A item 7; Section B"
+      }
+    },
+    {
+      "id": "agar-volume",
+      "severity": "minor",
+      "description": "Add 12–15 mL of agar per plate.",
+      "rationale": "A consistent agar depth gives comparable colony growth.",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section B"
+      }
+    },
+    {
+      "id": "agar-within-window",
+      "severity": "major",
+      "description": "Add agar to every plate within 15 min of the original dilution.",
+      "rationale": "Cells in diluent can begin to multiply or die, so the count no longer reflects the sample.",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section B"
+      }
+    },
+    {
+      "id": "controls",
+      "severity": "major",
+      "description": "Pour an agar control and a dilution-water control for the series.",
+      "rationale": "Only controls show whether colonies came from the medium or the diluent rather than the sample.",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section B: 'Pour agar and dilution water control plates for each series of samples'"
+      }
+    },
+    {
+      "id": "mix-and-solidify",
+      "severity": "minor",
+      "description": "Mix the plates at once, then let the agar solidify before inverting.",
+      "rationale": "Mixing spreads cells evenly; inverting soft agar can slide or tear it.",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section B"
+      }
+    },
+    {
+      "id": "incubation",
+      "severity": "critical",
+      "description": "Invert the plates and incubate for 48 ± 2 h at 35 °C.",
+      "rationale": "Short or off-temperature incubation leaves colonies too small to count; upright plates collect condensation that causes spreading growth.",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section A item 8; Section B"
+      }
+    },
+    {
+      "id": "report-apc",
+      "severity": "critical",
+      "description": "Compute the APC from plates with 15–300 colonies and round it to two significant figures by the BAM rule.",
+      "rationale": "With no too-numerous plates, the maximum likelihood estimate in BAM equals total colonies on countable plates divided by total sample they received.",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section C, 'Maximum likelihood method background and examples'; Section 3, rounding"
+      }
+    },
+    {
+      "id": "report-flags",
+      "severity": "major",
+      "description": "Flag an estimated count when no plate is countable, and report a laboratory accident when a control is contaminated.",
+      "rationale": "BAM requires counts outside the range to be reported as estimated and contaminated plates as laboratory accidents.",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+        "location": "Section 3, items 2 and 3"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "fda-bam-chapter-3-aerobic-plate-count",
+      "use": "Procedure, volumes, temperatures, times, countable range, calculation and rounding rule, adapted from a US federal government work."
+    }
+  ],
+  "limitations": [
+    "The microbiology is a model: survival and growth factors for hot agar, late pouring and short incubation are invented to show the direction and rough size of each error.",
+    "Spreader rules, too-numerous-to-count plates in the maximum likelihood estimate and the spiral plate method are not simulated.",
+    "Sample preparation (BAM Chapter 1) is assumed done; the homogenate is given.",
+    "The simulation cannot train aseptic handling or pouring technique, which are learned only at a bench."
+  ]
+}

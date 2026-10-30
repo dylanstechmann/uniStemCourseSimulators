@@ -30,6 +30,8 @@ Delivered: guest/account access; version-pinned enrollment; server-backed notes,
 
 The case studio supports private drafts, version/prompt snapshots, conflict protection, earlier response history, account export/deletion and read-only archived cases. Historical feature-batch verification is recorded in the linked review reports. Since 2026-10-13 each batch runs the full root, backend and frontend suites; earlier batches recorded "no test suite was run", and the drift they left was repaired in one pass. Platform verification is not course review or protected-exam release approval.
 
+Bench practice (owner request, 2026-10-30) follows [the wet-lab practice plan](WET_LAB_PRACTICE_PLAN.md). The replay engine, three protocols and a React bench view are delivered: micropipette gravimetric verification, decimal dilutions with the BAM aerobic plate count, and a Class II biosafety cabinet session with a spill. Next: the layer-0 laboratory-measurement course package, then the layer-1 biosafety package and more protocols, layer by layer.
+
 The searchable notebook reuses the existing private note store, exposes case-insensitive literal search with course filtering and pagination, and links matches back to enrolled course lessons. Remaining shared work should address a demonstrated learner workflow or blocker and fit alongside the instructional rotation. Avoid adding isolated grader types while course foundations remain thin.
 
 ## Course development and review

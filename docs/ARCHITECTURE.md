@@ -28,6 +28,8 @@ Weighted-grade math uses exact `Decimal` arithmetic and is isolated in `coursela
 
 `content/curriculum-map.json` stores eight pathway sequences and catalog-only nodes independently from course packages. The API merges package manifests with planned nodes in `/api/v1/curriculum`; it labels each maturity and includes explicit prerequisite edges. The React catalog uses native expandable sections to show the sequence, dependencies, related partial packages, and source links. Catalog-only nodes cannot be enrolled. The validator checks the combined graph and the required engineering/JHU coverage; this planning map is not a university-reviewed curriculum.
 
+Bench practice (`courselab.bench`, `/api/v1/bench/...`) replays procedure simulations without storing runs. Each protocol in `content/bench/protocols/` is a JSON definition, validated against `bench-protocol.schema.json`, paired with a Python model that holds the physics, error models and checkpoint rules. The browser sends a seed, a mode and the whole action list, and the server replays it deterministically with a generator seeded from the protocol ID, version and seed. Learners see the scenario, the action specifications, the visible bench state and the event log. Hidden variables such as instrument faults or contaminated diluent, the checkpoint rules and the simulation-model parameters stay on the server until the run ends, when a formative debrief is returned. Runs are not graded and are not recorded against an account.
+
 No submitted Python runs in the API; no Docker socket is mounted. Optional feedback providers are future extensions and cannot mutate deterministic scores. Credentials come from server secrets.
 
 ## Compatibility

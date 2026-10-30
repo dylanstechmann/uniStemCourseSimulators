@@ -1,0 +1,931 @@
+{
+  "schema_version": "1.0",
+  "id": "class-ii-bsc-session-with-spill",
+  "version": "0.1.0",
+  "title": "Working in a Class II biological safety cabinet, with a spill",
+  "layer": 1,
+  "summary": "Set up, use and shut down a Class II biological safety cabinet for a BSL-2 subculture, and respond to a spill that happens during the work, following the work practices in Appendix A of the CDC/NIH BMBL, 6th edition.",
+  "scenario": "You need to subculture a BSL-2 bacterial culture onto fresh plates in a Class II A2 cabinet that was switched off overnight. Everything you might need is on the bench beside it. Something will go wrong during the work.",
+  "guided_steps": [
+    "Inspect the cabinet: read the certification label and check the drain valve. A cabinet more than 12 months past certification must be tagged out of service.",
+    "Put on a buttoned laboratory coat and gloves.",
+    "Switch on the blower, set the sash to its marked height and let it run at least 5 minutes.",
+    "Close the drain valve. Wipe the empty interior with 70% ethanol or 1:100 bleach, and follow bleach with sterile water.",
+    "Lay toweling on the work surface only, never over the grilles.",
+    "Wipe each item and place it: materials toward the rear, the discard tray and biohazard bag to one side, the culture last. Leave spare supplies outside.",
+    "Move your arms in slowly and perpendicular to the opening, then wait about a minute before working.",
+    "Work at least 4 inches behind the front grille, with no open flame, holding lids above open plates.",
+    "Spill on the surface: cover with towels, pour disinfectant from the outside in, wait 20–30 minutes, push towels from the edge to the centre, discard into the biohazard bag, wipe the interior and change gloves.",
+    "Spill through the grilles: also decontaminate and remove every item, confirm the drain valve is closed, flood the drain pan with disinfectant and empty it into a vessel of disinfectant.",
+    "To finish: with the blower running, decontaminate and remove items, the culture first; wipe the empty cabinet; remove PPE; wash your hands."
+  ],
+  "parameters": [
+    {
+      "name": "purge_min",
+      "value": 5,
+      "unit": "min",
+      "label": "Purge time after start-up",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 384"
+      }
+    },
+    {
+      "name": "arm_settle_s",
+      "value": 60,
+      "unit": "s",
+      "label": "Pause after putting arms in",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 383"
+      }
+    },
+    {
+      "name": "min_distance_in",
+      "value": 4,
+      "unit": "in",
+      "label": "Minimum distance behind the front grille",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 383"
+      }
+    },
+    {
+      "name": "spill_contact_min",
+      "value": [
+        20,
+        30
+      ],
+      "unit": "min",
+      "label": "Spill disinfectant contact time",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 387"
+      }
+    },
+    {
+      "name": "certification_interval_months",
+      "value": 12,
+      "unit": "months",
+      "label": "Maximum time between certifications",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 7, pp. 391–392"
+      }
+    },
+    {
+      "name": "expired_certification_probability",
+      "value": 0.2,
+      "unit": "probability",
+      "label": "Chance the certification has lapsed",
+      "source": {
+        "kind": "simulation-model"
+      }
+    },
+    {
+      "name": "large_spill_probability",
+      "value": 0.3,
+      "unit": "probability",
+      "label": "Chance the spill reaches the grilles",
+      "source": {
+        "kind": "simulation-model"
+      }
+    }
+  ],
+  "actions": [
+    {
+      "name": "inspect_cabinet",
+      "label": "Inspect the cabinet and its certification label",
+      "params": []
+    },
+    {
+      "name": "report_out_of_service",
+      "label": "Tag the cabinet out of service and stop",
+      "params": []
+    },
+    {
+      "name": "don_ppe",
+      "label": "Put on PPE",
+      "params": [
+        {
+          "name": "coat_buttoned",
+          "label": "Laboratory coat buttoned",
+          "type": "boolean"
+        },
+        {
+          "name": "gloves",
+          "label": "Gloves on",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "blower",
+      "label": "Switch the blower",
+      "params": [
+        {
+          "name": "on",
+          "label": "On",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "set_sash",
+      "label": "Move the sash",
+      "params": [
+        {
+          "name": "position",
+          "label": "Position",
+          "type": "choice",
+          "options": [
+            {
+              "value": "certified",
+              "label": "Certified working height (marked)"
+            },
+            {
+              "value": "raised",
+              "label": "Raised above the mark"
+            },
+            {
+              "value": "closed",
+              "label": "Closed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wait",
+      "label": "Wait",
+      "params": [
+        {
+          "name": "minutes",
+          "label": "Minutes",
+          "type": "number",
+          "min": 0.5,
+          "max": 60,
+          "unit": "min"
+        }
+      ]
+    },
+    {
+      "name": "close_drain_valve",
+      "label": "Close the drain valve",
+      "params": []
+    },
+    {
+      "name": "disinfect_interior",
+      "label": "Disinfect the empty interior",
+      "params": [
+        {
+          "name": "agent",
+          "label": "Agent",
+          "type": "choice",
+          "options": [
+            {
+              "value": "ethanol70",
+              "label": "70% ethanol"
+            },
+            {
+              "value": "bleach",
+              "label": "1:100 household bleach (0.05% hypochlorite)"
+            },
+            {
+              "value": "water",
+              "label": "Tap water"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rinse_sterile_water",
+      "label": "Wipe again with sterile water",
+      "params": []
+    },
+    {
+      "name": "lay_toweling",
+      "label": "Lay absorbent toweling",
+      "params": [
+        {
+          "name": "location",
+          "label": "Where",
+          "type": "choice",
+          "options": [
+            {
+              "value": "work_surface",
+              "label": "On the work surface"
+            },
+            {
+              "value": "front_grille",
+              "label": "Over the front grille"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "load_item",
+      "label": "Place an item in the cabinet",
+      "params": [
+        {
+          "name": "item",
+          "label": "Item",
+          "type": "choice",
+          "options": [
+            {
+              "value": "culture",
+              "label": "BSL-2 culture"
+            },
+            {
+              "value": "media",
+              "label": "Media bottle"
+            },
+            {
+              "value": "plates",
+              "label": "Fresh culture plates"
+            },
+            {
+              "value": "pipettes",
+              "label": "Sterile serological pipettes"
+            },
+            {
+              "value": "pipette_aid",
+              "label": "Pipette aid"
+            },
+            {
+              "value": "discard_tray",
+              "label": "Horizontal discard tray with disinfectant"
+            },
+            {
+              "value": "biohazard_bag",
+              "label": "Biohazard bag"
+            },
+            {
+              "value": "vortex",
+              "label": "Vortex mixer"
+            },
+            {
+              "value": "extra_gloves",
+              "label": "Spare box of gloves"
+            },
+            {
+              "value": "upright_canister",
+              "label": "Upright pipette canister"
+            }
+          ]
+        },
+        {
+          "name": "zone",
+          "label": "Where",
+          "type": "choice",
+          "options": [
+            {
+              "value": "rear",
+              "label": "Toward the rear of the work surface"
+            },
+            {
+              "value": "center",
+              "label": "Centre of the work surface"
+            },
+            {
+              "value": "side",
+              "label": "One side of the interior"
+            },
+            {
+              "value": "front_edge",
+              "label": "Just inside the front grille"
+            },
+            {
+              "value": "front_grille",
+              "label": "On the front grille"
+            },
+            {
+              "value": "outside_taped",
+              "label": "Taped to the outside of the cabinet"
+            }
+          ]
+        },
+        {
+          "name": "wiped",
+          "label": "Wiped with disinfectant first",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "insert_arms",
+      "label": "Put your arms into the cabinet",
+      "params": [
+        {
+          "name": "motion",
+          "label": "How",
+          "type": "choice",
+          "options": [
+            {
+              "value": "slow_perpendicular",
+              "label": "Slowly, perpendicular to the opening"
+            },
+            {
+              "value": "sweeping",
+              "label": "Quickly, in a sweeping motion"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "settle",
+      "label": "Hold still before working",
+      "params": [
+        {
+          "name": "seconds",
+          "label": "Seconds",
+          "type": "number",
+          "min": 0,
+          "max": 300,
+          "unit": "s"
+        }
+      ]
+    },
+    {
+      "name": "withdraw_arms",
+      "label": "Withdraw your arms",
+      "params": []
+    },
+    {
+      "name": "light_burner",
+      "label": "Light a Bunsen burner in the cabinet",
+      "params": []
+    },
+    {
+      "name": "uv_lamp",
+      "label": "Run the UV lamp",
+      "params": [
+        {
+          "name": "minutes",
+          "label": "Minutes",
+          "type": "number",
+          "min": 1,
+          "max": 60,
+          "unit": "min"
+        }
+      ]
+    },
+    {
+      "name": "work_step",
+      "label": "Do the next subculture step",
+      "params": [
+        {
+          "name": "distance_in",
+          "label": "Distance behind the front grille",
+          "type": "number",
+          "min": 0,
+          "max": 20,
+          "unit": "in"
+        },
+        {
+          "name": "lids_over_plates",
+          "label": "Hold lids above open plates",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "cover_spill",
+      "label": "Cover the spill with paper towels",
+      "params": []
+    },
+    {
+      "name": "apply_disinfectant",
+      "label": "Pour disinfectant over the spill",
+      "params": [
+        {
+          "name": "direction",
+          "label": "Working",
+          "type": "choice",
+          "options": [
+            {
+              "value": "outside_in",
+              "label": "From the outside of the spill inward"
+            },
+            {
+              "value": "center_out",
+              "label": "From the centre outward"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "push_towels",
+      "label": "Gather the spill towels",
+      "params": [
+        {
+          "name": "direction",
+          "label": "Direction",
+          "type": "choice",
+          "options": [
+            {
+              "value": "edge_to_center",
+              "label": "From the edge to the centre"
+            },
+            {
+              "value": "center_to_edge",
+              "label": "From the centre to the edge"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "discard_towels",
+      "label": "Discard the spill towels",
+      "params": [
+        {
+          "name": "into",
+          "label": "Into",
+          "type": "choice",
+          "options": [
+            {
+              "value": "biohazard_bag",
+              "label": "Biohazard bag"
+            },
+            {
+              "value": "regular_trash",
+              "label": "Ordinary waste"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wipe_down_interior",
+      "label": "Wipe down the interior and items after the spill",
+      "params": []
+    },
+    {
+      "name": "flood_drain_pan",
+      "label": "Pour disinfectant through the grilles into the drain pan",
+      "params": []
+    },
+    {
+      "name": "drain_to_disinfectant",
+      "label": "Empty the drain pan into a vessel of disinfectant",
+      "params": []
+    },
+    {
+      "name": "change_gloves",
+      "label": "Change gloves",
+      "params": []
+    },
+    {
+      "name": "remove_item",
+      "label": "Remove an item from the cabinet",
+      "params": [
+        {
+          "name": "item",
+          "label": "Item",
+          "type": "choice",
+          "options": [
+            {
+              "value": "culture",
+              "label": "BSL-2 culture"
+            },
+            {
+              "value": "media",
+              "label": "Media bottle"
+            },
+            {
+              "value": "plates",
+              "label": "Fresh culture plates"
+            },
+            {
+              "value": "pipettes",
+              "label": "Sterile serological pipettes"
+            },
+            {
+              "value": "pipette_aid",
+              "label": "Pipette aid"
+            },
+            {
+              "value": "discard_tray",
+              "label": "Horizontal discard tray with disinfectant"
+            },
+            {
+              "value": "biohazard_bag",
+              "label": "Biohazard bag"
+            },
+            {
+              "value": "vortex",
+              "label": "Vortex mixer"
+            },
+            {
+              "value": "extra_gloves",
+              "label": "Spare box of gloves"
+            },
+            {
+              "value": "upright_canister",
+              "label": "Upright pipette canister"
+            }
+          ]
+        },
+        {
+          "name": "decontaminated",
+          "label": "Surface-decontaminated first",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "final_wipe",
+      "label": "Final wipe-down of the empty cabinet",
+      "params": [
+        {
+          "name": "agent",
+          "label": "Agent",
+          "type": "choice",
+          "options": [
+            {
+              "value": "ethanol70",
+              "label": "70% ethanol"
+            },
+            {
+              "value": "bleach",
+              "label": "1:100 household bleach (0.05% hypochlorite)"
+            },
+            {
+              "value": "water",
+              "label": "Tap water"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "remove_ppe",
+      "label": "Remove gloves and coat",
+      "params": []
+    },
+    {
+      "name": "wash_hands",
+      "label": "Wash hands",
+      "params": []
+    },
+    {
+      "name": "end_session",
+      "label": "End the session",
+      "params": []
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "certification-checked",
+      "severity": "major",
+      "description": "Check the certification label before use.",
+      "rationale": "A cabinet that is out of date may not contain aerosols.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 7, field certification, pp. 391–392: 'Each BSC should be tested and certified at least annually'"
+      }
+    },
+    {
+      "id": "certification-current",
+      "severity": "critical",
+      "description": "Do not use a cabinet more than 12 months past certification; take it out of service.",
+      "rationale": "Containment is verified only by field certification.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, pp. 391–392"
+      }
+    },
+    {
+      "id": "ppe",
+      "severity": "major",
+      "description": "Wear a buttoned laboratory coat and gloves.",
+      "rationale": "PPE protects skin and clothing from splashes.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 383: 'Laboratory coats ... should be worn buttoned over street clothing'"
+      }
+    },
+    {
+      "id": "purge-before-loading",
+      "severity": "major",
+      "description": "Run the blower at least 5 minutes before starting work.",
+      "rationale": "The purge removes suspended particulates from the cabinet.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 384: 'the blowers should be operated at least five minutes before beginning work'"
+      }
+    },
+    {
+      "id": "interior-disinfected",
+      "severity": "major",
+      "description": "Wipe the work surface, walls and inside of the window with 70% ethanol or 1:100 bleach.",
+      "rationale": "Disinfection reduces contaminants before work starts.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 384"
+      }
+    },
+    {
+      "id": "bleach-rinsed",
+      "severity": "minor",
+      "description": "After bleach, wipe again with sterile water.",
+      "rationale": "Residual chlorine corrodes stainless steel; non-sterile water recontaminates.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 384"
+      }
+    },
+    {
+      "id": "drain-valve-closed",
+      "severity": "minor",
+      "description": "Close the drain valve before beginning work.",
+      "rationale": "An open valve lets a spill escape the cabinet.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 383: 'If there is a drain valve under the work surface, it should be closed prior to beginning work'"
+      }
+    },
+    {
+      "id": "toweling-placement",
+      "severity": "major",
+      "description": "Toweling may cover the work surface but not the grilles.",
+      "rationale": "Blocked grilles let room air into the work area and compromise containment.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 384"
+      }
+    },
+    {
+      "id": "items-wiped",
+      "severity": "major",
+      "description": "Wipe every item with disinfectant before placing it inside.",
+      "rationale": "This reduces the mould spores brought into the cabinet.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 384"
+      }
+    },
+    {
+      "id": "biological-last",
+      "severity": "major",
+      "description": "Place the biological material in the cabinet last.",
+      "rationale": "It limits the time hazardous material is exposed while the cabinet is being loaded.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 385: 'Biological material or other hazardous agents should be placed in the BSC last'"
+      }
+    },
+    {
+      "id": "only-needed-items",
+      "severity": "minor",
+      "description": "Bring in only what the immediate work needs.",
+      "rationale": "Extra items disrupt the airflow; spare supplies stay outside.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 383"
+      }
+    },
+    {
+      "id": "bulky-to-side",
+      "severity": "minor",
+      "description": "Put bulky items such as the discard tray and biohazard bag to one side.",
+      "rationale": "Keeps them from disrupting the work area airflow.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, pp. 384–385"
+      }
+    },
+    {
+      "id": "aerosol-equipment-rear",
+      "severity": "minor",
+      "description": "Place aerosol-generating equipment toward the rear.",
+      "rationale": "The rear takes advantage of the cabinet's air split.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 384"
+      }
+    },
+    {
+      "id": "no-outside-bag",
+      "severity": "minor",
+      "description": "Do not tape the biohazard bag to the outside of the cabinet.",
+      "rationale": "It encourages frequent movement in and out of the cabinet.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 385"
+      }
+    },
+    {
+      "id": "sash-at-certified-height",
+      "severity": "critical",
+      "description": "Work only with the sash at its marked, certified height.",
+      "rationale": "Above that height the inflow no longer protects the worker.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 385"
+      }
+    },
+    {
+      "id": "arms-slow",
+      "severity": "minor",
+      "description": "Move arms in and out slowly, perpendicular to the face opening.",
+      "rationale": "Sweeping movements disrupt the air curtain.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 382"
+      }
+    },
+    {
+      "id": "arms-settle",
+      "severity": "minor",
+      "description": "Wait about one minute after putting arms in before manipulating materials.",
+      "rationale": "The cabinet stabilizes and air-sweeps the hands and arms.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 383: 'Manipulation of materials should be delayed for approximately one minute'"
+      }
+    },
+    {
+      "id": "work-four-inches",
+      "severity": "major",
+      "description": "Work at least four inches in from the front grille.",
+      "rationale": "Work near the opening is not protected by the inflow.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 383"
+      }
+    },
+    {
+      "id": "no-open-flame",
+      "severity": "major",
+      "description": "Do not use an open flame inside the cabinet.",
+      "rationale": "A flame creates turbulence that disrupts the HEPA-filtered downflow.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 386"
+      }
+    },
+    {
+      "id": "uv-not-sole",
+      "severity": "major",
+      "description": "Never rely on a UV lamp as the only disinfection.",
+      "rationale": "UV does not replace chemical surface disinfection.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 6, p. 389"
+      }
+    },
+    {
+      "id": "spill-covered-outside-in",
+      "severity": "major",
+      "description": "Cover a small spill with towels, then pour disinfectant starting from the outside.",
+      "rationale": "Working inward avoids spreading the spill.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 387"
+      }
+    },
+    {
+      "id": "spill-contact-time",
+      "severity": "critical",
+      "description": "Leave the disinfectant for its contact time, usually 20 to 30 minutes.",
+      "rationale": "Shorter contact may not inactivate the agent.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 387"
+      }
+    },
+    {
+      "id": "spill-towels-edge-to-center",
+      "severity": "minor",
+      "description": "Push the towels from the edge of the spill to the centre.",
+      "rationale": "Gathering inward keeps the contaminated area small.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 387"
+      }
+    },
+    {
+      "id": "spill-biohazard-disposal",
+      "severity": "major",
+      "description": "Discard spill towels into a biohazard bag or receptacle.",
+      "rationale": "They are contaminated waste.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 387"
+      }
+    },
+    {
+      "id": "spill-gloves-changed",
+      "severity": "major",
+      "description": "Change gloves after the work surface is decontaminated.",
+      "rationale": "Gloves used for clean-up are contaminated.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 387"
+      }
+    },
+    {
+      "id": "large-spill-drain",
+      "severity": "critical",
+      "description": "For a spill through the grilles: remove decontaminated items, check the drain valve is closed, flood the drain pan with disinfectant and empty it into a vessel of disinfectant.",
+      "rationale": "Liquid under the work surface is out of reach of wiping.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 387"
+      }
+    },
+    {
+      "id": "teardown-blower-running",
+      "severity": "major",
+      "description": "With the blower running, surface-decontaminate items and remove them.",
+      "rationale": "Running airflow keeps containment while items come out.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 387"
+      }
+    },
+    {
+      "id": "teardown-biological-first",
+      "severity": "minor",
+      "description": "Remove biological materials first.",
+      "rationale": "Hazardous material should spend the least time in transit.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 387"
+      }
+    },
+    {
+      "id": "final-wipe",
+      "severity": "major",
+      "description": "Finish with a wipe of the work surface, sides, back and the inside of the glass.",
+      "rationale": "This is the final surface decontamination of the cabinet.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 387"
+      }
+    },
+    {
+      "id": "ppe-off-handwash",
+      "severity": "major",
+      "description": "Remove gloves and coat, then wash hands as the final step.",
+      "rationale": "Handwashing removes contamination that PPE removal can leave.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 387"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "cdc-nih-bmbl-6",
+      "use": "Work practices, times and spill procedure, adapted from a US federal government work."
+    }
+  ],
+  "limitations": [
+    "The culture is a generic BSL-2 bacterium; a real risk assessment for a named agent can change the PPE, disinfectant and contact time.",
+    "Contamination of the new plates is a simple model of how many airflow and hygiene errors occurred, not a physical simulation of the airflow.",
+    "Chemical and radioactive spills, gas decontamination and BSC classes other than II are not simulated.",
+    "Your institution's biosafety manual and biosafety officer, not this simulation, decide the procedures you must follow."
+  ]
+}

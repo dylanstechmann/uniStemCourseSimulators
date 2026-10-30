@@ -476,3 +476,90 @@ export interface CardReviewResult {
   rating: CardRating;
   schedule: CardSchedule;
 }
+
+export interface BenchProtocolSummary {
+  id: string;
+  version: string;
+  title: string;
+  layer: number;
+  summary: string;
+}
+
+export interface BenchParam {
+  name: string;
+  label: string;
+  type: "number" | "integer" | "boolean" | "choice";
+  min?: number;
+  max?: number;
+  unit?: string;
+  options?: { value: string; label: string }[];
+}
+
+export interface BenchActionSpec {
+  name: string;
+  label: string;
+  params: BenchParam[];
+}
+
+export interface BenchProtocol extends BenchProtocolSummary {
+  scenario: string;
+  actions: BenchActionSpec[];
+  limitations: string[];
+  sources: { source_id: string; use: string }[];
+}
+
+export type BenchParamValue = string | number | boolean;
+
+export interface BenchAction {
+  name: string;
+  params: Record<string, BenchParamValue>;
+}
+
+export interface BenchEvent {
+  kind: "info" | "readout" | "warning" | "consequence";
+  text: string;
+  data: Record<string, unknown>;
+}
+
+export interface BenchCheckpoint {
+  id: string;
+  severity: "critical" | "major" | "minor";
+  description: string;
+  rationale: string;
+  source: {
+    kind: string;
+    source_id?: string;
+    location?: string;
+    note?: string;
+  };
+  met: boolean | null;
+  detail: string;
+}
+
+export interface BenchRun {
+  protocol_id: string;
+  protocol_version: string;
+  seed: number;
+  mode: "guided" | "practice";
+  finished: boolean;
+  clock_minutes: number;
+  panels: { title: string; rows: [string, string][] }[];
+  log: {
+    index: number;
+    name: string;
+    label: string;
+    params: Record<string, BenchParamValue>;
+    clock_minutes: number;
+    events: BenchEvent[];
+  }[];
+  guidance: string[] | null;
+  debrief: {
+    checkpoints: BenchCheckpoint[];
+    missed: Record<"critical" | "major" | "minor", number>;
+    met_count: number;
+    applicable_count: number;
+    all_critical_met: boolean;
+    revealed: string[];
+    note: string;
+  } | null;
+}

@@ -12,6 +12,8 @@ from sqlalchemy.exc import IntegrityError
 from .assessment_plans import AssessmentPlanService
 from .authentication import new_dummy_password_hash
 from .authentication import router as auth_router
+from .bench import BenchLibrary
+from .bench_routes import router as bench_router
 from .case_studio import router as case_studio_router
 from .catalog import router as catalog_router
 from .config import Settings
@@ -45,6 +47,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.state.engine = engine
     app.state.sessions = session_factory
     app.state.content = content
+    app.state.bench = BenchLibrary(settings.content_root)
     app.state.assessment_plans = assessment_plans
     app.state.course_archives = course_archives
     app.state.graded_assessments = graded_assessments
@@ -60,6 +63,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.include_router(learning_router)
     app.include_router(learner_state_router)
     app.include_router(case_studio_router)
+    app.include_router(bench_router)
     app.include_router(practice_attempts_router)
     app.include_router(retrieval_router)
     app.include_router(instructor_appeals_router)

@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "id": "micropipette-gravimetric-verification",
+  "version": "0.1.0",
+  "title": "Gravimetric verification of a 1000 µL micropipette",
+  "layer": 0,
+  "summary": "Check whether an adjustable air-displacement pipette delivers its nominal volume by weighing replicate deliveries of water, converting mass to volume with a temperature-dependent factor, and comparing the systematic and random errors with acceptance limits.",
+  "scenario": "A 100–1000 µL pipette is due for its routine check. You have a reservoir of distilled water equilibrated to the room, an analytical balance with a small weighing vessel and a thermometer. Run the check at the nominal volume and complete the verification record.",
+  "guided_steps": [
+    "Measure the temperature of the test water; the mass-to-volume factor depends on it.",
+    "Set the pipette to its nominal volume, 1000 µL.",
+    "Fit a new tip and pre-wet it by filling and emptying it several times, discarding the water to waste.",
+    "Tare the balance with the weighing vessel in place.",
+    "Hold the pipette vertical and immerse the tip 2–4 mm below the surface while aspirating.",
+    "Dispense against the inside wall of the vessel and finish with a touch-off.",
+    "Record the balance reading, tare again, and repeat until you have 10 readings.",
+    "Convert each reading to volume with V = m × Z, where Z = (1/(ρ_water − ρ_air)) × (1 − ρ_air/ρ_weights) in µL/mg.",
+    "Compute the mean volume, the systematic error (mean − nominal)/nominal × 100 and the random error as a coefficient of variation, s/mean × 100.",
+    "Compare both with the acceptance limits and record pass or fail."
+  ],
+  "parameters": [
+    {"name": "nominal_volume_ul", "value": 1000, "unit": "µL", "label": "Nominal volume", "source": {"kind": "simulation-typical"}},
+    {"name": "balance_readability_mg", "value": 0.1, "unit": "mg", "label": "Balance readability", "source": {"kind": "simulation-typical", "note": "A readability of 0.1 mg is common for checking 1000 µL deliveries; smaller volumes need a finer balance."}},
+    {"name": "replicates_required", "value": 10, "unit": "readings", "label": "Replicates at the test volume", "source": {"kind": "simulation-typical", "note": "Ten replicates per test volume is common practice; the governing method is ISO 8655-6, which was not read for this protocol."}},
+    {"name": "immersion_mm_range", "value": [2, 4], "unit": "mm", "label": "Tip immersion depth", "source": {"kind": "simulation-typical"}},
+    {"name": "systematic_limit_pct", "value": 0.8, "unit": "%", "label": "Systematic error limit", "source": {"kind": "simulation-typical", "note": "Practice limit for this simulation. A real laboratory takes its limits from its SOP, the manufacturer or ISO 8655-2, which was not read for this protocol."}},
+    {"name": "random_limit_pct", "value": 0.3, "unit": "%", "label": "Random error limit (CV)", "source": {"kind": "simulation-typical", "note": "Practice limit for this simulation; see the systematic limit."}},
+    {"name": "fault_probability", "value": 0.35, "unit": "probability", "label": "Chance the pipette has a fault", "source": {"kind": "simulation-model"}},
+    {"name": "mean_tolerance_ul", "value": 0.5, "unit": "µL", "label": "Tolerance on the reported mean", "source": {"kind": "simulation-model"}},
+    {"name": "percent_tolerance", "value": 0.05, "unit": "percentage points", "label": "Tolerance on reported percentages", "source": {"kind": "simulation-model"}},
+    {"name": "water_density_formula", "value": "Tanaka et al. (2001)", "unit": "g/mL", "label": "Water density", "source": {"kind": "cited", "source_id": "tanaka-2001-water-density", "location": "Recommended formula for air-free water, 0–40 °C; title checked, text not read in this session"}}
+  ],
+  "actions": [
+    {"name": "measure_water_temperature", "label": "Measure water temperature", "params": []},
+    {"name": "set_volume", "label": "Set pipette volume", "params": [{"name": "volume_ul", "label": "Volume", "type": "number", "min": 100, "max": 1000, "unit": "µL"}]},
+    {"name": "fit_tip", "label": "Fit a new tip", "params": []},
+    {"name": "prewet", "label": "Pre-wet the tip", "params": [{"name": "cycles", "label": "Fill-and-empty cycles", "type": "integer", "min": 0, "max": 5}]},
+    {"name": "tare", "label": "Tare the balance", "params": []},
+    {"name": "aspirate", "label": "Aspirate water", "params": [
+      {"name": "immersion_mm", "label": "Tip immersion depth", "type": "number", "min": 0, "max": 10, "unit": "mm"},
+      {"name": "vertical", "label": "Pipette held vertical", "type": "boolean"}
+    ]},
+    {"name": "dispense", "label": "Dispense into the weighing vessel", "params": [{"name": "touch_off", "label": "Finish with a touch-off against the wall", "type": "boolean"}]},
+    {"name": "read_balance", "label": "Record the balance reading", "params": []},
+    {"name": "eject_tip", "label": "Eject the tip", "params": []},
+    {"name": "submit_report", "label": "Submit the verification record", "params": [
+      {"name": "mean_volume_ul", "label": "Mean delivered volume", "type": "number", "min": 0, "max": 2000, "unit": "µL"},
+      {"name": "systematic_error_pct", "label": "Systematic error", "type": "number", "min": -100, "max": 100, "unit": "%"},
+      {"name": "random_error_cv_pct", "label": "Random error (CV)", "type": "number", "min": 0, "max": 100, "unit": "%"},
+      {"name": "verdict", "label": "Verdict", "type": "choice", "options": [{"value": "pass", "label": "Pass"}, {"value": "fail", "label": "Fail"}]}
+    ]}
+  ],
+  "checkpoints": [
+    {"id": "temperature-recorded", "severity": "major", "description": "Measure the water temperature before converting masses to volumes.", "rationale": "Water density, and so the factor Z, changes with temperature; near 21 °C it changes by about 0.02% per °C.", "source": {"kind": "cited", "source_id": "tanaka-2001-water-density", "location": "title checked"}},
+    {"id": "nominal-volume", "severity": "critical", "description": "Test at the nominal volume of the pipette.", "rationale": "Acceptance limits are stated for a specified test volume; readings at another setting cannot be compared with them.", "source": {"kind": "simulation-typical"}},
+    {"id": "tip-prewetted", "severity": "major", "description": "Pre-wet each new tip before its first measured delivery.", "rationale": "A dry tip and its air cushion take up vapour on the first fill, so the first delivery is low.", "source": {"kind": "simulation-typical"}},
+    {"id": "immersion-depth", "severity": "major", "description": "Immerse the tip 2–4 mm while aspirating.", "rationale": "Too shallow draws air; too deep leaves liquid on the outside of the tip that is then delivered.", "source": {"kind": "simulation-typical"}},
+    {"id": "vertical-aspiration", "severity": "minor", "description": "Hold the pipette vertical while aspirating.", "rationale": "Tilting changes the hydrostatic head on the air cushion and the volume drawn.", "source": {"kind": "simulation-typical"}},
+    {"id": "touch-off", "severity": "minor", "description": "Finish each dispense with a touch-off against the vessel wall.", "rationale": "Without it the last drop can stay on the tip.", "source": {"kind": "simulation-typical"}},
+    {"id": "tare-before-each", "severity": "minor", "description": "Tare before each dispense, or difference successive readings.", "rationale": "Cumulative readings give the total, not each delivery.", "source": {"kind": "simulation-typical"}},
+    {"id": "replicate-count", "severity": "critical", "description": "Record at least 10 readings at the test volume.", "rationale": "The random error is a standard deviation; too few replicates estimate it poorly.", "source": {"kind": "simulation-typical"}},
+    {"id": "report-mean", "severity": "critical", "description": "Report the mean volume computed from your readings with the correct factor Z.", "rationale": "Mass becomes volume only through the density of water at the measured temperature and the buoyancy of air.", "source": {"kind": "cited", "source_id": "tanaka-2001-water-density", "location": "title checked"}},
+    {"id": "report-systematic", "severity": "critical", "description": "Report the systematic error as (mean − nominal)/nominal × 100.", "rationale": "This is the inaccuracy the acceptance limit is written against.", "source": {"kind": "simulation-typical"}},
+    {"id": "report-random", "severity": "major", "description": "Report the random error as the coefficient of variation, s/mean × 100, using the sample standard deviation.", "rationale": "This is the imprecision the second limit is written against.", "source": {"kind": "simulation-typical"}},
+    {"id": "report-verdict", "severity": "critical", "description": "Record pass only if both errors are within their limits.", "rationale": "A pipette that fails either limit must be taken out of use, adjusted or serviced, then re-checked.", "source": {"kind": "simulation-typical"}}
+  ],
+  "sources": [
+    {"source_id": "tanaka-2001-water-density", "use": "Water density formula used to compute Z."}
+  ],
+  "limitations": [
+    "Acceptance limits, immersion depth and replicate count are practice values chosen for this simulation, not limits taken from ISO 8655, which was not read.",
+    "Evaporation from the weighing vessel, balance drift and the operator's hand warming the pipette are not modelled.",
+    "The simulation cannot train the feel of the plunger stops, which is learned only at a bench."
+  ]
+}
