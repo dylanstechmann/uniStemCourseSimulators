@@ -328,10 +328,10 @@ def test_clone_table_allelic_junction_and_coding_ledgers():
 
 def test_new_foundations_and_reports_deliver_resources_and_scheduled_open_practice():
     assert len(NEW) == 28
-    assert MANIFEST["version"] == "0.8.0" and MANIFEST["maturity"] == "partial"
+    assert MANIFEST["version"] == "0.9.0" and MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed"
     scheduled = [lid for w in MANIFEST["duration"]["weeks"] for lid in w["lesson_ids"]]
-    assert len(scheduled) == len(set(scheduled)) == 29
+    assert len(scheduled) == len(set(scheduled)) == 31
     content = ContentRepository(ROOT / "content")
     for number in range(19, 28):
         lesson = content.lesson("genetics", f"genetics-{number}")

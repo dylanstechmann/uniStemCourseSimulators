@@ -18,7 +18,7 @@ comprehensive coverage. Every package is still `partial` and unreviewed.
 | differential-equations | partial | 25 | 68 | 152 | 86 | 0 | 0 | 0 | 4 | 0 | 0 |
 | general-chemistry-1 | partial | 24 | 69 | 160 | 87 | 0 | 0 | 0 | 4 | 0 | 0 |
 | general-chemistry-2 | partial | 23 | 62 | 132 | 77 | 0 | 0 | 0 | 4 | 0 | 0 |
-| genetics | partial | 29 | 83 | 141 | 102 | 0 | 0 | 0 | 8 | 0 | 0 |
+| genetics | partial | 31 | 91 | 165 | 110 | 0 | 0 | 0 | 8 | 0 | 0 |
 | geroscience | partial | 23 | 66 | 105 | 83 | 0 | 0 | 0 | 4 | 0 | 0 |
 | linear-algebra | partial | 22 | 62 | 133 | 79 | 0 | 0 | 0 | 5 | 0 | 0 |
 | organic-chemistry | partial | 23 | 68 | 155 | 84 | 0 | 0 | 0 | 4 | 0 | 0 |
@@ -32,7 +32,7 @@ comprehensive coverage. Every package is still `partial` and unreviewed.
 | statistics | partial | 27 | 78 | 135 | 92 | 0 | 0 | 0 | 12 | 0 | 0 |
 | transport | partial | 25 | 68 | 150 | 85 | 0 | 0 | 0 | 7 | 0 | 0 |
 
-Totals: 25 packages, 658 lessons, 1747 objectives, 3764 practice items, 0 lesson objectives with no assessment mapping, 0 with no practice item, 0 linked to no course outcome; 0 of 130 course outcomes that no lesson objective links to, 0 that no assessment lists.
+Totals: 25 packages, 660 lessons, 1755 objectives, 3788 practice items, 0 lesson objectives with no assessment mapping, 0 with no practice item, 0 linked to no course outcome; 0 of 130 course outcomes that no lesson objective links to, 0 that no assessment lists.
 
 Each assessment with items lists the course outcomes its own items assess (item, then its tagged lesson objective,
 then that objective's outcome links), and `tools/validate_content.py` rejects an outcome that none of the

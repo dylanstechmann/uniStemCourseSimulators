@@ -182,8 +182,9 @@ def test_genetics_schedule_places_every_lesson_once_and_stays_partial():
     scheduled = [lesson for w in weeks for lesson in w["lesson_ids"]]
     all_lessons = [lesson["id"] for m in manifest["modules"] for lesson in m["lessons"]]
     # 26 lessons through 0.7.0 (topic and lab lessons plus the optional project guide added in 0.6.0),
-    # then transposition, homologous targeting and the cumulative insertion/targeting audit in 0.8.0.
-    assert len(all_lessons) == 29
+    # then transposition, homologous targeting and the cumulative insertion/targeting audit in 0.8.0,
+    # then chromosome rearrangements and cancer genetics in 0.9.0.
+    assert len(all_lessons) == 31
     assert sorted(scheduled) == sorted(all_lessons) and len(scheduled) == len(set(scheduled))
     assessments = {a["id"]: a for a in manifest["assessments"]}
     assert all(a in assessments for w in weeks for a in w["assessment_ids"])

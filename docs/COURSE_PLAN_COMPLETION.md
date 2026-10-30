@@ -22,7 +22,7 @@ This is a personal hobby and learning project developed with substantial AI assi
 | [Differential Equations for Living & Engineered Systems](../content/courses/differential-equations/syllabus.md) | 0.7.0 | 14 | 12 | [Project guide](../content/courses/differential-equations/assignments/stiff-two-compartment-project-guide.md) |
 | [General Chemistry I](../content/courses/general-chemistry-1/syllabus.md) | 0.7.0 | 14 | 10 | [Project guide](../content/courses/general-chemistry-1/assignments/gas-equilibrium-project-guide.md) |
 | [General Chemistry II](../content/courses/general-chemistry-2/syllabus.md) | 0.6.0 | 11 | 8 | [Project guide](../content/courses/general-chemistry-2/assignments/redox-cell-project-guide.md) |
-| [Genetics & Genomics](../content/courses/genetics/syllabus.md) | 0.8.0 | 14 | 6 | [Project guide](../content/courses/genetics/assignments/three-point-mapping-project-guide.md) |
+| [Genetics & Genomics](../content/courses/genetics/syllabus.md) | 0.9.0 | 14 | 6 | [Project guide](../content/courses/genetics/assignments/three-point-mapping-project-guide.md) |
 | [Geroscience & Regenerative Biology](../content/courses/geroscience/syllabus.md) | 0.7.0 | 14 | 14 | [Project guide](../content/courses/geroscience/assignments/surrogate-evidence-project-guide.md) |
 | [Linear Algebra for Modeling & Robotics](../content/courses/linear-algebra/syllabus.md) | 0.5.0 | 14 | 12 | [Project guide](../content/courses/linear-algebra/assignments/hidden-state-reconstruction-project-guide.md) |
 | [Organic Chemistry I for Life Sciences](../content/courses/organic-chemistry/syllabus.md) | 0.7.0 | 12 | 11 | [Project guide](../content/courses/organic-chemistry/assignments/aldol-identity-project-guide.md) |

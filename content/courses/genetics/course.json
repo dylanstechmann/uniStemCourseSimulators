@@ -7,7 +7,7 @@
   "domain": "Life sciences",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -765,6 +765,74 @@
         "genetics-outcome-1",
         "genetics-outcome-8"
       ]
+    },
+    {
+      "id": "genetics-28-objective-1",
+      "description": "Classify deletions, duplications, inversions and translocations by the change in segment order or copy number, and use pseudodominance over overlapping deletions to place a recessive mutation.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "genetics-outcome-1"
+      ]
+    },
+    {
+      "id": "genetics-28-objective-2",
+      "description": "Trace a single crossover inside a paracentric or pericentric inversion loop to its products, and compute the fraction of unbalanced gametes and the apparent recombination among viable progeny.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-1",
+        "genetics-outcome-2"
+      ]
+    },
+    {
+      "id": "genetics-28-objective-3",
+      "description": "Trace alternate and adjacent segregation in a reciprocal translocation heterozygote, compute the balanced fraction of gametes, and explain pseudolinkage.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-1",
+        "genetics-outcome-2"
+      ]
+    },
+    {
+      "id": "genetics-28-objective-4",
+      "description": "Infer copy number and mosaic fraction from a normalized log₂ ratio, and state why balanced rearrangements are invisible to copy-number data.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "genetics-outcome-1"
+      ]
+    },
+    {
+      "id": "genetics-29-objective-1",
+      "description": "Distinguish oncogenes from tumor suppressor genes by the effect of a mutation in one cell, and explain why an inherited tumor suppressor allele behaves as a dominant predisposition with incomplete penetrance in families.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-1",
+        "genetics-outcome-3"
+      ]
+    },
+    {
+      "id": "genetics-29-objective-2",
+      "description": "Use Poisson statistics to compute the fractions of carriers with no, unilateral and bilateral tumors from a mean number of tumors, and compare one-hit with two-hit kinetics.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "genetics-outcome-1"
+      ]
+    },
+    {
+      "id": "genetics-29-objective-3",
+      "description": "Use the multistage model to relate the slope of log incidence against log age to the number of rate-limiting steps, and show how a mutator phenotype or clonal expansion raises the expected number of completed lineages.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-1",
+        "genetics-outcome-7"
+      ]
+    },
+    {
+      "id": "genetics-29-objective-4",
+      "description": "List the routes to loss of heterozygosity and use copy number and marker patterns to distinguish them.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "genetics-outcome-2"
+      ]
     }
   ],
   "duration": {
@@ -825,13 +893,15 @@
       },
       {
         "week": 6,
-        "title": "Chromosome segregation errors: nondisjunction, aneuploidy and maternal age; optional three-point mapping project",
+        "title": "Chromosome segregation errors and rearrangements: aneuploidy, inversions and translocations; optional three-point mapping project",
         "lesson_ids": [
           "genetics-12",
+          "genetics-28",
           "genetics-project-guide"
         ],
         "assessment_ids": [
           "genetics-12-practice",
+          "genetics-28-practice",
           "genetics-project-rehearsal-practice"
         ]
       },
@@ -848,12 +918,14 @@
       },
       {
         "week": 8,
-        "title": "Mutation rates, the fluctuation test and somatic mutation",
+        "title": "Mutation rates, somatic mutation and the genetics of cancer",
         "lesson_ids": [
-          "genetics-13"
+          "genetics-13",
+          "genetics-29"
         ],
         "assessment_ids": [
-          "genetics-13-practice"
+          "genetics-13-practice",
+          "genetics-29-practice"
         ]
       },
       {
@@ -1927,6 +1999,92 @@
           ]
         }
       ]
+    },
+    {
+      "id": "genetics-module-28",
+      "title": "Chromosome rearrangements: deletions, duplications, inversions and translocations",
+      "source_ids": [
+        "genetics-703",
+        "genetics-columbia-un3031"
+      ],
+      "lessons": [
+        {
+          "id": "genetics-28",
+          "title": "Chromosome rearrangements: deletions, duplications, inversions and translocations",
+          "reading": "modules/28-chromosome-rearrangements.md",
+          "objectives": [
+            "genetics-28-objective-1",
+            "genetics-28-objective-2",
+            "genetics-28-objective-3",
+            "genetics-28-objective-4"
+          ],
+          "worked_example": "When 30% of meiocytes in a paracentric inversion heterozygote show an anaphase-I bridge, 0.30 × 2/4 = 0.15 of products are unbalanced and 0.85 are viable non-crossovers, so markers inside the inversion show essentially no recombination among viable progeny although a standard homozygote would show about 15%. Bridges and lost products distinguish an inversion from tight linkage.",
+          "question_ids": [
+            "genetics-28:inversion-unbalanced",
+            "genetics-28:bridge-fraction",
+            "genetics-28:balanced-gametes",
+            "genetics-28:carriers-among-viable",
+            "genetics-28:unequal-crossover-copies",
+            "genetics-28:mosaic-loss-ratio",
+            "genetics-28:mosaic-gain-fraction",
+            "genetics-28:deletion-mapping",
+            "genetics-28:inversion-suppression",
+            "genetics-28:balanced-invisible",
+            "genetics-28:rearrangement-statements",
+            "genetics-28:translocation-statements"
+          ],
+          "card_ids": [
+            "genetics-28-card-1",
+            "genetics-28-card-2",
+            "genetics-28-card-3",
+            "genetics-28-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "genetics-module-29",
+      "title": "Genetics of cancer: oncogenes, tumor suppressors, two hits and age",
+      "source_ids": [
+        "genetics-703",
+        "genetics-columbia-un3031",
+        "knudson-1971-retinoblastoma",
+        "armitage-doll-1954-multistage"
+      ],
+      "lessons": [
+        {
+          "id": "genetics-29",
+          "title": "Genetics of cancer: oncogenes, tumor suppressors, two hits and age",
+          "reading": "modules/29-genetics-of-cancer-two-hits-and-age.md",
+          "objectives": [
+            "genetics-29-objective-1",
+            "genetics-29-objective-2",
+            "genetics-29-objective-3",
+            "genetics-29-objective-4"
+          ],
+          "worked_example": "If 8% of carriers never develop a tumor, m = −ln 0.08 = 2.53. Split equally between two eyes, each eye is tumor-free with probability e^(−1.26) = 0.283, so 0.514 of carriers are bilateral and 0.406 unilateral. A lower mean lowers penetrance without changing the two-hit mechanism.",
+          "question_ids": [
+            "genetics-29:no-tumor-fraction",
+            "genetics-29:bilateral-fraction",
+            "genetics-29:mean-from-unaffected",
+            "genetics-29:sporadic-per-million",
+            "genetics-29:multistage-steps",
+            "genetics-29:incidence-ratio",
+            "genetics-29:mutator-two-hit",
+            "genetics-29:clonal-expansion-fold",
+            "genetics-29:suppressor-dominance",
+            "genetics-29:loh-route",
+            "genetics-29:kinetics-statements",
+            "genetics-29:incidence-claims"
+          ],
+          "card_ids": [
+            "genetics-29-card-1",
+            "genetics-29-card-2",
+            "genetics-29-card-3",
+            "genetics-29-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -2590,6 +2748,68 @@
         "genetics-27:depth-2"
       ],
       "points": 8
+    },
+    {
+      "id": "genetics-28-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Chromosome rearrangements practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "genetics-28-objective-1",
+        "genetics-28-objective-2",
+        "genetics-28-objective-3",
+        "genetics-28-objective-4",
+        "genetics-outcome-1",
+        "genetics-outcome-2"
+      ],
+      "question_ids": [
+        "genetics-28:inversion-unbalanced",
+        "genetics-28:bridge-fraction",
+        "genetics-28:balanced-gametes",
+        "genetics-28:carriers-among-viable",
+        "genetics-28:unequal-crossover-copies",
+        "genetics-28:mosaic-loss-ratio",
+        "genetics-28:mosaic-gain-fraction",
+        "genetics-28:deletion-mapping",
+        "genetics-28:inversion-suppression",
+        "genetics-28:balanced-invisible",
+        "genetics-28:rearrangement-statements",
+        "genetics-28:translocation-statements"
+      ],
+      "points": 14
+    },
+    {
+      "id": "genetics-29-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Cancer genetics practice",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "genetics-29-objective-1",
+        "genetics-29-objective-2",
+        "genetics-29-objective-3",
+        "genetics-29-objective-4",
+        "genetics-outcome-1",
+        "genetics-outcome-2",
+        "genetics-outcome-3",
+        "genetics-outcome-7"
+      ],
+      "question_ids": [
+        "genetics-29:no-tumor-fraction",
+        "genetics-29:bilateral-fraction",
+        "genetics-29:mean-from-unaffected",
+        "genetics-29:sporadic-per-million",
+        "genetics-29:multistage-steps",
+        "genetics-29:incidence-ratio",
+        "genetics-29:mutator-two-hit",
+        "genetics-29:clonal-expansion-fold",
+        "genetics-29:suppressor-dominance",
+        "genetics-29:loh-route",
+        "genetics-29:kinetics-statements",
+        "genetics-29:incidence-claims"
+      ],
+      "points": 14
     }
   ],
   "grading_policy": {
@@ -2709,6 +2929,11 @@
       "version": "0.8.0",
       "date": "2026-10-24",
       "summary": "Added transposition and targeting foundations with a connected cumulative audit: insertion-sequence and composite-transposon structure, cut-and-paste versus replicative signatures, insertion polarity, Poisson coverage bounds, precise excision versus suppression, replacement-construct design, double selection, the stem-cell chimera route and conditional loxP alleles, plus Assignment 4 scheduled across weeks 9, 13 and 14, with ten checkpoints/cards and one new course outcome."
+    },
+    {
+      "version": "0.9.0",
+      "date": "2026-10-30",
+      "summary": "Compared the package with the Columbia University BIOL UN3031 Spring 2023 lecture schedule as well as the MIT 7.03 Fall 2004 calendar by lecture titles, and added two original readings for topics both teach: chromosome rearrangements (pseudodominance, unequal crossing over, inversion loops, translocation segregation and copy-number ratios) in week 6, and the genetics of cancer (oncogenes and tumor suppressors, Knudson's two-hit Poisson argument, the multistage model, mutators, clonal expansion and loss of heterozygosity) in week 8, with 24 practice items and eight retrieval cards. Segregation frequencies, rates and incidence figures are synthetic. The package remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
@@ -2721,10 +2946,12 @@
     "The three-point mapping project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses separate synthetic counts and a different penetrance, and no software check evaluates a learner's project calculations or written interpretation. Milestone weeks are planning suggestions, not measured workload or deadlines.",
     "Three new foundation readings and three connected assignments develop selected phage functional maps/suppression, eukaryotic copy/transcript evidence, normalized one-locus population models and known-phase linkage likelihood. These do not complete broad transposition, phage life-cycle, genome-targeting, cancer-genetics or multi-locus/pedigree scope. Written reports, implementations, causal diagrams and protein/organism function are not automatically evaluated; workload and qualified review remain open.",
     "Two further foundation readings and one connected audit assignment develop insertion-sequence structure, copy-number signatures, insertion polarity, Poisson coverage bounds, excision versus suppression, replacement-construct design, double-selection arithmetic, the stem-cell chimera route and conditional loxP alleles. These do not complete broad phage life cycles, genome-scale targeting applications or cancer genetics, and no protocol, cell line or animal work is described or authorized.",
-    "Of the 137 numerical answers, 1 require units, 66 check significant figures and 0 check dimensions. New continuous checkpoint quantities request three significant figures; exact counts have no significant-figure requirement."
+    "Of the 152 numerical answers, 1 require units, 78 check significant figures and 0 check dimensions. New continuous checkpoint quantities request three significant figures; exact counts have no significant-figure requirement.",
+    "The rearrangement and cancer-genetics readings use a single-exchange inversion model, invented translocation segregation frequencies, idealized copy-number normalization, invented mutation rates, target-cell numbers and clone growth rates, and synthetic incidence figures. They show mechanisms, not measurements; a fitted incidence slope does not identify the number or nature of the steps, and nothing here estimates the risk to any person or family."
   ],
   "intentionally_omitted": [
-    "Graded assessments and a multi-session laboratory sequence remain unauthored. Selected phage fine-structure/complementation/suppression, eukaryotic dosage/transcript evidence, transposition mechanics and targeted replacement with conditional loxP alleles now supplement the microbial/operon/tetrad core; broader phage life cycles, genome-scale targeting applications, cancer genetics, two-locus ordered tetrads, multiple-exchange corrections, gene conversion and comprehensive genome analysis remain incomplete. Population models are one-locus deterministic examples and linkage likelihood assumes known phase/error-free independent transmissions; broader drift/migration/multi-locus/pedigree inference is deferred. Mendelian randomization and variant-to-mechanism follow-up remain optional advanced human-genetics applications."
+    "Graded assessments and a multi-session laboratory sequence remain unauthored. Selected phage fine-structure/complementation/suppression, eukaryotic dosage/transcript evidence, transposition mechanics and targeted replacement with conditional loxP alleles now supplement the microbial/operon/tetrad core; broader phage life cycles, genome-scale targeting applications, cancer genomics beyond the two-hit, multistage and loss-of-heterozygosity foundations, two-locus ordered tetrads, multiple-exchange corrections, gene conversion and comprehensive genome analysis remain incomplete. Population models are one-locus deterministic examples and linkage likelihood assumes known phase/error-free independent transmissions; broader drift/migration/multi-locus/pedigree inference is deferred. Mendelian randomization and variant-to-mechanism follow-up remain optional advanced human-genetics applications.",
+    "Named by the Columbia comparator but developed only in part or not at all here: mechanisms and types of mutation (frameshift reversion is the only mechanism taught), Muller's allelic classes, forward genetic screens, genetic mosaic analysis (X-inactivation mosaics and chimeras are described, clonal analysis is not), the biology of small-RNA pathways (RNA interference is taught only as a perturbation tool) and positional cloning. See the scope crosswalk."
   ],
   "learner_resources": [
     "labs/case-control-genotypes.csv",

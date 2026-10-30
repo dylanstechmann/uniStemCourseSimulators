@@ -94,6 +94,22 @@ GENETICS_NUMERIC = {
     "genetics-18:expected-sds-15cm": 2 * 0.15 * 600,
     "genetics-18:expected-fds-20cm": 200 - 2 * 0.20 * 200,
     "genetics-18:zero-sds-bound-600": 50 * 3 / 600,
+    # genetics 0.9.0: rearrangements and cancer genetics, recomputed from the numbers in each prompt
+    "genetics-28:inversion-unbalanced": 0.40 / 2,
+    "genetics-28:bridge-fraction": 2 * 0.15,
+    "genetics-28:balanced-gametes": 1 - 0.40 - 0.05,
+    "genetics-28:carriers-among-viable": 1 / 2,
+    "genetics-28:unequal-crossover-copies": 5 - 2,
+    "genetics-28:mosaic-loss-ratio": math.log((2 - 0.40) / 2, 2),
+    "genetics-28:mosaic-gain-fraction": 2 * (math.pow(2, 0.263) - 1),
+    "genetics-29:no-tumor-fraction": math.exp(-3),
+    "genetics-29:bilateral-fraction": (1 - math.exp(-3 / 2)) ** 2,
+    "genetics-29:mean-from-unaffected": math.log(1 / 0.10),
+    "genetics-29:sporadic-per-million": 1e6 * 1e6 * (1 - math.exp(-3e-6)) ** 2,  # both copies lost, exact
+    "genetics-29:multistage-steps": math.log2(384 / 12) + 1,
+    "genetics-29:incidence-ratio": math.exp(5 * math.log(70 / 50)),
+    "genetics-29:mutator-two-hit": 8 * 8,
+    "genetics-29:clonal-expansion-fold": sum(math.exp(0.5 * (k + 0.5) / 1000) for k in range(10000)) / 1000 / 10,
 }
 
 

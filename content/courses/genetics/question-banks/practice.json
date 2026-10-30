@@ -7173,6 +7173,807 @@
           "Original synthetic genetic-evidence practice developed with substantial AI assistance; no external problem, sequence, organism or dataset imported."
         ]
       }
+    },
+    {
+      "id": "genetics-28:inversion-unbalanced",
+      "type": "numeric",
+      "prompt": "In a synthetic inversion heterozygote, 40% of meioses have a single crossover inside the inversion loop. What fraction of all meiotic products is unbalanced? Give a fraction of 1. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "genetics-28-objective-2"
+      ],
+      "feedback": {
+        "hint": "Only two of the four chromatids take part in a single crossover.",
+        "solution": "Each loop-crossover meiosis gives two unbalanced and two balanced products, so the unbalanced fraction is 0.40 × 2/4 = 0.200.",
+        "lesson_ids": [
+          "genetics-28"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.2,
+        "unit": "",
+        "tolerance": 0.0005,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "genetics-28:bridge-fraction",
+      "type": "numeric",
+      "prompt": "A segment is 15 cM long in standard homozygotes. Under the single-exchange model, in which each exchange involves two of the four chromatids, what fraction of meiocytes in a heterozygote for a paracentric inversion of that segment would show an anaphase-I bridge? Give a fraction of 1. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "genetics-28-objective-2"
+      ],
+      "feedback": {
+        "hint": "Map distance is the expected recombinant fraction of products; each exchange makes two recombinant chromatids out of four.",
+        "solution": "A recombinant-product fraction of 0.15 needs exchanges in 2 × 0.15 = 0.300 of meioses, and each such meiosis in a paracentric heterozygote shows a bridge and fragment.",
+        "lesson_ids": [
+          "genetics-28"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.3,
+        "unit": "",
+        "tolerance": 0.0005,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "genetics-28:balanced-gametes",
+      "type": "numeric",
+      "prompt": "A reciprocal translocation heterozygote segregates alternate in 55%, adjacent-1 in 40% and adjacent-2 in 5% of meioses. What fraction of its gametes is balanced? Give a fraction of 1. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "genetics-28-objective-3"
+      ],
+      "feedback": {
+        "hint": "Which segregation mode gives balanced gametes from both poles?",
+        "solution": "Only alternate segregation gives balanced gametes, and it gives them from both poles, so 0.550 of gametes are balanced; both adjacent modes give a duplication and a deficiency.",
+        "lesson_ids": [
+          "genetics-28"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.55,
+        "unit": "",
+        "tolerance": 0.0005,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "genetics-28:carriers-among-viable",
+      "type": "numeric",
+      "prompt": "A balanced reciprocal translocation carrier has offspring with a partner with the standard chromosome arrangement. If only balanced gametes give viable offspring, what fraction of viable offspring carry the balanced translocation? Give a fraction of 1. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "genetics-28-objective-3"
+      ],
+      "feedback": {
+        "hint": "List the two gametes produced by alternate segregation.",
+        "solution": "Alternate segregation gives N1 + N2 and T1 + T2 in equal numbers, so half of the viable offspring (0.500) carry the translocation and half have the standard chromosome arrangement.",
+        "lesson_ids": [
+          "genetics-28"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.5,
+        "unit": "",
+        "tolerance": 0.0005,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "genetics-28:unequal-crossover-copies",
+      "type": "numeric",
+      "prompt": "A chromosome carries 5 tandem copies of a sequence. Homologs pair offset by two copies and a crossover occurs in the overlap. How many copies does the shorter product carry? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "genetics-28-objective-1"
+      ],
+      "feedback": {
+        "hint": "n copies paired with offset k give n + k and n − k.",
+        "solution": "The products carry 5 + 2 = 7 and 5 − 2 = 3 copies; the shorter has 3.",
+        "lesson_ids": [
+          "genetics-28"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 3,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "genetics-28:mosaic-loss-ratio",
+      "type": "numeric",
+      "prompt": "In a diploid region, a one-copy deletion is present in 40% of the cells sampled. What normalized log₂ copy-number ratio is expected? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "genetics-28-objective-4"
+      ],
+      "feedback": {
+        "hint": "Average the copy number over all cells before taking the logarithm.",
+        "solution": "The average copy number is 2 − 0.40 = 1.6, so log₂(1.6/2) = log₂ 0.8 = −0.322, not the −1 of a deletion in every cell.",
+        "lesson_ids": [
+          "genetics-28"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": -0.3219280948873623,
+        "unit": "",
+        "tolerance": 0.00051,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "genetics-28:mosaic-gain-fraction",
+      "type": "numeric",
+      "prompt": "A region shows a normalized log₂ copy-number ratio of 0.263 that is attributed to a one-copy gain in a fraction of cells. What fraction of cells carries the gain? Give a fraction of 1. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "genetics-28-objective-4"
+      ],
+      "feedback": {
+        "hint": "For a one-copy gain in a fraction m of cells, the ratio is (2 + m)/2.",
+        "solution": "2^0.263 = 1.200 = 1 + m/2, so m = 2 × 0.200 = 0.400.",
+        "lesson_ids": [
+          "genetics-28"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.39994276474643087,
+        "unit": "",
+        "tolerance": 0.00051,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "genetics-28:deletion-mapping",
+      "type": "single_choice",
+      "prompt": "Deletions Df1, Df2 and Df3 remove bands 1–4, 3–6 and 5–8. A recessive mutation shows its phenotype over Df1 and over Df2 but not over Df3. Where is it?",
+      "points": 1,
+      "objective_ids": [
+        "genetics-28-objective-1"
+      ],
+      "feedback": {
+        "hint": "The mutation must lie in a band removed by every deletion that uncovers it and by none that does not.",
+        "solution": "Bands 3–4 are removed by Df1 and Df2 but not by Df3. Bands 1–2 are not removed by Df2, and bands 5–6 are removed by Df3.",
+        "lesson_ids": [
+          "genetics-28"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "options": [
+        "Bands 1–2",
+        "Bands 3–4",
+        "Bands 5–6",
+        "Bands 7–8"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "genetics-28:inversion-suppression",
+      "type": "single_choice",
+      "prompt": "Markers inside an inverted segment show almost no recombination among the viable progeny of an inversion heterozygote. Why?",
+      "points": 1,
+      "objective_ids": [
+        "genetics-28-objective-2"
+      ],
+      "feedback": {
+        "hint": "Ask what happens to the chromatids that crossed over in the loop.",
+        "solution": "The loop allows pairing and crossing over, but a single crossover gives dicentric and acentric products (paracentric) or duplication–deficiency products (pericentric). The viable products are non-crossover chromatids, so recombinants are missing, not prevented.",
+        "lesson_ids": [
+          "genetics-28"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "options": [
+        "Crossing over cannot occur between homologs that differ by an inversion.",
+        "Crossovers occur in the loop, but the recombinant products are unbalanced and do not give viable progeny.",
+        "The inverted segment has a lower mutation rate.",
+        "Genes in an inverted segment are silenced, so their markers cannot be scored."
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "genetics-28:balanced-invisible",
+      "type": "single_choice",
+      "prompt": "Which change would a read-depth copy-number profile fail to detect?",
+      "points": 1,
+      "objective_ids": [
+        "genetics-28-objective-4"
+      ],
+      "feedback": {
+        "hint": "Which rearrangement keeps every segment in two copies?",
+        "solution": "A balanced reciprocal translocation moves segments without changing their copy number, so depth stays at two copies everywhere; finding it needs junction-spanning reads, long reads or cytogenetics.",
+        "lesson_ids": [
+          "genetics-28"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "options": [
+        "A heterozygous deletion",
+        "A tandem duplication",
+        "A balanced reciprocal translocation",
+        "A one-copy loss in 40% of cells"
+      ],
+      "solution_spec": {
+        "answer": 2
+      }
+    },
+    {
+      "id": "genetics-28:rearrangement-statements",
+      "type": "multiple_select",
+      "prompt": "Which statements about chromosome rearrangements are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "genetics-28-objective-1"
+      ],
+      "feedback": {
+        "hint": "Separate rearrangements that change copy number from those that change order or position.",
+        "solution": "Paracentric inversions exclude the centromere, deletions uncover recessive alleles (pseudodominance), and unequal crossing over changes copy number in opposite directions. Reciprocal translocations and inversions are balanced, so they change no copy number and usually no dosage.",
+        "lesson_ids": [
+          "genetics-28"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "options": [
+        "A paracentric inversion excludes the centromere.",
+        "A deletion heterozygote can show the phenotype of a recessive allele on the intact homolog.",
+        "A reciprocal translocation changes the copy number of the exchanged segments.",
+        "Unequal crossing over between tandem copies gives one product with more copies and one with fewer.",
+        "An inversion heterozygote usually shows a strong dosage phenotype."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "genetics-28:translocation-statements",
+      "type": "multiple_select",
+      "prompt": "Which statements about a reciprocal translocation heterozygote are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "genetics-28-objective-3"
+      ],
+      "feedback": {
+        "hint": "Trace which pairs of chromosomes travel together in each segregation mode.",
+        "solution": "Alternate segregation is the balanced mode; adjacent modes give duplications and deficiencies; and because only alternate products survive, breakpoint-near alleles co-segregate (pseudolinkage). Some gametes are balanced, and a Robertsonian carrier has 45 chromosomes.",
+        "lesson_ids": [
+          "genetics-28"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "options": [
+        "Alternate segregation gives balanced gametes.",
+        "Adjacent-1 segregation gives gametes carrying a duplication and a deficiency.",
+        "Genes near the breakpoints on the two chromosomes can appear linked among viable progeny.",
+        "Every gamete of a translocation heterozygote is unbalanced.",
+        "A Robertsonian translocation carrier has 47 chromosomes."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "genetics-29:no-tumor-fraction",
+      "type": "numeric",
+      "prompt": "Carriers of an inherited allele develop tumors independently with a Poisson mean of 3 per carrier. What fraction of carriers develops no tumor? Give a fraction of 1. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "genetics-29-objective-2"
+      ],
+      "feedback": {
+        "hint": "The Poisson zero class is e^(−m).",
+        "solution": "e^(−3) = 0.0498, so about 5% of carriers develop no tumor and about 95% develop at least one.",
+        "lesson_ids": [
+          "genetics-29"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.049787068367863944,
+        "unit": "",
+        "tolerance": 5.1e-05,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "genetics-29:bilateral-fraction",
+      "type": "numeric",
+      "prompt": "With the same Poisson mean of 3 tumors per carrier divided equally between two eyes, what fraction of carriers has tumors in both eyes? Give a fraction of 1. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "genetics-29-objective-2"
+      ],
+      "feedback": {
+        "hint": "Find the probability that one eye is tumor-free with mean 1.5, then require both eyes to be affected.",
+        "solution": "Each eye is tumor-free with probability e^(−1.5) = 0.223, so both eyes are affected in (1 − 0.223)² = 0.604 of carriers.",
+        "lesson_ids": [
+          "genetics-29"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.6035267480710044,
+        "unit": "",
+        "tolerance": 0.00051,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "genetics-29:mean-from-unaffected",
+      "type": "numeric",
+      "prompt": "In a synthetic family study, 10% of carriers never develop a tumor. Assuming tumors arise independently, what is the mean number of tumors per carrier? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "genetics-29-objective-2"
+      ],
+      "feedback": {
+        "hint": "Invert the zero class: m = −ln p₀.",
+        "solution": "m = −ln 0.10 = 2.30 tumors per carrier.",
+        "lesson_ids": [
+          "genetics-29"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 2.3025850929940455,
+        "unit": "",
+        "tolerance": 0.0051,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "genetics-29:sporadic-per-million",
+      "type": "numeric",
+      "prompt": "Model the target as 10⁶ cells, each losing a given gene copy at 10⁻⁶ per year over three years. For non-carriers, who need both copies hit in the same cell, each copy is hit with probability about μt, so the expected number of tumors is about N(μt)². How many tumors are expected per million non-carriers? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "genetics-29-objective-2"
+      ],
+      "feedback": {
+        "hint": "Compute μt first, square it, multiply by N, then scale to a million people.",
+        "solution": "μt = 3 × 10⁻⁶, so N(μt)² = 10⁶ × 9 × 10⁻¹² = 9 × 10⁻⁶ per person, or 9.00 per million, against 3 per carrier.",
+        "lesson_ids": [
+          "genetics-29"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 9.000000000000002,
+        "unit": "",
+        "tolerance": 0.0051,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "genetics-29:multistage-steps",
+      "type": "numeric",
+      "prompt": "A synthetic cancer has 12 new cases per 100,000 people per year at age 40 and 384 at age 80. Under the multistage model, in which incidence grows as t^(k−1), how many rate-limiting steps k does this imply? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "genetics-29-objective-3"
+      ],
+      "feedback": {
+        "hint": "Find the factor by which incidence rises when age doubles, and write it as a power of 2.",
+        "solution": "384/12 = 32 = 2^5 when age doubles, so k − 1 = 5 and k = 6.",
+        "lesson_ids": [
+          "genetics-29"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 6,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "genetics-29:incidence-ratio",
+      "type": "numeric",
+      "prompt": "Under a multistage model with k = 6 steps, by what factor is incidence at age 70 higher than at age 50? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "genetics-29-objective-3"
+      ],
+      "feedback": {
+        "hint": "Incidence grows as t^(k−1).",
+        "solution": "(70/50)^(6−1) = 1.4^5 = 5.38.",
+        "lesson_ids": [
+          "genetics-29"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 5.378239999999998,
+        "unit": "",
+        "tolerance": 0.0051,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "genetics-29:mutator-two-hit",
+      "type": "numeric",
+      "prompt": "A mutator phenotype raises the rate of each of two required mutational hits eightfold. By what factor does the probability that a cell has both hits rise, for small probabilities? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "genetics-29-objective-3"
+      ],
+      "feedback": {
+        "hint": "Each hit's probability rises by the same factor.",
+        "solution": "A k-step probability rises by F^k, here 8² = 64.",
+        "lesson_ids": [
+          "genetics-29"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 64,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "genetics-29:clonal-expansion-fold",
+      "type": "numeric",
+      "prompt": "After a first hit, a clone grows as e^(rt) with r = 0.5 per year. The expected number of second hits by time t is μ(e^(rt) − 1)/r, against μt for a single cell that does not expand. By what factor does expansion raise the expectation over 10 years? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "genetics-29-objective-3"
+      ],
+      "feedback": {
+        "hint": "The rate μ cancels; compare (e^(rt) − 1)/r with t.",
+        "solution": "(e^5 − 1)/0.5 = 294.8 cell-years against 10, a factor of 29.5.",
+        "lesson_ids": [
+          "genetics-29"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 29.48263182051532,
+        "unit": "",
+        "tolerance": 0.051,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "genetics-29:suppressor-dominance",
+      "type": "single_choice",
+      "prompt": "An allele is recessive at the level of the cell but is inherited as a dominant predisposition with incomplete penetrance. What kind of gene is it most likely to affect?",
+      "points": 1,
+      "objective_ids": [
+        "genetics-29-objective-1"
+      ],
+      "feedback": {
+        "hint": "Which kind of cancer gene needs both copies lost in a cell?",
+        "solution": "A tumor suppressor is recessive in the cell, but a carrier has one copy inactivated in every cell, and with many cells at risk a second hit somewhere is likely. The family pattern is therefore dominant with incomplete penetrance. An activated oncogene is dominant in the cell.",
+        "lesson_ids": [
+          "genetics-29"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "options": [
+        "An oncogene activated by a gain-of-function mutation",
+        "A tumor suppressor gene, with one copy inactivated",
+        "A gene that is never mutated in tumors",
+        "A gene expressed only in the germ line"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "genetics-29:loh-route",
+      "type": "single_choice",
+      "prompt": "Along a chromosome in a tumor, copy number is 2 everywhere; markers proximal to one point are heterozygous and markers distal to it are homozygous. Which route to loss of heterozygosity fits best?",
+      "points": 1,
+      "objective_ids": [
+        "genetics-29-objective-4"
+      ],
+      "feedback": {
+        "hint": "Use copy number first, then the extent of the loss.",
+        "solution": "Mitotic recombination keeps two copies and makes markers distal to the exchange homozygous while proximal markers stay heterozygous. A deletion or chromosome loss would lower copy number, and a point mutation would leave the markers heterozygous.",
+        "lesson_ids": [
+          "genetics-29"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "options": [
+        "A point mutation of the second allele",
+        "An interstitial deletion",
+        "Mitotic recombination",
+        "Loss of the whole chromosome"
+      ],
+      "solution_spec": {
+        "answer": 2
+      }
+    },
+    {
+      "id": "genetics-29:kinetics-statements",
+      "type": "multiple_select",
+      "prompt": "Which statements about one-hit and two-hit kinetics are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "genetics-29-objective-2"
+      ],
+      "feedback": {
+        "hint": "Write the expected count for one hit and for two hits in the same cell.",
+        "solution": "Nμt is linear in t and N(μt)² quadratic, so with small μt non-inherited cases are far rarer. e^(−3) = 0.05, so some carriers never develop a tumor.",
+        "lesson_ids": [
+          "genetics-29"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "options": [
+        "In a carrier, the expected number of tumors grows in proportion to t, because one hit per cell is needed.",
+        "In a non-carrier, the expected number of tumors grows roughly in proportion to t² when μt is small.",
+        "Non-inherited cases are expected to be about as common as inherited ones.",
+        "A Poisson mean of three tumors per carrier implies that about 5% of carriers develop none.",
+        "Every carrier of an inherited tumor suppressor allele develops a tumor."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "genetics-29:incidence-claims",
+      "type": "multiple_select",
+      "prompt": "Which statements about the multistage model are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "genetics-29-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate what the model predicts from what a fitted slope can prove.",
+        "solution": "Incidence grows as t^(k−1), a mutator multiplies each step, and expansion multiplies the cells at risk. A slope is consistent with k steps but does not prove it, and real curves also reflect exposure, detection and competing causes of death.",
+        "lesson_ids": [
+          "genetics-29"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic genetics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "options": [
+        "The slope of log incidence against log age is the number of steps minus one.",
+        "A mutator that raises every step's rate by a factor F raises a k-step probability by F^k.",
+        "A straight log–log incidence line proves that exactly k mutations are required.",
+        "Clonal expansion after a first hit raises the expected number of later hits by enlarging the population at risk.",
+        "Incidence curves are unaffected by exposures, detection or competing causes of death."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
     }
   ]
 }
