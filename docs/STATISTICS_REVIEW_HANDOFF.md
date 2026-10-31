@@ -1,6 +1,6 @@
 # Probability, Biostatistics & Experimental Design review handoff
 
-This handoff targets Statistics package version 0.6.0. The [review snapshot](STATISTICS_REVIEW_SNAPSHOT.md) identifies the exact public files. The course remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+This handoff targets Statistics package version 0.7.0. The [review snapshot](STATISTICS_REVIEW_SNAPSHOT.md) identifies the exact public files. The course remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
 
 ## Review scope
 
@@ -25,3 +25,7 @@ The current guide, separate worked example, rehearsal and five private milestone
 ## Joint-law/likelihood/regression target (2026-10-22)
 
 Current target 0.6.0 adds four foundations,four reports and twenty-four checkpoints/cards. Check triangular support/marginals/conditional moments,total variance and zero-covariance dependence; event/censored exposure,score,curvature and open-domain supremum; known-variance normal completion of the square and shared future covariance; full-rank regression,residualization,reduced slope,residual degrees of freedom and mean-versus-new prediction. Verify exact binomial coverage,all-failure resampling,central-tail conventions and inclusive sharp-null allocation counts. All inputs are synthetic; independent-unit/design assumptions remain explicit. Code/proofs/reports,broader theory,empirical validity,workload and qualified review remain open. Earlier evidence above is historical; the current snapshot pins the new target.
+
+## Second-comparator target (2026-10-31)
+
+Current target 0.7.0 adds two readings after a comparison with the University of South Carolina STAT 205 (Fall 2011) schedule: categorical outcomes in week 5 and one-way ANOVA in week 6, with 20 items and eight cards. Recalculate the 2 × 2 measures (RR 0.50, OR 0.286 with interval 0.113–0.721), χ² = 7.27, the Fisher probabilities (0.0196 point, 0.0406 two-sided), the Simpson's-paradox strata and the Mantel–Haenszel odds ratio 1.45, and the ANOVA table (SS_B 300, SS_W 104, F 21.6, η² 0.743) with the Bonferroni-adjusted comparisons. The [package test](../tests/content/test_statistics_categorical_and_anova_lessons.py) recomputes these; it is a same-AI check, not review. Logistic regression and ROC curves remain absent.

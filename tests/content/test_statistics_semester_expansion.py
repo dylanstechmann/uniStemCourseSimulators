@@ -350,10 +350,10 @@ def test_exact_binomial_coverage_bootstrap_boundary_and_inclusive_randomization(
 
 def test_statistical_packets_deliver_as_open_partial_coursework():
     assert len(NEW) == 24
-    assert MANIFEST["version"] == "0.6.0" and MANIFEST["maturity"] == "partial"
+    assert MANIFEST["version"] == "0.7.0" and MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed"
     scheduled = [lid for w in MANIFEST["duration"]["weeks"] for lid in w["lesson_ids"]]
-    assert len(scheduled) == len(set(scheduled)) == 27
+    assert len(scheduled) == len(set(scheduled)) == 29
     repository = ContentRepository(ROOT / "content")
     for number in range(18, 26):
         lesson = repository.lesson("statistics", f"statistics-{number}")

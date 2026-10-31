@@ -750,6 +750,22 @@ STATISTICS_NUMERIC = {
         math.lgamma(12) + math.lgamma(5) - math.lgamma(17) - (math.lgamma(10) + math.lgamma(4) - math.lgamma(14))
     ),
     "statistics-17:prior-sensitivity-mean": (1 + 8) / (1 + 8 + 1 + 2),
+    # Lesson 26 (0.7.0): 18 of 50 treated and 30 of 50 control with the outcome; hypergeometric point probability
+    "statistics-26:risk-ratio": (18 / 50) / (30 / 50),
+    "statistics-26:odds-ratio": (18 * 20) / (32 * 30),
+    "statistics-26:risk-difference": 18 / 50 - 30 / 50,
+    "statistics-26:expected": 50 * 48 / 100,
+    "statistics-26:chi-square": sum((o - e) ** 2 / e for o, e in zip((18, 32, 30, 20), (24, 26, 24, 26))),
+    "statistics-26:log-or-se": math.sqrt(1 / 18 + 1 / 32 + 1 / 30 + 1 / 20),
+    "statistics-26:fisher-point": math.comb(7, 1) * math.comb(9, 7) / math.comb(16, 8),
+    # Lesson 27 (0.7.0): three groups of five with means 14, 18, 12 and variance 2.5 each
+    "statistics-27:ssb": 5 * sum((m - 44 / 3) ** 2 for m in (14, 18, 12)),
+    "statistics-27:ssw": 3 * 4 * 2.5,
+    "statistics-27:f-stat": (5 * sum((m - 44 / 3) ** 2 for m in (14, 18, 12)) / 2) / (30 / 12),
+    "statistics-27:df-within": 4 * 6 - 4,
+    "statistics-27:eta-squared": 120 / (120 + 280),
+    "statistics-27:fwer": 1 - 0.95 ** 5,
+    "statistics-27:pairwise-se": math.sqrt(2.5 * (1 / 5 + 1 / 5)),
 }
 
 

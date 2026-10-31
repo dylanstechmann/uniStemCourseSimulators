@@ -6670,6 +6670,664 @@
           "Original synthetic probability and statistics practice developed with substantial AI assistance; no external problem, external proof, problem or dataset imported."
         ]
       }
+    },
+    {
+      "id": "statistics-26:risk-ratio",
+      "type": "numeric",
+      "prompt": "In a synthetic study, 18 of 50 treated and 30 of 50 control animals develop the outcome. What is the risk ratio (treated/control)? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "statistics-26-objective-1"
+      ],
+      "feedback": {
+        "hint": "Divide the treated proportion by the control proportion.",
+        "solution": "0.36/0.60 = 0.600.",
+        "lesson_ids": [
+          "statistics-26"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biostatistics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.6,
+        "unit": "",
+        "tolerance": 0.0005,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "statistics-26:odds-ratio",
+      "type": "numeric",
+      "prompt": "For the same table (18 of 50 treated, 30 of 50 control), what is the odds ratio (treated/control)? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "statistics-26-objective-1"
+      ],
+      "feedback": {
+        "hint": "OR = (a × d)/(b × c).",
+        "solution": "(18 × 20)/(32 × 30) = 360/960 = 0.375.",
+        "lesson_ids": [
+          "statistics-26"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biostatistics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.375,
+        "unit": "",
+        "tolerance": 0.0005,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "statistics-26:risk-difference",
+      "type": "numeric",
+      "prompt": "For the same table, what is the risk difference, treated minus control? Give a proportion (negative if lower). Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "statistics-26-objective-1"
+      ],
+      "feedback": {
+        "hint": "Subtract the control proportion from the treated proportion.",
+        "solution": "0.36 − 0.60 = −0.240.",
+        "lesson_ids": [
+          "statistics-26"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biostatistics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": -0.24,
+        "unit": "",
+        "tolerance": 0.0005,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "statistics-26:expected",
+      "type": "numeric",
+      "prompt": "For the same table, what is the expected number of treated animals with the outcome if treatment and outcome are independent? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "statistics-26-objective-2"
+      ],
+      "feedback": {
+        "hint": "Row total × column total ÷ grand total.",
+        "solution": "50 × 48/100 = 24.0.",
+        "lesson_ids": [
+          "statistics-26"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biostatistics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 24.0,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "statistics-26:chi-square",
+      "type": "numeric",
+      "prompt": "For the same table, what is Pearson's χ² statistic (expected counts 24 and 26 in each row)? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "statistics-26-objective-2"
+      ],
+      "feedback": {
+        "hint": "Σ(O − E)²/E over the four cells.",
+        "solution": "36/24 + 36/26 + 36/24 + 36/26 = 5.77.",
+        "lesson_ids": [
+          "statistics-26"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biostatistics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 5.77,
+        "unit": "",
+        "tolerance": 0.005,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "statistics-26:log-or-se",
+      "type": "numeric",
+      "prompt": "For the same table, what is the standard error of ln(OR), √(1/a + 1/b + 1/c + 1/d)? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "statistics-26-objective-1"
+      ],
+      "feedback": {
+        "hint": "Add the reciprocals of all four counts, then take the square root.",
+        "solution": "√(1/18 + 1/32 + 1/30 + 1/20) = 0.412.",
+        "lesson_ids": [
+          "statistics-26"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biostatistics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.412,
+        "unit": "",
+        "tolerance": 0.0005,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "statistics-26:fisher-point",
+      "type": "numeric",
+      "prompt": "With 7 events among 16 animals and 8 treated, what is the hypergeometric probability that exactly 1 of the events is in the treated group, C(7,1)C(9,7)/C(16,8)? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "statistics-26-objective-3"
+      ],
+      "feedback": {
+        "hint": "C(9,7) = 36 and C(16,8) = 12,870.",
+        "solution": "252/12,870 = 0.0196.",
+        "lesson_ids": [
+          "statistics-26"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biostatistics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.0196,
+        "unit": "",
+        "tolerance": 5e-05,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "statistics-26:which-test",
+      "type": "single_choice",
+      "prompt": "A 2 × 2 table has expected counts of 3.5 in every cell. Which test is appropriate?",
+      "points": 1,
+      "objective_ids": [
+        "statistics-26-objective-3"
+      ],
+      "feedback": {
+        "hint": "Check the expected-count rule.",
+        "solution": "Expected counts below 5 make the χ² approximation unreliable; Fisher's test is exact.",
+        "lesson_ids": [
+          "statistics-26"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biostatistics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "options": [
+        "Fisher's exact test.",
+        "Pearson's χ² test without change.",
+        "A two-sample t test on the counts.",
+        "No test can be done."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "statistics-26:simpson",
+      "type": "single_choice",
+      "prompt": "Within each severity stratum a drug improves outcomes, but in the pooled table it looks harmful. What is the best explanation?",
+      "points": 1,
+      "objective_ids": [
+        "statistics-26-objective-4"
+      ],
+      "feedback": {
+        "hint": "Look at how treatment was distributed across strata.",
+        "solution": "This is Simpson's paradox; stratify, or use a Mantel–Haenszel estimate, and prefer randomized designs.",
+        "lesson_ids": [
+          "statistics-26"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biostatistics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "options": [
+        "Severity is a confounder: it is linked to both treatment choice and outcome, and pooling mixes the strata.",
+        "The drug is harmful, and the strata are misleading.",
+        "A calculation error, because pooling cannot reverse an association.",
+        "The sample sizes are too small for any conclusion."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "statistics-26:or-vs-rr",
+      "type": "multiple_select",
+      "prompt": "Which statements about odds ratios and risk ratios are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "statistics-26-objective-1"
+      ],
+      "feedback": {
+        "hint": "Compare p/(1 − p) with p for small and large p.",
+        "solution": "Odds and risks are close when p is small; for common outcomes the OR exaggerates the RR; intervals use ln OR. A risk ratio is directly estimable in a cohort.",
+        "lesson_ids": [
+          "statistics-26"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biostatistics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "options": [
+        "The odds ratio approximates the risk ratio when the outcome is rare.",
+        "With a common outcome the odds ratio lies farther from 1 than the risk ratio.",
+        "A confidence interval for the odds ratio is usually computed on the log scale.",
+        "An odds ratio of 0.5 always means half the risk.",
+        "Risk ratios cannot be computed from a cohort study."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "statistics-27:ssb",
+      "type": "numeric",
+      "prompt": "Three groups of five cultures give means 14.0, 18.0 and 12.0 (grand mean 14.67). What is the between-group sum of squares? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "statistics-27-objective-1"
+      ],
+      "feedback": {
+        "hint": "SS_B = Σ nⱼ(ȳⱼ − ȳ)².",
+        "solution": "5[(−0.667)² + (3.333)² + (−2.667)²] = 93.3.",
+        "lesson_ids": [
+          "statistics-27"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biostatistics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 93.3,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "statistics-27:ssw",
+      "type": "numeric",
+      "prompt": "Each of those groups has a sample variance of 2.5. What is the within-group sum of squares? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "statistics-27-objective-1"
+      ],
+      "feedback": {
+        "hint": "SS_W = Σ (nⱼ − 1)sⱼ².",
+        "solution": "3 groups × 4 × 2.5 = 30.",
+        "lesson_ids": [
+          "statistics-27"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biostatistics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 30.0,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "statistics-27:f-stat",
+      "type": "numeric",
+      "prompt": "With SS_B as in the first item and SS_W = 30 on 12 degrees of freedom, what is F? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "statistics-27-objective-1"
+      ],
+      "feedback": {
+        "hint": "F = (SS_B/(k − 1))/(SS_W/(N − k)).",
+        "solution": "(93.33/2)/(30/12) = 18.7.",
+        "lesson_ids": [
+          "statistics-27"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biostatistics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 18.7,
+        "unit": "",
+        "tolerance": 0.05,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "statistics-27:df-within",
+      "type": "numeric",
+      "prompt": "One-way ANOVA compares 4 groups of 6 observations each. How many within-group degrees of freedom are there? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "statistics-27-objective-1"
+      ],
+      "feedback": {
+        "hint": "Within-group degrees of freedom are N − k.",
+        "solution": "24 − 4 = 20.",
+        "lesson_ids": [
+          "statistics-27"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biostatistics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 20,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "statistics-27:eta-squared",
+      "type": "numeric",
+      "prompt": "An ANOVA has SS_B = 120 and SS_W = 280. What is η²? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "statistics-27-objective-2"
+      ],
+      "feedback": {
+        "hint": "η² = SS_B/SS_total.",
+        "solution": "120/(120 + 280) = 0.300.",
+        "lesson_ids": [
+          "statistics-27"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biostatistics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.3,
+        "unit": "",
+        "tolerance": 0.0005,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "statistics-27:fwer",
+      "type": "numeric",
+      "prompt": "If five independent tests are each run at α = 0.05 and every null hypothesis is true, what is the chance of at least one false positive? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "statistics-27-objective-3"
+      ],
+      "feedback": {
+        "hint": "The chance of no false positive in m independent tests is (1 − α)^m.",
+        "solution": "1 − 0.95⁵ = 0.226.",
+        "lesson_ids": [
+          "statistics-27"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biostatistics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.226,
+        "unit": "",
+        "tolerance": 0.0005,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "statistics-27:pairwise-se",
+      "type": "numeric",
+      "prompt": "With MS_W = 2.5 and groups of 5, what is the standard error of a difference between two group means, √(MS_W(1/nᵢ + 1/nⱼ))? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "statistics-27-objective-3"
+      ],
+      "feedback": {
+        "hint": "Use the pooled within-group mean square.",
+        "solution": "√(2.5 × 0.4) = 1.000.",
+        "lesson_ids": [
+          "statistics-27"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biostatistics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1.0,
+        "unit": "",
+        "tolerance": 0.005,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "statistics-27:null",
+      "type": "single_choice",
+      "prompt": "What does a significant one-way ANOVA F test establish?",
+      "points": 1,
+      "objective_ids": [
+        "statistics-27-objective-2"
+      ],
+      "feedback": {
+        "hint": "Read the alternative hypothesis.",
+        "solution": "F tests the single null that all means are equal; follow-up comparisons say which differ.",
+        "lesson_ids": [
+          "statistics-27"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biostatistics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "options": [
+        "That at least one group mean differs from another.",
+        "That every group mean differs from every other.",
+        "That the highest group differs from the lowest by a meaningful amount.",
+        "That the residuals are normal."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "statistics-27:follow-up",
+      "type": "single_choice",
+      "prompt": "After a significant F with three groups, which follow-up is most defensible?",
+      "points": 1,
+      "objective_ids": [
+        "statistics-27-objective-3"
+      ],
+      "feedback": {
+        "hint": "Control the family-wise error rate.",
+        "solution": "Pooled variance and Bonferroni or Tukey adjustment control error; planned contrasts are strongest.",
+        "lesson_ids": [
+          "statistics-27"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biostatistics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "options": [
+        "Pairwise comparisons using the pooled MS_W with an adjustment for the number of comparisons, or comparisons planned in advance.",
+        "Unadjusted t tests between every pair, reporting the significant ones.",
+        "Dropping the middle group and repeating the ANOVA.",
+        "Reporting only the comparison with the smallest p-value."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "statistics-27:assumptions",
+      "type": "multiple_select",
+      "prompt": "Which are assumptions of one-way ANOVA? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "statistics-27-objective-2"
+      ],
+      "feedback": {
+        "hint": "Equal means are the null hypothesis, not an assumption.",
+        "solution": "Independence, approximate normality and similar variances; Welch's ANOVA relaxes the last.",
+        "lesson_ids": [
+          "statistics-27"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic biostatistics practice developed with substantial AI assistance; no external problem, dataset or published figure imported."
+        ]
+      },
+      "options": [
+        "Observations are independent.",
+        "Residuals within groups are approximately normal.",
+        "Group variances are similar.",
+        "Every group has the same mean.",
+        "The groups must be ordered doses."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
     }
   ]
 }

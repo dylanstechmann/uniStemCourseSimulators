@@ -7,7 +7,7 @@
   "domain": "Quantitative methods",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -775,6 +775,78 @@
         "statistics-outcome-10",
         "statistics-outcome-11"
       ]
+    },
+    {
+      "id": "statistics-26-objective-1",
+      "description": "Arrange binary outcomes in a 2 × 2 table and compute the risk difference, risk ratio and odds ratio with a log-scale interval for the odds ratio.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "statistics-outcome-2",
+        "statistics-outcome-3"
+      ]
+    },
+    {
+      "id": "statistics-26-objective-2",
+      "description": "Compute expected counts and Pearson's χ² statistic for independence, and state when it is unreliable.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "statistics-outcome-2",
+        "statistics-outcome-3"
+      ]
+    },
+    {
+      "id": "statistics-26-objective-3",
+      "description": "Compute an exact p-value with Fisher's test from the hypergeometric distribution.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "statistics-outcome-2",
+        "statistics-outcome-3"
+      ]
+    },
+    {
+      "id": "statistics-26-objective-4",
+      "description": "Recognize Simpson's paradox and combine strata with the Mantel–Haenszel odds ratio.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statistics-outcome-2",
+        "statistics-outcome-3"
+      ]
+    },
+    {
+      "id": "statistics-27-objective-1",
+      "description": "Partition variation into between- and within-group sums of squares and compute the mean squares, F and degrees of freedom.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "statistics-outcome-2",
+        "statistics-outcome-3"
+      ]
+    },
+    {
+      "id": "statistics-27-objective-2",
+      "description": "State the null hypothesis and assumptions of one-way ANOVA and interpret η².",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "statistics-outcome-2",
+        "statistics-outcome-3"
+      ]
+    },
+    {
+      "id": "statistics-27-objective-3",
+      "description": "Explain family-wise error inflation and compute adjusted pairwise comparisons with the pooled variance.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "statistics-outcome-2",
+        "statistics-outcome-3"
+      ]
+    },
+    {
+      "id": "statistics-27-objective-4",
+      "description": "Compute a one-way ANOVA from group means, standard deviations and sizes.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "statistics-outcome-2",
+        "statistics-outcome-3"
+      ]
     }
   ],
   "duration": {
@@ -831,25 +903,29 @@
       },
       {
         "week": 5,
-        "title": "Comparing two groups: Welch and paired t statistics and intervals for a difference",
+        "title": "Comparing two groups: Welch and paired t statistics and intervals for a difference; categorical outcomes and 2 × 2 tables",
         "lesson_ids": [
-          "statistics-10"
+          "statistics-10",
+          "statistics-26"
         ],
         "assessment_ids": [
-          "statistics-10-practice"
+          "statistics-10-practice",
+          "statistics-26-practice"
         ]
       },
       {
         "week": 6,
-        "title": "Hypothesis tests, multiple comparisons and the false discovery rate",
+        "title": "Hypothesis tests, multiple comparisons and the false discovery rate; one-way analysis of variance",
         "lesson_ids": [
           "statistics-3",
           "statistics-7",
+          "statistics-27",
           "statistics-23"
         ],
         "assessment_ids": [
           "statistics-3-practice",
           "statistics-7-practice",
+          "statistics-27-practice",
           "statistics-23-practice"
         ]
       },
@@ -1859,6 +1935,86 @@
           ]
         }
       ]
+    },
+    {
+      "id": "statistics-module-26",
+      "title": "Categorical outcomes: proportions, 2 × 2 tables and confounding",
+      "source_ids": [
+        "statistics-usc-stat205",
+        "statistics-semester-calendar"
+      ],
+      "lessons": [
+        {
+          "id": "statistics-26",
+          "title": "Categorical outcomes: proportions, 2 × 2 tables and confounding",
+          "reading": "modules/26-categorical-outcomes-two-by-two-tables.md",
+          "objectives": [
+            "statistics-26-objective-1",
+            "statistics-26-objective-2",
+            "statistics-26-objective-3",
+            "statistics-26-objective-4"
+          ],
+          "worked_example": "In a synthetic study 12 of 40 treated and 24 of 40 vehicle mice develop lesions: RR = 0.50, OR = 0.286 with a 95% interval of 0.113 to 0.721, and χ² = 7.27 on 1 df (p = 0.0070) from expected counts of 18 and 22.",
+          "question_ids": [
+            "statistics-26:risk-ratio",
+            "statistics-26:odds-ratio",
+            "statistics-26:risk-difference",
+            "statistics-26:expected",
+            "statistics-26:chi-square",
+            "statistics-26:log-or-se",
+            "statistics-26:fisher-point",
+            "statistics-26:which-test",
+            "statistics-26:simpson",
+            "statistics-26:or-vs-rr"
+          ],
+          "card_ids": [
+            "statistics-26-card-1",
+            "statistics-26-card-2",
+            "statistics-26-card-3",
+            "statistics-26-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "statistics-module-27",
+      "title": "Comparing several groups: one-way analysis of variance",
+      "source_ids": [
+        "statistics-usc-stat205",
+        "statistics-semester-calendar"
+      ],
+      "lessons": [
+        {
+          "id": "statistics-27",
+          "title": "Comparing several groups: one-way analysis of variance",
+          "reading": "modules/27-one-way-analysis-of-variance.md",
+          "objectives": [
+            "statistics-27-objective-1",
+            "statistics-27-objective-2",
+            "statistics-27-objective-3",
+            "statistics-27-objective-4"
+          ],
+          "worked_example": "Three dose groups of six cultures with means 50, 55 and 60 give SS_B = 300 and SS_W = 104, so F = 150/6.93 = 21.6 on 2 and 15 degrees of freedom; pooled-variance comparisons with a Bonferroni adjustment all stay below 0.05.",
+          "question_ids": [
+            "statistics-27:ssb",
+            "statistics-27:ssw",
+            "statistics-27:f-stat",
+            "statistics-27:df-within",
+            "statistics-27:eta-squared",
+            "statistics-27:fwer",
+            "statistics-27:pairwise-se",
+            "statistics-27:null",
+            "statistics-27:follow-up",
+            "statistics-27:assumptions"
+          ],
+          "card_ids": [
+            "statistics-27-card-1",
+            "statistics-27-card-2",
+            "statistics-27-card-3",
+            "statistics-27-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -2494,6 +2650,62 @@
         "statistics-25:depth-2"
       ],
       "points": 8
+    },
+    {
+      "id": "statistics-26-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Practice: categorical outcomes: proportions, 2 × 2 tables and confounding",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "statistics-26-objective-1",
+        "statistics-26-objective-2",
+        "statistics-26-objective-3",
+        "statistics-26-objective-4",
+        "statistics-outcome-2",
+        "statistics-outcome-3"
+      ],
+      "question_ids": [
+        "statistics-26:risk-ratio",
+        "statistics-26:odds-ratio",
+        "statistics-26:risk-difference",
+        "statistics-26:expected",
+        "statistics-26:chi-square",
+        "statistics-26:log-or-se",
+        "statistics-26:fisher-point",
+        "statistics-26:which-test",
+        "statistics-26:simpson",
+        "statistics-26:or-vs-rr"
+      ],
+      "points": 11
+    },
+    {
+      "id": "statistics-27-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Practice: comparing several groups: one-way analysis of variance",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "statistics-27-objective-1",
+        "statistics-27-objective-2",
+        "statistics-27-objective-3",
+        "statistics-27-objective-4",
+        "statistics-outcome-2",
+        "statistics-outcome-3"
+      ],
+      "question_ids": [
+        "statistics-27:ssb",
+        "statistics-27:ssw",
+        "statistics-27:f-stat",
+        "statistics-27:df-within",
+        "statistics-27:eta-squared",
+        "statistics-27:fwer",
+        "statistics-27:pairwise-se",
+        "statistics-27:null",
+        "statistics-27:follow-up",
+        "statistics-27:assumptions"
+      ],
+      "points": 11
     }
   ],
   "grading_policy": {
@@ -2613,6 +2825,11 @@
       "version": "0.6.0",
       "date": "2026-10-22",
       "summary": "Added four original joint-law/total-variance, censored-likelihood/MLE, normal-conjugacy/prediction and multiple-regression foundations with four connected reports and twenty-four checkpoints/cards. Developed exact finite coverage/randomization and conditional-versus-empirical evidence. All inputs are synthetic; package remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.7.0",
+      "date": "2026-10-31",
+      "summary": "Compared the package with the University of South Carolina STAT 205 (Fall 2011) schedule as well as the MIT 18.05 Spring 2022 calendar, and added two original readings both teach and the package lacked: categorical outcomes (2 × 2 tables, risk difference, risk ratio and odds ratio, χ² and Fisher's exact tests, Simpson's paradox and the Mantel–Haenszel odds ratio) in week 5 and one-way analysis of variance in week 6, with 20 practice items and eight retrieval cards, and a scope crosswalk. All data are synthetic. The package remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
@@ -2628,10 +2845,11 @@
     "The optional confirmatory-protocol dossier project is ungraded. Its milestone drafts are private self-checks; no software check evaluates the learner’s written derivation, diagram or interpretation. The proposed schedule and time estimate have not been measured.",
     "Four foundations and four connected open reports deepen supported joint laws/total variance, selected censored exponential likelihood and binomial MLE, known-variance normal conjugacy, multiple-regression algebra/prediction and exact finite coverage/randomization. These selected models do not reproduce the comparator’s full probability/distribution/theory/problem-set/studio/exam sequence; measured workload and qualified review remain open.",
     "All records and normalized tables are invented. Censoring is stipulated noninformative and parameter-independent; normal observation variance is known by assumption. Constructed least-squares residuals do not establish empirical independent normal errors. Checkpoints evaluate selected responses, not code, proofs, plots, reports, causal identification or real biological model validity.",
-    "Of the 147 numerical answers, 2 require units, 69 check significant figures and 1 check dimensions. New continuous responses request three significant figures in named reporting units; exact allocation and degree counts have no significant-figure requirement."
+    "Of the 161 numerical answers, 2 require units, 80 check significant figures and 1 checks dimensions. New continuous responses request three significant figures in named reporting units; exact allocation and degree counts have no significant-figure requirement."
   ],
   "intentionally_omitted": [
-    "Graded assessments and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package."
+    "Graded assessments and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package.",
+    "Named by the USC STAT 205 comparator but not taught here: logistic regression, ROC curves, the Cochran–Mantel–Haenszel test statistic and statistical computing in R. Tukey's procedure, two-way and repeated-measures ANOVA and tables larger than 2 × 2 are also omitted. See the scope crosswalk."
   ],
   "learner_resources": [
     "assignments/confirmatory-protocol-rehearsal.csv",

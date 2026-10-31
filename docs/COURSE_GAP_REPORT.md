@@ -31,13 +31,17 @@ comprehensive coverage. Every package is still `partial` and unreviewed.
 | robotics | partial | 23 | 66 | 136 | 81 | 0 | 0 | 0 | 4 | 0 | 0 |
 | signals-control | partial | 26 | 76 | 151 | 89 | 0 | 0 | 0 | 6 | 0 | 0 |
 | statics-materials | partial | 21 | 57 | 128 | 75 | 0 | 0 | 0 | 4 | 0 | 0 |
-| statistics | partial | 27 | 78 | 135 | 92 | 0 | 0 | 0 | 12 | 0 | 0 |
+| statistics | partial | 29 | 86 | 155 | 100 | 0 | 1 | 0 | 12 | 0 | 0 |
 | transport | partial | 25 | 68 | 150 | 85 | 0 | 0 | 0 | 7 | 0 | 0 |
 
-Totals: 27 packages, 674 lessons, 1803 objectives, 3916 practice items, 0 lesson objectives with no assessment mapping, 0 with no practice item, 0 linked to no course outcome; 0 of 138 course outcomes that no lesson objective links to, 0 that no assessment lists.
+Totals: 27 packages, 676 lessons, 1811 objectives, 3936 practice items, 0 lesson objectives with no assessment mapping, 1 with no practice item, 0 linked to no course outcome; 0 of 138 course outcomes that no lesson objective links to, 0 that no assessment lists.
 
 Each assessment with items lists the course outcomes its own items assess (item, then its tagged lesson objective,
 then that objective's outcome links), and `tools/validate_content.py` rejects an outcome that none of the
 assessment's items assesses. A listed outcome means at least one item touches it, not that it is assessed in depth.
 Objectives linked to no outcome are mostly those of the short prototype units; linking them is a judgement for a
 subject-matter reviewer, so this report lists them rather than doing it.
+
+## statistics
+
+No practice item: `statistics-27-objective-4`
