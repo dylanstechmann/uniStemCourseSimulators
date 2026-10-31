@@ -2,7 +2,7 @@
 
 Status: drafted with AI assistance on 2026-10-30. Nothing here has been reviewed by a laboratory professional, a biosafety officer or a certifying body.
 
-Built so far (2026-10-30, agent-run, unreviewed): the replay engine and API, the protocol schema, three protocols and a React bench view. These are items 1–3 of the first milestone below. The protocols are `micropipette-gravimetric-verification` (layer 0), `decimal-dilution-aerobic-plate-count` (layer 0, adapted from FDA BAM Chapter 3, January 2026 edition) and `class-ii-bsc-session-with-spill` (layer 1, adapted from BMBL 6th edition, Appendix A). Item 4, the layer-0 course package, is next.
+Built so far (2026-10-30, agent-run, unreviewed): the replay engine and API, the protocol schema, three protocols and a React bench view. These are items 1–3 of the first milestone below. The protocols are `micropipette-gravimetric-verification` (layer 0), `decimal-dilution-aerobic-plate-count` (layer 0, adapted from FDA BAM Chapter 3, January 2026 edition) and `class-ii-bsc-session-with-spill` (layer 1, adapted from BMBL 6th edition, Appendix A). Item 4 followed: the layer-0 `lab-measurement` and layer-1 `lab-biosafety` packages are built (0.1.0 each), with a fourth protocol, `autoclave-waste-load-validation`. Per-layer outlines are in [WET_LAB_LAYER_OUTLINES.md](WET_LAB_LAYER_OUTLINES.md).
 
 ## Goal
 

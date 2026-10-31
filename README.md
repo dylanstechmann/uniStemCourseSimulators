@@ -89,7 +89,7 @@ Single-choice, multiple-select, numeric, bounded symbolic-expression, narrow dat
 
 The React reader now includes six scientific calculators under **Study tools**, available without enrollment: dilution, buffer pH, enzyme kinetics, RC charging, diffusion timescale, and Ohm's law. Each shows units and model assumptions and links to related courses. Calculator scratch work is ungraded.
 
-**Bench practice** replays simulations of real bench procedures (micropipette gravimetric verification, decimal dilutions with the FDA BAM aerobic plate count, and a Class II biosafety cabinet session with a spill) from the learner's own choices of action, with a checkpoint debrief at the end. Runs are formative, unrecorded and cannot train hand skill; see the [wet-lab practice plan](docs/WET_LAB_PRACTICE_PLAN.md).
+**Bench practice** replays simulations of real bench procedures (micropipette gravimetric verification, decimal dilutions with the FDA BAM aerobic plate count, a Class II biosafety cabinet session with a spill, and validating an autoclave waste cycle with biological indicators) from the learner's own choices of action, with a checkpoint debrief at the end. Runs are formative, unrecorded and cannot train hand skill; see the [wet-lab practice plan](docs/WET_LAB_PRACTICE_PLAN.md).
 
 The React **Case studio** also exposes the authored prompts and self-check criteria across all 27 partial courses. Enrolled learners can save a private written response and checklist marks; drafts stay bound to the course version and prompt, remain available in account exports, and do not affect grades. Archived cases are read-only.
 

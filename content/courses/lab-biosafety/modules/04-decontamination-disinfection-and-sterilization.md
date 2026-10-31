@@ -74,6 +74,8 @@ Biological indicators (BIs) carry a known population of resistant spores, common
 
 Chemical indicator tape shows that an item was exposed to heat, not that the load was sterilized.
 
+Validating a waste cycle is practised in the [autoclave validation simulation](#/bench/autoclave-waste-load-validation), where the heating lag and the indicator lot change from run to run.
+
 Practical points for waste in autoclave bags: close bags loosely so steam can enter, and carry them in a leak-proof tray or pan. Decide by testing whether water must be added. Never overload the chamber.
 
 ## Common mistakes

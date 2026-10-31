@@ -26,7 +26,7 @@ This is a proposed scope, not a measured or reviewed schedule.
 | 1 | [Biological risk assessment](modules/01-biological-risk-assessment.md) |
 | 2 | [Biosafety Levels 1 and 2](modules/02-biosafety-levels-1-and-2.md) |
 | 3 | [Biological safety cabinets](modules/03-biological-safety-cabinets.md); [bench practice: a Class II cabinet session with a spill](#/bench/class-ii-bsc-session-with-spill) |
-| 4 | [Decontamination, disinfection and sterilization](modules/04-decontamination-disinfection-and-sterilization.md) |
+| 4 | [Decontamination, disinfection and sterilization](modules/04-decontamination-disinfection-and-sterilization.md); [bench practice: validating an autoclave waste cycle](#/bench/autoclave-waste-load-validation) |
 | 5 | [Human cells and tissues, bloodborne pathogens and exposure response](modules/05-human-materials-bloodborne-pathogens-and-exposures.md) |
 | 6 | [Chemical hygiene, hazard communication and transport](modules/06-chemical-hygiene-hazard-communication-and-transport.md); [optional biosafety plan project guide](assignments/ipsc-project-biosafety-plan-guide.md) |
 

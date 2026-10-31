@@ -1,4 +1,5 @@
 import json
+import math
 import random
 from pathlib import Path
 
@@ -468,6 +469,86 @@ def test_bsc_large_spill_with_open_drain(library):
     if state["hidden"]["drain_open"]:
         assert checkpoint_map(view)["large-spill-drain"] is False
         assert any("floor" in risk for risk in state["hidden"]["personnel_risk"])
+
+
+
+# Autoclave validation ---------------------------------------------------------
+
+AUTOCLAVE = "autoclave-waste-load-validation"
+
+
+def autoclave_run(model, seed, closure="loosely_closed", control=True, exposure_extra_d=2, mass=6.0, verdict=None,
+                  report_exposure=None):
+    h = hidden(model, seed)
+    lag = round(h["lag_per_kg"] * mass * 0.8, 1)
+    exposure = math.ceil(lag + (12 + exposure_extra_d) * h["d_value"])
+    actions = [act("prepare_load", mass_kg=mass, bag_closure=closure, water_added=True, in_tray=True),
+               act("place_thermocouple", position="centre"), act("place_thermocouple", position="top"),
+               act("place_bi", position="centre"), act("place_bi", position="top")]
+    if control:
+        actions.append(act("keep_control_bi"))
+    actions += [act("run_cycle", temperature_c=121, exposure_min=exposure), act("record_cycle"),
+                act("incubate_bis", temperature_c=57, hours=48), act("read_bis")]
+    state, _ = run_state(model, seed, "practice", actions)
+    results = state["bi_read"]
+    expected = "pass" if control and results.get("control") == "growth" and all(
+        v == "no growth" for k, v in results.items() if k != "control") else "fail"
+    observed = state["cycle"]["reached"]["centre"]
+    actions.append(act("submit_report", centre_lag_min=observed if observed is not None else 0,
+                       verdict=verdict or expected, validated_exposure_min=report_exposure or exposure))
+    return replay(model, seed, "practice", actions).view(), state, expected
+
+
+def test_autoclave_correct_validation(library):
+    model = library.get(AUTOCLAVE)
+    view, state, expected = autoclave_run(model, 3)
+    assert expected == "pass" and state["bi_read"]["centre"] == "no growth"
+    assert all(v for v in checkpoint_map(view).values() if v is not None), checkpoint_map(view)
+    assert "D₁₂₁" in json.dumps(view["panels"], ensure_ascii=False)
+
+
+def test_autoclave_sealed_bag_keeps_steam_out(library):
+    model = library.get(AUTOCLAVE)
+    view, state, expected = autoclave_run(model, 3, closure="tightly_sealed")
+    assert state["cycle"]["reached"]["centre"] is None and state["bi_read"]["centre"] == "growth"
+    met = checkpoint_map(view)
+    assert expected == "fail" and met["bag-loosely-closed"] is False and met["exposure-sufficient"] is False
+    assert met["report-cycle-time"] is None and met["report-verdict"]
+    assert any("100 °C" in e["text"] for entry in view["log"] for e in entry["events"])
+
+
+def test_autoclave_short_exposure_fails_at_the_centre(library):
+    model = library.get(AUTOCLAVE)
+    view, state, expected = autoclave_run(model, 5, exposure_extra_d=-7)
+    assert state["bi_read"]["centre"] == "growth" and expected == "fail"
+    assert checkpoint_map(view)["exposure-sufficient"] is False
+
+
+def test_autoclave_needs_a_positive_control(library):
+    model = library.get(AUTOCLAVE)
+    view, _, expected = autoclave_run(model, 3, control=False)
+    met = checkpoint_map(view)
+    assert expected == "fail" and met["positive-control"] is False and met["report-verdict"]
+    wrong, _, _ = autoclave_run(model, 3, control=False, verdict="pass")
+    assert checkpoint_map(wrong)["report-verdict"] is False
+
+
+def test_autoclave_cold_incubation_hides_survivors(library):
+    model = library.get(AUTOCLAVE)
+    h = hidden(model, 5)
+    actions = [act("prepare_load", mass_kg=6.0, bag_closure="loosely_closed", water_added=True, in_tray=True),
+               act("place_bi", position="centre"), act("keep_control_bi"),
+               act("run_cycle", temperature_c=121, exposure_min=5), act("incubate_bis", temperature_c=37, hours=12),
+               act("read_bis")]
+    state, _ = run_state(model, 5, "practice", actions)
+    assert state["bi_read"] == {"centre": "no growth", "control": "no growth"}
+    assert h["d_value"] > 0
+
+
+def test_autoclave_short_validated_time_is_flagged(library):
+    model = library.get(AUTOCLAVE)
+    view, _, _ = autoclave_run(model, 3, report_exposure=10)
+    assert checkpoint_map(view)["report-cycle-time"] is False
 
 
 # API ------------------------------------------------------------------------------

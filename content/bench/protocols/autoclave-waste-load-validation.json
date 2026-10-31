@@ -1,0 +1,427 @@
+{
+  "schema_version": "1.0",
+  "id": "autoclave-waste-load-validation",
+  "version": "0.1.0",
+  "title": "Validating an autoclave cycle for a biohazardous waste load",
+  "layer": 1,
+  "summary": "Prepare a typical waste load, place thermocouples and biological indicators, run a steam cycle, incubate and read the indicators with a positive control, and report whether the cycle is validated and what exposure time the load needs.",
+  "scenario": "Your laboratory must validate the autoclave cycle it uses for bags of solid BSL-2 waste. You have a typical load, autoclave bags, leak-proof trays, thermocouples, self-contained biological indicators and an incubator. The indicator lot's D-value is printed on its label.",
+  "guided_steps": [
+    "Bag the waste and close the bag loosely so steam can enter; place it in a leak-proof tray; do not exceed the chamber's rated load.",
+    "Place a thermocouple and a biological indicator at the centre of the load, the slowest point to heat, and others at the top and near the drain.",
+    "Keep one indicator from the same lot unprocessed as a positive control.",
+    "Run the cycle at 121 °C with an exposure long enough for the centre: its heating lag plus twelve D-values.",
+    "Record the cycle's time, temperature and pressure in the autoclave log.",
+    "Incubate the processed indicators and the control at 55–60 °C for at least 24 h, then read them.",
+    "The cycle passes only if the control grows and no processed indicator grows. Report the centre lag and the validated exposure time."
+  ],
+  "parameters": [
+    {
+      "name": "set_temperature_c",
+      "value": 121,
+      "unit": "°C",
+      "label": "Steam temperature",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix B, Decontamination: 'a steam cycle used to sterilize pre-cleaned items can be 20 minutes at 121°C'"
+      }
+    },
+    {
+      "name": "chamber_capacity_kg",
+      "value": 10,
+      "unit": "kg",
+      "label": "Rated load for this chamber",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "A practice value; real capacity comes from the manufacturer and the validation."
+      }
+    },
+    {
+      "name": "bi_population",
+      "value": 1000000,
+      "unit": "spores",
+      "label": "Spores per indicator",
+      "source": {
+        "kind": "simulation-typical"
+      }
+    },
+    {
+      "name": "required_log_reduction",
+      "value": 12,
+      "unit": "log10",
+      "label": "Log reductions required at the centre",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "Twelve log reductions of a 10⁶ population correspond to a sterility assurance level of 10⁻⁶, as defined in BMBL Appendix B."
+      }
+    },
+    {
+      "name": "bi_incubation_c",
+      "value": [
+        55,
+        60
+      ],
+      "unit": "°C",
+      "label": "Indicator incubation temperature",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "Typical for Geobacillus stearothermophilus indicators; follow the indicator manufacturer's instructions."
+      }
+    },
+    {
+      "name": "bi_incubation_h",
+      "value": 24,
+      "unit": "h",
+      "label": "Minimum indicator incubation",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "Follow the indicator manufacturer's instructions."
+      }
+    },
+    {
+      "name": "d_value_range_min",
+      "value": [
+        1.5,
+        2.5
+      ],
+      "unit": "min",
+      "label": "Range of indicator D-values",
+      "source": {
+        "kind": "simulation-model"
+      }
+    },
+    {
+      "name": "lag_per_kg_range_min",
+      "value": [
+        2.0,
+        5.0
+      ],
+      "unit": "min/kg",
+      "label": "Heating lag per kilogram at the centre",
+      "source": {
+        "kind": "simulation-model"
+      }
+    }
+  ],
+  "actions": [
+    {
+      "name": "prepare_load",
+      "label": "Prepare the waste load",
+      "params": [
+        {
+          "name": "mass_kg",
+          "label": "Load mass",
+          "type": "number",
+          "min": 0.5,
+          "max": 20,
+          "unit": "kg"
+        },
+        {
+          "name": "bag_closure",
+          "label": "Bag closure",
+          "type": "choice",
+          "options": [
+            {
+              "value": "loosely_closed",
+              "label": "Loosely closed"
+            },
+            {
+              "value": "tightly_sealed",
+              "label": "Tightly sealed"
+            }
+          ]
+        },
+        {
+          "name": "water_added",
+          "label": "Add a little water to the bag",
+          "type": "boolean"
+        },
+        {
+          "name": "in_tray",
+          "label": "Place in a leak-proof tray",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "place_thermocouple",
+      "label": "Place a thermocouple",
+      "params": [
+        {
+          "name": "position",
+          "label": "Position",
+          "type": "choice",
+          "options": [
+            {
+              "value": "centre",
+              "label": "Centre of the load (slowest to heat)"
+            },
+            {
+              "value": "top",
+              "label": "Top of the load"
+            },
+            {
+              "value": "drain",
+              "label": "Near the chamber drain"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "place_bi",
+      "label": "Place a biological indicator",
+      "params": [
+        {
+          "name": "position",
+          "label": "Position",
+          "type": "choice",
+          "options": [
+            {
+              "value": "centre",
+              "label": "Centre of the load (slowest to heat)"
+            },
+            {
+              "value": "top",
+              "label": "Top of the load"
+            },
+            {
+              "value": "drain",
+              "label": "Near the chamber drain"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "keep_control_bi",
+      "label": "Keep an unprocessed indicator as positive control",
+      "params": []
+    },
+    {
+      "name": "run_cycle",
+      "label": "Run the steam cycle",
+      "params": [
+        {
+          "name": "temperature_c",
+          "label": "Set temperature",
+          "type": "number",
+          "min": 100,
+          "max": 135,
+          "unit": "°C"
+        },
+        {
+          "name": "exposure_min",
+          "label": "Exposure time",
+          "type": "number",
+          "min": 5,
+          "max": 120,
+          "unit": "min"
+        }
+      ]
+    },
+    {
+      "name": "record_cycle",
+      "label": "Record the cycle in the autoclave log",
+      "params": []
+    },
+    {
+      "name": "incubate_bis",
+      "label": "Incubate the indicators",
+      "params": [
+        {
+          "name": "temperature_c",
+          "label": "Temperature",
+          "type": "number",
+          "min": 20,
+          "max": 70,
+          "unit": "°C"
+        },
+        {
+          "name": "hours",
+          "label": "Time",
+          "type": "number",
+          "min": 1,
+          "max": 168,
+          "unit": "h"
+        }
+      ]
+    },
+    {
+      "name": "read_bis",
+      "label": "Read the indicators",
+      "params": []
+    },
+    {
+      "name": "submit_report",
+      "label": "Submit the validation report",
+      "params": [
+        {
+          "name": "centre_lag_min",
+          "label": "Centre heating lag",
+          "type": "number",
+          "min": 0,
+          "max": 120,
+          "unit": "min"
+        },
+        {
+          "name": "verdict",
+          "label": "Verdict",
+          "type": "choice",
+          "options": [
+            {
+              "value": "pass",
+              "label": "Validated"
+            },
+            {
+              "value": "fail",
+              "label": "Not validated"
+            }
+          ]
+        },
+        {
+          "name": "validated_exposure_min",
+          "label": "Exposure time to use for this load",
+          "type": "number",
+          "min": 0,
+          "max": 180,
+          "unit": "min"
+        }
+      ]
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "bag-loosely-closed",
+      "severity": "critical",
+      "description": "Close autoclave bags loosely so steam can enter.",
+      "rationale": "A sealed bag traps air, and the centre never reaches steam temperature.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 386: 'The bag should be loosely closed (to allow steam to enter the bag)'"
+      }
+    },
+    {
+      "id": "leak-proof-tray",
+      "severity": "major",
+      "description": "Autoclave bags in a leak-proof tray or pan.",
+      "rationale": "Bags can leak or split during the cycle.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix A, Part 5, p. 387: 'The bag should be transported and autoclaved in a leak-proof tray or pan'"
+      }
+    },
+    {
+      "id": "within-capacity",
+      "severity": "minor",
+      "description": "Do not exceed the chamber's rated load.",
+      "rationale": "Overloading blocks steam circulation and lengthens heating.",
+      "source": {
+        "kind": "simulation-typical"
+      }
+    },
+    {
+      "id": "thermocouple-at-centre",
+      "severity": "major",
+      "description": "Place a thermocouple at the centre of the load.",
+      "rationale": "Validation must show that steam reaches the slowest point.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix B, Decontamination: 'thermocouples and biological indicators (BIs) placed throughout the load'"
+      }
+    },
+    {
+      "id": "bi-at-centre",
+      "severity": "critical",
+      "description": "Place a biological indicator at the centre of the load.",
+      "rationale": "The centre is the hardest place to sterilize, so it decides the cycle.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix B, Decontamination"
+      }
+    },
+    {
+      "id": "positive-control",
+      "severity": "major",
+      "description": "Incubate an unprocessed indicator from the same lot as a positive control.",
+      "rationale": "Without a growing control, a 'no growth' result could mean dead indicators or a failed incubator.",
+      "source": {
+        "kind": "simulation-typical"
+      }
+    },
+    {
+      "id": "exposure-sufficient",
+      "severity": "critical",
+      "description": "Run an exposure of at least the centre lag plus twelve D-values at 121 °C.",
+      "rationale": "Exposure counts only once the slowest point reaches temperature.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix B: cycle times for high-bioburden waste 'should be verified and validated for the typical load'"
+      }
+    },
+    {
+      "id": "bi-incubation",
+      "severity": "major",
+      "description": "Incubate indicators at 55–60 °C for at least 24 h.",
+      "rationale": "Spores that survive need the right conditions to grow and show the failure.",
+      "source": {
+        "kind": "simulation-typical"
+      }
+    },
+    {
+      "id": "cycle-record",
+      "severity": "minor",
+      "description": "Record the cycle's time, temperature and pressure.",
+      "rationale": "Routine monitoring of cycles is part of verification.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Appendix B: 'routine monitoring of the steam sterilization cycles (i.e., cycle times, pressure, temperature)'"
+      }
+    },
+    {
+      "id": "report-lag",
+      "severity": "major",
+      "description": "Report the centre heating lag measured by the thermocouple.",
+      "rationale": "The lag sets the minimum cycle for this load.",
+      "source": {
+        "kind": "simulation-typical"
+      }
+    },
+    {
+      "id": "report-verdict",
+      "severity": "critical",
+      "description": "Report 'validated' only if the control grows and no processed indicator grows.",
+      "rationale": "Any growth, or a control that fails to grow, means the cycle is not shown to work.",
+      "source": {
+        "kind": "simulation-typical"
+      }
+    },
+    {
+      "id": "report-cycle-time",
+      "severity": "critical",
+      "description": "Set the exposure for this load at no less than the lag plus twelve D-values.",
+      "rationale": "A shorter routine cycle would leave the centre under-treated.",
+      "source": {
+        "kind": "simulation-typical"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "cdc-nih-bmbl-6",
+      "use": "Bagging, tray, thermocouple and indicator placement, 121 °C, and routine cycle monitoring, adapted from a US federal government work."
+    }
+  ],
+  "limitations": [
+    "Heating lag and indicator D-values come from a simple model; real loads are validated by measurement for each load type.",
+    "Survival is modelled as first-order kill once the centre reaches temperature; heating and cooling ramps are ignored.",
+    "Chamber capacity and indicator incubation conditions are practice values; follow the autoclave and indicator manufacturers' instructions and your institution's procedures."
+  ]
+}

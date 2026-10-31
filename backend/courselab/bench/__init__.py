@@ -8,13 +8,14 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field, ValidationError, model_validator
 
+from .autoclave import AutoclaveValidation
 from .bsc import BiosafetyCabinetSession
 from .engine import ActionRejected, ProtocolInvalid, ProtocolModel, replay
 from .pipette import PipetteVerification
 from .plate_count import AerobicPlateCount
 
 MODELS: dict[str, type[ProtocolModel]] = {
-    model.protocol_id: model for model in (PipetteVerification, AerobicPlateCount, BiosafetyCabinetSession)
+    model.protocol_id: model for model in (PipetteVerification, AerobicPlateCount, BiosafetyCabinetSession, AutoclaveValidation)
 }
 
 __all__ = ["ActionRejected", "BenchLibrary", "ProtocolInvalid", "replay"]
