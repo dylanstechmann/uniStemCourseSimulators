@@ -1269,3 +1269,176 @@ footer {
 .bench-met-false td:last-child {
   font-weight: 700;
 }
+
+.bench-3d {
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.bench-3d-heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.bench-3d-heading p {
+  margin-bottom: 0.75rem;
+}
+
+.bench-3d-badge {
+  padding: 0.3rem 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.bench-3d-canvas {
+  height: clamp(320px, 48vw, 520px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #eef3ef;
+  touch-action: none;
+}
+
+.bench-3d-label {
+  width: max-content;
+  max-width: 180px;
+  padding: 4px 7px;
+  border-radius: 4px;
+  background: rgb(248 250 247 / 92%);
+  color: #1c2822;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+  pointer-events: none;
+}
+
+.pipette-display,
+.balance-display {
+  width: max-content;
+  color: #c5f3c4;
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.balance-display {
+  font-size: 15px;
+}
+
+.hemocytometer-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(12rem, 1fr);
+  gap: 1rem;
+  align-items: center;
+}
+
+.hemocytometer-grid {
+  display: block;
+  width: 100%;
+  max-height: 580px;
+  background: #f4f6ed;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.chamber-background {
+  fill: #f8f9f2;
+}
+
+.chamber-line {
+  stroke: #85988b;
+  stroke-width: 0.003;
+}
+
+.chamber-include,
+.chamber-exclude {
+  fill: none;
+  stroke-width: 0.009;
+}
+
+.chamber-include {
+  stroke: #286b56;
+}
+
+.chamber-exclude {
+  stroke: #a44b3e;
+  stroke-dasharray: 0.02 0.015;
+}
+
+.chamber-cell {
+  cursor: pointer;
+  outline: none;
+}
+
+.chamber-cell circle {
+  fill: #f7fbf5;
+  stroke: #426c60;
+  stroke-width: 0.005;
+}
+
+.chamber-cell.cell-stained circle {
+  fill: #425d79;
+  stroke: #263c54;
+}
+
+.chamber-cell text {
+  fill: #17372d;
+  font-size: 0.026px;
+  font-weight: 700;
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+.chamber-cell.cell-stained text {
+  fill: #fff;
+}
+
+.chamber-cell.cell-exclude {
+  opacity: 0.4;
+}
+
+.chamber-cell.cell-exclude circle {
+  stroke-dasharray: 0.008 0.005;
+}
+
+.chamber-cell:focus circle,
+.chamber-cell[aria-pressed="true"] circle {
+  stroke: #d8513f;
+  stroke-width: 0.009;
+}
+
+.cell-decisions {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.cell-text-list {
+  margin-top: 1rem;
+}
+
+.cell-text-list ul {
+  max-height: 18rem;
+  overflow: auto;
+}
+
+@media (max-width: 700px) {
+  .hemocytometer-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .bench-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bench-3d-canvas {
+    height: 340px;
+  }
+}

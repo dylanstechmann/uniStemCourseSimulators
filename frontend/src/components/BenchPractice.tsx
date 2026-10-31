@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { api, errorMessage } from "../api";
+import HemocytometerField from "./HemocytometerField";
 import type {
   BenchAction,
   BenchActionSpec,
@@ -9,6 +10,8 @@ import type {
   BenchProtocolSummary,
   BenchRun,
 } from "../types";
+
+const PipetteBench3D = lazy(() => import("./PipetteBench3D"));
 
 type Mode = "guided" | "practice";
 
@@ -151,6 +154,26 @@ function ProtocolRunner({ id }: { id: string }) {
         <p className="error" role="alert">
           {error}
         </p>
+      )}
+
+      {run && id === "micropipette-gravimetric-verification" && (
+        <Suspense
+          fallback={
+            <section className="card" role="status">
+              Loading the optional 3D bench…
+            </section>
+          }
+        >
+          <PipetteBench3D run={run} />
+        </Suspense>
+      )}
+
+      {run && id === "hemocytometer-cell-count-viability" && (
+        <HemocytometerField
+          run={run}
+          busy={busy}
+          onAct={(action) => void submit([...actions, action])}
+        />
       )}
 
       {run && (
@@ -353,11 +376,14 @@ function ParamInput({
       {param.label}
       {param.unit ? ` (${param.unit})` : ""}{" "}
       <input
-        type="number"
-        inputMode="decimal"
+        type={param.type === "identifier" ? "text" : "number"}
+        inputMode={param.type === "identifier" ? "text" : "decimal"}
         step={param.type === "integer" ? 1 : "any"}
         min={param.min}
         max={param.max}
+        maxLength={param.type === "identifier" ? 32 : undefined}
+        pattern={param.type === "identifier" ? "[A-Za-z0-9_-]+" : undefined}
+        required={param.type === "identifier"}
         value={String(value)}
         onChange={(event) => onChange(event.target.value)}
       />

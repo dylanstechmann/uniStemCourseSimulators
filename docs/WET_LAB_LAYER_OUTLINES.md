@@ -21,7 +21,7 @@ Scope: BMBL 6th edition (Sections II–IV, Appendices A, B, C, H), OSHA 29 CFR 1
 
 Built with 64 practice items, 26 cards, a case, an optional iPSC biosafety plan project and a crosswalk against the ABSA CBSP examination outline. Still planned: an SDS and label protocol.
 
-## Layer 2: `cell-culture-practice` (outline only)
+## Layer 2: `cell-culture-practice` (outline; one protocol pilot)
 
 Scope: BMBL Appendix H (human and primate cells); ISSCR *Standards for Human Stem Cell Use in Research* (2023, link only); manufacturer-neutral practice. Candidate open protocols are to be checked one by one for license and parameters.
 
@@ -35,6 +35,8 @@ Scope: BMBL Appendix H (human and primate cells); ISSCR *Standards for Human Ste
 | 6. Contamination: bacteria, fungi, mycoplasma and cross-contamination | recognition, mycoplasma testing methods, quarantine, authentication by STR profiling | Diagnose a contaminated culture from clues |
 | 7. Human pluripotent stem cells | feeder-free culture on matrix, colony morphology and differentiation, passaging as clumps, karyotype and pluripotency checks (link-only ISSCR reporting standards) | Maintain an hPSC culture without spontaneous differentiation |
 | 8. Records and traceability | cell-bank tiers, passage records, lot tracking, labelling | — |
+
+The hemocytometer protocol pilot is built with synthetic non-human fields, interactive top/left versus bottom/right boundary decisions, stain classification, two-chamber tallies and calculations for viable-cell concentration, viability and Poisson counting uncertainty. Its geometry, dilution and acceptance ranges are declared simulation values, not a reproduced manufacturer protocol. The counting/viability lesson, full course package and source crosswalk remain unbuilt; no protocol or lesson here establishes human-cell handling competency.
 
 ## Layer 3: `molecular-lab-practice` (outline only)
 

@@ -1,0 +1,191 @@
+{
+  "schema_version": "1.0",
+  "id": "hemocytometer-cell-count-viability",
+  "version": "0.1.0",
+  "title": "Hemocytometer cell count and trypan-blue viability",
+  "layer": 2,
+  "summary": "Prepare a synthetic cell suspension, load two hemocytometer chambers, apply a consistent boundary rule, and calculate viable-cell concentration, viability and counting uncertainty.",
+  "scenario": "A synthetic, non-human suspension culture needs a viable-cell count before its next simulated passage. Each displayed chamber represents one 1 mm × 1 mm square at 0.1 mm depth: 0.0001 mL. Use equal sample and trypan-blue volumes for a twofold dilution. This is a synthetic field, not a microscope image or a diagnostic specimen.",
+  "guided_steps": [
+    "Mix the suspension for at least 5 seconds before sampling.",
+    "Mix 10 µL cell suspension with 10 µL trypan blue. The dilution factor is (10 + 10)/10 = 2.",
+    "Seat the coverslip, then load chambers A and B separately by capillary action.",
+    "For every visible cell choose unstained, stained, or exclude. Include cells touching the top or left outer boundary; exclude cells touching the bottom or right. Classify included cells by their displayed stain.",
+    "Record each chamber's included unstained and stained tallies. Excluded cells do not enter either tally.",
+    "Viable cells/mL = (total included unstained cells / 2 chambers) × 10,000 × dilution factor.",
+    "Viability = included unstained / all included cells × 100. Poisson relative counting uncertainty = 100/√(all included cells) percent; it does not include preparation errors.",
+    "Submit the calculations for a formative debrief."
+  ],
+  "parameters": [
+    {
+      "name": "chamber_volume_ml",
+      "value": 0.0001,
+      "unit": "mL",
+      "label": "Volume beneath one counted large square",
+      "source": {"kind": "simulation-typical", "note": "A common improved-Neubauer large-square geometry: 1 mm × 1 mm × 0.1 mm. Check the actual chamber manufacturer's instructions."}
+    },
+    {
+      "name": "target_dilution",
+      "value": 2,
+      "unit": "fold",
+      "label": "Target sample-plus-dye dilution",
+      "source": {"kind": "simulation-typical", "note": "An equal-volume mixture chosen for this synthetic exercise, not a universal required ratio."}
+    },
+    {
+      "name": "count_range",
+      "value": [20, 80],
+      "unit": "cells per displayed large square",
+      "label": "Countable synthetic-field range",
+      "source": {"kind": "simulation-typical", "note": "A bounded teaching range, not a validated laboratory acceptance criterion."}
+    },
+    {
+      "name": "concentration_tolerance_pct",
+      "value": 0.2,
+      "unit": "%",
+      "label": "Concentration calculation tolerance",
+      "source": {"kind": "simulation-typical", "note": "A numerical rounding allowance for the formative calculation, not measurement accuracy."}
+    },
+    {
+      "name": "viability_tolerance_pct",
+      "value": 0.2,
+      "unit": "%",
+      "label": "Viability calculation tolerance",
+      "source": {"kind": "simulation-typical", "note": "A numerical rounding allowance for the formative calculation, not measurement accuracy."}
+    },
+    {
+      "name": "uncertainty_tolerance_pct",
+      "value": 0.5,
+      "unit": "%",
+      "label": "Counting-uncertainty calculation tolerance",
+      "source": {"kind": "simulation-typical", "note": "A numerical rounding allowance for the Poisson approximation."}
+    }
+  ],
+  "actions": [
+    {
+      "name": "mix_sample",
+      "label": "Mix the cell suspension",
+      "params": [{"name": "seconds", "label": "Mixing time", "type": "number", "min": 0, "max": 120, "unit": "s"}]
+    },
+    {
+      "name": "prepare_dilution",
+      "label": "Mix cells with trypan blue",
+      "params": [
+        {"name": "sample_ul", "label": "Cell suspension", "type": "number", "min": 5, "max": 100, "unit": "µL"},
+        {"name": "dye_ul", "label": "Trypan blue", "type": "number", "min": 5, "max": 100, "unit": "µL"}
+      ]
+    },
+    {"name": "place_coverslip", "label": "Seat the coverslip", "params": []},
+    {
+      "name": "load_chamber",
+      "label": "Load a chamber",
+      "params": [{"name": "chamber", "label": "Chamber", "type": "choice", "options": [{"value": "A", "label": "A"}, {"value": "B", "label": "B"}]}]
+    },
+    {
+      "name": "select_chamber",
+      "label": "Inspect a loaded chamber",
+      "params": [{"name": "chamber", "label": "Chamber", "type": "choice", "options": [{"value": "A", "label": "A"}, {"value": "B", "label": "B"}]}]
+    },
+    {
+      "name": "mark_cell",
+      "label": "Classify a cell in the interactive field",
+      "params": [
+        {"name": "cell_id", "label": "Cell identifier", "type": "identifier"},
+        {"name": "classification", "label": "Decision", "type": "choice", "options": [{"value": "unstained", "label": "Include: unstained"}, {"value": "stained", "label": "Include: stained"}, {"value": "exclude", "label": "Exclude by boundary rule"}]}
+      ]
+    },
+    {
+      "name": "record_tally",
+      "label": "Record a chamber tally",
+      "params": [
+        {"name": "chamber", "label": "Chamber", "type": "choice", "options": [{"value": "A", "label": "A"}, {"value": "B", "label": "B"}]},
+        {"name": "unstained", "label": "Included unstained cells", "type": "integer", "min": 0, "max": 500},
+        {"name": "stained", "label": "Included stained cells", "type": "integer", "min": 0, "max": 500}
+      ]
+    },
+    {
+      "name": "submit_report",
+      "label": "Submit count and viability report",
+      "params": [
+        {"name": "concentration_cells_ml", "label": "Viable-cell concentration", "type": "number", "min": 0, "max": 1000000000, "unit": "cells/mL"},
+        {"name": "viability_pct", "label": "Viability", "type": "number", "min": 0, "max": 100, "unit": "%"},
+        {"name": "relative_counting_uncertainty_pct", "label": "Poisson relative counting uncertainty", "type": "number", "min": 0, "max": 100, "unit": "%"}
+      ]
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "mixed-before-sampling",
+      "severity": "major",
+      "description": "Resuspend the synthetic cells before sampling.",
+      "rationale": "Settling makes an aliquot unrepresentative of the suspension.",
+      "source": {"kind": "simulation-typical"}
+    },
+    {
+      "id": "dilution-recorded",
+      "severity": "major",
+      "description": "Prepare and account for the twofold sample-plus-dye dilution.",
+      "rationale": "The original concentration must be corrected for added dye volume.",
+      "source": {"kind": "simulation-typical"}
+    },
+    {
+      "id": "coverslip-before-loading",
+      "severity": "major",
+      "description": "Seat the coverslip before loading either chamber.",
+      "rationale": "The chamber geometry and capillary fill depend on the seated coverslip.",
+      "source": {"kind": "simulation-typical"}
+    },
+    {
+      "id": "both-chambers",
+      "severity": "major",
+      "description": "Record independent tallies for both chambers.",
+      "rationale": "Two fields provide a simple check on loading and counting variation.",
+      "source": {"kind": "simulation-typical"}
+    },
+    {
+      "id": "countable-density",
+      "severity": "minor",
+      "description": "Keep each displayed field within the exercise's countable range.",
+      "rationale": "Very sparse counts have large relative sampling uncertainty; crowded fields are difficult to classify.",
+      "source": {"kind": "simulation-typical"}
+    },
+    {
+      "id": "boundary-rule",
+      "severity": "major",
+      "description": "Apply the top/left inclusion and bottom/right exclusion rule with correct stain classifications.",
+      "rationale": "A consistent rule prevents double-counting or omitting boundary cells; stain and boundary decisions are distinct.",
+      "source": {"kind": "simulation-typical"}
+    },
+    {
+      "id": "report-concentration",
+      "severity": "major",
+      "description": "Calculate viable-cell concentration from the learner's included unstained tally, chamber volume and dilution.",
+      "rationale": "Concentration = mean included unstained count / chamber volume × dilution factor.",
+      "source": {"kind": "simulation-model", "note": "The calculation uses the declared 0.0001 mL chamber volume."}
+    },
+    {
+      "id": "report-viability",
+      "severity": "major",
+      "description": "Calculate the percentage of included cells that are unstained.",
+      "rationale": "In this synthetic model, unstained cells represent membrane-intact viable cells and stained cells non-viable cells.",
+      "source": {"kind": "simulation-model", "note": "Trypan-blue exclusion is a model of membrane integrity, not a universal measure of cell health."}
+    },
+    {
+      "id": "report-uncertainty",
+      "severity": "minor",
+      "description": "Estimate relative Poisson counting uncertainty from all included cells.",
+      "rationale": "For an ideal Poisson count N, standard deviation √N gives relative uncertainty 100/√N percent.",
+      "source": {"kind": "simulation-model", "note": "This approximation excludes mixing, dilution, loading and classification bias."}
+    }
+  ],
+  "sources": [
+    {"source_id": "cdc-nih-bmbl-6", "use": "Appendix H pp. 471–472: cell-culture work requires source- and procedure-specific risk assessment. This synthetic non-human exercise does not establish human-cell handling competency."}
+  ],
+  "limitations": [
+    "All cells, fields and results are synthetic. No real specimen, culture, stain or microscope is used.",
+    "The field is a two-dimensional counting diagram, not a microscope image; it cannot train focus, morphology recognition, aseptic handling or pipetting technique.",
+    "The top/left rule is this exercise's convention. Follow the actual chamber and laboratory procedure; equivalent consistent boundary conventions exist.",
+    "Trypan-blue exclusion models membrane integrity only. It does not establish future growth, phenotype, sterility or overall cell health.",
+    "Poisson uncertainty describes ideal counting variation only, not total measurement uncertainty or biological variability.",
+    "This is an unreviewed layer-2 protocol pilot, not the complete cell-culture course or a safety/competency qualification. Human and primate cells require a separate risk assessment and institutional procedures."
+  ]
+}

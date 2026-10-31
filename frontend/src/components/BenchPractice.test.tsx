@@ -5,6 +5,10 @@ import { api, ApiError } from "../api";
 import type { BenchProtocol, BenchRun } from "../types";
 import { BenchPractice } from "./BenchPractice";
 
+vi.mock("./PipetteBench3D", () => ({
+  default: () => <section aria-label="Mock 3D bench" />,
+}));
+
 const protocol: BenchProtocol = {
   id: "micropipette-gravimetric-verification",
   version: "0.1.0",

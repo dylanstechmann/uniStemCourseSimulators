@@ -600,6 +600,84 @@ def test_exposure_actions_need_the_incident_first(library):
         replay(model, 1, "practice", [act("notify_supervisor")])
 
 
+# Hemocytometer counting ---------------------------------------------------------
+
+CELL_COUNT = "hemocytometer-cell-count-viability"
+
+
+def cell_count_setup():
+    return [act("mix_sample", seconds=10), act("prepare_dilution", sample_ul=10, dye_ul=10),
+            act("place_coverslip"), act("load_chamber", chamber="A"), act("load_chamber", chamber="B")]
+
+
+def finish_cell_count(model, seed, actions=None, wrong_boundary=False, override=None):
+    actions = actions or cell_count_setup()
+    state, _ = run_state(model, seed, "practice", actions)
+    for chamber, cells in state["chambers"].items():
+        actions.append(act("select_chamber", chamber=chamber))
+        tally = {"unstained": 0, "stained": 0}
+        for cell in cells:
+            decision = "exclude" if cell["boundary"] == "exclude" else "stained" if cell["stained"] else "unstained"
+            if wrong_boundary and cell["boundary"] == "exclude":
+                decision = "unstained"
+            actions.append(act("mark_cell", cell_id=cell["id"], classification=decision))
+            if decision != "exclude":
+                tally[decision] += 1
+        actions.append(act("record_tally", chamber=chamber, **tally))
+    state, _ = run_state(model, seed, "practice", actions)
+    expected = model.expected(state)
+    report = {"concentration_cells_ml": expected["concentration"],
+              "viability_pct": expected["viability"],
+              "relative_counting_uncertainty_pct": expected["uncertainty"]}
+    report.update(override or {})
+    return replay(model, seed, "practice", actions + [act("submit_report", **report)]).view(), state
+
+
+def test_cell_count_correct_run_and_replay(library):
+    model = library.get(CELL_COUNT)
+    view, state = finish_cell_count(model, 7)
+    assert all(checkpoint_map(view).values()), checkpoint_map(view)
+    assert 20 <= len(state["chambers"]["A"]) <= 80
+    assert any(cell["boundary"] == "exclude" for cell in state["chambers"]["A"])
+    actions = [{"name": entry["name"], "params": entry["params"]} for entry in view["log"]]
+    assert view == replay(model, 7, "practice", actions).view()
+
+
+def test_cell_count_boundary_and_stain_decisions_are_checked(library):
+    model = library.get(CELL_COUNT)
+    view, _ = finish_cell_count(model, 7, wrong_boundary=True)
+    assert checkpoint_map(view)["boundary-rule"] is False
+    assert checkpoint_map(view)["report-concentration"] is True
+
+
+def test_cell_count_dilution_changes_field_and_report(library):
+    model = library.get(CELL_COUNT)
+    actions = cell_count_setup()
+    actions[1] = act("prepare_dilution", sample_ul=10, dye_ul=90)
+    view, state = finish_cell_count(model, 7, actions)
+    assert len(state["chambers"]["A"]) < 20
+    assert checkpoint_map(view)["dilution-recorded"] is False
+    assert checkpoint_map(view)["countable-density"] is False
+    assert checkpoint_map(view)["report-concentration"] is True
+
+
+def test_cell_count_requires_all_cells_and_both_chambers(library):
+    model = library.get(CELL_COUNT)
+    with pytest.raises(ActionRejected, match="Classify every"):
+        replay(model, 7, "practice", cell_count_setup() + [act("record_tally", chamber="A", unstained=1, stained=1)])
+    with pytest.raises(ActionRejected, match="both chambers"):
+        replay(model, 7, "practice", cell_count_setup() + [act("submit_report", concentration_cells_ml=1e6,
+                                                               viability_pct=90, relative_counting_uncertainty_pct=10)])
+
+
+def test_cell_count_poisson_uncertainty_uses_all_included_cells(library):
+    model = library.get(CELL_COUNT)
+    view, state = finish_cell_count(model, 7, override={"relative_counting_uncertainty_pct": 1})
+    expected = model.expected(state)
+    assert expected["uncertainty"] == pytest.approx(100 / math.sqrt(expected["total"]))
+    assert checkpoint_map(view)["report-uncertainty"] is False
+
+
 # API ------------------------------------------------------------------------------
 
 @pytest.fixture

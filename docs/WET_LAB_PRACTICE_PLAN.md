@@ -60,7 +60,7 @@ The repository's existing labs are data-analysis exercises. Practising a procedu
 
 **Mock exams.** Item banks are tagged to the outline headings of each scope source. A mock exam for layer 3 mirrors the published MB format (100 single-best-answer questions in 2 h 30 min, adaptive). The adaptive selection is only approximate, because the items are not calibrated on real examinees.
 
-**Interface.** Version 1 is a two-dimensional React bench view: a bench, racks, instruments and a timeline. Three-dimensional assets (for example glTF models made in Blender and rendered with three.js) can come later. They make the bench more realistic to look at but add no knowledge, and Blender cannot run in this container.
+**Interface.** The React bench view presents procedure guidance, visible state, action controls, an event log and a debrief. The micropipette protocol also has an optional, lazy-loaded Three.js/React Three Fiber scene with procedural equipment models, orbit/zoom controls and a text fallback. It reads only the server's visible panels; it does not create a second simulation, expose hidden state or assess physical technique. The equipment is illustrative and not to scale. The layer-2 hemocytometer pilot adds an interactive two-dimensional chamber diagram with keyboard-accessible cell classification and a text alternative. Other protocols retain the two-dimensional view. Later protocols can reuse the rendering approach where spatial reasoning adds instructional value; polished glTF assets can be authored in Blender when needed, but Blender is not required for this pilot.
 
 ## First milestone
 

@@ -488,7 +488,7 @@ export interface BenchProtocolSummary {
 export interface BenchParam {
   name: string;
   label: string;
-  type: "number" | "integer" | "boolean" | "choice";
+  type: "number" | "integer" | "boolean" | "choice" | "identifier";
   min?: number;
   max?: number;
   unit?: string;

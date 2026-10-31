@@ -10,13 +10,17 @@ from pydantic import BaseModel, ConfigDict, Field, ValidationError, model_valida
 
 from .autoclave import AutoclaveValidation
 from .bsc import BiosafetyCabinetSession
+from .cell_count import HemocytometerCount
 from .engine import ActionRejected, ProtocolInvalid, ProtocolModel, replay
 from .exposure import ExposureResponse
 from .pipette import PipetteVerification
 from .plate_count import AerobicPlateCount
 
 MODELS: dict[str, type[ProtocolModel]] = {
-    model.protocol_id: model for model in (PipetteVerification, AerobicPlateCount, BiosafetyCabinetSession, AutoclaveValidation, ExposureResponse)
+    model.protocol_id: model for model in (
+        PipetteVerification, AerobicPlateCount, BiosafetyCabinetSession,
+        AutoclaveValidation, ExposureResponse, HemocytometerCount,
+    )
 }
 
 __all__ = ["ActionRejected", "BenchLibrary", "ProtocolInvalid", "replay"]
@@ -47,7 +51,7 @@ class Option(_Strict):
 class Param(_Strict):
     name: str
     label: str
-    type: Literal["number", "integer", "boolean", "choice"]
+    type: Literal["number", "integer", "boolean", "choice", "identifier"]
     min: float | None = None
     max: float | None = None
     unit: str | None = None

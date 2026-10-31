@@ -77,6 +77,9 @@ def check_parameters(spec: dict, params: Any) -> dict:
         elif kind == "choice":
             if value not in [option["value"] for option in item["options"]]:
                 raise ActionRejected(f"{item['label']} must be one of the listed options")
+        elif kind == "identifier":
+            if not isinstance(value, str) or not value.isascii() or not all(c.isalnum() or c in "-_" for c in value) or not 1 <= len(value) <= 32:
+                raise ActionRejected(f"{item['label']} must be a short identifier using letters, numbers, hyphens or underscores")
         else:  # pragma: no cover - the schema forbids other kinds
             raise ProtocolInvalid(f"Unknown parameter type {kind}")
         clean[name] = value
