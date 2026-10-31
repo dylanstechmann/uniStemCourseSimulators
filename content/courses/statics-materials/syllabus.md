@@ -1,6 +1,6 @@
 # Statics & Mechanics of Materials
 
-**Maturity: partial. Version: 0.6.0.**
+**Maturity: partial. Version: 0.7.0.**
 
 Equilibrium, internal loads, deformation and selected material/failure models with explicit boundary conditions and synthetic structures.
 
@@ -17,13 +17,13 @@ Physics: Mechanics; Calculus I. Structured required, recommended, and concurrent
 
 ## Proposed 14-week schedule
 
-This is a proposed scope, not a measured or reviewed semester. Each week lists its readings. The opening week groups free-body diagrams with a short body-equilibrium application; week 2 develops beam loading, shear and bending moment before stress; week 3 now pairs axial stress and extension with an introductory redundant-member compatibility example; week 7 pairs stress transformation with multiaxial Hooke's law, thermal strain and thin-walled pressure vessels. All four compact prototype readings in weeks 1, 3, 4 and 8 now have expanded instruction, and every lesson has public formative items and retrieval cards.
+This is a proposed scope, not a measured or reviewed semester. Each week lists its readings. The opening week groups free-body diagrams with a short body-equilibrium application and planar trusses by the method of joints and sections; week 2 develops beam loading, shear and bending moment before stress; week 3 now pairs axial stress and extension with an introductory redundant-member compatibility example and a truss-deformation reading (unit-load method and one-degree indeterminate trusses); week 7 pairs stress transformation with multiaxial Hooke's law, thermal strain and thin-walled pressure vessels. All four compact prototype readings in weeks 1, 3, 4 and 8 now have expanded instruction, and every lesson has public formative items and retrieval cards.
 
 | Week | Readings and activities |
 | --- | --- |
-| 1 | [Free-body diagrams and equilibrium](modules/01-free-body-diagrams-and-equilibrium.md); [Force and moment equilibrium in the body: free-body diagrams of a forearm holding a load](modules/06-forearm-free-body-equilibrium.md) |
+| 1 | [Free-body diagrams and equilibrium](modules/01-free-body-diagrams-and-equilibrium.md); [Force and moment equilibrium in the body: free-body diagrams of a forearm holding a load](modules/06-forearm-free-body-equilibrium.md); [Planar trusses: method of joints, method of sections and static determinacy](modules/16-planar-trusses-joints-and-sections.md) |
 | 2 | [Distributed loads, shear force, and bending moment](modules/14-distributed-loads-shear-and-moment.md) |
-| 3 | [Axial load, stress, strain, and compatibility](modules/02-axial-load-stress-and-strain.md) |
+| 3 | [Axial load, stress, strain, and compatibility](modules/02-axial-load-stress-and-strain.md); [Truss deformation and statically indeterminate trusses](modules/17-truss-deformation-and-indeterminate-trusses.md) |
 | 4 | [Torsion and bending](modules/03-torsion-and-bending.md) |
 | 5 | [Bending of a long bone: second moment of area, combined stresses and why bones are hollow](modules/05-bending-of-a-long-bone.md) |
 | 6 | [Beam deflection and stiffness: three-point bending, superposition and what the span and thickness control](modules/11-beam-deflection-and-flexural-modulus.md); [Indeterminate beams, energy compatibility and support contact](modules/indeterminate-beams-and-contact.md) |

@@ -1,6 +1,6 @@
 # Statics & Materials course review handoff
 
-This handoff targets Statics & Mechanics of Materials, package version 0.6.0. The [review snapshot](STATICS_MATERIALS_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
+This handoff targets Statics & Mechanics of Materials, package version 0.7.0. The [review snapshot](STATICS_MATERIALS_REVIEW_SNAPSHOT.md) identifies the exact public files. The package remains partial, unreviewed and formative-only; no reviewer or approval is recorded.
 
 ## Review scope
 
@@ -23,4 +23,6 @@ After a review actually occurs, record reviewer name and qualifications, date, p
 
 ## Deeper compatibility/material-history target (2026-10-22)
 
-Review target 0.6.0 adds selected indeterminate-beam/energy/settlement/contact and elastic–perfectly plastic unloading/redistribution readings, plus two paper assignments. Check signs, compatibility, unilateral support constraints, constitutive branches, residual equilibrium and work/energy distinctions. All loads/materials are synthetic; no real design or material validation is supplied. Written diagrams, derivations, workload and qualified review remain open. The current snapshot pins the package.
+Review target 0.6.0 adds selected indeterminate-beam/energy/settlement/contact and elastic–perfectly plastic unloading/redistribution readings, plus two paper assignments. Check signs, compatibility, unilateral support constraints, constitutive branches, residual equilibrium and work/energy distinctions. All loads/materials are synthetic; no real design or material validation is supplied. Written diagrams, derivations, workload and qualified review remain open. The [0.6.0 snapshot](STATICS_MATERIALS_REVIEW_SNAPSHOT-0.6.0.md) remains preserved.
+
+Review target 0.7.0 adds two readings on the MIT 2.001 truss sequence: planar trusses by the method of joints and sections, with determinacy counts and zero-force members (week 1), and truss deformation by compatibility and the unit-load method, with a one-degree indeterminate three-bar truss and stiffness redistribution (week 3). Check member-force signs at every joint, section moment centres, the m + r − 2j count and its stability caveat, the agreement of the two displacement methods, the compatibility relation for inclined bars and the stated small-displacement, linear-elastic limits. A dedicated test solves each practice truss by full joint equilibrium. All trusses are synthetic; frames, machines, friction and matrix stiffness analysis are not taught. The current snapshot pins the package.

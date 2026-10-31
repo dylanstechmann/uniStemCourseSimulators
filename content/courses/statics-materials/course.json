@@ -7,7 +7,7 @@
   "domain": "Mechanical engineering",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "license": "MIT OR CC-BY-4.0",
   "content_origin": {
     "kind": "legacy-prototype",
@@ -550,22 +550,89 @@
         "statics-materials-outcome-1",
         "statics-materials-outcome-3"
       ]
+    },
+    {
+      "id": "statics-materials-20-objective-1",
+      "description": "State the assumptions of an ideal planar truss and why its members carry only axial force.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "statics-materials-outcome-1"
+      ]
+    },
+    {
+      "id": "statics-materials-20-objective-2",
+      "description": "Classify a planar truss as determinate, indeterminate or a mechanism from its count and arrangement.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statics-materials-outcome-1"
+      ]
+    },
+    {
+      "id": "statics-materials-20-objective-3",
+      "description": "Find member forces by the method of joints with a tension-positive convention.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "statics-materials-outcome-1"
+      ]
+    },
+    {
+      "id": "statics-materials-20-objective-4",
+      "description": "Find selected member forces by the method of sections and identify zero-force members.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "statics-materials-outcome-1"
+      ]
+    },
+    {
+      "id": "statics-materials-21-objective-1",
+      "description": "Calculate a truss member's length change from its force, length, area and modulus.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "statics-materials-outcome-2"
+      ]
+    },
+    {
+      "id": "statics-materials-21-objective-2",
+      "description": "Find a joint displacement by compatibility and by the unit-load method, and check one against the other.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "statics-materials-outcome-3"
+      ]
+    },
+    {
+      "id": "statics-materials-21-objective-3",
+      "description": "Solve a truss that is statically indeterminate to one degree with an added compatibility equation.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "statics-materials-outcome-1",
+        "statics-materials-outcome-3"
+      ]
+    },
+    {
+      "id": "statics-materials-21-objective-4",
+      "description": "Explain how member stiffness redistributes force in an indeterminate truss and state the model's limits.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "statics-materials-outcome-3"
+      ]
     }
   ],
   "duration": {
     "instructional_weeks": 14,
-    "equivalent_structure": "Proposed 14-week undergraduate scope only. The opening week groups free-body diagrams with a short body-equilibrium application; week 2 develops beam load, shear, and moment diagrams before stress. The four compact prototype readings in weeks 1, 3, 4 and 8 now have expanded instruction beside original lessons on body equilibrium, beam loading, bone bending, beam deflection, combined stress, multiaxial strain and pressure vessels, stress concentrations, buckling, fatigue and brittle strength. Week 12 is a synthetic-data fatigue-life lab, and week 14 pairs failure analysis with the course case. Weeks 8–9 add an optional beam strength-and-stiffness project with rehearsal practice and milestone self-checks. All activities are open, ungraded practice. No graded homework sets, exams or graded project is present, and workload is unmeasured; this is not evidence of semester equivalence.",
+    "equivalent_structure": "Proposed 14-week undergraduate scope only. The opening week groups free-body diagrams with a short body-equilibrium application and planar trusses (method of joints and sections); week 2 develops beam load, shear, and moment diagrams before stress; week 3 adds truss deformation and one-degree indeterminate trusses to axial loading. The four compact prototype readings in weeks 1, 3, 4 and 8 now have expanded instruction beside original lessons on body equilibrium, beam loading, bone bending, beam deflection, combined stress, multiaxial strain and pressure vessels, stress concentrations, buckling, fatigue and brittle strength. Week 12 is a synthetic-data fatigue-life lab, and week 14 pairs failure analysis with the course case. Weeks 8–9 add an optional beam strength-and-stiffness project with rehearsal practice and milestone self-checks. All activities are open, ungraded practice. No graded homework sets, exams or graded project is present, and workload is unmeasured; this is not evidence of semester equivalence.",
     "weeks": [
       {
         "week": 1,
-        "title": "Equilibrium: free-body diagrams and force/moment balance",
+        "title": "Equilibrium: free-body diagrams, force/moment balance and planar trusses",
         "lesson_ids": [
           "statics-materials-1",
-          "statics-materials-6"
+          "statics-materials-6",
+          "statics-materials-20"
         ],
         "assessment_ids": [
           "statics-materials-1-practice",
-          "statics-materials-6-practice"
+          "statics-materials-6-practice",
+          "statics-materials-20-practice"
         ]
       },
       {
@@ -580,12 +647,14 @@
       },
       {
         "week": 3,
-        "title": "Axial load, stress, strain, and compatibility",
+        "title": "Axial load, stress, strain, compatibility and truss deformation",
         "lesson_ids": [
-          "statics-materials-2"
+          "statics-materials-2",
+          "statics-materials-21"
         ],
         "assessment_ids": [
-          "statics-materials-2-practice"
+          "statics-materials-2-practice",
+          "statics-materials-21-practice"
         ]
       },
       {
@@ -1448,6 +1517,81 @@
           ]
         }
       ]
+    },
+    {
+      "id": "statics-materials-module-20",
+      "title": "Planar trusses: method of joints, method of sections and static determinacy",
+      "source_ids": [
+        "mit-2001-syllabus",
+        "mit-2001-readings"
+      ],
+      "lessons": [
+        {
+          "id": "statics-materials-20",
+          "title": "Planar trusses: method of joints, method of sections and static determinacy",
+          "reading": "modules/16-planar-trusses-joints-and-sections.md",
+          "objectives": [
+            "statics-materials-20-objective-1",
+            "statics-materials-20-objective-2",
+            "statics-materials-20-objective-3",
+            "statics-materials-20-objective-4"
+          ],
+          "worked_example": "A four-panel truss with 3 m panels, 4 m height and 10 kN at each interior bottom joint has 15 kN reactions. Joint L0 gives the end post −18.75 kN and bottom chord 11.25 kN; a section through panel 2 with moments about L2 gives the top chord −15 kN and vertical balance gives the diagonal 6.25 kN; the centre vertical is a zero-force member.",
+          "question_ids": [
+            "statics-materials-20:degree-of-indeterminacy",
+            "statics-materials-20:triangle-joints",
+            "statics-materials-20:pratt-section",
+            "statics-materials-20:end-post",
+            "statics-materials-20:zero-force",
+            "statics-materials-20:moment-centre",
+            "statics-materials-20:count-not-sufficient",
+            "statics-materials-20:negative-force"
+          ],
+          "card_ids": [
+            "statics-materials-20-card-1",
+            "statics-materials-20-card-2",
+            "statics-materials-20-card-3",
+            "statics-materials-20-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "statics-materials-module-21",
+      "title": "Truss deformation and statically indeterminate trusses",
+      "source_ids": [
+        "mit-2001-syllabus",
+        "mit-2001-readings"
+      ],
+      "lessons": [
+        {
+          "id": "statics-materials-21",
+          "title": "Truss deformation and statically indeterminate trusses",
+          "reading": "modules/17-truss-deformation-and-indeterminate-trusses.md",
+          "objectives": [
+            "statics-materials-21-objective-1",
+            "statics-materials-21-objective-2",
+            "statics-materials-21-objective-3",
+            "statics-materials-21-objective-4"
+          ],
+          "worked_example": "For a bracket with legs 5 m, base 8 m, 12 kN at the apex and AE = 8.00 × 10⁷ N, the base stretches 0.800 mm and each leg shortens 0.625 mm; compatibility and the unit-load sum both give a 1.575 mm apex drop. A three-bar suspension carrying 30 kN, indeterminate to one degree, splits the load 14.8 kN centre and 9.49 kN per side.",
+          "question_ids": [
+            "statics-materials-21:member-elongation",
+            "statics-materials-21:bracket-deflection",
+            "statics-materials-21:unit-load-forces",
+            "statics-materials-21:three-bar",
+            "statics-materials-21:stiffer-centre",
+            "statics-materials-21:closure",
+            "statics-materials-21:model-limits"
+          ],
+          "card_ids": [
+            "statics-materials-21-card-1",
+            "statics-materials-21-card-2",
+            "statics-materials-21-card-3",
+            "statics-materials-21-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -1968,6 +2112,59 @@
         "statics-materials-19:depth-2"
       ],
       "points": 9
+    },
+    {
+      "id": "statics-materials-20-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Planar trusses: method of joints, method of sections and static determinacy (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 1,
+      "objective_ids": [
+        "statics-materials-20-objective-1",
+        "statics-materials-20-objective-2",
+        "statics-materials-20-objective-3",
+        "statics-materials-20-objective-4",
+        "statics-materials-outcome-1"
+      ],
+      "question_ids": [
+        "statics-materials-20:degree-of-indeterminacy",
+        "statics-materials-20:triangle-joints",
+        "statics-materials-20:pratt-section",
+        "statics-materials-20:end-post",
+        "statics-materials-20:zero-force",
+        "statics-materials-20:moment-centre",
+        "statics-materials-20:count-not-sufficient",
+        "statics-materials-20:negative-force"
+      ],
+      "points": 13
+    },
+    {
+      "id": "statics-materials-21-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Truss deformation and statically indeterminate trusses (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "week": 3,
+      "objective_ids": [
+        "statics-materials-21-objective-1",
+        "statics-materials-21-objective-2",
+        "statics-materials-21-objective-3",
+        "statics-materials-21-objective-4",
+        "statics-materials-outcome-1",
+        "statics-materials-outcome-2",
+        "statics-materials-outcome-3"
+      ],
+      "question_ids": [
+        "statics-materials-21:member-elongation",
+        "statics-materials-21:bracket-deflection",
+        "statics-materials-21:unit-load-forces",
+        "statics-materials-21:three-bar",
+        "statics-materials-21:stiffer-centre",
+        "statics-materials-21:closure",
+        "statics-materials-21:model-limits"
+      ],
+      "points": 12
     }
   ],
   "grading_policy": {
@@ -2077,6 +2274,11 @@
       "version": "0.6.0",
       "date": "2026-10-22",
       "summary": "Expanded compatibility/material-history depth with original indeterminate-beam energy/settlement/contact and elastic–perfectly plastic unloading/parallel-member redistribution readings, two connected paper assignments and twelve checkpoint items/cards. Preserved the existing lab and beam project. All structures, properties and loads are synthetic; the course remains partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.7.0",
+      "date": "2026-10-31",
+      "summary": "Added two original readings on the MIT 2.001 truss sequence (lectures 3, 9 and 10): planar trusses by the method of joints and sections with determinacy and zero-force members (week 1), and truss deformation by compatibility and the unit-load method with one-degree indeterminate trusses and stiffness redistribution (week 3), with 15 practice items and eight cards. All trusses and loads are synthetic; the course remains partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
@@ -2086,13 +2288,14 @@
     "Bloom labels and structured prerequisite edges are initial authoring classifications awaiting subject-matter review.",
     "Question answers and solution feedback are intentionally public practice authoring specifications, not restricted exam keys.",
     "Total workload and weekly duration are unknown; former nominal credit values and hardcoded reading times do not establish workload.",
-    "All loads, materials, specimens and numbers are synthetic teaching examples; this package gives no design basis, test protocol or safety advice and says nothing about any real device, implant or person. The models are simplified textbook descriptions, not analysis methods for real components. The earlier parallel-elastic-bar example and new selected models do not provide general truss/frame analysis or real assembly design validation.",
+    "All loads, materials, specimens and numbers are synthetic teaching examples; this package gives no design basis, test protocol or safety advice and says nothing about any real device, implant or person. The models are simplified textbook descriptions, not analysis methods for real components. Planar pin-jointed trusses are now taught under ideal assumptions; frames and machines, space trusses, joint stiffness and real assembly design validation are not.",
     "The beam strength-and-stiffness project is optional and ungraded. Its five milestones are Case studio self-checks whose private drafts are never submitted or scored; the rehearsal practice uses a separate synthetic beam and candidates, and no software check evaluates a learner's project calculations or written interpretation. Milestone weeks are planning suggestions, not measured workload or deadlines.",
-    "New selected indeterminate-beam/contact and constitutive-history models develop compatibility beyond the earlier parallel-elastic-bar example. Two open paper assignments require free bodies, energy/displacement and residual-state checks. General truss/frame analysis, nonlinear beam behavior and real material/connection validation remain beyond these examples. Written derivations, diagrams and implementations are not automatically evaluated; workload and qualified review remain open.",
-    "Of the 136 numerical answers, 46 require units, 45 check significant figures and 0 check dimensions. New continuous checkpoint quantities request three significant figures in the stated units."
+    "New selected indeterminate-beam/contact and constitutive-history models develop compatibility beyond the earlier parallel-elastic-bar example. Two open paper assignments require free bodies, energy/displacement and residual-state checks. Frames and machines, matrix stiffness analysis, nonlinear beam behavior and real material/connection validation remain beyond these examples. Written derivations, diagrams and implementations are not automatically evaluated; workload and qualified review remain open.",
+    "Of the 151 numerical answers, 46 require units, 59 check significant figures and 0 check dimensions. New continuous checkpoint quantities request three significant figures in the stated units."
   ],
   "intentionally_omitted": [
-    "Graded assessments, an activated integrative project and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package."
+    "Graded assessments, an activated integrative project and a laboratory sequence are not authored yet (one synthetic-data virtual lab exists); the original lessons extend a partial package.",
+    "Friction (2.001 lecture 4), frames and machines, space trusses and matrix stiffness analysis are not taught; truss readings use ideal pin-jointed, small-displacement models."
   ],
   "learner_resources": [
     "labs/fatigue-lives-by-stress-amplitude.csv",

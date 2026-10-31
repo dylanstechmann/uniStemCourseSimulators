@@ -5421,6 +5421,704 @@
           "Original synthetic mechanics/constitutive-history practice developed with substantial AI assistance; no external problem, structure or measurements imported."
         ]
       }
+    },
+    {
+      "id": "statics-materials-20:degree-of-indeterminacy",
+      "type": "numeric",
+      "prompt": "A stable planar pin-jointed truss has 7 joints, 12 members and 3 support reaction components. To what degree is it statically indeterminate (m + r − 2j)? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-20-objective-2"
+      ],
+      "feedback": {
+        "hint": "Each joint gives two equilibrium equations; the unknowns are member forces plus reactions.",
+        "solution": "m + r − 2j = 12 + 3 − 2(7) = 1, so one member force cannot be found from statics alone; compatibility must close it.",
+        "lesson_ids": [
+          "statics-materials-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic truss practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "dimensions": null,
+        "significant_figures": null
+      }
+    },
+    {
+      "id": "statics-materials-20:triangle-joints",
+      "type": "data_interpretation",
+      "prompt": "A truss has a pin at A (0, 0), a roller at B (6, 0) and an apex C (3, 4), in metres, with members AB, AC and BC. A 24 kN downward load acts at C. Use tension-positive member forces. Report numeric responses as bare numbers in the requested units to three significant figures; keep full precision in intermediate calculations.",
+      "points": 3,
+      "objective_ids": [
+        "statics-materials-20-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "reaction_a",
+          "type": "numeric",
+          "prompt": "Upward vertical reaction at the pin A, kN.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "force_ac",
+          "type": "numeric",
+          "prompt": "Force in member AC, tension positive, kN.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "force_ab",
+          "type": "numeric",
+          "prompt": "Force in member AB, tension positive, kN.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "reaction_a",
+            "type": "numeric",
+            "answer": 12.0,
+            "unit": "",
+            "tolerance": 0.03,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "force_ac",
+            "type": "numeric",
+            "answer": -15.0,
+            "unit": "",
+            "tolerance": 0.0375,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "force_ab",
+            "type": "numeric",
+            "answer": 9.0,
+            "unit": "",
+            "tolerance": 0.0225,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Find the reactions first, then write ΣFy and ΣFx at joint A with AC's direction cosines 3/5 and 4/5.",
+        "solution": "By symmetry each reaction is 12.0 kN. At A, 12 + (4/5)F_AC = 0 gives F_AC = −15.0 kN (compression); F_AB + (3/5)(−15) = 0 gives F_AB = 9.00 kN (tension).",
+        "lesson_ids": [
+          "statics-materials-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic truss practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      }
+    },
+    {
+      "id": "statics-materials-20:pratt-section",
+      "type": "data_interpretation",
+      "prompt": "A four-panel truss has bottom joints L0–L4 at x = 0, 2, 4, 6 and 8 m and top joints U1–U3 above L1–L3 at a height of 1.5 m, with diagonals U1L2 and U3L2. It is pinned at L0, on a roller at L4 and carries 6 kN downward at each of L1, L2 and L3. Cut through the second panel and use tension-positive forces. Report numeric responses as bare numbers in the requested units to three significant figures; keep full precision in intermediate calculations.",
+      "points": 3,
+      "objective_ids": [
+        "statics-materials-20-objective-4"
+      ],
+      "response_fields": [
+        {
+          "id": "top",
+          "type": "numeric",
+          "prompt": "Force in top chord U1U2, tension positive, kN.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "bottom",
+          "type": "numeric",
+          "prompt": "Force in bottom chord L1L2, tension positive, kN.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "diagonal",
+          "type": "numeric",
+          "prompt": "Force in diagonal U1L2, tension positive, kN.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "top",
+            "type": "numeric",
+            "answer": -16.0,
+            "unit": "",
+            "tolerance": 0.04,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "bottom",
+            "type": "numeric",
+            "answer": 12.0,
+            "unit": "",
+            "tolerance": 0.03,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "diagonal",
+            "type": "numeric",
+            "answer": 5.0,
+            "unit": "",
+            "tolerance": 0.0125,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Take moments about the joint where the other two cut members meet; for the diagonal, use vertical force balance.",
+        "solution": "Each reaction is 9 kN. Moments about L2 for the left part: −9(4) + 6(2) − 1.5F_top = 0, so F_top = −16.0 kN. About U1: −9(2) + 1.5F_bottom = 0, so F_bottom = 12.0 kN. Vertically 9 − 6 − 0.6F_diag = 0, so F_diag = 5.00 kN.",
+        "lesson_ids": [
+          "statics-materials-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic truss practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      }
+    },
+    {
+      "id": "statics-materials-20:end-post",
+      "type": "numeric",
+      "prompt": "For a four-panel truss with 2 m panels, a 1.5 m height, a pin at the left end, a roller at the right end and 6 kN downward at each of the three interior bottom joints, what is the force in the left inclined end post, in kN, tension positive? Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-20-objective-3"
+      ],
+      "feedback": {
+        "hint": "At the left support joint only the end post can balance the vertical reaction.",
+        "solution": "The left reaction is 9 kN upward. The end post's vertical direction cosine is 1.5/2.5 = 0.6, so 9 + 0.6F = 0 and F = −15.0 kN (compression).",
+        "lesson_ids": [
+          "statics-materials-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic truss practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": -15.0,
+        "unit": "",
+        "tolerance": 0.0375,
+        "unit_required": false,
+        "dimensions": null,
+        "significant_figures": 3
+      }
+    },
+    {
+      "id": "statics-materials-20:zero-force",
+      "type": "multiple_select",
+      "prompt": "Under the stated loading, which members must be zero-force members? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "statics-materials-20-objective-4"
+      ],
+      "feedback": {
+        "hint": "Write equilibrium perpendicular to the collinear pair, or along each member, at an unloaded joint.",
+        "solution": "At an unloaded joint with two non-collinear members, both forces must vanish; with two collinear members and a third, equilibrium across the line forces the third to zero, which is the vertical under an unloaded top joint. An external load at the joint changes that; stability-critical bracing is not zero-force by definition.",
+        "lesson_ids": [
+          "statics-materials-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic truss practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      },
+      "options": [
+        "Two non-collinear members meet at an unloaded, unsupported joint: both members.",
+        "Three members meet at an unloaded, unsupported joint and two are collinear: the third member.",
+        "Three members meet at a joint carrying an external load, and two are collinear: the third member.",
+        "Any member whose removal would leave the truss unstable.",
+        "A vertical member at an unloaded top joint where only it and two collinear top-chord members meet."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "statics-materials-20:moment-centre",
+      "type": "single_choice",
+      "prompt": "A section cuts a top chord, a diagonal and a bottom chord whose forces are all unknown. To find the top-chord force from one equation, where should you take moments?",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-20-objective-4"
+      ],
+      "feedback": {
+        "hint": "A force passing through the moment centre has no moment about it.",
+        "solution": "Choosing the intersection of the diagonal and bottom chord removes both from the moment equation, leaving only the top chord. Any point gives correct physics, but only this choice isolates one unknown.",
+        "lesson_ids": [
+          "statics-materials-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic truss practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      },
+      "options": [
+        "At the joint where the diagonal and the bottom chord meet.",
+        "At the support with the largest reaction.",
+        "At the midpoint of the cut top chord.",
+        "Anywhere, because the moment centre does not affect which unknowns appear."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "statics-materials-20:count-not-sufficient",
+      "type": "single_choice",
+      "prompt": "A planar truss satisfies m + r = 2j, yet it moves visibly under a small sideways push. Which explanation fits?",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-20-objective-2"
+      ],
+      "feedback": {
+        "hint": "Ask whether the arrangement, not just the number, prevents rigid motion.",
+        "solution": "Equal numbers of unknowns and equations do not guarantee that the equations are independent. A quadrilateral panel without a diagonal, or reactions that are all parallel or concurrent, leaves a mechanism.",
+        "lesson_ids": [
+          "statics-materials-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic truss practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      },
+      "options": [
+        "The count is necessary but not sufficient: the members or reactions are arranged as a mechanism, for example a panel without a diagonal or three parallel reactions.",
+        "The truss must be statically indeterminate, because indeterminate trusses are flexible.",
+        "The members must be overstressed, because the count guarantees stability otherwise.",
+        "Pin joints always allow motion, so every truss moves under a sideways load."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "statics-materials-20:negative-force",
+      "type": "single_choice",
+      "prompt": "With every member force assumed tensile, the method of joints gives −18.75 kN for an end post. What does this mean?",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-20-objective-1",
+        "statics-materials-20-objective-3"
+      ],
+      "feedback": {
+        "hint": "The sign reports the direction relative to the tension assumption.",
+        "solution": "A negative result under a tension-positive assumption means the member pushes on its joints: compression of 18.75 kN. Ideal truss members carry no shear, and slender compression members must later be checked for buckling.",
+        "lesson_ids": [
+          "statics-materials-20"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic truss practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      },
+      "options": [
+        "The end post is in compression with magnitude 18.75 kN, so it is a candidate for a buckling check.",
+        "The calculation is wrong, because member forces cannot be negative.",
+        "The end post is in tension with magnitude 18.75 kN acting toward the joint.",
+        "The member carries no axial force but 18.75 kN of shear."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "statics-materials-21:member-elongation",
+      "type": "numeric",
+      "prompt": "A truss member 2.5 m long has a cross-sectional area of 300 mm² and a Young's modulus of 70 GPa, and carries a tensile force of 15 kN. What is its elongation, in mm? Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-21-objective-1"
+      ],
+      "feedback": {
+        "hint": "Convert to N, m, m² and Pa before using δ = FL/(AE).",
+        "solution": "AE = (3.00 × 10⁻⁴ m²)(7.00 × 10¹⁰ Pa) = 2.10 × 10⁷ N, so δ = (15,000)(2.5)/(2.10 × 10⁷) m = 1.79 mm.",
+        "lesson_ids": [
+          "statics-materials-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic truss practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1.7857142857142856,
+        "unit": "",
+        "tolerance": 0.004464285714285714,
+        "unit_required": false,
+        "dimensions": null,
+        "significant_figures": 3
+      }
+    },
+    {
+      "id": "statics-materials-21:bracket-deflection",
+      "type": "data_interpretation",
+      "prompt": "A truss has a pin at A (0, 0), a roller at B (6, 0) and an apex C (3, 4), in metres. A 24 kN downward load acts at C, and every member has AE = 5.00 × 10⁷ N. Member forces are F_AB = +9 kN and F_AC = F_BC = −15 kN. Report numeric responses as bare numbers in the requested units to three significant figures; keep full precision in intermediate calculations.",
+      "points": 3,
+      "objective_ids": [
+        "statics-materials-21-objective-1",
+        "statics-materials-21-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "roller",
+          "type": "numeric",
+          "prompt": "Horizontal displacement of the roller B, mm.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "ac_change",
+          "type": "numeric",
+          "prompt": "Length change of member AC, elongation positive, mm.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "apex",
+          "type": "numeric",
+          "prompt": "Downward vertical deflection of the apex C, mm.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "roller",
+            "type": "numeric",
+            "answer": 1.08,
+            "unit": "",
+            "tolerance": 0.0027,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "ac_change",
+            "type": "numeric",
+            "answer": -1.5,
+            "unit": "",
+            "tolerance": 0.00375,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "apex",
+            "type": "numeric",
+            "answer": 2.28,
+            "unit": "",
+            "tolerance": 0.005699999999999999,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Compute each δ = FL/(AE); the roller moves by δ_AB and C moves half as far horizontally by symmetry.",
+        "solution": "δ_AB = 1.08 mm, so u_B = 1.08 mm and u_C = 0.54 mm. δ_AC = −1.50 mm. Along AC's unit vector (0.6, 0.8): −1.50 = 0.54(0.6) + 0.8v, so v = −2.28 mm, a 2.28 mm drop. The unit-load sum [2(−15,000)(−0.625)(5) + (9,000)(0.375)(6)]/(5 × 10⁷) gives the same 2.28 mm.",
+        "lesson_ids": [
+          "statics-materials-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic truss practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      }
+    },
+    {
+      "id": "statics-materials-21:unit-load-forces",
+      "type": "single_choice",
+      "prompt": "In the unit-load method, Δ = Σ F f L/(AE). What are the forces f?",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-21-objective-2"
+      ],
+      "feedback": {
+        "hint": "There are two separate load cases in the sum.",
+        "solution": "F comes from the real loads; f comes from a unit load alone, placed where and in the direction of the displacement wanted. Their product, weighted by L/(AE), gives that one displacement.",
+        "lesson_ids": [
+          "statics-materials-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic truss practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      },
+      "options": [
+        "Member forces caused by a unit load applied at the joint, in the direction of the displacement sought, with the real loads removed.",
+        "The real member forces divided by the member lengths.",
+        "Member forces from the real loads plus a unit load acting together.",
+        "Unit forces of 1 N assigned to every member."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "statics-materials-21:three-bar",
+      "type": "data_interpretation",
+      "prompt": "A 20 kN load hangs from joint D supported by three bars from a rigid ceiling. The centre bar is vertical and 3 m long; the two side bars run from ceiling points 4 m to either side and are 5 m long. Every bar has AE = 5.00 × 10⁷ N. D moves straight down by symmetry. Report numeric responses as bare numbers in the requested units to three significant figures; keep full precision in intermediate calculations.",
+      "points": 3,
+      "objective_ids": [
+        "statics-materials-21-objective-3"
+      ],
+      "response_fields": [
+        {
+          "id": "centre",
+          "type": "numeric",
+          "prompt": "Tensile force in the centre bar, kN.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "side",
+          "type": "numeric",
+          "prompt": "Tensile force in each side bar, kN.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "drop",
+          "type": "numeric",
+          "prompt": "Downward displacement of joint D, mm.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "centre",
+            "type": "numeric",
+            "answer": 13.966480446927374,
+            "unit": "",
+            "tolerance": 0.034916201117318434,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "side",
+            "type": "numeric",
+            "answer": 5.027932960893855,
+            "unit": "",
+            "tolerance": 0.012569832402234637,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "drop",
+            "type": "numeric",
+            "answer": 0.8379888268156426,
+            "unit": "",
+            "tolerance": 0.0020949720670391065,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Each side bar stretches by v times the cosine of its angle to the vertical, here 3/5; then use F = (AE/L)δ in vertical equilibrium.",
+        "solution": "F_c = (AE/3)v and F_s = (AE/5)(0.6v) = 0.12AE·v. Equilibrium F_c + 2(0.6)F_s = 20 kN gives AE·v(0.3333 + 0.144) = 20,000 N, so v = 0.838 mm, F_c = 14.0 kN and F_s = 5.03 kN.",
+        "lesson_ids": [
+          "statics-materials-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic truss practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      }
+    },
+    {
+      "id": "statics-materials-21:stiffer-centre",
+      "type": "single_choice",
+      "prompt": "In a symmetric three-bar suspension that is indeterminate to one degree, the centre bar is replaced by one with twice the axial rigidity. What happens?",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-21-objective-4"
+      ],
+      "feedback": {
+        "hint": "All three bars share one joint displacement; force follows stiffness along that displacement.",
+        "solution": "In an indeterminate truss the stiffer path attracts load. Because the side bars still share the same smaller displacement, the centre force grows by less than a factor of two (14.8 to 19.8 kN in the lesson example) and the side forces fall.",
+        "lesson_ids": [
+          "statics-materials-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic truss practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      },
+      "options": [
+        "The centre bar's force rises but less than doubles, each side bar's force falls, and the joint moves less.",
+        "The centre bar's force exactly doubles and the side bars are unchanged.",
+        "Nothing changes, because member forces depend only on geometry and loads.",
+        "The side bars' forces rise because the stiffer centre bar pushes load onto them."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "statics-materials-21:closure",
+      "type": "single_choice",
+      "prompt": "Equilibrium at the loaded joint of a one-degree indeterminate truss gives two equations for three unknown bar forces. What supplies the missing equation?",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-21-objective-3"
+      ],
+      "feedback": {
+        "hint": "Moments about a point through which every force passes give no new information.",
+        "solution": "All bar forces pass through the joint, so a moment equation adds nothing. The missing relation is deformation compatibility, made usable by each bar's force–deformation law.",
+        "lesson_ids": [
+          "statics-materials-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic truss practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      },
+      "options": [
+        "Compatibility: the bars share the joint, so their length changes are tied by geometry, combined with δ = FL/(AE).",
+        "A third equilibrium equation from moments about the joint.",
+        "Assuming the bars share the load equally.",
+        "Assuming the shortest bar carries all of the load."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "statics-materials-21:model-limits",
+      "type": "multiple_select",
+      "prompt": "Which statements about the truss deflection methods in this lesson are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "statics-materials-21-objective-4"
+      ],
+      "feedback": {
+        "hint": "Separate what the model assumes from what it can claim.",
+        "solution": "The methods are linear, small-displacement models and must agree with each other. Determinate member forces depend only on geometry and loads. Buckling or yielding violates the linear assumptions, and no model result certifies a real structure.",
+        "lesson_ids": [
+          "statics-materials-21"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic truss practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      },
+      "options": [
+        "They assume linear elastic members and small displacements, with equilibrium written on the undeformed geometry.",
+        "Compatibility and the unit-load method should give the same joint displacement for the same truss and loads.",
+        "In a determinate truss, making one member stiffer changes its force.",
+        "The results remain valid after a compression member buckles.",
+        "A computed deflection is a model prediction, not a certified property of a real frame."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
     }
   ]
 }

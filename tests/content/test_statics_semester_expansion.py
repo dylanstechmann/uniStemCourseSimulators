@@ -200,10 +200,10 @@ def test_new_mechanics_answers_recompute_from_independent_equations_and_grade(qi
 
 def test_new_foundations_and_paper_reports_are_scheduled_without_grades():
     assert len(NEW) == 12
-    assert MANIFEST["version"] == "0.6.0" and MANIFEST["maturity"] == "partial"
+    assert MANIFEST["version"] == "0.7.0" and MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed"
     scheduled = [lid for w in MANIFEST["duration"]["weeks"] for lid in w["lesson_ids"]]
-    assert len(scheduled) == len(set(scheduled)) == 21
+    assert len(scheduled) == len(set(scheduled)) == 23
     assert len(MANIFEST["duration"]["weeks"]) == 14
     content = ContentRepository(ROOT / "content")
     for number in range(16, 20):

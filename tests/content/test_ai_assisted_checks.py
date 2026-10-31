@@ -2193,6 +2193,10 @@ STATICS_MATERIALS_NUMERIC = {
     "statics-materials-15:hoop-stress": 1.2 * 0.40 / 0.008,
     "statics-materials-15:sphere-stress": 1.2 * 0.40 / (2 * 0.008),
     "statics-materials-15:vessel-radius-growth": (1.2 * 0.40 / 0.008 - 0.30 * 1.2 * 0.40 / 0.016) / 200_000 * 400,
+    # 0.7.0 trusses: m + r − 2j; left end post from joint L0 (reaction 9 kN, sin = 1.5/2.5); FL/(AE) in mm.
+    "statics-materials-20:degree-of-indeterminacy": 12 + 3 - 2 * 7,
+    "statics-materials-20:end-post": -(3 * 6 / 2) / (1.5 / 2.5),
+    "statics-materials-21:member-elongation": 15_000 * 2.5 / (300e-6 * 70e9) * 1000,
 }
 
 

@@ -19,7 +19,7 @@ An independent open-source learning platform under development. It does **not co
 | complete | 0 | All full-course gates satisfied |
 | externally reviewed | 0 | Qualified named reviewer examined a specified version |
 
-**No current package meets the complete-course standard.** The repository contains 28 partial packages with 677 lessons, 3,948 formative questions, 2,296 retrieval cards and 164 self-assessed case prompts (content validator inventory, 2026-10-31). One of them, Cell Culture Practice, is a one-lesson pilot rather than a course. These counts measure authored material; they do not establish semester depth, measured workload, scientific review or university equivalence.
+**No current package meets the complete-course standard.** The repository contains 28 partial packages with 679 lessons, 3,963 formative questions, 2,304 retrieval cards and 164 self-assessed case prompts (content validator inventory, 2026-10-31). One of them, Cell Culture Practice, is a one-lesson pilot rather than a course. These counts measure authored material; they do not establish semester depth, measured workload, scientific review or university equivalence.
 
 The packages span life sciences, chemistry, mathematics, physics, statistics, computing and engineering. Original readings, worked examples, synthetic datasets and practice are available in each subject, with uneven coverage and depth. See the [package inventory](#package-inventory), [measured content gaps](docs/COURSE_GAP_REPORT.md), and [MIT OpenCourseWare scope audit](docs/COURSE_SCOPE_AUDIT.md) for the current boundaries and priorities. Detailed development history belongs in the [progress review](docs/PROGRESS_REVIEW.md).
 
