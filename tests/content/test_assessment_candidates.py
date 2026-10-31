@@ -39,7 +39,7 @@ def packet(tmp_path):
 
 def test_real_report_is_current_and_does_not_open_private_stores():
     report = MODULE.audit(ROOT)
-    assert len(report["packages"]) == 25
+    assert len(report["packages"]) == 26
     assert sum(len(p["candidates"]) for p in report["packages"]) == 26
     assert MODULE.render(report) == (ROOT / "docs/ASSESSMENT_CANDIDATE_REPORT.md").read_text()
     assert "private_source_ref" not in json.dumps(report)

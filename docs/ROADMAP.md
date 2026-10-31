@@ -1,6 +1,6 @@
 # Repository-wide roadmap
 
-The active scope is all 25 partial course packages and their shared learning platform. No package is complete or independently reviewed. Historical authoring and validation records remain in [PROGRESS_REVIEW.md](PROGRESS_REVIEW.md), [VALIDATION_REPORT.md](VALIDATION_REPORT.md), and the course review packets; they are not the current work queue.
+The active scope is all 26 partial course packages and their shared learning platform. No package is complete or independently reviewed. Historical authoring and validation records remain in [PROGRESS_REVIEW.md](PROGRESS_REVIEW.md), [VALIDATION_REPORT.md](VALIDATION_REPORT.md), and the course review packets; they are not the current work queue.
 
 ## Owner priority (2026-10-22): expand to semester depth
 
@@ -30,7 +30,7 @@ Delivered: guest/account access; version-pinned enrollment; server-backed notes,
 
 The case studio supports private drafts, version/prompt snapshots, conflict protection, earlier response history, account export/deletion and read-only archived cases. Historical feature-batch verification is recorded in the linked review reports. Since 2026-10-13 each batch runs the full root, backend and frontend suites; earlier batches recorded "no test suite was run", and the drift they left was repaired in one pass. Platform verification is not course review or protected-exam release approval.
 
-Bench practice (owner request, 2026-10-30) follows [the wet-lab practice plan](WET_LAB_PRACTICE_PLAN.md). The replay engine, three protocols and a React bench view are delivered: micropipette gravimetric verification, decimal dilutions with the BAM aerobic plate count, and a Class II biosafety cabinet session with a spill. Next: the layer-0 laboratory-measurement course package, then the layer-1 biosafety package and more protocols, layer by layer.
+Bench practice (owner request, 2026-10-30) follows [the wet-lab practice plan](WET_LAB_PRACTICE_PLAN.md). The replay engine, three protocols and a React bench view are delivered: micropipette gravimetric verification, decimal dilutions with the BAM aerobic plate count, and a Class II biosafety cabinet session with a spill. The layer-0 Laboratory Measurement package (0.1.0, six weeks, with an optional qualification project) is delivered. Next: the layer-1 biosafety package and more protocols, layer by layer.
 
 The searchable notebook reuses the existing private note store, exposes case-insensitive literal search with course filtering and pagination, and links matches back to enrolled course lessons. Remaining shared work should address a demonstrated learner workflow or blocker and fit alongside the instructional rotation. Avoid adding isolated grader types while course foundations remain thin.
 
@@ -42,6 +42,6 @@ Develop coherent instruction, appropriately challenging assessment, source suppo
 
 ## Catalog and operation
 
-The catalog contains 25 authored partial packages, 37 planning nodes and eight pathway maps. Validate prerequisite edges and subject boundaries against appropriate references before promoting planning nodes to instruction. Preserve historical packages and assessment evidence during consolidation.
+The catalog contains 26 authored partial packages, 37 planning nodes and eight pathway maps. Validate prerequisite edges and subject boundaries against appropriate references before promoting planning nodes to instruction. Preserve historical packages and assessment evidence during consolidation.
 
 Operational work remains bounded by verified needs: deployment/backup and archive recovery, privacy and learner isolation, distributed throttling, accessibility and protected-delivery validation. The existing [historical assessment archive recovery runbook](HISTORICAL_ASSESSMENT_ARCHIVE_RECOVERY.md) documents conservative handling of unverifiable records. Local test passes do not establish public deployment readiness or independently reviewed courses.

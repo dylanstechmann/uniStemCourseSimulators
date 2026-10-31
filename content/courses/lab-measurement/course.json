@@ -1,0 +1,850 @@
+{
+  "schema_version": "1.0",
+  "id": "lab-measurement",
+  "title": "Laboratory Measurement and Solution Preparation",
+  "description": "Prepare solutions and dilution series, measure volume and mass with checked instruments, calibrate and use pH meters and spectrophotometers, and rehearse real bench procedures before doing them in a laboratory.",
+  "domain": "Life sciences laboratory",
+  "level": "Year 1",
+  "maturity": "partial",
+  "version": "0.1.0",
+  "license": "CC-BY-4.0",
+  "content_origin": {
+    "kind": "original",
+    "source_path": null,
+    "source_sha256": null,
+    "migration_version": null,
+    "modifications": [
+      "Original readings, worked examples, practice and cards developed with substantial AI assistance on 2026-10-30 as layer 0 of the wet-lab practice track (docs/WET_LAB_PRACTICE_PLAN.md)."
+    ]
+  },
+  "prerequisites": {
+    "course_ids": [],
+    "recommended_course_ids": [
+      "general-chemistry-1"
+    ],
+    "concurrent_course_ids": [],
+    "knowledge": [
+      "High-school algebra",
+      "Moles and molar mass"
+    ],
+    "statement": "General Chemistry I recommended; algebra and the mole concept are assumed. This package establishes no university prerequisite equivalency."
+  },
+  "outcomes": [
+    {
+      "id": "lab-measurement-outcome-1",
+      "description": "Prepare solutions and dilution series at stated concentrations and back-calculate concentrations from diluted measurements.",
+      "bloom": "apply"
+    },
+    {
+      "id": "lab-measurement-outcome-2",
+      "description": "Measure volume and mass with checked instruments, and quantify accuracy and precision from replicate measurements.",
+      "bloom": "evaluate"
+    },
+    {
+      "id": "lab-measurement-outcome-3",
+      "description": "Calibrate and use a pH meter and a spectrophotometer, prepare buffers, and build and use standard curves.",
+      "bloom": "apply"
+    },
+    {
+      "id": "lab-measurement-outcome-4",
+      "description": "Connect bench technique to measured results by rehearsing procedures and debriefing their errors.",
+      "bloom": "analyze"
+    }
+  ],
+  "lesson_objectives": [
+    {
+      "id": "lab-measurement-1-objective-1",
+      "description": "Convert between molar, mass, percentage and parts-per-million concentrations, and state which quantity each fixes.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "lab-measurement-outcome-1"
+      ]
+    },
+    {
+      "id": "lab-measurement-1-objective-2",
+      "description": "Calculate the mass of a solid to weigh for a target concentration and volume, correcting for hydration and purity.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "lab-measurement-outcome-1"
+      ]
+    },
+    {
+      "id": "lab-measurement-1-objective-3",
+      "description": "Calculate the molarity of a concentrated liquid reagent from its mass percentage and density.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "lab-measurement-outcome-1"
+      ]
+    },
+    {
+      "id": "lab-measurement-1-objective-4",
+      "description": "Describe how to make a solution up to volume, and decide when to make a concentrated stock.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "lab-measurement-outcome-1"
+      ]
+    },
+    {
+      "id": "lab-measurement-2-objective-1",
+      "description": "Use C₁V₁ = C₂V₂ to plan a single dilution and state the dilution factor unambiguously.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "lab-measurement-outcome-1"
+      ]
+    },
+    {
+      "id": "lab-measurement-2-objective-2",
+      "description": "Design a serial dilution series to reach a target dilution and compute the dilution of every tube.",
+      "bloom": "create",
+      "course_outcome_ids": [
+        "lab-measurement-outcome-1",
+        "lab-measurement-outcome-4"
+      ]
+    },
+    {
+      "id": "lab-measurement-2-objective-3",
+      "description": "Back-calculate an original concentration from a count or reading in a diluted tube.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "lab-measurement-outcome-1",
+        "lab-measurement-outcome-4"
+      ]
+    },
+    {
+      "id": "lab-measurement-2-objective-4",
+      "description": "Compare serial and parallel series and estimate how pipetting errors propagate along a series.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "lab-measurement-outcome-1",
+        "lab-measurement-outcome-2"
+      ]
+    },
+    {
+      "id": "lab-measurement-3-objective-1",
+      "description": "Choose a volumetric device for a task, distinguishing devices calibrated to contain from those calibrated to deliver.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "lab-measurement-outcome-2"
+      ]
+    },
+    {
+      "id": "lab-measurement-3-objective-2",
+      "description": "Distinguish systematic from random error and compute both from replicate measurements.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "lab-measurement-outcome-2"
+      ]
+    },
+    {
+      "id": "lab-measurement-3-objective-3",
+      "description": "Explain how air-displacement pipetting technique affects delivered volume, and when to reverse pipette.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "lab-measurement-outcome-2",
+        "lab-measurement-outcome-4"
+      ]
+    },
+    {
+      "id": "lab-measurement-3-objective-4",
+      "description": "Convert gravimetric readings of water to volume with the factor Z and judge a pipette against acceptance limits.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "lab-measurement-outcome-2",
+        "lab-measurement-outcome-4"
+      ]
+    },
+    {
+      "id": "lab-measurement-4-objective-1",
+      "description": "Distinguish readability from repeatability and compute a minimum weight.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "lab-measurement-outcome-2"
+      ]
+    },
+    {
+      "id": "lab-measurement-4-objective-2",
+      "description": "Describe the set-up and routine checks of an analytical balance and judge a check-weight reading.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "lab-measurement-outcome-2"
+      ]
+    },
+    {
+      "id": "lab-measurement-4-objective-3",
+      "description": "Weigh by difference and explain when it is preferable to taring a boat.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "lab-measurement-outcome-2"
+      ]
+    },
+    {
+      "id": "lab-measurement-4-objective-4",
+      "description": "Identify the effects of temperature, draughts, static and buoyancy on weighing, and correct a mass for buoyancy.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "lab-measurement-outcome-2"
+      ]
+    },
+    {
+      "id": "lab-measurement-5-objective-1",
+      "description": "Calibrate a pH meter, compute the electrode slope as a percentage of theoretical, and accept or reject the calibration.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "lab-measurement-outcome-3"
+      ]
+    },
+    {
+      "id": "lab-measurement-5-objective-2",
+      "description": "Convert an electrode reading in millivolts to pH from a calibration.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "lab-measurement-outcome-3"
+      ]
+    },
+    {
+      "id": "lab-measurement-5-objective-3",
+      "description": "Plan a buffer with the Henderson–Hasselbalch equation and explain why it must still be measured and adjusted.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "lab-measurement-outcome-3"
+      ]
+    },
+    {
+      "id": "lab-measurement-5-objective-4",
+      "description": "Account for temperature in pH measurement: electrode slope, automatic compensation and buffer pKa.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "lab-measurement-outcome-3"
+      ]
+    },
+    {
+      "id": "lab-measurement-6-objective-1",
+      "description": "Relate absorbance, transmittance, path length and concentration through the Beer–Lambert law.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "lab-measurement-outcome-3"
+      ]
+    },
+    {
+      "id": "lab-measurement-6-objective-2",
+      "description": "Choose the right blank and recognise readings outside the linear range.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "lab-measurement-outcome-3"
+      ]
+    },
+    {
+      "id": "lab-measurement-6-objective-3",
+      "description": "Fit a straight-line standard curve, check its residuals and interpolate an unknown.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "lab-measurement-outcome-3"
+      ]
+    },
+    {
+      "id": "lab-measurement-6-objective-4",
+      "description": "Handle unknowns above the top standard by dilution and back-calculate the original concentration.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "lab-measurement-outcome-3",
+        "lab-measurement-outcome-1"
+      ]
+    }
+  ],
+  "duration": {
+    "instructional_weeks": 6,
+    "equivalent_structure": "Proposed six-week short course of one reading, one practice set and, in weeks 2 and 3, one bench-practice simulation per week. It is a foundation module for later laboratory packages, not a full semester course, and the schedule has not been measured or reviewed.",
+    "weeks": [
+      {
+        "week": 1,
+        "title": "Concentration units and making solutions",
+        "lesson_ids": [
+          "lab-measurement-1"
+        ],
+        "assessment_ids": [
+          "lab-measurement-1-practice"
+        ]
+      },
+      {
+        "week": 2,
+        "title": "Dilutions and dilution series; bench practice: decimal dilutions and the aerobic plate count",
+        "lesson_ids": [
+          "lab-measurement-2"
+        ],
+        "assessment_ids": [
+          "lab-measurement-2-practice"
+        ]
+      },
+      {
+        "week": 3,
+        "title": "Measuring volume and checking pipettes; bench practice: gravimetric pipette verification",
+        "lesson_ids": [
+          "lab-measurement-3"
+        ],
+        "assessment_ids": [
+          "lab-measurement-3-practice"
+        ]
+      },
+      {
+        "week": 4,
+        "title": "Balances, minimum weight and weighing technique",
+        "lesson_ids": [
+          "lab-measurement-4"
+        ],
+        "assessment_ids": [
+          "lab-measurement-4-practice"
+        ]
+      },
+      {
+        "week": 5,
+        "title": "pH meter calibration and buffer preparation",
+        "lesson_ids": [
+          "lab-measurement-5"
+        ],
+        "assessment_ids": [
+          "lab-measurement-5-practice"
+        ]
+      },
+      {
+        "week": 6,
+        "title": "Spectrophotometry, blanks and standard curves; optional reagent and assay qualification project",
+        "lesson_ids": [
+          "lab-measurement-6",
+          "lab-measurement-project-guide"
+        ],
+        "assessment_ids": [
+          "lab-measurement-6-practice",
+          "lab-measurement-project-rehearsal-practice",
+          "lab-measurement-qualification-project"
+        ]
+      }
+    ]
+  },
+  "workload": {
+    "estimated_total_hours": null,
+    "estimated_hours_per_week": null,
+    "basis": "Not measured."
+  },
+  "modules": [
+    {
+      "id": "lab-measurement-module-1",
+      "title": "Concentration and solution preparation",
+      "source_ids": [
+        "lab-chemistry-mit-5310"
+      ],
+      "lessons": [
+        {
+          "id": "lab-measurement-1",
+          "title": "Concentration and solution preparation",
+          "reading": "modules/01-concentration-and-solution-preparation.md",
+          "objectives": [
+            "lab-measurement-1-objective-1",
+            "lab-measurement-1-objective-2",
+            "lab-measurement-1-objective-3",
+            "lab-measurement-1-objective-4"
+          ],
+          "worked_example": "For 200 mL of 25.0 mM MgSO₄ from MgSO₄·7H₂O (M = 246.47 g/mol, assay 99.5%), weigh 0.0250 × 0.200 × 246.47/0.995 = 1.24 g, dissolve in about 150 mL and make up to 200 mL.",
+          "question_ids": [
+            "lab-measurement-1:nacl-mass",
+            "lab-measurement-1:hydrate-mass",
+            "lab-measurement-1:hydrate-error",
+            "lab-measurement-1:purity",
+            "lab-measurement-1:conc-acid",
+            "lab-measurement-1:percent-to-molar",
+            "lab-measurement-1:small-mass",
+            "lab-measurement-1:make-to-volume",
+            "lab-measurement-1:ph-before-volume",
+            "lab-measurement-1:stock-reason",
+            "lab-measurement-1:unit-statements"
+          ],
+          "card_ids": [
+            "lab-measurement-1-card-1",
+            "lab-measurement-1-card-2",
+            "lab-measurement-1-card-3",
+            "lab-measurement-1-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lab-measurement-module-2",
+      "title": "Dilutions and dilution series",
+      "source_ids": [
+        "lab-chemistry-mit-5310",
+        "fda-bam-chapter-3-aerobic-plate-count"
+      ],
+      "lessons": [
+        {
+          "id": "lab-measurement-2",
+          "title": "Dilutions and dilution series",
+          "reading": "modules/02-dilutions-and-dilution-series.md",
+          "objectives": [
+            "lab-measurement-2-objective-1",
+            "lab-measurement-2-objective-2",
+            "lab-measurement-2-objective-3",
+            "lab-measurement-2-objective-4"
+          ],
+          "worked_example": "For a culture near 10⁸ CFU/mL and 0.1 mL spread plates, plate 10⁻⁴ to 10⁻⁶; 152 colonies from the 10⁻⁶ tube give 152/(0.1 × 10⁻⁶) = 1.52 × 10⁹ CFU/mL.",
+          "question_ids": [
+            "lab-measurement-2:c1v1",
+            "lab-measurement-2:serial-total",
+            "lab-measurement-2:fivefold",
+            "lab-measurement-2:back-calc",
+            "lab-measurement-2:systematic-compound",
+            "lab-measurement-2:random-compound",
+            "lab-measurement-2:parallel-volume",
+            "lab-measurement-2:ratio-ambiguity",
+            "lab-measurement-2:plate-choice",
+            "lab-measurement-2:series-statements"
+          ],
+          "card_ids": [
+            "lab-measurement-2-card-1",
+            "lab-measurement-2-card-2",
+            "lab-measurement-2-card-3",
+            "lab-measurement-2-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lab-measurement-module-3",
+      "title": "Measuring volume and checking pipettes",
+      "source_ids": [
+        "lab-chemistry-mit-5310",
+        "tanaka-2001-water-density"
+      ],
+      "lessons": [
+        {
+          "id": "lab-measurement-3",
+          "title": "Measuring volume and checking pipettes",
+          "reading": "modules/03-measuring-volume-and-checking-pipettes.md",
+          "objectives": [
+            "lab-measurement-3-objective-1",
+            "lab-measurement-3-objective-2",
+            "lab-measurement-3-objective-3",
+            "lab-measurement-3-objective-4"
+          ],
+          "worked_example": "A 1000 µL check at 25 °C with mean mass 992.8 mg and s = 2.10 mg gives V̄ = 996.8 µL, −0.32% systematic and 0.21% random error, passing limits of ±0.8% and 0.3%.",
+          "question_ids": [
+            "lab-measurement-3:z-20",
+            "lab-measurement-3:mean-volume",
+            "lab-measurement-3:systematic",
+            "lab-measurement-3:cv",
+            "lab-measurement-3:relative-low-end",
+            "lab-measurement-3:tc-td",
+            "lab-measurement-3:precise-inaccurate",
+            "lab-measurement-3:reverse",
+            "lab-measurement-3:technique-errors",
+            "lab-measurement-3:verdict"
+          ],
+          "card_ids": [
+            "lab-measurement-3-card-1",
+            "lab-measurement-3-card-2",
+            "lab-measurement-3-card-3",
+            "lab-measurement-3-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lab-measurement-module-4",
+      "title": "Balances and weighing",
+      "source_ids": [
+        "lab-chemistry-mit-5310",
+        "tanaka-2001-water-density"
+      ],
+      "lessons": [
+        {
+          "id": "lab-measurement-4",
+          "title": "Balances and weighing",
+          "reading": "modules/04-balances-and-weighing.md",
+          "objectives": [
+            "lab-measurement-4-objective-1",
+            "lab-measurement-4-objective-2",
+            "lab-measurement-4-objective-3",
+            "lab-measurement-4-objective-4"
+          ],
+          "worked_example": "With s = 0.12 mg and a 0.5% tolerance, the minimum weight is 2 × 0.12/0.005 = 48 mg, so 25 mg cannot be weighed to tolerance; weigh 50 mg into twice the volume.",
+          "question_ids": [
+            "lab-measurement-4:min-weight",
+            "lab-measurement-4:relative-uncertainty",
+            "lab-measurement-4:by-difference",
+            "lab-measurement-4:buoyancy",
+            "lab-measurement-4:readability",
+            "lab-measurement-4:check-weight",
+            "lab-measurement-4:warm-object",
+            "lab-measurement-4:difference-when",
+            "lab-measurement-4:setup-statements"
+          ],
+          "card_ids": [
+            "lab-measurement-4-card-1",
+            "lab-measurement-4-card-2",
+            "lab-measurement-4-card-3",
+            "lab-measurement-4-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lab-measurement-module-5",
+      "title": "pH measurement and buffer preparation",
+      "source_ids": [
+        "lab-chemistry-mit-5310"
+      ],
+      "lessons": [
+        {
+          "id": "lab-measurement-5",
+          "title": "pH measurement and buffer preparation",
+          "reading": "modules/05-ph-measurement-and-buffer-preparation.md",
+          "objectives": [
+            "lab-measurement-5-objective-1",
+            "lab-measurement-5-objective-2",
+            "lab-measurement-5-objective-3",
+            "lab-measurement-5-objective-4"
+          ],
+          "worked_example": "A calibration of −2.0 mV at pH 7.00 and −170.6 mV at pH 10.01 gives a slope of 56.01 mV per pH, 94.7% of theoretical, which fails a 95–105% limit.",
+          "question_ids": [
+            "lab-measurement-5:nernst-37",
+            "lab-measurement-5:slope-percent",
+            "lab-measurement-5:sample-ph",
+            "lab-measurement-5:hh-ratio",
+            "lab-measurement-5:hh-mass",
+            "lab-measurement-5:tris-temp",
+            "lab-measurement-5:calibration-verdict",
+            "lab-measurement-5:atc",
+            "lab-measurement-5:storage",
+            "lab-measurement-5:buffer-statements"
+          ],
+          "card_ids": [
+            "lab-measurement-5-card-1",
+            "lab-measurement-5-card-2",
+            "lab-measurement-5-card-3",
+            "lab-measurement-5-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lab-measurement-module-6",
+      "title": "Spectrophotometry and standard curves",
+      "source_ids": [
+        "lab-chemistry-mit-5310"
+      ],
+      "lessons": [
+        {
+          "id": "lab-measurement-6",
+          "title": "Spectrophotometry and standard curves",
+          "reading": "modules/06-spectrophotometry-and-standard-curves.md",
+          "objectives": [
+            "lab-measurement-6-objective-1",
+            "lab-measurement-6-objective-2",
+            "lab-measurement-6-objective-3",
+            "lab-measurement-6-objective-4"
+          ],
+          "worked_example": "Triplicate readings averaging 0.287 on a standard curve with slope 0.6404 per mg/mL and intercept 0.00005 interpolate to 0.448 mg/mL, inside the range of the standards; undoing the 1:10 dilution gives 4.48 mg/mL in the undiluted sample.",
+          "question_ids": [
+            "lab-measurement-6:transmittance",
+            "lab-measurement-6:beer-lambert",
+            "lab-measurement-6:path-length",
+            "lab-measurement-6:interpolate",
+            "lab-measurement-6:dilution-back",
+            "lab-measurement-6:blank",
+            "lab-measurement-6:above-range",
+            "lab-measurement-6:residuals",
+            "lab-measurement-6:new-curve",
+            "lab-measurement-6:spectro-statements"
+          ],
+          "card_ids": [
+            "lab-measurement-6-card-1",
+            "lab-measurement-6-card-2",
+            "lab-measurement-6-card-3",
+            "lab-measurement-6-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lab-measurement-module-project",
+      "title": "Reagent and assay qualification project guide (optional, ungraded)",
+      "source_ids": [
+        "lab-chemistry-mit-5310"
+      ],
+      "lessons": [
+        {
+          "id": "lab-measurement-project-guide",
+          "title": "Project guide: qualifying a buffer and a protein assay (optional, ungraded)",
+          "reading": "assignments/reagent-and-assay-qualification-project-guide.md",
+          "objectives": [
+            "lab-measurement-1-objective-2",
+            "lab-measurement-3-objective-4",
+            "lab-measurement-5-objective-1",
+            "lab-measurement-6-objective-3",
+            "lab-measurement-6-objective-4"
+          ],
+          "worked_example": "For 250 mL of 20.0 mM HEPES weigh 0.0200 × 0.250 × 238.30/0.995 = 1.20 g; a 100 µL pipette averaging 99.12 mg at 23.0 °C delivers 99.47 µL (−0.53%); a 93.9% electrode slope fails calibration; and a 1:4 dilution reading 0.215 gives 1.39 mg/mL.",
+          "question_ids": [
+            "lab-measurement-project:rehearsal-mass",
+            "lab-measurement-project:rehearsal-pipette",
+            "lab-measurement-project:rehearsal-slope",
+            "lab-measurement-project:rehearsal-dilution"
+          ],
+          "card_ids": [
+            "lab-measurement-project-1",
+            "lab-measurement-project-2"
+          ]
+        }
+      ]
+    }
+  ],
+  "assessments": [
+    {
+      "id": "lab-measurement-1-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Practice: concentration and solution preparation",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "lab-measurement-1-objective-1",
+        "lab-measurement-1-objective-2",
+        "lab-measurement-1-objective-3",
+        "lab-measurement-1-objective-4",
+        "lab-measurement-outcome-1"
+      ],
+      "question_ids": [
+        "lab-measurement-1:nacl-mass",
+        "lab-measurement-1:hydrate-mass",
+        "lab-measurement-1:hydrate-error",
+        "lab-measurement-1:purity",
+        "lab-measurement-1:conc-acid",
+        "lab-measurement-1:percent-to-molar",
+        "lab-measurement-1:small-mass",
+        "lab-measurement-1:make-to-volume",
+        "lab-measurement-1:ph-before-volume",
+        "lab-measurement-1:stock-reason",
+        "lab-measurement-1:unit-statements"
+      ],
+      "points": 12
+    },
+    {
+      "id": "lab-measurement-2-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Practice: dilutions and dilution series",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "lab-measurement-2-objective-1",
+        "lab-measurement-2-objective-2",
+        "lab-measurement-2-objective-3",
+        "lab-measurement-2-objective-4",
+        "lab-measurement-outcome-1",
+        "lab-measurement-outcome-2",
+        "lab-measurement-outcome-4"
+      ],
+      "question_ids": [
+        "lab-measurement-2:c1v1",
+        "lab-measurement-2:serial-total",
+        "lab-measurement-2:fivefold",
+        "lab-measurement-2:back-calc",
+        "lab-measurement-2:systematic-compound",
+        "lab-measurement-2:random-compound",
+        "lab-measurement-2:parallel-volume",
+        "lab-measurement-2:ratio-ambiguity",
+        "lab-measurement-2:plate-choice",
+        "lab-measurement-2:series-statements"
+      ],
+      "points": 11
+    },
+    {
+      "id": "lab-measurement-3-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Practice: measuring volume and checking pipettes",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "lab-measurement-3-objective-1",
+        "lab-measurement-3-objective-2",
+        "lab-measurement-3-objective-3",
+        "lab-measurement-3-objective-4",
+        "lab-measurement-outcome-2",
+        "lab-measurement-outcome-4"
+      ],
+      "question_ids": [
+        "lab-measurement-3:z-20",
+        "lab-measurement-3:mean-volume",
+        "lab-measurement-3:systematic",
+        "lab-measurement-3:cv",
+        "lab-measurement-3:relative-low-end",
+        "lab-measurement-3:tc-td",
+        "lab-measurement-3:precise-inaccurate",
+        "lab-measurement-3:reverse",
+        "lab-measurement-3:technique-errors",
+        "lab-measurement-3:verdict"
+      ],
+      "points": 11
+    },
+    {
+      "id": "lab-measurement-4-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Practice: balances and weighing",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "lab-measurement-4-objective-1",
+        "lab-measurement-4-objective-2",
+        "lab-measurement-4-objective-3",
+        "lab-measurement-4-objective-4",
+        "lab-measurement-outcome-2"
+      ],
+      "question_ids": [
+        "lab-measurement-4:min-weight",
+        "lab-measurement-4:relative-uncertainty",
+        "lab-measurement-4:by-difference",
+        "lab-measurement-4:buoyancy",
+        "lab-measurement-4:readability",
+        "lab-measurement-4:check-weight",
+        "lab-measurement-4:warm-object",
+        "lab-measurement-4:difference-when",
+        "lab-measurement-4:setup-statements"
+      ],
+      "points": 11
+    },
+    {
+      "id": "lab-measurement-5-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Practice: ph measurement and buffer preparation",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "lab-measurement-5-objective-1",
+        "lab-measurement-5-objective-2",
+        "lab-measurement-5-objective-3",
+        "lab-measurement-5-objective-4",
+        "lab-measurement-outcome-3"
+      ],
+      "question_ids": [
+        "lab-measurement-5:nernst-37",
+        "lab-measurement-5:slope-percent",
+        "lab-measurement-5:sample-ph",
+        "lab-measurement-5:hh-ratio",
+        "lab-measurement-5:hh-mass",
+        "lab-measurement-5:tris-temp",
+        "lab-measurement-5:calibration-verdict",
+        "lab-measurement-5:atc",
+        "lab-measurement-5:storage",
+        "lab-measurement-5:buffer-statements"
+      ],
+      "points": 11
+    },
+    {
+      "id": "lab-measurement-6-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Practice: spectrophotometry and standard curves",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "lab-measurement-6-objective-1",
+        "lab-measurement-6-objective-2",
+        "lab-measurement-6-objective-3",
+        "lab-measurement-6-objective-4",
+        "lab-measurement-outcome-1",
+        "lab-measurement-outcome-3"
+      ],
+      "question_ids": [
+        "lab-measurement-6:transmittance",
+        "lab-measurement-6:beer-lambert",
+        "lab-measurement-6:path-length",
+        "lab-measurement-6:interpolate",
+        "lab-measurement-6:dilution-back",
+        "lab-measurement-6:blank",
+        "lab-measurement-6:above-range",
+        "lab-measurement-6:residuals",
+        "lab-measurement-6:new-curve",
+        "lab-measurement-6:spectro-statements"
+      ],
+      "points": 11
+    },
+    {
+      "id": "lab-measurement-project-rehearsal-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Qualification project rehearsal: mass, pipette error, electrode slope and dilution (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "lab-measurement-1-objective-2",
+        "lab-measurement-3-objective-4",
+        "lab-measurement-5-objective-1",
+        "lab-measurement-6-objective-3",
+        "lab-measurement-6-objective-4",
+        "lab-measurement-outcome-1",
+        "lab-measurement-outcome-2",
+        "lab-measurement-outcome-3",
+        "lab-measurement-outcome-4"
+      ],
+      "question_ids": [
+        "lab-measurement-project:rehearsal-mass",
+        "lab-measurement-project:rehearsal-pipette",
+        "lab-measurement-project:rehearsal-slope",
+        "lab-measurement-project:rehearsal-dilution"
+      ],
+      "points": 4
+    },
+    {
+      "id": "lab-measurement-qualification-project",
+      "type": "project",
+      "mode": "self-assessment",
+      "title": "Qualification project milestones M1–M5 in the Case studio (optional self-check; ungraded)",
+      "path": "rubrics/case-studio.json",
+      "objective_ids": [],
+      "question_ids": [],
+      "points": 0
+    }
+  ],
+  "grading_policy": {
+    "mode": "formative-only",
+    "categories": [],
+    "attempt_policy": "Unlimited formative retries; no summative grade is awarded.",
+    "solution_release": "Public practice solutions may be shown after an attempt. They are not production exam keys.",
+    "late_policy": "No deadlines or late penalties exist in this partial package.",
+    "appeals": "No instructor review workflow is implemented; report ambiguous practice items as content issues."
+  },
+  "retrieval_cards": "question-banks/retrieval-cards.json",
+  "case_rubrics": "rubrics/case-studio.json",
+  "source_map": "source-map.json",
+  "syllabus": "syllabus.md",
+  "review": {
+    "status": "unreviewed",
+    "reviewed_version": null,
+    "reviewers": []
+  },
+  "accessibility": {
+    "language": "en",
+    "reading_format": "markdown",
+    "math_format": "unicode-text",
+    "diagram_policy": "The package contains no diagrams; any added diagram requires a text description and license tracking.",
+    "known_issues": [
+      "Unicode equations require structured mathematical alternatives and assistive-technology review."
+    ],
+    "review_status": "unreviewed"
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "date": "2026-10-30",
+      "summary": "New package, layer 0 of the wet-lab practice track: six original readings (concentration and solution preparation, dilution series, volume measurement and pipette checks, balances, pH measurement and buffers, spectrophotometry and standard curves) with 60 practice items, 24 retrieval cards one self-check case, and an optional reagent and assay qualification project (guide, four rehearsal items, two cards and five Case studio milestones), linked to the gravimetric pipette and plate-count bench simulations. Compared by topic with the MIT OCW 5.310 Fall 2019 syllabus and calendar. Partial, unreviewed and formative-only."
+    }
+  ],
+  "limitations": [
+    "A six-week foundation module, not a semester course; the schedule is proposed, not measured, and has not been reviewed by a laboratory instructor.",
+    "Practice items are short formative checks of about ten per lesson. They test calculations and decisions, not hand skill, which only bench work under supervision can train.",
+    "Of the 38 numerical answers, 0 require units, 35 check significant figures and 0 check dimensions.",
+    "Acceptance limits for pipettes, balances and pH electrodes are examples or practice values; real limits come from each laboratory's SOPs, manufacturers and standards such as ISO 8655, which were not read.",
+    "All data are synthetic. Buffer pKa values, the Tris temperature coefficient and the NADH extinction coefficient are rounded standard values used for illustration."
+  ],
+  "intentionally_omitted": [
+    "Graded assessments, measured workload and review by a qualified person; the qualification project is an optional, ungraded self-check.",
+    "Biosafety, aseptic technique and cell culture, which belong to later layers of the wet-lab track (the biological safety cabinet simulation is already available on the bench practice page).",
+    "Titration, chromatography and instrumental spectroscopy beyond UV–visible absorbance, which the MIT 5.310 comparator teaches; see the scope crosswalk.",
+    "Formal measurement-uncertainty budgets, weighted and non-linear calibration fits, and ISO 8655 and pharmacopoeial balance requirements."
+  ],
+  "learner_resources": []
+}

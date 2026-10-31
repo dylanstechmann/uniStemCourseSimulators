@@ -1,0 +1,2126 @@
+{
+  "schema_version": "1.0",
+  "course_id": "lab-measurement",
+  "license": "CC-BY-4.0",
+  "questions": [
+    {
+      "id": "lab-measurement-1:nacl-mass",
+      "type": "numeric",
+      "prompt": "How many grams of NaCl (M = 58.44 g/mol) are needed for 250 mL of 0.200 M solution? Give grams. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-1-objective-2"
+      ],
+      "feedback": {
+        "hint": "m = C × V × M, with V in litres.",
+        "solution": "m = 0.200 × 0.250 × 58.44 = 2.92 g.",
+        "lesson_ids": [
+          "lab-measurement-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 2.92,
+        "unit": "",
+        "tolerance": 0.0007334708380007972,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-1:hydrate-mass",
+      "type": "numeric",
+      "prompt": "You need 500 mL of 0.0500 M CuSO₄ and the bottle holds CuSO₄·5H₂O (M = 249.69 g/mol). How many grams do you weigh? Give grams. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-1-objective-2"
+      ],
+      "feedback": {
+        "hint": "Use the molar mass of the material in the bottle, including its water of hydration.",
+        "solution": "m = 0.0500 × 0.500 × 249.69 = 6.24 g.",
+        "lesson_ids": [
+          "lab-measurement-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 6.24,
+        "unit": "",
+        "tolerance": 0.0015674171332619776,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-1:hydrate-error",
+      "type": "numeric",
+      "prompt": "Someone makes 500 mL of what they believe is 0.0500 M CuSO₄ by weighing the anhydrous mass, 0.0500 × 0.500 × 159.61 = 3.99 g, of CuSO₄·5H₂O (M = 249.69 g/mol). What is the actual concentration? Give mol/L. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-1-objective-2"
+      ],
+      "feedback": {
+        "hint": "Only 159.61/249.69 of each gram of the pentahydrate is CuSO₄.",
+        "solution": "Actual moles = 3.99 g/249.69 g/mol in 0.500 L, which is 0.0500 × 159.61/249.69 = 0.0320 M, about 36% low.",
+        "lesson_ids": [
+          "lab-measurement-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.032,
+        "unit": "",
+        "tolerance": 8.038036580830655e-06,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-1:purity",
+      "type": "numeric",
+      "prompt": "How many grams of HEPES (M = 238.30 g/mol) with an assay of 99.0% do you weigh for 500 mL of 0.0250 M? Give grams. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-1-objective-2"
+      ],
+      "feedback": {
+        "hint": "Divide the pure mass by the assay fraction.",
+        "solution": "0.0250 × 0.500 × 238.30 = 2.979 g of pure HEPES; 2.979/0.990 = 3.01 g of the reagent.",
+        "lesson_ids": [
+          "lab-measurement-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 3.01,
+        "unit": "",
+        "tolerance": 0.0007560778158843833,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-1:conc-acid",
+      "type": "numeric",
+      "prompt": "Concentrated sulfuric acid is 96.0% w/w H₂SO₄ (M = 98.08 g/mol) with a density of 1.84 g/mL. What is its molarity? Give mol/L. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-1-objective-3"
+      ],
+      "feedback": {
+        "hint": "One litre of the reagent has a mass of 1000 mL × density; the stated fraction of that mass is H₂SO₄.",
+        "solution": "C = 1000 × 1.84 × 0.960/98.08 = 18.0 mol/L.",
+        "lesson_ids": [
+          "lab-measurement-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 18.0,
+        "unit": "",
+        "tolerance": 0.0045213955767172435,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-1:percent-to-molar",
+      "type": "numeric",
+      "prompt": "A glucose solution is 5.00% w/v (glucose M = 180.16 g/mol). What is its molarity in mM? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-1-objective-1"
+      ],
+      "feedback": {
+        "hint": "5.00% w/v is 5.00 g per 100 mL, so 50.0 g per litre.",
+        "solution": "50.0 g/L ÷ 180.16 g/mol = 0.2775 mol/L = 278 mM.",
+        "lesson_ids": [
+          "lab-measurement-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 278.0,
+        "unit": "",
+        "tolerance": 0.06983044279596631,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-1:small-mass",
+      "type": "numeric",
+      "prompt": "How many milligrams of a compound with M = 350 g/mol are in 20.0 mL of a 25.0 µM solution? Give mg. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-1-objective-4"
+      ],
+      "feedback": {
+        "hint": "Convert µM to mol/L and mL to L, then multiply by M and by 1000 mg/g.",
+        "solution": "25.0 × 10⁻⁶ × 0.0200 × 350 = 1.75 × 10⁻⁴ g = 0.175 mg, which is too little to weigh accurately; make a stock instead.",
+        "lesson_ids": [
+          "lab-measurement-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.175,
+        "unit": "",
+        "tolerance": 4.395801255141764e-05,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-1:make-to-volume",
+      "type": "single_choice",
+      "prompt": "Which procedure makes 250 mL of 0.200 M NaCl correctly?",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-1-objective-4"
+      ],
+      "feedback": {
+        "hint": "Concentration is defined by the final volume of solution.",
+        "solution": "Dissolve in less than the final volume, transfer quantitatively and then make up to the mark. Adding the solid to 250 mL of solvent gives a final volume that is not exactly 250 mL.",
+        "lesson_ids": [
+          "lab-measurement-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Dissolve 2.92 g in about 200 mL of water, transfer to a 250 mL volumetric flask with rinses, make up to the mark and invert to mix.",
+        "Add 2.92 g to 250 mL of water measured in a graduated cylinder and stir.",
+        "Dissolve 2.92 g in 250 mL of water in a volumetric flask filled to the mark first.",
+        "Dissolve 2.92 g in 225 mL of water, then add 25 mL more without checking the volume."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-measurement-1:ph-before-volume",
+      "type": "single_choice",
+      "prompt": "A recipe says to adjust a buffer to pH 7.4. When should the pH be adjusted?",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-1-objective-4"
+      ],
+      "feedback": {
+        "hint": "Acid or base added later changes both the volume and the concentration.",
+        "solution": "Adjust pH at about 80% of the final volume, then bring to volume; adjusting afterwards dilutes the solution by the volume of titrant added.",
+        "lesson_ids": [
+          "lab-measurement-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Before making up to the final volume, so the acid or base added becomes part of that volume.",
+        "After making up to the final volume, then the solution is ready.",
+        "Before weighing any components.",
+        "Only after the buffer has been sterilized."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-measurement-1:stock-reason",
+      "type": "single_choice",
+      "prompt": "Why make a 10 mM stock of a drug and dilute it, instead of weighing the amount needed for 10 mL of a 50 µM working solution?",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-1-objective-4"
+      ],
+      "feedback": {
+        "hint": "Compare the mass needed with the balance's minimum weight.",
+        "solution": "For M = 400 g/mol the working amount is 0.200 mg, far below a typical analytical balance's minimum weight; weighing 4.00 mg for a 10 mM stock is practical.",
+        "lesson_ids": [
+          "lab-measurement-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "The working amount is a fraction of a milligram, below the minimum weight a typical analytical balance can deliver accurately.",
+        "Stocks are always more stable than any working solution.",
+        "Weighing small masses is forbidden by safety rules.",
+        "A stock avoids having to know the molar mass."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-measurement-1:unit-statements",
+      "type": "multiple_select",
+      "prompt": "Which statements about concentration units are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "lab-measurement-1-objective-1"
+      ],
+      "feedback": {
+        "hint": "Each percentage unit is defined relative to a particular total: final volume or total mass.",
+        "solution": "% w/v and % v/v are per 100 mL of final solution (70 mL ethanol made up to 100 mL, not added to 100 mL); % w/w is per 100 g of solution; 1 ppm ≈ 1 mg/L in dilute water; 0.9% w/v NaCl is 154 mM, not 0.9 M.",
+        "lesson_ids": [
+          "lab-measurement-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "2% w/v agarose contains 2 g of agarose per 100 mL of final solution.",
+        "70% v/v ethanol is made by adding 70 mL of ethanol to 100 mL of water.",
+        "Concentrated HCl labelled 37% w/w contains 37 g of HCl per 100 g of solution.",
+        "In dilute aqueous solution, 1 ppm is approximately 1 mg/L.",
+        "0.9% w/v NaCl is about 0.9 M."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "lab-measurement-2:c1v1",
+      "type": "numeric",
+      "prompt": "How many microlitres of a 1.00 M stock are needed to make 50.0 mL of 15.0 mM working solution? Give µL. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-2-objective-1"
+      ],
+      "feedback": {
+        "hint": "C₁V₁ = C₂V₂; keep the concentration units the same on both sides.",
+        "solution": "V₁ = 0.0150 M × 50.0 mL/1.00 M = 0.750 mL = 750 µL.",
+        "lesson_ids": [
+          "lab-measurement-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 750,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-2:serial-total",
+      "type": "numeric",
+      "prompt": "A series is made by moving 50 µL into 450 µL, four times in succession. By what overall factor has the original been diluted in the last tube? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-2-objective-2"
+      ],
+      "feedback": {
+        "hint": "Each step is 50 µL in a total of 500 µL.",
+        "solution": "Each step is a tenfold dilution (50 µL in 500 µL total), so four steps dilute 10 × 10 × 10 × 10 = 10,000-fold.",
+        "lesson_ids": [
+          "lab-measurement-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 10000,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-2:fivefold",
+      "type": "numeric",
+      "prompt": "A fivefold serial series uses 200 µL into 800 µL. After three steps, what is the concentration if the stock is 2.00 mg/mL? Give mg/mL. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-2-objective-2"
+      ],
+      "feedback": {
+        "hint": "Each step divides the concentration by 1000/200 = 5.",
+        "solution": "2.00/5³ = 2.00/125 = 0.0160 mg/mL.",
+        "lesson_ids": [
+          "lab-measurement-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.016,
+        "unit": "",
+        "tolerance": 4.019018290415327e-06,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-2:back-calc",
+      "type": "numeric",
+      "prompt": "Spread plates of 0.100 mL from the 10⁻⁶ tube of a tenfold series show 83 colonies. What is the concentration in the original culture, in units of 10⁸ CFU/mL? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-2-objective-3"
+      ],
+      "feedback": {
+        "hint": "Divide the count by the volume plated and by the dilution of the tube.",
+        "solution": "83/(0.100 mL × 10⁻⁶) = 8.30 × 10⁸ CFU/mL, so the answer is 8.30.",
+        "lesson_ids": [
+          "lab-measurement-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 8.3,
+        "unit": "",
+        "tolerance": 0.002084865738152951,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-2:systematic-compound",
+      "type": "numeric",
+      "prompt": "Each step of a six-step serial series is 1.5% too concentrated because the pipette over-delivers. By what percentage is the final tube too concentrated? Give %. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-2-objective-4"
+      ],
+      "feedback": {
+        "hint": "Systematic errors multiply from step to step.",
+        "solution": "(1.015⁶ − 1) × 100 = 9.34%.",
+        "lesson_ids": [
+          "lab-measurement-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 9.34,
+        "unit": "",
+        "tolerance": 0.0023461019270299473,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-2:random-compound",
+      "type": "numeric",
+      "prompt": "Each step of a nine-step serial series has an independent random relative error of 0.80%. Approximately what is the relative random error of the final tube? Give %. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-2-objective-4"
+      ],
+      "feedback": {
+        "hint": "Independent random errors add in quadrature: e√n.",
+        "solution": "0.80 × √9 = 2.40%.",
+        "lesson_ids": [
+          "lab-measurement-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 2.4,
+        "unit": "",
+        "tolerance": 0.000602852743562299,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-2:parallel-volume",
+      "type": "numeric",
+      "prompt": "For a parallel series of standards each made up to 250 µL from a 2.00 mg/mL stock, how much stock is needed for the 0.160 mg/mL standard? Give µL. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-2-objective-4"
+      ],
+      "feedback": {
+        "hint": "Each standard comes directly from the stock: V_stock = C × V/C_stock.",
+        "solution": "0.160 × 250/2.00 = 20.0 µL of stock, made up to 250 µL.",
+        "lesson_ids": [
+          "lab-measurement-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 20.0,
+        "unit": "",
+        "tolerance": 0.005023772863019159,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-2:ratio-ambiguity",
+      "type": "single_choice",
+      "prompt": "A protocol says only 'dilute the antibody 1:4'. What is the best response?",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-2-objective-1"
+      ],
+      "feedback": {
+        "hint": "The ratio notation is used both ways in different laboratories.",
+        "solution": "1:4 can mean a fourfold or a fivefold dilution depending on convention. Clarify it and write volumes (for example 100 µL into 300 µL) in your own records.",
+        "lesson_ids": [
+          "lab-measurement-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Ask, or check the source, whether it means one part in four total or one part plus four parts diluent, and record the volumes used.",
+        "Use one part plus four parts diluent, because that is universal.",
+        "Use one part in four total, because that is universal.",
+        "Assume the difference does not matter."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-measurement-2:plate-choice",
+      "type": "single_choice",
+      "prompt": "A culture is expected to hold about 10⁷ CFU/mL and you want 30–300 colonies on 0.1 mL spread plates. Which tenfold dilutions should you plate?",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-2-objective-2",
+        "lab-measurement-2-objective-3"
+      ],
+      "feedback": {
+        "hint": "Countable plates need 300–3000 CFU/mL in the plated tube; bracket the estimate.",
+        "solution": "10⁷/3000 to 10⁷/300 is about 10⁻³·⁵ to 10⁻⁴·⁵, so plate 10⁻⁴ with its neighbours 10⁻³ and 10⁻⁵ in case the estimate is off by tenfold.",
+        "lesson_ids": [
+          "lab-measurement-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "10⁻³, 10⁻⁴ and 10⁻⁵, centred on the dilution expected to give countable plates.",
+        "Only 10⁻⁷, so that the count is low.",
+        "Only the undiluted culture.",
+        "10⁻¹ and 10⁻² only."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-measurement-2:series-statements",
+      "type": "multiple_select",
+      "prompt": "Which statements about dilution series are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "lab-measurement-2-objective-4"
+      ],
+      "feedback": {
+        "hint": "Separate systematic from random errors, and think about what carries over.",
+        "solution": "Serial errors accumulate; parallel series need impractically small volumes for large dilutions; carry-over inflates weaker tubes. Standing does not mix (cells settle), and averaging does not remove a systematic error.",
+        "lesson_ids": [
+          "lab-measurement-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Errors accumulate along a serial series because each tube is made from the previous one.",
+        "A parallel series is impractical for very large dilutions because the stock volumes become tiny.",
+        "Reusing a tip from a stronger tube makes weaker tubes too concentrated.",
+        "Mixing tubes before sampling is unnecessary if they stand for a few minutes.",
+        "Averaging duplicate plates removes the effect of an over-delivering pipette."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "lab-measurement-3:z-20",
+      "type": "numeric",
+      "prompt": "What is the factor Z at 20.0 °C, in µL/mg, using ρ_water = 0.998207 g/mL, ρ_air = 0.0012 g/mL and ρ_weights = 8.0 g/mL? Keep full precision in intermediate calculations. Enter the number only, to five significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-3-objective-4"
+      ],
+      "feedback": {
+        "hint": "Z = (1/(ρ_water − ρ_air)) × (1 − ρ_air/ρ_weights).",
+        "solution": "Z = (1/(0.998207 − 0.0012)) × (1 − 0.0012/8.0) = 1.0029 µL/mg; converting milligrams with Z instead of treating them as microlitres changes the result by about 0.29%.",
+        "lesson_ids": [
+          "lab-measurement-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1.0029,
+        "unit": "",
+        "tolerance": 2.5191709021609596e-06,
+        "unit_required": false,
+        "significant_figures": 5,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-3:mean-volume",
+      "type": "numeric",
+      "prompt": "Ten deliveries from a 500 µL setting have a mean mass of 497.6 mg at 22.0 °C, where Z = 1.0033 µL/mg. What is the mean delivered volume? Give µL. Keep full precision in intermediate calculations. Enter the number only, to four significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-3-objective-4"
+      ],
+      "feedback": {
+        "hint": "V = m × Z.",
+        "solution": "V̄ = 497.6 × 1.0033 = 499.2 µL.",
+        "lesson_ids": [
+          "lab-measurement-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 499.2,
+        "unit": "",
+        "tolerance": 0.012539337066095835,
+        "unit_required": false,
+        "significant_figures": 4,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-3:systematic",
+      "type": "numeric",
+      "prompt": "A 500 µL pipette delivers a mean of 499.2 µL. What is the systematic error? Give % (negative if low). Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-3-objective-2"
+      ],
+      "feedback": {
+        "hint": "(V̄ − V₀)/V₀ × 100.",
+        "solution": "(499.2 − 500)/500 × 100 = −0.160%.",
+        "lesson_ids": [
+          "lab-measurement-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": -0.16,
+        "unit": "",
+        "tolerance": 4.0190182904153276e-05,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-3:cv",
+      "type": "numeric",
+      "prompt": "The same check has a sample standard deviation of 0.95 µL around the mean of 499.2 µL. What is the random error as a coefficient of variation? Give %. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-3-objective-2"
+      ],
+      "feedback": {
+        "hint": "CV = s/V̄ × 100.",
+        "solution": "0.95/499.2 × 100 = 0.190%.",
+        "lesson_ids": [
+          "lab-measurement-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.19,
+        "unit": "",
+        "tolerance": 4.772584219868201e-05,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-3:relative-low-end",
+      "type": "numeric",
+      "prompt": "An absolute delivery error of 0.30 µL is what percentage of a 5.0 µL delivery? Give %. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-3-objective-3"
+      ],
+      "feedback": {
+        "hint": "Relative error = absolute error/volume × 100.",
+        "solution": "0.30/5.0 × 100 = 6.00%, against 0.30% of a 100 µL delivery; choose the smallest pipette whose range covers the volume.",
+        "lesson_ids": [
+          "lab-measurement-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 6.0,
+        "unit": "",
+        "tolerance": 0.0015071318589057478,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-3:tc-td",
+      "type": "single_choice",
+      "prompt": "A 100 mL volumetric flask is marked TC. What does that mean for its use?",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-3-objective-1"
+      ],
+      "feedback": {
+        "hint": "TC means 'to contain'.",
+        "solution": "A TC flask holds the stated volume; pouring leaves a film on the glass, so the delivered volume is slightly less.",
+        "lesson_ids": [
+          "lab-measurement-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "It contains 100 mL when filled to the mark, so it is for making solutions up to volume, not for delivering 100 mL.",
+        "It delivers exactly 100 mL when poured out.",
+        "It is calibrated at 100 °C.",
+        "It can be used at any temperature without error."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-measurement-3:precise-inaccurate",
+      "type": "single_choice",
+      "prompt": "Ten readings from a pipette set to 200 µL cluster tightly around 196 µL. What does this pattern indicate?",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-3-objective-2"
+      ],
+      "feedback": {
+        "hint": "Separate the scatter from the offset of the mean.",
+        "solution": "Tight clustering means small random error; the 2% offset of the mean is systematic. The pipette needs adjustment or service and a re-check.",
+        "lesson_ids": [
+          "lab-measurement-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "High precision with a systematic error, typical of a calibration offset; more replicates will not fix it.",
+        "Low precision; more replicates will fix it.",
+        "The pipette is accurate because the readings agree with each other.",
+        "The balance must be faulty because the readings are consistent."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-measurement-3:reverse",
+      "type": "single_choice",
+      "prompt": "When is reverse pipetting preferable to forward pipetting?",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-3-objective-3"
+      ],
+      "feedback": {
+        "hint": "Reverse pipetting leaves the excess in the tip and avoids blowing out.",
+        "solution": "Drawing to the second stop and dispensing to the first gives more consistent delivery of liquids that cling, foam or evaporate.",
+        "lesson_ids": [
+          "lab-measurement-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "For viscous, foaming or volatile liquids, such as glycerol or detergent solutions.",
+        "For every aqueous buffer, because it is always more accurate.",
+        "Only when the pipette has failed its check.",
+        "Never; it always over-delivers."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-measurement-3:technique-errors",
+      "type": "multiple_select",
+      "prompt": "Which lapses make an air-displacement pipette deliver a different volume from its setting? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "lab-measurement-3-objective-3"
+      ],
+      "feedback": {
+        "hint": "Think about the air cushion and liquid left on or in the tip.",
+        "solution": "A dry tip delivers low on its first fill, deep immersion delivers liquid clinging to the outside, and tilting changes the volume drawn. Equilibrated liquid and touch-off are correct practice.",
+        "lesson_ids": [
+          "lab-measurement-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Not pre-wetting a new tip before the first delivery.",
+        "Immersing the tip much deeper than a few millimetres.",
+        "Aspirating with the pipette held at a steep angle.",
+        "Using liquid at the same temperature as the room and the pipette.",
+        "Ending each dispense with a touch-off against the wall."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "lab-measurement-3:verdict",
+      "type": "single_choice",
+      "prompt": "A 1000 µL pipette check gives −0.45% systematic error and 0.36% random error against limits of ±0.8% and 0.3%. What is the verdict?",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-3-objective-4"
+      ],
+      "feedback": {
+        "hint": "Both limits must be met.",
+        "solution": "A pipette must meet both limits; 0.36% random error exceeds 0.3%, often a sign of a worn seal or poor technique.",
+        "lesson_ids": [
+          "lab-measurement-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Fail: the random error exceeds its limit, so the pipette is taken out of use for service and re-checked.",
+        "Pass: the systematic error is within its limit.",
+        "Pass: the two errors average to within the limits.",
+        "Fail only if the systematic error also exceeds its limit."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-measurement-4:min-weight",
+      "type": "numeric",
+      "prompt": "A balance has a repeatability of s = 0.050 mg. With a coverage factor of 2, what is the minimum weight for a tolerance of 0.10%? Give mg. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-4-objective-1"
+      ],
+      "feedback": {
+        "hint": "m_min = 2s/tolerance, with the tolerance as a fraction.",
+        "solution": "m_min = 2 × 0.050/0.0010 = 100 mg.",
+        "lesson_ids": [
+          "lab-measurement-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 100,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-4:relative-uncertainty",
+      "type": "numeric",
+      "prompt": "On a balance with s = 0.10 mg, what is the relative uncertainty (2s/m) of weighing 5.0 mg? Give %. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-4-objective-1"
+      ],
+      "feedback": {
+        "hint": "2s/m × 100.",
+        "solution": "2 × 0.10/5.0 × 100 = 4.00%.",
+        "lesson_ids": [
+          "lab-measurement-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 4.0,
+        "unit": "",
+        "tolerance": 0.0010047545726038318,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-4:by-difference",
+      "type": "numeric",
+      "prompt": "A capped vial weighs 15.2318 g with sample and 14.9874 g after some solid is tipped out. How many milligrams were transferred? Give mg. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-4-objective-2"
+      ],
+      "feedback": {
+        "hint": "The mass transferred is what left the vial.",
+        "solution": "15.2318 − 14.9874 = 0.2444 g = 244 mg.",
+        "lesson_ids": [
+          "lab-measurement-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 244.0,
+        "unit": "",
+        "tolerance": 0.06129002892883374,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-4:buoyancy",
+      "type": "numeric",
+      "prompt": "A water sample reads 2.0000 g on a balance calibrated with 8.0 g/cm³ weights, in air of 0.0012 g/cm³. Using ρ_water = 0.998 g/cm³, what is the true mass? Give g. Keep full precision in intermediate calculations. Enter the number only, to five significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-4-objective-4"
+      ],
+      "feedback": {
+        "hint": "m_true = m_reading × (1 − ρ_air/ρ_weights)/(1 − ρ_air/ρ_sample).",
+        "solution": "2.0000 × (1 − 0.00015)/(1 − 0.001202) = 2.0021 g, about 0.105% more than the reading.",
+        "lesson_ids": [
+          "lab-measurement-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 2.0021,
+        "unit": "",
+        "tolerance": 5.029047824525334e-06,
+        "unit_required": false,
+        "significant_figures": 5,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-4:readability",
+      "type": "single_choice",
+      "prompt": "A balance displays 0.1 mg steps. What can you conclude about the uncertainty of a 10 mg weighing?",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-4-objective-1"
+      ],
+      "feedback": {
+        "hint": "Readability is a property of the display, not of the measurement.",
+        "solution": "Repeatability, not readability, sets the uncertainty, and it depends on the room, draughts and the load.",
+        "lesson_ids": [
+          "lab-measurement-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Nothing definite from the display; the uncertainty depends on the repeatability measured where the balance stands, which is usually larger than 0.1 mg.",
+        "It is exactly ±0.1 mg.",
+        "It is ±0.05 mg, half a display step.",
+        "It is zero if the balance was calibrated this year."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-measurement-4:check-weight",
+      "type": "single_choice",
+      "prompt": "A 50 g check weight must read within ±0.3 mg. It reads 49.9994 g. What should you do?",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-4-objective-2"
+      ],
+      "feedback": {
+        "hint": "Compare the deviation with the acceptance limit.",
+        "solution": "49.9994 g is 0.6 mg below 50 g, outside ±0.3 mg; the balance must be adjusted and re-checked, and the failure recorded.",
+        "lesson_ids": [
+          "lab-measurement-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Stop: the reading is 0.6 mg low, outside the limit, so adjust or calibrate the balance and check again before using it.",
+        "Use the balance; 0.6 mg is negligible at 50 g.",
+        "Record the reading and correct every later weighing by 0.6 mg.",
+        "Replace the check weight."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-measurement-4:warm-object",
+      "type": "single_choice",
+      "prompt": "A crucible taken straight from a drying oven is weighed. How is the reading likely to be affected?",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-4-objective-4"
+      ],
+      "feedback": {
+        "hint": "Think about air currents around a warm object.",
+        "solution": "Convection from a warm object produces an upward force, so it reads light; cool it in a desiccator first.",
+        "lesson_ids": [
+          "lab-measurement-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "It reads light, because warm air rising around it pushes up on the pan.",
+        "It reads heavy, because heat adds mass.",
+        "It reads correctly; temperature does not affect electronic balances.",
+        "It reads heavy, because the oven adds moisture."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-measurement-4:difference-when",
+      "type": "multiple_select",
+      "prompt": "When is weighing by difference preferable to taring a weighing boat? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "lab-measurement-4-objective-3"
+      ],
+      "feedback": {
+        "hint": "Weighing by difference records what left a closed container.",
+        "solution": "It limits exposure of hygroscopic material and is insensitive to material left behind; it does not make an unlevel balance acceptable, and gravimetric liquid checks tare the receiving vessel.",
+        "lesson_ids": [
+          "lab-measurement-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "When the solid is hygroscopic and gains water while exposed.",
+        "When the solid sticks to the boat or carries static.",
+        "When the exact mass delivered into the receiving vessel matters more than the mass in a boat.",
+        "When the balance has not been levelled.",
+        "When the sample is a liquid being pipetted gravimetrically."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "lab-measurement-4:setup-statements",
+      "type": "multiple_select",
+      "prompt": "Which practices belong to setting up and checking an analytical balance? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "lab-measurement-4-objective-2"
+      ],
+      "feedback": {
+        "hint": "Consider levelling, environment, verification and handling.",
+        "solution": "Level, shield and check before use. Fingerprints add mass to weights, and a freshly switched-on balance drifts while it warms up.",
+        "lesson_ids": [
+          "lab-measurement-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Centre the level bubble.",
+        "Close the draught shield and keep the balance away from vents and doors.",
+        "Check it with a check weight before use and record the result.",
+        "Handle check weights with bare fingers to feel their temperature.",
+        "Switch it on just before each weighing so it does not drift overnight."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "lab-measurement-5:nernst-37",
+      "type": "numeric",
+      "prompt": "What is the theoretical Nernst slope of a pH electrode at 37.0 °C? Give mV per pH unit. Use R = 8.3145 J/(mol·K), F = 96485 C/mol and T = 310.15 K. Keep full precision in intermediate calculations. Enter the number only, to four significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-5-objective-1"
+      ],
+      "feedback": {
+        "hint": "Slope = RT ln10/F, converted to mV.",
+        "solution": "8.3145 × 310.15 × 2.3026/96485 = 61.54 mV per pH unit.",
+        "lesson_ids": [
+          "lab-measurement-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 61.54,
+        "unit": "",
+        "tolerance": 0.0015458149099509969,
+        "unit_required": false,
+        "significant_figures": 4,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-5:slope-percent",
+      "type": "numeric",
+      "prompt": "At 25 °C a pH 7.00 buffer reads +2.5 mV and a pH 4.01 buffer reads +168.0 mV. What is the slope as a percentage of the theoretical 59.16 mV per pH unit? Give %. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-5-objective-1"
+      ],
+      "feedback": {
+        "hint": "Slope = ΔmV/ΔpH; divide by 59.16 and multiply by 100.",
+        "solution": "(168.0 − 2.5)/(7.00 − 4.01) = 55.35 mV per pH; 55.35/59.16 × 100 = 93.6%.",
+        "lesson_ids": [
+          "lab-measurement-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 93.6,
+        "unit": "",
+        "tolerance": 0.023511256998929662,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-5:sample-ph",
+      "type": "numeric",
+      "prompt": "With that calibration (+2.5 mV at pH 7.00, slope from the previous item), a sample reads +110.0 mV. What is its pH? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-5-objective-2"
+      ],
+      "feedback": {
+        "hint": "pH = 7.00 − (E − E₇)/slope.",
+        "solution": "7.00 − (110.0 − 2.5)/55.35 = 5.06.",
+        "lesson_ids": [
+          "lab-measurement-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 5.06,
+        "unit": "",
+        "tolerance": 0.0012710145343438472,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-5:hh-ratio",
+      "type": "numeric",
+      "prompt": "For an acetate buffer at pH 5.00 with pKa = 4.76, what is the ratio [acetate]/[acetic acid]? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-5-objective-3"
+      ],
+      "feedback": {
+        "hint": "pH = pKa + log₁₀([base]/[acid]).",
+        "solution": "10^(5.00 − 4.76) = 10^0.24 = 1.74.",
+        "lesson_ids": [
+          "lab-measurement-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1.74,
+        "unit": "",
+        "tolerance": 0.00043706823908266684,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-5:hh-mass",
+      "type": "numeric",
+      "prompt": "For 1.00 L of 0.0500 M phosphate at pH 7.00 with pKa₂ = 7.20, how many grams of Na₂HPO₄ (M = 141.96 g/mol) are needed? Give grams. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-5-objective-3"
+      ],
+      "feedback": {
+        "hint": "Find the base fraction r/(1 + r) with r = 10^(pH − pKa), then multiply by the total moles and M.",
+        "solution": "r = 10^−0.20 = 0.631; base fraction = 0.631/1.631 = 0.387; 0.0500 × 0.387 × 141.96 = 2.75 g.",
+        "lesson_ids": [
+          "lab-measurement-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 2.75,
+        "unit": "",
+        "tolerance": 0.0006907687686651344,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-5:tris-temp",
+      "type": "numeric",
+      "prompt": "A Tris buffer is adjusted to pH 7.60 at 25 °C. Using a temperature coefficient of −0.028 pH units per °C, what is its approximate pH at 37 °C? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-5-objective-4"
+      ],
+      "feedback": {
+        "hint": "ΔpH = −0.028 × (T − 25).",
+        "solution": "7.60 − 0.028 × 12 = 7.26.",
+        "lesson_ids": [
+          "lab-measurement-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 7.26,
+        "unit": "",
+        "tolerance": 0.0018236295492759548,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-5:calibration-verdict",
+      "type": "single_choice",
+      "prompt": "A calibration at 25 °C gives a slope of 92.4% of theoretical. Against a laboratory limit of 95–105%, what do you do?",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-5-objective-1"
+      ],
+      "feedback": {
+        "hint": "Compare the slope with the acceptance range.",
+        "solution": "92.4% is outside 95–105%, so the calibration fails; ATC corrects for temperature, not for a worn or dirty electrode.",
+        "lesson_ids": [
+          "lab-measurement-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Reject the calibration: clean the electrode, use fresh buffers and recalibrate; replace the electrode if the slope stays low.",
+        "Accept it, because the meter displays a pH.",
+        "Accept it, but add 0.1 to every reading.",
+        "Switch on automatic temperature compensation to fix the slope."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-measurement-5:atc",
+      "type": "single_choice",
+      "prompt": "What does automatic temperature compensation on a pH meter correct?",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-5-objective-4"
+      ],
+      "feedback": {
+        "hint": "Separate the electrode's response from the chemistry of the buffer.",
+        "solution": "ATC adjusts the Nernst slope for the measured temperature. The buffer's pKa still changes with temperature, so adjust the pH at the temperature of use.",
+        "lesson_ids": [
+          "lab-measurement-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "The change in the electrode's slope with temperature; it does not correct the sample's own pH change with temperature.",
+        "The change of a Tris buffer's pH between 25 °C and 4 °C.",
+        "Both the electrode and the sample's pH, to report the pH at 25 °C.",
+        "Drift in the reference junction."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-measurement-5:storage",
+      "type": "single_choice",
+      "prompt": "How should a combination pH electrode be stored between uses?",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-5-objective-1"
+      ],
+      "feedback": {
+        "hint": "Pure water leaches ions from the glass and the junction.",
+        "solution": "Storage solution keeps the glass hydrated and the junction filled; deionized water and drying both degrade the response.",
+        "lesson_ids": [
+          "lab-measurement-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Wet, in the manufacturer's storage solution, usually concentrated KCl.",
+        "In deionized water.",
+        "Dry, with the bulb uncovered.",
+        "In the pH 4.01 calibration buffer from that day."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-measurement-5:buffer-statements",
+      "type": "multiple_select",
+      "prompt": "Which statements about preparing a buffer are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "lab-measurement-5-objective-3"
+      ],
+      "feedback": {
+        "hint": "Think about ionic strength, temperature and the order of steps.",
+        "solution": "Ionic strength and temperature shift the pKa, so measure and adjust before making up to volume, with a bracketing calibration. Blot, do not wipe, the bulb.",
+        "lesson_ids": [
+          "lab-measurement-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "The Henderson–Hasselbalch ratio is a starting point; the pH must still be measured and adjusted.",
+        "The pH should be adjusted before bringing the solution to its final volume.",
+        "Calibration buffers should bracket the target pH.",
+        "Once calculated, the mass ratio guarantees the pH at any temperature.",
+        "Wiping the glass bulb dry between buffers improves accuracy."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "lab-measurement-6:transmittance",
+      "type": "numeric",
+      "prompt": "A sample transmits 25.0% of the incident light. What is its absorbance? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-6-objective-1"
+      ],
+      "feedback": {
+        "hint": "A = −log₁₀ T.",
+        "solution": "−log₁₀ 0.250 = 0.602.",
+        "lesson_ids": [
+          "lab-measurement-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.602,
+        "unit": "",
+        "tolerance": 0.0001512155631768767,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-6:beer-lambert",
+      "type": "numeric",
+      "prompt": "NADH has ε₃₄₀ = 6220 M⁻¹ cm⁻¹. A reading of A₃₄₀ = 0.467 in a 1.00 cm cuvette corresponds to what concentration? Give µM. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-6-objective-1"
+      ],
+      "feedback": {
+        "hint": "c = A/(ε l).",
+        "solution": "0.467/6220 = 7.51 × 10⁻⁵ M = 75.1 µM.",
+        "lesson_ids": [
+          "lab-measurement-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 75.1,
+        "unit": "",
+        "tolerance": 0.01886426710063694,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-6:path-length",
+      "type": "numeric",
+      "prompt": "The same NADH solution is read in a plate well with a 0.300 cm liquid path. What absorbance do you expect if it reads 0.467 in a 1.00 cm cuvette? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-6-objective-1"
+      ],
+      "feedback": {
+        "hint": "Absorbance is proportional to path length.",
+        "solution": "0.467 × 0.300 = 0.140.",
+        "lesson_ids": [
+          "lab-measurement-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.14,
+        "unit": "",
+        "tolerance": 3.516641004113412e-05,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-6:interpolate",
+      "type": "numeric",
+      "prompt": "A standard curve has slope 0.0124 per (µg/mL) and intercept 0.0030. What concentration gives a blank-subtracted absorbance of 0.415? Give µg/mL. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-6-objective-3"
+      ],
+      "feedback": {
+        "hint": "c = (A − a)/b.",
+        "solution": "(0.415 − 0.0030)/0.0124 = 33.2 µg/mL.",
+        "lesson_ids": [
+          "lab-measurement-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 33.2,
+        "unit": "",
+        "tolerance": 0.008339462952611804,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-6:dilution-back",
+      "type": "numeric",
+      "prompt": "A sample diluted 1:20 (one part in twenty parts total) interpolates to 0.315 mg/mL on a standard curve. What is the concentration of the undiluted sample? Give mg/mL. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-6-objective-4"
+      ],
+      "feedback": {
+        "hint": "Multiply by the dilution factor.",
+        "solution": "0.315 × 20 = 6.30 mg/mL.",
+        "lesson_ids": [
+          "lab-measurement-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 6.3,
+        "unit": "",
+        "tolerance": 0.001582488451851035,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-6:blank",
+      "type": "single_choice",
+      "prompt": "Which blank is right for a dye-binding protein assay in which samples are in Tris buffer?",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-6-objective-2"
+      ],
+      "feedback": {
+        "hint": "The blank should contain everything except the analyte.",
+        "solution": "Buffer plus reagent removes the absorbance of the reagent and any buffer effect, leaving only the protein's contribution.",
+        "lesson_ids": [
+          "lab-measurement-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Tris buffer plus the dye reagent, treated exactly like the samples.",
+        "Deionized water.",
+        "The dye reagent alone, without buffer.",
+        "An empty cuvette."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-measurement-6:above-range",
+      "type": "single_choice",
+      "prompt": "An unknown reads 0.95 on a protein assay whose highest standard reads 0.64. What should you do?",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-6-objective-4"
+      ],
+      "feedback": {
+        "hint": "The curve says nothing about the response above the top standard.",
+        "solution": "Extrapolation assumes linearity where none was shown; dilution brings the reading into the calibrated range.",
+        "lesson_ids": [
+          "lab-measurement-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Dilute the unknown into the range of the standards, measure it again and multiply by the dilution factor.",
+        "Extrapolate the fitted line, because the correlation coefficient is high.",
+        "Report it as 'above 0.64'.",
+        "Add a higher standard after the fact using the extrapolated value."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-measurement-6:residuals",
+      "type": "single_choice",
+      "prompt": "Residuals from a straight-line fit are positive for the middle standards and negative for the lowest and highest. What does this suggest?",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-6-objective-3"
+      ],
+      "feedback": {
+        "hint": "Look for patterns, not only size.",
+        "solution": "A systematic pattern means the model is wrong for the data; a straight line through a curve misestimates unknowns.",
+        "lesson_ids": [
+          "lab-measurement-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "The response is curved over this range; use a narrower range or a non-linear fit.",
+        "The fit is excellent because the residuals average to zero.",
+        "One standard was pipetted wrongly and should be deleted.",
+        "The blank was wrong but the curve can be used."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-measurement-6:new-curve",
+      "type": "single_choice",
+      "prompt": "Why make a new standard curve for each run of an assay?",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-6-objective-3"
+      ],
+      "feedback": {
+        "hint": "What could differ between today and last week?",
+        "solution": "Standards and samples must be measured under the same conditions; reagents age and instruments drift.",
+        "lesson_ids": [
+          "lab-measurement-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Reagent activity, standards and instrument response change between runs, so an old curve may not describe today's measurements.",
+        "Old curves are deleted by the software.",
+        "Standard curves are only valid for one unknown.",
+        "It is required only for fluorescence assays."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-measurement-6:spectro-statements",
+      "type": "multiple_select",
+      "prompt": "Which statements about absorbance measurements are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "lab-measurement-6-objective-2"
+      ],
+      "feedback": {
+        "hint": "Consider the definition of absorbance, stray light, and the limits of the calibrated range.",
+        "solution": "A = 2 is T = 0.01; stray light limits high readings; values below the curve are not quantified. The law fails at high concentration, and plate path length depends on the liquid depth.",
+        "lesson_ids": [
+          "lab-measurement-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "An absorbance of 2 means only 1% of the light is transmitted.",
+        "Many instruments become unreliable at high absorbance because stray light dominates.",
+        "Readings below the lowest non-zero standard should be reported as below the range rather than as a number.",
+        "The Beer–Lambert law holds at any concentration.",
+        "A microplate well always has a 1 cm path length."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "lab-measurement-project:rehearsal-mass",
+      "type": "numeric",
+      "prompt": "How many grams of HEPES free acid (M = 238.30 g/mol, assay 99.5%) are needed for 250 mL of 20.0 mM buffer? Give grams. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-1-objective-2"
+      ],
+      "feedback": {
+        "hint": "m = C × V × M, divided by the assay fraction.",
+        "solution": "0.0200 × 0.250 × 238.30/0.995 = 1.20 g.",
+        "lesson_ids": [
+          "lab-measurement-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1.2,
+        "unit": "",
+        "tolerance": 0.0003014263717811495,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-project:rehearsal-pipette",
+      "type": "numeric",
+      "prompt": "Ten deliveries from a 100 µL setting average 99.12 mg at 23.0 °C, where Z = 1.0035 µL/mg. What is the systematic error? Give % (negative if low). Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-3-objective-4",
+        "lab-measurement-3-objective-2"
+      ],
+      "feedback": {
+        "hint": "Convert the mean mass to volume with Z, then compute (V̄ − V₀)/V₀ × 100.",
+        "solution": "V̄ = 99.12 × 1.0035 = 99.47 µL; (99.47 − 100)/100 × 100 = -0.533%.",
+        "lesson_ids": [
+          "lab-measurement-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": -0.533,
+        "unit": "",
+        "tolerance": 0.0001338835467994606,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-project:rehearsal-slope",
+      "type": "numeric",
+      "prompt": "pH buffers read +0.8 mV at pH 7.00 and +166.9 mV at pH 4.01 at 25 °C. What is the slope as a percentage of the theoretical 59.16 mV per pH unit? Give %. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-5-objective-1"
+      ],
+      "feedback": {
+        "hint": "Slope = ΔmV/ΔpH; divide by 59.16.",
+        "solution": "(166.9 − 0.8)/2.99 = 55.55 mV per pH; 93.9% of theoretical, so the calibration fails a 95–105% limit.",
+        "lesson_ids": [
+          "lab-measurement-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 93.9,
+        "unit": "",
+        "tolerance": 0.023586613591874955,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-measurement-project:rehearsal-dilution",
+      "type": "numeric",
+      "prompt": "Using a standard curve with slope 0.6183 per (mg/mL) and intercept −0.0002, a sample diluted 1:4 (one part in four parts total) reads 0.215. What is the concentration of the undiluted sample? Give mg/mL. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-measurement-6-objective-4",
+        "lab-measurement-6-objective-3"
+      ],
+      "feedback": {
+        "hint": "Interpolate, then multiply by the dilution factor.",
+        "solution": "(0.215 + 0.0002)/0.6183 = 0.3481 mg/mL; × 4 = 1.39 mg/mL.",
+        "lesson_ids": [
+          "lab-measurement-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original bench-measurement practice developed with substantial AI assistance; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1.39,
+        "unit": "",
+        "tolerance": 0.00034915221397983156,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "schema_version": "1.0",
+  "course_id": "lab-measurement",
+  "cases": [
+    {
+      "id": "lab-measurement:case",
+      "prompt": "You must prepare 500 mL of a 50 mM HEPES buffer at pH 7.40 for cell work at 37 °C, then use it to make a six-point standard curve for a protein assay. Write the preparation and verification plan: what you weigh and why, how you make up to volume, how you set and check the pH, which instruments you check before use and against what, and how you design and verify the standard curve.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "lab-measurement-1-objective-2",
+        "lab-measurement-1-objective-4",
+        "lab-measurement-5-objective-3",
+        "lab-measurement-5-objective-4",
+        "lab-measurement-6-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "lab-measurement-case-criterion-1",
+          "criterion": "Computes the mass from C × V × M with the correct molar mass and assay, and checks it against the balance's minimum weight",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "lab-measurement-case-criterion-2",
+          "criterion": "Dissolves in less than the final volume, adjusts pH before making up to volume, and records the temperature of adjustment",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "lab-measurement-case-criterion-3",
+          "criterion": "Calibrates the pH meter with bracketing buffers and accepts or rejects it against stated slope and offset limits",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "lab-measurement-case-criterion-4",
+          "criterion": "Checks the balance with a check weight and the pipettes by a recent gravimetric record before use",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "lab-measurement-case-criterion-5",
+          "criterion": "Designs standards by a parallel series spanning the expected range, uses a matched blank, inspects residuals and plans dilution of samples above the top standard",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "A zero-point self-check; it is not a grade or a competency record, and your laboratory's SOPs govern real preparation."
+      ]
+    },
+    {
+      "id": "lab-measurement:project-m1-solution",
+      "prompt": "Qualification project milestone 1 (suggested week 6). Calculate the mass of HEPES for 500 mL of 50.0 mM buffer, check it against the balance's minimum weight, and plan how you will dissolve, titrate at the temperature of use and make up to volume (project guide, milestone 1).",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "lab-measurement-1-objective-2",
+        "lab-measurement-1-objective-4",
+        "lab-measurement-4-objective-1"
+      ],
+      "rubric": [
+        {
+          "id": "project-m1-solution-criterion-1",
+          "criterion": "I applied m = C × V × M with the purity correction.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-solution-criterion-2",
+          "criterion": "I compared the mass with a minimum weight computed from s and the tolerance.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-solution-criterion-3",
+          "criterion": "I planned to adjust pH at 37 °C before making up to volume.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "A zero-point self-check of one project milestone; it is not a grade or a competency record."
+      ]
+    },
+    {
+      "id": "lab-measurement:project-m2-instruments",
+      "prompt": "Qualification project milestone 2. From the ten gravimetric readings and Z, compute the pipette's mean volume, systematic and random errors and verdict, and judge the balance check weight (project guide, milestone 2).",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "lab-measurement-3-objective-2",
+        "lab-measurement-3-objective-4",
+        "lab-measurement-4-objective-2"
+      ],
+      "rubric": [
+        {
+          "id": "project-m2-instruments-criterion-1",
+          "criterion": "I converted every mass with Z before averaging.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-instruments-criterion-2",
+          "criterion": "I used the sample standard deviation for the coefficient of variation.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-instruments-criterion-3",
+          "criterion": "I gave a verdict against both limits and recorded the balance check.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "A zero-point self-check of one project milestone; it is not a grade or a competency record."
+      ]
+    },
+    {
+      "id": "lab-measurement:project-m3-ph",
+      "prompt": "Qualification project milestone 3. Decide whether the pH-meter calibration is acceptable, and plan the calibration and adjustment needed to reach pH 7.40 at 37 °C (project guide, milestone 3).",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "lab-measurement-5-objective-1",
+        "lab-measurement-5-objective-4"
+      ],
+      "rubric": [
+        {
+          "id": "project-m3-ph-criterion-1",
+          "criterion": "I computed the slope as a percentage of 59.16 mV per pH unit and compared it with 95–105%.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-ph-criterion-2",
+          "criterion": "I noticed that 4.01 and 7.00 do not bracket 7.40 and added a 10.01 buffer.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-ph-criterion-3",
+          "criterion": "I separated the electrode's temperature compensation from the buffer's own temperature dependence.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "A zero-point self-check of one project milestone; it is not a grade or a competency record."
+      ]
+    },
+    {
+      "id": "lab-measurement:project-m4-curve",
+      "prompt": "Qualification project milestone 4. Fit the six standards, inspect the residuals, fit the standards up to 0.400 mg/mL, and justify the usable straight-line range (project guide, milestone 4).",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "lab-measurement-6-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m4-curve-criterion-1",
+          "criterion": "I reported the residual pattern of the six-point fit, not only its correlation.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-curve-criterion-2",
+          "criterion": "I chose a range in which residuals are small and patternless and gave its equation.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "A zero-point self-check of one project milestone; it is not a grade or a competency record."
+      ]
+    },
+    {
+      "id": "lab-measurement:project-m5-report",
+      "prompt": "Qualification project milestone 5. Report samples X and Y with the range, fit and dilution used, and state the limitations of the results (project guide, milestone 5).",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "lab-measurement-6-objective-4",
+        "lab-measurement-2-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m5-report-criterion-1",
+          "criterion": "I interpolated X within the range and did not extrapolate Y.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-report-criterion-2",
+          "criterion": "I multiplied the diluted reading of Y by the correct dilution factor.",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-report-criterion-3",
+          "criterion": "I listed at least three limitations, including the synthetic data and practice limits.",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "A zero-point self-check of one project milestone; it is not a grade or a competency record."
+      ]
+    }
+  ]
+}

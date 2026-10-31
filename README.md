@@ -14,18 +14,18 @@ An independent open-source learning platform under development. It does **not co
 | --- | ---: | --- |
 | catalog-only | 0 | Catalog metadata only |
 | outlined | 0 | Structured plan without developed teaching |
-| partial | 25 | Authored readings, connected coursework and formative checks; depth and review remain limited |
+| partial | 26 | Authored readings, connected coursework and formative checks; depth and review remain limited |
 | beta | 0 | Developed course awaiting required review/gates |
 | complete | 0 | All full-course gates satisfied |
 | externally reviewed | 0 | Qualified named reviewer examined a specified version |
 
-**No current package meets the complete-course standard.** The repository contains 25 partial packages with 634 lessons, 3,537 formative questions, 2,131 retrieval cards and 151 self-assessed case prompts. These counts measure authored material; they do not establish semester depth, measured workload, scientific review or university equivalence.
+**No current package meets the complete-course standard.** The repository contains 26 partial packages with 667 lessons, 3,852 formative questions, 2,258 retrieval cards and 157 self-assessed case prompts (content validator inventory, 2026-10-31). These counts measure authored material; they do not establish semester depth, measured workload, scientific review or university equivalence.
 
 The packages span life sciences, chemistry, mathematics, physics, statistics, computing and engineering. Original readings, worked examples, synthetic datasets and practice are available in each subject, with uneven coverage and depth. See the [package inventory](#package-inventory), [measured content gaps](docs/COURSE_GAP_REPORT.md), and [MIT OpenCourseWare scope audit](docs/COURSE_SCOPE_AUDIT.md) for the current boundaries and priorities. Detailed development history belongs in the [progress review](docs/PROGRESS_REVIEW.md).
 
 Development now proceeds across the repository in bounded instructional batches. Follow-up priorities address demonstrated instructional gaps, broader course boundaries and learner evidence identified against official MIT OpenCourseWare syllabi and calendars. New material is original and attributed; references compare scope and expectations without claiming affiliation, copied course delivery, or equivalent credit. Metadata and review-report refreshes are bundled with substantive changes.
 
-The curriculum map adds **37 catalog-only subject nodes** and **8 pathway maps** beside the 25 partial course packages. Catalog-only entries describe planned study areas and dependencies; they contain no authored lessons and cannot be enrolled in. Mapped prerequisite order is planning guidance and does not establish university equivalency.
+The curriculum map adds **37 catalog-only subject nodes** and **8 pathway maps** beside the 26 partial course packages. Catalog-only entries describe planned study areas and dependencies; they contain no authored lessons and cannot be enrolled in. Mapped prerequisite order is planning guidance and does not establish university equivalency.
 
 See [the audit](docs/CURRENT_STATE_AUDIT.md), [quality standard](docs/CONTENT_QUALITY_STANDARD.md), and [remaining work](docs/ROADMAP.md).
 
@@ -47,6 +47,7 @@ See [the audit](docs/CURRENT_STATE_AUDIT.md), [quality standard](docs/CONTENT_QU
 | [General Chemistry II](content/courses/general-chemistry-2/course.json) | Chemistry | partial |
 | [Genetics & Genomics](content/courses/genetics/course.json) | Life sciences | partial |
 | [Geroscience & Regenerative Biology](content/courses/geroscience/course.json) | Life sciences | partial |
+| [Laboratory Measurement and Solution Preparation](content/courses/lab-measurement/course.json) | Life sciences laboratory | partial |
 | [Linear Algebra for Modeling & Robotics](content/courses/linear-algebra/course.json) | Mathematics | partial |
 | [Organic Chemistry I for Life Sciences](content/courses/organic-chemistry/course.json) | Chemistry | partial |
 | [Physics: Electricity & Magnetism](content/courses/physics-em/course.json) | Physics | partial |
@@ -87,7 +88,9 @@ Single-choice, multiple-select, numeric, bounded symbolic-expression, narrow dat
 
 The React reader now includes six scientific calculators under **Study tools**, available without enrollment: dilution, buffer pH, enzyme kinetics, RC charging, diffusion timescale, and Ohm's law. Each shows units and model assumptions and links to related courses. Calculator scratch work is ungraded.
 
-The React **Case studio** also exposes the authored prompts and self-check criteria across all 25 partial courses. Enrolled learners can save a private written response and checklist marks; drafts stay bound to the course version and prompt, remain available in account exports, and do not affect grades. Archived cases are read-only.
+**Bench practice** replays simulations of real bench procedures (micropipette gravimetric verification, decimal dilutions with the FDA BAM aerobic plate count, and a Class II biosafety cabinet session with a spill) from the learner's own choices of action, with a checkpoint debrief at the end. Runs are formative, unrecorded and cannot train hand skill; see the [wet-lab practice plan](docs/WET_LAB_PRACTICE_PLAN.md).
+
+The React **Case studio** also exposes the authored prompts and self-check criteria across all 26 partial courses. Enrolled learners can save a private written response and checklist marks; drafts stay bound to the course version and prompt, remain available in account exports, and do not affect grades. Archived cases are read-only.
 
 The previous calculators, cards, case self-assessment and browser notebook remain preserved in `legacy/`; the React reader now has its own searchable notebook over server-saved lesson notes. To use the old reader separately:
 

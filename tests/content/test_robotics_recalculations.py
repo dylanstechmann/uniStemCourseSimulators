@@ -670,7 +670,7 @@ def test_schedule_once_formative_labels_and_all_package_schedules():
         json.loads(p.read_text(encoding="utf-8"))
         for p in (ROOT / "content/courses").glob("*/course.json")
     ]
-    assert len(courses) == 25 and all(c["duration"]["weeks"] for c in courses)
+    assert len(courses) == 26 and all(c["duration"]["weeks"] for c in courses)
 
 
 def test_computed_torque_lesson_statements_match_newton_euler_and_simulation():

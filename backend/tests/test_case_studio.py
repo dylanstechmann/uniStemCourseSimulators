@@ -188,7 +188,7 @@ def test_all_authored_courses_expose_their_existing_case_studies():
             "cellular-biomechanics", "transport", "calculus-2", "calculus-3",
             "differential-equations", "linear-algebra",
             "circuits", "physiology", "signals-control", "general-chemistry-1",
-            "organic-chemistry", "statistics", "robotics", "geroscience",
+            "organic-chemistry", "statistics", "robotics", "geroscience", "lab-measurement",
         )
     }
     # Physics E&M authored six milestones for its six project tasks.

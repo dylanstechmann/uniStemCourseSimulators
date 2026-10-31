@@ -11,7 +11,8 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[2]
 COURSES = ROOT / "content/courses"
-RESOLVED = ("#/course/", "/api/v1/courses/", "https://", "http://", "mailto:")
+RESOLVED = ("#/course/", "#/bench/", "/api/v1/courses/", "https://", "http://", "mailto:")
+BENCH_PROTOCOLS = ROOT / "content/bench/protocols"
 SOURCE_LINK = re.compile(r"(?<![!\\])\[([^\[\]\n]*)\]\(([^()\s]+)\)")
 CELL_BIOLOGY_PROVENANCE = {
     (lesson_id, target)
@@ -76,6 +77,20 @@ def test_delivered_lessons_contain_no_link_the_application_cannot_open():
                 if not destination.startswith(RESOLVED):
                     dead.add((manifest["id"], lesson_id, destination))
     assert dead == set()
+
+
+def test_bench_links_name_an_existing_protocol():
+    linked = set()
+    for course_dir, manifest in manifests():
+        for module in manifest["modules"]:
+            for lesson in module["lessons"]:
+                text = (course_dir / lesson["reading"]).read_text(encoding="utf-8")
+                linked |= {target for _, target in SOURCE_LINK.findall(text) if target.startswith("#/bench/")}
+        syllabus = (course_dir / manifest["syllabus"]).read_text(encoding="utf-8")
+        linked |= {target for _, target in SOURCE_LINK.findall(syllabus) if target.startswith("#/bench/")}
+    assert linked, "expected at least one bench link"
+    for target in linked:
+        assert (BENCH_PROTOCOLS / f"{target.removeprefix('#/bench/')}.json").is_file(), target
 
 
 def test_linked_learner_resources_are_served_byte_for_byte():
