@@ -21,22 +21,22 @@ Scope: BMBL 6th edition (Sections II–IV, Appendices A, B, C, H), OSHA 29 CFR 1
 
 Built with 64 practice items, 26 cards, a case, an optional iPSC biosafety plan project and a crosswalk against the ABSA CBSP examination outline. Still planned: an SDS and label protocol.
 
-## Layer 2: `cell-culture-practice` (outline; one protocol pilot)
+## Layer 2: `cell-culture-practice` (one-lesson pilot, 0.1.0; seven lessons outline only)
 
-Scope: BMBL Appendix H (human and primate cells); ISSCR *Standards for Human Stem Cell Use in Research* (2023, link only); manufacturer-neutral practice. Candidate open protocols are to be checked one by one for license and parameters.
+Scope: BMBL Appendix H (human and primate cells); ISSCR *Standards for Human Stem Cell Use in Research* (2023, link only, reserved for lesson 7); manufacturer-neutral practice. Candidate open protocols are to be checked one by one for license and parameters.
 
 | Lesson | Topics | Bench protocol (planned) |
 | --- | --- | --- |
 | 1. Aseptic technique | working order in the cabinet, what breaks sterility, media and reagent handling, contamination routes | Aseptic medium change with hidden contamination events |
 | 2. Media, supplements and reagent preparation | osmolality and pH of media, serum and serum-free systems, filter sterilization, storage and expiry | Filter-sterilize and QC a supplemented medium |
 | 3. Passaging adherent and suspension cells | confluence, dissociation agents, split ratios, seeding density arithmetic, population doublings | Passage an adherent line to a target density |
-| 4. Counting cells and viability | hemocytometer geometry, trypan blue, counting rules, Poisson error, automated counters | Hemocytometer count with sampling error |
+| 4. Counting cells and viability (**drafted**) | hemocytometer geometry, trypan blue, counting rules, Poisson error; automated counters named only | Hemocytometer count with sampling error (built) |
 | 5. Cryopreservation and thawing | cryoprotectants, cooling rate, storage in liquid nitrogen vapour, thaw and recovery | Freeze and thaw with viability outcomes |
 | 6. Contamination: bacteria, fungi, mycoplasma and cross-contamination | recognition, mycoplasma testing methods, quarantine, authentication by STR profiling | Diagnose a contaminated culture from clues |
 | 7. Human pluripotent stem cells | feeder-free culture on matrix, colony morphology and differentiation, passaging as clumps, karyotype and pluripotency checks (link-only ISSCR reporting standards) | Maintain an hPSC culture without spontaneous differentiation |
 | 8. Records and traceability | cell-bank tiers, passage records, lot tracking, labelling | — |
 
-The hemocytometer protocol pilot is built with synthetic non-human fields, interactive top/left versus bottom/right boundary decisions, stain classification, two-chamber tallies and calculations for viable-cell concentration, viability and Poisson counting uncertainty. Its geometry, dilution and acceptance ranges are declared simulation values, not a reproduced manufacturer protocol. The counting/viability lesson, full course package and source crosswalk remain unbuilt; no protocol or lesson here establishes human-cell handling competency.
+The hemocytometer protocol pilot is built with synthetic non-human fields, interactive top/left versus bottom/right boundary decisions, stain classification, two-chamber tallies and calculations for viable-cell concentration, viability and Poisson counting uncertainty. Its geometry, dilution and acceptance ranges are declared simulation values, not a reproduced manufacturer protocol. Lesson 4 is now built as the enrollable one-lesson pilot package `cell-culture-practice` 0.1.0: a reading with two worked examples, 12 practice items, four cards, one self-check case and a source crosswalk, linked to the protocol. It cites Marienfeld counting-chamber documents for geometry, Student (1907) for Poisson counting error, Strober (2015) for trypan blue and BMBL Appendix H pp. 466–468. Protocol 0.1.1 narrows the generated concentration to 0.5–1.5 × 10⁶ cells/mL so that a correctly mixed twofold field stays inside the 20–80-cell range; under 0.1.0 most runs exceeded it, and the density checkpoint could not be met without failing the dilution checkpoint. Lessons 1–3 and 5–8 remain outlines, and the package has no project. No protocol or lesson here establishes human-cell handling competency.
 
 ## Layer 3: `molecular-lab-practice` (outline only)
 

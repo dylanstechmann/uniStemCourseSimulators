@@ -17,7 +17,8 @@ class HemocytometerCount(ProtocolModel):
                 "report-viability", "report-uncertainty"]
 
     def start(self, rng):
-        concentration = rng.uniform(0.8e6, 3.5e6)
+        # 25–75 cells per large square at the required twofold dilution, inside the 20–80 countable range.
+        concentration = rng.uniform(0.5e6, 1.5e6)
         viability = rng.uniform(0.72, 0.97)
         return {
             "hidden": {"concentration": concentration, "viability": viability},

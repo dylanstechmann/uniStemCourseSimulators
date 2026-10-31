@@ -1,0 +1,240 @@
+{
+  "schema_version": "1.0",
+  "id": "cell-culture-practice",
+  "title": "Cell Culture Practice (pilot: Counting Cells and Viability)",
+  "description": "A one-lesson pilot of the planned cell-culture layer of the wet-lab practice track: estimate viable-cell concentration and trypan-blue viability from hemocytometer counts, judge their counting and systematic errors, and rehearse the count in a synthetic bench simulation. Only lesson 4 of the eight outlined topics is written.",
+  "domain": "Life sciences laboratory",
+  "level": "Year 2",
+  "maturity": "partial",
+  "version": "0.1.0",
+  "license": "CC-BY-4.0",
+  "content_origin": {
+    "kind": "original",
+    "source_path": null,
+    "source_sha256": null,
+    "migration_version": null,
+    "modifications": [
+      "Original reading, worked examples, practice, cards and a self-check case developed with substantial AI assistance on 2026-10-31 as a one-lesson pilot of layer 2 of the wet-lab practice track (docs/WET_LAB_LAYER_OUTLINES.md)."
+    ]
+  },
+  "prerequisites": {
+    "course_ids": [],
+    "recommended_course_ids": [
+      "lab-measurement",
+      "lab-biosafety",
+      "cell-biology"
+    ],
+    "concurrent_course_ids": [],
+    "knowledge": [
+      "Dilution factors and C₁V₁ = C₂V₂",
+      "Biosafety Level 2 practices"
+    ],
+    "statement": "Laboratory Measurement and Solution Preparation, Laboratory Safety and Biosafety, and Foundations of Cell and Molecular Biology are recommended. This package establishes no university prerequisite equivalency."
+  },
+  "outcomes": [
+    {
+      "id": "cell-culture-practice-outcome-1",
+      "description": "Estimate viable-cell concentration and viability from hemocytometer counts, accounting for sampling, dilution, chamber geometry and a consistent boundary rule.",
+      "bloom": "apply"
+    },
+    {
+      "id": "cell-culture-practice-outcome-2",
+      "description": "Judge the reliability and meaning of a manual count: counting uncertainty, systematic preparation errors and the limits of dye-exclusion viability.",
+      "bloom": "evaluate"
+    }
+  ],
+  "lesson_objectives": [
+    {
+      "id": "cell-culture-practice-4-objective-1",
+      "description": "Prepare a representative counting sample and calculate the overall dilution factor, including non-twofold and two-step dilutions.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-1"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-4-objective-2",
+      "description": "Relate Improved-Neubauer geometry to the volume counted, and apply a consistent boundary rule that is kept separate from the stain decision.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-1"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-4-objective-3",
+      "description": "Calculate viable-cell concentration and percent viability from two-chamber tallies.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-1"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-4-objective-4",
+      "description": "Estimate Poisson counting uncertainty from the number of cells counted, state its assumptions, and plan how many squares to count for a target precision.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-2"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-4-objective-5",
+      "description": "Interpret chamber disagreement, sparse or crowded fields and trypan-blue results, distinguishing counting error from systematic error and membrane integrity from overall cell health.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-2"
+      ]
+    }
+  ],
+  "duration": {
+    "instructional_weeks": 1,
+    "equivalent_structure": "A one-week pilot block: one reading with two worked examples, one practice set, four retrieval cards, a self-check case and the hemocytometer bench simulation. It is outline lesson 4 of a planned eight-lesson cell-culture package; lessons 1–3 and 5–8 are not written, and the schedule has not been measured or reviewed.",
+    "weeks": [
+      {
+        "week": 1,
+        "title": "Counting cells and viability (outline lesson 4); bench practice: hemocytometer count with trypan blue",
+        "lesson_ids": [
+          "cell-culture-practice-4"
+        ],
+        "assessment_ids": [
+          "cell-culture-practice-4-practice"
+        ]
+      }
+    ]
+  },
+  "workload": {
+    "estimated_total_hours": null,
+    "estimated_hours_per_week": null,
+    "basis": "Not measured."
+  },
+  "modules": [
+    {
+      "id": "cell-culture-practice-module-4",
+      "title": "Counting cells and viability",
+      "source_ids": [
+        "marienfeld-counting-grid-description",
+        "marienfeld-counting-chamber-ifu",
+        "student-1907-haemacytometer-error",
+        "strober-2015-trypan-blue-exclusion",
+        "cdc-nih-bmbl-6",
+        "mit-ocw-20-109-spring-2010"
+      ],
+      "lessons": [
+        {
+          "id": "cell-culture-practice-4",
+          "title": "Counting cells and viability with a hemocytometer",
+          "reading": "modules/04-counting-cells-and-viability.md",
+          "objectives": [
+            "cell-culture-practice-4-objective-1",
+            "cell-culture-practice-4-objective-2",
+            "cell-culture-practice-4-objective-3",
+            "cell-culture-practice-4-objective-4",
+            "cell-culture-practice-4-objective-5"
+          ],
+          "worked_example": "Twenty microlitres of suspension plus 30 µL of trypan blue give a dilution factor of 50/20 = 2.5. Eight large squares hold 245 unstained and 36 stained included cells, so viable cells/mL = 245/8 × 10,000 × 2.5 = 7.66 × 10⁵, viability = 245/281 = 87.2%, and the Poisson uncertainty of the total count is 100/√281 = 5.97%.",
+          "question_ids": [
+            "cell-culture-practice-4:dilution-factor",
+            "cell-culture-practice-4:pre-dilution",
+            "cell-culture-practice-4:two-chamber-concentration",
+            "cell-culture-practice-4:viability",
+            "cell-culture-practice-4:poisson-uncertainty",
+            "cell-culture-practice-4:squares-for-precision",
+            "cell-culture-practice-4:boundary-rules",
+            "cell-culture-practice-4:boundary-versus-stain",
+            "cell-culture-practice-4:chamber-disagreement",
+            "cell-culture-practice-4:agreement-and-bias",
+            "cell-culture-practice-4:field-density",
+            "cell-culture-practice-4:trypan-interpretation"
+          ],
+          "card_ids": [
+            "cell-culture-practice-4-card-1",
+            "cell-culture-practice-4-card-2",
+            "cell-culture-practice-4-card-3",
+            "cell-culture-practice-4-card-4"
+          ]
+        }
+      ]
+    }
+  ],
+  "assessments": [
+    {
+      "id": "cell-culture-practice-4-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Practice: counting cells and viability",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "cell-culture-practice-4-objective-1",
+        "cell-culture-practice-4-objective-2",
+        "cell-culture-practice-4-objective-3",
+        "cell-culture-practice-4-objective-4",
+        "cell-culture-practice-4-objective-5",
+        "cell-culture-practice-outcome-1",
+        "cell-culture-practice-outcome-2"
+      ],
+      "question_ids": [
+        "cell-culture-practice-4:dilution-factor",
+        "cell-culture-practice-4:pre-dilution",
+        "cell-culture-practice-4:two-chamber-concentration",
+        "cell-culture-practice-4:viability",
+        "cell-culture-practice-4:poisson-uncertainty",
+        "cell-culture-practice-4:squares-for-precision",
+        "cell-culture-practice-4:boundary-rules",
+        "cell-culture-practice-4:boundary-versus-stain",
+        "cell-culture-practice-4:chamber-disagreement",
+        "cell-culture-practice-4:agreement-and-bias",
+        "cell-culture-practice-4:field-density",
+        "cell-culture-practice-4:trypan-interpretation"
+      ],
+      "points": 14
+    }
+  ],
+  "grading_policy": {
+    "mode": "formative-only",
+    "categories": [],
+    "attempt_policy": "Unlimited formative retries; no summative grade is awarded.",
+    "solution_release": "Public practice solutions may be shown after an attempt. They are not production exam keys.",
+    "late_policy": "No deadlines or late penalties exist in this partial package.",
+    "appeals": "No instructor review workflow is implemented; report ambiguous practice items as content issues."
+  },
+  "retrieval_cards": "question-banks/retrieval-cards.json",
+  "case_rubrics": "rubrics/case-studio.json",
+  "source_map": "source-map.json",
+  "syllabus": "syllabus.md",
+  "review": {
+    "status": "unreviewed",
+    "reviewed_version": null,
+    "reviewers": []
+  },
+  "accessibility": {
+    "language": "en",
+    "reading_format": "markdown",
+    "math_format": "unicode-text",
+    "diagram_policy": "The package contains no diagrams; the counting rules are given in text and a table. The linked bench simulation provides a text list of every synthetic cell alongside its drawn field.",
+    "known_issues": [
+      "Unicode equations require structured mathematical alternatives and assistive-technology review.",
+      "The bench simulation's field and text alternative have not been reviewed with assistive-technology users."
+    ],
+    "review_status": "unreviewed"
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "date": "2026-10-31",
+      "summary": "New package, a one-lesson pilot of layer 2 of the wet-lab practice track: an original reading on hemocytometer counting and trypan-blue viability (sampling and dilution, Improved-Neubauer geometry, boundary and stain decisions, concentration and viability, Poisson counting uncertainty, chamber disagreement and systematic error, limits of dye exclusion) with two worked examples, 12 practice items, four retrieval cards and one self-check case, linked to the hemocytometer bench simulation. Sources: Marienfeld counting-chamber documents, Student (1907), Strober (2015) and BMBL Appendix H; scope compared with MIT OCW 20.109 Spring 2010. Lessons 1–3 and 5–8 of the outline are not written. Partial, unreviewed and formative-only."
+    }
+  ],
+  "limitations": [
+    "A one-lesson pilot, not a cell-culture course: only outline lesson 4 (counting and viability) exists. Aseptic technique, media, passaging, cryopreservation, contamination, pluripotent stem cells and records are absent; see the scope crosswalk.",
+    "Practice items test calculations and decisions, not hand skill. Focusing, recognising cells and debris, pipetting and loading a real chamber need supervised bench work.",
+    "Of the 6 numerical answers, 0 require units, 5 check significant figures and 0 check dimensions.",
+    "The top/left boundary convention, loading steps and simulation ranges are teaching choices; the manufacturer documents read do not prescribe them. Real counting procedures, density ranges and acceptance limits come from the device instructions and each laboratory's procedures.",
+    "All cells, counts and examples are synthetic. Nothing here establishes competency, qualification or authorisation to handle human or other primate cells."
+  ],
+  "intentionally_omitted": [
+    "Graded assessments, a project, measured workload and review by a qualified person.",
+    "Outline lessons 1–3 and 5–8 of the cell-culture layer, which remain deferred.",
+    "Automated cell counters, flow-cytometric and fluorescent viability assays, which are named but not taught.",
+    "ISSCR standards and human pluripotent stem-cell practice, reserved for the planned stem-cell lesson; they are not used to support this synthetic counting exercise."
+  ],
+  "learner_resources": []
+}

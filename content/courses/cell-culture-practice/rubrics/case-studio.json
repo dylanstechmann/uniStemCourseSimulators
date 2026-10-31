@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "course_id": "cell-culture-practice",
+  "cases": [
+    {
+      "id": "cell-culture-practice:case",
+      "prompt": "A colleague's count record for a synthetic suspension reads: 20 µL cells + 30 µL trypan blue; chamber A 22 cells, chamber B 61 cells (one large square each); blue cells on the right edge counted as dead; 'viability 96%, culture healthy, seed tomorrow'. Write a review of this record: what you would check or redo before trusting the count, how you would calculate and report concentration, viability and counting uncertainty, and what the viability figure can and cannot support.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "cell-culture-practice-4-objective-1",
+        "cell-culture-practice-4-objective-2",
+        "cell-culture-practice-4-objective-3",
+        "cell-culture-practice-4-objective-4",
+        "cell-culture-practice-4-objective-5"
+      ],
+      "rubric": [
+        {
+          "id": "cell-culture-practice-case-criterion-1",
+          "criterion": "Uses the dilution factor (20 + 30)/20 = 2.5 and the chamber's stated volume per large square, and asks whether the suspension was mixed before sampling",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-case-criterion-2",
+          "criterion": "Recognises that 22 and 61 differ by far more than √(22 + 61) ≈ 9.1, so the chambers should be reloaded rather than averaged",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-case-criterion-3",
+          "criterion": "Corrects the boundary error: cells touching the right edge are excluded before any stain decision, so the stained tally and viability must be recounted",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-case-criterion-4",
+          "criterion": "Reports viable concentration, viability and the Poisson uncertainty with the N it was computed from, and notes the systematic errors that uncertainty excludes",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-case-criterion-5",
+          "criterion": "States that trypan-blue exclusion shows membrane integrity at counting time and cannot establish health, growth, phenotype or freedom from contamination",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "A zero-point self-check on a synthetic record; it is not a grade or a competency record, and your laboratory's procedures govern real counts."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,415 @@
+{
+  "schema_version": "1.0",
+  "course_id": "cell-culture-practice",
+  "license": "CC-BY-4.0",
+  "questions": [
+    {
+      "id": "cell-culture-practice-4:dilution-factor",
+      "type": "numeric",
+      "prompt": "You mix 15 µL of a cell suspension with 35 µL of trypan blue before loading the hemocytometer. What dilution factor must the count be multiplied by to give the concentration in the original suspension? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-4-objective-1"
+      ],
+      "feedback": {
+        "hint": "The factor is the total volume divided by the volume of cell suspension in it.",
+        "solution": "(15 + 35)/15 = 50/15 = 3.33. Dividing dye by sample (35/15 = 2.33) is a ratio, not the dilution factor.",
+        "lesson_ids": [
+          "cell-culture-practice-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original cell-counting practice developed with substantial AI assistance; synthetic data; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 3.33,
+        "unit": "",
+        "tolerance": 0.00083645818169269,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-4:pre-dilution",
+      "type": "numeric",
+      "prompt": "A dense suspension is first diluted by adding 100 µL of it to 900 µL of medium. Ten microlitres of that are mixed with 10 µL of trypan blue. One Improved-Neubauer large square in chamber A holds 33 included unstained cells and one in chamber B holds 38. What is the viable-cell concentration of the original suspension, in units of 10⁶ cells/mL? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-4-objective-1",
+        "cell-culture-practice-4-objective-3"
+      ],
+      "feedback": {
+        "hint": "Multiply the two dilution factors, then use mean count × 10,000 × overall factor.",
+        "solution": "Overall factor = (1000/100) × (20/10) = 10 × 2 = 20. Mean unstained = (33 + 38)/2 = 35.5, so 35.5 × 10,000 × 20 = 7.10 × 10⁶ cells/mL. Forgetting the medium step gives 0.710.",
+        "lesson_ids": [
+          "cell-culture-practice-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original cell-counting practice developed with substantial AI assistance; synthetic data; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 7.1,
+        "unit": "",
+        "tolerance": 0.0017834393663718013,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-4:two-chamber-concentration",
+      "type": "numeric",
+      "prompt": "After a 10 µL + 10 µL trypan-blue dilution, the large square counted in chamber A has 58 included unstained and 7 stained cells, and the one in chamber B has 63 unstained and 9 stained. What is the viable-cell concentration of the suspension, in units of 10⁶ cells/mL? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-4-objective-3"
+      ],
+      "feedback": {
+        "hint": "Use the mean included unstained count per large square, 10,000 per mL for a 0.1 µL square, and the dilution factor.",
+        "solution": "Mean unstained = (58 + 63)/2 = 60.5; 60.5 × 10,000 × 2 = 1.21 × 10⁶ cells/mL. Adding the chambers without averaging gives 2.42, twice the true value.",
+        "lesson_ids": [
+          "cell-culture-practice-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original cell-counting practice developed with substantial AI assistance; synthetic data; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1.21,
+        "unit": "",
+        "tolerance": 0.0003039382582126591,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-4:viability",
+      "type": "numeric",
+      "prompt": "Two chambers of a trypan-blue count give 72 unstained and 11 stained included cells (chamber A) and 66 unstained and 13 stained (chamber B). What is the percent viability? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-4-objective-3",
+        "cell-culture-practice-4-objective-5"
+      ],
+      "feedback": {
+        "hint": "Viability is unstained over all included cells, using both chambers together.",
+        "solution": "Unstained = 138, stained = 24, total = 162; 138/162 × 100 = 85.2%. Stained over unstained (24/138 = 17.4%) is neither viability nor the dead fraction.",
+        "lesson_ids": [
+          "cell-culture-practice-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original cell-counting practice developed with substantial AI assistance; synthetic data; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 85.2,
+        "unit": "",
+        "tolerance": 0.02140127239646162,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-4:poisson-uncertainty",
+      "type": "numeric",
+      "prompt": "Chamber A gives 55 unstained and 9 stained included cells and chamber B gives 63 unstained and 12 stained. What is the Poisson relative counting uncertainty of the total-cell count, in percent? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-4-objective-4"
+      ],
+      "feedback": {
+        "hint": "Use 100/√N with N the number of cells in the count being reported; here all included cells from both chambers.",
+        "solution": "N = 55 + 9 + 63 + 12 = 139; 100/√139 = 8.48%. Using 100/N gives 0.719%, far too small; for the viable count alone N = 118 and the uncertainty is 9.21%.",
+        "lesson_ids": [
+          "cell-culture-practice-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original cell-counting practice developed with substantial AI assistance; synthetic data; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 8.48,
+        "unit": "",
+        "tolerance": 0.0021300796939201236,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-4:squares-for-precision",
+      "type": "numeric",
+      "prompt": "A well-mixed suspension gives about 50 included cells per Improved-Neubauer large square. How many large squares must be counted in total for a Poisson relative counting uncertainty of 5% in the total count? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-4-objective-4"
+      ],
+      "feedback": {
+        "hint": "Invert 100/√N = 5 to find N, then divide by the cells per square.",
+        "solution": "N = (100/5)² = 400 cells; 400/50 = 8 large squares, for example the four corners of each chamber. Twenty squares would come from mistaking √N for N.",
+        "lesson_ids": [
+          "cell-culture-practice-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original cell-counting practice developed with substantial AI assistance; synthetic data; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 8,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-4:boundary-rules",
+      "type": "multiple_select",
+      "prompt": "You count one large square using this lesson's convention: include cells touching the top or left boundary, exclude cells touching the bottom or right boundary, and let exclusion win at corners. Which decisions are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-4-objective-2"
+      ],
+      "feedback": {
+        "hint": "Take the boundary decision first; a cell touching a bottom or right line is excluded whatever its colour.",
+        "solution": "Top and left include, bottom and right exclude, and exclusion wins at a corner, so the top-right cell is excluded here and counted in the square to its right. The blue cell on the right line is excluded before its stain matters. A cell wholly inside needs only a stain decision.",
+        "lesson_ids": [
+          "cell-culture-practice-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original cell-counting practice developed with substantial AI assistance; synthetic data; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "An unstained cell straddling the top line is included and tallied as unstained.",
+        "A blue cell straddling the right line is tallied as stained.",
+        "A cell sitting on the top-left corner, touching both of those lines, is included.",
+        "A cell sitting on the top-right corner, touching both of those lines, is included because it touches the top line.",
+        "A blue cell lying wholly inside the square needs only a stain decision, not a boundary decision."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          2,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "cell-culture-practice-4:boundary-versus-stain",
+      "type": "single_choice",
+      "prompt": "A trainee applies the boundary rule correctly to unstained cells but tallies every blue cell touching the bottom or right line as stained. Compared with a correct count, what happens to the two results?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-4-objective-2",
+        "cell-culture-practice-4-objective-3"
+      ],
+      "feedback": {
+        "hint": "Ask which tally the extra cells enter, and which result uses that tally.",
+        "solution": "The extra cells enter only the stained tally. Viable concentration uses only unstained cells, so it is unchanged; viability's denominator grows, so it falls. Boundary and stain decisions are separate.",
+        "lesson_ids": [
+          "cell-culture-practice-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original cell-counting practice developed with substantial AI assistance; synthetic data; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Viable-cell concentration is unchanged and viability is biased low.",
+        "Viable-cell concentration is biased high and viability is unchanged.",
+        "Both results are biased low by the same percentage.",
+        "Neither result changes, because stained cells are not viable."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "cell-culture-practice-4:chamber-disagreement",
+      "type": "single_choice",
+      "prompt": "Two chambers loaded from the same trypan-blue mixture give 31 and 74 included cells in their large squares. What is the best response?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-4-objective-4",
+        "cell-culture-practice-4-objective-5"
+      ],
+      "feedback": {
+        "hint": "Compare the difference with the standard deviation expected for the difference of two Poisson counts.",
+        "solution": "The difference should have a standard deviation of about √(a + b) = √105 ≈ 10.2; 43 is about 4.2 of those, which points to settling, mis-filling or bubbles rather than chance. Averaging hides a preparation error.",
+        "lesson_ids": [
+          "cell-culture-practice-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original cell-counting practice developed with substantial AI assistance; synthetic data; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Do not average them: the difference of 43 is more than four times √(31 + 74) ≈ 10.2, beyond counting variation, so remix, reload both chambers and count again.",
+        "Average them to 52.5, since averaging two chambers cancels the error.",
+        "Keep the higher count, because cells are more often missed than double-counted.",
+        "Report both and widen the Poisson uncertainty to 100/√31 percent."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "cell-culture-practice-4:agreement-and-bias",
+      "type": "single_choice",
+      "prompt": "A tube of suspension stood for ten minutes and both chambers were loaded from one aliquot taken near the surface without mixing. The chambers agree within 3%. What does the agreement show?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-4-objective-5"
+      ],
+      "feedback": {
+        "hint": "Ask whether the error would differ between the two chambers or be shared by both.",
+        "solution": "Replicates loaded from one unmixed aliquot share its systematic error: cells had settled away from the surface, so both counts are low together. Agreement measures precision, not accuracy; remix and resample.",
+        "lesson_ids": [
+          "cell-culture-practice-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original cell-counting practice developed with substantial AI assistance; synthetic data; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Only that the two loadings were precise; both share the aliquot's bias, so the concentration is probably underestimated.",
+        "That the concentration is accurate to about 3%.",
+        "That settling did not occur, because settling would have made the chambers disagree.",
+        "That more squares are needed, because 3% is larger than the Poisson uncertainty."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "cell-culture-practice-4:field-density",
+      "type": "single_choice",
+      "prompt": "After a twofold trypan-blue dilution, one sample shows about 4 cells per large square and another about 300 overlapping cells per large square. Which plan is sound?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-4-objective-4",
+        "cell-culture-practice-4-objective-5"
+      ],
+      "feedback": {
+        "hint": "Sparse fields give few cells and a large relative uncertainty; crowded fields cause boundary and stain mistakes.",
+        "solution": "Four cells per square gives about 50% counting uncertainty per square, so count many more squares or concentrate. Three hundred overlapping cells are hard to assign and classify, so dilute and recount. Every change needs a new dilution factor.",
+        "lesson_ids": [
+          "cell-culture-practice-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original cell-counting practice developed with substantial AI assistance; synthetic data; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Count many more squares, or concentrate the first sample; dilute the second further and recount, recalculating each dilution factor.",
+        "Count one square of each, because the dilution factor corrects for density.",
+        "Dilute the first sample further and concentrate the second.",
+        "Accept both counts, since Poisson uncertainty is the same at every density."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "cell-culture-practice-4:trypan-interpretation",
+      "type": "multiple_select",
+      "prompt": "A trypan-blue count of a culture gives 94% viability, made in buffered saline within three minutes of mixing. Which statements are supported? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-4-objective-5"
+      ],
+      "feedback": {
+        "hint": "Trypan-blue exclusion reports membrane integrity at one moment; ask which statements need a different assay.",
+        "solution": "The test infers viability from membrane integrity, should be read in serum-free solution, and loses accuracy with prolonged dye exposure (Strober). It says nothing about future growth, contamination or phenotype.",
+        "lesson_ids": [
+          "cell-culture-practice-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original cell-counting practice developed with substantial AI assistance; synthetic data; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "About 94% of the counted cells excluded the dye, indicating intact membranes at the time of counting.",
+        "Counting in serum-free solution avoids serum proteins taking up the dye and misleading the count.",
+        "Leaving the cells in dye for 30 minutes before counting would be expected to lower the apparent viability.",
+        "The culture will proliferate normally after passaging.",
+        "The culture is free of mycoplasma and bacterial contamination.",
+        "The cells have the intended phenotype."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    }
+  ]
+}

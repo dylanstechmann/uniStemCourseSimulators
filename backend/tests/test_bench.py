@@ -643,6 +643,15 @@ def test_cell_count_correct_run_and_replay(library):
     assert view == replay(model, 7, "practice", actions).view()
 
 
+@pytest.mark.parametrize("seed", range(1, 41))
+def test_cell_count_correct_run_meets_every_checkpoint_for_any_seed(library, seed):
+    # Regression: generated concentrations once put most mixed twofold fields above the 20–80 range.
+    model = library.get(CELL_COUNT)
+    view, state = finish_cell_count(model, seed)
+    assert all(checkpoint_map(view).values()), (seed, checkpoint_map(view))
+    assert all(20 <= len(cells) <= 80 for cells in state["chambers"].values())
+
+
 def test_cell_count_boundary_and_stain_decisions_are_checked(library):
     model = library.get(CELL_COUNT)
     view, _ = finish_cell_count(model, 7, wrong_boundary=True)

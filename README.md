@@ -14,18 +14,18 @@ An independent open-source learning platform under development. It does **not co
 | --- | ---: | --- |
 | catalog-only | 0 | Catalog metadata only |
 | outlined | 0 | Structured plan without developed teaching |
-| partial | 27 | Authored readings, connected coursework and formative checks; depth and review remain limited |
+| partial | 28 | Authored readings, connected coursework and formative checks; depth and review remain limited |
 | beta | 0 | Developed course awaiting required review/gates |
 | complete | 0 | All full-course gates satisfied |
 | externally reviewed | 0 | Qualified named reviewer examined a specified version |
 
-**No current package meets the complete-course standard.** The repository contains 27 partial packages with 674 lessons, 3,916 formative questions, 2,284 retrieval cards and 163 self-assessed case prompts (content validator inventory, 2026-10-31). These counts measure authored material; they do not establish semester depth, measured workload, scientific review or university equivalence.
+**No current package meets the complete-course standard.** The repository contains 28 partial packages with 677 lessons, 3,948 formative questions, 2,296 retrieval cards and 164 self-assessed case prompts (content validator inventory, 2026-10-31). One of them, Cell Culture Practice, is a one-lesson pilot rather than a course. These counts measure authored material; they do not establish semester depth, measured workload, scientific review or university equivalence.
 
 The packages span life sciences, chemistry, mathematics, physics, statistics, computing and engineering. Original readings, worked examples, synthetic datasets and practice are available in each subject, with uneven coverage and depth. See the [package inventory](#package-inventory), [measured content gaps](docs/COURSE_GAP_REPORT.md), and [MIT OpenCourseWare scope audit](docs/COURSE_SCOPE_AUDIT.md) for the current boundaries and priorities. Detailed development history belongs in the [progress review](docs/PROGRESS_REVIEW.md).
 
 Development now proceeds across the repository in bounded instructional batches. Follow-up priorities address demonstrated instructional gaps, broader course boundaries and learner evidence identified against official MIT OpenCourseWare syllabi and calendars. New material is original and attributed; references compare scope and expectations without claiming affiliation, copied course delivery, or equivalent credit. Metadata and review-report refreshes are bundled with substantive changes.
 
-The curriculum map adds **37 catalog-only subject nodes** and **8 pathway maps** beside the 27 partial course packages. Catalog-only entries describe planned study areas and dependencies; they contain no authored lessons and cannot be enrolled in. Mapped prerequisite order is planning guidance and does not establish university equivalency.
+The curriculum map adds **37 catalog-only subject nodes** and **8 pathway maps** beside the 28 partial course packages. Catalog-only entries describe planned study areas and dependencies; they contain no authored lessons and cannot be enrolled in. Mapped prerequisite order is planning guidance and does not establish university equivalency.
 
 See [the audit](docs/CURRENT_STATE_AUDIT.md), [quality standard](docs/CONTENT_QUALITY_STANDARD.md), and [remaining work](docs/ROADMAP.md).
 
@@ -40,6 +40,7 @@ See [the audit](docs/CURRENT_STATE_AUDIT.md), [quality standard](docs/CONTENT_QU
 | [Calculus II: Integration, Series & Applications](content/courses/calculus-2/course.json) | Mathematics | partial |
 | [Calculus III: Multivariable & Vector Calculus](content/courses/calculus-3/course.json) | Mathematics | partial |
 | [Foundations of Cell and Molecular Biology](content/courses/cell-biology/course.json) | Life sciences | partial |
+| [Cell Culture Practice (pilot: Counting Cells and Viability)](content/courses/cell-culture-practice/course.json) | Life sciences laboratory | partial (one-lesson pilot) |
 | [Cellular Biomechanics & Mechanobiology](content/courses/cellular-biomechanics/course.json) | Bioengineering | partial |
 | [Electrical Circuits & Instrumentation](content/courses/circuits/course.json) | Electrical engineering | partial |
 | [Differential Equations for Living & Engineered Systems](content/courses/differential-equations/course.json) | Mathematics | partial |
@@ -89,9 +90,9 @@ Single-choice, multiple-select, numeric, bounded symbolic-expression, narrow dat
 
 The React reader now includes six scientific calculators under **Study tools**, available without enrollment: dilution, buffer pH, enzyme kinetics, RC charging, diffusion timescale, and Ohm's law. Each shows units and model assumptions and links to related courses. Calculator scratch work is ungraded.
 
-**Bench practice** replays simulations of real bench procedures (micropipette gravimetric verification, decimal dilutions with the FDA BAM aerobic plate count, a Class II biosafety cabinet session with a spill, validating an autoclave waste cycle with biological indicators, the first response to a needlestick, cut or eye splash, and a synthetic hemocytometer cell-count/viability pilot) from the learner's own choices of action, with a checkpoint debrief at the end. The micropipette protocol includes an optional 3D bench illustration driven by the server's visible state, with accessible controls and a text fallback. The hemocytometer pilot includes an interactive, keyboard-accessible chamber diagram for boundary and stain decisions. Runs are formative, unrecorded and cannot train hand skill; see the [wet-lab practice plan](docs/WET_LAB_PRACTICE_PLAN.md).
+**Bench practice** replays simulations of real bench procedures (micropipette gravimetric verification, decimal dilutions with the FDA BAM aerobic plate count, a Class II biosafety cabinet session with a spill, validating an autoclave waste cycle with biological indicators, the first response to a needlestick, cut or eye splash, and a synthetic hemocytometer cell-count/viability pilot) from the learner's own choices of action, with a checkpoint debrief at the end. The micropipette protocol includes an optional 3D bench illustration driven by the server's visible state, with accessible controls and a text fallback. The hemocytometer pilot includes an interactive, keyboard-accessible chamber diagram for boundary and stain decisions, and is taught by the one-lesson Cell Culture Practice pilot package. Runs are formative, unrecorded and cannot train hand skill; see the [wet-lab practice plan](docs/WET_LAB_PRACTICE_PLAN.md).
 
-The React **Case studio** also exposes the authored prompts and self-check criteria across all 27 partial courses. Enrolled learners can save a private written response and checklist marks; drafts stay bound to the course version and prompt, remain available in account exports, and do not affect grades. Archived cases are read-only.
+The React **Case studio** also exposes the authored prompts and self-check criteria across all 28 partial packages. Enrolled learners can save a private written response and checklist marks; drafts stay bound to the course version and prompt, remain available in account exports, and do not affect grades. Archived cases are read-only.
 
 The previous calculators, cards, case self-assessment and browser notebook remain preserved in `legacy/`; the React reader now has its own searchable notebook over server-saved lesson notes. To use the old reader separately:
 

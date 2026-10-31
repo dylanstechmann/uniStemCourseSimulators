@@ -15,6 +15,7 @@ No course or candidate is activated by this command. `--check` detects report dr
 | calculus-2 | 0.7.0 | partial | unreviewed | formative-only | 0 |
 | calculus-3 | 0.7.0 | partial | unreviewed | formative-only | 0 |
 | cell-biology | 0.62.1 | partial | unreviewed | formative-only | 15 |
+| cell-culture-practice | 0.1.0 | partial | unreviewed | formative-only | 0 |
 | cellular-biomechanics | 0.5.0 | partial | unreviewed | formative-only | 0 |
 | circuits | 0.8.0 | partial | unreviewed | formative-only | 0 |
 | differential-equations | 0.7.0 | partial | unreviewed | formative-only | 0 |
