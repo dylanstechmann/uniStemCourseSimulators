@@ -11,11 +11,12 @@ from pydantic import BaseModel, ConfigDict, Field, ValidationError, model_valida
 from .autoclave import AutoclaveValidation
 from .bsc import BiosafetyCabinetSession
 from .engine import ActionRejected, ProtocolInvalid, ProtocolModel, replay
+from .exposure import ExposureResponse
 from .pipette import PipetteVerification
 from .plate_count import AerobicPlateCount
 
 MODELS: dict[str, type[ProtocolModel]] = {
-    model.protocol_id: model for model in (PipetteVerification, AerobicPlateCount, BiosafetyCabinetSession, AutoclaveValidation)
+    model.protocol_id: model for model in (PipetteVerification, AerobicPlateCount, BiosafetyCabinetSession, AutoclaveValidation, ExposureResponse)
 }
 
 __all__ = ["ActionRejected", "BenchLibrary", "ProtocolInvalid", "replay"]

@@ -1,0 +1,260 @@
+{
+  "schema_version": "1.0",
+  "id": "exposure-incident-first-response",
+  "version": "0.1.0",
+  "title": "The first minutes after an exposure to human cell material",
+  "layer": 1,
+  "summary": "Respond to a needlestick, cut or eye splash during work with primary human cells: decontaminate at once by the right method, make the work safe, report immediately, and document what occupational health needs.",
+  "scenario": "You are passaging primary human cells of unknown infection status in a BSL-2 laboratory. Something will go wrong. Respond as your exposure control plan expects.",
+  "guided_steps": [
+    "Wash a wound or skin exposure at once with soap and running water; flush an eye at the eyewash with water.",
+    "For an eye, keep flushing for at least 15 minutes with the eyelids held open.",
+    "Make the material and any sharps safe so no one else is exposed.",
+    "Report immediately to your supervisor and contact occupational health for a confidential medical evaluation.",
+    "Document the route and circumstances of the exposure and identify the source material.",
+    "Complete the laboratory incident record. Do not return to work before the incident is reported."
+  ],
+  "parameters": [
+    {
+      "name": "decontaminate_within_min",
+      "value": 1,
+      "unit": "min",
+      "label": "Time to start washing or flushing",
+      "source": {
+        "kind": "cited",
+        "source_id": "osha-29cfr1910-1030-bloodborne-pathogens",
+        "location": "(d)(2)(vi): wash or flush 'immediately or as soon as feasible'"
+      }
+    },
+    {
+      "name": "eye_flush_min",
+      "value": 15,
+      "unit": "min",
+      "label": "Eye flush duration",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "A common eyewash duration; follow your institution's procedure and the eyewash instructions."
+      }
+    },
+    {
+      "name": "report_within_min",
+      "value": 30,
+      "unit": "min",
+      "label": "Time to report",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "Practice threshold for 'immediately' that allows a 15-minute eye flush first; OSHA (f)(3) makes evaluation available immediately after a report."
+      }
+    }
+  ],
+  "actions": [
+    {
+      "name": "begin_work",
+      "label": "Begin passaging the culture",
+      "params": []
+    },
+    {
+      "name": "wash_with_soap_and_water",
+      "label": "Wash with soap and running water",
+      "params": [
+        {
+          "name": "seconds",
+          "label": "Duration",
+          "type": "number",
+          "min": 5,
+          "max": 900,
+          "unit": "s"
+        }
+      ]
+    },
+    {
+      "name": "flush_at_eyewash",
+      "label": "Flush the eye at the eyewash",
+      "params": [
+        {
+          "name": "minutes",
+          "label": "Duration",
+          "type": "number",
+          "min": 0.5,
+          "max": 30,
+          "unit": "min"
+        }
+      ]
+    },
+    {
+      "name": "secure_material",
+      "label": "Make the material and sharps safe",
+      "params": []
+    },
+    {
+      "name": "notify_supervisor",
+      "label": "Tell your supervisor",
+      "params": []
+    },
+    {
+      "name": "contact_occupational_health",
+      "label": "Contact occupational health",
+      "params": []
+    },
+    {
+      "name": "document_route_and_circumstances",
+      "label": "Document the route and circumstances",
+      "params": []
+    },
+    {
+      "name": "identify_source_material",
+      "label": "Identify and record the source material",
+      "params": []
+    },
+    {
+      "name": "complete_incident_record",
+      "label": "Complete the incident record",
+      "params": []
+    },
+    {
+      "name": "wait",
+      "label": "Wait",
+      "params": [
+        {
+          "name": "minutes",
+          "label": "Minutes",
+          "type": "number",
+          "min": 1,
+          "max": 240,
+          "unit": "min"
+        }
+      ]
+    },
+    {
+      "name": "return_to_work",
+      "label": "Return to the bench",
+      "params": []
+    },
+    {
+      "name": "end_response",
+      "label": "End the first response",
+      "params": []
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "decontaminate-immediately",
+      "severity": "critical",
+      "description": "Begin washing or flushing immediately, before anything else.",
+      "rationale": "Every minute of contact increases the chance of infection.",
+      "source": {
+        "kind": "cited",
+        "source_id": "osha-29cfr1910-1030-bloodborne-pathogens",
+        "location": "(d)(2)(vi)"
+      }
+    },
+    {
+      "id": "right-method",
+      "severity": "major",
+      "description": "Use soap and water for skin and wounds, and water flushing for eyes and mucous membranes.",
+      "rationale": "The standard names both methods for their exposure types.",
+      "source": {
+        "kind": "cited",
+        "source_id": "osha-29cfr1910-1030-bloodborne-pathogens",
+        "location": "(d)(2)(vi): 'wash hands and any other skin with soap and water, or flush mucous membranes with water'"
+      }
+    },
+    {
+      "id": "flush-duration",
+      "severity": "major",
+      "description": "Flush an exposed eye for at least 15 minutes.",
+      "rationale": "A brief rinse leaves material in the eye.",
+      "source": {
+        "kind": "simulation-typical"
+      }
+    },
+    {
+      "id": "secure-material",
+      "severity": "minor",
+      "description": "Make the material and sharps safe.",
+      "rationale": "A second person should not be exposed by what caused the first exposure.",
+      "source": {
+        "kind": "simulation-typical"
+      }
+    },
+    {
+      "id": "report-immediately",
+      "severity": "critical",
+      "description": "Report the incident to your supervisor immediately.",
+      "rationale": "Medical evaluation, and prophylaxis where indicated, is time-sensitive.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Section IV, BSL-2 special practice 7: incidents 'are immediately evaluated' and reported to the supervisor"
+      }
+    },
+    {
+      "id": "occupational-health",
+      "severity": "critical",
+      "description": "Contact occupational health for a confidential medical evaluation.",
+      "rationale": "The employer must make evaluation and follow-up available immediately after a report.",
+      "source": {
+        "kind": "cited",
+        "source_id": "osha-29cfr1910-1030-bloodborne-pathogens",
+        "location": "(f)(3)"
+      }
+    },
+    {
+      "id": "document-route",
+      "severity": "major",
+      "description": "Document the route of exposure and the circumstances.",
+      "rationale": "The medical evaluation begins with this documentation.",
+      "source": {
+        "kind": "cited",
+        "source_id": "osha-29cfr1910-1030-bloodborne-pathogens",
+        "location": "(f)(3)(i)"
+      }
+    },
+    {
+      "id": "identify-source",
+      "severity": "major",
+      "description": "Identify and record the source material.",
+      "rationale": "Identification of the source is part of the evaluation; for cell material, the line, donor code and vessel.",
+      "source": {
+        "kind": "cited",
+        "source_id": "osha-29cfr1910-1030-bloodborne-pathogens",
+        "location": "(f)(3)(ii)"
+      }
+    },
+    {
+      "id": "incident-record",
+      "severity": "minor",
+      "description": "Complete the laboratory incident record.",
+      "rationale": "Records allow follow-up and a review of the risk assessment.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "Section IV, BSL-2 special practice 7: 'Appropriate records are maintained'"
+      }
+    },
+    {
+      "id": "no-return-before-report",
+      "severity": "critical",
+      "description": "Do not return to work before the incident is reported.",
+      "rationale": "Delay removes the chance of timely evaluation.",
+      "source": {
+        "kind": "simulation-typical"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "osha-29cfr1910-1030-bloodborne-pathogens",
+      "use": "Washing and flushing, and the elements of post-exposure evaluation, adapted from a US federal regulation."
+    },
+    {
+      "source_id": "cdc-nih-bmbl-6",
+      "use": "Immediate evaluation, reporting and records of incidents at BSL-2, adapted from a US federal work."
+    }
+  ],
+  "limitations": [
+    "The order and timing of steps are practice rules; your exposure control plan and occupational health service govern a real response.",
+    "Medical evaluation, testing and prophylaxis decisions are not simulated and nothing here is medical advice.",
+    "The simulation cannot train the speed and calm a real incident needs; drills and supervision do."
+  ]
+}

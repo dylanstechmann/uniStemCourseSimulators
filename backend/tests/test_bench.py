@@ -551,6 +551,55 @@ def test_autoclave_short_validated_time_is_flagged(library):
     assert checkpoint_map(view)["report-cycle-time"] is False
 
 
+
+# Exposure first response ---------------------------------------------------------
+
+EXPOSURE = "exposure-incident-first-response"
+
+
+def exposure_good(kind):
+    first = [act("flush_at_eyewash", minutes=15)] if kind == "eye-splash" else [act("wash_with_soap_and_water", seconds=60)]
+    return [act("begin_work"), *first, act("secure_material"), act("notify_supervisor"), act("contact_occupational_health"),
+            act("document_route_and_circumstances"), act("identify_source_material"), act("complete_incident_record"),
+            act("end_response")]
+
+
+@pytest.mark.parametrize("kind", ["needlestick", "eye-splash", "cut"])
+def test_exposure_correct_response(library, kind):
+    model = library.get(EXPOSURE)
+    seed = seed_where(model, lambda h: h["exposure"] == kind)
+    view = replay(model, seed, "practice", exposure_good(kind)).view()
+    met = checkpoint_map(view)
+    assert all(v for v in met.values() if v is not None), met
+    assert (met["flush-duration"] is None) == (kind != "eye-splash")
+    assert view["log"][0]["events"][0]["kind"] == "consequence"
+
+
+def test_exposure_wrong_method_late_report_and_early_return(library):
+    model = library.get(EXPOSURE)
+    seed = seed_where(model, lambda h: h["exposure"] == "eye-splash")
+    actions = [act("begin_work"), act("wait", minutes=10), act("wash_with_soap_and_water", seconds=20),
+               act("wait", minutes=30), act("return_to_work")]
+    met = checkpoint_map(replay(model, seed, "practice", actions).view())
+    for key in ("decontaminate-immediately", "right-method", "flush-duration", "report-immediately", "occupational-health",
+                "no-return-before-report", "document-route", "identify-source"):
+        assert met[key] is False, key
+
+
+def test_exposure_short_eye_flush_is_flagged(library):
+    model = library.get(EXPOSURE)
+    seed = seed_where(model, lambda h: h["exposure"] == "eye-splash")
+    actions = exposure_good("eye-splash")
+    actions[1] = act("flush_at_eyewash", minutes=2)
+    assert checkpoint_map(replay(model, seed, "practice", actions).view())["flush-duration"] is False
+
+
+def test_exposure_actions_need_the_incident_first(library):
+    model = library.get(EXPOSURE)
+    with pytest.raises(ActionRejected, match="Begin the work"):
+        replay(model, 1, "practice", [act("notify_supervisor")])
+
+
 # API ------------------------------------------------------------------------------
 
 @pytest.fixture

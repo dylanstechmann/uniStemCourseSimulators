@@ -51,6 +51,8 @@ Exposures are emergencies with a short window for action. The standard requires 
 4. **Record** what happened: the material, the agent if known, the procedure and the route.
 5. **Follow up** with the medical evaluation, and help review the incident so the risk assessment can be updated.
 
+The [exposure-response simulation](#/bench/exposure-incident-first-response) rehearses these steps for a needlestick, a cut or an eye splash, chosen at random.
+
 ## Common mistakes
 
 - Treating a "screened" or commercially sourced human cell line as free of risk.

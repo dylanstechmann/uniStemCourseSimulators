@@ -16,10 +16,10 @@ Scope: BMBL 6th edition (Sections II–IV, Appendices A, B, C, H), OSHA 29 CFR 1
 | 2. Biosafety Levels 1 and 2: containment elements, BSL-2 standard and special practices, safety equipment and facilities, entrance signs | BMBL Sections III–IV | — |
 | 3. Biological safety cabinets: protections, Class I/II/III and Class II types, inflow volume, selection, placement, certification and UV | BMBL Appendix A | Class II BSC session with a spill (built) |
 | 4. Decontamination, disinfection and sterilization: definitions, resistance ranking, disinfectant activity, bleach dilution, D-values and SAL, autoclave verification | BMBL Appendix B | Autoclave waste-load validation (built) |
-| 5. Human cells and tissues, bloodborne pathogens and exposure response | BMBL Appendix H; OSHA 1910.1030 | Planned: needlestick or splash response timeline |
+| 5. Human cells and tissues, bloodborne pathogens and exposure response | BMBL Appendix H; OSHA 1910.1030 | Exposure incident first response (built) |
 | 6. Chemical hygiene, hazard communication and transport of infectious substances | OSHA 1910.1450 and 1910.1200; BMBL Appendix C | Planned: read an SDS and a label under time pressure |
 
-Built with 64 practice items, 26 cards, a case, an optional iPSC biosafety plan project and a crosswalk against the ABSA CBSP examination outline. Still planned: the exposure-response and SDS protocols.
+Built with 64 practice items, 26 cards, a case, an optional iPSC biosafety plan project and a crosswalk against the ABSA CBSP examination outline. Still planned: an SDS and label protocol.
 
 ## Layer 2: `cell-culture-practice` (outline only)
 
