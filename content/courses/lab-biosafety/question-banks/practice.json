@@ -1,0 +1,2177 @@
+{
+  "schema_version": "1.0",
+  "course_id": "lab-biosafety",
+  "license": "CC-BY-4.0",
+  "questions": [
+    {
+      "id": "lab-biosafety-1:risk-score",
+      "type": "numeric",
+      "prompt": "On 1–5 scales, a task is scored probability 4 and consequence 3. What is its relative risk score (probability × consequence)? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-1-objective-1"
+      ],
+      "feedback": {
+        "hint": "Multiply the two scores.",
+        "solution": "4 × 3 = 12, which ranks it above a task scored 2 × 3 = 6.",
+        "lesson_ids": [
+          "lab-biosafety-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 12,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-biosafety-1:residual-score",
+      "type": "numeric",
+      "prompt": "Sealed centrifuge safety cups opened only in a cabinet lower that task's probability score from 4 to 2, leaving consequence at 3. What is the residual risk score? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-1-objective-3"
+      ],
+      "feedback": {
+        "hint": "Recompute the product with the new probability.",
+        "solution": "2 × 3 = 6. Controls change the probability of exposure, not the severity of the disease.",
+        "lesson_ids": [
+          "lab-biosafety-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 6,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-biosafety-1:aerosol-release",
+      "type": "numeric",
+      "prompt": "In a synthetic model, a procedure releases a fraction 10⁻⁶ of the suspension it handles as respirable aerosol. How many organisms are released from 2.0 mL of a culture at 5 × 10⁸ organisms per mL? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-1-objective-2"
+      ],
+      "feedback": {
+        "hint": "Organisms handled = concentration × volume; multiply by the released fraction.",
+        "solution": "5 × 10⁸ × 2.0 × 10⁻⁶ = 1000 organisms; the same procedure on a sample at 10³ per mL releases essentially none.",
+        "lesson_ids": [
+          "lab-biosafety-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1000,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-biosafety-1:hazard-risk",
+      "type": "single_choice",
+      "prompt": "Which statement distinguishes a hazard from a risk, as BMBL uses the terms?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-1-objective-1"
+      ],
+      "feedback": {
+        "hint": "Think of a closed tube in a freezer versus the same culture on a vortexer.",
+        "solution": "Risk depends on interaction: probability of exposure and its consequences. The same hazard carries different risks in different procedures.",
+        "lesson_ids": [
+          "lab-biosafety-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "A hazard can cause harm; risk arises when people interact with it and depends on the probability and consequence of an adverse event.",
+        "A hazard is a biological agent; a risk is a chemical.",
+        "Risk is fixed by the agent's Risk Group regardless of the procedure.",
+        "Hazards and risks are the same thing at BSL-2."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-1:risk-group-bsl",
+      "type": "single_choice",
+      "prompt": "How does an agent's Risk Group relate to the Biosafety Level for work with it?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-1-objective-2"
+      ],
+      "feedback": {
+        "hint": "BMBL treats the Risk Group as a starting estimate.",
+        "solution": "BMBL states that the four Risk Groups correlate with, but do not equate to, Biosafety Levels; large volumes, aerosols or sharps can raise the containment needed.",
+        "lesson_ids": [
+          "lab-biosafety-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "Risk Groups correlate with but do not equate to Biosafety Levels; the procedure and setting can change the level needed.",
+        "Risk Group 2 always means BSL-2, whatever the procedure.",
+        "The Biosafety Level is always one higher than the Risk Group.",
+        "Risk Groups apply only to animal work."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-1:lai-routes",
+      "type": "multiple_select",
+      "prompt": "Which are routes of laboratory-associated infection identified in investigations that BMBL summarizes? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "lab-biosafety-1-objective-2"
+      ],
+      "feedback": {
+        "hint": "BMBL lists five routes; animal bites and scratches are the fifth.",
+        "solution": "Sharps, splashes, mouth pipetting, bites and scratches, and aerosols. Most infections have no identified incident, and aerosols are a probable source of many.",
+        "lesson_ids": [
+          "lab-biosafety-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "Parenteral inoculation with needles or other contaminated sharps.",
+        "Spills and splashes onto skin and mucous membranes.",
+        "Ingestion through mouth pipetting.",
+        "Inhalation of infectious aerosols.",
+        "Transmission through the building's water supply."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "lab-biosafety-1:hierarchy",
+      "type": "single_choice",
+      "prompt": "In what order does the hierarchy of controls apply?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-1-objective-3"
+      ],
+      "feedback": {
+        "hint": "PPE protects only the wearer and fails silently.",
+        "solution": "Removing or reducing the hazard is most effective; engineering controls such as BSCs act regardless of behaviour; administrative controls and PPE address what remains.",
+        "lesson_ids": [
+          "lab-biosafety-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "Eliminate or reduce the hazard, then engineering and administrative controls, then personal protective equipment.",
+        "PPE first, because it is quickest to put on.",
+        "Administrative controls only, since training covers everything.",
+        "Engineering controls only after an exposure has happened."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-1:inherent-residual",
+      "type": "single_choice",
+      "prompt": "What is the difference between inherent and residual risk?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-1-objective-3"
+      ],
+      "feedback": {
+        "hint": "Step 1 assesses one; step 3 reduces it to the other.",
+        "solution": "BMBL defines inherent risk as the risk in the absence of mitigating factors; controls bring it down to a residual risk the institution accepts.",
+        "lesson_ids": [
+          "lab-biosafety-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "Inherent risk is the risk before any mitigation; residual risk is what remains after controls are applied.",
+        "Inherent risk is from chemicals and residual risk from biological agents.",
+        "Residual risk is always zero after a risk assessment.",
+        "They are measured in different units."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-1:review-step",
+      "type": "single_choice",
+      "prompt": "Before new controls are implemented, who should review the risk assessment and chosen safeguards, according to BMBL's fourth step?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-1-objective-4"
+      ],
+      "feedback": {
+        "hint": "The fourth step brings in independent expertise.",
+        "solution": "Review by biosafety professionals, subject experts and the IBC catches hazards the planner missed.",
+        "lesson_ids": [
+          "lab-biosafety-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "A biosafety professional, a subject matter expert and the Institutional Biosafety Committee or equivalent.",
+        "Only the person doing the work.",
+        "The equipment manufacturer.",
+        "Nobody, if the agent is Risk Group 2."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-1:revisit",
+      "type": "multiple_select",
+      "prompt": "When should a risk assessment be revisited? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "lab-biosafety-1-objective-4"
+      ],
+      "feedback": {
+        "hint": "BMBL's sixth step makes the process cyclical.",
+        "solution": "Assessments are revisited regularly and whenever work, agents, equipment or people change; approval does not end the process.",
+        "lesson_ids": [
+          "lab-biosafety-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "Regularly, as part of an ongoing cycle.",
+        "When the procedure, scale or equipment changes.",
+        "When a new strain or a genetically modified version of the agent is used.",
+        "When staff change or training gaps are found.",
+        "Never, once the Institutional Biosafety Committee has approved it."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "lab-biosafety-2:bsl2-differences",
+      "type": "multiple_select",
+      "prompt": "Which are the three main ways BSL-2 differs from BSL-1, according to BMBL? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "lab-biosafety-2-objective-2"
+      ],
+      "feedback": {
+        "hint": "Suits and separate buildings belong to the highest containment levels.",
+        "solution": "Training and supervision, restricted access and containment of aerosol- and splash-generating procedures.",
+        "lesson_ids": [
+          "lab-biosafety-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "Personnel have specific training in handling pathogenic agents and are supervised by competent scientists.",
+        "Access to the laboratory is restricted when work is being conducted.",
+        "Procedures that can create infectious aerosols or splashes are done in BSCs or other containment equipment.",
+        "All work requires a positive-pressure suit.",
+        "The laboratory must be in a separate building."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "lab-biosafety-2:barriers",
+      "type": "single_choice",
+      "prompt": "Which is a secondary barrier?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-2-objective-1"
+      ],
+      "feedback": {
+        "hint": "Secondary barriers are features of the facility.",
+        "solution": "Facility design protects people outside the laboratory and the environment; cabinets, sealed rotors and PPE are primary barriers.",
+        "lesson_ids": [
+          "lab-biosafety-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "A self-closing laboratory door and a handwashing sink near the exit.",
+        "A Class II biological safety cabinet.",
+        "A sealed centrifuge rotor.",
+        "Gloves and a laboratory coat."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-2:sign",
+      "type": "multiple_select",
+      "prompt": "Which information is posted at the entrance of a BSL-2 laboratory when infectious materials are present? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "lab-biosafety-2-objective-2"
+      ],
+      "feedback": {
+        "hint": "The sign tells anyone entering what they need to know.",
+        "solution": "BMBL lists the Biosafety Level, the responsible person and phone number, PPE, occupational health requirements and entry and exit procedures, with the biohazard symbol.",
+        "lesson_ids": [
+          "lab-biosafety-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "The laboratory's Biosafety Level.",
+        "The supervisor's or responsible person's name and telephone number.",
+        "PPE requirements and procedures for entering and exiting.",
+        "General occupational health requirements such as immunizations.",
+        "Each worker's home address."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "lab-biosafety-2:gloves",
+      "type": "single_choice",
+      "prompt": "Which glove practice follows BSL-2 standard practices?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-2-objective-3"
+      ],
+      "feedback": {
+        "hint": "Gloves are contaminated waste once used.",
+        "solution": "BMBL: gloves chosen by risk assessment, not worn outside the laboratory, changed when contaminated or compromised, never washed or reused.",
+        "lesson_ids": [
+          "lab-biosafety-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "Change gloves when contaminated or damaged, never wash or reuse disposable gloves, and do not wear them outside the laboratory.",
+        "Wash disposable gloves in ethanol and reuse them during the day.",
+        "Keep gloves on to answer the phone in the corridor so you can return quickly.",
+        "Choose gloves by colour rather than by risk assessment."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-2:needles",
+      "type": "single_choice",
+      "prompt": "A researcher needs to remove a needle from a syringe to avoid lysing cells. What does BMBL allow?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-2-objective-3"
+      ],
+      "feedback": {
+        "hint": "Needles are not bent, sheared, recapped or removed by hand.",
+        "solution": "If removal is necessary, a hands-free device or comparable procedure is used; used needles go straight into a puncture-resistant container near the point of use.",
+        "lesson_ids": [
+          "lab-biosafety-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "Only with a hands-free device or comparable safe procedure, such as a needle remover on a sharps container.",
+        "Bending the needle by hand first, then removing it.",
+        "Recapping by hand with two hands.",
+        "Never; the work must stop."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-2:broken-glass",
+      "type": "single_choice",
+      "prompt": "How is broken glassware picked up?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-2-objective-3"
+      ],
+      "feedback": {
+        "hint": "Gloves do not stop glass.",
+        "solution": "BMBL: broken glassware is not handled directly; mechanical means are used.",
+        "lesson_ids": [
+          "lab-biosafety-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "With a brush and dustpan, tongs or forceps, never by hand.",
+        "With gloved hands, carefully.",
+        "By sweeping it into the regular trash.",
+        "By vacuuming it with the house vacuum."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-2:bsc-needed",
+      "type": "multiple_select",
+      "prompt": "Which procedures with a BSL-2 agent should be done in a BSC or other containment device? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "lab-biosafety-2-objective-4"
+      ],
+      "feedback": {
+        "hint": "BMBL lists procedures that create aerosols or splashes, and high concentrations or volumes.",
+        "solution": "Pipetting, centrifuging, grinding, blending, shaking, mixing, sonicating and opening containers of infectious material, and work at high concentration or volume.",
+        "lesson_ids": [
+          "lab-biosafety-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "Vortexing or sonicating a suspension.",
+        "Opening containers of infectious material.",
+        "Handling high concentrations or large volumes.",
+        "Reading a sealed, decontaminated plate count.",
+        "Writing results in a notebook at the desk."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "lab-biosafety-2:centrifuge",
+      "type": "single_choice",
+      "prompt": "How can a high-concentration BSL-2 culture be centrifuged in the open laboratory?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-2-objective-4"
+      ],
+      "feedback": {
+        "hint": "Containment must hold at the point where the tubes are opened.",
+        "solution": "Sealed rotors or safety cups contain any aerosol from a broken tube; opening them in the cabinet keeps that aerosol contained.",
+        "lesson_ids": [
+          "lab-biosafety-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "In sealed rotors or centrifuge safety cups that are loaded and unloaded in the BSC.",
+        "In open buckets if the lid is closed.",
+        "Only on a bench far from the door.",
+        "It cannot be centrifuged at all."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-2:lab-coats",
+      "type": "single_choice",
+      "prompt": "Which statement about protective clothing at BSL-2 is correct?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-2-objective-4"
+      ],
+      "feedback": {
+        "hint": "Clothing that leaves the laboratory carries contamination with it.",
+        "solution": "BMBL: protective clothing is removed before non-laboratory areas and laundered by the institution or disposed of appropriately.",
+        "lesson_ids": [
+          "lab-biosafety-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "Laboratory coats are worn for work, removed before going to offices or cafeterias, and not taken home.",
+        "Coats can be worn anywhere in the building if buttoned.",
+        "Coats are washed at home with other laundry.",
+        "Coats are optional when gloves are worn."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-2:incident",
+      "type": "single_choice",
+      "prompt": "What must happen after an incident that may have exposed someone to infectious material?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-2-objective-4"
+      ],
+      "feedback": {
+        "hint": "Delay helps nobody.",
+        "solution": "BMBL's special practices require immediate evaluation, reporting and records for incidents that may result in exposure.",
+        "lesson_ids": [
+          "lab-biosafety-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "It is evaluated immediately per institutional policy, reported to the supervisor and recorded.",
+        "It is reported only if symptoms develop.",
+        "It is recorded at the end of the month.",
+        "It is reported only for Risk Group 3 agents."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-3:inflow-volume",
+      "type": "numeric",
+      "prompt": "A cabinet has a 6.0 ft wide front opening and an 8.0 in sash height. What inflow volume, in cubic feet per minute, gives the Type A2 minimum face velocity of 100 lfm? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-3-objective-3"
+      ],
+      "feedback": {
+        "hint": "Q = v × A, with the opening area in square feet.",
+        "solution": "A = 6.0 × 8.0/12 = 4.00 ft²; Q = 100 × 4.00 = 400 cfm.",
+        "lesson_ids": [
+          "lab-biosafety-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 400,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-biosafety-3:raised-sash",
+      "type": "numeric",
+      "prompt": "The same 400 cfm inflow is spread over the opening when the sash is raised to 12.0 in. What is the face velocity, in lfm? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-3-objective-3"
+      ],
+      "feedback": {
+        "hint": "v = Q/A with the new area.",
+        "solution": "A = 6.0 × 12.0/12 = 6.00 ft²; v = 400/6.00 = 66.7 lfm, below the A2 minimum, which is why the sash alarm sounds.",
+        "lesson_ids": [
+          "lab-biosafety-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 66.7,
+        "unit": "",
+        "tolerance": 0.016754282498168897,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-biosafety-3:a1-exhaust",
+      "type": "numeric",
+      "prompt": "In a Class II Type A1 cabinet about 30% of the air passing the filters is exhausted. If 600 cfm circulates past the filters, about how many cfm are exhausted? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-3-objective-2"
+      ],
+      "feedback": {
+        "hint": "Exhaust share × total.",
+        "solution": "0.30 × 600 = 180 cfm; the other 70% recirculates through the supply HEPA filter.",
+        "lesson_ids": [
+          "lab-biosafety-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 180,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-biosafety-3:uv-threshold",
+      "type": "numeric",
+      "prompt": "BMBL says a UV lamp should be replaced when its fluence rate falls below what value, in µW/cm²? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-3-objective-4"
+      ],
+      "feedback": {
+        "hint": "Check Appendix A's paragraph on UV lamps.",
+        "solution": "40 µW/cm², measured with a UV meter; UV is never the sole disinfection method.",
+        "lesson_ids": [
+          "lab-biosafety-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 40,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-biosafety-3:clean-bench",
+      "type": "single_choice",
+      "prompt": "A laminar-flow clean bench blows HEPA-filtered air across the work surface toward the user. What protection does it give?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-3-objective-1"
+      ],
+      "feedback": {
+        "hint": "Where does the air go after it crosses the work?",
+        "solution": "Air flows toward the worker, so the worker is exposed; BMBL says clean benches are not BSCs and must never be used for these materials.",
+        "lesson_ids": [
+          "lab-biosafety-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "Product protection only; it must not be used for cell culture, infectious or hazardous materials.",
+        "Personnel, product and environmental protection, like a Class II BSC.",
+        "Personnel protection only.",
+        "Environmental protection only."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-3:class-i",
+      "type": "single_choice",
+      "prompt": "What protection does a Class I BSC give?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-3-objective-1"
+      ],
+      "feedback": {
+        "hint": "Room air is drawn in unfiltered over the work.",
+        "solution": "Unfiltered room air sweeps the work surface, so products are not protected; exhaust passes through a HEPA filter.",
+        "lesson_ids": [
+          "lab-biosafety-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "Personnel and environmental protection, but no product protection.",
+        "Product protection only.",
+        "All three protections.",
+        "No protection unless ducted."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-3:volatile",
+      "type": "single_choice",
+      "prompt": "A procedure in a BSL-2 cabinet needs a small amount of a volatile toxic solvent. Which cabinet arrangement is suitable?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-3-objective-3"
+      ],
+      "feedback": {
+        "hint": "Recirculated air would return the vapour to the work area and room.",
+        "solution": "Volatile chemicals need exhaust to the outside; often the better choice is to do the chemical step in a fume hood.",
+        "lesson_ids": [
+          "lab-biosafety-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "A Type B cabinet hard-ducted to the building exhaust, or an A2 exhausting outside through a canopy connection with an alarm.",
+        "A Type A1 cabinet recirculating to the room.",
+        "A laminar-flow clean bench.",
+        "Any Class II cabinet, as long as the UV lamp is on."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-3:hard-duct",
+      "type": "single_choice",
+      "prompt": "Why must a Class II Type A1 or A2 cabinet never be hard-ducted to the building exhaust?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-3-objective-2"
+      ],
+      "feedback": {
+        "hint": "Type A cabinets rely on their own fan to balance inflow and downflow.",
+        "solution": "BMBL: fluctuations common to building exhaust systems disturb the balance of a Type A cabinet; canopy connections isolate it.",
+        "lesson_ids": [
+          "lab-biosafety-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "Fluctuations in the building exhaust would upset the cabinet's internal air balance; a canopy connection with an air gap is used instead.",
+        "Hard ducts are illegal in all laboratories.",
+        "It would make the cabinet too quiet.",
+        "A1 and A2 cabinets have no exhaust filter."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-3:certification",
+      "type": "multiple_select",
+      "prompt": "When must a Class II BSC be field-certified? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "lab-biosafety-3-objective-4"
+      ],
+      "feedback": {
+        "hint": "Relocation can break filter seals.",
+        "solution": "BMBL: at installation, at least annually, and after filter replacement, internal repairs or relocation, by qualified, preferably accredited, certifiers.",
+        "lesson_ids": [
+          "lab-biosafety-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "At installation, before use.",
+        "At least annually.",
+        "After a HEPA filter is replaced or internal parts are repaired.",
+        "After the cabinet is moved.",
+        "Only when the user notices a smell."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "lab-biosafety-3:b2-failure",
+      "type": "single_choice",
+      "prompt": "What happens if the building exhaust fails while a Class II Type B2 cabinet is running, and no interlock stops the supply blower?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-3-objective-2"
+      ],
+      "feedback": {
+        "hint": "A B2 cabinet exhausts everything through the building system.",
+        "solution": "With no exhaust, the supply blower pushes air out through the front opening, which is why B cabinets need exhaust monitoring and interlocks.",
+        "lesson_ids": [
+          "lab-biosafety-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "The cabinet becomes pressurized and air flows from the work area back into the laboratory.",
+        "Nothing; the cabinet recirculates internally.",
+        "The UV lamp switches on automatically.",
+        "The inflow velocity doubles."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-4:bleach-volume",
+      "type": "numeric",
+      "prompt": "How many millilitres of household bleach labelled 6.0% sodium hypochlorite (about 60,000 ppm) are needed for 2.00 L of 1,000 ppm solution? Give mL. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-4-objective-3"
+      ],
+      "feedback": {
+        "hint": "C₁V₁ = C₂V₂.",
+        "solution": "V₁ = 2000 mL × 1000/60,000 = 33.3 mL, made up to 2.00 L.",
+        "lesson_ids": [
+          "lab-biosafety-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 33.3,
+        "unit": "",
+        "tolerance": 0.008364581816926899,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-biosafety-4:bleach-ppm",
+      "type": "numeric",
+      "prompt": "Bleach labelled 7.5% is diluted 1:50 (one part in fifty parts total). What is the hypochlorite concentration in ppm? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-4-objective-3"
+      ],
+      "feedback": {
+        "hint": "7.5% is about 75,000 ppm; divide by the dilution factor.",
+        "solution": "75,000/50 = 1,500 ppm, inside BMBL's 500–6,000 ppm range.",
+        "lesson_ids": [
+          "lab-biosafety-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1500,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-biosafety-4:sal-time",
+      "type": "numeric",
+      "prompt": "A biological indicator carries 10⁶ spores with D₁₂₁ = 1.8 min. How many minutes at 121 °C are needed to reach a sterility assurance level of 10⁻⁶ (twelve log reductions)? Give minutes. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-4-objective-4"
+      ],
+      "feedback": {
+        "hint": "Each D-value is one tenfold reduction.",
+        "solution": "12 × 1.8 = 21.6 min at temperature.",
+        "lesson_ids": [
+          "lab-biosafety-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 21.6,
+        "unit": "",
+        "tolerance": 0.005425674692060692,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-biosafety-4:survivors",
+      "type": "numeric",
+      "prompt": "With 10⁶ spores and D₁₂₁ = 1.8 min, how many spores are expected to survive 9.0 min at 121 °C? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-4-objective-4"
+      ],
+      "feedback": {
+        "hint": "N = N₀ × 10^(−t/D).",
+        "solution": "9.0/1.8 = 5 log reductions, so 10⁶ × 10⁻⁵ = 10 survivors: far from sterile.",
+        "lesson_ids": [
+          "lab-biosafety-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 10,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-biosafety-4:lag",
+      "type": "numeric",
+      "prompt": "The centre of a waste load reaches 121 °C 22 min after the chamber does. With D₁₂₁ = 1.5 min and a twelve-log requirement at the centre, what minimum chamber time at 121 °C is needed? Give minutes. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-4-objective-4"
+      ],
+      "feedback": {
+        "hint": "Add the heating lag to the exposure needed at the centre.",
+        "solution": "22 + 12 × 1.5 = 22 + 18 = 40 min.",
+        "lesson_ids": [
+          "lab-biosafety-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 40.0,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-biosafety-4:definitions",
+      "type": "single_choice",
+      "prompt": "An item is free of all living microorganisms, with a probability of a survivor below one in a million. Which term applies?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-4-objective-1"
+      ],
+      "feedback": {
+        "hint": "Only one of the four is categorical.",
+        "solution": "Sterilization is defined operationally by a sterility assurance level of 10⁻⁶; disinfection may leave spores, and cleaning may not kill anything.",
+        "lesson_ids": [
+          "lab-biosafety-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "Sterilized.",
+        "Disinfected.",
+        "Cleaned.",
+        "Decontaminated but not sterile."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-4:resistance",
+      "type": "single_choice",
+      "prompt": "Which list is in BMBL's order from most to least resistant to chemical disinfectants?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-4-objective-2"
+      ],
+      "feedback": {
+        "hint": "Enveloped viruses such as HIV and HBV are among the easiest to kill.",
+        "solution": "Prions and spores are hardest; enveloped viruses are the least resistant.",
+        "lesson_ids": [
+          "lab-biosafety-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "Prions, bacterial spores, mycobacteria, non-enveloped viruses, fungi, vegetative bacteria, enveloped viruses.",
+        "Enveloped viruses, vegetative bacteria, fungi, spores, prions.",
+        "Mycobacteria, prions, spores, fungi, viruses.",
+        "All microorganisms are equally resistant to 70% ethanol."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-4:factors",
+      "type": "multiple_select",
+      "prompt": "Which factors determine whether a disinfection procedure works, according to BMBL? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "lab-biosafety-4-objective-2"
+      ],
+      "feedback": {
+        "hint": "BMBL lists five factors; the type and condition of the surface is the fifth.",
+        "solution": "Organisms and their number, organic load, surface type and condition, temperature and contact time.",
+        "lesson_ids": [
+          "lab-biosafety-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "The nature and number of contaminating organisms.",
+        "The amount of organic matter present.",
+        "Temperature.",
+        "Contact time.",
+        "The colour of the disinfectant bottle."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "lab-biosafety-4:tape",
+      "type": "single_choice",
+      "prompt": "What does a stripe change on autoclave indicator tape show?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-4-objective-4"
+      ],
+      "feedback": {
+        "hint": "Compare a chemical indicator with a biological indicator.",
+        "solution": "Tape confirms exposure only; biological indicators placed in the load, with recorded time, temperature and pressure, verify the process.",
+        "lesson_ids": [
+          "lab-biosafety-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "That the item was exposed to heat, not that the load was sterilized.",
+        "That every organism in the load is dead.",
+        "That the cycle reached a sterility assurance level of 10⁻⁶.",
+        "That the biological indicator passed."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-4:ethanol",
+      "type": "multiple_select",
+      "prompt": "Which statements about 70% ethanol as a disinfectant are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "lab-biosafety-4-objective-3"
+      ],
+      "feedback": {
+        "hint": "Check BMBL's activity table and the resistance ranking.",
+        "solution": "Alcohols are intermediate-level disinfectants without reliable sporicidal action; prions and spores need far harsher treatment.",
+        "lesson_ids": [
+          "lab-biosafety-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "It is rated an intermediate-level disinfectant.",
+        "It does not reliably kill bacterial spores.",
+        "Surfaces must stay wet for the contact time, which is hard because it evaporates quickly.",
+        "It sterilizes surfaces within seconds.",
+        "It is the right choice for inactivating prions."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "lab-biosafety-5:hbv-days",
+      "type": "numeric",
+      "prompt": "Under 29 CFR 1910.1030, within how many working days of initial assignment must the hepatitis B vaccination series be made available to occupationally exposed employees (after training)? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-5-objective-3"
+      ],
+      "feedback": {
+        "hint": "See paragraph (f)(2).",
+        "solution": "Within 10 working days of initial assignment, after the required training.",
+        "lesson_ids": [
+          "lab-biosafety-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 10,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-biosafety-5:medical-records",
+      "type": "numeric",
+      "prompt": "An employee covered by the standard works for 8 years. For how many years in total must the employer keep their medical records? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-5-objective-3"
+      ],
+      "feedback": {
+        "hint": "Records are kept for the duration of employment plus a fixed period.",
+        "solution": "Duration of employment plus 30 years: 8 + 30 = 38 years.",
+        "lesson_ids": [
+          "lab-biosafety-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 38,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-biosafety-5:training-records",
+      "type": "numeric",
+      "prompt": "For how many years must training records under the Bloodborne Pathogens Standard be kept from the date of training? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-5-objective-3"
+      ],
+      "feedback": {
+        "hint": "See paragraph (h)(2).",
+        "solution": "3 years from the date on which the training occurred.",
+        "lesson_ids": [
+          "lab-biosafety-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 3,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-biosafety-5:universal",
+      "type": "single_choice",
+      "prompt": "What does universal precautions mean under the Bloodborne Pathogens Standard?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-5-objective-2"
+      ],
+      "feedback": {
+        "hint": "No one decides that a sample looks safe.",
+        "solution": "Paragraph (d)(1): universal precautions are observed to prevent contact with blood or OPIM; where body fluids cannot be told apart, all are treated as potentially infectious.",
+        "lesson_ids": [
+          "lab-biosafety-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "All human blood and other potentially infectious materials are handled as if infectious.",
+        "Only samples that test positive are handled carefully.",
+        "Everyone wears a respirator.",
+        "Precautions apply only in hospitals."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-5:culture-risk",
+      "type": "single_choice",
+      "prompt": "Which cell material carries the highest risk of undetected pathogens, according to BMBL Appendix H?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-5-objective-1"
+      ],
+      "feedback": {
+        "hint": "Consider how much is known about the material's history.",
+        "solution": "Primary cultures come straight from tissue and have the least characterization; established, tested lines are generally safer but never risk-free.",
+        "lesson_ids": [
+          "lab-biosafety-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "Primary cells taken directly from human tissue.",
+        "A well-characterized, tested continuous cell line.",
+        "Insect cell lines.",
+        "Bacterial plasmid preparations."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-5:minimum",
+      "type": "single_choice",
+      "prompt": "What is BMBL's minimum containment for work with human and other primate cells?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-5-objective-1"
+      ],
+      "feedback": {
+        "hint": "Appendix H gives a floor; the risk assessment can raise it.",
+        "solution": "Human and primate cells are treated as potentially infectious at BSL-2 at minimum; lines harbouring Risk Group 3 or 4 agents need more.",
+        "lesson_ids": [
+          "lab-biosafety-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "BSL-2 practices, engineering controls and facilities, with culturing in a biological safety cabinet.",
+        "BSL-1 on an open bench.",
+        "BSL-3 for all human cells.",
+        "No containment if the cells are commercially purchased."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-5:ecp",
+      "type": "multiple_select",
+      "prompt": "Which statements about the Exposure Control Plan are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "lab-biosafety-5-objective-3"
+      ],
+      "feedback": {
+        "hint": "See paragraph (c)(1).",
+        "solution": "The plan must be accessible to employees, reviewed annually, and updated with changes; it records consideration of safer devices.",
+        "lesson_ids": [
+          "lab-biosafety-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "It is written and accessible to employees.",
+        "It is reviewed and updated at least annually.",
+        "It documents consideration of safer medical devices.",
+        "It is updated when tasks or procedures affecting exposure change.",
+        "It is kept confidential from employees."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "lab-biosafety-5:immediate",
+      "type": "single_choice",
+      "prompt": "You get a needlestick while working with primary human cells. What do you do first?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-5-objective-4"
+      ],
+      "feedback": {
+        "hint": "The standard calls for washing immediately, and evaluation is made available immediately after a report.",
+        "solution": "Washing and immediate reporting allow a confidential medical evaluation, including prophylaxis when medically indicated, without delay.",
+        "lesson_ids": [
+          "lab-biosafety-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "Wash the site with soap and water, make the work safe, then report immediately to your supervisor and occupational health.",
+        "Finish the passage, then report at the end of the day.",
+        "Apply a bandage and say nothing unless you feel ill.",
+        "Wait to see whether the donor tests positive."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-5:hbv-cost",
+      "type": "single_choice",
+      "prompt": "Who pays for the hepatitis B vaccination and post-exposure evaluation under the standard?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-5-objective-3"
+      ],
+      "feedback": {
+        "hint": "Paragraph (f)(1).",
+        "solution": "The employer must make the vaccine and post-exposure evaluation and follow-up available at no cost to the employee.",
+        "lesson_ids": [
+          "lab-biosafety-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "The employer makes them available at no cost to the employee.",
+        "The employee.",
+        "Health insurance only.",
+        "The equipment supplier."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-5:sharps-container",
+      "type": "multiple_select",
+      "prompt": "Which properties must a container for contaminated sharps have? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "lab-biosafety-5-objective-3"
+      ],
+      "feedback": {
+        "hint": "Paragraph (d)(4)(iii)(A).",
+        "solution": "Closable, puncture resistant, leakproof on sides and bottom, and labelled or colour-coded; placed close to the point of use.",
+        "lesson_ids": [
+          "lab-biosafety-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "Closable.",
+        "Puncture resistant.",
+        "Leakproof on the sides and bottom.",
+        "Labelled or colour-coded.",
+        "Made of glass."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "lab-biosafety-6:sds-ppe",
+      "type": "numeric",
+      "prompt": "Which section number of a safety data sheet gives exposure controls and personal protection? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-6-objective-3"
+      ],
+      "feedback": {
+        "hint": "The 16 sections follow a fixed order.",
+        "solution": "Section 8, Exposure controls/personal protection.",
+        "lesson_ids": [
+          "lab-biosafety-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 8,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-biosafety-6:sds-spill",
+      "type": "numeric",
+      "prompt": "Which SDS section number describes accidental release (spill) measures? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-6-objective-3"
+      ],
+      "feedback": {
+        "hint": "Between fire-fighting and handling.",
+        "solution": "Section 6, Accidental release measures.",
+        "lesson_ids": [
+          "lab-biosafety-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 6,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-biosafety-6:un-category-b",
+      "type": "numeric",
+      "prompt": "What UN number is used for 'Biological substance, Category B'? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-6-objective-4"
+      ],
+      "feedback": {
+        "hint": "See BMBL Appendix C.",
+        "solution": "UN 3373; Category A uses UN 2814 (humans) or UN 2900 (animals only).",
+        "lesson_ids": [
+          "lab-biosafety-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 3373,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-biosafety-6:pressure",
+      "type": "numeric",
+      "prompt": "Category A packaging must withstand without leakage an internal pressure producing a differential of not less than how many kilopascals? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-6-objective-4"
+      ],
+      "feedback": {
+        "hint": "See BMBL Appendix C.",
+        "solution": "95 kPa (0.95 bar, 14 psi), with temperatures from −40 °C to +55 °C.",
+        "lesson_ids": [
+          "lab-biosafety-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 95,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-biosafety-6:signal-word",
+      "type": "single_choice",
+      "prompt": "A label shows the signal word 'Danger'. What does it mean compared with 'Warning'?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-6-objective-2"
+      ],
+      "feedback": {
+        "hint": "Signal words rank severity.",
+        "solution": "Under the Hazard Communication Standard, 'Danger' marks the more severe hazards and 'Warning' the less severe.",
+        "lesson_ids": [
+          "lab-biosafety-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "The more severe hazard category; 'Warning' is used for less severe hazards.",
+        "The chemical is safe if gloves are worn.",
+        "It is a transport label only.",
+        "The two words mean the same."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-6:label-elements",
+      "type": "multiple_select",
+      "prompt": "Which elements must a shipped container label carry under the Hazard Communication Standard? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "lab-biosafety-6-objective-2"
+      ],
+      "feedback": {
+        "hint": "Six elements in all.",
+        "solution": "Product identifier, signal word, hazard statements, pictograms, precautionary statements and the responsible party's contact details.",
+        "lesson_ids": [
+          "lab-biosafety-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "Product identifier and signal word.",
+        "Hazard statements and pictograms.",
+        "Precautionary statements.",
+        "Name, US address and phone number of the responsible party.",
+        "The purchase price."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "lab-biosafety-6:chp-review",
+      "type": "single_choice",
+      "prompt": "How often must the employer review the effectiveness of the Chemical Hygiene Plan?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-6-objective-1"
+      ],
+      "feedback": {
+        "hint": "Paragraph (e)(4).",
+        "solution": "At least annually, with updates as necessary.",
+        "lesson_ids": [
+          "lab-biosafety-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "At least annually, updating it as necessary.",
+        "Only when OSHA inspects.",
+        "Every five years.",
+        "Never after it is written."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-6:chp-elements",
+      "type": "multiple_select",
+      "prompt": "Which are required elements of a Chemical Hygiene Plan? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "lab-biosafety-6-objective-1"
+      ],
+      "feedback": {
+        "hint": "Paragraph (e)(3) lists eight elements.",
+        "solution": "SOPs, control criteria, functioning hoods and equipment, training, prior approval, medical consultation, responsible people including a Chemical Hygiene Officer, and extra protection for particularly hazardous substances.",
+        "lesson_ids": [
+          "lab-biosafety-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "Standard operating procedures for work with hazardous chemicals.",
+        "Measures ensuring fume hoods and other protective equipment function properly.",
+        "Designation of a Chemical Hygiene Officer.",
+        "Additional protection for particularly hazardous substances such as select carcinogens.",
+        "A list of employees' favourite chemicals."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "lab-biosafety-6:triple",
+      "type": "single_choice",
+      "prompt": "Which describes triple packaging for a Category B liquid specimen?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-6-objective-4"
+      ],
+      "feedback": {
+        "hint": "Each layer has a job.",
+        "solution": "Primary, secondary with absorbent for liquids, and rigid outer packaging; for air transport the primary or secondary also withstands 95 kPa.",
+        "lesson_ids": [
+          "lab-biosafety-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "A leak-proof primary receptacle, leak-proof secondary packaging with enough absorbent for the entire contents, and rigid outer packaging.",
+        "One sealed bag inside a padded envelope.",
+        "A primary tube taped inside a box.",
+        "Three primary tubes in one bag."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-6:who-ships",
+      "type": "single_choice",
+      "prompt": "A collaborator asks you to ship live virus-transduced human cells today. What should you do?",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-6-objective-4"
+      ],
+      "feedback": {
+        "hint": "Shippers must be trained before they prepare a shipment.",
+        "solution": "Classification, packaging, marking and documentation are regulated; only trained people may prepare infectious-substance shipments.",
+        "lesson_ids": [
+          "lab-biosafety-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "options": [
+        "Have the material classified and packed by trained, certified shipping personnel following your institution's procedures.",
+        "Pack them in a cooler with ice and call a courier.",
+        "Ship them as ordinary laboratory reagents.",
+        "Mail them inside a padded envelope marked 'fragile'."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "lab-biosafety-project:rehearsal-ranking",
+      "type": "numeric",
+      "prompt": "Opening centrifuge tubes of donor cells on the open bench is scored probability 4 and consequence 3. What is its risk score? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-1-objective-1"
+      ],
+      "feedback": {
+        "hint": "Probability × consequence.",
+        "solution": "4 × 3 = 12; opening sealed cups in the cabinet instead scores 2 × 3 = 6.",
+        "lesson_ids": [
+          "lab-biosafety-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 12,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-biosafety-project:rehearsal-inflow",
+      "type": "numeric",
+      "prompt": "A cabinet opening is 5.0 ft wide with a 10.0 in sash. What inflow, in cubic feet per minute, meets the Type A2 minimum of 100 lfm? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-3-objective-3"
+      ],
+      "feedback": {
+        "hint": "Q = v × A with the area in square feet.",
+        "solution": "A = 5.0 × 10.0/12 = 4.17 ft²; Q = 100 × 4.17 = 417 cubic feet per minute.",
+        "lesson_ids": [
+          "lab-biosafety-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 417.0,
+        "unit": "",
+        "tolerance": 0.10474566419394947,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-biosafety-project:rehearsal-bleach",
+      "type": "numeric",
+      "prompt": "How many millilitres of 7.5% bleach (about 75,000 ppm) make 500 mL of 5,000 ppm hypochlorite? Give mL. Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-4-objective-3"
+      ],
+      "feedback": {
+        "hint": "C₁V₁ = C₂V₂.",
+        "solution": "500 × 5,000/75,000 = 33.3 mL, made up to 500 mL.",
+        "lesson_ids": [
+          "lab-biosafety-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 33.3,
+        "unit": "",
+        "tolerance": 0.008364581816926899,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "lab-biosafety-project:rehearsal-autoclave",
+      "type": "numeric",
+      "prompt": "The centre of a waste load reaches 121 °C 20 min after the chamber. With D₁₂₁ = 1.5 min and a twelve-log requirement at the centre, what is the minimum chamber time at 121 °C? Give minutes. Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "lab-biosafety-4-objective-4"
+      ],
+      "feedback": {
+        "hint": "Heating lag plus twelve D-values.",
+        "solution": "20 + 12 × 1.5 = 38 min.",
+        "lesson_ids": [
+          "lab-biosafety-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original biosafety practice developed with substantial AI assistance from BMBL 6th edition and OSHA standards (US federal works); no external problem imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 38,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    }
+  ]
+}

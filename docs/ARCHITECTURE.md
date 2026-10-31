@@ -2,7 +2,7 @@
 
 ## Milestone 1 foundation
 
-The static reader is preserved. Versioned JSON manifests, Markdown and validators separate content from application code. All 26 packages are partial. Browser migration retains the previous key and backup; browser checks are unverified practice evidence.
+The static reader is preserved. Versioned JSON manifests, Markdown and validators separate content from application code. All 27 packages are partial. Browser migration retains the previous key and backup; browser checks are unverified practice evidence.
 
 ## Milestone 2: implemented full stack
 

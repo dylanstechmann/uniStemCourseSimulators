@@ -22,6 +22,7 @@ No course or candidate is activated by this command. `--check` detects report dr
 | general-chemistry-2 | 0.6.0 | partial | unreviewed | formative-only | 0 |
 | genetics | 0.9.0 | partial | unreviewed | formative-only | 0 |
 | geroscience | 0.7.0 | partial | unreviewed | formative-only | 0 |
+| lab-biosafety | 0.1.0 | partial | unreviewed | formative-only | 0 |
 | lab-measurement | 0.1.0 | partial | unreviewed | formative-only | 0 |
 | linear-algebra | 0.5.0 | partial | unreviewed | formative-only | 0 |
 | organic-chemistry | 0.7.0 | partial | unreviewed | formative-only | 0 |

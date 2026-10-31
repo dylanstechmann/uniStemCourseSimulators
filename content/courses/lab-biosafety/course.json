@@ -1,0 +1,845 @@
+{
+  "schema_version": "1.0",
+  "id": "lab-biosafety",
+  "title": "Laboratory Safety and Biosafety",
+  "description": "Assess biological risk, apply Biosafety Level 1 and 2 practices, select and use biological safety cabinets, decontaminate and sterilize with verification, work safely with human materials and hazardous chemicals, and respond to exposures.",
+  "domain": "Life sciences laboratory",
+  "level": "Year 1",
+  "maturity": "partial",
+  "version": "0.1.0",
+  "license": "CC-BY-4.0",
+  "content_origin": {
+    "kind": "original",
+    "source_path": null,
+    "source_sha256": null,
+    "migration_version": null,
+    "modifications": [
+      "Original readings, worked examples, practice and cards developed with substantial AI assistance on 2026-10-30 and 2026-10-31 as layer 1 of the wet-lab practice track, adapting guidance from BMBL 6th edition and OSHA standards (US federal works) with attribution."
+    ]
+  },
+  "prerequisites": {
+    "course_ids": [],
+    "recommended_course_ids": [
+      "lab-measurement",
+      "cell-biology"
+    ],
+    "concurrent_course_ids": [],
+    "knowledge": [
+      "Basic microbiology vocabulary"
+    ],
+    "statement": "Laboratory Measurement and Foundations of Cell and Molecular Biology recommended. This package establishes no university prerequisite equivalency and replaces no institutional safety training."
+  },
+  "outcomes": [
+    {
+      "id": "lab-biosafety-outcome-1",
+      "description": "Assess biological risk from agent and procedure hazards and choose controls in hierarchy order.",
+      "bloom": "evaluate"
+    },
+    {
+      "id": "lab-biosafety-outcome-2",
+      "description": "Apply BSL-1 and BSL-2 practices and select, use and verify biological safety cabinets.",
+      "bloom": "apply"
+    },
+    {
+      "id": "lab-biosafety-outcome-3",
+      "description": "Decontaminate, disinfect and sterilize correctly, and verify that the process worked.",
+      "bloom": "apply"
+    },
+    {
+      "id": "lab-biosafety-outcome-4",
+      "description": "Work safely with human materials and hazardous chemicals, respond to exposures, and recognise when shipping requires trained personnel.",
+      "bloom": "apply"
+    }
+  ],
+  "lesson_objectives": [
+    {
+      "id": "lab-biosafety-1-objective-1",
+      "description": "Distinguish a hazard from a risk and rank tasks with a probability × consequence score.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "lab-biosafety-outcome-1"
+      ]
+    },
+    {
+      "id": "lab-biosafety-1-objective-2",
+      "description": "Identify agent and procedure hazards, including the routes of laboratory-associated infection.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "lab-biosafety-outcome-1"
+      ]
+    },
+    {
+      "id": "lab-biosafety-1-objective-3",
+      "description": "Apply the hierarchy of controls and distinguish inherent from residual risk.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "lab-biosafety-outcome-1"
+      ]
+    },
+    {
+      "id": "lab-biosafety-1-objective-4",
+      "description": "Carry out the six steps of the BMBL risk management process, including review and revisiting.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "lab-biosafety-outcome-1"
+      ]
+    },
+    {
+      "id": "lab-biosafety-2-objective-1",
+      "description": "Distinguish primary from secondary barriers and explain how practice, equipment and facility combine.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "lab-biosafety-outcome-2"
+      ]
+    },
+    {
+      "id": "lab-biosafety-2-objective-2",
+      "description": "State how BSL-2 differs from BSL-1 and what is posted at a BSL-2 entrance.",
+      "bloom": "remember",
+      "course_outcome_ids": [
+        "lab-biosafety-outcome-2"
+      ]
+    },
+    {
+      "id": "lab-biosafety-2-objective-3",
+      "description": "Apply BSL-2 standard microbiological practices.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "lab-biosafety-outcome-2"
+      ]
+    },
+    {
+      "id": "lab-biosafety-2-objective-4",
+      "description": "Identify BSL-2 special practices, safety equipment and facilities, and decide when work moves into a cabinet.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "lab-biosafety-outcome-2"
+      ]
+    },
+    {
+      "id": "lab-biosafety-3-objective-1",
+      "description": "Distinguish personnel, product and environmental protection across cabinet classes, clean benches and fume hoods.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "lab-biosafety-outcome-2"
+      ]
+    },
+    {
+      "id": "lab-biosafety-3-objective-2",
+      "description": "Describe Class II Types A1, A2, B1 and B2 airflow, inflow velocity and exhaust.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "lab-biosafety-outcome-2"
+      ]
+    },
+    {
+      "id": "lab-biosafety-3-objective-3",
+      "description": "Calculate inflow volume and face velocity, and select a cabinet type for the work.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "lab-biosafety-outcome-2"
+      ]
+    },
+    {
+      "id": "lab-biosafety-3-objective-4",
+      "description": "State certification triggers, the limits of UV lamps and placement effects on containment.",
+      "bloom": "remember",
+      "course_outcome_ids": [
+        "lab-biosafety-outcome-2"
+      ]
+    },
+    {
+      "id": "lab-biosafety-4-objective-1",
+      "description": "Define cleaning, disinfection, sterilization and decontamination and what each guarantees.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "lab-biosafety-outcome-3"
+      ]
+    },
+    {
+      "id": "lab-biosafety-4-objective-2",
+      "description": "Rank microorganisms by resistance and list the factors that determine disinfection.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "lab-biosafety-outcome-3"
+      ]
+    },
+    {
+      "id": "lab-biosafety-4-objective-3",
+      "description": "Choose a disinfectant by activity level and prepare a hypochlorite solution of a target concentration.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "lab-biosafety-outcome-3"
+      ]
+    },
+    {
+      "id": "lab-biosafety-4-objective-4",
+      "description": "Relate exposure time to log reduction and sterility assurance with D-values, and describe autoclave verification.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "lab-biosafety-outcome-3"
+      ]
+    },
+    {
+      "id": "lab-biosafety-5-objective-1",
+      "description": "Assess the risk of human and primate cell material and state the minimum containment.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "lab-biosafety-outcome-4"
+      ]
+    },
+    {
+      "id": "lab-biosafety-5-objective-2",
+      "description": "Explain universal precautions and the materials the Bloodborne Pathogens Standard covers.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "lab-biosafety-outcome-4"
+      ]
+    },
+    {
+      "id": "lab-biosafety-5-objective-3",
+      "description": "List the employer's obligations under 29 CFR 1910.1030 with their timing.",
+      "bloom": "remember",
+      "course_outcome_ids": [
+        "lab-biosafety-outcome-4"
+      ]
+    },
+    {
+      "id": "lab-biosafety-5-objective-4",
+      "description": "Carry out the immediate response to a sharps injury or splash and report it at once.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "lab-biosafety-outcome-4"
+      ]
+    },
+    {
+      "id": "lab-biosafety-6-objective-1",
+      "description": "State what a Chemical Hygiene Plan contains, who is responsible and how often it is reviewed.",
+      "bloom": "remember",
+      "course_outcome_ids": [
+        "lab-biosafety-outcome-4"
+      ]
+    },
+    {
+      "id": "lab-biosafety-6-objective-2",
+      "description": "Read a hazard-communication label, including its six elements and signal words.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "lab-biosafety-outcome-4"
+      ]
+    },
+    {
+      "id": "lab-biosafety-6-objective-3",
+      "description": "Find information on a 16-section safety data sheet.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "lab-biosafety-outcome-4"
+      ]
+    },
+    {
+      "id": "lab-biosafety-6-objective-4",
+      "description": "Distinguish Category A and B infectious substances and describe triple packaging and shipper training.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "lab-biosafety-outcome-4"
+      ]
+    }
+  ],
+  "duration": {
+    "instructional_weeks": 6,
+    "equivalent_structure": "Proposed six-week module of one reading and practice set per week, with the cabinet simulation in week 3 and an optional project in week 6. It prepares for, and does not replace, institutional biosafety, bloodborne-pathogen and chemical-hygiene training. The schedule has not been measured or reviewed.",
+    "weeks": [
+      {
+        "week": 1,
+        "title": "Biological risk assessment and the hierarchy of controls",
+        "lesson_ids": [
+          "lab-biosafety-1"
+        ],
+        "assessment_ids": [
+          "lab-biosafety-1-practice"
+        ]
+      },
+      {
+        "week": 2,
+        "title": "Biosafety Levels 1 and 2: practices, equipment and facilities",
+        "lesson_ids": [
+          "lab-biosafety-2"
+        ],
+        "assessment_ids": [
+          "lab-biosafety-2-practice"
+        ]
+      },
+      {
+        "week": 3,
+        "title": "Biological safety cabinets; bench practice: a Class II cabinet session with a spill",
+        "lesson_ids": [
+          "lab-biosafety-3"
+        ],
+        "assessment_ids": [
+          "lab-biosafety-3-practice"
+        ]
+      },
+      {
+        "week": 4,
+        "title": "Decontamination, disinfection and sterilization",
+        "lesson_ids": [
+          "lab-biosafety-4"
+        ],
+        "assessment_ids": [
+          "lab-biosafety-4-practice"
+        ]
+      },
+      {
+        "week": 5,
+        "title": "Human cells and tissues, bloodborne pathogens and exposure response",
+        "lesson_ids": [
+          "lab-biosafety-5"
+        ],
+        "assessment_ids": [
+          "lab-biosafety-5-practice"
+        ]
+      },
+      {
+        "week": 6,
+        "title": "Chemical hygiene, hazard communication and transport of infectious substances; optional iPSC biosafety plan project",
+        "lesson_ids": [
+          "lab-biosafety-6",
+          "lab-biosafety-project-guide"
+        ],
+        "assessment_ids": [
+          "lab-biosafety-6-practice",
+          "lab-biosafety-project-rehearsal-practice",
+          "lab-biosafety-biosafety-plan-project"
+        ]
+      }
+    ]
+  },
+  "workload": {
+    "estimated_total_hours": null,
+    "estimated_hours_per_week": null,
+    "basis": "Not measured."
+  },
+  "modules": [
+    {
+      "id": "lab-biosafety-module-1",
+      "title": "Biological risk assessment",
+      "source_ids": [
+        "cdc-nih-bmbl-6",
+        "absa-cbsp-examination-content"
+      ],
+      "lessons": [
+        {
+          "id": "lab-biosafety-1",
+          "title": "Biological risk assessment",
+          "reading": "modules/01-biological-risk-assessment.md",
+          "objectives": [
+            "lab-biosafety-1-objective-1",
+            "lab-biosafety-1-objective-2",
+            "lab-biosafety-1-objective-3",
+            "lab-biosafety-1-objective-4"
+          ],
+          "worked_example": "For dense BSL-2 culture centrifuged and sonicated, the main hazards are concentration, volume and aerosols; controls in order are a smaller volume, sealed cups opened in a Class II cabinet, a written SOP with training, then coat, gloves and eye protection, reviewed before starting.",
+          "question_ids": [
+            "lab-biosafety-1:risk-score",
+            "lab-biosafety-1:residual-score",
+            "lab-biosafety-1:aerosol-release",
+            "lab-biosafety-1:hazard-risk",
+            "lab-biosafety-1:risk-group-bsl",
+            "lab-biosafety-1:lai-routes",
+            "lab-biosafety-1:hierarchy",
+            "lab-biosafety-1:inherent-residual",
+            "lab-biosafety-1:review-step",
+            "lab-biosafety-1:revisit"
+          ],
+          "card_ids": [
+            "lab-biosafety-1-card-1",
+            "lab-biosafety-1-card-2",
+            "lab-biosafety-1-card-3",
+            "lab-biosafety-1-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lab-biosafety-module-2",
+      "title": "Biosafety Levels 1 and 2",
+      "source_ids": [
+        "cdc-nih-bmbl-6",
+        "absa-cbsp-examination-content"
+      ],
+      "lessons": [
+        {
+          "id": "lab-biosafety-2",
+          "title": "Biosafety Levels 1 and 2",
+          "reading": "modules/02-biosafety-levels-1-and-2.md",
+          "objectives": [
+            "lab-biosafety-2-objective-1",
+            "lab-biosafety-2-objective-2",
+            "lab-biosafety-2-objective-3",
+            "lab-biosafety-2-objective-4"
+          ],
+          "worked_example": "For a new BSL-2 researcher, vortexing a dense suspension moves into the cabinet with the tube capped, a 50 mL high-concentration spin uses sealed safety cups opened in the cabinet, and desk work means gloves off, no food and hands washed before leaving.",
+          "question_ids": [
+            "lab-biosafety-2:bsl2-differences",
+            "lab-biosafety-2:barriers",
+            "lab-biosafety-2:sign",
+            "lab-biosafety-2:gloves",
+            "lab-biosafety-2:needles",
+            "lab-biosafety-2:broken-glass",
+            "lab-biosafety-2:bsc-needed",
+            "lab-biosafety-2:centrifuge",
+            "lab-biosafety-2:lab-coats",
+            "lab-biosafety-2:incident"
+          ],
+          "card_ids": [
+            "lab-biosafety-2-card-1",
+            "lab-biosafety-2-card-2",
+            "lab-biosafety-2-card-3",
+            "lab-biosafety-2-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lab-biosafety-module-3",
+      "title": "Biological safety cabinets: classes, selection and certification",
+      "source_ids": [
+        "cdc-nih-bmbl-6",
+        "absa-cbsp-examination-content"
+      ],
+      "lessons": [
+        {
+          "id": "lab-biosafety-3",
+          "title": "Biological safety cabinets: classes, selection and certification",
+          "reading": "modules/03-biological-safety-cabinets.md",
+          "objectives": [
+            "lab-biosafety-3-objective-1",
+            "lab-biosafety-3-objective-2",
+            "lab-biosafety-3-objective-3",
+            "lab-biosafety-3-objective-4"
+          ],
+          "worked_example": "A 5.0 ft opening with a 10.0 in sash needs 100 × 4.17 = 417 cubic feet per minute for the Type A2 minimum; culture alone suits a recirculating A2, while volatile chemicals need exhaust outside or, better, a separate fume hood.",
+          "question_ids": [
+            "lab-biosafety-3:inflow-volume",
+            "lab-biosafety-3:raised-sash",
+            "lab-biosafety-3:a1-exhaust",
+            "lab-biosafety-3:uv-threshold",
+            "lab-biosafety-3:clean-bench",
+            "lab-biosafety-3:class-i",
+            "lab-biosafety-3:volatile",
+            "lab-biosafety-3:hard-duct",
+            "lab-biosafety-3:certification",
+            "lab-biosafety-3:b2-failure"
+          ],
+          "card_ids": [
+            "lab-biosafety-3-card-1",
+            "lab-biosafety-3-card-2",
+            "lab-biosafety-3-card-3",
+            "lab-biosafety-3-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lab-biosafety-module-4",
+      "title": "Decontamination, disinfection and sterilization",
+      "source_ids": [
+        "cdc-nih-bmbl-6",
+        "absa-cbsp-examination-content"
+      ],
+      "lessons": [
+        {
+          "id": "lab-biosafety-4",
+          "title": "Decontamination, disinfection and sterilization",
+          "reading": "modules/04-decontamination-disinfection-and-sterilization.md",
+          "objectives": [
+            "lab-biosafety-4-objective-1",
+            "lab-biosafety-4-objective-2",
+            "lab-biosafety-4-objective-3",
+            "lab-biosafety-4-objective-4"
+          ],
+          "worked_example": "To make 500 mL of 5,000 ppm hypochlorite from 8.25% bleach use 30.3 mL; a waste load whose centre lags 18 min behind the chamber needs at least 18 + 12 × 2.0 = 42 min at 121 °C for a twelve-log reduction there.",
+          "question_ids": [
+            "lab-biosafety-4:bleach-volume",
+            "lab-biosafety-4:bleach-ppm",
+            "lab-biosafety-4:sal-time",
+            "lab-biosafety-4:survivors",
+            "lab-biosafety-4:lag",
+            "lab-biosafety-4:definitions",
+            "lab-biosafety-4:resistance",
+            "lab-biosafety-4:factors",
+            "lab-biosafety-4:tape",
+            "lab-biosafety-4:ethanol"
+          ],
+          "card_ids": [
+            "lab-biosafety-4-card-1",
+            "lab-biosafety-4-card-2",
+            "lab-biosafety-4-card-3",
+            "lab-biosafety-4-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lab-biosafety-module-5",
+      "title": "Human cells and tissues, bloodborne pathogens and exposure response",
+      "source_ids": [
+        "cdc-nih-bmbl-6",
+        "osha-29cfr1910-1030-bloodborne-pathogens",
+        "absa-cbsp-examination-content"
+      ],
+      "lessons": [
+        {
+          "id": "lab-biosafety-5",
+          "title": "Human cells and tissues, bloodborne pathogens and exposure response",
+          "reading": "modules/05-human-materials-bloodborne-pathogens-and-exposures.md",
+          "objectives": [
+            "lab-biosafety-5-objective-1",
+            "lab-biosafety-5-objective-2",
+            "lab-biosafety-5-objective-3",
+            "lab-biosafety-5-objective-4"
+          ],
+          "worked_example": "Deriving iPSCs from donor blood means human primary hematopoietic cells of unknown infection status, so BSL-2 practices with all open work in a Class II cabinet, the exposure control plan, training, hepatitis B vaccination within 10 working days and immediate reporting of any exposure.",
+          "question_ids": [
+            "lab-biosafety-5:hbv-days",
+            "lab-biosafety-5:medical-records",
+            "lab-biosafety-5:training-records",
+            "lab-biosafety-5:universal",
+            "lab-biosafety-5:culture-risk",
+            "lab-biosafety-5:minimum",
+            "lab-biosafety-5:ecp",
+            "lab-biosafety-5:immediate",
+            "lab-biosafety-5:hbv-cost",
+            "lab-biosafety-5:sharps-container"
+          ],
+          "card_ids": [
+            "lab-biosafety-5-card-1",
+            "lab-biosafety-5-card-2",
+            "lab-biosafety-5-card-3",
+            "lab-biosafety-5-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lab-biosafety-module-6",
+      "title": "Chemical hygiene, hazard communication and transport of infectious substances",
+      "source_ids": [
+        "osha-29cfr1910-1450-laboratory-standard",
+        "osha-29cfr1910-1200-hazard-communication",
+        "cdc-nih-bmbl-6",
+        "absa-cbsp-examination-content"
+      ],
+      "lessons": [
+        {
+          "id": "lab-biosafety-6",
+          "title": "Chemical hygiene, hazard communication and transport of infectious substances",
+          "reading": "modules/06-chemical-hygiene-hazard-communication-and-transport.md",
+          "objectives": [
+            "lab-biosafety-6-objective-1",
+            "lab-biosafety-6-objective-2",
+            "lab-biosafety-6-objective-3",
+            "lab-biosafety-6-objective-4"
+          ],
+          "worked_example": "Before making a formaldehyde fixative read SDS sections 2, 4, 7 and 8, work in a functioning fume hood under the plan's provisions for particularly hazardous substances, label the bottle, and hand any infectious-substance shipment to trained shipping personnel.",
+          "question_ids": [
+            "lab-biosafety-6:sds-ppe",
+            "lab-biosafety-6:sds-spill",
+            "lab-biosafety-6:un-category-b",
+            "lab-biosafety-6:pressure",
+            "lab-biosafety-6:signal-word",
+            "lab-biosafety-6:label-elements",
+            "lab-biosafety-6:chp-review",
+            "lab-biosafety-6:chp-elements",
+            "lab-biosafety-6:triple",
+            "lab-biosafety-6:who-ships"
+          ],
+          "card_ids": [
+            "lab-biosafety-6-card-1",
+            "lab-biosafety-6-card-2",
+            "lab-biosafety-6-card-3",
+            "lab-biosafety-6-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lab-biosafety-module-project",
+      "title": "iPSC project biosafety plan guide (optional, ungraded)",
+      "source_ids": [
+        "cdc-nih-bmbl-6",
+        "absa-cbsp-examination-content"
+      ],
+      "lessons": [
+        {
+          "id": "lab-biosafety-project-guide",
+          "title": "Project guide: a biosafety plan for an iPSC derivation project (optional, ungraded)",
+          "reading": "assignments/ipsc-project-biosafety-plan-guide.md",
+          "objectives": [
+            "lab-biosafety-1-objective-1",
+            "lab-biosafety-1-objective-3",
+            "lab-biosafety-3-objective-3",
+            "lab-biosafety-4-objective-3",
+            "lab-biosafety-4-objective-4",
+            "lab-biosafety-5-objective-1"
+          ],
+          "worked_example": "For a 5.0 ft opening with a 10.0 in sash the Type A2 inflow is 417 cubic feet per minute; 33.3 mL of 7.5% bleach makes 500 mL of 5,000 ppm; and a load lagging 20 min with D₁₂₁ = 1.5 min needs at least 38 min at 121 °C.",
+          "question_ids": [
+            "lab-biosafety-project:rehearsal-ranking",
+            "lab-biosafety-project:rehearsal-inflow",
+            "lab-biosafety-project:rehearsal-bleach",
+            "lab-biosafety-project:rehearsal-autoclave"
+          ],
+          "card_ids": [
+            "lab-biosafety-project-1",
+            "lab-biosafety-project-2"
+          ]
+        }
+      ]
+    }
+  ],
+  "assessments": [
+    {
+      "id": "lab-biosafety-1-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Practice: biological risk assessment",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "lab-biosafety-1-objective-1",
+        "lab-biosafety-1-objective-2",
+        "lab-biosafety-1-objective-3",
+        "lab-biosafety-1-objective-4",
+        "lab-biosafety-outcome-1"
+      ],
+      "question_ids": [
+        "lab-biosafety-1:risk-score",
+        "lab-biosafety-1:residual-score",
+        "lab-biosafety-1:aerosol-release",
+        "lab-biosafety-1:hazard-risk",
+        "lab-biosafety-1:risk-group-bsl",
+        "lab-biosafety-1:lai-routes",
+        "lab-biosafety-1:hierarchy",
+        "lab-biosafety-1:inherent-residual",
+        "lab-biosafety-1:review-step",
+        "lab-biosafety-1:revisit"
+      ],
+      "points": 12
+    },
+    {
+      "id": "lab-biosafety-2-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Practice: biosafety Levels 1 and 2",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "lab-biosafety-2-objective-1",
+        "lab-biosafety-2-objective-2",
+        "lab-biosafety-2-objective-3",
+        "lab-biosafety-2-objective-4",
+        "lab-biosafety-outcome-2"
+      ],
+      "question_ids": [
+        "lab-biosafety-2:bsl2-differences",
+        "lab-biosafety-2:barriers",
+        "lab-biosafety-2:sign",
+        "lab-biosafety-2:gloves",
+        "lab-biosafety-2:needles",
+        "lab-biosafety-2:broken-glass",
+        "lab-biosafety-2:bsc-needed",
+        "lab-biosafety-2:centrifuge",
+        "lab-biosafety-2:lab-coats",
+        "lab-biosafety-2:incident"
+      ],
+      "points": 13
+    },
+    {
+      "id": "lab-biosafety-3-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Practice: biological safety cabinets: classes, selection and certification",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "lab-biosafety-3-objective-1",
+        "lab-biosafety-3-objective-2",
+        "lab-biosafety-3-objective-3",
+        "lab-biosafety-3-objective-4",
+        "lab-biosafety-outcome-2"
+      ],
+      "question_ids": [
+        "lab-biosafety-3:inflow-volume",
+        "lab-biosafety-3:raised-sash",
+        "lab-biosafety-3:a1-exhaust",
+        "lab-biosafety-3:uv-threshold",
+        "lab-biosafety-3:clean-bench",
+        "lab-biosafety-3:class-i",
+        "lab-biosafety-3:volatile",
+        "lab-biosafety-3:hard-duct",
+        "lab-biosafety-3:certification",
+        "lab-biosafety-3:b2-failure"
+      ],
+      "points": 11
+    },
+    {
+      "id": "lab-biosafety-4-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Practice: decontamination, disinfection and sterilization",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "lab-biosafety-4-objective-1",
+        "lab-biosafety-4-objective-2",
+        "lab-biosafety-4-objective-3",
+        "lab-biosafety-4-objective-4",
+        "lab-biosafety-outcome-3"
+      ],
+      "question_ids": [
+        "lab-biosafety-4:bleach-volume",
+        "lab-biosafety-4:bleach-ppm",
+        "lab-biosafety-4:sal-time",
+        "lab-biosafety-4:survivors",
+        "lab-biosafety-4:lag",
+        "lab-biosafety-4:definitions",
+        "lab-biosafety-4:resistance",
+        "lab-biosafety-4:factors",
+        "lab-biosafety-4:tape",
+        "lab-biosafety-4:ethanol"
+      ],
+      "points": 12
+    },
+    {
+      "id": "lab-biosafety-5-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Practice: human cells and tissues, bloodborne pathogens and exposure response",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "lab-biosafety-5-objective-1",
+        "lab-biosafety-5-objective-2",
+        "lab-biosafety-5-objective-3",
+        "lab-biosafety-5-objective-4",
+        "lab-biosafety-outcome-4"
+      ],
+      "question_ids": [
+        "lab-biosafety-5:hbv-days",
+        "lab-biosafety-5:medical-records",
+        "lab-biosafety-5:training-records",
+        "lab-biosafety-5:universal",
+        "lab-biosafety-5:culture-risk",
+        "lab-biosafety-5:minimum",
+        "lab-biosafety-5:ecp",
+        "lab-biosafety-5:immediate",
+        "lab-biosafety-5:hbv-cost",
+        "lab-biosafety-5:sharps-container"
+      ],
+      "points": 12
+    },
+    {
+      "id": "lab-biosafety-6-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Practice: chemical hygiene, hazard communication and transport of infectious substances",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "lab-biosafety-6-objective-1",
+        "lab-biosafety-6-objective-2",
+        "lab-biosafety-6-objective-3",
+        "lab-biosafety-6-objective-4",
+        "lab-biosafety-outcome-4"
+      ],
+      "question_ids": [
+        "lab-biosafety-6:sds-ppe",
+        "lab-biosafety-6:sds-spill",
+        "lab-biosafety-6:un-category-b",
+        "lab-biosafety-6:pressure",
+        "lab-biosafety-6:signal-word",
+        "lab-biosafety-6:label-elements",
+        "lab-biosafety-6:chp-review",
+        "lab-biosafety-6:chp-elements",
+        "lab-biosafety-6:triple",
+        "lab-biosafety-6:who-ships"
+      ],
+      "points": 12
+    },
+    {
+      "id": "lab-biosafety-project-rehearsal-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Biosafety plan rehearsal: ranking, inflow, bleach and autoclave time (open, ungraded practice)",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "lab-biosafety-1-objective-1",
+        "lab-biosafety-3-objective-3",
+        "lab-biosafety-4-objective-3",
+        "lab-biosafety-4-objective-4",
+        "lab-biosafety-outcome-1",
+        "lab-biosafety-outcome-2",
+        "lab-biosafety-outcome-3"
+      ],
+      "question_ids": [
+        "lab-biosafety-project:rehearsal-ranking",
+        "lab-biosafety-project:rehearsal-inflow",
+        "lab-biosafety-project:rehearsal-bleach",
+        "lab-biosafety-project:rehearsal-autoclave"
+      ],
+      "points": 4
+    },
+    {
+      "id": "lab-biosafety-biosafety-plan-project",
+      "type": "project",
+      "mode": "self-assessment",
+      "title": "Biosafety plan milestones M1–M5 in the Case studio (optional self-check; ungraded)",
+      "path": "rubrics/case-studio.json",
+      "objective_ids": [],
+      "question_ids": [],
+      "points": 0
+    }
+  ],
+  "grading_policy": {
+    "mode": "formative-only",
+    "categories": [],
+    "attempt_policy": "Unlimited formative retries; no summative grade is awarded.",
+    "solution_release": "Public practice solutions may be shown after an attempt. They are not production exam keys.",
+    "late_policy": "No deadlines or late penalties exist in this partial package.",
+    "appeals": "No instructor review workflow is implemented; report ambiguous practice items as content issues."
+  },
+  "retrieval_cards": "question-banks/retrieval-cards.json",
+  "case_rubrics": "rubrics/case-studio.json",
+  "source_map": "source-map.json",
+  "syllabus": "syllabus.md",
+  "review": {
+    "status": "unreviewed",
+    "reviewed_version": null,
+    "reviewers": []
+  },
+  "accessibility": {
+    "language": "en",
+    "reading_format": "markdown",
+    "math_format": "unicode-text",
+    "diagram_policy": "The package contains no diagrams; any added diagram requires a text description and license tracking.",
+    "known_issues": [
+      "Unicode equations require structured mathematical alternatives and assistive-technology review."
+    ],
+    "review_status": "unreviewed"
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "date": "2026-10-31",
+      "summary": "New package, layer 1 of the wet-lab practice track: six original readings adapting BMBL 6th edition (Sections II–IV, Appendices A, B, C and H) and OSHA 29 CFR 1910.1030, 1910.1450 and 1910.1200, with 64 practice items, 26 retrieval cards, a self-check case and an optional iPSC biosafety plan project (guide, four rehearsal items, five Case studio milestones), linked to the Class II cabinet simulation. Compared task by task with the ABSA CBSP examination content outline (2026). Partial, unreviewed and formative-only."
+    }
+  ],
+  "limitations": [
+    "A six-week module that prepares for, and does not replace, the biosafety, bloodborne-pathogen and chemical-hygiene training an employer must provide; the schedule is proposed, not measured, and unreviewed by a biosafety professional.",
+    "Practice items test knowledge and decisions, not technique; donning and doffing PPE, cabinet work and spill response need supervised practice.",
+    "Of the 23 numerical answers, 0 require units, 5 check significant figures and 0 check dimensions.",
+    "Regulatory requirements are paraphrased for teaching from the US federal texts read on 2026-10-30; the regulations, your institution's plans and your biosafety officer govern real work, and requirements outside the United States differ.",
+    "Risk scores, aerosol fractions, D-values and load lags are synthetic illustrations."
+  ],
+  "intentionally_omitted": [
+    "Graded assessments, measured workload and review by a qualified person; the biosafety plan project is an optional, ungraded self-check.",
+    "BSL-3, BSL-4 and the animal biosafety levels; select agents; the NIH Guidelines for recombinant work; respiratory protection programs; import and export permits. See the scope crosswalk.",
+    "Program-management and facility-review tasks of the ABSA CBSP outline, which are for biosafety professionals rather than bench workers."
+  ],
+  "learner_resources": []
+}
