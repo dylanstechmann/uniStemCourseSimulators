@@ -11,3 +11,18 @@ This guidance supplements the shared workspace instructions. The owner's direct 
 - Preserve historical assessment/review evidence, but keep current README and roadmap concise. Put progress history in the progress/review records; do not repeatedly restate it in the active work queue.
 - Once relevant checks pass, continue to the next substantive task. Repeat checks only for a new change, failure or unresolved concern. Do not manufacture reviewer sign-offs or keep extending a course while waiting for human review.
 - Use one editing agent in the working tree. Parallel read-only research or review is allowed; the editing agent integrates findings and performs mutations sequentially.
+
+## Agent tooling (portable across harnesses)
+
+<!-- agent-toolbox:installed -->
+
+This repo vendors its agent tooling (no secrets inside) so Claude Code,
+Cline, Codex, OpenCode, Kilo Code, Kimi Code and Grok share one setup:
+
+- `.mcp.json` — project MCP servers `scholar` (PubMed, OpenAlex, Semantic
+  Scholar, CORE, ORCID, Crossref) and `web` (Exa, Brave, Jina, Firecrawl).
+- `opencode.json` — same servers for OpenCode; `AGENT_TOOLS.md` has the
+  merge snippets for Codex / Cline / Kilo Code and notes for Kimi/Grok.
+- `.claude/skills/` — project skills: citation-check, courselab-dev, literature-search, web-research, secrets-guard.
+- Keys: `~/.config/ai-keys.env` via the `agentkeys` loader — never in git,
+  MCP config or chat. Run `secrets-guard` (`--staged`) before committing.
