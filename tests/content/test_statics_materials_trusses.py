@@ -181,7 +181,7 @@ def test_choice_items_accept_only_their_key():
 def test_schedule_scope_and_status():
     weeks = {lid: w["week"] for w in MANIFEST["duration"]["weeks"] for lid in w["lesson_ids"]}
     assert (weeks[TRUSS], weeks["statics-materials-1"], weeks[DEFORM], weeks["statics-materials-2"]) == (1, 1, 3, 3)
-    assert MANIFEST["version"] == "0.7.0" and MANIFEST["maturity"] == "partial"
+    assert MANIFEST["version"] == "0.8.0" and MANIFEST["maturity"] == "partial"
     assert MANIFEST["review"]["status"] == "unreviewed" and MANIFEST["grading_policy"]["mode"] == "formative-only"
     for lid in (TRUSS, DEFORM):
         lesson = LESSONS[lid]

@@ -2197,6 +2197,9 @@ STATICS_MATERIALS_NUMERIC = {
     "statics-materials-20:degree-of-indeterminacy": 12 + 3 - 2 * 7,
     "statics-materials-20:end-post": -(3 * 6 / 2) / (1.5 / 2.5),
     "statics-materials-21:member-elongation": 15_000 * 2.5 / (300e-6 * 70e9) * 1000,
+    # 0.8.0 frames and machines: toggle mechanical advantage; 30 N input gives 80 N clamp.
+    "statics-materials-22:toggle-advantage": 8 / 3,
+    "statics-materials-22:toggle-output": 8 * 30 / 3,
 }
 
 

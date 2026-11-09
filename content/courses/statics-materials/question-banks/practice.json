@@ -6119,6 +6119,328 @@
         ],
         "partial_credit": "correct-minus-incorrect-clamped-v1"
       }
+    },
+    {
+      "id": "statics-materials-22:identify-two-force",
+      "type": "single_choice",
+      "prompt": "What distinguishes a two-force member, and what internal loading does the ideal model then assign to it?",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-22-objective-1"
+      ],
+      "feedback": {
+        "hint": "Which body has exactly two end forces, and what does equilibrium force those forces to be?",
+        "solution": "A two-force member is pinned at both ends with no load between the pins; equilibrium forces its two end forces to be equal, opposite and collinear, so it carries a single axial force. Any member loaded between its pins carries bending and shear as well.",
+        "lesson_ids": [
+          "statics-materials-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic frames-and-machines practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      },
+      "options": [
+        "It is pinned at both ends with no load between the pins, so it carries only an axial force.",
+        "It carries axial force, shear and bending moment together.",
+        "It is any straight bar, so it carries only an axial force.",
+        "It carries only a bending moment, never an axial force."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "statics-materials-22:frame-members",
+      "type": "single_choice",
+      "prompt": "In the worked frame, beam AB runs from A=(0,0) to B=(3,0) m and link BC runs from B=(3,0) to C=(6,4) m, with an 8 kN load at the beam's midpoint. Which member is a two-force member?",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-22-objective-1"
+      ],
+      "feedback": {
+        "hint": "Check whether anything loads the member between its pinned ends.",
+        "solution": "BC is pinned at both ends and carries no load between its pins, so it is a two-force member carrying only axial force. AB carries the 8 kN load between its pins, so it is a multi-force member.",
+        "lesson_ids": [
+          "statics-materials-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic frames-and-machines practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      },
+      "options": [
+        "BC only: it is pinned at both ends and carries no load between its pins.",
+        "AB only: it is horizontal.",
+        "Both, because both are straight bars.",
+        "Neither, because both carry the 8 kN load."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "statics-materials-22:frame-dismember",
+      "type": "data_interpretation",
+      "prompt": "A beam AB runs from A=(0,0) to B=(3,0) m with a pin at A. A two-force link runs from B=(3,0) to C=(6,4) m. An 8 kN downward load acts at the beam's midpoint, 1.5 m from A. Report each value to three significant figures; treat the link as tension-positive and take right and up as positive.",
+      "points": 3,
+      "objective_ids": [
+        "statics-materials-22-objective-2"
+      ],
+      "response_fields": [
+        {
+          "id": "link_force",
+          "type": "numeric",
+          "prompt": "Axial force in link BC, kN, tension positive.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "pin_ax",
+          "type": "numeric",
+          "prompt": "Horizontal reaction at pin A, kN, right positive.",
+          "unit": "",
+          "points": 1
+        },
+        {
+          "id": "pin_ay",
+          "type": "numeric",
+          "prompt": "Vertical reaction at pin A, kN, up positive.",
+          "unit": "",
+          "points": 1
+        }
+      ],
+      "solution_spec": {
+        "field_specs": [
+          {
+            "id": "link_force",
+            "type": "numeric",
+            "answer": -5.0,
+            "unit": "",
+            "tolerance": 0.0125,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "pin_ax",
+            "type": "numeric",
+            "answer": -3.0,
+            "unit": "",
+            "tolerance": 0.0075,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          },
+          {
+            "id": "pin_ay",
+            "type": "numeric",
+            "answer": 4.0,
+            "unit": "",
+            "tolerance": 0.01,
+            "unit_required": false,
+            "dimensions": null,
+            "significant_figures": 3
+          }
+        ]
+      },
+      "feedback": {
+        "hint": "Sum moments about A on the whole structure first, then dismember the beam.",
+        "solution": "Moment about A on the whole structure gives −12 − (12/5)F = 0, so the link force is F = −5 kN (compression). Force balance on beam AB then gives A_x + 3 = 0 and A_y + 4 − 8 = 0, so A_x = −3 kN and A_y = +4 kN.",
+        "lesson_ids": [
+          "statics-materials-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic frames-and-machines practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      }
+    },
+    {
+      "id": "statics-materials-22:pin-consistency",
+      "type": "single_choice",
+      "prompt": "After dismembering a frame, how do you confirm the pin forces you drew between two members are correct?",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-22-objective-2"
+      ],
+      "feedback": {
+        "hint": "A pin transfers force between members; both sides must agree.",
+        "solution": "The force each member exerts on the other is equal and opposite at the pin, and each member separately satisfies all three equilibrium equations. A pin force is generally not zero and not equal to a single external load.",
+        "lesson_ids": [
+          "statics-materials-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic frames-and-machines practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      },
+      "options": [
+        "The force each member exerts on the other is equal and opposite, and both members satisfy all three equilibrium equations.",
+        "The pin force must equal the total external load.",
+        "The pin force must be zero for the frame to hold its shape.",
+        "Pin forces cannot be checked against equilibrium."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "statics-materials-22:toggle-advantage",
+      "type": "numeric",
+      "prompt": "A toggle clamp has links AC and BC, each 5 m long, with A=(0,0) pinned to ground, B=(6,0) a slider that moves horizontally, and C=(3,4) the clamp point. A horizontal force is applied at B and the clamp pushes vertically at C. What is the mechanical advantage (vertical clamp force divided by horizontal input force)? Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-22-objective-3"
+      ],
+      "feedback": {
+        "hint": "Both links are two-force members; use vertical equilibrium at C and horizontal equilibrium at B.",
+        "solution": "Vertical equilibrium at C gives the clamp force F_c = (4/5)(T + T) = (8/5)T, and horizontal equilibrium at the slider B gives the input F_in = (3/5)T. The ratio is (8/5)/(3/5) = 8/3 ≈ 2.67.",
+        "lesson_ids": [
+          "statics-materials-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic frames-and-machines practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 2.67,
+        "unit": "",
+        "tolerance": 0.007,
+        "unit_required": false,
+        "dimensions": null,
+        "significant_figures": 3
+      }
+    },
+    {
+      "id": "statics-materials-22:toggle-output",
+      "type": "numeric",
+      "prompt": "Using the same toggle clamp, a horizontal pull of 30 N is applied at the slider B. What vertical clamping force does C exert, in newtons? Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "statics-materials-22-objective-3"
+      ],
+      "feedback": {
+        "hint": "Input and output are in the fixed ratio 8/3.",
+        "solution": "With a 30 N input, F_in = (3/5)T = 30 N gives the link force T = 50 N, so the clamp force is F_c = (8/5)T = 80 N. The output travels a shorter distance, so no energy is created.",
+        "lesson_ids": [
+          "statics-materials-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic frames-and-machines practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 80.0,
+        "unit": "",
+        "tolerance": 0.2,
+        "unit_required": false,
+        "dimensions": null,
+        "significant_figures": 3
+      }
+    },
+    {
+      "id": "statics-materials-22:consistency-checks",
+      "type": "multiple_select",
+      "prompt": "Which checks confirm that a solved frame or machine is internally consistent? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "statics-materials-22-objective-4"
+      ],
+      "feedback": {
+        "hint": "Think about what must balance both globally and member by member.",
+        "solution": "Every member must satisfy all three equilibrium equations, the whole assembly must balance, and each pin force must be equal and opposite on the two members it joins. One balanced member is not enough, and a bar-shaped member is not automatically axial.",
+        "lesson_ids": [
+          "statics-materials-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic frames-and-machines practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      },
+      "options": [
+        "Every member satisfies ΣFx = 0, ΣFy = 0 and ΣM = 0.",
+        "The whole assembly satisfies ΣFx = 0, ΣFy = 0 and ΣM = 0.",
+        "Each pin force is equal and opposite on the two members it joins.",
+        "It is enough that one member balances; the rest follow.",
+        "A bar-shaped member can carry only axial force, so its moment balance is automatic."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "statics-materials-22:model-limits",
+      "type": "multiple_select",
+      "prompt": "Which effects does the ideal frame/machine model ignore? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "statics-materials-22-objective-4"
+      ],
+      "feedback": {
+        "hint": "The ideal model keeps only the external loads and the member equilibrium.",
+        "solution": "The ideal model ignores friction at the pins, the self-weight of the members and elastic deformation of members and joints; real machines also lose work to these, so the ideal mechanical advantage is an upper bound. Applied loads and member moment equilibrium are still part of the model, not omissions.",
+        "lesson_ids": [
+          "statics-materials-22"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original synthetic frames-and-machines practice developed with substantial AI assistance; no external problem, structure or measurements imported."
+        ]
+      },
+      "options": [
+        "Friction at the pins.",
+        "The self-weight of the members.",
+        "Elastic deformation of the members and joints.",
+        "The magnitude and direction of the applied input force.",
+        "The need for every member to satisfy moment equilibrium."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
     }
   ]
 }
