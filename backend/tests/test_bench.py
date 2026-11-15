@@ -687,6 +687,198 @@ def test_cell_count_poisson_uncertainty_uses_all_included_cells(library):
     assert checkpoint_map(view)["report-uncertainty"] is False
 
 
+ASEPTIC = "aseptic-medium-change-with-hidden-contamination"
+
+
+def aseptic_valid_lot(hidden_state):
+    return "medium_lot_b" if hidden_state["expired_lot"] == "medium_lot_a" else "medium_lot_a"
+
+
+def aseptic_lot(model, seed, kind="valid"):
+    hidden_state = hidden(model, seed)
+    return hidden_state["expired_lot"] if kind == "expired" else aseptic_valid_lot(hidden_state)
+
+
+def aseptic_run(model, seed, *, lot=None, disinfect=True, disinfect_agent="sterile_alcohol70", uv=False,
+                loads=None, extra_loads=(), lid="held_above", open_turbid=False, spent=None, fresh=None,
+                sample_fresh=True, antibiotics=False, incubations=((7, 22), (7, 32)), mycoplasma=True,
+                waste_method="chemical_then_autoclave", containment="sealed_biohazard",
+                dispose_decontaminated=True, final_agent="sterile_alcohol70"):
+    lot = lot or aseptic_lot(model, seed)
+    actions = [act("inspect_supplies")]
+    if disinfect:
+        actions.append(act("disinfect_interior", agent=disinfect_agent))
+    if uv:
+        actions.append(act("run_uv_lamp", minutes=15))
+    actions.append(act("sanitize_gloves", agent="sterile_alcohol70"))
+    base = [("target_flask", "work_center"), ("turbid_flask", "dirty_side"), ("pipettes", "clean_side"),
+            ("pipette_aid", "clean_side"), ("sterility_broth", "clean_side"), ("waste_container", "dirty_side")]
+    used_loads = base if loads is None else loads
+    for item, zone in list(used_loads) + list(extra_loads):
+        actions.append(act("load_item", item=item, zone=zone, wiped=True))
+    actions += [act("inspect_flask", container="target_flask"), act("inspect_flask", container="turbid_flask")]
+    if open_turbid:
+        actions.append(act("open_container", container="turbid_flask", lid_position="held_above"))
+    actions.append(act("open_container", container="target_flask", lid_position=lid))
+    transfer = {"volume_ml": 10, "pipette_fresh": True, "tip_contact": "sterile_only", "approach": "side",
+                "motion": "slow_gentle", "talking": False}
+    transfer.update(spent or {})
+    actions.append(act("remove_spent_medium", **transfer))
+    actions.append(act("draw_sterility_sample", source="spent_medium", pipette_fresh=sample_fresh))
+    actions.append(act("close_container", container="target_flask"))
+    if open_turbid:
+        actions.append(act("close_container", container="turbid_flask"))
+    actions.append(act("decontaminate_waste", method=waste_method))
+    actions.append(act("remove_item", item="waste_container", decontaminated=True))
+    actions.append(act("load_item", item=lot, zone="clean_side", wiped=True))
+    actions.append(act("open_container", container=lot, lid_position="held_above"))
+    actions.append(act("open_container", container="target_flask", lid_position="held_above"))
+    transfer = {"volume_ml": 12, "pipette_fresh": True, "tip_contact": "sterile_only", "approach": "side",
+                "motion": "slow_gentle", "talking": False}
+    transfer.update(fresh or {})
+    actions.append(act("add_fresh_medium", **transfer))
+    if antibiotics:
+        actions.append(act("load_item", item="antibiotics", zone="clean_side", wiped=True))
+        actions.append(act("add_antibiotics"))
+    actions.append(act("draw_sterility_sample", source="fresh_medium", pipette_fresh=sample_fresh))
+    actions.append(act("close_container", container="target_flask"))
+    actions.append(act("close_container", container=lot))
+    actions.append(act("remove_item", item=lot, decontaminated=True))
+    if antibiotics:
+        actions.append(act("remove_item", item="antibiotics", decontaminated=True))
+    actions.append(act("remove_item", item="sterility_broth", decontaminated=True))
+    for item, _ in extra_loads:
+        actions.append(act("remove_item", item=item, decontaminated=True))
+    if mycoplasma:
+        actions.append(act("submit_mycoplasma_test"))
+    for days, temperature_c in incubations:
+        actions.append(act("incubate_samples", days=days, temperature_c=temperature_c))
+    actions.append(act("inspect_samples"))
+    actions.append(act("dispose_flask", container="turbid_flask", containment=containment,
+                       decontaminated=dispose_decontaminated))
+    actions.append(act("sanitize_gloves", agent="sterile_alcohol70"))
+    for item in [name for name, _ in used_loads if name in {"target_flask", "pipettes", "pipette_aid"}]:
+        actions.append(act("remove_item", item=item, decontaminated=True))
+    actions.append(act("final_clean", agent=final_agent))
+    return actions + [act("finish_session")]
+
+
+@pytest.mark.parametrize("seed", range(20))
+def test_aseptic_correct_run_meets_every_checkpoint(library, seed):
+    model = library.get(ASEPTIC)
+    view = replay(model, seed, "practice", aseptic_run(model, seed)).view()
+    met = checkpoint_map(view)
+    assert all(value for value in met.values() if value is not None), met
+    assert view["debrief"]["all_critical_met"]
+
+
+def test_aseptic_replay_is_deterministic(library):
+    model = library.get(ASEPTIC)
+    seed = seed_where(model, lambda h: h["mollicute_lot"] == aseptic_valid_lot(h))
+    actions = aseptic_run(model, seed)
+    first = replay(model, seed, "practice", actions).view()
+    assert first == replay(model, seed, "practice", actions).view()
+    assert any("positive" in note for note in first["debrief"]["revealed"])
+
+
+def test_aseptic_expired_medium_is_flagged(library):
+    model = library.get(ASEPTIC)
+    view = replay(model, 4, "practice", aseptic_run(model, 4, lot=aseptic_lot(model, 4, "expired"))).view()
+    assert checkpoint_map(view)["medium-in-date"] is False
+    assert any("expired" in note for note in view["debrief"]["revealed"])
+
+
+def test_aseptic_dirty_interior_and_technique_errors_are_flagged(library):
+    model = library.get(ASEPTIC)
+    seed = seed_where(model, lambda h: h["dirty_interior"])
+    actions = aseptic_run(model, seed, disinfect=False, lid="face_down_surface",
+                          spent={"pipette_fresh": False, "tip_contact": "dirty_cabinet_surface",
+                                 "approach": "over_open_container", "motion": "rapid", "talking": True})
+    view = replay(model, seed, "practice", actions).view()
+    met = checkpoint_map(view)
+    for key in ("interior-disinfected-before-work", "caps-never-face-down", "side-approach-not-over",
+                "slow-gentle-manipulation", "fresh-pipette-per-flask", "sterile-items-touch-nothing-dirty"):
+        assert met[key] is False, key
+    assert any("present" in note for note in view["debrief"]["revealed"])
+
+
+def test_aseptic_layout_and_cell_line_rules_are_flagged(library):
+    model = library.get(ASEPTIC)
+    seed = 0
+    expired = aseptic_lot(model, seed, "expired")
+    met = checkpoint_map(replay(model, seed, "practice",
+                                aseptic_run(model, seed, extra_loads=[("other_line_flask", "clean_side")])).view())
+    assert met["one-cell-line-only"] is False
+    met = checkpoint_map(replay(model, seed, "practice",
+                                aseptic_run(model, seed, extra_loads=[(expired, "clean_side")])).view())
+    assert met["bottles-one-at-a-time"] is False
+    loads = [("target_flask", "stacked"), ("turbid_flask", "dirty_side"), ("pipettes", "front_grille"),
+             ("pipette_aid", "clean_side"), ("sterility_broth", "clean_side"), ("waste_container", "dirty_side")]
+    met = checkpoint_map(replay(model, seed, "practice", aseptic_run(model, seed, loads=loads)).view())
+    for key in ("no-inside-stacking", "grilles-and-opening-clear", "clean-to-dirty-arrangement"):
+        assert met[key] is False, key
+
+
+def test_aseptic_hidden_mollicutes_need_a_dedicated_test(library):
+    model = library.get(ASEPTIC)
+    seed = seed_where(model, lambda h: h["mollicute_lot"] == aseptic_valid_lot(h))
+    view = replay(model, seed, "practice", aseptic_run(model, seed)).view()
+    assert checkpoint_map(view)["mycoplasma-test-requested"] is True
+    assert any("positive" in event["text"] for event in view["log"][-1]["events"])
+    missed = replay(model, seed, "practice", aseptic_run(model, seed, mycoplasma=False)).view()
+    assert checkpoint_map(missed)["mycoplasma-test-requested"] is False
+    assert any("not submitted" in note for note in missed["debrief"]["revealed"])
+
+
+def test_aseptic_visible_medium_contamination_is_detected_after_incubation(library):
+    model = library.get(ASEPTIC)
+    seed = seed_where(model, lambda h: h["visible_medium_lot"] == aseptic_valid_lot(h))
+    view = replay(model, seed, "practice", aseptic_run(model, seed)).view()
+    assert any("fresh-medium control: turbid" in event["text"] for entry in view["log"] for event in entry["events"])
+
+
+def test_aseptic_antibiotics_mask_contamination(library):
+    model = library.get(ASEPTIC)
+    seed = seed_where(model, lambda h: h["dirty_interior"])
+    actions = aseptic_run(model, seed, disinfect=False, antibiotics=True,
+                          fresh={"tip_contact": "dirty_cabinet_surface"})
+    view = replay(model, seed, "practice", actions).view()
+    assert checkpoint_map(view)["no-antibiotic-rescue"] is False
+    assert any("deceptively clear" in event["text"] for event in view["log"][-1]["events"])
+
+
+def test_aseptic_incubation_rules_are_checked(library):
+    model = library.get(ASEPTIC)
+    seed = 0
+    met = checkpoint_map(replay(model, seed, "practice",
+                                aseptic_run(model, seed, incubations=((10, 22),))).view())
+    assert met["sterility-samples-incubated"] is False and met["dual-temperature-incubation"] is False
+    met = checkpoint_map(replay(model, seed, "practice",
+                                aseptic_run(model, seed, incubations=((7, 32), (7, 22)))).view())
+    assert met["dual-temperature-incubation"] is False
+    met = checkpoint_map(replay(model, seed, "practice",
+                                aseptic_run(model, seed, incubations=((7, 22), (7, 37)))).view())
+    assert met["sterility-samples-incubated"] is False and met["dual-temperature-incubation"] is False
+
+
+def test_aseptic_containment_waste_and_cleanup_rules(library):
+    model = library.get(ASEPTIC)
+    seed = 0
+    met = checkpoint_map(replay(model, seed, "practice",
+                                aseptic_run(model, seed, waste_method="no_treatment")).view())
+    assert met["waste-decontaminated"] is False
+    met = checkpoint_map(replay(model, seed, "practice",
+                                aseptic_run(model, seed, open_turbid=True, containment="open_bench_trash",
+                                            dispose_decontaminated=False)).view())
+    assert met["contaminated-flasks-contained"] is False
+    met = checkpoint_map(replay(model, seed, "practice",
+                                aseptic_run(model, seed, disinfect=False, uv=True)).view())
+    assert met["uv-not-a-substitute"] is False and met["interior-disinfected-before-work"] is False
+    met = checkpoint_map(replay(model, seed, "practice",
+                                aseptic_run(model, seed, final_agent="water")).view())
+    assert met["post-session-clean"] is False
+
+
 # API ------------------------------------------------------------------------------
 
 @pytest.fixture

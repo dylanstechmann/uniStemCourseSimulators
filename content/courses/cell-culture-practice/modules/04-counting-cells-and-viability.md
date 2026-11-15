@@ -2,7 +2,7 @@
 
 Most cell-culture decisions start with a number: how many cells to seed, how much medium to add, whether a thaw recovered well enough to use. The hemocytometer, already in routine use when Student analysed its errors in 1907, is the manual way to get that number. It gives two results from one preparation: the concentration of cells and the fraction that exclude trypan blue. This lesson treats the count as a measurement with a model, a geometry and an uncertainty, and shows which parts of the procedure come from sources and which are choices made for this course's simulation.
 
-This is lesson 4 of the outlined cell-culture layer and, for now, the only lesson that exists. Lessons 1–3 and 5–8 (aseptic technique, media, passaging, cryopreservation, contamination, pluripotent stem cells and records) are not written yet. You practise the count in the [hemocytometer bench simulation](#/bench/hemocytometer-cell-count-viability), which uses synthetic, non-human cells.
+This is lesson 4 of the outlined cell-culture layer. Lesson 1, aseptic technique, is also written; lessons 2–3 and 5–8 (media, passaging, cryopreservation, contamination, pluripotent stem cells and records) are not written yet. You practise the count in the [hemocytometer bench simulation](#/bench/hemocytometer-cell-count-viability), which uses synthetic, non-human cells.
 
 ## Learning objectives
 

@@ -4,6 +4,429 @@
   "license": "CC-BY-4.0",
   "questions": [
     {
+      "id": "cell-culture-practice-1:pre-work-checks",
+      "type": "multiple_select",
+      "prompt": "Before opening any container in a certified Class II cabinet, which checks or actions belong in the pre-work step? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-1-objective-1"
+      ],
+      "feedback": {
+        "hint": "Pre-work establishes what may enter the cabinet and whether it is clean enough to enter.",
+        "solution": "Inspect labels and closed cultures, reject expired medium and surface-disinfect items. Two cell lines must not be handled together, and UV does not replace chemical wiping.",
+        "lesson_ids": [
+          "cell-culture-practice-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original aseptic-technique practice developed with substantial AI assistance; synthetic scenario; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Read both fresh-medium labels and reject the expired lot.",
+        "Bring both cell lines in so the second can be handled while the cabinet is already disinfected.",
+        "Inspect flask labels and appearance through the closed vessels.",
+        "Surface-disinfect every item before it enters the cabinet.",
+        "Use a UV lamp instead of wiping the interior because UV is faster."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "cell-culture-practice-1:cabinet-arrangement",
+      "type": "multiple_select",
+      "prompt": "Which placements follow the clean-to-dirty arrangement used in the bench simulation? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-1-objective-1"
+      ],
+      "feedback": {
+        "hint": "Clean supplies, the open culture and dirty material should have separate positions.",
+        "solution": "Clean supplies stay on the clean side, the target flask in the work centre, and turbid/waste material on the dirty side. Stacking and blocking grilles disturb airflow and shadow surfaces.",
+        "lesson_ids": [
+          "cell-culture-practice-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original aseptic-technique practice developed with substantial AI assistance; synthetic scenario; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Fresh medium and sterile pipettes on the clean side",
+        "Target flask in the work centre",
+        "Turbid flask and waste container on the dirty side",
+        "Sterile pipettes stacked on the medium bottle to save space",
+        "A bottle placed across the front grille to keep it from rolling"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "cell-culture-practice-1:one-cell-line",
+      "type": "single_choice",
+      "prompt": "A colleague asks you to handle a different cell line in the same cabinet while your medium change is already set up. What is the correct aseptic decision?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-1-objective-1"
+      ],
+      "feedback": {
+        "hint": "Cross-contamination and misidentification are the risks, not merely visible spills.",
+        "solution": "Routine work should use only one cell line in the cabinet at a time. Separation, gloves or keeping a flask closed do not remove the cross-contamination risk.",
+        "lesson_ids": [
+          "cell-culture-practice-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original aseptic-technique practice developed with substantial AI assistance; synthetic scenario; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Handle both lines if they are at opposite ends of the cabinet.",
+        "Handle only one cell line in the cabinet at a time and reschedule the second line.",
+        "Handle both lines if gloves are sanitized between them.",
+        "Handle both lines if the second line is not opened."
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "cell-culture-practice-1:closure-position",
+      "type": "single_choice",
+      "prompt": "You open a medium bottle and need both hands free for a moment. Where should the closure go?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-1-objective-2"
+      ],
+      "feedback": {
+        "hint": "The surface that will touch the bottle must remain sterile.",
+        "solution": "Hold the closure above the opening or place it upright on a disinfected surface. A face-down closure contacts a non-sterile surface and then contaminates the vessel.",
+        "lesson_ids": [
+          "cell-culture-practice-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original aseptic-technique practice developed with substantial AI assistance; synthetic scenario; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Face down on the disinfected work surface",
+        "Held above the opening or upright on a disinfected surface",
+        "On the front ledge outside the cabinet",
+        "On top of the waste container"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "cell-culture-practice-1:side-approach",
+      "type": "single_choice",
+      "prompt": "In vertical unidirectional airflow, how should you approach an open flask during a transfer?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-1-objective-2"
+      ],
+      "feedback": {
+        "hint": "Do not let hands or arms pass through the clean air above exposed material.",
+        "solution": "Approach from the side and keep the body out of the airflow path. Reaching over an open container can shed particles into it.",
+        "lesson_ids": [
+          "cell-culture-practice-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original aseptic-technique practice developed with substantial AI assistance; synthetic scenario; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "From the side, keeping your hands and arms out of the path over exposed product",
+        "Directly over the open flask so you can see the tip",
+        "Through the front opening with the sash fully raised",
+        "From behind the rear grille"
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "cell-culture-practice-1:manipulation-behaviour",
+      "type": "multiple_select",
+      "prompt": "Which behaviours reduce contamination risk during an open transfer? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-1-objective-2"
+      ],
+      "feedback": {
+        "hint": "Aseptic technique controls particles, aerosols and sterile-to-sterile contact.",
+        "solution": "Slow motion, fresh pipettes and sterile glove sanitization reduce risk. Talking over exposed product and rapid movements increase it, even if the flask is open for a shorter time.",
+        "lesson_ids": [
+          "cell-culture-practice-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original aseptic-technique practice developed with substantial AI assistance; synthetic scenario; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Move slowly and gently",
+        "Use a fresh sterile pipette for each vessel or sample",
+        "Talk quietly while explaining the step over the open flask",
+        "Sanitize gloves with sterile alcohol before opening and after handling dirty material",
+        "Make rapid movements to minimize the time the flask is open"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "cell-culture-practice-1:sterility-total-days",
+      "type": "numeric",
+      "prompt": "A sterility-control schedule uses two valid incubation temperatures. What is the minimum total number of incubation days required within 20–35 °C? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-1-objective-3"
+      ],
+      "feedback": {
+        "hint": "FDA process-simulation incubation requires at least 14 days within 20–35 °C.",
+        "solution": "The minimum total is 14 valid days. A shorter schedule cannot be interpreted as a negative sterility result.",
+        "lesson_ids": [
+          "cell-culture-practice-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original aseptic-technique practice developed with substantial AI assistance; synthetic scenario; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 14,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-1:dual-temperature-days",
+      "type": "numeric",
+      "prompt": "When two incubation temperatures are used, what is the minimum number of days required at each temperature before the schedule satisfies the dual-temperature rule? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-1-objective-3"
+      ],
+      "feedback": {
+        "hint": "Each temperature must be held for at least one week, starting with the lower temperature.",
+        "solution": "The minimum is 7 days at each temperature: at least 7 days at 20–25 °C first, then at least 7 days at 30–35 °C.",
+        "lesson_ids": [
+          "cell-culture-practice-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original aseptic-technique practice developed with substantial AI assistance; synthetic scenario; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 7,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-1:cell-lines-at-once",
+      "type": "numeric",
+      "prompt": "According to the cell-culture guideline used in this lesson, how many different cell lines should be in the cabinet at the same time during routine work? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-1-objective-1"
+      ],
+      "feedback": {
+        "hint": "The guideline recommends working with one culture at a time.",
+        "solution": "Only one different cell line should be in the cabinet during routine work; two lines create cross-contamination and misidentification risk.",
+        "lesson_ids": [
+          "cell-culture-practice-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original aseptic-technique practice developed with substantial AI assistance; synthetic scenario; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-1:filter-and-detection",
+      "type": "multiple_select",
+      "prompt": "A fresh-medium lot is labelled 0.22 µm filtered and remains clear after standard sterility incubation. Which statements are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-1-objective-4"
+      ],
+      "feedback": {
+        "hint": "Filter pore size and visible turbidity are not the same evidence as a dedicated assay.",
+        "solution": "Mycoplasmas can pass 0.22 µm filters and grow without turbidity; 0.1 µm filtration and routine dedicated testing address them. Standard sterility controls and clarity do not prove absence, and antibiotics are not reliable against mollicutes.",
+        "lesson_ids": [
+          "cell-culture-practice-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original aseptic-technique practice developed with substantial AI assistance; synthetic scenario; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Mycoplasmas are typically about 0.15–0.3 µm and can pass a 0.22 µm filter.",
+        "A 0.1 µm filter is needed to retain mollicutes during sterilizing filtration.",
+        "No turbidity and a standard sterility control prove the lot is mycoplasma-free.",
+        "A dedicated mycoplasma assay is needed to detect mollicutes reliably.",
+        "Penicillin-streptomycin reliably eliminates all mollicutes."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "cell-culture-practice-1:antibiotic-rescue",
+      "type": "single_choice",
+      "prompt": "A culture may have been contaminated during a medium change. Why is adding penicillin-streptomycin not an acceptable rescue?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-1-objective-5"
+      ],
+      "feedback": {
+        "hint": "Ask whether the antibiotic removes the contaminant or merely hides evidence of it.",
+        "solution": "Antibiotics can delay or mask visible growth without sterilizing the culture, and mollicutes are often resistant. They do not repair an aseptic failure.",
+        "lesson_ids": [
+          "cell-culture-practice-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original aseptic-technique practice developed with substantial AI assistance; synthetic scenario; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "It sterilizes the culture but changes the cells' phenotype.",
+        "It may mask visible growth without sterilizing the culture, and many mollicutes are resistant.",
+        "It is effective against mycoplasma but not bacteria.",
+        "It is forbidden in every cell-culture medium."
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "cell-culture-practice-1:contamination-response",
+      "type": "multiple_select",
+      "prompt": "A flask becomes visibly turbid after a medium change. Which responses are correct? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-1-objective-5"
+      ],
+      "feedback": {
+        "hint": "Containment prevents spread; testing identifies the problem; antibiotics do not solve it.",
+        "solution": "Keep the turbid flask closed, contain it, decontaminate waste and surfaces, and follow your laboratory's testing/disposal procedure. Opening it in the clean workflow or adding antibiotics can spread or hide contamination.",
+        "lesson_ids": [
+          "cell-culture-practice-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original aseptic-technique practice developed with substantial AI assistance; synthetic scenario; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Keep the flask closed and contain it separately from clean cultures.",
+        "Open it in the same cabinet to identify the contaminant before disposal.",
+        "Decontaminate the waste and the cabinet before disposal and cleanup.",
+        "Submit or review dedicated contamination testing according to your procedure.",
+        "Add antibiotics and continue passaging until turbidity returns."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
       "id": "cell-culture-practice-4:dilution-factor",
       "type": "numeric",
       "prompt": "You mix 15 µL of a cell suspension with 35 µL of trypan blue before loading the hemocytometer. What dilution factor must the count be multiplied by to give the concentration in the original suspension? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",

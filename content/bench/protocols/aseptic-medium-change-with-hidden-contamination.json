@@ -1,0 +1,1167 @@
+{
+  "schema_version": "1.0",
+  "id": "aseptic-medium-change-with-hidden-contamination",
+  "version": "0.1.0",
+  "title": "Aseptic medium change with hidden contamination",
+  "layer": 2,
+  "summary": "Change the medium on one adherent mammalian culture in a Class II cabinet, contain a visibly contaminated flask, and interpret hidden contamination risks using sterility incubation and a dedicated mycoplasma test.",
+  "scenario": "A certified Class II cabinet is ready for a medium change on one adherent mammalian cell line. Two fresh-medium lots are on the bench and one label is out of date. A second flask from the same line is visibly turbid and must be contained. A colleague asks whether you can also handle a different cell line in the same cabinet during this session. Some risks are hidden: a medium lot can carry mollicutes that pass 0.22 µm filters without producing turbidity, and technique errors may not become visible until after incubation.",
+  "guided_steps": [
+    "Inspect the supplies before opening anything: read the cabinet certification, both fresh-medium labels, the filter specification, the flask labels and the appearance of each culture.",
+    "Wipe the empty cabinet interior with sterile 70% isopropyl alcohol and allow the written contact time. A UV lamp may supplement but never replace this wipe.",
+    "Sanitize gloves with sterile 70% alcohol before the first open container.",
+    "Load only what this medium change needs. Surface-disinfect every item, keep clean supplies on the clean side, the target flask in the work centre, and the turbid flask and waste on the dirty side.",
+    "Never block the front opening or grilles, stack items, or bring a second cell line into the cabinet.",
+    "Keep only one medium or waste bottle inside at a time; decontaminate and remove the waste container before bringing in fresh medium.",
+    "Inspect the target flask and the turbid flask through the closed vessels.",
+    "Open the target flask without putting the closure face down. Remove spent medium with a fresh pipette, approaching from the side, moving slowly and not talking.",
+    "Draw a sterility-control sample from the spent medium, close the flask, decontaminate the waste and remove it.",
+    "Load the in-date fresh-medium lot, open it and the target flask, and add 10–15 mL with a fresh pipette using the same side approach and slow motion.",
+    "Draw a sterility-control sample from the fresh medium, close the containers and remove the medium bottle.",
+    "Do not add penicillin-streptomycin to mask a possible contamination.",
+    "Submit a dedicated mycoplasma test; 0.22 µm filtration does not assure that mollicutes are absent.",
+    "Incubate the sterility samples for at least 7 days at 20–25 °C, then at least 7 days at 30–35 °C, for a total of at least 14 days within 20–35 °C.",
+    "Dispose of the turbid flask sealed and decontaminated, then sanitize gloves again.",
+    "Remove every remaining item, finish with a sterile 70% alcohol wipe of the empty interior, and end the session."
+  ],
+  "parameters": [
+    {
+      "name": "critical_zone_class",
+      "value": "ISO 5 (Class 100)",
+      "unit": "class",
+      "label": "Critical-zone air classification",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-aseptic-processing-2004",
+        "location": "printed p. 6"
+      }
+    },
+    {
+      "name": "hepa_velocity_m_s",
+      "value": 0.45,
+      "unit": "m/s",
+      "label": "Recommended HEPA unidirectional airflow velocity",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-aseptic-processing-2004",
+        "location": "printed p. 6, footnote 5"
+      }
+    },
+    {
+      "name": "hepa_velocity_tolerance_pct",
+      "value": 20,
+      "unit": "%",
+      "label": "Airflow tolerance around the setpoint",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-aseptic-processing-2004",
+        "location": "printed p. 6, footnote 5"
+      }
+    },
+    {
+      "name": "alcohol_percent",
+      "value": 70,
+      "unit": "%",
+      "label": "Isopropyl alcohol concentration used for surface disinfection",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-aseptic-processing-2004",
+        "location": "printed p. 34"
+      }
+    },
+    {
+      "name": "sterilizing_filter_um",
+      "value": 0.22,
+      "unit": "µm",
+      "label": "Standard bacteriological sterilizing-filter pore size",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "section 3.3.2"
+      }
+    },
+    {
+      "name": "mycoplasma_filter_um",
+      "value": 0.1,
+      "unit": "µm",
+      "label": "Filter pore size required to retain mollicutes",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "sections 3.3.2 and 4.2"
+      }
+    },
+    {
+      "name": "mycoplasma_size_um",
+      "value": [
+        0.15,
+        0.3
+      ],
+      "unit": "µm",
+      "label": "Typical mycoplasma size range",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "section 4.2"
+      }
+    },
+    {
+      "name": "t75_medium_volume_ml",
+      "value": [
+        10,
+        15
+      ],
+      "unit": "mL",
+      "label": "Typical working volume for the simulated T-75 flask",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "A common T-75 working volume chosen for the simulation; not taken from a cited source."
+      }
+    },
+    {
+      "name": "sterility_min_days",
+      "value": 14,
+      "unit": "d",
+      "label": "Minimum total media-fill/sterility incubation time",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-aseptic-processing-2004",
+        "location": "printed p. 25"
+      }
+    },
+    {
+      "name": "dual_temp_min_days_each",
+      "value": 7,
+      "unit": "d",
+      "label": "Minimum days at each temperature when two temperatures are used",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-aseptic-processing-2004",
+        "location": "printed p. 25"
+      }
+    },
+    {
+      "name": "low_incubation_c",
+      "value": [
+        20,
+        25
+      ],
+      "unit": "°C",
+      "label": "Lower incubation range for fungal recovery",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-aseptic-processing-2004",
+        "location": "printed p. 35"
+      }
+    },
+    {
+      "name": "high_incubation_c",
+      "value": [
+        30,
+        35
+      ],
+      "unit": "°C",
+      "label": "Higher incubation range for bacterial recovery",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-aseptic-processing-2004",
+        "location": "printed p. 35"
+      }
+    },
+    {
+      "name": "visible_growth_min_days",
+      "value": 3,
+      "unit": "d",
+      "label": "Minimum valid incubation before visible growth is reported",
+      "source": {
+        "kind": "simulation-model",
+        "note": "A simplified teaching threshold for visible turbidity, not a growth-kinetics model."
+      }
+    },
+    {
+      "name": "dirty_interior_probability",
+      "value": 0.35,
+      "unit": "probability",
+      "label": "Chance that the cabinet interior starts contaminated",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Hidden scenario event."
+      }
+    },
+    {
+      "name": "mollicute_lot_probability",
+      "value": 0.3,
+      "unit": "probability",
+      "label": "Chance that one fresh-medium lot carries mollicutes",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Hidden scenario event; mollicutes can pass 0.22 µm filters."
+      }
+    },
+    {
+      "name": "visible_medium_lot_probability",
+      "value": 0.25,
+      "unit": "probability",
+      "label": "Chance that one fresh-medium lot carries a visibly culturable contaminant",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Hidden scenario event detectable only after incubation."
+      }
+    }
+  ],
+  "actions": [
+    {
+      "name": "inspect_supplies",
+      "label": "Inspect the cabinet, labels and cultures",
+      "params": []
+    },
+    {
+      "name": "disinfect_interior",
+      "label": "Disinfect the empty cabinet interior",
+      "params": [
+        {
+          "name": "agent",
+          "label": "Agent",
+          "type": "choice",
+          "options": [
+            {
+              "value": "sterile_alcohol70",
+              "label": "Sterile 70% isopropyl alcohol with contact time"
+            },
+            {
+              "value": "nonsterile_alcohol70",
+              "label": "Non-sterile 70% isopropyl alcohol"
+            },
+            {
+              "value": "water",
+              "label": "Water"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "run_uv_lamp",
+      "label": "Run the UV lamp",
+      "params": [
+        {
+          "name": "minutes",
+          "label": "Minutes",
+          "type": "number",
+          "min": 1,
+          "max": 60,
+          "unit": "min"
+        }
+      ]
+    },
+    {
+      "name": "sanitize_gloves",
+      "label": "Sanitize gloves",
+      "params": [
+        {
+          "name": "agent",
+          "label": "Agent",
+          "type": "choice",
+          "options": [
+            {
+              "value": "sterile_alcohol70",
+              "label": "Sterile 70% isopropyl alcohol with contact time"
+            },
+            {
+              "value": "nonsterile_alcohol70",
+              "label": "Non-sterile 70% isopropyl alcohol"
+            },
+            {
+              "value": "water",
+              "label": "Water"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "load_item",
+      "label": "Place an item in the cabinet",
+      "params": [
+        {
+          "name": "item",
+          "label": "Item",
+          "type": "choice",
+          "options": [
+            {
+              "value": "target_flask",
+              "label": "Target culture flask"
+            },
+            {
+              "value": "turbid_flask",
+              "label": "Turbid culture flask from the same line"
+            },
+            {
+              "value": "other_line_flask",
+              "label": "Second cell-line flask"
+            },
+            {
+              "value": "medium_lot_a",
+              "label": "Fresh-medium lot A"
+            },
+            {
+              "value": "medium_lot_b",
+              "label": "Fresh-medium lot B"
+            },
+            {
+              "value": "waste_container",
+              "label": "Spent-medium waste container"
+            },
+            {
+              "value": "pipettes",
+              "label": "Sterile single-use pipettes"
+            },
+            {
+              "value": "pipette_aid",
+              "label": "Pipette aid"
+            },
+            {
+              "value": "sterility_broth",
+              "label": "Sterility-test broth tubes"
+            },
+            {
+              "value": "antibiotics",
+              "label": "Penicillin-streptomycin stock"
+            }
+          ]
+        },
+        {
+          "name": "zone",
+          "label": "Where",
+          "type": "choice",
+          "options": [
+            {
+              "value": "clean_side",
+              "label": "Clean side"
+            },
+            {
+              "value": "work_center",
+              "label": "Work centre"
+            },
+            {
+              "value": "dirty_side",
+              "label": "Dirty side"
+            },
+            {
+              "value": "front_opening",
+              "label": "Front opening"
+            },
+            {
+              "value": "front_grille",
+              "label": "Front grille"
+            },
+            {
+              "value": "rear_grille",
+              "label": "Rear grille"
+            },
+            {
+              "value": "stacked",
+              "label": "Stacked on another item"
+            }
+          ]
+        },
+        {
+          "name": "wiped",
+          "label": "Surface-disinfected first",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "remove_item",
+      "label": "Remove an item from the cabinet",
+      "params": [
+        {
+          "name": "item",
+          "label": "Item",
+          "type": "choice",
+          "options": [
+            {
+              "value": "target_flask",
+              "label": "Target culture flask"
+            },
+            {
+              "value": "turbid_flask",
+              "label": "Turbid culture flask from the same line"
+            },
+            {
+              "value": "other_line_flask",
+              "label": "Second cell-line flask"
+            },
+            {
+              "value": "medium_lot_a",
+              "label": "Fresh-medium lot A"
+            },
+            {
+              "value": "medium_lot_b",
+              "label": "Fresh-medium lot B"
+            },
+            {
+              "value": "waste_container",
+              "label": "Spent-medium waste container"
+            },
+            {
+              "value": "pipettes",
+              "label": "Sterile single-use pipettes"
+            },
+            {
+              "value": "pipette_aid",
+              "label": "Pipette aid"
+            },
+            {
+              "value": "sterility_broth",
+              "label": "Sterility-test broth tubes"
+            },
+            {
+              "value": "antibiotics",
+              "label": "Penicillin-streptomycin stock"
+            }
+          ]
+        },
+        {
+          "name": "decontaminated",
+          "label": "Surface-decontaminated first",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "open_container",
+      "label": "Open a container",
+      "params": [
+        {
+          "name": "container",
+          "label": "Container",
+          "type": "choice",
+          "options": [
+            {
+              "value": "target_flask",
+              "label": "Target culture flask"
+            },
+            {
+              "value": "turbid_flask",
+              "label": "Turbid culture flask"
+            },
+            {
+              "value": "other_line_flask",
+              "label": "Second cell-line flask"
+            },
+            {
+              "value": "medium_lot_a",
+              "label": "Fresh-medium lot A"
+            },
+            {
+              "value": "medium_lot_b",
+              "label": "Fresh-medium lot B"
+            },
+            {
+              "value": "waste_container",
+              "label": "Spent-medium waste container"
+            }
+          ]
+        },
+        {
+          "name": "lid_position",
+          "label": "Closure position",
+          "type": "choice",
+          "options": [
+            {
+              "value": "held_above",
+              "label": "Held above the opening"
+            },
+            {
+              "value": "upright_clean_surface",
+              "label": "Upright on a disinfected surface"
+            },
+            {
+              "value": "face_down_surface",
+              "label": "Face down on a surface"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "close_container",
+      "label": "Close a container",
+      "params": [
+        {
+          "name": "container",
+          "label": "Container",
+          "type": "choice",
+          "options": [
+            {
+              "value": "target_flask",
+              "label": "Target culture flask"
+            },
+            {
+              "value": "turbid_flask",
+              "label": "Turbid culture flask"
+            },
+            {
+              "value": "other_line_flask",
+              "label": "Second cell-line flask"
+            },
+            {
+              "value": "medium_lot_a",
+              "label": "Fresh-medium lot A"
+            },
+            {
+              "value": "medium_lot_b",
+              "label": "Fresh-medium lot B"
+            },
+            {
+              "value": "waste_container",
+              "label": "Spent-medium waste container"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "inspect_flask",
+      "label": "Inspect a closed flask",
+      "params": [
+        {
+          "name": "container",
+          "label": "Flask",
+          "type": "choice",
+          "options": [
+            {
+              "value": "target_flask",
+              "label": "Target culture flask"
+            },
+            {
+              "value": "turbid_flask",
+              "label": "Turbid culture flask"
+            },
+            {
+              "value": "other_line_flask",
+              "label": "Second cell-line flask"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "remove_spent_medium",
+      "label": "Remove spent medium from the target flask",
+      "params": [
+        {
+          "name": "volume_ml",
+          "label": "Volume",
+          "type": "number",
+          "min": 0,
+          "max": 30,
+          "unit": "mL"
+        },
+        {
+          "name": "pipette_fresh",
+          "label": "Fresh sterile pipette",
+          "type": "boolean"
+        },
+        {
+          "name": "tip_contact",
+          "label": "Pipette tip contacts",
+          "type": "choice",
+          "options": [
+            {
+              "value": "sterile_only",
+              "label": "Sterile surfaces only"
+            },
+            {
+              "value": "dirty_cabinet_surface",
+              "label": "A dirty cabinet surface"
+            },
+            {
+              "value": "nonsterile_bench_surface",
+              "label": "A non-sterile bench surface"
+            }
+          ]
+        },
+        {
+          "name": "approach",
+          "label": "Approach",
+          "type": "choice",
+          "options": [
+            {
+              "value": "side",
+              "label": "From the side"
+            },
+            {
+              "value": "over_open_container",
+              "label": "Over the open container"
+            }
+          ]
+        },
+        {
+          "name": "motion",
+          "label": "Motion",
+          "type": "choice",
+          "options": [
+            {
+              "value": "slow_gentle",
+              "label": "Slow and gentle"
+            },
+            {
+              "value": "rapid",
+              "label": "Rapid"
+            }
+          ]
+        },
+        {
+          "name": "talking",
+          "label": "Talking near the critical zone",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "add_fresh_medium",
+      "label": "Add fresh medium to the target flask",
+      "params": [
+        {
+          "name": "volume_ml",
+          "label": "Volume",
+          "type": "number",
+          "min": 0,
+          "max": 30,
+          "unit": "mL"
+        },
+        {
+          "name": "pipette_fresh",
+          "label": "Fresh sterile pipette",
+          "type": "boolean"
+        },
+        {
+          "name": "tip_contact",
+          "label": "Pipette tip contacts",
+          "type": "choice",
+          "options": [
+            {
+              "value": "sterile_only",
+              "label": "Sterile surfaces only"
+            },
+            {
+              "value": "dirty_cabinet_surface",
+              "label": "A dirty cabinet surface"
+            },
+            {
+              "value": "nonsterile_bench_surface",
+              "label": "A non-sterile bench surface"
+            }
+          ]
+        },
+        {
+          "name": "approach",
+          "label": "Approach",
+          "type": "choice",
+          "options": [
+            {
+              "value": "side",
+              "label": "From the side"
+            },
+            {
+              "value": "over_open_container",
+              "label": "Over the open container"
+            }
+          ]
+        },
+        {
+          "name": "motion",
+          "label": "Motion",
+          "type": "choice",
+          "options": [
+            {
+              "value": "slow_gentle",
+              "label": "Slow and gentle"
+            },
+            {
+              "value": "rapid",
+              "label": "Rapid"
+            }
+          ]
+        },
+        {
+          "name": "talking",
+          "label": "Talking near the critical zone",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "draw_sterility_sample",
+      "label": "Draw a sterility-control sample",
+      "params": [
+        {
+          "name": "source",
+          "label": "Source",
+          "type": "choice",
+          "options": [
+            {
+              "value": "spent_medium",
+              "label": "Spent medium"
+            },
+            {
+              "value": "fresh_medium",
+              "label": "Fresh medium"
+            },
+            {
+              "value": "target_flask",
+              "label": "Target culture"
+            }
+          ]
+        },
+        {
+          "name": "pipette_fresh",
+          "label": "Fresh sterile pipette",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "incubate_samples",
+      "label": "Incubate the sterility-control samples",
+      "params": [
+        {
+          "name": "days",
+          "label": "Days",
+          "type": "integer",
+          "min": 1,
+          "max": 30,
+          "unit": "d"
+        },
+        {
+          "name": "temperature_c",
+          "label": "Temperature",
+          "type": "number",
+          "min": 20,
+          "max": 37,
+          "unit": "°C"
+        }
+      ]
+    },
+    {
+      "name": "inspect_samples",
+      "label": "Inspect the sterility-control samples",
+      "params": []
+    },
+    {
+      "name": "submit_mycoplasma_test",
+      "label": "Submit a dedicated mycoplasma test",
+      "params": []
+    },
+    {
+      "name": "add_antibiotics",
+      "label": "Add penicillin-streptomycin to the target flask",
+      "params": []
+    },
+    {
+      "name": "dispose_flask",
+      "label": "Dispose of a flask",
+      "params": [
+        {
+          "name": "container",
+          "label": "Flask",
+          "type": "choice",
+          "options": [
+            {
+              "value": "target_flask",
+              "label": "Target culture flask"
+            },
+            {
+              "value": "turbid_flask",
+              "label": "Turbid culture flask"
+            },
+            {
+              "value": "other_line_flask",
+              "label": "Second cell-line flask"
+            }
+          ]
+        },
+        {
+          "name": "containment",
+          "label": "Containment",
+          "type": "choice",
+          "options": [
+            {
+              "value": "sealed_biohazard",
+              "label": "Sealed biohazard container"
+            },
+            {
+              "value": "open_bench_trash",
+              "label": "Open bench trash"
+            }
+          ]
+        },
+        {
+          "name": "decontaminated",
+          "label": "Decontaminated first",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "decontaminate_waste",
+      "label": "Decontaminate the waste container",
+      "params": [
+        {
+          "name": "method",
+          "label": "Method",
+          "type": "choice",
+          "options": [
+            {
+              "value": "chemical_then_autoclave",
+              "label": "Chemical decontamination followed by autoclaving"
+            },
+            {
+              "value": "autoclave_only",
+              "label": "Autoclaving only"
+            },
+            {
+              "value": "no_treatment",
+              "label": "No treatment"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "light_burner",
+      "label": "Light a burner in the cabinet",
+      "params": []
+    },
+    {
+      "name": "final_clean",
+      "label": "Give the empty cabinet a final wipe",
+      "params": [
+        {
+          "name": "agent",
+          "label": "Agent",
+          "type": "choice",
+          "options": [
+            {
+              "value": "sterile_alcohol70",
+              "label": "Sterile 70% isopropyl alcohol with contact time"
+            },
+            {
+              "value": "nonsterile_alcohol70",
+              "label": "Non-sterile 70% isopropyl alcohol"
+            },
+            {
+              "value": "water",
+              "label": "Water"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "finish_session",
+      "label": "Finish the session",
+      "params": []
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "supplies-inspected",
+      "severity": "major",
+      "description": "Inspect the cabinet, medium labels, filter specification, culture labels and flask appearance before loading or opening anything.",
+      "rationale": "A risk assessment and label check identify expired medium, the wrong cell line and visibly contaminated cultures before they enter the clean workflow.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "current Appendix H, printed p. 471"
+      }
+    },
+    {
+      "id": "medium-in-date",
+      "severity": "critical",
+      "description": "Use only the fresh-medium lot whose label is in date.",
+      "rationale": "Expired medium has an unknown sterility and nutrient history and should not be used for aseptic work.",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "The expiry decision is a simulation label check; the cited sources discuss medium preparation, filtration and storage but do not set this exact expiry."
+      }
+    },
+    {
+      "id": "interior-disinfected-before-work",
+      "severity": "major",
+      "description": "Wipe the empty cabinet interior with sterile 70% alcohol before loading or opening anything.",
+      "rationale": "Surface disinfection before work reduces contaminants that would otherwise be moved around the critical zone.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "section 3.4.1"
+      }
+    },
+    {
+      "id": "items-surface-disinfected",
+      "severity": "major",
+      "description": "Surface-disinfect every item before it enters the cabinet.",
+      "rationale": "Items brought into the cabinet are clean but not sterile and can carry contaminants into the work area.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "section 3.4.1"
+      }
+    },
+    {
+      "id": "gloves-sanitized",
+      "severity": "major",
+      "description": "Sanitize gloves with sterile 70% alcohol before the first open container and again after handling the turbid flask.",
+      "rationale": "Gloves are repeatedly sanitized or changed during aseptic operations and must not transfer contamination from dirty to sterile items.",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-aseptic-processing-2004",
+        "location": "printed p. 13"
+      }
+    },
+    {
+      "id": "one-cell-line-only",
+      "severity": "critical",
+      "description": "Work with only one cell line in the cabinet.",
+      "rationale": "Having two cell lines at the same time is a recognised cause of cross-contamination and misidentification.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "sections 1.5, 3.4.1 and 4.2.3"
+      }
+    },
+    {
+      "id": "bottles-one-at-a-time",
+      "severity": "minor",
+      "description": "Keep at most one fresh-medium or waste bottle inside the cabinet at a time.",
+      "rationale": "Limiting bottles reduces crowding and the chance that clean and dirty containers are confused.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "section 3.4.1"
+      }
+    },
+    {
+      "id": "no-inside-stacking",
+      "severity": "minor",
+      "description": "Do not stack items inside the cabinet.",
+      "rationale": "Stacked items obstruct airflow and create shadowed surfaces that wiping and UV cannot reliably treat.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "section 3.4.1"
+      }
+    },
+    {
+      "id": "grilles-and-opening-clear",
+      "severity": "major",
+      "description": "Keep the front opening and grilles clear.",
+      "rationale": "Obstructed grilles or the front opening disturb the airflow that protects the culture and operator.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "section 3.4.1"
+      }
+    },
+    {
+      "id": "clean-to-dirty-arrangement",
+      "severity": "major",
+      "description": "Arrange clean supplies, the target flask, and dirty or contaminated items from clean to dirty.",
+      "rationale": "Organising the work area prevents sterile reagents and cultures from contacting contaminated items.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "section 3.4.1"
+      }
+    },
+    {
+      "id": "no-open-flame",
+      "severity": "major",
+      "description": "Do not use a burner in the cabinet.",
+      "rationale": "A burner disrupts the airflow pattern, reduces cabinet effectiveness and creates a fire risk.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "section 3.4.1"
+      }
+    },
+    {
+      "id": "side-approach-not-over",
+      "severity": "major",
+      "description": "Approach each manipulation from the side rather than over an exposed product or culture.",
+      "rationale": "In vertical unidirectional flow, reaching over exposed material can shed particles into it.",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-aseptic-processing-2004",
+        "location": "printed p. 14"
+      }
+    },
+    {
+      "id": "slow-gentle-manipulation",
+      "severity": "major",
+      "description": "Move slowly, pipette gently and do not talk near the critical zone.",
+      "rationale": "Rapid movement, aerosols and speech near the critical zone increase contamination risk.",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-aseptic-processing-2004",
+        "location": "printed pp. 13–14"
+      }
+    },
+    {
+      "id": "caps-never-face-down",
+      "severity": "critical",
+      "description": "Never place a cap or closure face down on a surface.",
+      "rationale": "A face-down closure contacts a non-sterile surface and then contaminates the vessel when it is replaced.",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-aseptic-processing-2004",
+        "location": "printed p. 13"
+      }
+    },
+    {
+      "id": "sterile-items-touch-nothing-dirty",
+      "severity": "critical",
+      "description": "Sterile pipettes, closures and culture openings must not touch dirty cabinet or bench surfaces.",
+      "rationale": "Sterile materials may contact only sterile or appropriately disinfected critical surfaces.",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-aseptic-processing-2004",
+        "location": "printed p. 13"
+      }
+    },
+    {
+      "id": "fresh-pipette-per-flask",
+      "severity": "critical",
+      "description": "Use a fresh sterile pipette for each transfer and sterility-control sample.",
+      "rationale": "Reused pipettes transfer organisms between vessels and are a common source of cross-contamination.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "sections 1.5 and 4.2.2"
+      }
+    },
+    {
+      "id": "medium-volume-in-range",
+      "severity": "minor",
+      "description": "Add 10–15 mL of fresh medium to the simulated T-75 flask.",
+      "rationale": "The simulation uses a typical T-75 working volume; too little or too much medium changes nutrient and gas exchange.",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "A common T-75 working volume chosen for the simulation."
+      }
+    },
+    {
+      "id": "sterility-samples-incubated",
+      "severity": "major",
+      "description": "Draw sterility-control samples and incubate them within 20–35 °C for at least 14 days.",
+      "rationale": "Process-simulation and sterility controls need sufficient incubation before a negative result is meaningful.",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-aseptic-processing-2004",
+        "location": "printed pp. 21 and 25"
+      }
+    },
+    {
+      "id": "dual-temperature-incubation",
+      "severity": "major",
+      "description": "Incubate for at least 7 days at 20–25 °C, then at least 7 days at 30–35 °C.",
+      "rationale": "Two temperatures improve recovery of both fungal and bacterial contaminants, starting with the lower temperature.",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-aseptic-processing-2004",
+        "location": "printed pp. 25 and 35"
+      }
+    },
+    {
+      "id": "contaminated-flasks-contained",
+      "severity": "critical",
+      "description": "Keep the visibly turbid flask closed and dispose of it sealed and decontaminated.",
+      "rationale": "Visibly contaminated cultures must be removed and disposed of without spreading organisms through the clean cabinet.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "section 3.4.2"
+      }
+    },
+    {
+      "id": "no-antibiotic-rescue",
+      "severity": "major",
+      "description": "Do not add antibiotics to mask a possible contamination.",
+      "rationale": "Overreliance on antibiotics rather than aseptic technique can increase mycoplasma contamination and many mollicutes are resistant to routine penicillin-streptomycin.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "sections 4.2 and 4.2.3"
+      }
+    },
+    {
+      "id": "mycoplasma-test-requested",
+      "severity": "critical",
+      "description": "Submit a dedicated mycoplasma test for the target culture.",
+      "rationale": "Mollicutes often produce no turbidity, can pass 0.22 µm filters, and are detected reliably only by routine dedicated testing.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "sections 4.2 and 4.2.4"
+      }
+    },
+    {
+      "id": "post-session-clean",
+      "severity": "major",
+      "description": "After removing every item, wipe the empty cabinet interior with sterile 70% alcohol.",
+      "rationale": "Cleaning and decontaminating the cabinet after each session limits carry-over to the next user.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "section 3.4.1"
+      }
+    },
+    {
+      "id": "uv-not-a-substitute",
+      "severity": "major",
+      "description": "If a UV lamp is used, still perform chemical surface disinfection.",
+      "rationale": "UV effectiveness is limited and shadowed; it does not replace wiping with an appropriate disinfectant.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "section 3.4.1"
+      }
+    },
+    {
+      "id": "waste-decontaminated",
+      "severity": "critical",
+      "description": "Decontaminate collected culture waste before disposal.",
+      "rationale": "All waste culture material must be decontaminated before disposal.",
+      "source": {
+        "kind": "cited",
+        "source_id": "cdc-nih-bmbl-6",
+        "location": "current Appendix H, printed p. 473"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "fda-aseptic-processing-2004",
+      "use": "Aseptic manipulation, glove sanitization, airflow, disinfectant limitations and sterility-incubation rules adapted with printed page references."
+    },
+    {
+      "source_id": "geraghty-2014-cell-line-guidelines",
+      "use": "Cell-culture cabinet practice, one-cell-line rules, medium filtration, mycoplasma sources, prevention and detection paraphrased as a link-only scientific reference."
+    },
+    {
+      "source_id": "cdc-nih-bmbl-6",
+      "use": "Risk assessment, BSC use, PPE and waste decontamination for mammalian cell culture adapted from current Appendix H with printed page references."
+    }
+  ],
+  "limitations": [
+    "The culture is a generic adherent mammalian line; a real risk assessment for human, primate or primary material can change biosafety level, PPE, medical surveillance and waste requirements.",
+    "The cabinet is assumed certified and running correctly; certification, sash height, purge time and spill response are practised in the Class II BSC protocol.",
+    "Contamination is a deterministic teaching model, not a physical simulation of airflow, microbial deposition or growth kinetics.",
+    "Standard sterility incubation detects culturable bacteria and fungi but not all mollicutes; the dedicated mycoplasma assay is simplified and does not model specimen quality, assay sensitivity or turnaround.",
+    "Antibiotics are modelled as masking visible turbidity without sterilizing the culture; real responses depend on the contaminant, cell line and institutional policy.",
+    "FDA CGMP guidance is adapted for teaching and does not establish regulatory compliance; CDC/NIH BMBL is advisory; institutional SOPs and the biosafety officer govern real work."
+  ]
+}

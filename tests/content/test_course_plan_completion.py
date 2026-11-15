@@ -7,8 +7,8 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
 MANIFESTS = sorted((ROOT / "content/courses").glob("*/course.json"))
-# One-lesson pilots of planned packages: no project until the package grows beyond its pilot lesson.
-PILOTS = {"cell-culture-practice"}
+# Partial packages that intentionally have no project until more lessons are written.
+PARTIAL_WITHOUT_PROJECT = {"cell-culture-practice"}
 
 
 @pytest.mark.parametrize("path", MANIFESTS, ids=lambda path: path.parent.name)
@@ -23,10 +23,10 @@ def test_existing_plan_has_usable_project_and_current_index(path):
     weeks = manifest["duration"]["weeks"]
     assert f"| {manifest['version']} | {len(weeks)} |" in row
     lessons = [lesson for module in manifest["modules"] for lesson in module["lessons"]]
-    if manifest["id"] in PILOTS:
-        assert len(lessons) == 1 and not lessons[0]["reading"].startswith("assignments/")
+    if manifest["id"] in PARTIAL_WITHOUT_PROJECT:
+        assert len(lessons) == 2 and not any(lesson["reading"].startswith("assignments/") for lesson in lessons)
         assert not [a for a in manifest["assessments"] if a["type"] == "project"]
-        assert "One-lesson pilot; no project" in row
+        assert "Two-lesson partial; no project" in row
         return
     projects = [a for a in manifest["assessments"] if a["type"] == "project"]
     assert len(projects) == 1

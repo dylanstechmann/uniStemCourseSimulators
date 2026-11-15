@@ -1,4 +1,11 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import {
+  Component,
+  lazy,
+  Suspense,
+  useEffect,
+  useState,
+  type ReactNode,
+} from "react";
 import { api, errorMessage } from "../api";
 import HemocytometerField from "./HemocytometerField";
 import type {
@@ -12,8 +19,31 @@ import type {
 } from "../types";
 
 const PipetteBench3D = lazy(() => import("./PipetteBench3D"));
+const AsepticBench3D = lazy(() => import("./AsepticBench3D"));
 
 type Mode = "guided" | "practice";
+
+class OptionalSceneBoundary extends Component<
+  { children: ReactNode },
+  { failed: boolean }
+> {
+  state = { failed: false };
+
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+
+  render() {
+    return this.state.failed ? (
+      <section className="card" role="status">
+        Optional 3D view unavailable. Continue using the action form,
+        bench-state tables, event log and debrief below.
+      </section>
+    ) : (
+      this.props.children
+    );
+  }
+}
 
 function newSeed() {
   return Math.floor(Math.random() * 2_000_000_000);
@@ -157,15 +187,31 @@ function ProtocolRunner({ id }: { id: string }) {
       )}
 
       {run && id === "micropipette-gravimetric-verification" && (
-        <Suspense
-          fallback={
-            <section className="card" role="status">
-              Loading the optional 3D bench…
-            </section>
-          }
-        >
-          <PipetteBench3D run={run} />
-        </Suspense>
+        <OptionalSceneBoundary>
+          <Suspense
+            fallback={
+              <section className="card" role="status">
+                Loading the optional 3D bench…
+              </section>
+            }
+          >
+            <PipetteBench3D run={run} />
+          </Suspense>
+        </OptionalSceneBoundary>
+      )}
+
+      {run && id === "aseptic-medium-change-with-hidden-contamination" && (
+        <OptionalSceneBoundary>
+          <Suspense
+            fallback={
+              <section className="card" role="status">
+                Loading the optional 3D cabinet…
+              </section>
+            }
+          >
+            <AsepticBench3D panels={run.panels} />
+          </Suspense>
+        </OptionalSceneBoundary>
       )}
 
       {run && id === "hemocytometer-cell-count-viability" && (
@@ -200,8 +246,8 @@ function ProtocolRunner({ id }: { id: string }) {
                 <table key={panel.title} className="bench-panel">
                   <caption>{panel.title}</caption>
                   <tbody>
-                    {panel.rows.map(([label, value]) => (
-                      <tr key={label}>
+                    {panel.rows.map(([label, value], index) => (
+                      <tr key={`${label}:${index}`}>
                         <th scope="row">{label}</th>
                         <td>{value}</td>
                       </tr>

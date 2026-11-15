@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
   "id": "cell-culture-practice",
-  "title": "Cell Culture Practice (pilot: Counting Cells and Viability)",
-  "description": "A one-lesson pilot of the planned cell-culture layer of the wet-lab practice track: estimate viable-cell concentration and trypan-blue viability from hemocytometer counts, judge their counting and systematic errors, and rehearse the count in a synthetic bench simulation. Only lesson 4 of the eight outlined topics is written.",
+  "title": "Cell Culture Practice (partial: Aseptic Technique and Counting Cells)",
+  "description": "A two-lesson partial package of the planned cell-culture layer of the wet-lab practice track: perform an aseptic medium change and interpret hidden contamination evidence, then estimate viable-cell concentration and trypan-blue viability from hemocytometer counts. Lessons 1 and 4 of the eight outlined topics are written; the other six are deferred.",
   "domain": "Life sciences laboratory",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "CC-BY-4.0",
   "content_origin": {
     "kind": "original",
@@ -14,7 +14,8 @@
     "source_sha256": null,
     "migration_version": null,
     "modifications": [
-      "Original reading, worked examples, practice, cards and a self-check case developed with substantial AI assistance on 2026-10-31 as a one-lesson pilot of layer 2 of the wet-lab practice track (docs/WET_LAB_LAYER_OUTLINES.md)."
+      "Original reading, worked examples, practice, cards and a self-check case developed with substantial AI assistance on 2026-10-31 as a one-lesson pilot of layer 2 of the wet-lab practice track (docs/WET_LAB_LAYER_OUTLINES.md).",
+      "Original lesson 1 reading, practice, cards and a self-check case developed with substantial AI assistance on 2026-11-15, extending the layer-2 pilot from lesson 4 to lessons 1 and 4 and adding the aseptic medium-change bench simulation."
     ]
   },
   "prerequisites": {
@@ -41,9 +42,59 @@
       "id": "cell-culture-practice-outcome-2",
       "description": "Judge the reliability and meaning of a manual count: counting uncertainty, systematic preparation errors and the limits of dye-exclusion viability.",
       "bloom": "evaluate"
+    },
+    {
+      "id": "cell-culture-practice-outcome-3",
+      "description": "Perform an aseptic medium change in a Class II cabinet using pre-work checks, clean-to-dirty layout and sterile-to-sterile technique.",
+      "bloom": "apply"
+    },
+    {
+      "id": "cell-culture-practice-outcome-4",
+      "description": "Interpret contamination evidence from visible appearance, sterility incubation, filtration and dedicated mycoplasma testing, and evaluate containment and antibiotic decisions.",
+      "bloom": "evaluate"
     }
   ],
   "lesson_objectives": [
+    {
+      "id": "cell-culture-practice-1-objective-1",
+      "description": "Explain cabinet airflow, clean-to-dirty layout and the pre-work checks needed before an aseptic medium change.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-3"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-1-objective-2",
+      "description": "Apply sterile-to-sterile manipulation rules: one cell line, fresh pipettes, closure handling, side approach, slow motion and glove sanitization.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-3"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-1-objective-3",
+      "description": "Calculate and interpret a sterility-control incubation schedule within 20–35 °C, including the dual-temperature requirement.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-4"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-1-objective-4",
+      "description": "Distinguish visible turbidity, standard sterility incubation, 0.22 µm filtration and dedicated mycoplasma testing.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-4"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-1-objective-5",
+      "description": "Evaluate contamination responses, including containment, waste decontamination and the limits of antibiotics.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-4"
+      ]
+    },
     {
       "id": "cell-culture-practice-4-objective-1",
       "description": "Prepare a representative counting sample and calculate the overall dilution factor, including non-twofold and two-step dilutions.",
@@ -86,11 +137,21 @@
     }
   ],
   "duration": {
-    "instructional_weeks": 1,
-    "equivalent_structure": "A one-week pilot block: one reading with two worked examples, one practice set, four retrieval cards, a self-check case and the hemocytometer bench simulation. It is outline lesson 4 of a planned eight-lesson cell-culture package; lessons 1–3 and 5–8 are not written, and the schedule has not been measured or reviewed.",
+    "instructional_weeks": 2,
+    "equivalent_structure": "A proposed two-week partial block: week 1 aseptic technique with a reading, two worked examples, one practice set, four retrieval cards, a self-check case and the aseptic medium-change simulation; week 2 counting cells and viability with its existing reading, practice, cards, case and hemocytometer simulation. It covers two lessons of a planned eight-lesson cell-culture package and has not been measured or reviewed.",
     "weeks": [
       {
         "week": 1,
+        "title": "Aseptic technique (outline lesson 1); bench practice: aseptic medium change with hidden contamination",
+        "lesson_ids": [
+          "cell-culture-practice-1"
+        ],
+        "assessment_ids": [
+          "cell-culture-practice-1-practice"
+        ]
+      },
+      {
+        "week": 2,
         "title": "Counting cells and viability (outline lesson 4); bench practice: hemocytometer count with trypan blue",
         "lesson_ids": [
           "cell-culture-practice-4"
@@ -107,6 +168,51 @@
     "basis": "Not measured."
   },
   "modules": [
+    {
+      "id": "cell-culture-practice-module-1",
+      "title": "Aseptic technique",
+      "source_ids": [
+        "fda-aseptic-processing-2004",
+        "geraghty-2014-cell-line-guidelines",
+        "cdc-nih-bmbl-6",
+        "mit-ocw-20-109-spring-2010"
+      ],
+      "lessons": [
+        {
+          "id": "cell-culture-practice-1",
+          "title": "Aseptic technique and a medium change with hidden contamination",
+          "reading": "modules/01-aseptic-technique.md",
+          "objectives": [
+            "cell-culture-practice-1-objective-1",
+            "cell-culture-practice-1-objective-2",
+            "cell-culture-practice-1-objective-3",
+            "cell-culture-practice-1-objective-4",
+            "cell-culture-practice-1-objective-5"
+          ],
+          "worked_example": "For one T-75 change, inspect the supplies, reject the expired lot, wipe the empty cabinet with sterile 70% alcohol, arrange clean supplies, target flask and dirty items from clean to dirty, remove spent medium with a fresh pipette, decontaminate and remove the waste, add 12 mL from the in-date lot, draw sterility controls, incubate 7 days at 22 °C then 7 days at 32 °C, submit a dedicated mycoplasma assay, dispose of the turbid flask sealed and decontaminated, and finish with a sterile wipe. If the fresh-medium control becomes turbid or the mycoplasma assay is positive, a clear culture appearance is not proof of sterility.",
+          "question_ids": [
+            "cell-culture-practice-1:pre-work-checks",
+            "cell-culture-practice-1:cabinet-arrangement",
+            "cell-culture-practice-1:one-cell-line",
+            "cell-culture-practice-1:closure-position",
+            "cell-culture-practice-1:side-approach",
+            "cell-culture-practice-1:manipulation-behaviour",
+            "cell-culture-practice-1:sterility-total-days",
+            "cell-culture-practice-1:dual-temperature-days",
+            "cell-culture-practice-1:cell-lines-at-once",
+            "cell-culture-practice-1:filter-and-detection",
+            "cell-culture-practice-1:antibiotic-rescue",
+            "cell-culture-practice-1:contamination-response"
+          ],
+          "card_ids": [
+            "cell-culture-practice-1-card-1",
+            "cell-culture-practice-1-card-2",
+            "cell-culture-practice-1-card-3",
+            "cell-culture-practice-1-card-4"
+          ]
+        }
+      ]
+    },
     {
       "id": "cell-culture-practice-module-4",
       "title": "Counting cells and viability",
@@ -156,6 +262,37 @@
     }
   ],
   "assessments": [
+    {
+      "id": "cell-culture-practice-1-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Practice: aseptic technique and contamination evidence",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "cell-culture-practice-1-objective-1",
+        "cell-culture-practice-1-objective-2",
+        "cell-culture-practice-1-objective-3",
+        "cell-culture-practice-1-objective-4",
+        "cell-culture-practice-1-objective-5",
+        "cell-culture-practice-outcome-3",
+        "cell-culture-practice-outcome-4"
+      ],
+      "question_ids": [
+        "cell-culture-practice-1:pre-work-checks",
+        "cell-culture-practice-1:cabinet-arrangement",
+        "cell-culture-practice-1:one-cell-line",
+        "cell-culture-practice-1:closure-position",
+        "cell-culture-practice-1:side-approach",
+        "cell-culture-practice-1:manipulation-behaviour",
+        "cell-culture-practice-1:sterility-total-days",
+        "cell-culture-practice-1:dual-temperature-days",
+        "cell-culture-practice-1:cell-lines-at-once",
+        "cell-culture-practice-1:filter-and-detection",
+        "cell-culture-practice-1:antibiotic-rescue",
+        "cell-culture-practice-1:contamination-response"
+      ],
+      "points": 17
+    },
     {
       "id": "cell-culture-practice-4-practice",
       "type": "practice",
@@ -209,10 +346,10 @@
     "language": "en",
     "reading_format": "markdown",
     "math_format": "unicode-text",
-    "diagram_policy": "The package contains no diagrams; the counting rules are given in text and a table. The linked bench simulation provides a text list of every synthetic cell alongside its drawn field.",
+    "diagram_policy": "The package contains no diagrams; aseptic layout and counting rules are given in text and tables. The aseptic simulation uses text panels and an event log; the hemocytometer simulation provides a text list of every synthetic cell alongside its drawn field.",
     "known_issues": [
       "Unicode equations require structured mathematical alternatives and assistive-technology review.",
-      "The bench simulation's field and text alternative have not been reviewed with assistive-technology users."
+      "The bench simulations' panels, fields and text alternatives have not been reviewed with assistive-technology users."
     ],
     "review_status": "unreviewed"
   },
@@ -221,20 +358,27 @@
       "version": "0.1.0",
       "date": "2026-10-31",
       "summary": "New package, a one-lesson pilot of layer 2 of the wet-lab practice track: an original reading on hemocytometer counting and trypan-blue viability (sampling and dilution, Improved-Neubauer geometry, boundary and stain decisions, concentration and viability, Poisson counting uncertainty, chamber disagreement and systematic error, limits of dye exclusion) with two worked examples, 12 practice items, four retrieval cards and one self-check case, linked to the hemocytometer bench simulation. Sources: Marienfeld counting-chamber documents, Student (1907), Strober (2015) and BMBL Appendix H; scope compared with MIT OCW 20.109 Spring 2010. Lessons 1–3 and 5–8 of the outline are not written. Partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.2.0",
+      "date": "2026-11-15",
+      "summary": "Added outline lesson 1, aseptic technique: an original reading on Class II cabinet airflow, clean-to-dirty layout, pre-work checks, sterile-to-sterile manipulation, sterility incubation, mollicute detection, antibiotic limits, containment and waste; two worked examples; 12 practice items; four retrieval cards; one self-check case; and the aseptic-medium-change bench simulation. The package is now a two-lesson partial covering outline lessons 1 and 4. Sources: FDA aseptic-processing guidance (adapted), Geraghty et al. 2014 (link-only reference), current BMBL Appendix H (adapted) and MIT OCW 20.109 as a link-only comparator. Partial, unreviewed and formative-only."
     }
   ],
   "limitations": [
-    "A one-lesson pilot, not a cell-culture course: only outline lesson 4 (counting and viability) exists. Aseptic technique, media, passaging, cryopreservation, contamination, pluripotent stem cells and records are absent; see the scope crosswalk.",
-    "Practice items test calculations and decisions, not hand skill. Focusing, recognising cells and debris, pipetting and loading a real chamber need supervised bench work.",
-    "Of the 6 numerical answers, 0 require units, 5 check significant figures and 0 check dimensions.",
-    "The top/left boundary convention, loading steps and simulation ranges are teaching choices; the manufacturer documents read do not prescribe them. Real counting procedures, density ranges and acceptance limits come from the device instructions and each laboratory's procedures.",
-    "All cells, counts and examples are synthetic. Nothing here establishes competency, qualification or authorisation to handle human or other primate cells."
+    "A two-lesson partial package, not a cell-culture course: outline lessons 1 and 4 exist. Media preparation, passaging, cryopreservation, full contamination management and authentication, pluripotent stem cells and records are absent; see the scope crosswalk.",
+    "Practice items and simulations test decisions, calculations and contamination reasoning, not hand skill. Real aseptic manipulation, focusing, recognising cells and debris, pipetting and loading a chamber need supervised bench work.",
+    "Of the 9 numerical answers, 0 require units, 5 check significant figures and 0 check dimensions.",
+    "Lesson 4's top/left boundary convention, loading steps and simulation ranges are teaching choices; the manufacturer documents read do not prescribe them. Real counting procedures, density ranges and acceptance limits come from the device instructions and each laboratory's procedures.",
+    "Lesson 1's T-75 working volume, clean-to-dirty zones, one-bottle rule, expired-label scenario, hidden-event probabilities, visible-growth threshold and simplified mycoplasma assay are teaching choices, not laboratory acceptance criteria or a validated sterility method.",
+    "All cells, labels, counts and contamination events are synthetic. Nothing here establishes competency, qualification or authorisation to handle human or other primate cells."
   ],
   "intentionally_omitted": [
     "Graded assessments, a project, measured workload and review by a qualified person.",
-    "Outline lessons 1–3 and 5–8 of the cell-culture layer, which remain deferred.",
+    "Outline lessons 2–3 and 5–8 of the cell-culture layer, which remain deferred.",
+    "Full contamination management, identification of specific organisms and cell-line authentication beyond lesson 1's introduction to mollicute risk and dedicated testing.",
     "Automated cell counters, flow-cytometric and fluorescent viability assays, which are named but not taught.",
-    "ISSCR standards and human pluripotent stem-cell practice, reserved for the planned stem-cell lesson; they are not used to support this synthetic counting exercise."
+    "ISSCR standards and human pluripotent stem-cell practice, reserved for the planned stem-cell lesson; they are not used to support these synthetic exercises."
   ],
   "learner_resources": []
 }

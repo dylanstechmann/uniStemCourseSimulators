@@ -8,6 +8,7 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field, ValidationError, model_validator
 
+from .aseptic_change import AsepticMediumChange
 from .autoclave import AutoclaveValidation
 from .bsc import BiosafetyCabinetSession
 from .cell_count import HemocytometerCount
@@ -19,7 +20,7 @@ from .plate_count import AerobicPlateCount
 MODELS: dict[str, type[ProtocolModel]] = {
     model.protocol_id: model for model in (
         PipetteVerification, AerobicPlateCount, BiosafetyCabinetSession,
-        AutoclaveValidation, ExposureResponse, HemocytometerCount,
+        AutoclaveValidation, ExposureResponse, HemocytometerCount, AsepticMediumChange,
     )
 }
 
