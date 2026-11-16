@@ -1,12 +1,12 @@
 # Cell Culture Practice scope and source crosswalk
 
-This crosswalk covers version 0.4.0, a six-lesson partial package. It was compiled with AI assistance on 2026-10-31 and updated on 2026-11-16. It is an agent-run comparison, not a review by the owner, a laboratory professional or any institution. Topic alignment establishes no equivalence, credit or endorsement.
+This crosswalk covers version 0.5.0, an eight-lesson partial package. It was compiled with AI assistance on 2026-10-31 and updated on 2026-11-16. It is an agent-run comparison, not a review by the owner, a laboratory professional or any institution. Topic alignment establishes no equivalence, credit or endorsement.
 
 ## Planned topics and their status
 
 The eight topics come from the layer-2 outline in the repository's wet-lab layer outlines. Status labels: **covered** means a local reading develops the topic with worked examples and practice; **absent** means no local instruction; **deferred** means absent by plan until a later batch.
 
-| Outline lesson | Status in 0.4.0 | Notes |
+| Outline lesson | Status in 0.5.0 | Notes |
 | --- | --- | --- |
 | 1. Aseptic technique | **Covered** | [Lesson 1](modules/01-aseptic-technique.md) with 12 items, 4 cards, a case and the [aseptic medium-change simulation](#/bench/aseptic-medium-change-with-hidden-contamination); cabinet certification and spill response remain in Laboratory Safety and Biosafety |
 | 2. Media, supplements and reagent preparation | **Covered** | [Lesson 2](modules/02-media-supplements-and-reagent-preparation.md) with 12 items, 4 cards, a case and the [supplemented-medium simulation](#/bench/filter-sterilize-and-qc-a-supplemented-medium); all formulation values and QC windows are simulation choices, not laboratory acceptance criteria |
@@ -14,12 +14,14 @@ The eight topics come from the layer-2 outline in the repository's wet-lab layer
 | 4. Counting cells and viability | **Covered** | [Lesson 4](modules/04-counting-cells-and-viability.md) with 12 items, 4 cards, a case and the [hemocytometer simulation](#/bench/hemocytometer-cell-count-viability); automated counters are named, not taught |
 | 5. Cryopreservation and thawing | **Covered** | [Lesson 5](modules/05-cryopreservation-and-thawing.md) with 12 items, 4 cards, a zero-point case and the [same-run freeze/thaw simulation](#/bench/freeze-and-thaw-with-viability-outcomes); one synthetic DMSO pathway only |
 | 6. Contamination: bacteria, fungi, mycoplasma and cross-contamination | **Covered** | [Lesson 6](modules/06-contamination-mycoplasma-and-authentication.md) with 12 items, 4 cards, a zero-point case and the [contamination-diagnosis simulation](#/bench/diagnose-a-contaminated-culture-from-clues); organism behaviour, full assay performance and real authentication are not modelled |
-| 7. Human pluripotent stem cells | Absent, deferred | ISSCR standards are reserved for this lesson and are not used as support for these synthetic exercises |
-| 8. Records and traceability | Absent, deferred | |
+| 7. Human pluripotent stem cells | **Covered** | [Lesson 7](modules/07-human-pluripotent-stem-cells.md) with 12 items, 4 cards, a zero-point case and the [synthetic hPSC maintenance simulation](#/bench/maintain-an-hpsc-culture-without-spontaneous-differentiation); physical technique, functional pluripotency assays and real release decisions remain outside scope |
+| 8. Records and traceability | **Covered** | [Lesson 8](modules/08-records-and-traceability.md) with 12 items, 4 cards and a zero-point case; master/working banks, passage/PDL, three-lot-table trace, labels, ALCOA basics and outline-only incident handoff; **no protocol by design** |
 
 ## Course comparator
 
 This batch did not find an MIT OpenCourseWare course devoted to cell culture, and the search was not exhaustive. [MIT OCW 20.109 Laboratory Fundamentals in Biological Engineering, Spring 2010](https://ocw.mit.edu/courses/20-109-laboratory-fundamentals-in-biological-engineering-spring-2010/pages/syllabus/) (CC BY-NC-SA 4.0, link only) places cell culture inside its Module 3, Cell-Biomaterial Engineering. Its calendar lists the labs "Initiate cell culture" (session 19) and "Testing cell viability" (session 20), and a lecture on cell viability (session 21). The syllabus and calendar titles were reread on 2026-11-15 and do not name aseptic technique as a separate topic; aseptic practice is treated here as prerequisite bench training implicit in initiating cell culture. Only the syllabus and calendar titles were read; the lab handouts were not, so the method 20.109 uses is unknown. Lesson 1 corresponds to the cell-culture initiation session at the level of prerequisite technique only, and lesson 4 corresponds to the viability-testing session at the level of topic only. The comparator's biomaterial, transcript and protein analyses are outside this package. The syllabus/calendar was reread for lessons 2 and 3 on 2026-11-15. Session 19, “Initiate cell culture,” is the closest listed session for media preparation and passaging; neither that title nor “Testing cell viability” establishes a separately titled media or passaging lesson or the depth of this package's formulation and target-density arithmetic. No lab handout was read, and no equivalence is inferred. The page footer's CC BY-NC-SA 4.0 licence was rechecked and link-only comparator mode retained. The syllabus/calendar was reread for lessons 5 and 6 on 2026-11-15. “Initiate cell culture” (session 19) and “Testing cell viability” (session 20) remain the closest listed activities; their titles do not establish stand-alone cryopreservation, contamination-response, mycoplasma-method or STR-authentication lessons or equivalent depth. Link-only comparator mode is retained.
+
+The MIT 20.109 Spring 2010 syllabus/calendar was reread for lesson 7 on 2026-11-15. Its listed cell-culture initiation, viability and analysis sessions do not demonstrate hPSC maintenance, defined-matrix culture, clump passaging or hPSC-specific QC. Lesson 7 is therefore beyond the comparator's demonstrated scope, not equivalent to it. It was reread for lesson 8 on the same date; the general notebook-keeping aim and cell-culture sessions do not establish master/working-bank instruction, PDL-ledger reconciliation or a three-table contamination-lot trace. The CC BY-NC-SA 4.0 footer/deed was rechecked and link-only comparator mode retained.
 
 ## Sources used by lesson 1
 
@@ -81,6 +83,24 @@ This batch did not find an MIT OpenCourseWare course devoted to cell culture, an
 | ICLAC Register v14, 2026-02-15 | Lookup resource for known misidentification; absence is not authentication | CC BY-NC-ND 4.0; strictly link-only; no copied register rows, counts or dataset |
 | MIT OCW 20.109 Spring 2010 syllabus/calendar | Nearest cell-culture initiation and viability sessions only | CC BY-NC-SA 4.0 confirmed 2026-11-15; link-only comparator |
 
+## Sources used by lesson 7
+
+| Source | Used for | Reuse |
+| --- | --- | --- |
+| Ludwig et al., *Stem Cell Reports* 18(9):1744–1752 (2023), DOI 10.1016/j.stemcr.2023.08.003, PMCID PMC10545481 | Acquisition, consent/transfer context, authentication, genomic monitoring, undifferentiated-state interpretation and reporting | CC BY-NC-ND 4.0 confirmed; link-only by package choice; no text adapted or reproduced |
+| ISSCR, *Standards for Human Stem Cell Use in Research*, official page and December 2023 update | High-level characterization/reporting scope | Strictly copyrighted; link-only; distinct ID `isscr-hpsc-standards-2023`; no Standards text adapted or reproduced |
+| ISSCR, *Guidelines for Stem Cell Research and Clinical Translation* | Separate governance and permissible-use reference | Existing `isscr-stem-cell-guidelines`; link-only |
+| ATCC, *Stem Cell Culture Guide* | Feeder-free matrix, morphology, daily maintenance, selective removal, aggregate passaging and QC context | Copyrighted link-only after guide and Website Terms of Use checks; no source protocol or asset used |
+| NIST, *Cell Line Identification and Authentication: Human Cell Lines Standards and Protocols*, updated 2025-08-14 | STR identity testing and its limits | Public-information/reuse pages checked; original paraphrase with attribution; no ASN/ATCC or ICLAC rows imported |
+| MIT OCW 20.109 Spring 2010 syllabus/calendar | Non-equivalent comparator | CC BY-NC-SA 4.0 confirmed; hPSC maintenance beyond demonstrated scope; link-only |
+
+## Sources used by lesson 8
+
+| Source | Used for | Reuse |
+| --- | --- | --- |
+| ISBER, *Best Practices: Recommendations for Repositories*, fifth edition, December 2023; companion update DOI 10.1089/bio.2023.0140 | Biorepository scope context for linked bank, specimen and repository records; no page-level alignment claimed | Copyrighted; official landing page and Terms opened 2026-11-15; link-only reference; no text, tables, PDF or direct download asset copied |
+| MIT OCW 20.109 Spring 2010 syllabus/calendar | General notebook-keeping context and nearest cell-culture sessions only | CC BY-NC-SA 4.0 confirmed 2026-11-15; link-only comparator |
+
 ## Sourced facts and simulation choices
 
 Lesson 1's T-75 working volume of 10–15 mL, clean-to-dirty zones, one medium or waste bottle at a time, expired-label scenario, hidden-event probabilities, three-day visible-growth threshold and simplified mycoplasma assay are teaching choices labelled `simulation-typical` or `simulation-model` in the protocol file. They are not laboratory acceptance criteria, a validated sterility method or regulatory compliance. Lesson 4's top/left inclusion convention, corner rule and loading steps are common practice taught as this course's convention; neither Marienfeld document prescribes them. Its bench simulation's twofold dilution, 20–80-cell field range, 0.2% and 0.5% calculation tolerances and use of all included cells for uncertainty are likewise declared simulation choices.
@@ -93,9 +113,15 @@ Lesson 5's 4 °C dropwise rule, exact volumes and cell numbers, 0.8–1.2 °C/mi
 
 Lesson 6's five condition permutations, visible pH values and structures, simplified binary tests, four-locus synthetic alleles, dispositions, five source assignments and handoff fields are simulation choices. The lesson-defined 100 × shared calls/reference calls arithmetic is not the Tanabe or Masters algorithm or a universal match threshold. No test output is a sterility certificate or a physically validated biological result. Real ASN-0002 interpretation, assay controls/coverage, reference provenance and privacy review remain outside the simulator.
 
+The 42→60→78% density path, 70–85% window, three-day loop, differentiation penalties, arbitrary viability index, hidden matrix and intake events, 156-clump panel, 2–3 triturations, six wells and five-passage QC interval are simulation choices. They are not ISSCR, ATCC, NIST or FDA laboratory criteria. No FDA manufacturing guidance or revoked 21 CFR 610.30 method is used. The maintenance loop does not authorize or certify hPSC work.
+
+Every MCB/WCB, vessel, preparation, lot, count, observation and correction in lesson 8 is synthetic. The passage/PDL equations are recomputed from the displayed raw numbers. BM-24-118 is the only basal-medium lot shared by the four positive vessels in the authored trace, but exposed negative V-104 makes causal overclaiming invalid. ALCOA is named only as attributable, legible, contemporaneous, original and accurate; full quality-system records, GLP/CLIA and detailed investigations remain deferred to layer 4. No CFR sources are added.
+
 ## Remaining gaps
 
-- Outline lessons 7–8: human pluripotent stem cells and records/traceability.
+- Real morphology training, validated manual removal and aseptic hand skill; functional pluripotency/differentiation assays, detailed karyotype or genomic interpretation and actual assay validation.
+- Institution-specific ethical provenance, privacy/access controls, validated QC release and supervised hPSC work.
+- Full quality-system records and investigations; lesson 8's synthetic join does not establish real-world traceability or causal identification.
 - Species identification, real diagnostic performance, a complete ASN-0002 implementation and physical rescue efficacy. Contamination response, mycoplasma evidence and bounded synthetic STR authentication are taught in lesson 6.
 - Vitrification, cell-specific cryopreservation optimisation, full QC release and complete cell-banking SOPs; lesson 5 teaches one synthetic DMSO slow-freeze/vapour-storage pathway.
 - Automated cell counters, fluorescent and flow-cytometric viability assays, and comparisons between methods.

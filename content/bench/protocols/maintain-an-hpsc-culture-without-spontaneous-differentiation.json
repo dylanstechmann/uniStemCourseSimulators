@@ -1,0 +1,806 @@
+{
+  "schema_version": "1.0",
+  "id": "maintain-an-hpsc-culture-without-spontaneous-differentiation",
+  "version": "0.1.0",
+  "title": "Maintain an hPSC culture without spontaneous differentiation",
+  "layer": 2,
+  "summary": "Rehearse a gated synthetic maintenance loop with intake quarantine, daily morphology and feeding decisions, defined-matrix handling, clump passage, periodic QC and privacy-safe records.",
+  "scenario": "An entirely synthetic hPSC-like line arrives with an alias and categorical transfer/QC records. Review consent and transfer restrictions, then submit all four intake assessments. The line remains quarantined unless the bundle is complete and synthetic mycoplasma is not detected. Over three days, score displayed density and differentiated areas, remove those areas selectively, feed daily and decide when to passage. Some runs have a hidden degrading source matrix or positive intake result. Prepare a defined destination matrix, allocate 156 clumps across six wells, repeat the QC bundle and close traceable synthetic records. This does not authorize or certify hPSC work.",
+  "guided_steps": [
+    "Review the synthetic MTA alias, consent scope, transfer restrictions and provenance. Missing permissions end the run in quarantine.",
+    "Request intake mycoplasma, STR identity, karyotype and undifferentiated-marker assessments. All four plus a not-detected mycoplasma result are required for release.",
+    "On each of three days, read the publicly displayed current density and differentiated area, enter those values exactly, then selectively remove the full displayed differentiated area.",
+    "Record a complete medium change every day. A missed or omitted feed creates one stress/index penalty even on a passage day, but its morphology increment applies only when a later panel exists.",
+    "Continue on days 1 and 2. On day 3, passage in the synthetic 70–85% density window and complete the day; choose matrix investigation if recurrent differentiation indicates that problem. Every passage day, including an early-passage branch, must be completed before coating.",
+    "Coat the destination with the new synthetic matrix lot using cold liquid handling, complete even coverage and no drying.",
+    "Passage as small clumps with 2–3 gentle triturations. Allocate 156/6 = 26 clumps per well; do not default to single cells.",
+    "Submit periodic mycoplasma, STR, karyotype and undifferentiated-marker QC. Marker consistency is not functional proof of pluripotency.",
+    "Record SYNTH_HPSC_A, MED_SYNTH_01, the actual destination matrix lot, passage 13, the real observation-day count and any deviation.",
+    "Acknowledge that this synthetic maintenance loop does not authorize or certify hPSC work, then finish for a formative debrief."
+  ],
+  "parameters": [
+    {
+      "name": "initial_density_pct",
+      "value": 42,
+      "unit": "%",
+      "label": "Initial synthetic culture density",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Fixed starting panel; not an hPSC density specification."
+      }
+    },
+    {
+      "name": "initial_differentiated_area_pct",
+      "value": 1.0,
+      "unit": "% culture area",
+      "label": "Initial differentiated area",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Synthetic microscopy area, not a measured morphology threshold."
+      }
+    },
+    {
+      "name": "daily_density_increment_pct",
+      "value": 18,
+      "unit": "percentage points/day",
+      "label": "Daily density increment",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Deterministic display trajectory only; not a growth model."
+      }
+    },
+    {
+      "name": "maintenance_days",
+      "value": 3,
+      "unit": "days",
+      "label": "Maintenance-loop length",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Three scored days before the routine passage decision."
+      }
+    },
+    {
+      "name": "passage_density_window_pct",
+      "value": [
+        70,
+        85
+      ],
+      "unit": "%",
+      "label": "Synthetic routine-passage density window",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Teaching window only; each real line and validated local SOP governs."
+      }
+    },
+    {
+      "name": "intake_positive_probability",
+      "value": 0.15,
+      "unit": "probability",
+      "label": "Positive intake-mycoplasma scenario probability",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Hidden seeded branch used to test quarantine; not a prevalence estimate."
+      }
+    },
+    {
+      "name": "degrading_matrix_probability",
+      "value": 0.3,
+      "unit": "probability",
+      "label": "Degrading source-matrix scenario probability",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Hidden seeded branch used to test investigation; not a product failure rate."
+      }
+    },
+    {
+      "name": "stable_matrix_daily_differentiation_pct",
+      "value": 0.5,
+      "unit": "percentage points/day",
+      "label": "Stable-matrix differentiation increment",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Synthetic recurrent-area model only."
+      }
+    },
+    {
+      "name": "degrading_matrix_daily_differentiation_pct",
+      "value": 7.0,
+      "unit": "percentage points/day",
+      "label": "Degrading-matrix differentiation increment",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Synthetic signal after daily removal; not matrix kinetics."
+      }
+    },
+    {
+      "name": "missed_feed_differentiation_penalty_pct",
+      "value": 5.0,
+      "unit": "percentage points/missed feed",
+      "label": "Missed-feed differentiation penalty",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Deterministic formative consequence; not a biological dose-response."
+      }
+    },
+    {
+      "name": "missed_feed_viability_penalty",
+      "value": 8.0,
+      "unit": "index points/missed feed",
+      "label": "Missed-feed synthetic viability-index penalty",
+      "source": {
+        "kind": "simulation-model",
+        "note": "An arbitrary index, not a measured viability or post-feeding prediction."
+      }
+    },
+    {
+      "name": "available_clumps",
+      "value": 156,
+      "unit": "clumps",
+      "label": "Synthetic harvest-panel clump count",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Fixed arithmetic panel; no cell count or harvest yield is inferred."
+      }
+    },
+    {
+      "name": "destination_wells",
+      "value": 6,
+      "unit": "wells",
+      "label": "Destination-well count",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Chosen for 156/6 = 26 clumps per well."
+      }
+    },
+    {
+      "name": "new_passage_number",
+      "value": 13,
+      "unit": "passage",
+      "label": "New synthetic passage number",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Record exercise only."
+      }
+    },
+    {
+      "name": "previous_qc_passage",
+      "value": 8,
+      "unit": "passage",
+      "label": "Previous periodic-QC passage",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Synthetic record anchor."
+      }
+    },
+    {
+      "name": "qc_interval_passages",
+      "value": 5,
+      "unit": "passages",
+      "label": "Synthetic periodic-QC interval",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Chosen for the assessment; not a universal testing interval."
+      }
+    }
+  ],
+  "actions": [
+    {
+      "name": "review_intake",
+      "label": "Review synthetic consent and transfer restrictions",
+      "params": [
+        {
+          "name": "transfer_record",
+          "label": "Synthetic transfer record",
+          "type": "choice",
+          "options": [
+            {
+              "value": "MTA_SYNTH_01",
+              "label": "MTA SYNTH 01"
+            },
+            {
+              "value": "MTA_MISSING",
+              "label": "MTA MISSING"
+            },
+            {
+              "value": "MTA_OUT_OF_SCOPE",
+              "label": "MTA OUT OF SCOPE"
+            }
+          ]
+        },
+        {
+          "name": "consent_scope_verified",
+          "label": "Consent scope verified for this synthetic use",
+          "type": "boolean"
+        },
+        {
+          "name": "mta_restrictions_reviewed",
+          "label": "Transfer restrictions reviewed",
+          "type": "boolean"
+        },
+        {
+          "name": "provenance_recorded",
+          "label": "Synthetic provenance recorded",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "submit_intake_qc",
+      "label": "Submit the intake QC bundle",
+      "params": [
+        {
+          "name": "mycoplasma_requested",
+          "label": "Mycoplasma assessment requested",
+          "type": "boolean"
+        },
+        {
+          "name": "str_requested",
+          "label": "STR identity assessment requested",
+          "type": "boolean"
+        },
+        {
+          "name": "karyotype_requested",
+          "label": "Karyotype assessment requested",
+          "type": "boolean"
+        },
+        {
+          "name": "undifferentiated_markers_requested",
+          "label": "Undifferentiated-marker panel requested",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "score_culture",
+      "label": "Score daily density and colony morphology",
+      "params": [
+        {
+          "name": "density_pct",
+          "label": "Displayed culture density",
+          "type": "integer",
+          "min": 0,
+          "max": 100,
+          "unit": "%"
+        },
+        {
+          "name": "differentiated_area_pct",
+          "label": "Displayed differentiated area",
+          "type": "number",
+          "min": 0,
+          "max": 100,
+          "unit": "%"
+        }
+      ]
+    },
+    {
+      "name": "remove_differentiated",
+      "label": "Manually remove displayed differentiated areas",
+      "params": [
+        {
+          "name": "removed_area_pct",
+          "label": "Differentiated area to remove",
+          "type": "number",
+          "min": 0,
+          "max": 100,
+          "unit": "% culture area"
+        }
+      ]
+    },
+    {
+      "name": "feed_culture",
+      "label": "Record the daily medium change",
+      "params": [
+        {
+          "name": "complete_medium_change",
+          "label": "Complete medium change performed",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "decide_passage",
+      "label": "Decide whether to continue or passage",
+      "params": [
+        {
+          "name": "disposition",
+          "label": "Daily disposition",
+          "type": "choice",
+          "options": [
+            {
+              "value": "continue_maintenance",
+              "label": "continue maintenance"
+            },
+            {
+              "value": "passage_now",
+              "label": "passage now"
+            }
+          ]
+        },
+        {
+          "name": "reason",
+          "label": "Decision rationale",
+          "type": "choice",
+          "options": [
+            {
+              "value": "routine_density",
+              "label": "routine density"
+            },
+            {
+              "value": "matrix_investigation",
+              "label": "matrix investigation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "complete_day",
+      "label": "Complete the maintenance day",
+      "params": []
+    },
+    {
+      "name": "coat_destination_matrix",
+      "label": "Coat and handle the destination matrix",
+      "params": [
+        {
+          "name": "matrix_lot",
+          "label": "Synthetic matrix lot",
+          "type": "choice",
+          "options": [
+            {
+              "value": "MAT_SYNTH_NEW",
+              "label": "MAT SYNTH NEW"
+            },
+            {
+              "value": "MAT_SYNTH_OLD",
+              "label": "MAT SYNTH OLD"
+            }
+          ]
+        },
+        {
+          "name": "handling",
+          "label": "Matrix handling",
+          "type": "choice",
+          "options": [
+            {
+              "value": "cold_liquid",
+              "label": "cold liquid"
+            },
+            {
+              "value": "warmed_or_gelled",
+              "label": "warmed or gelled"
+            }
+          ]
+        },
+        {
+          "name": "coverage",
+          "label": "Coating coverage",
+          "type": "choice",
+          "options": [
+            {
+              "value": "complete_even",
+              "label": "complete even"
+            },
+            {
+              "value": "partial_or_bubbles",
+              "label": "partial or bubbles"
+            }
+          ]
+        },
+        {
+          "name": "kept_moist",
+          "label": "Coating kept moist",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "passage_clumps",
+      "label": "Passage the synthetic harvest as clumps",
+      "params": [
+        {
+          "name": "method",
+          "label": "Passage method",
+          "type": "choice",
+          "options": [
+            {
+              "value": "small_clumps",
+              "label": "small clumps"
+            },
+            {
+              "value": "single_cells",
+              "label": "single cells"
+            }
+          ]
+        },
+        {
+          "name": "triturations",
+          "label": "Gentle triturations",
+          "type": "integer",
+          "min": 0,
+          "max": 10,
+          "unit": "cycles"
+        },
+        {
+          "name": "well_count",
+          "label": "Destination wells",
+          "type": "integer",
+          "min": 1,
+          "max": 12,
+          "unit": "wells"
+        },
+        {
+          "name": "clumps_per_well",
+          "label": "Clumps allocated per well",
+          "type": "integer",
+          "min": 0,
+          "max": 100,
+          "unit": "clumps"
+        }
+      ]
+    },
+    {
+      "name": "submit_periodic_qc",
+      "label": "Submit the periodic QC bundle",
+      "params": [
+        {
+          "name": "mycoplasma_requested",
+          "label": "Mycoplasma assessment requested",
+          "type": "boolean"
+        },
+        {
+          "name": "str_requested",
+          "label": "STR identity assessment requested",
+          "type": "boolean"
+        },
+        {
+          "name": "karyotype_requested",
+          "label": "Karyotype assessment requested",
+          "type": "boolean"
+        },
+        {
+          "name": "undifferentiated_markers_requested",
+          "label": "Undifferentiated-marker panel requested",
+          "type": "boolean"
+        },
+        {
+          "name": "marker_interpretation",
+          "label": "Interpretation of marker evidence",
+          "type": "choice",
+          "options": [
+            {
+              "value": "undifferentiated_state_not_functional_proof",
+              "label": "undifferentiated state not functional proof"
+            },
+            {
+              "value": "proves_functional_pluripotency",
+              "label": "proves functional pluripotency"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "record_maintenance",
+      "label": "Complete synthetic maintenance records",
+      "params": [
+        {
+          "name": "line_alias",
+          "label": "Synthetic line alias",
+          "type": "choice",
+          "options": [
+            {
+              "value": "SYNTH_HPSC_A",
+              "label": "SYNTH HPSC A"
+            },
+            {
+              "value": "SYNTH_HPSC_B",
+              "label": "SYNTH HPSC B"
+            }
+          ]
+        },
+        {
+          "name": "medium_lot",
+          "label": "Synthetic medium lot",
+          "type": "choice",
+          "options": [
+            {
+              "value": "MED_SYNTH_01",
+              "label": "MED SYNTH 01"
+            },
+            {
+              "value": "MED_SYNTH_02",
+              "label": "MED SYNTH 02"
+            }
+          ]
+        },
+        {
+          "name": "matrix_lot",
+          "label": "Synthetic matrix lot used",
+          "type": "choice",
+          "options": [
+            {
+              "value": "MAT_SYNTH_NEW",
+              "label": "MAT SYNTH NEW"
+            },
+            {
+              "value": "MAT_SYNTH_OLD",
+              "label": "MAT SYNTH OLD"
+            }
+          ]
+        },
+        {
+          "name": "new_passage_number",
+          "label": "New passage number",
+          "type": "integer",
+          "min": 1,
+          "max": 200,
+          "unit": "passage"
+        },
+        {
+          "name": "observation_days",
+          "label": "Observation days entered",
+          "type": "integer",
+          "min": 0,
+          "max": 4,
+          "unit": "days"
+        },
+        {
+          "name": "deviation_recorded",
+          "label": "Deviation recorded when applicable",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "finish",
+      "label": "Acknowledge the synthetic boundary and finish",
+      "params": [
+        {
+          "name": "acknowledge_synthetic_only",
+          "label": "I understand this is synthetic and non-qualifying",
+          "type": "boolean"
+        }
+      ]
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "consent-and-transfer-reviewed",
+      "severity": "critical",
+      "description": "Verify consent scope, transfer restrictions and provenance before work",
+      "rationale": "Use permissions and restrictions are separate from scientific quality; missing permission keeps material quarantined.",
+      "source": {
+        "kind": "cited",
+        "source_id": "isscr-hpsc-standards-perspective-2023",
+        "location": "Acquisition of materials and consent/transfer restrictions",
+        "note": "General concept cited; exact action rules, values and consequences are synthetic."
+      }
+    },
+    {
+      "id": "intake-quarantine-maintained",
+      "severity": "critical",
+      "description": "Keep the incoming line quarantined until every intake gate clears",
+      "rationale": "Quarantine is an action gate, not a label added after cultivation.",
+      "source": {
+        "kind": "cited",
+        "source_id": "isscr-hpsc-standards-2023",
+        "location": "Official December 2023 Standards landing page; high-level characterization scope only",
+        "note": "General concept cited; exact action rules, values and consequences are synthetic."
+      }
+    },
+    {
+      "id": "intake-qc-bundle",
+      "severity": "critical",
+      "description": "Submit intake mycoplasma, STR, karyotype and undifferentiated-marker assessments",
+      "rationale": "The assays answer different questions and one cannot substitute for the complete intake bundle.",
+      "source": {
+        "kind": "cited",
+        "source_id": "isscr-hpsc-standards-perspective-2023",
+        "location": "Basic characterization, authentication and genomic/pluripotency sections",
+        "note": "General concept cited; exact action rules, values and consequences are synthetic."
+      }
+    },
+    {
+      "id": "intake-contamination-cleared",
+      "severity": "critical",
+      "description": "Release intake only when the complete bundle is clear",
+      "rationale": "A detected synthetic mycoplasma result prevents release even when other assays are requested.",
+      "source": {
+        "kind": "cited",
+        "source_id": "isscr-hpsc-standards-perspective-2023",
+        "location": "Material integrity and adventitious-agent discussion",
+        "note": "General concept cited; exact action rules, values and consequences are synthetic."
+      }
+    },
+    {
+      "id": "daily-morphology-scored",
+      "severity": "major",
+      "description": "Record density and differentiated morphology on each maintenance day",
+      "rationale": "Feeding and passage decisions need current observations rather than assumptions.",
+      "source": {
+        "kind": "cited",
+        "source_id": "atcc-stem-cell-culture-guide",
+        "location": "General maintenance and morphology sections; exact three-day panel is synthetic",
+        "note": "General concept cited; exact action rules, values and consequences are synthetic."
+      }
+    },
+    {
+      "id": "differentiated-areas-removed",
+      "severity": "major",
+      "description": "Selectively remove every displayed differentiated area",
+      "rationale": "The exercise distinguishes local manual removal from discarding or ignoring the whole culture.",
+      "source": {
+        "kind": "cited",
+        "source_id": "atcc-stem-cell-culture-guide",
+        "location": "General identification/removal concepts; no source procedure or threshold reproduced",
+        "note": "General concept cited; exact action rules, values and consequences are synthetic."
+      }
+    },
+    {
+      "id": "daily-complete-feeds",
+      "severity": "major",
+      "description": "Perform a complete medium change on each of three days",
+      "rationale": "Missed feeds create declared synthetic stress and differentiation consequences.",
+      "source": {
+        "kind": "cited",
+        "source_id": "atcc-stem-cell-culture-guide",
+        "location": "General daily-maintenance rhythm; exact consequences are synthetic",
+        "note": "General concept cited; exact action rules, values and consequences are synthetic."
+      }
+    },
+    {
+      "id": "density-window-and-decisions",
+      "severity": "major",
+      "description": "Continue on days 1–2 and passage on day 3 within the declared density window",
+      "rationale": "The 70–85% window and 42→60→78% path are simulation choices, not universal criteria.",
+      "source": {
+        "kind": "cited",
+        "source_id": "atcc-stem-cell-culture-guide",
+        "location": "General overgrowth/passaging concept; exact window is synthetic",
+        "note": "General concept cited; exact action rules, values and consequences are synthetic."
+      }
+    },
+    {
+      "id": "matrix-coating-and-handling",
+      "severity": "critical",
+      "description": "Use cold liquid handling, even coverage, a moist coating and the new synthetic lot",
+      "rationale": "Defined-matrix feeder-free culture depends on suitable substrate handling; all lot labels are synthetic.",
+      "source": {
+        "kind": "cited",
+        "source_id": "atcc-stem-cell-culture-guide",
+        "location": "General feeder-free matrix concepts; no product protocol reproduced",
+        "note": "General concept cited; exact action rules, values and consequences are synthetic."
+      }
+    },
+    {
+      "id": "matrix-defect-response",
+      "severity": "major",
+      "description": "Investigate recurrent differentiation as a possible matrix problem",
+      "rationale": "A hidden degrading source matrix produces a recurrent synthetic signal even after correct removal.",
+      "source": {
+        "kind": "cited",
+        "source_id": "atcc-stem-cell-culture-guide",
+        "location": "General matrix/morphology relationship; hidden failure model is synthetic",
+        "note": "General concept cited; exact action rules, values and consequences are synthetic."
+      }
+    },
+    {
+      "id": "clump-not-single-cell",
+      "severity": "major",
+      "description": "Use small clumps rather than default single-cell passage",
+      "rationale": "The exercise contrasts routine hPSC clump passaging with ordinary adherent-line habits.",
+      "source": {
+        "kind": "cited",
+        "source_id": "atcc-stem-cell-culture-guide",
+        "location": "General aggregate-passaging concept; no source operational protocol reproduced",
+        "note": "General concept cited; exact action rules, values and consequences are synthetic."
+      }
+    },
+    {
+      "id": "clump-allocation-and-handling",
+      "severity": "major",
+      "description": "Use gentle handling and allocate 156 clumps as 26 per well across six wells",
+      "rationale": "Two to three triturations and six-well allocation are arithmetic/simulation choices.",
+      "source": {
+        "kind": "cited",
+        "source_id": "atcc-stem-cell-culture-guide",
+        "location": "General gentle aggregate handling; exact values are synthetic",
+        "note": "General concept cited; exact action rules, values and consequences are synthetic."
+      }
+    },
+    {
+      "id": "periodic-qc-bundle",
+      "severity": "critical",
+      "description": "Repeat mycoplasma, STR, karyotype and undifferentiated-marker QC periodically",
+      "rationale": "Periodic monitoring complements intake testing; the five-passage schedule is synthetic.",
+      "source": {
+        "kind": "cited",
+        "source_id": "isscr-hpsc-standards-perspective-2023",
+        "location": "Authentication and genomic monitoring over time",
+        "note": "General concept cited; exact action rules, values and consequences are synthetic."
+      }
+    },
+    {
+      "id": "marker-interpretation",
+      "severity": "major",
+      "description": "Require requested marker evidence and interpret it without claiming functional proof of pluripotency",
+      "rationale": "An interpretation entered without requesting the marker panel has no supporting evidence; even marker consistency does not by itself prove functional pluripotency.",
+      "source": {
+        "kind": "cited",
+        "source_id": "isscr-hpsc-standards-perspective-2023",
+        "location": "Pluripotency and the undifferentiated state",
+        "note": "General concept cited; exact action rules, values and consequences are synthetic."
+      }
+    },
+    {
+      "id": "maintenance-records",
+      "severity": "major",
+      "description": "Complete line, lot, passage, observation and deviation records",
+      "rationale": "Traceability links the maintenance decisions and QC evidence to the exact synthetic materials.",
+      "source": {
+        "kind": "cited",
+        "source_id": "isscr-hpsc-standards-perspective-2023",
+        "location": "Reporting and material-traceability concepts",
+        "note": "General concept cited; exact action rules, values and consequences are synthetic."
+      }
+    },
+    {
+      "id": "privacy-preserving-records",
+      "severity": "critical",
+      "description": "Use only synthetic aliases and categorical QC outcomes",
+      "rationale": "The model accepts no donor identity, clinical details, consent documents or STR profiles.",
+      "source": {
+        "kind": "cited",
+        "source_id": "isscr-stem-cell-guidelines",
+        "location": "Ethical provenance link only; privacy-safe schema is an original simulation control",
+        "note": "General concept cited; exact action rules, values and consequences are synthetic."
+      }
+    },
+    {
+      "id": "synthetic-finish-no-authorization",
+      "severity": "critical",
+      "description": "Acknowledge the synthetic, non-qualifying boundary and finish",
+      "rationale": "This loop does not authorize or certify hPSC work and predicts no real biological outcome.",
+      "source": {
+        "kind": "cited",
+        "source_id": "isscr-hpsc-standards-2023",
+        "location": "Scope link only; limitation is original package wording",
+        "note": "General concept cited; exact action rules, values and consequences are synthetic."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "isscr-hpsc-standards-perspective-2023",
+      "use": "Link-only perspective for acquisition, consent/transfer context, authentication, genomic monitoring, undifferentiated-state interpretation and reporting; no text adapted."
+    },
+    {
+      "source_id": "isscr-hpsc-standards-2023",
+      "use": "Official December 2023 Standards landing page and update link for high-level scope only; strictly copyrighted full Standards remain link-only."
+    },
+    {
+      "source_id": "isscr-stem-cell-guidelines",
+      "use": "Existing, distinct link-only ethics/governance reference for consent and permissible-use boundaries; not the 2023 basic-research Standards."
+    },
+    {
+      "source_id": "atcc-stem-cell-culture-guide",
+      "use": "Copyrighted link-only reference for feeder-free matrix, morphology, daily observation/feeding and aggregate-passaging concepts; no protocol text, figure or numeric procedure copied."
+    },
+    {
+      "source_id": "nist-human-cell-line-authentication",
+      "use": "NIST public-information page paraphrased for STR identity testing only; STR does not establish genomic stability or pluripotency."
+    }
+  ],
+  "limitations": [
+    "Formative-only synthetic state machine. It does not authorize or certify hPSC work, establish competency, replace supervised training or satisfy institutional biosafety/ethics requirements.",
+    "No real cells, donor identifiers, clinical details, consent documents, STR profiles or genomic data are accepted or produced.",
+    "Density windows, three-day rhythm, exact differentiation areas, penalties, clump counts, lot labels, QC interval and categorical results are simulation choices, not laboratory acceptance criteria or a validated protocol.",
+    "Missed-feed and matrix effects are arbitrary deterministic consequences, not hPSC growth, differentiation, viability, matrix-degradation or recovery kinetics.",
+    "The ISSCR perspective and December 2023 Standards are both link-only in this package; no Standards or perspective text, checklist, table or figure is reproduced or adapted.",
+    "ATCC remains copyrighted link-only; no manufacturer matrix, medium, dissociation or feeding protocol is reproduced. NIST informs STR identity only, not hPSC maintenance competence.",
+    "No functional pluripotency assay, real karyotype interpretation, contamination diagnosis, clinical use or release decision is modelled.",
+    "Unrequested assays return only not_requested in event data, event text and visible panels; they reveal no underlying categorical or hidden outcome and are not described as performed.",
+    "Only the current awaiting-score panel exposes current density and differentiated area; completed days are immutable and destination coating requires the passage day’s completed flag."
+  ]
+}

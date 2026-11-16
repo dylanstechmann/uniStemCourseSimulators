@@ -7,7 +7,7 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
 MANIFESTS = sorted((ROOT / "content/courses").glob("*/course.json"))
-# Partial packages that intentionally have no project until more lessons are written.
+# This package intentionally remains partial and has no project although all eight outlined lessons exist.
 PARTIAL_WITHOUT_PROJECT = {"cell-culture-practice"}
 
 
@@ -24,9 +24,9 @@ def test_existing_plan_has_usable_project_and_current_index(path):
     assert f"| {manifest['version']} | {len(weeks)} |" in row
     lessons = [lesson for module in manifest["modules"] for lesson in module["lessons"]]
     if manifest["id"] in PARTIAL_WITHOUT_PROJECT:
-        assert len(lessons) == 6 and not any(lesson["reading"].startswith("assignments/") for lesson in lessons)
+        assert len(lessons) == 8 and not any(lesson["reading"].startswith("assignments/") for lesson in lessons)
         assert not [a for a in manifest["assessments"] if a["type"] == "project"]
-        assert "Six-lesson partial; no project" in row
+        assert "Eight-lesson partial; no project" in row
         return
     projects = [a for a in manifest["assessments"] if a["type"] == "project"]
     assert len(projects) == 1

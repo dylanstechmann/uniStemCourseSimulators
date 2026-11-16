@@ -8,7 +8,7 @@ from pathlib import Path
 import pytest
 from fastapi.testclient import TestClient
 
-from courselab.bench import MODELS, BenchLibrary, ProtocolInvalid, public_protocol
+from courselab.bench import MODELS, BenchLibrary, ProtocolDefinition, ProtocolInvalid, public_protocol
 from courselab.bench.contamination import (
     CLEAR_CONDITIONS,
     CONDITIONS,
@@ -22,6 +22,7 @@ from courselab.bench.contamination import (
 )
 from courselab.bench.cryopreservation import CryopreservationRun
 from courselab.bench.engine import ActionRejected, check_parameters, replay, run_state
+from courselab.bench.hpsc_maintenance import HpscMaintenance
 from courselab.bench.pipette import water_density, z_factor
 from courselab.bench.plate_count import bam_round
 from courselab.config import Settings
@@ -2313,3 +2314,631 @@ def test_contamination_no_real_profile_or_personal_data_in_panels(contamination_
     text = json.dumps(state["result"])
     assert "HeLa" not in text and "donor_name" not in text
     assert state["result"]["physical_validation"] is False
+
+# Phase C: synthetic hPSC maintenance ---------------------------------------------
+
+HPSC_PROTOCOL = json.loads((
+    CONTENT / "bench/protocols/maintain-an-hpsc-culture-without-spontaneous-differentiation.json"
+).read_text(encoding="utf-8"))
+ProtocolDefinition.model_validate(HPSC_PROTOCOL)
+
+
+@pytest.fixture(scope="module")
+def hpsc_model(library):
+    return library.get(HpscMaintenance.protocol_id)
+
+
+def test_hpsc_model_is_registered_with_its_canonical_protocol(library):
+    assert library.get(HpscMaintenance.protocol_id).__class__ is HpscMaintenance
+
+
+def clear_seed(hpsc_model):
+    return seed_where(hpsc_model, lambda h: not h["intake_mycoplasma_positive"] and not h["degrading_matrix"])
+
+
+def degraded_seed(hpsc_model):
+    return seed_where(hpsc_model, lambda h: not h["intake_mycoplasma_positive"] and h["degrading_matrix"])
+
+
+def public_culture_rows(view):
+    panel = next(item for item in view["panels"] if item["title"] == "Synthetic culture observations")
+    return dict(panel["rows"])
+
+
+def public_current_score(view):
+    rows = public_culture_rows(view)
+    assert rows["Current observation status"] == "awaiting score_culture"
+    density = float(rows["Current displayed density"].removesuffix("%"))
+    differentiated = float(rows["Current displayed differentiated area"].removesuffix("%"))
+    return int(density) if density.is_integer() else density, differentiated
+
+
+def maintenance_run(hpsc_model, seed, *, consent=True, intake_complete=True, intake_missing=None,
+                    wrong_score=False, removal="complete", missed_feed_day=None,
+                    omit_feed=False, early_passage=False, wrong_matrix_reason=False,
+                    matrix_lot="MAT_SYNTH_NEW", handling="cold_liquid",
+                    coverage="complete_even", kept_moist=True,
+                    method="small_clumps", triturations=2, well_count=6,
+                    clumps_per_well=26, periodic_missing=None,
+                    marker_interpretation="undifferentiated_state_not_functional_proof",
+                    record_overrides=None, acknowledge=True):
+    """Build actions exclusively from public replay panels/events, never private state."""
+    actions = [act(
+        "review_intake", transfer_record="MTA_SYNTH_01" if consent else "MTA_MISSING",
+        consent_scope_verified=consent, mta_restrictions_reviewed=consent,
+        provenance_recorded=consent,
+    )]
+    if not consent:
+        return actions
+    intake = {
+        "mycoplasma_requested": True, "str_requested": intake_complete,
+        "karyotype_requested": True, "undifferentiated_markers_requested": True,
+    }
+    if intake_missing:
+        intake[intake_missing] = False
+    actions.append(act("submit_intake_qc", **intake))
+    if replay(hpsc_model, seed, "practice", actions).view()["finished"]:
+        return actions
+    for day in range(1, 4):
+        public_view = replay(hpsc_model, seed, "practice", actions).view()
+        displayed_density, displayed_diff = public_current_score(public_view)
+        entered_density = displayed_density + (1 if wrong_score and day == 1 else 0)
+        actions.append(act(
+            "score_culture", density_pct=entered_density,
+            differentiated_area_pct=displayed_diff,
+        ))
+        score_view = replay(hpsc_model, seed, "practice", actions).view()
+        score_data = score_view["log"][-1]["events"][0]["data"]
+        actual_diff = score_data["differentiated_area_pct"]
+        if removal == "partial" and day == 1:
+            actions.append(act("remove_differentiated", removed_area_pct=actual_diff / 2))
+        elif removal != "skip":
+            actions.append(act("remove_differentiated", removed_area_pct=actual_diff))
+        if missed_feed_day == day:
+            if not omit_feed:
+                actions.append(act("feed_culture", complete_medium_change=False))
+        else:
+            actions.append(act("feed_culture", complete_medium_change=True))
+        passage = day == 3 or (early_passage and day == 2)
+        reason = "routine_density"
+        if passage and score_data["pattern"].startswith("recurrent differentiation"):
+            reason = "matrix_investigation"
+        if wrong_matrix_reason and day == 3:
+            reason = "matrix_investigation" if reason == "routine_density" else "routine_density"
+        actions.append(act(
+            "decide_passage", disposition="passage_now" if passage else "continue_maintenance",
+            reason=reason,
+        ))
+        actions.append(act("complete_day"))
+        if passage:
+            break
+    actions += [
+        act("coat_destination_matrix", matrix_lot=matrix_lot, handling=handling,
+            coverage=coverage, kept_moist=kept_moist),
+        act("passage_clumps", method=method, triturations=triturations,
+            well_count=well_count, clumps_per_well=clumps_per_well),
+    ]
+    periodic = {
+        "mycoplasma_requested": True, "str_requested": True,
+        "karyotype_requested": True, "undifferentiated_markers_requested": True,
+    }
+    if periodic_missing:
+        periodic[periodic_missing] = False
+    actions.append(act("submit_periodic_qc", **periodic, marker_interpretation=marker_interpretation))
+    matrix_deviation = any(
+        action["name"] == "decide_passage" and action["params"]["reason"] == "matrix_investigation"
+        for action in actions
+    )
+    deviation = bool(
+        missed_feed_day is not None or matrix_deviation or early_passage
+        or handling != "cold_liquid" or coverage != "complete_even" or not kept_moist
+        or method != "small_clumps"
+    )
+    record = {
+        "line_alias": "SYNTH_HPSC_A", "medium_lot": "MED_SYNTH_01",
+        "matrix_lot": matrix_lot, "new_passage_number": 13,
+        "observation_days": sum(action["name"] == "score_culture" for action in actions),
+        "deviation_recorded": deviation,
+    }
+    record.update(record_overrides or {})
+    actions += [act("record_maintenance", **record), act("finish", acknowledge_synthetic_only=acknowledge)]
+    return actions
+
+
+QC_REQUEST_TO_RESULT = {
+    "mycoplasma_requested": "mycoplasma",
+    "str_requested": "str_identity",
+    "karyotype_requested": "karyotype",
+    "undifferentiated_markers_requested": "undifferentiated_markers",
+}
+QC_TEXT_LABELS = {
+    "mycoplasma": "mycoplasma",
+    "str_identity": "STR identity",
+    "karyotype": "karyotype",
+    "undifferentiated_markers": "undifferentiated markers",
+}
+QC_PANEL_LABELS = {
+    "mycoplasma": "Mycoplasma",
+    "str_identity": "STR identity",
+    "karyotype": "Karyotype",
+    "undifferentiated_markers": "Undifferentiated markers",
+}
+
+
+def expected_qc_results(intake_positive=False):
+    return {
+        "mycoplasma": "detected" if intake_positive else "not_detected",
+        "str_identity": "match",
+        "karyotype": "expected",
+        "undifferentiated_markers": "consistent_not_functional_proof",
+    }
+
+
+def action_event(view, action_name):
+    entry = next(item for item in view["log"] if item["name"] == action_name)
+    return entry["events"][0]
+
+
+def qc_panel_rows(view, title):
+    panel = next(item for item in view["panels"] if item["title"] == title)
+    return dict(panel["rows"])
+
+
+def test_hpsc_correct_stable_run_meets_all_17_checkpoints_and_returns_bounded_result(hpsc_model):
+    seed = clear_seed(hpsc_model)
+    view = replay(hpsc_model, seed, "practice", maintenance_run(hpsc_model, seed)).view()
+    met = checkpoint_map(view)
+    assert len(met) == 17 and all(value is True for value in met.values()), met
+    assert view["debrief"]["all_critical_met"]
+    result = view["log"][-1]["events"][0]["data"]["result"]
+    assert result["outcome"] == "synthetic_loop_complete"
+    assert result["days_observed"] == result["feeds_completed"] == 3
+    assert result["missed_feeds"] == result["stress_events"] == 0
+    assert result["synthetic_viability_index"] == 100
+    assert result["final_density_pct"] == 78
+    assert result["final_differentiated_area_pct"] == 0
+    assert result["matrix_defect_suspected"] is False
+    assert result["passage_method"] == "small_clumps"
+    assert result["periodic_qc_complete"] and result["record_complete"]
+    assert result["physical_hpsc_work_authorized"] is False
+    assert result["certification_awarded"] is False
+    assert result["real_biological_outcome_predicted"] is False
+
+
+def test_hpsc_correct_degrading_matrix_run_infers_pattern_and_documents_deviation(hpsc_model):
+    seed = degraded_seed(hpsc_model)
+    view = replay(hpsc_model, seed, "practice", maintenance_run(hpsc_model, seed)).view()
+    met = checkpoint_map(view)
+    assert all(value is True for value in met.values()), met
+    result = view["log"][-1]["events"][0]["data"]["result"]
+    assert result["matrix_defect_suspected"] is True
+    assert result["final_differentiated_area_pct"] == 0
+    assert "Synthetic source-matrix degradation: True." in view["debrief"]["revealed"]
+
+
+def test_hpsc_current_score_values_are_public_before_every_score_and_coherent_after(hpsc_model):
+    seed = clear_seed(hpsc_model)
+    actions = maintenance_run(hpsc_model, seed)
+    score_indices = [index for index, action in enumerate(actions) if action["name"] == "score_culture"]
+    assert len(score_indices) == 3
+    for index in score_indices:
+        before = replay(hpsc_model, seed, "practice", actions[:index]).view()
+        expected_density, expected_diff = public_current_score(before)
+        submitted = actions[index]["params"]
+        assert submitted["density_pct"] == expected_density
+        assert submitted["differentiated_area_pct"] == expected_diff
+        public_text = json.dumps(before["panels"])
+        assert '"hidden"' not in public_text
+        assert "intake_mycoplasma_positive" not in public_text
+        assert "degrading_matrix" not in public_text
+        assert "terminal_reason" not in public_text
+        after = replay(hpsc_model, seed, "practice", actions[:index + 1]).view()
+        event = after["log"][-1]["events"][0]
+        assert event["kind"] == "readout"
+        assert event["data"]["density_pct"] == expected_density
+        assert event["data"]["differentiated_area_pct"] == expected_diff
+        after_rows = public_culture_rows(after)
+        assert "Current observation status" not in after_rows
+        assert after_rows["Last displayed density"] == f"{expected_density:g}%"
+        assert after_rows["Last displayed differentiated area"] == f"{expected_diff:g}%"
+
+
+@pytest.mark.parametrize("seed", range(30))
+def test_hpsc_seeded_correct_runs_and_positive_intake_branches_are_robust(hpsc_model, seed):
+    actions = maintenance_run(hpsc_model, seed)
+    view = replay(hpsc_model, seed, "practice", actions).view()
+    met = checkpoint_map(view)
+    if hidden(hpsc_model, seed)["intake_mycoplasma_positive"]:
+        assert met["intake-qc-bundle"] is True
+        assert met["intake-contamination-cleared"] is False
+        assert met["intake-quarantine-maintained"] is True
+        assert all(value is None for key, value in met.items() if key.startswith("daily-"))
+    else:
+        assert all(value is True for value in met.values()), (seed, met)
+
+
+def test_hpsc_consent_failure_finishes_in_quarantine_with_downstream_not_applicable(hpsc_model):
+    seed = clear_seed(hpsc_model)
+    view = replay(hpsc_model, seed, "practice", maintenance_run(hpsc_model, seed, consent=False)).view()
+    met = checkpoint_map(view)
+    assert view["finished"] and met["consent-and-transfer-reviewed"] is False
+    assert met["intake-quarantine-maintained"] is True
+    assert all(value is None for key, value in met.items() if key not in {
+        "consent-and-transfer-reviewed", "intake-quarantine-maintained"})
+    assert view["log"][-1]["events"][-1]["data"]["result"]["outcome"] == "quarantined_consent_or_transfer"
+
+
+def test_hpsc_incomplete_intake_bundle_cannot_release_quarantine(hpsc_model):
+    seed = clear_seed(hpsc_model)
+    view = replay(hpsc_model, seed, "practice", maintenance_run(hpsc_model, seed, intake_complete=False)).view()
+    met = checkpoint_map(view)
+    assert met["intake-qc-bundle"] is False
+    assert met["intake-contamination-cleared"] is None
+    assert met["intake-quarantine-maintained"] is True
+    assert met["matrix-coating-and-handling"] is None
+
+
+def test_hpsc_positive_intake_has_complete_qc_but_no_contamination_clearance(hpsc_model):
+    seed = seed_where(hpsc_model, lambda h: h["intake_mycoplasma_positive"])
+    view = replay(hpsc_model, seed, "practice", maintenance_run(hpsc_model, seed)).view()
+    met = checkpoint_map(view)
+    assert view["finished"] and met["intake-qc-bundle"] is True
+    assert met["intake-contamination-cleared"] is False
+    assert view["log"][-1]["events"][-1]["data"]["result"]["quarantine_released"] is False
+
+
+def test_hpsc_quarantine_and_action_order_cannot_be_bypassed(hpsc_model):
+    seed = clear_seed(hpsc_model)
+    with pytest.raises(ActionRejected, match="remains in quarantine"):
+        replay(hpsc_model, seed, "practice", [act("score_culture", density_pct=42, differentiated_area_pct=1)])
+    review = maintenance_run(hpsc_model, seed)[:1]
+    with pytest.raises(ActionRejected, match="remains in quarantine"):
+        replay(hpsc_model, seed, "practice", review + [act(
+            "coat_destination_matrix", matrix_lot="MAT_SYNTH_NEW", handling="cold_liquid",
+            coverage="complete_even", kept_moist=True)])
+    intake = maintenance_run(hpsc_model, seed)[:2]
+    with pytest.raises(ActionRejected, match="Score the current synthetic culture"):
+        replay(hpsc_model, seed, "practice", intake + [act("feed_culture", complete_medium_change=True)])
+    with pytest.raises(ActionRejected, match="Choose passage"):
+        replay(hpsc_model, seed, "practice", intake + [act(
+            "coat_destination_matrix", matrix_lot="MAT_SYNTH_NEW", handling="cold_liquid",
+            coverage="complete_even", kept_moist=True)])
+    with pytest.raises(ActionRejected, match="Record the daily passage decision"):
+        replay(hpsc_model, seed, "practice", intake + [
+            act("score_culture", density_pct=42, differentiated_area_pct=1),
+            act("complete_day")])
+
+
+def test_hpsc_repeated_one_shot_actions_and_post_finish_actions_are_rejected(hpsc_model):
+    seed = clear_seed(hpsc_model)
+    prefix = maintenance_run(hpsc_model, seed)[:2] + [
+        act("score_culture", density_pct=42, differentiated_area_pct=1)]
+    with pytest.raises(ActionRejected, match="Complete the current maintenance day"):
+        replay(hpsc_model, seed, "practice", prefix + [
+            act("score_culture", density_pct=42, differentiated_area_pct=1)])
+    with pytest.raises(ActionRejected, match="cannot exceed"):
+        replay(hpsc_model, seed, "practice", prefix + [
+            act("remove_differentiated", removed_area_pct=2)])
+    with pytest.raises(ActionRejected, match="has finished"):
+        replay(hpsc_model, seed, "practice", maintenance_run(hpsc_model, seed) + [act("complete_day")])
+
+
+def test_hpsc_score_transcription_mistake_is_flagged(hpsc_model):
+    seed = clear_seed(hpsc_model)
+    met = checkpoint_map(replay(hpsc_model, seed, "practice", maintenance_run(hpsc_model, seed, wrong_score=True)).view())
+    assert met["daily-morphology-scored"] is False
+    assert met["differentiated-areas-removed"] is True
+    assert met["daily-complete-feeds"] is True
+
+
+@pytest.mark.parametrize("removal", ["partial", "skip"])
+def test_hpsc_incomplete_or_omitted_differentiated_area_removal_is_flagged(hpsc_model, removal):
+    seed = clear_seed(hpsc_model)
+    met = checkpoint_map(replay(hpsc_model, seed, "practice", maintenance_run(hpsc_model, seed, removal=removal)).view())
+    assert met["differentiated-areas-removed"] is False
+
+
+@pytest.mark.parametrize("omit_feed", [False, True])
+def test_hpsc_missed_or_omitted_feed_has_deterministic_later_consequences(hpsc_model, omit_feed):
+    seed = clear_seed(hpsc_model)
+    actions = maintenance_run(hpsc_model, seed, missed_feed_day=2, omit_feed=omit_feed)
+    view = replay(hpsc_model, seed, "practice", actions).view()
+    met = checkpoint_map(view)
+    assert met["daily-complete-feeds"] is False
+    assert met["daily-morphology-scored"] is True
+    result = view["log"][-1]["events"][0]["data"]["result"]
+    assert result["missed_feeds"] == result["stress_events"] == 1
+    assert result["synthetic_viability_index"] == 92
+    good_view = replay(hpsc_model, seed, "practice", maintenance_run(hpsc_model, seed)).view()
+    good_scores = [entry for entry in good_view["log"] if entry["name"] == "score_culture"]
+    missed_scores = [entry for entry in view["log"] if entry["name"] == "score_culture"]
+    assert (missed_scores[-1]["events"][0]["data"]["differentiated_area_pct"]
+            > good_scores[-1]["events"][0]["data"]["differentiated_area_pct"])
+    assert result["record_complete"] is True
+
+
+def test_hpsc_early_passage_misses_rhythm_and_density_window(hpsc_model):
+    seed = clear_seed(hpsc_model)
+    met = checkpoint_map(replay(hpsc_model, seed, "practice", maintenance_run(hpsc_model, seed, early_passage=True)).view())
+    assert met["density-window-and-decisions"] is False
+    assert met["daily-morphology-scored"] is False
+    assert met["differentiated-areas-removed"] is False
+    assert met["daily-complete-feeds"] is False
+
+
+def test_hpsc_final_day_cannot_continue_past_the_synthetic_window(hpsc_model):
+    seed = clear_seed(hpsc_model)
+    actions = maintenance_run(hpsc_model, seed)
+    # Replace only the day-3 disposition with continued maintenance.
+    decisions = [index for index, action in enumerate(actions) if action["name"] == "decide_passage"]
+    actions[decisions[-1]]["params"]["disposition"] = "continue_maintenance"
+    with pytest.raises(ActionRejected, match="final maintenance day"):
+        replay(hpsc_model, seed, "practice", actions)
+
+
+@pytest.mark.parametrize("overrides", [
+    {"matrix_lot": "MAT_SYNTH_OLD"},
+    {"handling": "warmed_or_gelled"},
+    {"coverage": "partial_or_bubbles"},
+    {"kept_moist": False},
+])
+def test_hpsc_each_matrix_coating_and_handling_mistake_is_flagged(hpsc_model, overrides):
+    seed = clear_seed(hpsc_model)
+    met = checkpoint_map(replay(hpsc_model, seed, "practice", maintenance_run(hpsc_model, seed, **overrides)).view())
+    assert met["matrix-coating-and-handling"] is False
+    assert met["maintenance-records"] is True  # the helper records the deviation
+
+
+def test_hpsc_wrong_response_to_recurrent_matrix_signal_is_flagged(hpsc_model):
+    seed = degraded_seed(hpsc_model)
+    met = checkpoint_map(replay(hpsc_model, seed, "practice", maintenance_run(hpsc_model, seed, wrong_matrix_reason=True)).view())
+    assert met["matrix-defect-response"] is False
+
+
+def test_hpsc_single_cell_default_is_not_accepted_as_routine_clump_passage(hpsc_model):
+    seed = clear_seed(hpsc_model)
+    met = checkpoint_map(replay(hpsc_model, seed, "practice", maintenance_run(hpsc_model, seed, method="single_cells")).view())
+    assert met["clump-not-single-cell"] is False
+    assert met["clump-allocation-and-handling"] is False
+
+
+@pytest.mark.parametrize("overrides", [
+    {"triturations": 7}, {"well_count": 3, "clumps_per_well": 26},
+    {"clumps_per_well": 25},
+])
+def test_hpsc_clump_allocation_and_gentle_handling_mistakes_are_flagged(hpsc_model, overrides):
+    seed = clear_seed(hpsc_model)
+    met = checkpoint_map(replay(hpsc_model, seed, "practice", maintenance_run(hpsc_model, seed, **overrides)).view())
+    assert met["clump-not-single-cell"] is True
+    assert met["clump-allocation-and-handling"] is False
+
+
+def test_hpsc_clump_allocation_cannot_exceed_available_panel(hpsc_model):
+    seed = clear_seed(hpsc_model)
+    with pytest.raises(ActionRejected, match="exceeds the 156 clumps"):
+        replay(hpsc_model, seed, "practice", maintenance_run(hpsc_model, seed, well_count=12, clumps_per_well=26))
+
+
+@pytest.mark.parametrize("missing", [
+    "mycoplasma_requested", "str_requested", "karyotype_requested",
+    "undifferentiated_markers_requested",
+])
+def test_hpsc_every_periodic_qc_component_is_required(hpsc_model, missing):
+    seed = clear_seed(hpsc_model)
+    view = replay(hpsc_model, seed, "practice", maintenance_run(hpsc_model, seed, periodic_missing=missing)).view()
+    met = checkpoint_map(view)
+    assert met["periodic-qc-bundle"] is False
+    assert met["marker-interpretation"] is (missing != "undifferentiated_markers_requested")
+    result_key = QC_REQUEST_TO_RESULT[missing]
+    event = action_event(view, "submit_periodic_qc")
+    assert event["data"][result_key] == "not_requested"
+    assert f"{QC_TEXT_LABELS[result_key]}=not_requested" in event["text"]
+    assert qc_panel_rows(view, "Periodic categorical QC")[QC_PANEL_LABELS[result_key]] == "not_requested"
+    expected = expected_qc_results()
+    for key, value in expected.items():
+        if key != result_key:
+            assert event["data"][key] == value
+
+
+@pytest.mark.parametrize("missing", [
+    "mycoplasma_requested", "str_requested", "karyotype_requested",
+    "undifferentiated_markers_requested",
+])
+def test_hpsc_each_unrequested_intake_assay_is_gated_without_outcome_leakage(hpsc_model, missing):
+    if missing == "mycoplasma_requested":
+        seed = seed_where(hpsc_model, lambda h: h["intake_mycoplasma_positive"])
+    else:
+        seed = clear_seed(hpsc_model)
+    view = replay(hpsc_model, seed, "practice", maintenance_run(hpsc_model, seed, intake_missing=missing)).view()
+    assert view["finished"]
+    met = checkpoint_map(view)
+    assert met["intake-qc-bundle"] is False
+    assert met["intake-contamination-cleared"] is None
+    result_key = QC_REQUEST_TO_RESULT[missing]
+    event = action_event(view, "submit_intake_qc")
+    assert event["data"][result_key] == "not_requested"
+    assert event["data"]["bundle_complete"] is False
+    assert f"{QC_TEXT_LABELS[result_key]}=not_requested" in event["text"]
+    assert qc_panel_rows(view, "Intake categorical QC")[QC_PANEL_LABELS[result_key]] == "not_requested"
+    expected = expected_qc_results(hidden(hpsc_model, seed)["intake_mycoplasma_positive"])
+    for key, value in expected.items():
+        if key != result_key:
+            assert event["data"][key] == value
+    terminal = view["log"][-1]["events"][-1]
+    assert "incomplete" in terminal["text"]
+    assert terminal["data"]["result"]["outcome"] == "quarantined_intake_qc"
+    assert result_key not in terminal["data"]["result"]
+    if missing == "mycoplasma_requested":
+        public_before_debrief = json.dumps({
+            "events": view["log"][-1]["events"], "panels": view["panels"],
+        }).lower()
+        assert "detected" not in public_before_debrief
+        assert "positive" not in public_before_debrief
+        assert view["debrief"]["revealed"][0] == "Synthetic intake mycoplasma positive: True."
+
+
+def test_hpsc_requested_full_bundles_retain_existing_results_in_events_and_panels(hpsc_model):
+    seed = clear_seed(hpsc_model)
+    view = replay(hpsc_model, seed, "practice", maintenance_run(hpsc_model, seed)).view()
+    expected = expected_qc_results()
+    intake = action_event(view, "submit_intake_qc")
+    periodic = action_event(view, "submit_periodic_qc")
+    assert intake["data"] == {**expected, "bundle_complete": True}
+    assert periodic["data"] == expected
+    for key, value in expected.items():
+        assert f"{QC_TEXT_LABELS[key]}={value}" in intake["text"]
+        assert f"{QC_TEXT_LABELS[key]}={value}" in periodic["text"]
+        assert qc_panel_rows(view, "Intake categorical QC")[QC_PANEL_LABELS[key]] == value
+        assert qc_panel_rows(view, "Periodic categorical QC")[QC_PANEL_LABELS[key]] == value
+    assert all(checkpoint_map(view).values())
+
+
+def test_hpsc_marker_expression_is_not_functional_proof_of_pluripotency(hpsc_model):
+    seed = clear_seed(hpsc_model)
+    met = checkpoint_map(replay(hpsc_model, seed, "practice", maintenance_run(
+        hpsc_model, seed, marker_interpretation="proves_functional_pluripotency")).view())
+    assert met["marker-interpretation"] is False
+    assert met["periodic-qc-bundle"] is True
+
+
+@pytest.mark.parametrize("override", [
+    {"line_alias": "SYNTH_HPSC_B"}, {"medium_lot": "MED_SYNTH_02"},
+    {"matrix_lot": "MAT_SYNTH_OLD"}, {"new_passage_number": 12},
+    {"observation_days": 2}, {"deviation_recorded": True},
+])
+def test_hpsc_record_fields_and_deviation_accounting_are_checked(hpsc_model, override):
+    seed = clear_seed(hpsc_model)
+    met = checkpoint_map(replay(hpsc_model, seed, "practice", maintenance_run(
+        hpsc_model, seed, record_overrides=override)).view())
+    assert met["maintenance-records"] is False
+    expected_privacy = override.get("line_alias", "SYNTH_HPSC_A") == "SYNTH_HPSC_A"
+    assert met["privacy-preserving-records"] is expected_privacy
+
+
+def test_hpsc_finish_requires_synthetic_only_acknowledgement_for_checkpoint(hpsc_model):
+    seed = clear_seed(hpsc_model)
+    view = replay(hpsc_model, seed, "practice", maintenance_run(hpsc_model, seed, acknowledge=False)).view()
+    assert view["finished"] and checkpoint_map(view)["synthetic-finish-no-authorization"] is False
+    assert "does not authorize or certify hPSC work" in view["log"][-1]["events"][0]["text"]
+
+
+def test_hpsc_omitted_final_completion_cannot_coat_or_yield_17_checkpoints(hpsc_model):
+    seed = clear_seed(hpsc_model)
+    actions = maintenance_run(hpsc_model, seed)
+    final_complete = max(index for index, action in enumerate(actions) if action["name"] == "complete_day")
+    incomplete = actions[:final_complete]
+    view = replay(hpsc_model, seed, "practice", incomplete).view()
+    assert not view["finished"] and view["debrief"] is None
+    with pytest.raises(ActionRejected, match="Complete the current passage day"):
+        replay(hpsc_model, seed, "practice", incomplete + [actions[final_complete + 1]])
+
+
+def test_hpsc_repeated_completion_and_post_completion_daily_mutations_are_rejected(hpsc_model):
+    seed = clear_seed(hpsc_model)
+    actions = maintenance_run(hpsc_model, seed)
+    final_complete = max(index for index, action in enumerate(actions) if action["name"] == "complete_day")
+    completed_prefix = actions[:final_complete + 1]
+    with pytest.raises(ActionRejected, match="already completed"):
+        replay(hpsc_model, seed, "practice", completed_prefix + [act("complete_day")])
+    mutations = [
+        act("score_culture", density_pct=78, differentiated_area_pct=0),
+        act("remove_differentiated", removed_area_pct=0),
+        act("feed_culture", complete_medium_change=True),
+        act("decide_passage", disposition="passage_now", reason="routine_density"),
+    ]
+    for mutation in mutations:
+        with pytest.raises(ActionRejected):
+            replay(hpsc_model, seed, "practice", completed_prefix + [mutation])
+
+
+@pytest.mark.parametrize("omit_feed", [False, True])
+def test_hpsc_day3_terminal_missed_feed_accounts_once_without_next_panel_penalty(hpsc_model, omit_feed):
+    seed = clear_seed(hpsc_model)
+    actions = maintenance_run(hpsc_model, seed, missed_feed_day=3, omit_feed=omit_feed)
+    view = replay(hpsc_model, seed, "practice", actions).view()
+    result = view["log"][-1]["events"][0]["data"]["result"]
+    assert result["missed_feeds"] == result["stress_events"] == 1
+    assert result["synthetic_viability_index"] == 92
+    assert result["days_observed"] == 3 and result["feeds_completed"] == 2
+    assert result["final_density_pct"] == 78
+    assert result["final_differentiated_area_pct"] == 0
+    assert result["record_complete"] is True
+    met = checkpoint_map(view)
+    assert met["daily-complete-feeds"] is False
+    assert met["maintenance-records"] is True
+    assert sum(value is True for value in met.values()) == 16
+
+
+@pytest.mark.parametrize("omit_feed", [False, True])
+def test_hpsc_early_passage_missed_feed_accounts_once_without_later_morphology(hpsc_model, omit_feed):
+    seed = clear_seed(hpsc_model)
+    actions = maintenance_run(
+        hpsc_model, seed, early_passage=True, missed_feed_day=2, omit_feed=omit_feed
+    )
+    view = replay(hpsc_model, seed, "practice", actions).view()
+    result = view["log"][-1]["events"][0]["data"]["result"]
+    assert result["missed_feeds"] == result["stress_events"] == 1
+    assert result["synthetic_viability_index"] == 92
+    assert result["days_observed"] == 2 and result["feeds_completed"] == 1
+    assert result["final_density_pct"] == 60
+    assert result["final_differentiated_area_pct"] == 0
+    assert result["record_complete"] is True
+    assert checkpoint_map(view)["daily-complete-feeds"] is False
+
+
+def test_hpsc_schema_rejects_malformed_unknown_and_out_of_range_parameters(hpsc_model):
+    with pytest.raises(ActionRejected, match="must be a number"):
+        check_parameters(hpsc_model.action_specs["score_culture"], {"density_pct": True, "differentiated_area_pct": 1})
+    with pytest.raises(ActionRejected, match="whole number"):
+        check_parameters(hpsc_model.action_specs["score_culture"], {"density_pct": 42.5, "differentiated_area_pct": 1})
+    with pytest.raises(ActionRejected, match="between 0 and 100"):
+        check_parameters(hpsc_model.action_specs["score_culture"], {"density_pct": 101, "differentiated_area_pct": 1})
+    with pytest.raises(ActionRejected, match="Unknown parameter"):
+        check_parameters(hpsc_model.action_specs["complete_day"], {"donor_name": "not accepted"})
+    with pytest.raises(ActionRejected, match="listed options"):
+        check_parameters(hpsc_model.action_specs["review_intake"], {
+            "transfer_record": "REAL_DONOR_RECORD", "consent_scope_verified": True,
+            "mta_restrictions_reviewed": True, "provenance_recorded": True})
+    with pytest.raises(ActionRejected, match="true or false"):
+        check_parameters(hpsc_model.action_specs["feed_culture"], {"complete_medium_change": "yes"})
+
+
+def test_hpsc_replay_determinism_seed_dependence_and_hidden_privacy(hpsc_model):
+    seed = degraded_seed(hpsc_model)
+    actions = maintenance_run(hpsc_model, seed)
+    assert replay(hpsc_model, seed, "practice", actions).view() == replay(hpsc_model, seed, "practice", actions).view()
+    guided = replay(hpsc_model, seed, "guided", actions).view()
+    practice = replay(hpsc_model, seed, "practice", actions).view()
+    assert guided["guidance"] == hpsc_model.definition["guided_steps"] and practice["guidance"] is None
+    wrong_actions = maintenance_run(hpsc_model, seed, wrong_score=True)
+    assert replay(hpsc_model, seed, "guided", wrong_actions).view()["log"] != replay(hpsc_model, seed, "practice", wrong_actions).view()["log"]
+    positives = {hidden(hpsc_model, value)["intake_mycoplasma_positive"] for value in range(30)}
+    matrices = {hidden(hpsc_model, value)["degrading_matrix"] for value in range(30)}
+    assert positives == {False, True} and matrices == {False, True}
+    initial_view = replay(hpsc_model, seed, "practice", []).view()
+    initial_public = json.dumps(initial_view["panels"]) + json.dumps(public_protocol(hpsc_model.definition))
+    assert '"hidden"' not in initial_public
+    assert "intake_mycoplasma_positive" not in initial_public
+    assert "degrading_matrix" not in initial_public
+    assert '"checkpoints"' not in json.dumps(public_protocol(hpsc_model.definition))
+    assert '"parameters"' not in json.dumps(public_protocol(hpsc_model.definition))
+    assert all(param["type"] != "identifier" for action in hpsc_model.definition["actions"] for param in action["params"])
+    forbidden_keys = {"donor_id", "donor_name", "patient_name", "clinical_data", "email", "str_profile"}
+    def keys(value):
+        if isinstance(value, dict):
+            return set(value) | set().union(*(keys(item) for item in value.values()))
+        if isinstance(value, list):
+            return set().union(*(keys(item) for item in value)) if value else set()
+        return set()
+    assert not (keys(hpsc_model.definition) & forbidden_keys)
+    assert not (keys(initial_view) & forbidden_keys)
+
+
+def test_hpsc_protocol_declares_all_synthetic_parameters_and_no_real_authorization(hpsc_model):
+    assert len(hpsc_model.definition["actions"]) == 12
+    assert len(hpsc_model.definition["checkpoints"]) == 17
+    assert all(param["source"]["kind"] == "simulation-model" for param in hpsc_model.definition["parameters"])
+    text = json.dumps(hpsc_model.definition)
+    assert "does not authorize or certify hPSC work" in text
+    assert "not laboratory acceptance criteria" in text
+    assert "donor identifiers" in text.lower()

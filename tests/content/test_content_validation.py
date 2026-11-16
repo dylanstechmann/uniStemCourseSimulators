@@ -174,8 +174,8 @@ def test_preserved_inventory_is_honest_partial(repository):
     # has a learner route: Cell Biology, Biochemistry, Genetics, Calculus I, Physics I, Statics,
     # General Chemistry II, Programming, Biomaterials, Bioreactors, Cellular Biomechanics, Transport, Calculus II and
     # Calculus III, Differential Equations, Linear Algebra and the final eight project routes,
-    # plus six E&M milestones and the six-lesson cell-culture partial's six cases.
-    assert result.inventory["courses"] == 28 and result.inventory["cases"] == 169
+    # plus six E&M milestones and the eight-lesson cell-culture partial's eight cases.
+    assert result.inventory["courses"] == 28 and result.inventory["cases"] == 171
     assert sum(warning["code"] == "legacy-depth" for warning in result.warnings) == 0
     # Assessments list the course outcomes their items assess, so no package has an unmapped outcome.
     assert not [warning for warning in result.warnings if warning["code"] == "objective-coverage"]

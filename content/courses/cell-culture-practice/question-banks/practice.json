@@ -2494,6 +2494,879 @@
         ],
         "partial_credit": "correct-minus-incorrect-clamped-v1"
       }
+    },
+    {
+      "id": "cell-culture-practice-7:defined-matrix-system",
+      "type": "multiple_select",
+      "prompt": "Which statements correctly describe a defined-matrix, feeder-free hPSC maintenance system? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-7-objective-1"
+      ],
+      "feedback": {
+        "hint": "Separate removal of living feeders from removal of the attachment substrate.",
+        "solution": "Defined-matrix culture removes the living feeder layer but retains a compatible, traceable attachment substrate. Complete even coverage and protection from drying matter; an arbitrary coating is not an automatic substitute. Misconception addressed: feeder-free-means-substrate-free.",
+        "lesson_ids": [
+          "cell-culture-practice-7"
+        ],
+        "misconception_ids": [
+          "feeder-free-means-substrate-free"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 formative item developed with substantial AI assistance; entirely synthetic scenario and key; no external problem, text, dataset or image imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": [
+          0,
+          2,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "options": [
+        "A characterized matrix can provide attachment support without living feeder cells.",
+        "Feeder-free means that neither feeder cells nor an attachment substrate is needed.",
+        "The matrix lot and its compatibility with the culture system must be traceable.",
+        "A generic coating can be substituted without evaluating the line and medium system.",
+        "Complete, even coverage and protection from drying are maintenance considerations."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-7:matrix-handling",
+      "type": "single_choice",
+      "prompt": "A destination matrix has been warmed until gelled, covers only part of the vessel and has begun to dry. What is the best synthetic disposition?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-7-objective-1"
+      ],
+      "feedback": {
+        "hint": "Evaluate the coating itself rather than hoping medium will repair it.",
+        "solution": "The correct synthetic action is to prepare a fresh, cold-liquid, complete, even and moist coating. Medium does not rescue a dried partial coating, and feeders would change the culture system. Misconception addressed: medium-rescues-damaged-matrix.",
+        "lesson_ids": [
+          "cell-culture-practice-7"
+        ],
+        "misconception_ids": [
+          "medium-rescues-damaged-matrix"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 formative item developed with substantial AI assistance; entirely synthetic scenario and key; no external problem, text, dataset or image imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1
+      },
+      "options": [
+        "Use it because cells will rehydrate the coating.",
+        "Reject it and prepare the new synthetic lot with cold-liquid handling, complete even coverage and no drying.",
+        "Use it if the medium lot is new.",
+        "Add feeder cells to make the coating defined."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-7:morphology-manual-removal",
+      "type": "single_choice",
+      "prompt": "A synthetic colony panel shows several localized heterogeneous areas with irregular edges; neighbouring colonies retain their established morphology. What should the daily record and action emphasize?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-7-objective-2"
+      ],
+      "feedback": {
+        "hint": "Use localized morphology evidence and then verify what remains.",
+        "solution": "Localized atypical areas should be mapped, selectively removed under the applicable procedure and followed for residual or recurrent change. Clear medium answers a different question, and removal is not genomic or functional QC. Misconception addressed: manual-removal-proves-culture-quality.",
+        "lesson_ids": [
+          "cell-culture-practice-7"
+        ],
+        "misconception_ids": [
+          "manual-removal-proves-culture-quality"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 formative item developed with substantial AI assistance; entirely synthetic scenario and key; no external problem, text, dataset or image imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 2
+      },
+      "options": [
+        "Ignore the areas if the medium is clear.",
+        "Discard the line solely from one image without any local procedure or review.",
+        "Record location and extent, selectively remove the displayed differentiated areas, and reassess residual or recurrent patterns.",
+        "Triturate the entire culture into single cells to hide the areas."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-7:residual-differentiation",
+      "type": "numeric",
+      "prompt": "A 240 mm² synthetic colony panel contains 18 mm² of differentiated area. Manual removal addresses 15 mm². What residual differentiated percentage remains? Enter a percentage to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-7-objective-2"
+      ],
+      "feedback": {
+        "hint": "Subtract the removed area before dividing by the whole panel.",
+        "solution": "Residual area = 18 − 15 = 3 mm², so residual percentage = 3/240 × 100 = 1.25%. The initial fraction was 18/240 × 100 = 7.50%; using the removed area instead gives 6.25%, which answers a different question. Misconception addressed: removed-area-confused-with-residual-area.",
+        "lesson_ids": [
+          "cell-culture-practice-7"
+        ],
+        "misconception_ids": [
+          "removed-area-confused-with-residual-area"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 formative item developed with substantial AI assistance; entirely synthetic scenario and key; no external problem, text, dataset or image imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1.25,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-7:daily-rhythm",
+      "type": "single_choice",
+      "prompt": "Which synthetic maintenance plan correctly links observation, feeding and the passage decision?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-7-objective-2"
+      ],
+      "feedback": {
+        "hint": "The three-day panel requires both observation and feeding before each decision.",
+        "solution": "The correct plan scores each day, records every complete feed, continues on days 1–2 and passages on day 3 at 78%, inside the synthetic 70–85% window. Neither a calendar nor an observation alone is sufficient. Misconception addressed: feeding-and-observation-are-interchangeable.",
+        "lesson_ids": [
+          "cell-culture-practice-7"
+        ],
+        "misconception_ids": [
+          "feeding-and-observation-are-interchangeable"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 formative item developed with substantial AI assistance; entirely synthetic scenario and key; no external problem, text, dataset or image imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 2
+      },
+      "options": [
+        "Feed on a fixed schedule but skip morphology checks unless contamination is visible.",
+        "Observe daily without recording medium changes.",
+        "Score density and morphology daily, record a complete medium change each day, continue on days 1–2 and passage on day 3 at 78%.",
+        "Wait until colonies merge before the first observation, then passage without records."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-7:missed-feed-consequence",
+      "type": "single_choice",
+      "prompt": "Day 2’s complete medium change was omitted in the simulator. Which interpretation is correct?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-7-objective-2"
+      ],
+      "feedback": {
+        "hint": "Distinguish the declared synthetic penalty from a real biological prediction.",
+        "solution": "The omitted feed creates one stress event, adds 5 percentage points to the later synthetic differentiated area and subtracts 8 arbitrary index points. It requires a deviation record but does not predict a real hPSC response. Misconception addressed: missed-feed-is-neutral-or-real-prediction.",
+        "lesson_ids": [
+          "cell-culture-practice-7"
+        ],
+        "misconception_ids": [
+          "missed-feed-is-neutral-or-real-prediction"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 formative item developed with substantial AI assistance; entirely synthetic scenario and key; no external problem, text, dataset or image imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1
+      },
+      "options": [
+        "It has no consequence if day 3 looks acceptable.",
+        "It creates a synthetic stress event and later differentiation/viability-index changes, and the deviation must be recorded.",
+        "It proves real hPSCs will differentiate by exactly the same amount.",
+        "It can be erased by editing the day-2 observation without documenting the deviation."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-7:density-passage-decision",
+      "type": "single_choice",
+      "prompt": "The synthetic culture is 42% dense on day 1. Which decision matches the routine model?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-7-objective-2"
+      ],
+      "feedback": {
+        "hint": "The model’s intended path is 42→60→78%, not immediate or indefinite passaging.",
+        "solution": "Day 1 should continue with daily scoring and feeding; day 3 reaches 78% within the declared 70–85% teaching window. Starving the culture or treating 100% as the target contradicts the maintenance loop. Misconception addressed: density-window-is-irrelevant-or-total-confluence.",
+        "lesson_ids": [
+          "cell-culture-practice-7"
+        ],
+        "misconception_ids": [
+          "density-window-is-irrelevant-or-total-confluence"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 formative item developed with substantial AI assistance; entirely synthetic scenario and key; no external problem, text, dataset or image imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1
+      },
+      "options": [
+        "Passage immediately because any density is acceptable.",
+        "Continue maintenance, observe and feed daily, then passage on day 3 at 78% if the morphology supports it.",
+        "Continue indefinitely because the target is exactly 100%.",
+        "Stop feeding until the culture reaches the window."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-7:clump-allocation",
+      "type": "numeric",
+      "prompt": "A synthetic harvest panel contains 156 small clumps for six destination wells. How many clumps should be allocated to each well for an even distribution? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-7-objective-3"
+      ],
+      "feedback": {
+        "hint": "Divide all available clumps by the six destination wells.",
+        "solution": "Clumps per well = 156/6 = 26. Dividing by 12 wells would give 13 but does not answer the six-well plan; allocating 26 to 12 wells would require 312 clumps. Misconception addressed: wrong-destination-well-denominator.",
+        "lesson_ids": [
+          "cell-culture-practice-7"
+        ],
+        "misconception_ids": [
+          "wrong-destination-well-denominator"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 formative item developed with substantial AI assistance; entirely synthetic scenario and key; no external problem, text, dataset or image imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 26,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-7:clump-not-single-cell-default",
+      "type": "single_choice",
+      "prompt": "Which passage method matches the routine synthetic hPSC workflow?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-7-objective-3"
+      ],
+      "feedback": {
+        "hint": "Preserve aggregates and avoid assigning them a predictive biological meaning.",
+        "solution": "The routine exercise uses small clumps, gentle handling and a prepared matrix. Clump count is only an allocation panel; it does not predict viability or colony formation. Misconception addressed: single-cell-is-always-the-hpsc-default.",
+        "lesson_ids": [
+          "cell-culture-practice-7"
+        ],
+        "misconception_ids": [
+          "single-cell-is-always-the-hpsc-default"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 formative item developed with substantial AI assistance; entirely synthetic scenario and key; no external problem, text, dataset or image imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1
+      },
+      "options": [
+        "Default to a single-cell suspension with extensive trituration, as for an ordinary adherent line.",
+        "Use small clumps with 2–3 gentle triturations and an even destination allocation.",
+        "Avoid preparing the destination matrix until after seeding.",
+        "Use clump count as a direct prediction of future viability."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-7:intake-periodic-qc",
+      "type": "multiple_select",
+      "prompt": "Which statements correctly distinguish the intake and periodic QC bundle? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-7-objective-4"
+      ],
+      "feedback": {
+        "hint": "Assign each assay its own question and limitation.",
+        "solution": "Mycoplasma, STR identity, karyotype and undifferentiated-state markers are complementary. Karyotype has resolution limits, and marker consistency is not functional proof. Periodic monitoring does not replace intake clearance. Misconception addressed: one-qc-assay-proves-everything.",
+        "lesson_ids": [
+          "cell-culture-practice-7"
+        ],
+        "misconception_ids": [
+          "one-qc-assay-proves-everything"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 formative item developed with substantial AI assistance; entirely synthetic scenario and key; no external problem, text, dataset or image imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "options": [
+        "Mycoplasma testing addresses contamination evidence, not line identity.",
+        "STR profiling addresses human line identity and is stored here only as a categorical match result.",
+        "Karyotype assessment proves that no genetic variant of any size is present.",
+        "Undifferentiated-marker consistency alone proves functional pluripotency.",
+        "Periodic mycoplasma, STR, karyotype and marker assessment complements rather than replaces intake QC."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-7:next-qc-passage",
+      "type": "numeric",
+      "prompt": "The synthetic risk plan schedules a periodic QC bundle five passages after the previous bundle at passage 8. At which passage is the next bundle due? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-7-objective-4"
+      ],
+      "feedback": {
+        "hint": "Add the synthetic interval to the previous-QC passage.",
+        "solution": "Next QC passage = 8 + 5 = 13. The number 5 is the interval, not the destination passage, and this schedule is a simulation choice rather than a universal testing requirement. Misconception addressed: qc-interval-confused-with-passage-number.",
+        "lesson_ids": [
+          "cell-culture-practice-7"
+        ],
+        "misconception_ids": [
+          "qc-interval-confused-with-passage-number"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 formative item developed with substantial AI assistance; entirely synthetic scenario and key; no external problem, text, dataset or image imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 13,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-7:consent-records-and-privacy",
+      "type": "single_choice",
+      "prompt": "An incoming synthetic line has excellent morphology and categorical QC results, but its consent scope and transfer restrictions have not been reviewed. What is the correct action and record policy?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-7-objective-5"
+      ],
+      "feedback": {
+        "hint": "Technical quality cannot replace permissible-use review or privacy controls.",
+        "solution": "The line must remain quarantined until consent scope and transfer restrictions are verified. Records use synthetic aliases, actual lots, actions, passages and deviations; real donor documents, identities, clinical data and STR profiles do not belong in this exercise. Misconception addressed: technical-qc-overrides-consent-and-privacy.",
+        "lesson_ids": [
+          "cell-culture-practice-7"
+        ],
+        "misconception_ids": [
+          "technical-qc-overrides-consent-and-privacy"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 formative item developed with substantial AI assistance; entirely synthetic scenario and key; no external problem, text, dataset or image imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 2
+      },
+      "options": [
+        "Release it because good QC creates permission to use it.",
+        "Maintain it anonymously without a transfer record.",
+        "Keep it quarantined pending consent/transfer review; use only synthetic aliases and categorical QC fields, with lot, action, passage and deviation traceability.",
+        "Upload the donor’s actual consent form and STR allele table into the practice record."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-8:bank-tier-and-parent",
+      "type": "single_choice",
+      "prompt": "Synthetic working-bank vial LUMO-A-WCB-W03 was derived from LUMO-A-MCB-M07. The master stock is difficult to retrieve, so a colleague proposes relabelling W03 as a new master vial with no derivation record. What preserves traceability?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-8-objective-1"
+      ],
+      "feedback": {
+        "hint": "Distinguish an inventory convenience from a controlled biological provenance event.",
+        "solution": "Routine descendants should identify W03 as their immediate parent, while M07 remains the recorded master ancestor. Any redesignation or new bank requires its own authorised provenance event under local procedures; merely changing the tier word creates a false history. Misconception: a working-bank vial does not become master stock by relabelling it.",
+        "lesson_ids": [
+          "cell-culture-practice-8"
+        ],
+        "misconception_ids": [
+          "cell-culture-practice-8:bank-tier-and-parent-misconception"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original records-and-traceability practice developed with substantial AI assistance; all identifiers, observations and data are synthetic; no external problem, table or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1
+      },
+      "options": [
+        "Discard every W03 derivative and reconstruct its parentage from the freezer location.",
+        "Retain W03 as the working-bank parent for routine derivatives and record any separate redesignation decision and lineage explicitly.",
+        "Rename W03 as MCB-M07 and delete the W03 identifier so there is only one bank name.",
+        "Treat the highest-passage vial as the master bank regardless of its derivation."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-8:bank-provenance-fields",
+      "type": "multiple_select",
+      "prompt": "Which entries make a synthetic expansion from master vial M07 to working bank W03 auditable? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-8-objective-1",
+        "cell-culture-practice-8-objective-4"
+      ],
+      "feedback": {
+        "hint": "A bank name alone does not show derivation; preserve the event and its biological state.",
+        "solution": "Record parent and child IDs, event type/time/operator, supporting record, and passage and cumulative PDL at freeze. Storage location and release/QC links are useful but cannot replace the parent–child event. A later move should be a new location event, not a rewritten parent. Misconception: a freezer address is a location, not proof of bank tier or provenance.",
+        "lesson_ids": [
+          "cell-culture-practice-8"
+        ],
+        "misconception_ids": [
+          "cell-culture-practice-8:bank-provenance-fields-misconception"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original records-and-traceability practice developed with substantial AI assistance; all identifiers, observations and data are synthetic; no external problem, table or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "options": [
+        "Parent M07, child W03 and the expansion-event record ID.",
+        "Event timestamp, operator and derivation type.",
+        "Only the current freezer rack, because location establishes the bank tier.",
+        "Passage and cumulative PDL at freeze, with links to the relevant count and bank records."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-8:cumulative-pdl-ledger",
+      "type": "numeric",
+      "prompt": "A synthetic ledger begins passage 12 at cumulative PDL 8.0. Passage 12 has N0 = 1.25 × 10⁶ and Nf = 2.50 × 10⁶ viable cells; passage 13 has N0 = 0.75 × 10⁶ and Nf = 3.00 × 10⁶. Using log₂(Nf/N0) for each interval, what is the cumulative PDL after passage 13? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-8-objective-2"
+      ],
+      "feedback": {
+        "hint": "Compute each interval separately and add both increments to 8.0; passage count is not PDL.",
+        "solution": "Passage 12 adds log₂(2.50/1.25) = log₂2 = 1, giving 9.0. Passage 13 adds log₂(3.00/0.75) = log₂4 = 2, giving 8.0 + 1 + 2 = 11.0. The two passage events contribute three estimated doublings in total. Misconception: adding one PDL per passage would incorrectly give 10.0.",
+        "lesson_ids": [
+          "cell-culture-practice-8"
+        ],
+        "misconception_ids": [
+          "cell-culture-practice-8:cumulative-pdl-ledger-misconception"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original records-and-traceability practice developed with substantial AI assistance; all identifiers, observations and data are synthetic; no external problem, table or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 11,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-8:ledger-correction",
+      "type": "single_choice",
+      "prompt": "For E-213, the raw count record gives previous cumulative PDL 9.0, N0 = 0.75 × 10⁶ and Nf = 1.50 × 10⁶. The ledger currently says “increment 2; cumulative PDL 11”. Which correction is accurate and traceable?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-8-objective-2",
+        "cell-culture-practice-8-objective-4"
+      ],
+      "feedback": {
+        "hint": "Recompute log₂(Nf/N0), then preserve how the erroneous entry was changed.",
+        "solution": "The increment is log₂(1.50/0.75) = log₂2 = 1, so cumulative PDL is 9.0 + 1 = 10.0. Preserve the original entry and add an attributed, dated correction with the count-record link and reason; do not silently overwrite it. Misconception: correct arithmetic does not justify deleting the original erroneous record.",
+        "lesson_ids": [
+          "cell-culture-practice-8"
+        ],
+        "misconception_ids": [
+          "cell-culture-practice-8:ledger-correction-misconception"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original records-and-traceability practice developed with substantial AI assistance; all identifiers, observations and data are synthetic; no external problem, table or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 2
+      },
+      "options": [
+        "Keep increment 2 because every passage after passage 12 adds two PDL.",
+        "Change only the displayed value to 10 and remove the original 11 to avoid confusion.",
+        "Record increment 1 and cumulative PDL 10.0 in an attributed, dated correction linked to the raw count, retaining the original entry and reason.",
+        "Set cumulative PDL to 2 because the previous cumulative value should not be carried forward."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-8:common-medium-lot",
+      "type": "single_choice",
+      "prompt": "Use these synthetic tables. Observations: V-101/P-401 positive; V-102/P-401 positive; V-103/P-402 positive; V-104/P-402 negative; V-105/P-405 positive; V-106/P-406 negative. Preparation use: P-401/F-31/MX-07/D-12; P-402/F-32/MX-07/D-12; P-405/F-31/MX-09/D-13; P-406/F-33/MX-09/D-13 (fields are preparation/medium batch/matrix/dissociation lot). Medium formulation: F-31 = BM-24-118 + S-08; F-32 = BM-24-118 + S-09; F-33 = BM-24-119 + S-10. After joining vessel → preparation → medium batch → formulation, which basal-medium lot is shared by every positive vessel?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-8-objective-3"
+      ],
+      "feedback": {
+        "hint": "List the positives first, then follow each preparation and medium batch; do not choose a lot from frequency alone.",
+        "solution": "The positive vessels are V-101, V-102, V-103 and V-105. Their paths are V-101/V-102 → P-401 → F-31 → BM-24-118, V-103 → P-402 → F-32 → BM-24-118, and V-105 → P-405 → F-31 → BM-24-118. BM-24-118 is the only basal-medium lot shared by all four. Misconception: F-31 and F-32 are different prepared batches but resolve to the same basal-medium lot.",
+        "lesson_ids": [
+          "cell-culture-practice-8"
+        ],
+        "misconception_ids": [
+          "cell-culture-practice-8:common-medium-lot-misconception"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original records-and-traceability practice developed with substantial AI assistance; all identifiers, observations and data are synthetic; no external problem, table or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 2
+      },
+      "options": [
+        "BM-24-119",
+        "S-09",
+        "BM-24-118",
+        "MX-07"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-8:affected-vessel-count",
+      "type": "numeric",
+      "prompt": "Use these synthetic tables. Observations: V-101/P-401 positive; V-102/P-401 positive; V-103/P-402 positive; V-104/P-402 negative; V-105/P-405 positive; V-106/P-406 negative. Preparation use: P-401/F-31/MX-07/D-12; P-402/F-32/MX-07/D-12; P-405/F-31/MX-09/D-13; P-406/F-33/MX-09/D-13 (fields are preparation/medium batch/matrix/dissociation lot). Medium formulation: F-31 = BM-24-118 + S-08; F-32 = BM-24-118 + S-09; F-33 = BM-24-119 + S-10. How many distinct positive vessels have a complete join to basal-medium lot BM-24-118? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-8-objective-3"
+      ],
+      "feedback": {
+        "hint": "Count unique positive vessel IDs after the join, not rows in the preparation or formulation table.",
+        "solution": "The qualifying paths include V-101 and V-102 through P-401/F-31, V-103 through P-402/F-32, and V-105 through P-405/F-31. Thus {V-101, V-102, V-103, V-105} contains 1 + 1 + 1 + 1 = 4 distinct vessels. Negative V-104 also joins to BM-24-118 but is excluded by the positive-observation filter. Misconception: counting the two F-31/F-32 batches or the three preparation IDs would not count vessels.",
+        "lesson_ids": [
+          "cell-culture-practice-8"
+        ],
+        "misconception_ids": [
+          "cell-culture-practice-8:affected-vessel-count-misconception"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original records-and-traceability practice developed with substantial AI assistance; all identifiers, observations and data are synthetic; no external problem, table or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 4,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-8:trace-interpretation",
+      "type": "multiple_select",
+      "prompt": "Use these synthetic tables. Observations: V-101/P-401 positive; V-102/P-401 positive; V-103/P-402 positive; V-104/P-402 negative; V-105/P-405 positive; V-106/P-406 negative. Preparation use: P-401/F-31/MX-07/D-12; P-402/F-32/MX-07/D-12; P-405/F-31/MX-09/D-13; P-406/F-33/MX-09/D-13 (fields are preparation/medium batch/matrix/dissociation lot). Medium formulation: F-31 = BM-24-118 + S-08; F-32 = BM-24-118 + S-09; F-33 = BM-24-119 + S-10. Which interpretations and next steps are supported? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-8-objective-3",
+        "cell-culture-practice-8-objective-5"
+      ],
+      "feedback": {
+        "hint": "Test each candidate against every positive and retain discordant negative evidence.",
+        "solution": "BM-24-118 is common to all positives, but V-104 is a negative comparison exposed through F-32. MX-07 is absent from V-105, and S-09 is absent from the F-31 positives. The supported next step is to expand the exposure set and investigate the shared lot and handling while preserving competing explanations. Misconception: a common exposure is an investigation lead, not proof of causation or a reason to discard negative records.",
+        "lesson_ids": [
+          "cell-culture-practice-8"
+        ],
+        "misconception_ids": [
+          "cell-culture-practice-8:trace-interpretation-misconception"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original records-and-traceability practice developed with substantial AI assistance; all identifiers, observations and data are synthetic; no external problem, table or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": [
+          0,
+          3,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "options": [
+        "BM-24-118 is a documented common exposure of all four positive vessels.",
+        "Matrix MX-07 is common to every positive vessel, including V-105.",
+        "Supplement S-09 is common to every positive vessel, including those using F-31.",
+        "Negative V-104 must be retained because it shows that common exposure is not sufficient to establish causation.",
+        "The investigation should enumerate other vessels linked to the implicated preparations/lot and compare handling and other evidence under local procedures."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-8:missing-record-join",
+      "type": "single_choice",
+      "prompt": "A contaminated vessel record contains only “basal medium” and no preparation ID. The preparation and formulation tables exist, but the vessel cannot be joined to them. What is the best traceability repair?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-8-objective-3",
+        "cell-culture-practice-8-objective-4"
+      ],
+      "feedback": {
+        "hint": "A missing key needs source evidence, not a plausible value borrowed from another vessel.",
+        "solution": "Locate the original preparation/use evidence for that vessel and add a transparent, attributed correction linking its preparation ID. If no evidence survives, mark the join unresolved and bound the investigation accordingly. Copying a neighbouring vessel’s lot or the newest receipt would manufacture provenance. Misconception: an unknown lot must remain unknown until evidence supports it; similarity is not a join key.",
+        "lesson_ids": [
+          "cell-culture-practice-8"
+        ],
+        "misconception_ids": [
+          "cell-culture-practice-8:missing-record-join-misconception"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original records-and-traceability practice developed with substantial AI assistance; all identifiers, observations and data are synthetic; no external problem, table or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0
+      },
+      "options": [
+        "Search the original use/preparation records for the vessel, then add an attributed correction; if none exists, retain the unresolved gap.",
+        "Copy the lot from a vessel in the same incubator because location proves formulation.",
+        "Assign the most recently received medium lot because recency is the most likely explanation.",
+        "Delete the vessel from the investigation so the remaining joins are complete."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-8:labels-and-original-records",
+      "type": "multiple_select",
+      "prompt": "Which practices preserve a usable label-to-ledger chain and ALCOA records? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-8-objective-4"
+      ],
+      "feedback": {
+        "hint": "Think about durable identifiers, first capture, timing and later corrections.",
+        "solution": "A durable unique ID resolves the vessel to parent, passage/PDL, lot and location records. Raw observations are entered contemporaneously and retained; corrections add attribution, date, reason and evidence. Product names and initials alone are ambiguous, and overwriting the first capture destroys the original record. Misconception: a compact label can point to a full ledger, but an ambiguous nickname cannot serve as a unique key.",
+        "lesson_ids": [
+          "cell-culture-practice-8"
+        ],
+        "misconception_ids": [
+          "cell-culture-practice-8:labels-and-original-records-misconception"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original records-and-traceability practice developed with substantial AI assistance; all identifiers, observations and data are synthetic; no external problem, table or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "options": [
+        "Use a durable unique vessel/vial ID with a human-readable identity and a ledger link to parent, passage/PDL, lots and disposition.",
+        "Capture raw counts and observations contemporaneously and preserve the original records behind calculations.",
+        "Label each vessel only “LUMO” plus the operator’s initials, reusing the ID after disposal.",
+        "Preserve corrections with the original value, corrector, timestamp, reason and supporting evidence."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-8:alcoa-correction",
+      "type": "single_choice",
+      "prompt": "Two days after entry, an operator discovers that medium lot F-13 was typed instead of F-31 in a synthetic use record. Which action best satisfies the lesson’s ALCOA application?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-8-objective-4"
+      ],
+      "feedback": {
+        "hint": "The correction itself needs attribution, a timestamp, a reason and access to the original entry.",
+        "solution": "Retain the original F-13 entry and append a dated, operator-attributed correction to F-31 with the reason and supporting preparation record. This protects the original, accurate and attributable properties and allows reviewers to understand the change. Misconception: editing until the final value looks right is not equivalent to maintaining an accurate audit trail.",
+        "lesson_ids": [
+          "cell-culture-practice-8"
+        ],
+        "misconception_ids": [
+          "cell-culture-practice-8:alcoa-correction-misconception"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original records-and-traceability practice developed with substantial AI assistance; all identifiers, observations and data are synthetic; no external problem, table or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 3
+      },
+      "options": [
+        "Overwrite F-13 with F-31 and leave no history because the new value is correct.",
+        "Delete the entire use record and recreate it with today’s date as though it were contemporaneous.",
+        "Ask a colleague to enter F-31 under their name without noting who made the original observation.",
+        "Append an attributed, dated correction to F-31 with reason and source evidence while retaining the original F-13 entry."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-8:incident-deviation-outline",
+      "type": "multiple_select",
+      "prompt": "Which elements belong in this lesson’s outline-only contamination incident/deviation handoff? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-8-objective-5"
+      ],
+      "feedback": {
+        "hint": "Preserve evidence and scope, then hand off controlled investigation rather than self-declaring closure.",
+        "solution": "Include immediate local containment, detection chronology and original evidence; a reproducible vessel/event/preparation/lot scope with negatives and gaps; and a handoff for authorised review, actions and follow-up. Detailed root-cause and regulatory processes are deferred to layer 4 and institutional procedures. Misconception: a narrative conclusion without record keys is not a reproducible investigation handoff.",
+        "lesson_ids": [
+          "cell-culture-practice-8"
+        ],
+        "misconception_ids": [
+          "cell-culture-practice-8:incident-deviation-outline-misconception"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original records-and-traceability practice developed with substantial AI assistance; all identifiers, observations and data are synthetic; no external problem, table or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "options": [
+        "Immediate containment/disposition entries and the detection chronology with attributable original evidence.",
+        "Linked vessels, parents, preparations, lots and other exposed vessels, including negative comparisons and unresolved joins.",
+        "Removal of discordant negative records and self-declared closure by the person who drafted the trace.",
+        "A bounded handoff for authorised review, classification, investigation, actions and follow-up under local quality procedures."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-8:causal-boundary-and-layer4",
+      "type": "single_choice",
+      "prompt": "A three-table trace finds one medium lot shared by all positive cultures, but one exposed comparison culture is negative. Which statement best closes the lesson-8 analysis?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-8-objective-3",
+        "cell-culture-practice-8-objective-5"
+      ],
+      "feedback": {
+        "hint": "Separate what the join demonstrates from the controlled investigation that must follow.",
+        "solution": "The shared lot is a documented investigation lead, not confirmed causation; the negative comparison and alternative explanations remain in scope. Record the join and hand off the incident/deviation outline for local review. Deeper GLP/CLIA and quality-system instruction belongs to planned layer 4 lab-quality-systems. Misconception: record linkage can narrow hypotheses but cannot substitute for causal evidence or a quality-system review.",
+        "lesson_ids": [
+          "cell-culture-practice-8"
+        ],
+        "misconception_ids": [
+          "cell-culture-practice-8:causal-boundary-and-layer4-misconception"
+        ]
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original records-and-traceability practice developed with substantial AI assistance; all identifiers, observations and data are synthetic; no external problem, table or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1
+      },
+      "options": [
+        "Declare the lot causal, delete the negative comparison and close the incident without further review.",
+        "Report the shared lot as a bounded lead, preserve the negative and unresolved evidence, and hand off the outline to local review with deeper quality systems deferred to layer 4.",
+        "Conclude that the negative comparison proves the shared lot can never be investigated.",
+        "Use the shared lot as evidence that the records satisfy every GLP and CLIA requirement."
+      ]
     }
   ]
 }

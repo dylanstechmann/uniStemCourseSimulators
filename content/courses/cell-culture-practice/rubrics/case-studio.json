@@ -283,6 +283,100 @@
       "limitations": [
         "A zero-point self-check on a synthetic incident; it is not a grade or a competency record, and institutional procedures and responsible laboratory staff govern real contamination, disposal, rescue and authentication decisions."
       ]
+    },
+    {
+      "id": "cell-culture-practice-7:case",
+      "prompt": "A colleague’s synthetic hPSC record says: “Line released from intake quarantine with STR match only; consent scope and MTA restrictions not reviewed. Destination matrix warmed, partially coated and dry. Day 1 density/morphology not recorded; day 2 feed missed without a deviation. Differentiated areas mostly removed but residual area not calculated. Routine passage made into a single-cell suspension with extensive trituration. Periodic mycoplasma and karyotype omitted because STR matched. Marker pattern reported as proof of functional pluripotency. Donor initials and an STR allele table pasted into the notes; medium/matrix lots and passage number absent.” Write a zero-point self-review that identifies the required gates and corrections, calculates what evidence would still be missing, and explains why the final claims are unjustified.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "cell-culture-practice-7-objective-1",
+        "cell-culture-practice-7-objective-2",
+        "cell-culture-practice-7-objective-3",
+        "cell-culture-practice-7-objective-4",
+        "cell-culture-practice-7-objective-5"
+      ],
+      "rubric": [
+        {
+          "id": "cell-culture-practice-7-case-criterion-1",
+          "criterion": "Requires consent/transfer/provenance review plus complete intake mycoplasma, STR, karyotype and undifferentiated-marker QC before quarantine release; excellent morphology cannot substitute",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-7-case-criterion-2",
+          "criterion": "Corrects matrix handling and daily practice: cold liquid, complete even moist coating, daily density/morphology scoring, complete feeding, selective removal, residual/recurrent assessment and a deviation record",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-7-case-criterion-3",
+          "criterion": "Restores small-clump rather than default single-cell passage with gentle handling, a prepared destination matrix and a feasible even allocation",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-7-case-criterion-4",
+          "criterion": "Distinguishes mycoplasma, STR, karyotype and undifferentiated-marker evidence, repeats periodic QC and rejects marker-only functional-pluripotency or universal genomic-clearance claims",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-7-case-criterion-5",
+          "criterion": "Removes donor-identifying and genomic-profile material from the exercise and requires synthetic aliases, actual medium/matrix lots, passage, observations, QC links and deviations",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "A zero-point self-check on an entirely synthetic record; it is not a grade, competency record, authorization or certification for hPSC work. Institutional governance, privacy rules, validated assays and supervised procedures govern real work."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-8:case",
+      "prompt": "Zero-point synthetic self-check. A reviewer receives four observations: A1/P1 positive, A2/P1 positive, B1/P2 positive, B2/P2 negative, C1/P3 positive. Preparation records give P1/F1/matrix X1/reagent R1, P2/F2/X1/R1 and P3/F1/X2/R2. Formulation records give F1 = basal M17 + supplement S1, F2 = M17 + S2, and F3 = M18 + S3. Elsewhere, WCB W04 has been relabelled “new MCB” without a parent event; its previous PDL was 10.0 and the latest raw interval is N0 = 0.60 × 10⁶, Nf = 2.40 × 10⁶, but the ledger says +1/PDL 11.0. A vessel label reads only “LUMO, Alex”; another use record was silently overwritten from F9 to F1. Write a trace memo that (1) restores bank lineage and corrects the PDL, (2) performs the three-table join and counts positive vessels sharing the common basal-medium lot, (3) tests matrix, supplement and reagent alternatives, (4) explains why B2 matters, and (5) specifies label/ALCOA repairs and an outline-only incident/deviation handoff. State what remains unproven.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "cell-culture-practice-8-objective-1",
+        "cell-culture-practice-8-objective-2",
+        "cell-culture-practice-8-objective-3",
+        "cell-culture-practice-8-objective-4",
+        "cell-culture-practice-8-objective-5"
+      ],
+      "rubric": [
+        {
+          "id": "cell-culture-practice-8-case-criterion-1",
+          "criterion": "Restores the recorded MCB→WCB parent chain, rejects unsupported tier relabelling, recomputes log₂(2.40/0.60) = 2 and corrects cumulative PDL from 10.0 to 12.0 with an attributable audit trail",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-8-case-criterion-2",
+          "criterion": "Joins A1/A2 through P1/F1, B1 through P2/F2 and C1 through P3/F1 to M17, counts four positive vessels and preserves distinct preparation, batch and received-lot identifiers",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-8-case-criterion-3",
+          "criterion": "Rejects X1, R1 and S2 as universal positive exposures because C1 uses X2/R2/S1; retains B2 as an M17-exposed negative and identifies M17 as a lead rather than proven cause",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-8-case-criterion-4",
+          "criterion": "Specifies durable unique label-to-ledger identifiers and ALCOA-based repairs that preserve original observations, timestamps, attribution, raw values, correction reasons and unresolved joins",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-8-case-criterion-5",
+          "criterion": "Outlines containment, chronology, original evidence, linked scope including negatives, competing hypotheses and authorised local handoff without deep GLP/CLIA instruction or self-declared closure",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "A zero-point self-check using entirely synthetic records; it is not a grade, competency record, causal investigation or regulatory-quality-system exercise. Local procedures govern real records and contamination responses."
+      ]
     }
   ]
 }

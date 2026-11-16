@@ -16,6 +16,7 @@ from .contamination import ContaminationDiagnosis
 from .cryopreservation import CryopreservationRun
 from .engine import ActionRejected, ProtocolInvalid, ProtocolModel, replay
 from .exposure import ExposureResponse
+from .hpsc_maintenance import HpscMaintenance
 from .media_prep import SupplementedMediumPreparation
 from .passaging import AdherentPassage
 from .pipette import PipetteVerification
@@ -26,6 +27,7 @@ MODELS: dict[str, type[ProtocolModel]] = {
         PipetteVerification, AerobicPlateCount, BiosafetyCabinetSession,
         AutoclaveValidation, ExposureResponse, HemocytometerCount, AsepticMediumChange,
         SupplementedMediumPreparation, AdherentPassage, CryopreservationRun, ContaminationDiagnosis,
+        HpscMaintenance,
     )
 }
 
