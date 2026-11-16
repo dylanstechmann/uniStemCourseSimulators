@@ -189,6 +189,100 @@
       "limitations": [
         "A zero-point self-check on a synthetic record; it is not a grade or competency record, and cell-line instructions and institutional procedures govern real passaging."
       ]
+    },
+    {
+      "id": "cell-culture-practice-5:case",
+      "prompt": "A synthetic freeze/thaw record states: “The harvest has 1.00 × 10⁷ viable cells at 95.0% viability. Make four vials; each contains 2.50 × 10⁶ viable cells per vial in 1.00 mL, separately from the batch concentration of 2.50 × 10⁶ cells/mL. For 4.00 mL final freeze medium at 10.0% v/v DMSO, combine 4.00 mL base with 0.400 mL DMSO at 22 °C in one rapid addition. Place uncovered vials in a −80 °C freezer, then immerse them in LN₂; location ‘nitrogen’. Thaw at 22 °C for 20 min, add 9.00 mL medium rapidly, leave all DMSO, and resuspend in 2.00 mL. The panel shows 92.0% viability. Claim 2.30 × 10⁶ viable cells recovered and 1.00% residual DMSO, then release the working stock because viability is high.” Write a zero-point self-review: correct each process decision; independently recompute DMSO/base volumes, aliquot concentration, diluted and residual DMSO under a stated removal assumption, and viable recovery/concentration; specify storage/location, recount, quarantine and bank-tier records; and state the evidence limits.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "cell-culture-practice-5-objective-1",
+        "cell-culture-practice-5-objective-2",
+        "cell-culture-practice-5-objective-3",
+        "cell-culture-practice-5-objective-4",
+        "cell-culture-practice-5-objective-5"
+      ],
+      "rubric": [
+        {
+          "id": "cell-culture-practice-5-case-criterion-1",
+          "criterion": "Identifies warm rapid DMSO addition, uncontrolled cooling, liquid-phase storage, slow thaw, abrupt dilution and absent DMSO removal as mistakes, explaining permeating-agent toxicity/osmotic handling and the two cooling-injury mechanisms",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-5-case-criterion-2",
+          "criterion": "Recomputes 2.50 × 10⁶ viable cells per vial for each of four vials and, separately, 2.50 × 10⁶ cells/mL batch concentration; also computes 0.400 mL DMSO plus 3.60 mL base for a 4.00 mL final batch and 1.00% DMSO after 1.00 mL is added to 9.00 mL medium",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-5-case-criterion-3",
+          "criterion": "Using the explicitly assumed 95.0% DMSO-solute removal, computes 0.00500 mL remaining and 0.250% v/v in 2.00 mL; rejects the record’s unsupported residual claim",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-5-case-criterion-4",
+          "criterion": "Computes recovered viable cells 2.50 × 10⁶ × 92.0/95.0 = 2.421053 × 10⁶ and concentration 1.210526 × 10⁶ cells/mL in 2.00 mL, explaining why 2.30 × 10⁶ omits pre-freeze viability",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-5-case-criterion-5",
+          "criterion": "Selects vapour storage with a complete synthetic address, treats the recount as membrane integrity only, retains quarantine pending sterility/QC and a working-stock/bank-tier forward record, and claims no physical technique or release competency",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "A zero-point self-check on a synthetic record; it is not a grade, competency record, physical validation or QC release decision. Cell-specific instructions and institutional procedures govern real work."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-6:case",
+      "prompt": "A synthetic incident note says: “Five incoming flasks remained in the clean incubator because no organism had been named. Flask P is turbid and acidic; flask Q has branching filaments; flask R is clear so no mycoplasma test was ordered; flask S has a matching label so STR was unnecessary. Penicillin-streptomycin was added to P and Q until the clues diminished. The shared-medium lot, incubator, pipette and receipt records were not retained. All five were released for experiments.” Write a corrected evidence and handoff plan: identify visible clue limits; specify quarantine, dedicated mycoplasma and STR evidence; choose dispositions; reject masking; and list incoming-line and source-trace records.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "cell-culture-practice-6-objective-1",
+        "cell-culture-practice-6-objective-2",
+        "cell-culture-practice-6-objective-3",
+        "cell-culture-practice-6-objective-4",
+        "cell-culture-practice-6-objective-5"
+      ],
+      "rubric": [
+        {
+          "id": "cell-culture-practice-6-case-criterion-1",
+          "criterion": "Recognises the bacterial and fungal clue patterns without naming species from appearance, and connects them to testable medium, equipment and handling routes",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-6-case-criterion-2",
+          "criterion": "Requires quarantine before identification and dedicated controlled mycoplasma evidence for clear flasks, with culture, PCR and DNA-stain limits stated correctly",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-6-case-criterion-3",
+          "criterion": "Chooses discard/replacement for routine confirmed microbial contamination, identity hold for STR mismatch, documented review before release, and no successful antibiotic-masking pathway",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-6-case-criterion-4",
+          "criterion": "Explains STR loci and allele calls, reference provenance and match/mismatch limits, including HeLa-era cross-contamination and the non-clearing role of the ICLAC register",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-6-case-criterion-5",
+          "criterion": "Specifies an incident handoff with observations, tests/controls, dispositions, source hypotheses, linked records, cleaning requests and unresolved questions while excluding unnecessary donor or personal data",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "A zero-point self-check on a synthetic incident; it is not a grade or a competency record, and institutional procedures and responsible laboratory staff govern real contamination, disposal, rescue and authentication decisions."
+      ]
     }
   ]
 }

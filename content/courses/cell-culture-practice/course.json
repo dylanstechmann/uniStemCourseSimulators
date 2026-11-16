@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
   "id": "cell-culture-practice",
-  "title": "Cell Culture Practice (partial: Aseptic Technique, Media, Passaging and Counting Cells)",
-  "description": "A four-lesson partial package of the planned cell-culture layer of the wet-lab practice track: perform an aseptic medium change, prepare and filter a supplemented medium with QC evidence, plan an adherent passage to a target density, and interpret hemocytometer counts and trypan-blue viability. Outline lessons 1–4 of the eight outlined topics are written; lessons 5–8 are deferred.",
+  "title": "Cell Culture Practice (partial: Aseptic Technique, Media, Passaging, Counting Cells, Cryopreservation, Contamination and Authentication)",
+  "description": "A six-lesson partial package of the planned cell-culture layer of the wet-lab practice track: perform an aseptic medium change, prepare and filter a supplemented medium with QC evidence, plan an adherent passage to a target density, interpret hemocytometer counts and trypan-blue viability, apply synthetic cryopreservation and recovery evidence, and diagnose synthetic contamination and identity scenarios using quarantine, mycoplasma and STR evidence. Outline lessons 1–6 of the eight outlined topics are written; lessons 7–8 are deferred.",
   "domain": "Life sciences laboratory",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "license": "CC-BY-4.0",
   "content_origin": {
     "kind": "original",
@@ -17,7 +17,9 @@
       "Original reading, worked examples, practice, cards and a self-check case developed with substantial AI assistance on 2026-10-31 as a one-lesson pilot of layer 2 of the wet-lab practice track (docs/WET_LAB_LAYER_OUTLINES.md).",
       "Original lesson 1 reading, practice, cards and a self-check case developed with substantial AI assistance on 2026-11-15, extending the layer-2 pilot from lesson 4 to lessons 1 and 4 and adding the aseptic medium-change bench simulation.",
       "Original lesson 2 reading, practice, cards and a self-check case developed with substantial AI assistance on 2026-11-15, adding media and supplement arithmetic, filter sterilization and QC to the layer-2 partial package.",
-      "Original lesson 3 reading, practice, cards, self-check case and adherent target-density bench simulation developed with substantial AI assistance on 2026-11-15; suspension passaging is conceptual only."
+      "Original lesson 3 reading, practice, cards, self-check case and adherent target-density bench simulation developed with substantial AI assistance on 2026-11-15; suspension passaging is conceptual only.",
+      "Original lesson 5 reading, practice, cards, self-check case and freeze–thaw bench simulation developed with substantial AI assistance on 2026-11-15; all biological panels, locations, parameters and outcomes are synthetic.",
+      "Original lesson 6 reading, practice, cards, zero-point self-check case and contamination/authentication bench simulation developed with substantial AI assistance on 2026-11-15; all organisms, profiles, routes and incidents are synthetic."
     ]
   },
   "prerequisites": {
@@ -64,6 +66,16 @@
       "id": "cell-culture-practice-outcome-6",
       "description": "Plan and document an adherent passage to a specified viable-cell target density, contrast it with suspension passaging by dilution, and interpret split ratios and population doubling level.",
       "bloom": "apply"
+    },
+    {
+      "id": "cell-culture-practice-outcome-7",
+      "description": "Plan and document a synthetic cell freeze–storage–thaw workflow, calculate medium, aliquot, DMSO and viable-recovery outcomes, and evaluate storage, quarantine and bank-tier traceability.",
+      "bloom": "apply"
+    },
+    {
+      "id": "cell-culture-practice-outcome-8",
+      "description": "Diagnose synthetic contamination and identity scenarios by integrating visible clues, dedicated mycoplasma evidence, STR authentication, quarantine, disposition, source tracing and incident handoff.",
+      "bloom": "evaluate"
     }
   ],
   "lesson_objectives": [
@@ -226,11 +238,91 @@
       "course_outcome_ids": [
         "cell-culture-practice-outcome-6"
       ]
+    },
+    {
+      "id": "cell-culture-practice-5-objective-1",
+      "description": "Distinguish permeating from non-permeating cryoprotectants, and relate DMSO concentration, cold dropwise handling and removal to freezing protection, osmotic stress and toxicity.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-7"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-5-objective-2",
+      "description": "Explain the two-factor account of freezing injury and use it to justify controlled cooling, an appropriate passive container or controlled-rate device, and rapid thawing.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-7"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-5-objective-3",
+      "description": "Calculate freeze-medium component volumes, vial counts and concentrations, post-thaw dilution and residual DMSO fractions, and viable-cell recovery.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-7"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-5-objective-4",
+      "description": "Evaluate vapour- versus liquid-phase nitrogen storage, fast-thaw and recount decisions, including the safety rationale and limits of dye-exclusion viability.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-7"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-5-objective-5",
+      "description": "Evaluate quarantine, quality-control status, storage-location records and bank-tier links without treating a simulation result as a release decision.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-7"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-6-objective-1",
+      "description": "Recognise visible bacterial and fungal clue patterns and connect contamination response to plausible routes without claiming species identification from appearance.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-8"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-6-objective-2",
+      "description": "Explain why mycoplasma can remain invisible and compare culture, nucleic-acid amplification and DNA-stain evidence, including method-specific limits and controls.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-8"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-6-objective-3",
+      "description": "Apply quarantine before identification, choose discard versus bounded rescue referral, reject antibiotic masking and prepare an incident handoff.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-8"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-6-objective-4",
+      "description": "Explain HeLa-era cross-contamination context and interpret synthetic STR loci and allele calls, distinguishing match evidence from mismatch and from proof of purity or phenotype.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-8"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-6-objective-5",
+      "description": "Plan incoming-line quarantine, contamination and identity testing, and trace shared medium, equipment, handling and receipt records as alternative source hypotheses.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-8"
+      ]
     }
   ],
   "duration": {
-    "instructional_weeks": 4,
-    "equivalent_structure": "A proposed four-week partial block: week 1 aseptic technique; week 2 counting cells and viability; week 3 media, supplements and reagent preparation; week 4 passaging adherent and suspension cells. Each week has an original reading, 12 public formative practice items, four retrieval cards, a zero-point self-check case and a linked bench simulation. The package covers outline lessons 1–4 of eight and has not been measured or reviewed.",
+    "instructional_weeks": 6,
+    "equivalent_structure": "A proposed six-week partial block: week 1 aseptic technique; week 2 counting cells and viability; week 3 media, supplements and reagent preparation; week 4 passaging adherent and suspension cells; week 5 cryopreservation; week 6 contamination, mycoplasma and authentication. Each week has an original reading, 12 public formative practice items, four retrieval cards, a zero-point self-check case and a linked bench simulation. The package covers outline lessons 1–6 of eight and has not been measured or reviewed.",
     "weeks": [
       {
         "week": 1,
@@ -270,6 +362,26 @@
         ],
         "assessment_ids": [
           "cell-culture-practice-3-practice"
+        ]
+      },
+      {
+        "week": 5,
+        "title": "Cryopreservation and thawing (outline lesson 5); bench practice: freeze and thaw with viability outcomes",
+        "lesson_ids": [
+          "cell-culture-practice-5"
+        ],
+        "assessment_ids": [
+          "cell-culture-practice-5-practice"
+        ]
+      },
+      {
+        "week": 6,
+        "title": "Contamination, mycoplasma and authentication (outline lesson 6); bench practice: diagnose a contaminated culture from clues",
+        "lesson_ids": [
+          "cell-culture-practice-6"
+        ],
+        "assessment_ids": [
+          "cell-culture-practice-6-practice"
         ]
       }
     ]
@@ -464,6 +576,99 @@
           ]
         }
       ]
+    },
+    {
+      "id": "cell-culture-practice-module-5",
+      "title": "Cryopreservation and thawing",
+      "source_ids": [
+        "thermo-gibco-freezing-cells",
+        "thermo-gibco-thawing-cells",
+        "mazur-1970-cryobiology-freezing-systems",
+        "lovelock-bishop-1959-dmso",
+        "murray-gibson-2022-chemical-cryopreservation",
+        "mit-ocw-20-109-spring-2010"
+      ],
+      "lessons": [
+        {
+          "id": "cell-culture-practice-5",
+          "title": "Cryopreservation and thawing",
+          "reading": "modules/05-cryopreservation-and-thawing.md",
+          "objectives": [
+            "cell-culture-practice-5-objective-1",
+            "cell-culture-practice-5-objective-2",
+            "cell-culture-practice-5-objective-3",
+            "cell-culture-practice-5-objective-4",
+            "cell-culture-practice-5-objective-5"
+          ],
+          "worked_example": "A 5.00 mL harvest at 2.00 × 10⁶ viable cells/mL and 95.0% viability supplies 1.00 × 10⁷ viable cells for four 1.00 mL vials, each containing 2.50 × 10⁶ viable cells per vial; the separate batch concentration is 2.50 × 10⁶ cells/mL. A 4.00 mL final batch at 10.0% DMSO needs 0.400 mL DMSO + 3.60 mL base. One vial diluted into 9.00 mL medium reaches 1.00% DMSO; 95.0% solute removal and resuspension in 2.00 mL leaves 0.250%. At 92.0% post-thaw viability with total cells conserved, recovery = 2.50 × 10⁶ × 92.0/95.0 = 2.421053 × 10⁶ viable cells and 1.210526 × 10⁶ cells/mL.",
+          "question_ids": [
+            "cell-culture-practice-5:cryoprotectant-classes",
+            "cell-culture-practice-5:two-factor-injury",
+            "cell-culture-practice-5:freeze-medium-dmso-volume",
+            "cell-culture-practice-5:freeze-medium-base-volume",
+            "cell-culture-practice-5:vial-count",
+            "cell-culture-practice-5:freeze-cell-concentration",
+            "cell-culture-practice-5:storage-phase",
+            "cell-culture-practice-5:thaw-and-dilution",
+            "cell-culture-practice-5:post-dilution-dmso",
+            "cell-culture-practice-5:post-thaw-viable-yield",
+            "cell-culture-practice-5:residual-dmso",
+            "cell-culture-practice-5:quarantine-bank-record"
+          ],
+          "card_ids": [
+            "cell-culture-practice-5-card-1",
+            "cell-culture-practice-5-card-2",
+            "cell-culture-practice-5-card-3",
+            "cell-culture-practice-5-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cell-culture-practice-module-6",
+      "title": "Contamination, mycoplasma and authentication",
+      "source_ids": [
+        "drexler-uphoff-mycoplasma-detection",
+        "geraghty-2014-cell-line-guidelines",
+        "atcc-ansi-str-standard",
+        "iclac-misidentified-cells-register",
+        "mit-ocw-20-109-spring-2010"
+      ],
+      "lessons": [
+        {
+          "id": "cell-culture-practice-6",
+          "title": "Contamination, mycoplasma and cell-line authentication",
+          "reading": "modules/06-contamination-mycoplasma-and-authentication.md",
+          "objectives": [
+            "cell-culture-practice-6-objective-1",
+            "cell-culture-practice-6-objective-2",
+            "cell-culture-practice-6-objective-3",
+            "cell-culture-practice-6-objective-4",
+            "cell-culture-practice-6-objective-5"
+          ],
+          "worked_example": "At four synthetic STR loci, sample [8,8], [10,11], [12,14], [7,9] and reference [8,9], [10,11], [12,12], [7,9] share 1 + 2 + 1 + 2 = 6 allele-call observations. The lesson-defined classroom shared-call percentage is 100 × 6/8 = 75.0%, an arithmetic exercise rather than the Tanabe or Masters algorithm or an authentication threshold. Clear flasks still require dedicated mycoplasma and STR evidence before disposition.",
+          "question_ids": [
+            "cell-culture-practice-6:visible-signatures",
+            "cell-culture-practice-6:contamination-routes",
+            "cell-culture-practice-6:invisible-mycoplasma",
+            "cell-culture-practice-6:method-limits",
+            "cell-culture-practice-6:quarantine-first",
+            "cell-culture-practice-6:discard-versus-rescue",
+            "cell-culture-practice-6:antibiotic-masking",
+            "cell-culture-practice-6:str-loci-alleles",
+            "cell-culture-practice-6:str-shared-alleles",
+            "cell-culture-practice-6:str-classroom-percentage",
+            "cell-culture-practice-6:hela-context-and-authentication",
+            "cell-culture-practice-6:incoming-source-trace"
+          ],
+          "card_ids": [
+            "cell-culture-practice-6-card-1",
+            "cell-culture-practice-6-card-2",
+            "cell-culture-practice-6-card-3",
+            "cell-culture-practice-6-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -588,6 +793,66 @@
         "cell-culture-practice-3:passage-record-and-drift"
       ],
       "points": 14
+    },
+    {
+      "id": "cell-culture-practice-5-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Practice: cryopreservation, thawing and viable recovery",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "cell-culture-practice-5-objective-1",
+        "cell-culture-practice-5-objective-2",
+        "cell-culture-practice-5-objective-3",
+        "cell-culture-practice-5-objective-4",
+        "cell-culture-practice-5-objective-5",
+        "cell-culture-practice-outcome-7"
+      ],
+      "question_ids": [
+        "cell-culture-practice-5:cryoprotectant-classes",
+        "cell-culture-practice-5:two-factor-injury",
+        "cell-culture-practice-5:freeze-medium-dmso-volume",
+        "cell-culture-practice-5:freeze-medium-base-volume",
+        "cell-culture-practice-5:vial-count",
+        "cell-culture-practice-5:freeze-cell-concentration",
+        "cell-culture-practice-5:storage-phase",
+        "cell-culture-practice-5:thaw-and-dilution",
+        "cell-culture-practice-5:post-dilution-dmso",
+        "cell-culture-practice-5:post-thaw-viable-yield",
+        "cell-culture-practice-5:residual-dmso",
+        "cell-culture-practice-5:quarantine-bank-record"
+      ],
+      "points": 14
+    },
+    {
+      "id": "cell-culture-practice-6-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Practice: contamination, mycoplasma and authentication",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "cell-culture-practice-6-objective-1",
+        "cell-culture-practice-6-objective-2",
+        "cell-culture-practice-6-objective-3",
+        "cell-culture-practice-6-objective-4",
+        "cell-culture-practice-6-objective-5",
+        "cell-culture-practice-outcome-8"
+      ],
+      "question_ids": [
+        "cell-culture-practice-6:visible-signatures",
+        "cell-culture-practice-6:contamination-routes",
+        "cell-culture-practice-6:invisible-mycoplasma",
+        "cell-culture-practice-6:method-limits",
+        "cell-culture-practice-6:quarantine-first",
+        "cell-culture-practice-6:discard-versus-rescue",
+        "cell-culture-practice-6:antibiotic-masking",
+        "cell-culture-practice-6:str-loci-alleles",
+        "cell-culture-practice-6:str-shared-alleles",
+        "cell-culture-practice-6:str-classroom-percentage",
+        "cell-culture-practice-6:hela-context-and-authentication",
+        "cell-culture-practice-6:incoming-source-trace"
+      ],
+      "points": 17
     }
   ],
   "grading_policy": {
@@ -611,7 +876,7 @@
     "language": "en",
     "reading_format": "markdown",
     "math_format": "unicode-text",
-    "diagram_policy": "The package contains no diagrams; aseptic layout, medium preparation, passaging and counting rules are given in text and tables. All four bench simulations use text panels and event logs; the hemocytometer simulation additionally provides a text list of every synthetic cell alongside its drawn field.",
+    "diagram_policy": "The package contains no diagrams; aseptic layout, medium preparation, passaging and counting rules are given in text and tables. All six bench simulations use text panels and event logs; the hemocytometer simulation additionally provides a text list of every synthetic cell alongside its drawn field.",
     "known_issues": [
       "Unicode equations require structured mathematical alternatives and assistive-technology review.",
       "The bench simulations' panels, fields and text alternatives have not been reviewed with assistive-technology users."
@@ -633,23 +898,32 @@
       "version": "0.3.0",
       "date": "2026-11-16",
       "summary": "Added outline lessons 2 and 3 in Phase A: original media-preparation and passaging readings; 24 public formative practice items (16 and 14 points respectively); eight retrieval cards; two zero-point self-check cases; the 14-checkpoint supplemented-medium filtration/QC simulation; and the 16-checkpoint adherent target-density passage simulation. Suspension passaging is conceptual only. Eagle (1955) is a metadata-only link-only bibliographic citation; its article body was neither retrieved nor read and no methods, results or historical-role claim is based on it. Geraghty et al. (2014), six Thermo Fisher pages and MIT OCW 20.109 are link-only references/comparators; FDA sterility-incubation guidance remains an attributed US-federal-work adaptation. Partial, unreviewed and formative-only; no competency or physical-validation claim."
+    },
+    {
+      "version": "0.4.0",
+      "date": "2026-11-16",
+      "summary": "Added outline lessons 5 and 6 jointly in Phase B: original cryopreservation/thawing and contamination/mycoplasma/authentication readings; 24 public formative items (14 and 17 points respectively); eight retrieval cards; two zero-point self-check cases; and 15- and 13-checkpoint synthetic freeze/thaw and contamination-diagnosis simulations. The package now has six lessons, 72 items and 92 practice points, 24 cards and six cases. Cryopreservation values and outcomes are synthetic; stock remains quarantined pending QC and identity reference-on-file evidence. Contamination scenarios require all five linked flasks to be inspected and quarantined before interventions; clear release requires both reviewed disposition and learner-recorded STR match. Thermo Fisher, AAAS, Springer Nature, Drexler & Uphoff, Geraghty, ANSI/ATCC and ICLAC materials are link-only; Mazur full text and Lovelock subscription full text were unavailable, the paid ATCC standard was not accessed, and no ICLAC v14 register rows or dataset were copied. MIT OCW 20.109 remains a link-only comparator. Partial, unreviewed and formative-only; no project, competency or physical-validation claim."
     }
   ],
   "limitations": [
-    "A four-lesson partial package, not a cell-culture course: outline lessons 1–4 exist. Cryopreservation, full contamination management and authentication, pluripotent stem cells and records are absent; see the scope crosswalk.",
+    "A six-lesson partial package, not a cell-culture course: outline lessons 1–6 exist. Pluripotent stem cells and records (outline lessons 7–8) remain deferred; see the scope crosswalk.",
     "Practice items and simulations test decisions, calculations and contamination reasoning, not hand skill. Real aseptic manipulation, medium preparation, passaging, focusing, recognising cells and debris, pipetting and loading a chamber need supervised bench work.",
-    "Of the 19 numerical answers, 0 require units, 9 check significant figures and 0 check dimensions.",
+    "Of the 28 numerical answers, 0 require units, 16 check significant figures and 0 check dimensions.",
     "Lesson 4's top/left boundary convention, loading steps and simulation ranges are teaching choices; the manufacturer documents read do not prescribe them. Real counting procedures, density ranges and acceptance limits come from the device instructions and each laboratory's procedures.",
     "Lesson 1's T-75 working volume, clean-to-dirty zones, one-bottle rule, expired-label scenario, hidden-event probabilities, visible-growth threshold and simplified mycoplasma assay are teaching choices, not laboratory acceptance criteria or a validated sterility method.",
     "Lesson 2's synthetic 500 mL formulation, QC windows, volume-weighted osmolality approximation, 98% recovery, control volume, dates, 14-day expiry, hidden events and simplified assays are simulation choices, not laboratory acceptance criteria or physical validation.",
     "Lesson 3 teaches suspension passaging conceptually but simulates only an adherent T-75 target-density workflow; it does not model suspension vessels, shaking, growth or centrifugation choices.",
     "Lesson 3 confluence thresholds, exact T-75 volumes, dissociation-time bound, viability penalties, target density, PDL convention and numerical tolerances are simulation choices, not laboratory acceptance criteria or physical validation.",
-    "All cells, labels, counts, media batches and contamination events are synthetic. Nothing here establishes competency, qualification or authorisation to handle human or other primate cells."
+    "All cells, labels, counts, media batches and contamination events are synthetic. Nothing here establishes competency, qualification or authorisation to handle human or other primate cells.",
+    "Lesson 5 uses a simplified DMSO slow-freeze/vapour-storage workflow; it does not teach vitrification, every cryoprotectant, cell-specific optimisation, full QC release or a complete cell-banking SOP.",
+    "Lesson 5 volumes, temperatures, timing bounds, hidden recovery values, DMSO-removal efficiency, viability multipliers and numerical tolerances are simulation choices, not laboratory acceptance criteria or physical validation. Dye-exclusion recounts do not establish future growth, identity, sterility or release suitability.",
+    "Lesson 6 uses synthetic organisms, visible panels, four-locus STR profiles, binary assay outputs, source assignments and dispositions; these are simulation choices, not laboratory acceptance criteria, diagnostic performance or physical validation.",
+    "The lesson’s shared-call percentage is not the Tanabe or Masters algorithm or an ASN-0002 decision threshold. Real authentication needs declared algorithms, suitable reference provenance, quality review and privacy controls; STR does not establish sterility or phenotype."
   ],
   "intentionally_omitted": [
     "Graded assessments, a project, measured workload and review by a qualified person.",
-    "Outline lessons 5–8 of the cell-culture layer, which remain deferred.",
-    "Full contamination management, identification of specific organisms and cell-line authentication beyond lessons 1–3's introductions to prevention, mollicute evidence and repeated-subculture risk.",
+    "Outline lessons 7–8 of the cell-culture layer, which remain deferred.",
+    "Species identification, real diagnostic performance, a complete ASN-0002 implementation and physical rescue efficacy remain outside lesson 6; contamination response, mycoplasma evidence and bounded synthetic STR authentication are taught.",
     "Automated cell counters, flow-cytometric and fluorescent viability assays, which are named but not taught.",
     "ISSCR standards and human pluripotent stem-cell practice, reserved for the planned stem-cell lesson; they are not used to support these synthetic exercises."
   ],

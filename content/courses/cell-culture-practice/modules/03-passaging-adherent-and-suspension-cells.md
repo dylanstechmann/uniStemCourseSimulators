@@ -4,7 +4,7 @@
 
 Passaging, or subculturing, transfers cells from an actively growing culture into fresh medium so that space and nutrients do not become limiting. The decision begins with the culture's growth state, not with a calendar entry. It ends with a traceable new culture whose identity, passage history and intended starting density are known. This lesson compares adherent and suspension workflows conceptually; its [adherent target-density bench simulation](#/bench/passage-an-adherent-line-to-a-target-density) models only the adherent workflow with a generic, non-human mammalian cell line.
 
-This is lesson 3 of the outlined cell-culture layer, scheduled as week 4 after lesson 2 in week 3. The hemocytometer lesson (outline lesson 4, scheduled in week 2) is the counting prerequisite: dilution factors, two-chamber tallies, dye-exclusion limits and sampling error are applied here rather than retaught. Nothing in this reading or simulation establishes competency, physical skill, institutional authorisation or a validated culture protocol. Cell-line instructions and institutional procedures govern real work.
+This is lesson 3 of the outlined cell-culture layer, scheduled as week 4 after lesson 2 in week 3. Lessons 1–6 of the outlined cell-culture layer are written and available; only lessons 7–8 (human pluripotent stem cells and records) remain deferred. The hemocytometer lesson (outline lesson 4, scheduled in week 2) is the counting prerequisite: dilution factors, two-chamber tallies, dye-exclusion limits and sampling error are applied here rather than retaught. Nothing in this reading or simulation establishes competency, physical skill, institutional authorisation or a validated culture protocol. Cell-line instructions and institutional procedures govern real work.
 
 ## Learning objectives
 
@@ -84,7 +84,7 @@ For the simulation's previous interval, N0 = 1.815 × 10⁶ viable cells and Nf 
 
 A useful record includes line and vessel identifiers, date, operator, starting confluence or density, morphology, dissociation and neutralization details, dilution and raw chamber tallies, viable concentration, viability, total yield, target and actual seed numbers, final volume, medium and reagent lots, previous and new passage number, PDL increment and cumulative PDL. The simulator checks the arithmetic fields, not whether a free-text record is complete.
 
-Thermo Fisher's maintenance guidance warns that repeated subculture can alter cell characteristics and genomic stability and recommends detailed logs. A high passage number alone neither proves drift nor identifies its mechanism. Use earlier, well-characterised stocks where appropriate and carry forward unusual morphology, growth or marker evidence to the planned lesson 6 discussion of contamination, mycoplasma and authentication. Authentication and periodic quality checks are not replaced by a PDL ledger or a high viability reading.
+Thermo Fisher's maintenance guidance warns that repeated subculture can alter cell characteristics and genomic stability and recommends detailed logs. A high passage number alone neither proves drift nor identifies its mechanism. Use earlier, well-characterised stocks where appropriate and carry forward unusual morphology, growth or marker evidence to the lesson 6 discussion of contamination, mycoplasma and authentication. Authentication and periodic quality checks are not replaced by a PDL ledger or a high viability reading.
 
 ## Practise in the adherent bench simulation
 

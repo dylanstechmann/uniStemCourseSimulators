@@ -1,12 +1,26 @@
+import copy
 import json
 import math
 import random
+import re
 from pathlib import Path
 
 import pytest
 from fastapi.testclient import TestClient
 
 from courselab.bench import MODELS, BenchLibrary, ProtocolInvalid, public_protocol
+from courselab.bench.contamination import (
+    CLEAR_CONDITIONS,
+    CONDITIONS,
+    EXPECTED_SOURCE,
+    EXPECTED_VISIBLE_TEST,
+    FLASKS,
+    LINKED_RECORDS,
+    MYCOPLASMA_TESTS,
+    VISIBLE_CONDITIONS,
+    ContaminationDiagnosis,
+)
+from courselab.bench.cryopreservation import CryopreservationRun
 from courselab.bench.engine import ActionRejected, check_parameters, replay, run_state
 from courselab.bench.pipette import water_density, z_factor
 from courselab.bench.plate_count import bam_round
@@ -1647,3 +1661,655 @@ def test_api_rejections(api):
     assert api.post("/api/v1/bench/protocols/none/replay", json={"seed": 1, "mode": "practice", "actions": []},
                     headers={"Origin": ORIGIN}).status_code == 404
     assert api.get("/api/v1/bench/protocols/none").status_code == 404
+
+
+# Phase B: cryopreservation and contamination ------------------------------
+
+CRYO = "freeze-and-thaw-with-viability-outcomes"
+CONTAMINATION = "diagnose-a-contaminated-culture-from-clues"
+
+
+@pytest.fixture(scope="module")
+def cryo_model(library):
+    return library.get(CRYO)
+
+
+@pytest.fixture(scope="module")
+def contamination_model(library):
+    return library.get(CONTAMINATION)
+
+
+def test_phase_b_models_are_registered_with_their_canonical_protocols(library):
+    assert library.get(CRYO).__class__ is CryopreservationRun
+    assert library.get(CONTAMINATION).__class__ is ContaminationDiagnosis
+    assert len(library.get(CRYO).definition["actions"]) == 13
+    assert len(library.get(CRYO).definition["checkpoints"]) == 15
+    assert len(library.get(CONTAMINATION).definition["actions"]) == 9
+    assert len(library.get(CONTAMINATION).definition["checkpoints"]) == 13
+
+
+def test_default_presenter_is_identity_for_every_other_model(library):
+    for protocol_id in set(MODELS) - {CRYO}:
+        model = library.get(protocol_id)
+        view = replay(model, 0, "practice", []).view()
+        assert model.present_view(view) is view, protocol_id
+
+
+def test_run_view_invokes_presenter_exactly_once_per_view(library, monkeypatch):
+    model = library.get(PIPETTE)
+    calls = []
+    original = model.present_view
+
+    def counting_presenter(view):
+        calls.append(view)
+        return original(view)
+
+    monkeypatch.setattr(model, "present_view", counting_presenter)
+    run = replay(model, 0, "practice", [])
+    first = run.view()
+    second = run.view()
+    assert first == second
+    assert len(calls) == 2
+
+
+# Cryopreservation -------------------------------------------------------------
+
+def learner_view(cryo_model, seed, actions):
+    """Exercise the cryo_model presenter proposed for the shared engine output hook."""
+    return replay(cryo_model, seed, "practice", actions).view()
+
+
+def cryo_run(cryo_model, seed, *, harvest_concentration=2e6, harvest_viability=95,
+             harvest_volume=5.0, final_volume=4.0, dmso_volume=0.4,
+             base_volume=3.6, medium_temperature=4, addition_temperature=4,
+             addition_method="cold_dropwise", addition_minutes=2,
+             vial_count=4, volume_per_vial=1.0, viable_per_vial=2500000,
+             cooling_method="controlled_rate", cooling_rate=1.0,
+             hold_temperature=-80, hold_hours=16, storage_phase="vapour",
+             storage_temperature=-150, dewar="CRYO-A", rack="R-02", box="B-07",
+             position="D4", bank_tier="working_stock", thaw_temperature=37,
+             thaw_seconds=45, thaw_endpoint="small_ice_remains", medium_ml=9.0,
+             dilution_method="gradual_with_mixing", dilution_temperature=37,
+             rcf=200, collection_minutes=5, supernatant_removed=True,
+             recount_volume=2.0, wrong_recount=False, disposition="quarantine_pending_qc",
+             sterility="pending", identity="reference_on_file",
+             forward_record="lesson_8_bank_ledger"):
+    actions = [
+        act("harvest_and_count", viable_concentration_cells_ml=harvest_concentration,
+            viability_pct=harvest_viability, suspension_volume_ml=harvest_volume),
+        act("prepare_freeze_medium", final_volume_ml=final_volume,
+            dmso_volume_ml=dmso_volume, base_volume_ml=base_volume,
+            temperature_c=medium_temperature),
+        act("add_dmso", temperature_c=addition_temperature,
+            addition_method=addition_method, elapsed_minutes=addition_minutes),
+        act("aliquot_vials", vial_count=vial_count,
+            volume_per_vial_ml=volume_per_vial, viable_cells_per_vial=viable_per_vial),
+        act("cool_vials", method=cooling_method, rate_c_per_min=cooling_rate,
+            hold_temperature_c=hold_temperature, hold_hours=hold_hours),
+        act("store_vials", phase=storage_phase, temperature_c=storage_temperature),
+        act("record_location", dewar_id=dewar, rack_id=rack, box_id=box,
+            position_id=position, bank_tier=bank_tier),
+        act("thaw_vial", temperature_c=thaw_temperature,
+            duration_seconds=thaw_seconds, endpoint=thaw_endpoint),
+        act("dilute_post_thaw", medium_ml=medium_ml,
+            addition_method=dilution_method, medium_temperature_c=dilution_temperature),
+        act("remove_dmso", rcf_g=rcf, minutes=collection_minutes,
+            supernatant_removed=supernatant_removed, final_volume_ml=recount_volume),
+    ]
+    state, _ = run_state(cryo_model, seed, "practice", actions)
+    outcome = cryo_model._outcome(state)
+    if wrong_recount:
+        outcome["post_thaw_viable_cells_recovered"] *= 1.1
+    actions += [
+        act("recount_post_thaw",
+            viable_cells_recovered=outcome["post_thaw_viable_cells_recovered"],
+            viability_pct=outcome["post_thaw_viability_pct"],
+            viable_concentration_cells_ml=outcome["post_thaw_viable_concentration_cells_ml"]),
+        act("quarantine_stock", disposition=disposition, sterility_status=sterility,
+            identity_status=identity, forward_record=forward_record),
+        act("finish"),
+    ]
+    return actions
+
+
+def test_cryo_correct_run_meets_every_checkpoint_and_returns_structure(cryo_model):
+    seed = seed_where(cryo_model, lambda h: h["baseline_post_thaw_viability_pct"] == 92)
+    actions = cryo_run(cryo_model, seed)
+    state, _ = run_state(cryo_model, seed, "practice", actions)
+    view = learner_view(cryo_model, seed, actions)
+    met = checkpoint_map(view)
+    assert set(met) == set(cryo_model.checkpoint_ids())
+    assert all(value is True for value in met.values()), met
+    assert view["debrief"]["all_critical_met"]
+    result = state["result"]
+    display_result = view["log"][-1]["events"][0]["data"]["result"]
+    assert result["expected_viable_harvest_cells"] == 1e7
+    assert result["expected_batch_viable_concentration_cells_ml"] == 2.5e6
+    assert result["post_thaw_viability_pct"] == 92
+    assert result["prefreeze_total_cells_in_vial"] == pytest.approx(2500000 / 0.95)
+    assert result["post_thaw_viable_cells_recovered"] == pytest.approx(2500000 * 92 / 95)
+    assert result["post_thaw_viable_concentration_cells_ml"] == pytest.approx(2500000 * 92 / 95 / 2)
+    assert result["recovery_of_initially_viable_pct"] == pytest.approx(100 * 92 / 95)
+    assert result["diluted_dmso_pct"] == 1
+    assert result["residual_dmso_ml"] == pytest.approx(0.005)
+    assert result["residual_dmso_pct"] == pytest.approx(0.25)
+    assert result["quarantine"]["disposition"] == "quarantine_pending_qc"
+    assert result["location"] == {"dewar_id": "CRYO-A", "rack_id": "R-02", "box_id": "B-07", "position_id": "D4", "bank_tier": "working_stock"}
+    assert "predicted_growth" not in result and "release_approved" not in result
+    assert display_result["post_thaw_viable_cells_recovered"] == 2421053
+    assert type(display_result["post_thaw_viable_cells_recovered"]) is int
+    assert display_result["post_thaw_viable_concentration_cells_ml"] == 1210526
+    assert type(display_result["post_thaw_viable_concentration_cells_ml"]) is int
+    assert display_result["recovery_of_initially_viable_pct"] == 96.84211
+
+
+@pytest.mark.parametrize("seed", range(20))
+def test_cryo_correct_runs_are_seed_robust(cryo_model, seed):
+    met = checkpoint_map(replay(cryo_model, seed, "practice", cryo_run(cryo_model, seed)).view())
+    assert all(value is True for value in met.values()), (seed, met)
+
+
+def test_cryo_harvest_medium_and_aliquot_checkpoints(cryo_model):
+    met = checkpoint_map(replay(cryo_model, 0, "practice", cryo_run(cryo_model, 0, harvest_viability=94)).view())
+    assert met["harvest-and-count"] is False
+    assert all(value for key, value in met.items() if key != "harvest-and-count")
+    met = checkpoint_map(replay(cryo_model, 0, "practice", cryo_run(cryo_model, 0, dmso_volume=0.5, base_volume=3.5)).view())
+    assert met["freeze-medium-composition"] is False
+    met = checkpoint_map(replay(cryo_model, 0, "practice", cryo_run(cryo_model, 0, medium_temperature=22)).view())
+    assert met["freeze-medium-composition"] is False and met["cold-dropwise-dmso"] is True
+    met = checkpoint_map(replay(cryo_model, 0, "practice", cryo_run(cryo_model, 0, vial_count=3)).view())
+    assert met["aliquot-conservation"] is False
+
+
+def test_cryo_room_temperature_dmso_mistake_lowers_viability(cryo_model):
+    seed = 0
+    good = cryo_model._outcome(run_state(cryo_model, seed, "practice", cryo_run(cryo_model, seed))[0])
+    bad_actions = cryo_run(cryo_model, seed, addition_temperature=22)
+    bad = cryo_model._outcome(run_state(cryo_model, seed, "practice", bad_actions)[0])
+    met = checkpoint_map(replay(cryo_model, seed, "practice", bad_actions).view())
+    assert met["cold-dropwise-dmso"] is False
+    assert met["post-thaw-viability"] is False
+    assert met["freeze-medium-composition"] is True and met["controlled-cooling"] is True
+    assert bad["post_thaw_viability_pct"] < good["post_thaw_viability_pct"]
+
+
+def test_cryo_non_dropwise_dmso_is_same_mistake_family(cryo_model):
+    met = checkpoint_map(replay(cryo_model, 0, "practice", cryo_run(cryo_model, 0, addition_method="rapid_single_bolus")).view())
+    assert met["cold-dropwise-dmso"] is False and met["post-thaw-viability"] is False
+
+
+def test_cryo_missing_cooling_container_mistake_lowers_viability(cryo_model):
+    seed = 0
+    good = cryo_model._outcome(run_state(cryo_model, seed, "practice", cryo_run(cryo_model, seed))[0])
+    actions = cryo_run(cryo_model, seed, cooling_method="uncontrolled_freezer")
+    bad = cryo_model._outcome(run_state(cryo_model, seed, "practice", actions)[0])
+    met = checkpoint_map(replay(cryo_model, seed, "practice", actions).view())
+    assert met["controlled-cooling"] is False and met["post-thaw-viability"] is False
+    assert met["cold-dropwise-dmso"] is True and met["fast-thaw"] is True
+    assert bad["post_thaw_viability_pct"] < good["post_thaw_viability_pct"]
+
+
+def test_cryo_cooling_rate_and_hold_are_checked(cryo_model):
+    met = checkpoint_map(replay(cryo_model, 0, "practice", cryo_run(cryo_model, 0, cooling_rate=10)).view())
+    assert met["controlled-cooling"] is False
+    met = checkpoint_map(replay(cryo_model, 0, "practice", cryo_run(cryo_model, 0, hold_hours=12)).view())
+    assert met["controlled-cooling"] is False
+
+
+def test_cryo_liquid_phase_storage_is_independent_safety_mistake(cryo_model):
+    met = checkpoint_map(replay(cryo_model, 0, "practice", cryo_run(cryo_model, 0, storage_phase="liquid")).view())
+    assert met["vapour-phase-storage"] is False
+    assert met["post-thaw-viability"] is True
+    assert met["controlled-cooling"] is True and met["fast-thaw"] is True
+
+
+def test_cryo_location_and_bank_forward_records(cryo_model):
+    met = checkpoint_map(replay(cryo_model, 0, "practice", cryo_run(cryo_model, 0, box="UNKNOWN")).view())
+    assert met["location-record"] is False and met["bank-tier-forward-link"] is True
+    met = checkpoint_map(replay(cryo_model, 0, "practice", cryo_run(cryo_model, 0, forward_record="none")).view())
+    assert met["bank-tier-forward-link"] is False and met["location-record"] is True
+
+
+def test_cryo_slow_thaw_mistake_lowers_viability(cryo_model):
+    seed = 0
+    good = cryo_model._outcome(run_state(cryo_model, seed, "practice", cryo_run(cryo_model, seed))[0])
+    actions = cryo_run(cryo_model, seed, thaw_temperature=22, thaw_seconds=1200,
+                       thaw_endpoint="room_temperature_equilibrated")
+    bad = cryo_model._outcome(run_state(cryo_model, seed, "practice", actions)[0])
+    met = checkpoint_map(replay(cryo_model, seed, "practice", actions).view())
+    assert met["fast-thaw"] is False and met["post-thaw-viability"] is False
+    assert met["controlled-cooling"] is True and met["post-thaw-dilution"] is True
+    assert bad["post_thaw_viability_pct"] < good["post_thaw_viability_pct"]
+
+
+def test_cryo_extended_warming_is_not_accepted(cryo_model):
+    met = checkpoint_map(replay(cryo_model, 0, "practice", cryo_run(cryo_model, 0, thaw_seconds=300, thaw_endpoint="fully_melted_extended")).view())
+    assert met["fast-thaw"] is False
+
+
+def test_cryo_dilution_and_dmso_removal_mistakes(cryo_model):
+    actions = cryo_run(cryo_model, 0, medium_ml=0)
+    met = checkpoint_map(replay(cryo_model, 0, "practice", actions).view())
+    assert met["post-thaw-dilution"] is False and met["post-thaw-viability"] is False
+    met = checkpoint_map(replay(cryo_model, 0, "practice", cryo_run(cryo_model, 0, dilution_method="rapid_single_bolus")).view())
+    assert met["post-thaw-dilution"] is False
+    met = checkpoint_map(replay(cryo_model, 0, "practice", cryo_run(cryo_model, 0, supernatant_removed=False)).view())
+    assert met["dmso-removal"] is False and met["post-thaw-viability"] is False
+    met = checkpoint_map(replay(cryo_model, 0, "practice", cryo_run(cryo_model, 0, rcf=800)).view())
+    assert met["dmso-removal"] is False
+
+
+def test_cryo_recount_arithmetic_is_checked_independently(cryo_model):
+    met = checkpoint_map(replay(cryo_model, 0, "practice", cryo_run(cryo_model, 0, wrong_recount=True)).view())
+    assert met["recount-arithmetic"] is False and met["post-thaw-viability"] is True
+
+
+def test_cryo_quarantine_and_qc_status_are_checked(cryo_model):
+    met = checkpoint_map(replay(cryo_model, 0, "practice", cryo_run(cryo_model, 0, disposition="release_to_routine_use", sterility="clear")).view())
+    assert met["quarantine-pending-qc"] is False
+    met = checkpoint_map(replay(cryo_model, 0, "practice", cryo_run(cryo_model, 0, identity="mismatch")).view())
+    assert met["quarantine-pending-qc"] is False
+    pending_view = replay(cryo_model, 0, "practice", cryo_run(cryo_model, 0, identity="pending")).view()
+    met = checkpoint_map(pending_view)
+    assert met["quarantine-pending-qc"] is False
+    assert "pending identity does not satisfy" in next(row["detail"] for row in pending_view["debrief"]["checkpoints"] if row["id"] == "quarantine-pending-qc")
+    pending_result = pending_view["log"][-1]["events"][0]["data"]["result"]
+    assert pending_result["quarantine"]["disposition"] == "quarantine_pending_qc"
+    assert pending_result["quarantine"]["identity_status"] == "pending"
+
+
+def test_cryo_action_order_duplicates_and_feasibility_are_rejected(cryo_model):
+    with pytest.raises(ActionRejected, match="harvest/count"):
+        replay(cryo_model, 0, "practice", [act("prepare_freeze_medium", final_volume_ml=4, dmso_volume_ml=0.4, base_volume_ml=3.6, temperature_c=4)])
+    with pytest.raises(ActionRejected, match="already"):
+        replay(cryo_model, 0, "practice", cryo_run(cryo_model, 0)[:2] + [cryo_run(cryo_model, 0)[1]])
+    with pytest.raises(ActionRejected, match="more viable cells"):
+        replay(cryo_model, 0, "practice", cryo_run(cryo_model, 0, viable_per_vial=4000000))
+    with pytest.raises(ActionRejected, match="before stock disposition"):
+        replay(cryo_model, 0, "practice", cryo_run(cryo_model, 0)[:10] + [act("quarantine_stock", disposition="quarantine_pending_qc", sterility_status="pending", identity_status="reference_on_file", forward_record="lesson_8_bank_ledger")])
+
+
+def test_cryo_schema_rejects_malformed_parameters(cryo_model):
+    with pytest.raises(ActionRejected, match="number"):
+        check_parameters(cryo_model.action_specs["harvest_and_count"], {"viable_concentration_cells_ml": True, "viability_pct": 95, "suspension_volume_ml": 5})
+    with pytest.raises(ActionRejected, match="whole number"):
+        check_parameters(cryo_model.action_specs["aliquot_vials"], {"vial_count": 4.5, "volume_per_vial_ml": 1, "viable_cells_per_vial": 2500000})
+    with pytest.raises(ActionRejected, match="between"):
+        check_parameters(cryo_model.action_specs["thaw_vial"], {"temperature_c": 37, "duration_seconds": 0, "endpoint": "small_ice_remains"})
+    with pytest.raises(ActionRejected, match="Unknown parameter"):
+        check_parameters(cryo_model.action_specs["finish"], {"approved": True})
+    with pytest.raises(ActionRejected, match="listed options"):
+        check_parameters(cryo_model.action_specs["store_vials"], {"phase": "gas-ish", "temperature_c": -150})
+    with pytest.raises(ActionRejected, match="short identifier"):
+        check_parameters(cryo_model.action_specs["record_location"], {"dewar_id": "private donor name", "rack_id": "R-02", "box_id": "B-07", "position_id": "D4", "bank_tier": "working_stock"})
+
+
+def test_cryo_replay_determinism_seed_dependence_and_hidden_privacy(cryo_model):
+    actions = cryo_run(cryo_model, 0)
+    assert replay(cryo_model, 0, "practice", actions).view() == replay(cryo_model, 0, "practice", actions).view()
+    baselines = {hidden(cryo_model, seed)["baseline_post_thaw_viability_pct"] for seed in range(20)}
+    assert baselines == {92.0, 93.0}
+    state, _ = run_state(cryo_model, 0, "practice", [])
+    public_text = json.dumps(cryo_model.visible(state)) + json.dumps(public_protocol(cryo_model.definition))
+    assert '"hidden"' not in public_text
+    assert "baseline_post_thaw" not in public_text and "viability_multiplier" not in public_text
+    assert "92.0" not in public_text and "93.0" not in public_text
+    partial = replay(cryo_model, 0, "practice", actions[:5]).view()
+    assert partial["debrief"] is None and not partial["finished"]
+    partial_text = json.dumps(partial)
+    assert "baseline_post_thaw" not in partial_text and "viability_multiplier" not in partial_text
+    finished = replay(cryo_model, 0, "practice", actions).view()
+    assert any("Hidden seeded baseline" in note for note in finished["debrief"]["revealed"])
+
+
+
+def assert_clean_learner_render(view):
+    panels = json.dumps(view["panels"], ensure_ascii=False)
+    log = json.dumps(view["log"], ensure_ascii=False)
+    finished = json.dumps(view, ensure_ascii=False)
+    debrief = json.dumps(view["debrief"], ensure_ascii=False)
+    direct_result = json.dumps(view["log"][-1]["events"][0]["data"]["result"], ensure_ascii=False)
+    for rendered in (panels, log, finished, debrief, direct_result):
+        assert not re.search(r"[eE][+-]\d+", rendered), rendered
+        assert not re.search(r"\d+\.\d{7,}", rendered), rendered
+    assert "'harvest':" not in debrief
+    assert "Rounded display result" in debrief
+
+
+def test_cryo_adversarial_complete_learner_render_has_no_exponents_or_float_artifacts(cryo_model):
+    seed = seed_where(cryo_model, lambda h: h["baseline_post_thaw_viability_pct"] == 92)
+    correct_actions = cryo_run(cryo_model, seed)
+    correct_view = learner_view(cryo_model, seed, correct_actions)
+    assert_clean_learner_render(correct_view)
+    aliquot_panel = next(panel for panel in correct_view["panels"] if panel["title"] == "Cryovials")
+    assert ["Viable target per vial", "2,500,000 cells"] in aliquot_panel["rows"]
+    recount = next(row for row in correct_view["debrief"]["checkpoints"] if row["id"] == "recount-arithmetic")
+    assert "2,421,053 viable cells" in recount["detail"]
+    assert "1,210,526 cells/mL" in recount["detail"]
+    display_result = correct_view["log"][-1]["events"][0]["data"]["result"]
+    assert display_result["post_thaw_viable_cells_recovered"] == 2421053.0
+    state, _ = run_state(cryo_model, seed, "practice", correct_actions)
+    assert state["result"]["post_thaw_viable_cells_recovered"] == pytest.approx(2500000 * 92 / 95)
+    assert state["result"]["post_thaw_viable_cells_recovered"] != display_result["post_thaw_viable_cells_recovered"]
+    adversarial_actions = cryo_run(
+        cryo_model, seed, addition_temperature=22, addition_method="rapid_single_bolus",
+        cooling_method="uncontrolled_freezer", cooling_rate=10,
+        storage_phase="liquid", thaw_temperature=22, thaw_seconds=1200,
+        thaw_endpoint="room_temperature_equilibrated", dilution_method="rapid_single_bolus",
+        supernatant_removed=False,
+    )
+    adversarial_view = learner_view(cryo_model, seed, adversarial_actions)
+    assert_clean_learner_render(adversarial_view)
+    assert checkpoint_map(adversarial_view)["post-thaw-viability"] is False
+    assert learner_view(cryo_model, seed, adversarial_actions) == adversarial_view
+
+
+
+@pytest.mark.parametrize(("overrides", "checkpoint", "parameter"), [
+    ({"harvest_viability": 94.9999999}, "harvest-and-count", "viability_pct"),
+    ({"cooling_rate": 1.20000001}, "controlled-cooling", "rate_c_per_min"),
+])
+def test_cryo_replay_purity_at_near_checkpoint_boundaries(cryo_model, overrides, checkpoint, parameter):
+    actions = cryo_run(cryo_model, 0, **overrides)
+    original = copy.deepcopy(actions)
+    original_json = json.dumps(actions, sort_keys=True)
+    engine_views = []
+    presented_views = []
+    failed_sets = []
+    for _ in range(3):
+        engine_view = replay(cryo_model, 0, "practice", actions).view()
+        engine_snapshot = copy.deepcopy(engine_view)
+        engine_views.append(engine_view)
+        presented_view = cryo_model.present_view(engine_view)
+        assert engine_view == engine_snapshot  # presentation also leaves its input untouched
+        assert actions == original
+        assert json.dumps(actions, sort_keys=True) == original_json
+        presented_views.append(presented_view)
+        met = checkpoint_map(presented_view)
+        assert met[checkpoint] is False
+        failed_sets.append({cid for cid, passed in met.items() if passed is False})
+    assert engine_views[0] == engine_views[1] == engine_views[2]
+    assert presented_views[0] == presented_views[1] == presented_views[2]
+    assert failed_sets[0] == failed_sets[1] == failed_sets[2]
+    action_index = 0 if parameter == "viability_pct" else 4
+    value = actions[action_index]["params"][parameter]
+    assert type(value) is float
+    assert value == next(iter(overrides.values()))
+    assert not isinstance(value, str)
+
+
+def test_cryo_small_nonzero_input_is_lossless_readable_in_complete_presented_view(cryo_model):
+    actions = cryo_run(cryo_model, 0, harvest_viability=1e-9)
+    original = copy.deepcopy(actions)
+    engine_view = replay(cryo_model, 0, "practice", actions).view()
+    engine_snapshot = copy.deepcopy(engine_view)
+    presented_view = cryo_model.present_view(engine_view)
+    assert engine_view == engine_snapshot and actions == original
+    assert type(actions[0]["params"]["viability_pct"]) is float
+    assert actions[0]["params"]["viability_pct"] == 1e-9
+    assert presented_view["log"][0]["params"]["viability_pct"] == "1 × 10⁻⁹"
+    assert presented_view["log"][0]["events"][0]["data"]["viability_pct"] == "1 × 10⁻⁹"
+    direct_result = presented_view["log"][-1]["events"][0]["data"]["result"]
+    assert direct_result["harvest"]["viability_pct"] == "1 × 10⁻⁹"
+    assert_clean_learner_render(presented_view)
+    rendered = json.dumps(presented_view, ensure_ascii=False)
+    assert "1 × 10⁻⁹" in rendered
+    assert "0.000000001" not in rendered
+    assert checkpoint_map(presented_view)["harvest-and-count"] is False
+
+
+# Contamination and authentication --------------------------------------------
+
+def condition_flask(contamination_model, seed, condition):
+    return next(flask for flask, value in hidden(contamination_model, seed)["conditions"].items() if value == condition)
+
+
+def diagnosis_run(contamination_model, seed, *, mycoplasma_test="mycoplasma_pcr", interpretation_overrides=None,
+                  disposition_overrides=None, trace_overrides=None, antibiotic=False, handoff_overrides=None):
+    interpretation_overrides = interpretation_overrides or {}
+    disposition_overrides = disposition_overrides or {}
+    trace_overrides = trace_overrides or {}
+    handoff_overrides = handoff_overrides or {}
+    conditions = hidden(contamination_model, seed)["conditions"]
+    actions = [act("inspect_flask", flask=flask) for flask in FLASKS]
+    actions += [act("quarantine_flask", flask=flask) for flask in FLASKS]
+    if antibiotic:
+        actions.append(act("attempt_antibiotic_rescue", flask=FLASKS[0], agent="penicillin_streptomycin"))
+    for flask in FLASKS:
+        condition = conditions[flask]
+        if condition in VISIBLE_CONDITIONS:
+            actions.append(act("order_test", flask=flask, test=EXPECTED_VISIBLE_TEST[condition]))
+        else:
+            actions.append(act("order_test", flask=flask, test=mycoplasma_test))
+            actions.append(act("order_test", flask=flask, test="str_profile"))
+            interpretation = "mismatch" if condition == "str_mismatch" else "match"
+            interpretation = interpretation_overrides.get(condition, interpretation)
+            actions.append(act("record_str_interpretation", flask=flask, relationship=interpretation))
+    for flask in FLASKS:
+        condition = conditions[flask]
+        disposition = contamination_model._expected_disposition(condition)
+        disposition = disposition_overrides.get(condition, disposition)
+        actions.append(act("decide_disposition", flask=flask, disposition=disposition))
+        actions.append(act("trace_source", flask=flask, source=trace_overrides.get(condition, EXPECTED_SOURCE[condition])))
+    handoff = {
+        "scope": "all_linked_flasks", "include_test_results": True, "include_dispositions": True,
+        "include_source_traces": True, "decontamination_requested": True,
+        **handoff_overrides,
+    }
+    actions += [act("record_incident_handoff", **handoff), act("finish_investigation")]
+    return actions
+
+
+def test_contamination_correct_run_meets_every_checkpoint_and_returns_structure(contamination_model):
+    view = replay(contamination_model, 7, "practice", diagnosis_run(contamination_model, 7)).view()
+    met = checkpoint_map(view)
+    assert all(value is True for value in met.values()), met
+    assert view["debrief"]["all_critical_met"]
+    result = view["log"][-1]["events"][0]["data"]["result"]
+    assert result["synthetic"] is True and result["physical_validation"] is False
+    assert set(result["flasks"]) == set(FLASKS)
+    conditions = {entry["revealed_condition"] for entry in result["flasks"].values()}
+    assert conditions == set(CONDITIONS)
+    for flask, entry in result["flasks"].items():
+        condition = hidden(contamination_model, 7)["conditions"][flask]
+        assert entry["source_hypothesis"] == EXPECTED_SOURCE[condition]
+        if condition in CLEAR_CONDITIONS:
+            assert "mycoplasma_pcr" in entry["tests"] and "str_profile" in entry["tests"]
+    assert result["handoff"]["contains_personal_or_donor_data"] is False
+
+
+def test_contamination_linked_record_clues_precede_tracing_and_preserve_initial_privacy(contamination_model):
+    seed = 12
+    initial_state, _ = run_state(contamination_model, seed, "practice", [])
+    initial = json.dumps(contamination_model.visible(initial_state)) + json.dumps(public_protocol(contamination_model.definition))
+    assert all(record["record_id"] not in initial for record in LINKED_RECORDS.values())
+    assert "competing_hypotheses" not in initial
+
+    actions = diagnosis_run(contamination_model, seed)
+    first_trace = next(index for index, action in enumerate(actions) if action["name"] == "trace_source")
+    state, _ = run_state(contamination_model, seed, "practice", actions[:first_trace])
+    assert not state["traces"]
+    panels = contamination_model.visible(state)
+    bundle_panel = next(panel for panel in panels if panel["title"] == "Inspected synthetic linked-record bundles")
+    assert len(bundle_panel["rows"]) == len(FLASKS)
+    bundle_text = json.dumps(bundle_panel)
+    conditions = hidden(contamination_model, seed)["conditions"]
+    assert {record["supports"] for record in LINKED_RECORDS.values()} == set(EXPECTED_SOURCE.values())
+    for flask in FLASKS:
+        record = LINKED_RECORDS[conditions[flask]]
+        assert record["supports"] == EXPECTED_SOURCE[conditions[flask]]
+        assert record["supports"] not in record["competing_hypotheses"]
+        assert record["record_id"] in bundle_text and record["clue"] in bundle_text
+        assert record["interpretation_limit"] in bundle_text
+        assert all(item.replace("_", " ") in bundle_text for item in record["competing_hypotheses"])
+    public_before_trace = json.dumps(replay(contamination_model, seed, "practice", actions[:first_trace]).view())
+    assert '"supports"' not in public_before_trace and "revealed_condition" not in public_before_trace
+
+
+@pytest.mark.parametrize("seed", range(25))
+def test_contamination_correct_runs_are_seed_robust(contamination_model, seed):
+    met = checkpoint_map(replay(contamination_model, seed, "practice", diagnosis_run(contamination_model, seed)).view())
+    assert all(value is True for value in met.values()), (seed, met)
+
+
+@pytest.mark.parametrize("method", sorted(MYCOPLASMA_TESTS))
+def test_contamination_all_dedicated_mycoplasma_method_families_satisfy_scenario(contamination_model, method):
+    met = checkpoint_map(replay(contamination_model, 3, "practice", diagnosis_run(contamination_model, 3, mycoplasma_test=method)).view())
+    assert met["dedicated-mycoplasma-evidence"] is True
+    assert all(value is True for value in met.values())
+
+
+def test_contamination_wrong_dispositions_fail_their_independent_checkpoints(contamination_model):
+    for condition, checkpoint in [
+        ("bacterial", "visible-contamination-discarded"),
+        ("fungal", "visible-contamination-discarded"),
+        ("mycoplasma", "mycoplasma-contained"),
+        ("str_mismatch", "mismatch-isolated"),
+        ("clear_match", "authenticated-clear-released"),
+    ]:
+        wrong = "release_after_review" if condition != "clear_match" else "discard_sealed_decontaminated"
+        actions = diagnosis_run(contamination_model, 4, disposition_overrides={condition: wrong})
+        met = checkpoint_map(replay(contamination_model, 4, "practice", actions).view())
+        assert met[checkpoint] is False, (condition, met)
+
+
+def test_contamination_str_interpretation_source_trace_and_handoff_mistakes(contamination_model):
+    met = checkpoint_map(replay(contamination_model, 4, "practice", diagnosis_run(contamination_model, 4, interpretation_overrides={"str_mismatch": "match"})).view())
+    assert met["str-evidence-interpreted"] is False and met["mismatch-isolated"] is True
+    met = checkpoint_map(replay(contamination_model, 4, "practice", diagnosis_run(contamination_model, 4, trace_overrides={"mycoplasma": "shared_incubator"})).view())
+    assert met["source-trace-complete"] is False and met["incident-handoff-complete"] is True
+    met = checkpoint_map(replay(contamination_model, 4, "practice", diagnosis_run(contamination_model, 4, handoff_overrides={"include_test_results": False})).view())
+    assert met["incident-handoff-complete"] is False and met["finished-with-evidence"] is True
+    met = checkpoint_map(replay(contamination_model, 4, "practice", diagnosis_run(contamination_model, 4, handoff_overrides={"scope": "current_flask_only"})).view())
+    assert met["incident-handoff-complete"] is False
+
+
+@pytest.mark.parametrize("relationship", ["inconclusive", "mismatch"])
+def test_contamination_clear_match_release_requires_a_recorded_match(contamination_model, relationship):
+    actions = diagnosis_run(contamination_model, 4, interpretation_overrides={"clear_match": relationship})
+    met = checkpoint_map(replay(contamination_model, 4, "practice", actions).view())
+    assert met["str-evidence-interpreted"] is False
+    assert met["authenticated-clear-released"] is False
+    assert met["finished-with-evidence"] is True
+
+
+def test_contamination_antibiotic_masking_never_releases_and_fails_checkpoint(contamination_model):
+    actions = diagnosis_run(contamination_model, 4, antibiotic=True)
+    view = replay(contamination_model, 4, "practice", actions).view()
+    assert checkpoint_map(view)["no-antibiotic-masking"] is False
+    antibiotic_event = view["log"][10]["events"][0]
+    assert "remains quarantined" in antibiotic_event["text"] and "no release" in antibiotic_event["text"]
+    result = view["log"][-1]["events"][0]["data"]["result"]
+    assert all(entry["disposition"] for entry in result["flasks"].values())
+
+
+def test_contamination_quarantine_is_required_before_any_test_or_disposition(contamination_model):
+    seed = 5
+    with pytest.raises(ActionRejected, match="Inspect"):
+        replay(contamination_model, seed, "practice", [act("quarantine_flask", flask="flask_p")])
+    with pytest.raises(ActionRejected, match="Quarantine"):
+        replay(contamination_model, seed, "practice", [act("inspect_flask", flask="flask_p"), act("order_test", flask="flask_p", test="mycoplasma_pcr")])
+    with pytest.raises(ActionRejected, match="Quarantine"):
+        replay(contamination_model, seed, "practice", [act("inspect_flask", flask="flask_p"), act("decide_disposition", flask="flask_p", disposition="release_after_review")])
+
+
+@pytest.mark.parametrize("early_action", [
+    act("order_test", flask="flask_p", test="mycoplasma_pcr"),
+    act("decide_disposition", flask="flask_p", disposition="release_after_review"),
+    act("attempt_antibiotic_rescue", flask="flask_p", agent="penicillin_streptomycin"),
+])
+def test_contamination_full_linked_set_quarantine_precedes_early_interventions(contamination_model, early_action):
+    seed = 5
+    prefix = [act("inspect_flask", flask="flask_p"), act("quarantine_flask", flask="flask_p")]
+    late = []
+    for flask in FLASKS[1:]:
+        late += [act("inspect_flask", flask=flask), act("quarantine_flask", flask=flask)]
+    with pytest.raises(ActionRejected, match="all five linked flasks"):
+        replay(contamination_model, seed, "practice", [*prefix, early_action, *late])
+    state, _ = run_state(contamination_model, seed, "practice", [*prefix, *late])
+    assert set(state["quarantined"]) == set(FLASKS)
+    assert not all(passed for passed, _ in contamination_model.evaluate(state).values())
+
+
+def test_contamination_clear_flask_requires_dedicated_mycoplasma_and_str_evidence(contamination_model):
+    seed = 5
+    clear = condition_flask(contamination_model, seed, "clear_match")
+    prefix = [act("inspect_flask", flask=flask) for flask in FLASKS]
+    prefix += [act("quarantine_flask", flask=flask) for flask in FLASKS]
+    with pytest.raises(ActionRejected, match="dedicated mycoplasma"):
+        replay(contamination_model, seed, "practice", prefix + [act("decide_disposition", flask=clear, disposition="release_after_review")])
+    prefix.append(act("order_test", flask=clear, test="mycoplasma_pcr"))
+    with pytest.raises(ActionRejected, match="STR evidence"):
+        replay(contamination_model, seed, "practice", prefix + [act("decide_disposition", flask=clear, disposition="release_after_review")])
+    with pytest.raises(ActionRejected, match="Order and read the STR"):
+        replay(contamination_model, seed, "practice", prefix + [act("record_str_interpretation", flask=clear, relationship="match")])
+
+
+def test_contamination_visible_disposition_requires_appropriate_test(contamination_model):
+    seed = 5
+    bacterial = condition_flask(contamination_model, seed, "bacterial")
+    prefix = [act("inspect_flask", flask=flask) for flask in FLASKS]
+    prefix += [act("quarantine_flask", flask=flask) for flask in FLASKS]
+    with pytest.raises(ActionRejected, match="gram stain"):
+        replay(contamination_model, seed, "practice", prefix + [act("decide_disposition", flask=bacterial, disposition="discard_sealed_decontaminated")])
+    state, _ = run_state(contamination_model, seed, "practice", prefix)
+    assert contamination_model.evaluate(state)["visible-clue-tests"][0] is False
+
+
+def test_contamination_action_order_duplicates_handoff_and_completion_are_rejected(contamination_model):
+    seed = 5
+    with pytest.raises(ActionRejected, match="already been inspected"):
+        replay(contamination_model, seed, "practice", [act("inspect_flask", flask="flask_p"), act("inspect_flask", flask="flask_p")])
+    with pytest.raises(ActionRejected, match="Complete every disposition"):
+        replay(contamination_model, seed, "practice", [act("record_incident_handoff", scope="all_linked_flasks", include_test_results=True, include_dispositions=True, include_source_traces=True, decontamination_requested=True)])
+    with pytest.raises(ActionRejected, match="handoff before finishing"):
+        replay(contamination_model, seed, "practice", [act("finish_investigation")])
+    with pytest.raises(ActionRejected, match="finished"):
+        replay(contamination_model, seed, "practice", diagnosis_run(contamination_model, seed) + [act("finish_investigation")])
+
+
+def test_contamination_schema_rejects_malformed_parameters(contamination_model):
+    with pytest.raises(ActionRejected, match="Unknown parameter"):
+        check_parameters(contamination_model.action_specs["inspect_flask"], {"flask": "flask_p", "notes": "private"})
+    with pytest.raises(ActionRejected, match="listed options"):
+        check_parameters(contamination_model.action_specs["order_test"], {"flask": "flask_p", "test": "appearance_only"})
+    with pytest.raises(ActionRejected, match="true or false"):
+        check_parameters(contamination_model.action_specs["record_incident_handoff"], {"scope": "all_linked_flasks", "include_test_results": "yes", "include_dispositions": True, "include_source_traces": True, "decontamination_requested": True})
+    with pytest.raises(ActionRejected, match="needs a value"):
+        check_parameters(contamination_model.action_specs["record_incident_handoff"], {})
+
+
+def test_contamination_replay_determinism_seed_dependence_and_hidden_privacy(contamination_model):
+    actions = diagnosis_run(contamination_model, 8)
+    assert replay(contamination_model, 8, "practice", actions).view() == replay(contamination_model, 8, "practice", actions).view()
+    assignments = {tuple(hidden(contamination_model, seed)["conditions"].items()) for seed in range(20)}
+    assert len(assignments) > 10
+    state, _ = run_state(contamination_model, 8, "practice", [])
+    initial = json.dumps(contamination_model.visible(state)) + json.dumps(public_protocol(contamination_model.definition))
+    assert '"hidden"' not in initial and "SYN-L1" not in initial
+    assert all(record["record_id"] not in initial for record in LINKED_RECORDS.values())
+    assert "competing_hypotheses" not in initial
+    initial_panels = contamination_model.visible(state)
+    observations = next(panel for panel in initial_panels if panel["title"] == "Synthetic closed-flask observations")
+    assert len(observations["rows"]) == len(FLASKS)
+    assert all(row[1] == "closed; inspection pending" for row in observations["rows"])
+    assert all(panel["title"] != "Inspected synthetic linked-record bundles" for panel in initial_panels)
+    myco = condition_flask(contamination_model, 8, "mycoplasma")
+    mismatch = condition_flask(contamination_model, 8, "str_mismatch")
+    prefix = [act("inspect_flask", flask=flask) for flask in FLASKS]
+    prefix += [act("quarantine_flask", flask=flask) for flask in FLASKS]
+    before = json.dumps(replay(contamination_model, 8, "practice", prefix).view())
+    assert "Mycoplasma target detected" not in before and "SYN-L1 [9,10]" not in before
+    after_myco = replay(contamination_model, 8, "practice", prefix + [act("order_test", flask=myco, test="mycoplasma_pcr")]).view()
+    assert "Mycoplasma target detected" in json.dumps(after_myco)
+    before_str = json.dumps(after_myco)
+    assert "SYN-L1 [9,10]" not in before_str
+    after_str = replay(contamination_model, 8, "practice", prefix + [act("order_test", flask=mismatch, test="str_profile")]).view()
+    assert "SYN-L1 [9,10]" in json.dumps(after_str)
+
+
+def test_contamination_no_real_profile_or_personal_data_in_panels(contamination_model):
+    state, _ = run_state(contamination_model, 9, "practice", diagnosis_run(contamination_model, 9))
+    text = json.dumps(state["result"])
+    assert "HeLa" not in text and "donor_name" not in text
+    assert state["result"]["physical_validation"] is False

@@ -2,7 +2,7 @@
 
 A cell culture can look normal and still be ruined. Contamination may arrive from a medium lot, a dirty cabinet surface, a reused pipette, a cap placed face down, or a second cell line handled in the same cabinet. Some contaminants make the medium turbid within days; mollicutes can multiply without visible turbidity and can pass the 0.22 µm filter that routinely sterilizes medium. This lesson treats aseptic technique as a set of preventive decisions and contamination control as an evidence problem. You rehearse the decisions in the [aseptic medium-change bench simulation](#/bench/aseptic-medium-change-with-hidden-contamination), which uses a generic adherent mammalian line and synthetic hidden events.
 
-This is lesson 1 of the outlined cell-culture layer. Lesson 4, counting cells and viability, is also written; media preparation, passaging, cryopreservation, full contamination management, human pluripotent stem cells and records remain deferred. Aseptic technique is the prerequisite for every later culture procedure.
+This is lesson 1 of the outlined cell-culture layer. Lessons 1–6 of the outlined cell-culture layer are written and available; only lessons 7–8 (human pluripotent stem cells and records) remain deferred. Aseptic technique is the prerequisite for every later culture procedure.
 
 ## Learning objectives
 

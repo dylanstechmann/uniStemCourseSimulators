@@ -24,9 +24,9 @@ def test_existing_plan_has_usable_project_and_current_index(path):
     assert f"| {manifest['version']} | {len(weeks)} |" in row
     lessons = [lesson for module in manifest["modules"] for lesson in module["lessons"]]
     if manifest["id"] in PARTIAL_WITHOUT_PROJECT:
-        assert len(lessons) == 4 and not any(lesson["reading"].startswith("assignments/") for lesson in lessons)
+        assert len(lessons) == 6 and not any(lesson["reading"].startswith("assignments/") for lesson in lessons)
         assert not [a for a in manifest["assessments"] if a["type"] == "project"]
-        assert "Four-lesson partial; no project" in row
+        assert "Six-lesson partial; no project" in row
         return
     projects = [a for a in manifest["assessments"] if a["type"] == "project"]
     assert len(projects) == 1

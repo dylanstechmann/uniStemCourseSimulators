@@ -126,6 +126,10 @@ class ProtocolModel(ABC):
     def evaluate(self, state: dict) -> dict[str, tuple[bool | None, str]]:
         """Checkpoint id -> (met, detail). None means the checkpoint did not apply in this run."""
 
+    def present_view(self, view: dict) -> dict:
+        """Default identity presentation hook; models may return a display copy."""
+        return view
+
     def reveal(self, state: dict) -> list[str]:
         """Hidden facts shown in the debrief once the run has finished."""
         return []
@@ -152,14 +156,16 @@ class RunView:
     log: list[dict]
     guidance: list[str] | None
     debrief: dict | None
+    presenter: Any = field(default=None, repr=False, compare=False)
 
     def view(self) -> dict:
-        return {
+        view = {
             "protocol_id": self.protocol_id, "protocol_version": self.protocol_version,
             "seed": self.seed, "mode": self.mode, "finished": self.finished,
             "clock_minutes": round(self.clock_minutes, 2), "panels": self.panels,
             "log": self.log, "guidance": self.guidance, "debrief": self.debrief,
         }
+        return self.presenter(view) if self.presenter is not None else view
 
 
 def debrief(model: ProtocolModel, state: dict) -> dict:
@@ -195,6 +201,7 @@ def replay(model: ProtocolModel, seed: int, mode: str, actions: list[dict]) -> R
         mode=mode, finished=state["finished"], clock_minutes=state["clock"],
         panels=model.visible(state), log=log, guidance=guidance,
         debrief=debrief(model, state) if state["finished"] else None,
+        presenter=model.present_view,
     )
 
 

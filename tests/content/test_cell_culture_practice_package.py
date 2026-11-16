@@ -1,7 +1,8 @@
-"""Cell Culture Practice 0.3.0: independent keys, sourced statements, simulator agreement and partial scope.
+"""Cell Culture Practice 0.4.0: independent keys, sourced statements, simulator agreement and partial scope.
 
 Lesson 1 keys are exact source-based integers; lesson 4 numeric keys are recomputed from dilution, chamber
 geometry and Poisson counting. Phase A adds exact Fraction medium calculations and six passage calculations.
+Phase B independently recomputes seven cryopreservation keys and two synthetic STR shared-call keys.
 Readings and protocol parameters are cross-checked. Same-AI checks, not human review.
 """
 
@@ -10,9 +11,11 @@ from __future__ import annotations
 import json
 import math
 import re
+from collections import Counter
 from fractions import Fraction
 from pathlib import Path
 
+import jsonschema
 import pytest
 
 from courselab.bench.cell_count import HemocytometerCount
@@ -29,6 +32,8 @@ ASEPTIC_READING = (COURSE / "modules/01-aseptic-technique.md").read_text(encodin
 COUNTING_READING = (COURSE / "modules/04-counting-cells-and-viability.md").read_text(encoding="utf-8")
 MEDIA_READING = (COURSE / "modules/02-media-supplements-and-reagent-preparation.md").read_text(encoding="utf-8")
 PASSAGE_READING = (COURSE / "modules/03-passaging-adherent-and-suspension-cells.md").read_text(encoding="utf-8")
+CRYOPRESERVATION_READING = (COURSE / "modules/05-cryopreservation-and-thawing.md").read_text(encoding="utf-8")
+CONTAMINATION_READING = (COURSE / "modules/06-contamination-mycoplasma-and-authentication.md").read_text(encoding="utf-8")
 SYLLABUS = (COURSE / "syllabus.md").read_text(encoding="utf-8")
 CROSSWALK = (COURSE / "scope-crosswalk.md").read_text(encoding="utf-8")
 REGISTRY = {s["id"]: s for s in json.loads((ROOT / "content/sources/registry.json").read_text(encoding="utf-8"))["sources"]}
@@ -36,17 +41,25 @@ COUNT_PROTOCOL = json.loads((ROOT / "content/bench/protocols/hemocytometer-cell-
 ASEPTIC_PROTOCOL = json.loads((ROOT / "content/bench/protocols/aseptic-medium-change-with-hidden-contamination.json").read_text(encoding="utf-8"))
 MEDIA_PROTOCOL = json.loads((ROOT / "content/bench/protocols/filter-sterilize-and-qc-a-supplemented-medium.json").read_text(encoding="utf-8"))
 PASSAGE_PROTOCOL = json.loads((ROOT / "content/bench/protocols/passage-an-adherent-line-to-a-target-density.json").read_text(encoding="utf-8"))
+CRYOPRESERVATION_PROTOCOL = json.loads((ROOT / "content/bench/protocols/freeze-and-thaw-with-viability-outcomes.json").read_text(encoding="utf-8"))
+CONTAMINATION_PROTOCOL = json.loads((ROOT / "content/bench/protocols/diagnose-a-contaminated-culture-from-clues.json").read_text(encoding="utf-8"))
+COURSE_SCHEMA = json.loads((ROOT / "content/schemas/course.schema.json").read_text(encoding="utf-8"))
+QUESTION_SCHEMA = json.loads((ROOT / "content/schemas/question.schema.json").read_text(encoding="utf-8"))
 SOURCE_MAP = json.loads((COURSE / "source-map.json").read_text(encoding="utf-8"))["modules"]
 COUNT_SIM_LINK = "#/bench/hemocytometer-cell-count-viability"
 ASEPTIC_SIM_LINK = "#/bench/aseptic-medium-change-with-hidden-contamination"
 MEDIA_SIM_LINK = "#/bench/filter-sterilize-and-qc-a-supplemented-medium"
 PASSAGE_SIM_LINK = "#/bench/passage-an-adherent-line-to-a-target-density"
+CRYOPRESERVATION_SIM_LINK = "#/bench/freeze-and-thaw-with-viability-outcomes"
+CONTAMINATION_SIM_LINK = "#/bench/diagnose-a-contaminated-culture-from-clues"
 LESSONS = {lesson["id"]: lesson for module in MANIFEST["modules"] for lesson in module["lessons"]}
 ASSESSMENTS = {assessment["id"]: assessment for assessment in MANIFEST["assessments"]}
 ASEPTIC_BANK = {qid: q for qid, q in BANK.items() if qid.startswith("cell-culture-practice-1:")}
 COUNT_BANK = {qid: q for qid, q in BANK.items() if qid.startswith("cell-culture-practice-4:")}
 MEDIA_BANK = {qid: q for qid, q in BANK.items() if qid.startswith("cell-culture-practice-2:")}
 PASSAGE_BANK = {qid: q for qid, q in BANK.items() if qid.startswith("cell-culture-practice-3:")}
+CRYOPRESERVATION_BANK = {qid: q for qid, q in BANK.items() if qid.startswith("cell-culture-practice-5:")}
+CONTAMINATION_BANK = {qid: q for qid, q in BANK.items() if qid.startswith("cell-culture-practice-6:")}
 
 
 def stated(text, *phrases):
@@ -87,7 +100,26 @@ PASSAGE_KEYS = {
     "cell-culture-practice-3:pdl-increment": (math.log(7.26 / 1.815, 2), 7.26 / 1.815),
     "cell-culture-practice-3:cumulative-pdl": (18 + math.log(5.00 / 1.25, 2), 18 + 5.00 / 1.25),
 }
-NUMERIC_KEYS = COUNT_KEYS | ASEPTIC_KEYS | MEDIA_KEYS | PASSAGE_KEYS
+CRYOPRESERVATION_KEYS = {
+    "cell-culture-practice-5:freeze-medium-dmso-volume": (Fraction(4) * Fraction(1, 10), Fraction(4) * Fraction(1, 100)),
+    "cell-culture-practice-5:freeze-medium-base-volume": (Fraction(4) - Fraction(4) * Fraction(1, 10), Fraction(4)),
+    "cell-culture-practice-5:vial-count": (Fraction(10000000, 2500000), Fraction(2500000, 1000000)),
+    "cell-culture-practice-5:freeze-cell-concentration": (
+        Fraction(4 * 2500000, 4) / 1000000, Fraction(2500000, 4) / 1000000),
+    "cell-culture-practice-5:post-dilution-dmso": (Fraction(10) * Fraction(1, 1 + 9), Fraction(10)),
+    "cell-culture-practice-5:post-thaw-viable-yield": (
+        Fraction(5, 2) * Fraction(92, 95), Fraction(5, 2) * Fraction(92, 100)),
+    "cell-culture-practice-5:residual-dmso": (
+        Fraction(100) * Fraction(1, 10) * Fraction(5, 100) / 2, Fraction(1, 200)),
+}
+STR_SAMPLE = [Counter([8, 8]), Counter([10, 11]), Counter([12, 14]), Counter([7, 9])]
+STR_REFERENCE = [Counter([8, 9]), Counter([10, 11]), Counter([12, 12]), Counter([7, 9])]
+STR_SHARED = sum(sum((sample & reference).values()) for sample, reference in zip(STR_SAMPLE, STR_REFERENCE, strict=True))
+CONTAMINATION_KEYS = {
+    "cell-culture-practice-6:str-shared-alleles": (STR_SHARED, 3),
+    "cell-culture-practice-6:str-classroom-percentage": (100 * STR_SHARED / 8, 37.5),
+}
+NUMERIC_KEYS = COUNT_KEYS | ASEPTIC_KEYS | MEDIA_KEYS | PASSAGE_KEYS | CRYOPRESERVATION_KEYS | CONTAMINATION_KEYS
 
 
 def shown(value, sig):
@@ -124,7 +156,7 @@ def test_numeric_answer_limitation_is_recomputed_from_the_bank():
     units = sum(bool(spec["unit_required"]) for spec in specs)
     dimensions = sum(bool(spec["dimensions"]) for spec in specs)
     expected = f"Of the {len(specs)} numerical answers, {units} require units, {significant} check significant figures and {dimensions} check dimensions."
-    assert (len(specs), units, significant, dimensions) == (19, 0, 9, 0)
+    assert (len(specs), units, significant, dimensions) == (28, 0, 16, 0)
     assert expected in MANIFEST["limitations"]
 
 
@@ -145,6 +177,8 @@ def test_choice_items_accept_only_the_key():
     ("cell-culture-practice-2", MEDIA_BANK),
     ("cell-culture-practice-3", PASSAGE_BANK),
     ("cell-culture-practice-4", COUNT_BANK),
+    ("cell-culture-practice-5", CRYOPRESERVATION_BANK),
+    ("cell-culture-practice-6", CONTAMINATION_BANK),
 ])
 def test_items_map_to_objectives_and_link_the_lesson(lesson_id, bank):
     lesson = LESSONS[lesson_id]
@@ -216,30 +250,46 @@ def test_counting_reading_states_sources_conventions_and_limits():
            "middle line as the dimension line", "deliberately do not describe filling or counting",
            "**At corners, exclusion wins.**", "Equivalent conventions exist", "100/√N %", "aggregates of varying size",
            "replicate agreement", "serum-free solution", "3 to 5 minutes", "pp. 466–468", "BSL-2 practices",
-           "not a laboratory acceptance criterion", "nine checkpoints", "Lessons 1–3")
+           "not a laboratory acceptance criterion", "nine checkpoints", "Lessons 1–6")
     assert COUNTING_READING.count(COUNT_SIM_LINK) >= 2
     for claim in ("grow", "phenotype", "mycoplasma", "health"):
         assert re.search(rf"does not show[^.]*{claim}", COUNTING_READING), claim
 
 
+def test_early_readings_agree_on_current_package_availability():
+    availability = ("Lessons 1–6 of the outlined cell-culture layer are written and available; "
+                    "only lessons 7–8 (human pluripotent stem cells and records) remain deferred.")
+    for reading in (ASEPTIC_READING, PASSAGE_READING, COUNTING_READING):
+        assert reading.count(availability) == 1
+    assert "media preparation, passaging, cryopreservation, full contamination management" not in ASEPTIC_READING
+    assert "lessons 5–8" not in COUNTING_READING
+    assert "not written yet" not in COUNTING_READING
+    assert "planned lesson 6" not in PASSAGE_READING
+    stated(PASSAGE_READING, "to the lesson 6 discussion of contamination, mycoplasma and authentication")
+
+
 def test_honest_partial_scope_and_policy():
     assert [lesson["id"] for lesson in LESSONS.values()] == [
-        "cell-culture-practice-1", "cell-culture-practice-4", "cell-culture-practice-2", "cell-culture-practice-3"]
+        "cell-culture-practice-1", "cell-culture-practice-4", "cell-culture-practice-2", "cell-culture-practice-3",
+        "cell-culture-practice-5", "cell-culture-practice-6"]
     assert (MANIFEST["version"], MANIFEST["maturity"], MANIFEST["review"]) == (
-        "0.3.0", "partial", {"status": "unreviewed", "reviewed_version": None, "reviewers": []})
+        "0.4.0", "partial", {"status": "unreviewed", "reviewed_version": None, "reviewers": []})
     assert MANIFEST["grading_policy"]["mode"] == "formative-only" and not MANIFEST["grading_policy"]["categories"]
-    assert [a["mode"] for a in MANIFEST["assessments"]] == ["practice"] * 4
-    assert MANIFEST["duration"]["instructional_weeks"] == 4
+    assert [a["mode"] for a in MANIFEST["assessments"]] == ["practice"] * 6
+    assert MANIFEST["duration"]["instructional_weeks"] == 6
     assert [week["lesson_ids"] for week in MANIFEST["duration"]["weeks"]] == [
         ["cell-culture-practice-1"], ["cell-culture-practice-4"],
-        ["cell-culture-practice-2"], ["cell-culture-practice-3"]]
+        ["cell-culture-practice-2"], ["cell-culture-practice-3"],
+        ["cell-culture-practice-5"], ["cell-culture-practice-6"]]
     assert MANIFEST["prerequisites"]["recommended_course_ids"] == ["lab-measurement", "lab-biosafety", "cell-biology"]
-    assert len(CASES) == 4 and all(criterion["points"] == 0 for case in CASES for criterion in case["rubric"])
-    stated(SYLLABUS, "Outline lessons 1–4 of the eight planned cell-culture topics", "not a cell-culture course",
-           ASEPTIC_SIM_LINK, COUNT_SIM_LINK, MEDIA_SIM_LINK, PASSAGE_SIM_LINK)
-    assert CROSSWALK.count("| Absent, deferred |") == 4 and CROSSWALK.count("| **Covered** |") == 4
+    assert len(CASES) == 6 and all(criterion["points"] == 0 for case in CASES for criterion in case["rubric"])
+    stated(SYLLABUS, "Outline lessons 1–6 of the eight planned cell-culture topics", "not a cell-culture course",
+           ASEPTIC_SIM_LINK, COUNT_SIM_LINK, MEDIA_SIM_LINK, PASSAGE_SIM_LINK,
+           CRYOPRESERVATION_SIM_LINK, CONTAMINATION_SIM_LINK)
+    assert CROSSWALK.count("| Absent, deferred |") == 2 and CROSSWALK.count("| **Covered** |") == 6
     stated(CROSSWALK, "agent-run comparison", "ISSCR standards are reserved", "simulation choices")
-    text = json.dumps(MANIFEST) + SYLLABUS + ASEPTIC_READING + COUNTING_READING + MEDIA_READING + PASSAGE_READING
+    text = (json.dumps(MANIFEST) + SYLLABUS + ASEPTIC_READING + COUNTING_READING + MEDIA_READING + PASSAGE_READING
+            + CRYOPRESERVATION_READING + CONTAMINATION_READING)
     for allowed in ("certifying body", "cabinet certification", "certification and spill response"):
         text = text.replace(allowed, "")
     assert not re.search(r"\b(certif(ied|ication)|competent|qualified to|badge)\b", text, re.I)
@@ -263,8 +313,10 @@ def test_sources_and_protocol_reference():
 @pytest.mark.parametrize("lesson_id,outcome_id", [
     ("cell-culture-practice-2", "cell-culture-practice-outcome-5"),
     ("cell-culture-practice-3", "cell-culture-practice-outcome-6"),
+    ("cell-culture-practice-5", "cell-culture-practice-outcome-7"),
+    ("cell-culture-practice-6", "cell-culture-practice-outcome-8"),
 ])
-def test_phase_a_objective_assessment_card_case_and_source_map_mappings(lesson_id, outcome_id):
+def test_lesson_objective_assessment_card_case_and_source_map_mappings(lesson_id, outcome_id):
     lesson = LESSONS[lesson_id]
     objectives = [item for item in MANIFEST["lesson_objectives"] if item["id"].startswith(f"{lesson_id}-objective-")]
     assert len(objectives) == 5
@@ -440,3 +492,171 @@ def test_passage_sources_and_protocol_reference():
     assert REGISTRY["mit-ocw-20-109-spring-2010"]["reuse_mode"] == "link-only-comparator"
     assert "cell-culture-practice-module-3" in REGISTRY["mit-ocw-20-109-spring-2010"]["mapped_modules"]
     assert {item["source_id"] for item in PASSAGE_PROTOCOL["sources"]} == expected
+
+
+# Phase B: joint cryopreservation and contamination package checks -------------
+
+
+def test_phase_b_inventory_schema_and_single_joint_history():
+    jsonschema.validate(MANIFEST, COURSE_SCHEMA)
+    assert (len(BANK), len(CARDS), len(CASES)) == (72, 24, 6)
+    assert len(MANIFEST["modules"]) == len(MANIFEST["assessments"]) == len(SOURCE_MAP) == 6
+    assert len(MANIFEST["outcomes"]) == 8 and len(MANIFEST["lesson_objectives"]) == 30
+    assert [assessment["points"] for assessment in MANIFEST["assessments"]] == [17, 14, 16, 14, 14, 17]
+    assert sum(assessment["points"] for assessment in MANIFEST["assessments"]) == 92
+    history = [entry for entry in MANIFEST["history"] if entry["version"] == "0.4.0"]
+    assert len(history) == 1
+    stated(history[0]["summary"], "lessons 5 and 6 jointly in Phase B", "72 items and 92 practice points",
+           "24 cards and six cases", "Partial, unreviewed and formative-only")
+    assert MANIFEST["history"][-2]["version"] == "0.3.0"
+    assert [week["week"] for week in MANIFEST["duration"]["weeks"]] == [1, 2, 3, 4, 5, 6]
+
+
+@pytest.mark.parametrize("bank", [CRYOPRESERVATION_BANK, CONTAMINATION_BANK])
+def test_phase_b_items_are_original_canonical_and_fully_mapped(bank):
+    assert len(bank) == 12
+    for item in bank.values():
+        jsonschema.validate(item, QUESTION_SCHEMA)
+        assert item["provenance"]["kind"] == "original"
+        assert item["visibility"] == "public-practice-authoring"
+        assert item["feedback"]["hint"] and item["feedback"]["solution"]
+        if item["type"] == "numeric":
+            assert "=" in item["feedback"]["solution"]
+        else:
+            assert len(item["feedback"]["solution"]) > 100
+
+
+def test_phase_b_independent_key_groups_and_misconception_feedback():
+    assert STR_SHARED == 6 and 100 * STR_SHARED / 8 == 75.0
+    assert len(CRYOPRESERVATION_KEYS) == 7 and len(CONTAMINATION_KEYS) == 2
+    for qid in CRYOPRESERVATION_KEYS:
+        assert len(BANK[qid]["feedback"]["solution"]) > 100
+    for qid, item in CONTAMINATION_BANK.items():
+        if item["type"] != "numeric":
+            assert len(item["feedback"]["solution"]) > 150
+            assert any(token in item["feedback"]["solution"].lower()
+                       for token in ("misconception", "not", "rather than", "cannot"))
+
+
+def test_cryopreservation_quarantine_key_and_per_vial_case_wording():
+    item = BANK["cell-culture-practice-5:quarantine-bank-record"]
+    key = item["solution_spec"]["answer"]
+    assert key == 2 and item["options"][key].startswith("Quarantine pending required QC")
+    assert "working-stock tier" in item["options"][key]
+    assert item["options"][1].startswith("Discard every vial automatically")
+    assert grade(item, AttemptRequest(response="2")).correct
+    assert not grade(item, AttemptRequest(response="1")).correct
+    case = next(case for case in CASES if case["id"] == "cell-culture-practice-5:case")
+    stated(case["prompt"], "each contains 2.50 × 10⁶ viable cells per vial",
+           "separately from the batch concentration of 2.50 × 10⁶ cells/mL")
+    assert "viable cells per vial for each of four vials and, separately" in case["rubric"][1]["criterion"]
+    assert all(criterion["points"] == 0 and criterion["levels"] == [] for criterion in case["rubric"])
+
+
+def test_cryopreservation_protocol_reading_and_worked_arithmetic_agree():
+    params = {item["name"]: item["value"] for item in CRYOPRESERVATION_PROTOCOL["parameters"]}
+    assert CRYOPRESERVATION_PROTOCOL["version"] == "0.1.0" and CRYOPRESERVATION_PROTOCOL["layer"] == 2
+    assert len(CRYOPRESERVATION_PROTOCOL["actions"]) == 13
+    assert len(CRYOPRESERVATION_PROTOCOL["checkpoints"]) == 15
+    assert params["vial_count"] == 4 and params["viable_cells_per_vial"] == 2500000
+    assert params["volume_per_vial_ml"] == 1 and params["dmso_final_fraction"] == 0.1
+    assert params["freeze_medium_temperature_c"] == 4 and params["cooling_rate_c_per_min"] == 1
+    assert params["thaw_temperature_c"] == 37 and params["post_thaw_medium_ml"] == 9
+    total = 4 * 1.0
+    dmso = total * 0.1
+    base = total - dmso
+    diluted = 0.1 * 1 / (1 + 9) * 100
+    residual_volume = 0.1 * (1 - 0.95)
+    residual_pct = residual_volume / 2 * 100
+    recovered = 2.5 * 92 / 95
+    concentration = recovered / 2
+    assert (total, dmso, base) == (4, 0.4, 3.6)
+    assert diluted == 1 and residual_pct == pytest.approx(0.25)
+    assert recovered == pytest.approx(2.4210526315789473)
+    assert concentration == pytest.approx(1.2105263157894737)
+    stated(CRYOPRESERVATION_READING, "permeating", "non-permeating", "cold", "dropwise", "1 °C/min", "passive",
+           "two-factor", "vapour", "liquid", "37 °C", "0.400 mL", "3.60 mL", "1.00% v/v", "0.250% v/v",
+           "2.421053 × 10⁶", "1.210526 × 10⁶", "quarantine_pending_qc", "15 checkpoints", "simulation choices",
+           "not laboratory acceptance criteria", "No output establishes physical validation", "10.1126/science.168.3934.939",
+           "10.1038/1831394a0")
+    assert CRYOPRESERVATION_READING.count(CRYOPRESERVATION_SIM_LINK) >= 2
+    assert "**Status:**" in CRYOPRESERVATION_READING and "partial Cell Culture Practice" in CRYOPRESERVATION_READING
+    assert ".972" not in CRYOPRESERVATION_READING
+
+
+def test_cryopreservation_sources_are_link_only_with_access_limits():
+    expected = {"thermo-gibco-freezing-cells", "thermo-gibco-thawing-cells", "mazur-1970-cryobiology-freezing-systems",
+                "lovelock-bishop-1959-dmso", "murray-gibson-2022-chemical-cryopreservation"}
+    module = next(module for module in MANIFEST["modules"] if module["id"] == "cell-culture-practice-module-5")
+    assert set(module["source_ids"]) == expected | {"mit-ocw-20-109-spring-2010"}
+    for source_id in expected:
+        source = REGISTRY[source_id]
+        assert source["reuse_mode"] == "link-only-reference"
+        assert source["permissions"] == {"linking": True, "quotation": False, "adaptation": False, "redistribution": False}
+        assert source["accessed_at"] == "2026-11-15" and source["mapped_modules"] == ["cell-culture-practice-module-5"]
+        assert not source["imported_assets"] and source["rights_notes"] and source["url"].startswith("https://")
+    assert REGISTRY["mazur-1970-cryobiology-freezing-systems"]["url"].endswith("939")
+    assert "full text was not accessible" in REGISTRY["mazur-1970-cryobiology-freezing-systems"]["third_party_notes"].lower()
+    assert "time-limited" in REGISTRY["murray-gibson-2022-chemical-cryopreservation"]["license"]
+    assert {item["source_id"] for item in CRYOPRESERVATION_PROTOCOL["sources"]} == expected
+
+
+def test_contamination_protocol_reading_and_worked_arithmetic_agree():
+    params = {item["name"]: item["value"] for item in CONTAMINATION_PROTOCOL["parameters"]}
+    assert CONTAMINATION_PROTOCOL["version"] == "0.1.0" and CONTAMINATION_PROTOCOL["layer"] == 2
+    assert len(CONTAMINATION_PROTOCOL["actions"]) == 9 and len(CONTAMINATION_PROTOCOL["checkpoints"]) == 13
+    assert params["flask_count"] == 5 and params["str_locus_count"] == 4 and params["str_reference_allele_calls"] == 8
+    assert params["quarantine_requirement"] == "all_five_before_any_test_disposition_or_antibiotic"
+    assert params["antibiotic_release_pathway"] == "none"
+    assert params["linked_record_bundles"] == "revealed_per_flask_at_inspection"
+    assert "all five linked flasks" in CONTAMINATION_PROTOCOL["guided_steps"][1]
+    assert "ASN-a2" not in json.dumps(CONTAMINATION_PROTOCOL) and "ASN-0002" in CONTAMINATION_PROTOCOL["limitations"][2]
+    assert STR_SHARED == 6 and 100 * STR_SHARED / 8 == 75.0
+    stated(CONTAMINATION_READING, "turbid", "filaments", "micro-colonies", "culture", "PCR", "DNA",
+           "Quarantine precedes identification", "Antibiotic masking is not rescue", "HeLa", "locus", "allele", "75.0%",
+           "incoming", "source", "13 checkpoints", "simulation choices", "not laboratory acceptance criteria",
+           "physically validated", "Tanabe or Masters algorithm", "no real cell-line or donor data",
+           "linked-record bundle", "competing hypotheses", "five anonymous synthetic flasks")
+    assert CONTAMINATION_READING.count(CONTAMINATION_SIM_LINK) >= 2
+    assert "shared medium for the bacterial pattern" not in CONTAMINATION_READING
+    assert "The simulation assigns five independent source hypotheses:" not in CONTAMINATION_READING
+    assert "linked-record bundle" in json.dumps(CONTAMINATION_PROTOCOL["guided_steps"])
+
+
+def test_contamination_sources_rights_and_bounded_release_scope():
+    expected = {"drexler-uphoff-mycoplasma-detection", "atcc-ansi-str-standard", "iclac-misidentified-cells-register"}
+    for source_id in expected:
+        source = REGISTRY[source_id]
+        assert source["reuse_mode"] == "link-only-reference"
+        assert source["permissions"] == {"linking": True, "quotation": False, "adaptation": False, "redistribution": False}
+        assert source["accessed_at"] == "2026-11-15" and source["mapped_modules"] == ["cell-culture-practice-module-6"]
+        assert not source["imported_assets"] and source["url"].startswith("https://") and source["rights_notes"]
+    drexler = REGISTRY["drexler-uphoff-mycoplasma-detection"]
+    stated(drexler["version"], "10.1023/A:1022913015916", "PMC3463982")
+    assert "16-page PDF" in drexler["third_party_notes"]
+    atcc = REGISTRY["atcc-ansi-str-standard"]
+    assert "ASN-0002-2022" in atcc["title"] and "full paid standard text was not accessed" in atcc["third_party_notes"]
+    iclac = REGISTRY["iclac-misidentified-cells-register"]
+    assert "CC BY-NC-ND 4.0" in iclac["license"] and "2026-02-15" in iclac["version"]
+    assert "No register row" in iclac["third_party_notes"] and "Cross-Contaminations" not in CONTAMINATION_READING
+    assert {item["source_id"] for item in CONTAMINATION_PROTOCOL["sources"]} == {
+        "drexler-uphoff-mycoplasma-detection", "geraghty-2014-cell-line-guidelines", "atcc-ansi-str-standard"}
+    stated(CONTAMINATION_READING, "partial", "unreviewed", "formative", "does not establish competency",
+           "No register row", "CC BY-NC-ND 4.0", "15 February 2026", "no real cell-line or donor data")
+    assert all("physical_validation" not in item for item in CONTAMINATION_BANK.values())
+
+
+def test_phase_b_existing_source_unions_and_source_maps_preserve_prior_work():
+    mit = REGISTRY["mit-ocw-20-109-spring-2010"]
+    assert mit["reuse_mode"] == "link-only-comparator" and mit["license"] == "CC-BY-NC-SA-4.0"
+    assert set(mit["mapped_modules"]) == {
+        "cell-culture-practice-module-1", "cell-culture-practice-module-2", "cell-culture-practice-module-3",
+        "cell-culture-practice-module-4", "cell-culture-practice-module-5", "cell-culture-practice-module-6"}
+    geraghty = REGISTRY["geraghty-2014-cell-line-guidelines"]
+    assert set(geraghty["mapped_modules"]) == {
+        "cell-culture-practice-module-1", "cell-culture-practice-module-2", "cell-culture-practice-module-6"}
+    for module in MANIFEST["modules"]:
+        mapped = next(item for item in SOURCE_MAP if item["module_id"] == module["id"])
+        assert mapped["source_ids"] == module["source_ids"]
+        assert mapped["original_content"] and mapped["license"] == "CC-BY-4.0"
+        assert mapped["relationship"].startswith("original-instruction")

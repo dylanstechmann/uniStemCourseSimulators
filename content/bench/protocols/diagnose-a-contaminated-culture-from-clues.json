@@ -1,0 +1,698 @@
+{
+  "schema_version": "1.0",
+  "id": "diagnose-a-contaminated-culture-from-clues",
+  "version": "0.1.0",
+  "title": "Diagnose a contaminated culture from clues",
+  "layer": 2,
+  "summary": "Inspect and quarantine five synthetic flasks, select microbial/mycoplasma/STR evidence, choose dispositions, interpret linked-record clues to trace source hypotheses and complete an incident handoff.",
+  "scenario": "Five synthetic flasks P, Q, R, S and T carry the same claimed line label. Seeded runs permute one visible bacterial pattern, one visible fungal pattern, one clear mycoplasma-positive flask and one clear STR-mismatched flask, and one clear reviewed-match flask. No assignment is visible initially. Inspect and quarantine the full five-flask linked set before any test, disposition or antibiotic intervention; clear appearance cannot substitute for dedicated mycoplasma evidence, and identity remains unresolved until STR evidence is revealed. All organisms, profiles and records are synthetic. Inspection reveals a per-flask synthetic linked-record bundle with investigative leads and competing hypotheses, not the condition assignment or expected source.",
+  "guided_steps": [
+    "Inspect flasks P, Q, R, S and T. Turbidity/pH/rods and filaments/micro-colonies are clue patterns, not species names; clear flasks remain unresolved. Read the linked-record bundle revealed by each inspection; its clue and competing hypotheses are investigative evidence, not a hidden-condition or route reveal.",
+    "Inspect and quarantine all five linked flasks before ordering any test, recording any disposition or attempting antibiotic intervention. The engine retains per-flask inspection/quarantine checks and also rejects early action while any linked flask is pending.",
+    "Use Gram stain for the bacterial-pattern flask and fungal subculture for the fungal-pattern flask. These broad tests support, but do not speciate, the visible pattern.",
+    "Order a dedicated mycoplasma PCR, culture or DNA-stain test for all three clear flasks. The scenario displays valid controls; negative appearance, Gram stain and STR are not substitutes.",
+    "Order STR profiles for all three clear flasks and record match or mismatch only after reviewing the synthetic reference and sample allele calls.",
+    "Choose sealed decontaminated discard for confirmed visible contamination and mycoplasma-positive culture, identity hold for mismatch, and reviewed release only for the clear mycoplasma-negative STR match.",
+    "Antibiotic attempts do not sterilise or release a flask and fail the no-masking checkpoint. Use an evidence-based disposition instead.",
+    "After each disposition, use that flask's already revealed linked-record bundle to weigh the source choices against competing hypotheses. Select shared medium, shared incubator, incoming shipment, shared pipette/label-handling, no route identified or unresolved as the evidence warrants. A record clue supports an investigation; it does not prove the hidden condition or route.",
+    "Complete an all-linked-flasks handoff with tests/controls, dispositions, source traces and decontamination request, then finish for the 13-checkpoint debrief."
+  ],
+  "parameters": [
+    {
+      "name": "flask_count",
+      "value": 5,
+      "unit": "flasks",
+      "label": "Synthetic flasks in the incident",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Five fixed anonymous vessel identifiers; hidden conditions are a seeded permutation."
+      }
+    },
+    {
+      "name": "bacterial_panel_ph",
+      "value": 6.5,
+      "unit": "pH",
+      "label": "Displayed bacterial-pattern pH",
+      "source": {
+        "kind": "simulation-model",
+        "note": "A visible acid-shift teaching panel, not a diagnostic threshold."
+      }
+    },
+    {
+      "name": "fungal_panel_ph",
+      "value": 7.8,
+      "unit": "pH",
+      "label": "Displayed fungal-pattern pH",
+      "source": {
+        "kind": "simulation-model",
+        "note": "A visible alkaline-shift teaching panel, not a species or diagnostic threshold."
+      }
+    },
+    {
+      "name": "mycoplasma_test_families",
+      "value": "mycoplasma_pcr,mycoplasma_culture,mycoplasma_dna_stain",
+      "unit": "method ids",
+      "label": "Dedicated mycoplasma evidence choices",
+      "source": {
+        "kind": "cited",
+        "source_id": "drexler-uphoff-mycoplasma-detection",
+        "location": "Detection of mycoplasma contamination: Various detection methods; Microbiological colony assay; Polymerase chain reaction",
+        "note": "The model provides simplified binary outputs with stated valid controls, not assay performance."
+      }
+    },
+    {
+      "name": "str_locus_count",
+      "value": 4,
+      "unit": "loci",
+      "label": "Synthetic STR loci per displayed profile",
+      "source": {
+        "kind": "simulation-model",
+        "note": "A reduced teaching table with synthetic locus names, not a complete ASN-0002 marker panel."
+      }
+    },
+    {
+      "name": "str_reference_allele_calls",
+      "value": 8,
+      "unit": "allele calls",
+      "label": "Reference observations in the synthetic profile",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Two calls at each of four synthetic loci; no real donor or cell-line data."
+      }
+    },
+    {
+      "name": "quarantine_requirement",
+      "value": "all_five_before_any_test_disposition_or_antibiotic",
+      "unit": "workflow rule",
+      "label": "Quarantine timing",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "Sections 1.2.1 Quarantine and 4.2.3 Prevention",
+        "note": "The engine enforces per-flask inspection/quarantine and a full-linked-set guard before any test, disposition or antibiotic intervention."
+      }
+    },
+    {
+      "name": "antibiotic_release_pathway",
+      "value": "none",
+      "unit": "workflow rule",
+      "label": "Antibiotic masking disposition",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "Sections 4.2.5 Eradication and 4.3 Contamination by other microorganisms",
+        "note": "Antibiotic attempts never clear quarantine or establish a disposition in this model."
+      }
+    },
+    {
+      "name": "source_hypotheses",
+      "value": "shared_medium,shared_incubator,incoming_shipment,shared_pipette,no_route_identified",
+      "unit": "record ids",
+      "label": "Synthetic source-trace choices",
+      "source": {
+        "kind": "simulation-model",
+        "note": "One fixed source hypothesis per condition; a chosen trace is an incident hypothesis, not root-cause proof."
+      }
+    },
+    {
+      "name": "linked_record_bundles",
+      "value": "revealed_per_flask_at_inspection",
+      "unit": "workflow rule",
+      "label": "Synthetic source-record evidence timing",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Five original synthetic record bundles expose a clue, competing hypotheses and an interpretation limit before trace_source; expected condition/source assignments stay hidden until the final reveal."
+      }
+    },
+    {
+      "name": "handoff_scope",
+      "value": "all_linked_flasks",
+      "unit": "scope id",
+      "label": "Required incident-handoff scope",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "Sections 1.2 Acquisition and 4.2.5 Eradication",
+        "note": "Handoff fields are synthetic structured choices; no donor or personal data."
+      }
+    }
+  ],
+  "actions": [
+    {
+      "name": "inspect_flask",
+      "label": "Inspect a closed synthetic flask",
+      "params": [
+        {
+          "name": "flask",
+          "label": "Flask",
+          "type": "choice",
+          "options": [
+            {
+              "value": "flask_p",
+              "label": "Synthetic flask P"
+            },
+            {
+              "value": "flask_q",
+              "label": "Synthetic flask Q"
+            },
+            {
+              "value": "flask_r",
+              "label": "Synthetic flask R"
+            },
+            {
+              "value": "flask_s",
+              "label": "Synthetic flask S"
+            },
+            {
+              "value": "flask_t",
+              "label": "Synthetic flask T"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "quarantine_flask",
+      "label": "Quarantine a flask before identification",
+      "params": [
+        {
+          "name": "flask",
+          "label": "Flask",
+          "type": "choice",
+          "options": [
+            {
+              "value": "flask_p",
+              "label": "Synthetic flask P"
+            },
+            {
+              "value": "flask_q",
+              "label": "Synthetic flask Q"
+            },
+            {
+              "value": "flask_r",
+              "label": "Synthetic flask R"
+            },
+            {
+              "value": "flask_s",
+              "label": "Synthetic flask S"
+            },
+            {
+              "value": "flask_t",
+              "label": "Synthetic flask T"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "order_test",
+      "label": "Order a dedicated test after quarantine",
+      "params": [
+        {
+          "name": "flask",
+          "label": "Flask",
+          "type": "choice",
+          "options": [
+            {
+              "value": "flask_p",
+              "label": "Synthetic flask P"
+            },
+            {
+              "value": "flask_q",
+              "label": "Synthetic flask Q"
+            },
+            {
+              "value": "flask_r",
+              "label": "Synthetic flask R"
+            },
+            {
+              "value": "flask_s",
+              "label": "Synthetic flask S"
+            },
+            {
+              "value": "flask_t",
+              "label": "Synthetic flask T"
+            }
+          ]
+        },
+        {
+          "name": "test",
+          "label": "Test",
+          "type": "choice",
+          "options": [
+            {
+              "value": "gram_stain",
+              "label": "Gram stain for bacterial-pattern evidence"
+            },
+            {
+              "value": "fungal_subculture",
+              "label": "Fungal subculture for filament/micro-colony evidence"
+            },
+            {
+              "value": "mycoplasma_pcr",
+              "label": "Mycoplasma PCR with internal/positive/negative controls"
+            },
+            {
+              "value": "mycoplasma_culture",
+              "label": "Selective mycoplasma broth/agar culture"
+            },
+            {
+              "value": "mycoplasma_dna_stain",
+              "label": "Direct DNA fluorochrome staining"
+            },
+            {
+              "value": "str_profile",
+              "label": "Synthetic four-locus STR profile"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "record_str_interpretation",
+      "label": "Record the revealed STR relationship",
+      "params": [
+        {
+          "name": "flask",
+          "label": "Flask",
+          "type": "choice",
+          "options": [
+            {
+              "value": "flask_p",
+              "label": "Synthetic flask P"
+            },
+            {
+              "value": "flask_q",
+              "label": "Synthetic flask Q"
+            },
+            {
+              "value": "flask_r",
+              "label": "Synthetic flask R"
+            },
+            {
+              "value": "flask_s",
+              "label": "Synthetic flask S"
+            },
+            {
+              "value": "flask_t",
+              "label": "Synthetic flask T"
+            }
+          ]
+        },
+        {
+          "name": "relationship",
+          "label": "STR interpretation",
+          "type": "choice",
+          "options": [
+            {
+              "value": "match",
+              "label": "Consistent with the synthetic reference in this exercise"
+            },
+            {
+              "value": "mismatch",
+              "label": "Discordant with the synthetic reference; identity hold"
+            },
+            {
+              "value": "inconclusive",
+              "label": "Insufficient or unresolved evidence"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "decide_disposition",
+      "label": "Choose an evidence-based disposition",
+      "params": [
+        {
+          "name": "flask",
+          "label": "Flask",
+          "type": "choice",
+          "options": [
+            {
+              "value": "flask_p",
+              "label": "Synthetic flask P"
+            },
+            {
+              "value": "flask_q",
+              "label": "Synthetic flask Q"
+            },
+            {
+              "value": "flask_r",
+              "label": "Synthetic flask R"
+            },
+            {
+              "value": "flask_s",
+              "label": "Synthetic flask S"
+            },
+            {
+              "value": "flask_t",
+              "label": "Synthetic flask T"
+            }
+          ]
+        },
+        {
+          "name": "disposition",
+          "label": "Disposition",
+          "type": "choice",
+          "options": [
+            {
+              "value": "discard_sealed_decontaminated",
+              "label": "Seal, decontaminate and discard; replace/review linked materials"
+            },
+            {
+              "value": "release_after_review",
+              "label": "Release after documented mycoplasma and identity review"
+            },
+            {
+              "value": "hold_misidentified",
+              "label": "Isolate and hold for identity investigation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "trace_source",
+      "label": "Record a source hypothesis after reviewing the linked-record clue",
+      "params": [
+        {
+          "name": "flask",
+          "label": "Flask",
+          "type": "choice",
+          "options": [
+            {
+              "value": "flask_p",
+              "label": "Synthetic flask P"
+            },
+            {
+              "value": "flask_q",
+              "label": "Synthetic flask Q"
+            },
+            {
+              "value": "flask_r",
+              "label": "Synthetic flask R"
+            },
+            {
+              "value": "flask_s",
+              "label": "Synthetic flask S"
+            },
+            {
+              "value": "flask_t",
+              "label": "Synthetic flask T"
+            }
+          ]
+        },
+        {
+          "name": "source",
+          "label": "Source hypothesis",
+          "type": "choice",
+          "options": [
+            {
+              "value": "shared_medium",
+              "label": "Shared medium/reagent lot"
+            },
+            {
+              "value": "shared_incubator",
+              "label": "Shared incubator or water pan"
+            },
+            {
+              "value": "incoming_shipment",
+              "label": "Incoming line/shipment"
+            },
+            {
+              "value": "shared_pipette",
+              "label": "Shared pipette or label-handling event"
+            },
+            {
+              "value": "no_route_identified",
+              "label": "No contamination route identified after reviewed clear evidence"
+            },
+            {
+              "value": "unresolved",
+              "label": "Route remains unresolved pending records"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "attempt_antibiotic_rescue",
+      "label": "Attempt antibiotic treatment (never releases the flask)",
+      "params": [
+        {
+          "name": "flask",
+          "label": "Flask",
+          "type": "choice",
+          "options": [
+            {
+              "value": "flask_p",
+              "label": "Synthetic flask P"
+            },
+            {
+              "value": "flask_q",
+              "label": "Synthetic flask Q"
+            },
+            {
+              "value": "flask_r",
+              "label": "Synthetic flask R"
+            },
+            {
+              "value": "flask_s",
+              "label": "Synthetic flask S"
+            },
+            {
+              "value": "flask_t",
+              "label": "Synthetic flask T"
+            }
+          ]
+        },
+        {
+          "name": "agent",
+          "label": "Antibiotic approach",
+          "type": "choice",
+          "options": [
+            {
+              "value": "penicillin_streptomycin",
+              "label": "Routine penicillin-streptomycin"
+            },
+            {
+              "value": "broad_antibiotic",
+              "label": "Unspecified broad antibiotic"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "record_incident_handoff",
+      "label": "Record the incident handoff",
+      "params": [
+        {
+          "name": "scope",
+          "label": "Handoff scope",
+          "type": "choice",
+          "options": [
+            {
+              "value": "all_linked_flasks",
+              "label": "All five linked flasks and associated records"
+            },
+            {
+              "value": "current_flask_only",
+              "label": "Only the most recent flask"
+            }
+          ]
+        },
+        {
+          "name": "include_test_results",
+          "label": "Include raw tests and control status",
+          "type": "boolean"
+        },
+        {
+          "name": "include_dispositions",
+          "label": "Include all quarantine and disposition states",
+          "type": "boolean"
+        },
+        {
+          "name": "include_source_traces",
+          "label": "Include source hypotheses and unresolved routes",
+          "type": "boolean"
+        },
+        {
+          "name": "decontamination_requested",
+          "label": "Request linked cleaning/decontamination review",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "finish_investigation",
+      "label": "Finish and reveal the formative debrief",
+      "params": []
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "all-flasks-inspected",
+      "severity": "major",
+      "description": "Inspect all five closed flasks before disposition.",
+      "rationale": "Visible and clear panels provide different initial evidence; uninspected flasks cannot be dismissed.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "Sections 3.4 and 4.3.1 Bacteria and fungi"
+      }
+    },
+    {
+      "id": "visible-clue-tests",
+      "severity": "major",
+      "description": "Use Gram stain for the bacterial pattern and fungal subculture for the fungal pattern.",
+      "rationale": "Broad category support is useful but does not establish species from appearance.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "Section 4.3.1 Bacteria and fungi"
+      }
+    },
+    {
+      "id": "quarantine-before-identification",
+      "severity": "critical",
+      "description": "Inspect and quarantine all five linked flasks before any test, disposition or antibiotic intervention.",
+      "rationale": "Global containment of the linked incident precedes organism or identity naming and prevents interleaved early work while another linked flask remains unquarantined.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "Sections 1.2.1 Quarantine and 4.2.3 Prevention"
+      }
+    },
+    {
+      "id": "dedicated-mycoplasma-evidence",
+      "severity": "critical",
+      "description": "Obtain dedicated mycoplasma evidence for all three clear flasks before disposition.",
+      "rationale": "Clear medium, filtration, Gram stain and STR cannot detect or exclude mycoplasma.",
+      "source": {
+        "kind": "cited",
+        "source_id": "drexler-uphoff-mycoplasma-detection",
+        "location": "Detection of mycoplasma contamination and Figure 5 routine detection workflow"
+      }
+    },
+    {
+      "id": "str-evidence-interpreted",
+      "severity": "major",
+      "description": "Order and correctly interpret STR for all three clear flasks.",
+      "rationale": "Identity evidence requires comparison with a reference and cannot be inferred from labels or morphology.",
+      "source": {
+        "kind": "cited",
+        "source_id": "atcc-ansi-str-standard",
+        "location": "Official ASN-0002-2022 catalogue scope and ATCC STR Profiling Analysis page"
+      }
+    },
+    {
+      "id": "visible-contamination-discarded",
+      "severity": "critical",
+      "description": "Use sealed decontaminated discard for confirmed bacterial- and fungal-pattern cultures.",
+      "rationale": "Routine replaceable contaminated cultures are discarded and replaced rather than carried in clean work.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "Sections 4.2.5 Eradication and 4.3.1 Bacteria and fungi"
+      }
+    },
+    {
+      "id": "mycoplasma-contained",
+      "severity": "major",
+      "description": "Use sealed decontaminated discard for the PCR/culture/stain-positive mycoplasma flask.",
+      "rationale": "Prompt containment and disposal/replacement prevent lateral spread; this model offers no routine eradication path.",
+      "source": {
+        "kind": "cited",
+        "source_id": "drexler-uphoff-mycoplasma-detection",
+        "location": "Elimination of mycoplasma contamination and Cell culture procedures"
+      }
+    },
+    {
+      "id": "authenticated-clear-released",
+      "severity": "major",
+      "description": "Release only the clear mycoplasma-negative flask with a recorded STR match after review.",
+      "rationale": "Release needs contamination and identity evidence plus a recorded match; inconclusive or mismatch blocks both identity and authenticated-release checkpoints.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "Sections 1.2.1–1.2.2 and 4.2.4 Detection"
+      }
+    },
+    {
+      "id": "mismatch-isolated",
+      "severity": "critical",
+      "description": "Hold the STR-mismatched flask for identity investigation.",
+      "rationale": "Misidentification requires isolation and investigation rather than use under the old label.",
+      "source": {
+        "kind": "cited",
+        "source_id": "atcc-ansi-str-standard",
+        "location": "Official ASN-0002-2022 catalogue scope and ATCC Matching Algorithm page"
+      }
+    },
+    {
+      "id": "no-antibiotic-masking",
+      "severity": "major",
+      "description": "Do not use antibiotics as a masking or release pathway.",
+      "rationale": "Suppressed visible growth is not sterilisation and mycoplasmas resist many routine antibiotics.",
+      "source": {
+        "kind": "cited",
+        "source_id": "drexler-uphoff-mycoplasma-detection",
+        "location": "Antibiotic treatment for elimination of mycoplasma and Cell culture procedures"
+      }
+    },
+    {
+      "id": "source-trace-complete",
+      "severity": "major",
+      "description": "Use each revealed linked-record bundle to record the evidence-linked source hypothesis for every flask.",
+      "rationale": "Source tracing weighs lot, equipment, receipt and handling clues against competing hypotheses while remaining distinct from condition assignment and root-cause proof.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "Sections 1.2 Acquisition, 1.5 Misidentification and 4.2.2 Sources"
+      }
+    },
+    {
+      "id": "incident-handoff-complete",
+      "severity": "critical",
+      "description": "Hand off all linked flasks with tests, dispositions, traces and decontamination review.",
+      "rationale": "Complete structured handoff prevents release while evidence and linked risks remain unresolved.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "Sections 1.2 Acquisition and 4.2.5 Eradication"
+      }
+    },
+    {
+      "id": "finished-with-evidence",
+      "severity": "minor",
+      "description": "Finish only after all dispositions, traces and handoff are recorded.",
+      "rationale": "The final reveal is a formative debrief, not an incident clearance or competency record.",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Engine completion rule and structured final result."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "drexler-uphoff-mycoplasma-detection",
+      "use": "Mycoplasma sources, dedicated detection methods and limits, containment, disposal/rescue and antibiotic masking."
+    },
+    {
+      "source_id": "geraghty-2014-cell-line-guidelines",
+      "use": "Visible bacterial/fungal clues, quarantine, intake testing, disposal, cross-contamination and source tracing."
+    },
+    {
+      "source_id": "atcc-ansi-str-standard",
+      "use": "Current human-cell STR authentication scope, loci/alleles and bounded match/mismatch interpretation."
+    }
+  ],
+  "limitations": [
+    "All organisms, flask assignments, visible panels, assay results, STR loci/alleles, linked-record bundles, source routes and dispositions are synthetic simulation choices; no real register rows, donor profiles, personal data or cell-line data are used.",
+    "Simplified assays always return control-valid binary evidence in this exercise; they do not model sensitivity, specificity, non-culturable strains, PCR inhibition/carry-over, mixed profiles or DNA-stain subjectivity.",
+    "The four-locus STR table and classroom arithmetic are not a complete ASN-0002 panel or the Tanabe/Masters algorithms. Authentication does not establish sterility, phenotype or reference correctness.",
+    "Antibiotic actions never clear quarantine or contamination. No physical manipulation, disinfection effectiveness, organism growth, species identification, rescue efficacy or competency is validated."
+  ]
+}

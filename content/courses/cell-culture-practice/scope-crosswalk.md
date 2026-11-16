@@ -1,25 +1,25 @@
 # Cell Culture Practice scope and source crosswalk
 
-This crosswalk covers version 0.3.0, a four-lesson partial package. It was compiled with AI assistance on 2026-10-31 and updated on 2026-11-15. It is an agent-run comparison, not a review by the owner, a laboratory professional or any institution. Topic alignment establishes no equivalence, credit or endorsement.
+This crosswalk covers version 0.4.0, a six-lesson partial package. It was compiled with AI assistance on 2026-10-31 and updated on 2026-11-16. It is an agent-run comparison, not a review by the owner, a laboratory professional or any institution. Topic alignment establishes no equivalence, credit or endorsement.
 
 ## Planned topics and their status
 
 The eight topics come from the layer-2 outline in the repository's wet-lab layer outlines. Status labels: **covered** means a local reading develops the topic with worked examples and practice; **absent** means no local instruction; **deferred** means absent by plan until a later batch.
 
-| Outline lesson | Status in 0.3.0 | Notes |
+| Outline lesson | Status in 0.4.0 | Notes |
 | --- | --- | --- |
 | 1. Aseptic technique | **Covered** | [Lesson 1](modules/01-aseptic-technique.md) with 12 items, 4 cards, a case and the [aseptic medium-change simulation](#/bench/aseptic-medium-change-with-hidden-contamination); cabinet certification and spill response remain in Laboratory Safety and Biosafety |
 | 2. Media, supplements and reagent preparation | **Covered** | [Lesson 2](modules/02-media-supplements-and-reagent-preparation.md) with 12 items, 4 cards, a case and the [supplemented-medium simulation](#/bench/filter-sterilize-and-qc-a-supplemented-medium); all formulation values and QC windows are simulation choices, not laboratory acceptance criteria |
 | 3. Passaging adherent and suspension cells | **Covered** | [Lesson 3](modules/03-passaging-adherent-and-suspension-cells.md) with 12 items, 4 cards, a zero-point case and the [adherent target-density simulation](#/bench/passage-an-adherent-line-to-a-target-density); suspension passaging is conceptual only |
 | 4. Counting cells and viability | **Covered** | [Lesson 4](modules/04-counting-cells-and-viability.md) with 12 items, 4 cards, a case and the [hemocytometer simulation](#/bench/hemocytometer-cell-count-viability); automated counters are named, not taught |
-| 5. Cryopreservation and thawing | Absent, deferred | |
-| 6. Contamination, mycoplasma and authentication | Absent, deferred | Lesson 1 teaches aseptic contamination prevention, sterility-control incubation, mollicute filtration limits and dedicated mycoplasma testing, but organism identification, broader contamination management and cell-line authentication remain absent |
+| 5. Cryopreservation and thawing | **Covered** | [Lesson 5](modules/05-cryopreservation-and-thawing.md) with 12 items, 4 cards, a zero-point case and the [same-run freeze/thaw simulation](#/bench/freeze-and-thaw-with-viability-outcomes); one synthetic DMSO pathway only |
+| 6. Contamination: bacteria, fungi, mycoplasma and cross-contamination | **Covered** | [Lesson 6](modules/06-contamination-mycoplasma-and-authentication.md) with 12 items, 4 cards, a zero-point case and the [contamination-diagnosis simulation](#/bench/diagnose-a-contaminated-culture-from-clues); organism behaviour, full assay performance and real authentication are not modelled |
 | 7. Human pluripotent stem cells | Absent, deferred | ISSCR standards are reserved for this lesson and are not used as support for these synthetic exercises |
 | 8. Records and traceability | Absent, deferred | |
 
 ## Course comparator
 
-This batch did not find an MIT OpenCourseWare course devoted to cell culture, and the search was not exhaustive. [MIT OCW 20.109 Laboratory Fundamentals in Biological Engineering, Spring 2010](https://ocw.mit.edu/courses/20-109-laboratory-fundamentals-in-biological-engineering-spring-2010/pages/syllabus/) (CC BY-NC-SA 4.0, link only) places cell culture inside its Module 3, Cell-Biomaterial Engineering. Its calendar lists the labs "Initiate cell culture" (session 19) and "Testing cell viability" (session 20), and a lecture on cell viability (session 21). The syllabus and calendar titles were reread on 2026-11-15 and do not name aseptic technique as a separate topic; aseptic practice is treated here as prerequisite bench training implicit in initiating cell culture. Only the syllabus and calendar titles were read; the lab handouts were not, so the method 20.109 uses is unknown. Lesson 1 corresponds to the cell-culture initiation session at the level of prerequisite technique only, and lesson 4 corresponds to the viability-testing session at the level of topic only. The comparator's biomaterial, transcript and protein analyses are outside this package. The syllabus/calendar was reread for lessons 2 and 3 on 2026-11-15. Session 19, “Initiate cell culture,” is the closest listed session for media preparation and passaging; neither that title nor “Testing cell viability” establishes a separately titled media or passaging lesson or the depth of this package's formulation and target-density arithmetic. No lab handout was read, and no equivalence is inferred. The page footer's CC BY-NC-SA 4.0 licence was rechecked and link-only comparator mode retained.
+This batch did not find an MIT OpenCourseWare course devoted to cell culture, and the search was not exhaustive. [MIT OCW 20.109 Laboratory Fundamentals in Biological Engineering, Spring 2010](https://ocw.mit.edu/courses/20-109-laboratory-fundamentals-in-biological-engineering-spring-2010/pages/syllabus/) (CC BY-NC-SA 4.0, link only) places cell culture inside its Module 3, Cell-Biomaterial Engineering. Its calendar lists the labs "Initiate cell culture" (session 19) and "Testing cell viability" (session 20), and a lecture on cell viability (session 21). The syllabus and calendar titles were reread on 2026-11-15 and do not name aseptic technique as a separate topic; aseptic practice is treated here as prerequisite bench training implicit in initiating cell culture. Only the syllabus and calendar titles were read; the lab handouts were not, so the method 20.109 uses is unknown. Lesson 1 corresponds to the cell-culture initiation session at the level of prerequisite technique only, and lesson 4 corresponds to the viability-testing session at the level of topic only. The comparator's biomaterial, transcript and protein analyses are outside this package. The syllabus/calendar was reread for lessons 2 and 3 on 2026-11-15. Session 19, “Initiate cell culture,” is the closest listed session for media preparation and passaging; neither that title nor “Testing cell viability” establishes a separately titled media or passaging lesson or the depth of this package's formulation and target-density arithmetic. No lab handout was read, and no equivalence is inferred. The page footer's CC BY-NC-SA 4.0 licence was rechecked and link-only comparator mode retained. The syllabus/calendar was reread for lessons 5 and 6 on 2026-11-15. “Initiate cell culture” (session 19) and “Testing cell viability” (session 20) remain the closest listed activities; their titles do not establish stand-alone cryopreservation, contamination-response, mycoplasma-method or STR-authentication lessons or equivalent depth. Link-only comparator mode is retained.
 
 ## Sources used by lesson 1
 
@@ -60,6 +60,27 @@ This batch did not find an MIT OpenCourseWare course devoted to cell culture, an
 | W. Strober, "Trypan Blue Exclusion Test of Cell Viability", *Curr Protoc Immunol* 111:A3.B.1–A3.B.3, 2015, DOI 10.1002/0471142735.ima03bs111, PMID 26529666 | Membrane-integrity principle, serum-free counting, 3–5 minute window, subjectivity, limits of the test | Link only; paraphrased |
 | CDC and NIH, *Biosafety in Microbiological and Biomedical Laboratories*, 6th edition, Appendix H, pp. 466–468 of the copy read on 2026-10-31 | Risk factors and minimum BSL-2 handling for human and primate cells | US federal work, adapted with attribution |
 
+## Sources used by lesson 5
+
+| Source | Used for | Reuse |
+| --- | --- | --- |
+| Thermo Fisher Scientific, Gibco “Cell Freezing Protocols” | Harvest/count context, cold medium, controlled/passive cooling, vapour storage and seed/working-stock contrast | Copyrighted; link-only reference; original wording; no protocol text or figure copied |
+| Thermo Fisher Scientific, Gibco “Thawing Cells” | Fast 37 °C thaw, gradual dilution, collection and DMSO-containing supernatant removal | Copyrighted; link-only reference; original wording |
+| Mazur, *Science* 168:939–949 (1970), DOI 10.1126/science.168.3934.939 | Corrected classic primary freezing-framework citation | Copyrighted AAAS; no-access landing metadata read, full text unavailable; link-only |
+| Lovelock & Bishop, *Nature* 183:1394–1395 (1959), DOI 10.1038/1831394a0 | Permeating DMSO and electrolyte-concentration context | Copyrighted Springer Nature; publisher abstract read, subscription full text unavailable; link-only |
+| Murray & Gibson, *Nature Reviews Chemistry* 6:579–593 (2022), DOI 10.1038/s41570-022-00407-4 | Cryoprotectant classes, two-factor injury and thaw/osmotic cautions | Copyrighted Springer Nature; full text read on PMC; time-limited PMC permission not treated as current; link-only |
+| MIT OCW 20.109 Spring 2010 syllabus/calendar | Nearest listed initiation and viability sessions; not a cryopreservation-depth comparator | CC BY-NC-SA 4.0 confirmed 2026-11-15; link-only comparator |
+
+## Sources used by lesson 6
+
+| Source | Used for | Reuse |
+| --- | --- | --- |
+| Drexler & Uphoff (2002), DOI 10.1023/A:1022913015916, PMCID PMC3463982 | Mycoplasma sources/effects, culture/PCR/DNA-stain evidence and limits, prevention, elimination and antibiotic caveats | © Kluwer 2002; complete 16-page PDF read 2026-11-15; link-only, original wording |
+| Geraghty et al. (2014), DOI 10.1038/bjc.2014.166, PMCID PMC4453835 | Visible bacterial/fungal clues, quarantine/intake, disposal/rescue, HeLa-era misidentification, STR and provenance | CC BY-NC-SA 3.0; full text reread 2026-11-15; link-only |
+| ANSI/ATCC ASN-0002-2022 and ATCC public STR analysis/matching pages | Current standard scope, STR loci/alleles and bounded match interpretation | Official record and public pages read; full paid standard not accessed; ATCC rights checked; link-only |
+| ICLAC Register v14, 2026-02-15 | Lookup resource for known misidentification; absence is not authentication | CC BY-NC-ND 4.0; strictly link-only; no copied register rows, counts or dataset |
+| MIT OCW 20.109 Spring 2010 syllabus/calendar | Nearest cell-culture initiation and viability sessions only | CC BY-NC-SA 4.0 confirmed 2026-11-15; link-only comparator |
+
 ## Sourced facts and simulation choices
 
 Lesson 1's T-75 working volume of 10–15 mL, clean-to-dirty zones, one medium or waste bottle at a time, expired-label scenario, hidden-event probabilities, three-day visible-growth threshold and simplified mycoplasma assay are teaching choices labelled `simulation-typical` or `simulation-model` in the protocol file. They are not laboratory acceptance criteria, a validated sterility method or regulatory compliance. Lesson 4's top/left inclusion convention, corner rule and loading steps are common practice taught as this course's convention; neither Marienfeld document prescribes them. Its bench simulation's twofold dilution, 20–80-cell field range, 0.2% and 0.5% calculation tolerances and use of all included cells for uncertainty are likewise declared simulation choices.
@@ -68,10 +89,15 @@ Lesson 2's 500 mL final batch, 10% serum, 100×/200 mM to 1×/2 mM glutamine, pH
 
 Lesson 3's 70–85% routine window, 95% refusal scenario, T-75 area and exact volumes, five-minute dissociation bound, fixed two-flask target, 6.0 mL resuspension, tally transformations, viable-yield PDL convention, 0.5% seed-volume tolerance and 0.01-PDL tolerance are simulation choices. The source-derived volume scalings do not make the resulting T-75 protocol physically validated. The model does not simulate suspension culture or predict post-incubation biology.
 
+Lesson 5's 4 °C dropwise rule, exact volumes and cell numbers, 0.8–1.2 °C/min tolerance, 16 h hold, storage temperature and IDs, viability baselines and multipliers, 95% DMSO-solute removal, 80% threshold and 0.2% recount tolerance are simulation choices. They do not physically validate a freeze/thaw protocol. Liquid-phase selection fails a conceptual safety checkpoint without changing synthetic viability; no future growth or QC release is modelled.
+
+Lesson 6's five condition permutations, visible pH values and structures, simplified binary tests, four-locus synthetic alleles, dispositions, five source assignments and handoff fields are simulation choices. The lesson-defined 100 × shared calls/reference calls arithmetic is not the Tanabe or Masters algorithm or a universal match threshold. No test output is a sterility certificate or a physically validated biological result. Real ASN-0002 interpretation, assay controls/coverage, reference provenance and privacy review remain outside the simulator.
+
 ## Remaining gaps
 
-- Outline lessons 5–8: cryopreservation, full contamination management and authentication, pluripotent stem cells and records.
-- Organism identification, cell-line authentication methods, quarantine workflows and a complete contamination-response procedure; lesson 1 teaches prevention and evidence interpretation only.
+- Outline lessons 7–8: human pluripotent stem cells and records/traceability.
+- Species identification, real diagnostic performance, a complete ASN-0002 implementation and physical rescue efficacy. Contamination response, mycoplasma evidence and bounded synthetic STR authentication are taught in lesson 6.
+- Vitrification, cell-specific cryopreservation optimisation, full QC release and complete cell-banking SOPs; lesson 5 teaches one synthetic DMSO slow-freeze/vapour-storage pathway.
 - Automated cell counters, fluorescent and flow-cytometric viability assays, and comparisons between methods.
 - A primary source for lesson 4's boundary convention, and an open-protocol source for loading technique.
 - Review by a qualified laboratory professional, measured workload and any graded assessment or project.

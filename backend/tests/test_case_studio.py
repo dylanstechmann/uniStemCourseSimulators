@@ -194,7 +194,7 @@ def test_all_authored_courses_expose_their_existing_case_studies():
     }
     # Physics E&M authored six milestones for its six project tasks.
     milestone_cases["physics-em"] = 6
-    additional_cases = {"cell-culture-practice": 3}
+    additional_cases = {"cell-culture-practice": 5}
     for summary in courses:
         course = repository.course(summary.id)
         assert len(course.case_studies) == (

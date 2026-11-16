@@ -1654,6 +1654,846 @@
         ],
         "partial_credit": "correct-minus-incorrect-clamped-v1"
       }
+    },
+    {
+      "id": "cell-culture-practice-5:cryoprotectant-classes",
+      "type": "multiple_select",
+      "prompt": "Which statements correctly classify or interpret cryoprotectants in this lesson? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-5-objective-1"
+      ],
+      "feedback": {
+        "hint": "Separate membrane permeability from the storage refrigerant and from a universal formulation claim.",
+        "solution": "DMSO and glycerol are permeating cryoprotectants; trehalose, poly(vinyl pyrrolidone) and hydroxyethyl starch are non-permeating examples. Non-permeating agents act extracellularly and are not interchangeable with DMSO. Liquid nitrogen is a refrigerant, not a cryoprotectant, and 10% DMSO here is a simulation formulation rather than a universal rule.",
+        "lesson_ids": [
+          "cell-culture-practice-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original cryopreservation practice developed with substantial AI assistance; synthetic scenario and data; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": [
+          0,
+          2,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "options": [
+        "DMSO and glycerol can permeate cell membranes.",
+        "Liquid nitrogen is a non-permeating cryoprotectant because it remains outside the vial.",
+        "Trehalose and hydroxyethyl starch can serve as non-permeating, extracellular cryoprotectants.",
+        "Every non-permeating polymer has the same mechanism and can replace DMSO at the same concentration.",
+        "The simulator’s 10% DMSO formulation is a teaching choice, not a universal cell-line requirement."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-5:two-factor-injury",
+      "type": "single_choice",
+      "prompt": "Which explanation best matches the two-factor account of freezing injury?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-5-objective-2"
+      ],
+      "feedback": {
+        "hint": "Compare water transport and exposure time at the two cooling extremes.",
+        "solution": "Excessively slow cooling prolongs dehydration and exposure to concentrated solutes, while excessively rapid cooling permits damaging intracellular ice because water cannot leave quickly enough. An intermediate, cell-dependent rate balances these risks; extracellular ice is not harmless and fastest is not always best.",
+        "lesson_ids": [
+          "cell-culture-practice-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original cryopreservation practice developed with substantial AI assistance; synthetic scenario and data; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1
+      },
+      "options": [
+        "Slow cooling causes only intracellular ice, whereas rapid cooling causes only evaporation.",
+        "Slow cooling prolongs solution/dehydration stresses, whereas rapid cooling increases the risk of intracellular ice; an intermediate rate can balance them.",
+        "Extracellular ice is always harmless, so only the final storage temperature matters.",
+        "The fastest available cooling rate is best for every cell type because it eliminates all osmotic stress."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-5:freeze-medium-dmso-volume",
+      "type": "numeric",
+      "prompt": "A synthetic freeze-medium batch has a 4.00 mL final volume and must contain 10.0% v/v DMSO. How many millilitres of DMSO are required? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-5-objective-1",
+        "cell-culture-practice-5-objective-3"
+      ],
+      "feedback": {
+        "hint": "Multiply the final batch volume by the DMSO volume fraction.",
+        "solution": "DMSO = 4.00 mL × 0.100 = 0.400 mL. Using 10% of some later diluted volume or adding DMSO on top of 4.00 mL confuses final-volume fraction with an add-on fraction.",
+        "lesson_ids": [
+          "cell-culture-practice-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original cryopreservation practice developed with substantial AI assistance; synthetic scenario and data; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.4,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-5:freeze-medium-base-volume",
+      "type": "numeric",
+      "prompt": "For the same 4.00 mL final freeze-medium batch containing 10.0% v/v DMSO, how many millilitres of base medium combine with the DMSO? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-5-objective-3"
+      ],
+      "feedback": {
+        "hint": "Subtract the DMSO component from the final volume.",
+        "solution": "DMSO = 0.400 mL, so base medium = 4.00 − 0.400 = 3.60 mL. Using 4.00 mL base would produce a 4.40 mL batch and only 0.400/4.40 × 100 = 9.09% DMSO.",
+        "lesson_ids": [
+          "cell-culture-practice-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original cryopreservation practice developed with substantial AI assistance; synthetic scenario and data; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 3.6,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-5:vial-count",
+      "type": "numeric",
+      "prompt": "A harvest contains 1.00 × 10⁷ viable cells. Each cryovial must receive 2.50 × 10⁶ viable cells. How many complete vials can be prepared under the model’s no-loss accounting? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-5-objective-3"
+      ],
+      "feedback": {
+        "hint": "Divide total viable cells by the viable-cell target per vial.",
+        "solution": "Vial count = (1.00 × 10⁷)/(2.50 × 10⁶) = 4. The value 2.50 is the per-vial target in units of 10⁶ cells, not the number of vials. Real loss and dead-volume allowances would need separate accounting.",
+        "lesson_ids": [
+          "cell-culture-practice-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original cryopreservation practice developed with substantial AI assistance; synthetic scenario and data; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 4,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-5:freeze-cell-concentration",
+      "type": "numeric",
+      "prompt": "Four vials each contain 2.50 × 10⁶ viable cells in 1.00 mL, for a 4.00 mL total batch. What is the batch viable-cell concentration in units of 10⁶ cells/mL? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-5-objective-3"
+      ],
+      "feedback": {
+        "hint": "Use all four vials’ viable cells and the total batch volume.",
+        "solution": "Total viable cells = 4 × 2.50 × 10⁶ = 1.00 × 10⁷. Concentration = (1.00 × 10⁷)/(4.00 mL) = 2.50 × 10⁶ cells/mL. Dividing only one vial’s cells by the whole batch gives the misconception value 0.625.",
+        "lesson_ids": [
+          "cell-culture-practice-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original cryopreservation practice developed with substantial AI assistance; synthetic scenario and data; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 2.5,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-5:storage-phase",
+      "type": "single_choice",
+      "prompt": "A learner proposes immersing the synthetic cryovials in liquid nitrogen because liquid is colder than the vapour above it. What is the best response for this lesson?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-5-objective-4"
+      ],
+      "feedback": {
+        "hint": "Temperature alone does not capture nitrogen entry, leakage and pressure hazards.",
+        "solution": "The lesson selects vapour-phase storage because the general reference identifies reduced explosion risk relative to liquid immersion. A lower temperature does not erase those hazards. Vapour selection also does not replace appropriate vessels, closures, protective equipment and institutional rules.",
+        "lesson_ids": [
+          "cell-culture-practice-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original cryopreservation practice developed with substantial AI assistance; synthetic scenario and data; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 2
+      },
+      "options": [
+        "Use liquid phase because colder storage automatically removes every vial hazard.",
+        "Use either phase interchangeably and omit the phase from the location record.",
+        "Use vapour phase for this scenario and retain the storage phase and location in the record; liquid immersion introduces additional leakage and explosion concerns.",
+        "Avoid nitrogen storage altogether and leave the vials at −80 °C indefinitely without a cell-specific assessment."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-5:thaw-and-dilution",
+      "type": "multiple_select",
+      "prompt": "Which same-run recovery actions agree with the lesson’s thaw and DMSO-handling logic? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-5-objective-2",
+        "cell-culture-practice-5-objective-4"
+      ],
+      "feedback": {
+        "hint": "Separate rapid warming from the subsequent gradual osmotic transition.",
+        "solution": "Move promptly to 37 °C, thaw quickly until only a small ice remnant remains, then dilute gradually with prewarmed complete medium and remove DMSO before the recount. A slow thaw is not gentler, and immediate high viability does not establish future growth or sterility.",
+        "lesson_ids": [
+          "cell-culture-practice-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original cryopreservation practice developed with substantial AI assistance; synthetic scenario and data; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "options": [
+        "Transfer the vial promptly to 37 °C and thaw rapidly until only a small amount of ice remains.",
+        "Dilute the thawed suspension gradually with prewarmed complete medium, then collect cells and remove DMSO-containing supernatant.",
+        "Leave the vial at room temperature for 20 min so that warming is gentler.",
+        "Recount and record viability after resuspension, while recognising that membrane integrity does not establish future growth or sterility.",
+        "Keep all DMSO in the culture because cryoprotectant toxicity ends once ice has melted."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-5:post-dilution-dmso",
+      "type": "numeric",
+      "prompt": "One vial contains 1.00 mL of cell suspension at 10.0% v/v DMSO. It is diluted with 9.00 mL complete medium. What is the DMSO concentration in percent v/v after dilution? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-5-objective-3",
+        "cell-culture-practice-5-objective-4"
+      ],
+      "feedback": {
+        "hint": "The DMSO amount stays fixed while total volume becomes 10.00 mL.",
+        "solution": "DMSO = 10.0% × 1.00/(1.00 + 9.00) = 1.00% v/v. Reporting 10.0% ignores the tenfold dilution; adding percentages is not volume conservation.",
+        "lesson_ids": [
+          "cell-culture-practice-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original cryopreservation practice developed with substantial AI assistance; synthetic scenario and data; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1.0,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-5:post-thaw-viable-yield",
+      "type": "numeric",
+      "prompt": "A vial initially contains 2.50 × 10⁶ viable cells at 95.0% pre-freeze viability. The post-thaw count reports 92.0% viability. Assuming conserved total cell number, how many viable cells are recovered, in units of 10⁶ cells? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-5-objective-3",
+        "cell-culture-practice-5-objective-5"
+      ],
+      "feedback": {
+        "hint": "Convert the initial viable count to total cells using 0.950, then multiply by 0.920.",
+        "solution": "Initial total cells = 2.50 × 10⁶/0.950. Recovered viable cells = 2.50 × 10⁶ × 92.0/95.0 = 2.4210526 × 10⁶ = 2.42 in the requested units. Multiplying 2.50 by 0.92 gives 2.30 and incorrectly treats every initially counted cell as viable.",
+        "lesson_ids": [
+          "cell-culture-practice-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original cryopreservation practice developed with substantial AI assistance; synthetic scenario and data; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 2.42,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-5:residual-dmso",
+      "type": "numeric",
+      "prompt": "The original vial contains 0.100 mL DMSO. After dilution and collection, 95.0% of the DMSO solute is removed and the cells are resuspended in 2.00 mL. What is the residual DMSO concentration in percent v/v under this accounting model? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-5-objective-3",
+        "cell-culture-practice-5-objective-4"
+      ],
+      "feedback": {
+        "hint": "First calculate the remaining DMSO volume, then divide by final resuspension volume and multiply by 100.",
+        "solution": "Residual DMSO = 0.100 × (1 − 0.950) = 0.00500 mL. Concentration = 0.00500/2.00 × 100 = 0.250% v/v. Reporting 0.00500 confuses a volume in mL with a percentage.",
+        "lesson_ids": [
+          "cell-culture-practice-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original cryopreservation practice developed with substantial AI assistance; synthetic scenario and data; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.25,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-5:quarantine-bank-record",
+      "type": "single_choice",
+      "prompt": "A newly prepared working stock has 92% post-thaw dye-exclusion viability, but sterility QC is still pending. Which disposition and record are appropriate?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-5-objective-5"
+      ],
+      "feedback": {
+        "hint": "Membrane integrity, contamination evidence, identity and bank provenance are different evidence domains.",
+        "solution": "Keep the stock quarantined pending the required QC and preserve its storage address and working-stock/provenance link. Viability does not prove sterility or identity, and the master-seed/working-stock relationship is a forward records exercise rather than release authorisation.",
+        "lesson_ids": [
+          "cell-culture-practice-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original cryopreservation practice developed with substantial AI assistance; synthetic scenario and data; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 2
+      },
+      "options": [
+        "Release it for routine use because viability exceeds 90%, and record only the thaw date.",
+        "Discard every vial automatically because pending QC is equivalent to confirmed contamination.",
+        "Quarantine pending required QC, record dewar/rack/box/position and working-stock tier, and preserve the bank-tier forward link without inferring release.",
+        "Label it as an authenticated master-seed stock because high viability proves identity and sterility."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-6:visible-signatures",
+      "type": "multiple_select",
+      "prompt": "Which observations in the synthetic culture panels justify quarantine and a broad bacterial or fungal investigation rather than routine passaging? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-6-objective-1"
+      ],
+      "feedback": {
+        "hint": "Separate a warning pattern from a species identification and from mycoplasma evidence.",
+        "solution": "Turbid acidic medium with many small rods supports a bacterial-pattern investigation; branching filaments with micro-colonies support a fungal-pattern investigation. Neither pattern names a species. Clear medium and STR do not exclude mycoplasma, so treating them as clearance repeats the visibility misconception.",
+        "lesson_ids": [
+          "cell-culture-practice-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original contamination/authentication practice developed with substantial AI assistance; synthetic organisms, profiles and records; no external problem, register row, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Turbid medium, an acidic indicator shift and numerous small rod-shaped objects",
+        "Branching filaments and micro-colonies in the microscopy panel",
+        "Clear medium with expected cells proves absence of mycoplasma",
+        "A matching STR profile proves absence of bacteria and fungi",
+        "An unexpected pH shift together with turbidity is a contamination warning"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "cell-culture-practice-6:contamination-routes",
+      "type": "multiple_select",
+      "prompt": "After suspect flasks are closed and quarantined, which records could help distinguish contamination routes? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-6-objective-1",
+        "cell-culture-practice-6-objective-5"
+      ],
+      "feedback": {
+        "hint": "A route investigation joins materials, places, times and people-independent process records.",
+        "solution": "Shared-medium lots, incubator/water-pan history, vessel and pipette handling, and receipt/provenance records test competing routes. Antibiotic response is not a route map, and a familiar incubator alone proves nothing. The misconception is to select a plausible story before examining linked records.",
+        "lesson_ids": [
+          "cell-culture-practice-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original contamination/authentication practice developed with substantial AI assistance; synthetic organisms, profiles and records; no external problem, register row, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Medium, supplement and reagent lot-use records across affected and unaffected flasks",
+        "Incubator location, cleaning and water-pan records",
+        "Vessel handling, closure, pipette and one-cell-line workflow records",
+        "Incoming-source, accession, transport and prior-test records",
+        "Whether the medium temporarily clears after penicillin-streptomycin, taken as proof of the original source"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "cell-culture-practice-6:invisible-mycoplasma",
+      "type": "single_choice",
+      "prompt": "A newly received flask has clear medium, expected pH and apparently normal cells after 0.22 µm-filtered medium was used. What evidence is still required before release from quarantine?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-6-objective-2"
+      ],
+      "feedback": {
+        "hint": "Ask which risk remains invisible to appearance and ordinary bacterial control.",
+        "solution": "A dedicated, controlled mycoplasma assay is required because mollicutes can remain without turbidity and can pass some bacterial-control filters. Appearance, Gram stain and STR answer different questions; assuming otherwise is the clear-culture misconception.",
+        "lesson_ids": [
+          "cell-culture-practice-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original contamination/authentication practice developed with substantial AI assistance; synthetic organisms, profiles and records; no external problem, register row, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "No further evidence: clear medium and filtration establish mycoplasma absence",
+        "A dedicated, controlled mycoplasma test with valid controls, together with the required identity review",
+        "Only a Gram stain, because it detects every mollicute reliably",
+        "Only an STR profile, because authentication includes microbial sterility"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "cell-culture-practice-6:method-limits",
+      "type": "multiple_select",
+      "prompt": "Which interpretations of mycoplasma methods are sound? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-6-objective-2"
+      ],
+      "feedback": {
+        "hint": "Match each method to its target, controls and failure mode rather than calling every negative result sterile.",
+        "solution": "Culture can miss poorly or non-culturable strains; PCR needs target coverage plus internal, positive and negative controls and can suffer carry-over or inhibition; DNA stain is non-specific and can be subjective. No method makes clear appearance or a single uncontrolled negative result a universal sterility certificate. Treating any method as limitless is the assay-absolutism misconception.",
+        "lesson_ids": [
+          "cell-culture-practice-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original contamination/authentication practice developed with substantial AI assistance; synthetic organisms, profiles and records; no external problem, register row, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "No growth in selective culture can miss strains that grow poorly or not at all on the chosen cell-free medium",
+        "PCR carry-over can cause false positives and sample inhibitors can cause false negatives, so internal and external controls matter",
+        "DAPI/Hoechst-type staining identifies a mycoplasma species because it binds only mycoplasma DNA",
+        "Direct DNA staining can be insensitive and subjective because it stains DNA rather than proving organism identity",
+        "A valid negative result is bounded by specimen, timing, target coverage, detection limit and controls",
+        "One negative assay of any kind permanently certifies every aliquot and species as sterile"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "cell-culture-practice-6:quarantine-first",
+      "type": "single_choice",
+      "prompt": "A flask looks turbid during a busy shared-culture session, but the microbiology result will not return until later. What should happen first?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-6-objective-3"
+      ],
+      "feedback": {
+        "hint": "Containment does not wait for a definitive organism name.",
+        "solution": "Keep the flask closed, stop routine use and quarantine it and linked materials before identification. Testing comes after containment. Opening it in the clean workflow or passaging it while waiting confuses identification with the prerequisite containment step. Identification is not a prerequisite for containment; reversing that order is the identification-first misconception.",
+        "lesson_ids": [
+          "cell-culture-practice-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original contamination/authentication practice developed with substantial AI assistance; synthetic organisms, profiles and records; no external problem, register row, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Open it in the clean cabinet to name the organism before deciding whether to quarantine",
+        "Keep it closed, stop use and quarantine it and linked materials before ordering or interpreting identification tests",
+        "Continue passaging until the result returns, then discard only if positive",
+        "Add antibiotics and return it to the shared incubator while awaiting the result"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "cell-culture-practice-6:discard-versus-rescue",
+      "type": "single_choice",
+      "prompt": "A routine replaceable culture has confirmed fungal contamination and a previously tested frozen stock is available. Which disposition is most appropriate?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-6-objective-3"
+      ],
+      "feedback": {
+        "hint": "Compare routine replacement with the exceptional referral needed for an irreplaceable line.",
+        "solution": "Contain and decontaminate the contaminated culture for disposal, clean linked areas/materials and replace from tested stock. Rescue assessment is an exceptional specialist referral for an irreplaceable line, not routine antibiotic treatment. Keeping a contaminated line because it grows well confuses growth with acceptability.",
+        "lesson_ids": [
+          "cell-culture-practice-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original contamination/authentication practice developed with substantial AI assistance; synthetic organisms, profiles and records; no external problem, register row, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Continue it with antifungal agents and no follow-up because the cells are still growing",
+        "Contain, decontaminate and discard it, review linked materials and replace from the tested stock",
+        "Passage it repeatedly without treatment until the fungal structures are diluted away",
+        "Authenticate it by STR and release it if the alleles match"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "cell-culture-practice-6:antibiotic-masking",
+      "type": "single_choice",
+      "prompt": "Penicillin-streptomycin is added to a suspect culture and turbidity temporarily decreases. Which conclusion is justified?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-6-objective-3"
+      ],
+      "feedback": {
+        "hint": "Distinguish suppression of a visible sign from elimination of the contaminant.",
+        "solution": "Only that visible growth may have been suppressed. Contamination can persist, resistance can be selected and many mycoplasmas are unaffected by routine antibiotics; the flask remains quarantined. Treating reduced turbidity as sterilisation is the masking misconception.",
+        "lesson_ids": [
+          "cell-culture-practice-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original contamination/authentication practice developed with substantial AI assistance; synthetic organisms, profiles and records; no external problem, register row, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "The culture is sterile and can return to the clean incubator",
+        "The antibiotic selected the original contamination route",
+        "Visible growth may be masked while contamination persists, so quarantine and evidence-based disposition remain necessary",
+        "The mycoplasma status is negative because penicillin reliably eliminates mollicutes"
+      ],
+      "solution_spec": {
+        "answer": 2
+      }
+    },
+    {
+      "id": "cell-culture-practice-6:str-loci-alleles",
+      "type": "multiple_select",
+      "prompt": "Which statements correctly interpret a synthetic human-cell STR exercise? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-6-objective-4"
+      ],
+      "feedback": {
+        "hint": "Keep the locus, its allele calls, the reference and the conclusion separate.",
+        "solution": "A locus is a repeat-containing genomic location; allele calls describe observations at that locus and must be compared with a suitable reference using a declared method. STR mismatch supports an identity hold, while a match does not establish sterility, phenotype or correct reference provenance. These limits prevent the DNA-fingerprint-equals-everything misconception.",
+        "lesson_ids": [
+          "cell-culture-practice-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original contamination/authentication practice developed with substantial AI assistance; synthetic organisms, profiles and records; no external problem, register row, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "An STR locus is a genomic location containing short tandem repeats",
+        "Allele calls at multiple loci are compared with a traceable reference using a declared interpretation method",
+        "A mismatch should trigger an identity hold and investigation rather than an assumption of microbial sterility",
+        "A match proves absence of mycoplasma and guarantees the expected phenotype",
+        "Missing calls, reference provenance, mixtures and drift can affect interpretation",
+        "Absence of a line name from the ICLAC register proves that the current stock is authentic"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "cell-culture-practice-6:str-shared-alleles",
+      "type": "numeric",
+      "prompt": "At four synthetic loci, sample allele calls are [8,8], [10,11], [12,14], [7,9] and reference calls are [8,9], [10,11], [12,12], [7,9]. Pair repeated calls by multiplicity. How many of the eight reference allele-call observations are shared by the sample? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-6-objective-4"
+      ],
+      "feedback": {
+        "hint": "Compare each position and multiplicity: one 8, both 10/11, one 12, and both 7/9.",
+        "solution": "Shared calls = 1 + 2 + 1 + 2 = 6. Counting three loci with any overlap gives 3, which answers a locus-overlap question rather than the requested allele-call count. This synthetic arithmetic alone is not an ASN-0002 match decision.",
+        "lesson_ids": [
+          "cell-culture-practice-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original contamination/authentication practice developed with substantial AI assistance; synthetic organisms, profiles and records; no external problem, register row, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 6,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-6:str-classroom-percentage",
+      "type": "numeric",
+      "prompt": "Using the same synthetic calls—sample [8,8], [10,11], [12,14], [7,9] versus reference [8,9], [10,11], [12,12], [7,9]—six of eight reference allele-call observations are shared. What is 100 × 6/8, the lesson’s explicitly defined classroom shared-call percentage? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-6-objective-4"
+      ],
+      "feedback": {
+        "hint": "Divide shared calls by all eight reference observations, then multiply by 100.",
+        "solution": "100 × 6/(2 × 4) = 100 × 6/8 = 75.0%. Reporting 75 loci or using three overlapping loci as the numerator confuses the defined arithmetic. This is not the Tanabe or Masters algorithm and is not a universal match threshold.",
+        "lesson_ids": [
+          "cell-culture-practice-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original contamination/authentication practice developed with substantial AI assistance; synthetic organisms, profiles and records; no external problem, register row, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 75.0,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-6:hela-context-and-authentication",
+      "type": "single_choice",
+      "prompt": "Why does the HeLa-era cross-contamination history remain relevant when a current flask has a long-used label and familiar morphology?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-6-objective-4"
+      ],
+      "feedback": {
+        "hint": "Historical use and appearance can propagate an original identity error.",
+        "solution": "A faster-growing line can replace another while the old label and habits persist, so current identity needs reference-based evidence. The ICLAC register helps check known problems but does not clear unlisted stocks. Familiarity and a matching but misidentified reference are the key misconceptions.",
+        "lesson_ids": [
+          "cell-culture-practice-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original contamination/authentication practice developed with substantial AI assistance; synthetic organisms, profiles and records; no external problem, register row, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Cross-contamination stopped once modern plastic flasks replaced glass",
+        "Familiar morphology and long use authenticate a line better than STR evidence",
+        "One line can overgrow another while the original label persists, so current stocks need authentication and provenance review",
+        "A line absent from the ICLAC register requires no identity testing"
+      ],
+      "solution_spec": {
+        "answer": 2
+      }
+    },
+    {
+      "id": "cell-culture-practice-6:incoming-source-trace",
+      "type": "multiple_select",
+      "prompt": "An incoming synthetic human line is in quarantine. Which elements belong in a defensible intake and incident/source-trace package? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-6-objective-3",
+        "cell-culture-practice-6-objective-4",
+        "cell-culture-practice-6-objective-5"
+      ],
+      "feedback": {
+        "hint": "Intake review combines contamination, identity, provenance and linked-process evidence before release.",
+        "solution": "Preserve provenance, perform local mycoplasma and appropriate identity testing with controls, inspect linked lots/equipment/handling, and hand off raw evidence, dispositions and unresolved routes before release. Supplier claims alone are not local verification; donor names and a source guess do not complete an incident record.",
+        "lesson_ids": [
+          "cell-culture-practice-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original contamination/authentication practice developed with substantial AI assistance; synthetic organisms, profiles and records; no external problem, register row, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Source accession, provenance, transport and previous-test records, with local quarantine until review",
+        "Dedicated mycoplasma evidence and a suitable STR comparison with controls and reference provenance",
+        "Linked medium lots, incubator, pipette/label handling and affected or unaffected culture records",
+        "A handoff separating raw observations, test results, dispositions, inferred routes and unresolved questions",
+        "Immediate release because the supplier’s historical certificate removes the need for receiving-laboratory review",
+        "Unnecessary donor names and family details in the shared teaching incident log"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
     }
   ]
 }

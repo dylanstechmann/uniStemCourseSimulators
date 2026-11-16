@@ -1,0 +1,994 @@
+{
+  "schema_version": "1.0",
+  "id": "freeze-and-thaw-with-viability-outcomes",
+  "version": "0.1.0",
+  "title": "Freeze and thaw with viability outcomes",
+  "layer": 2,
+  "summary": "Record a synthetic viable harvest, prepare and aliquot 10% DMSO freeze medium, control cooling and vapour storage, then thaw, dilute, remove DMSO, recount and quarantine one same-run stock.",
+  "scenario": "A generic synthetic non-human mammalian harvest supplies four cryovials under no-loss accounting. Prepare 4.00 mL final freeze medium with 10% v/v DMSO at 4 °C, add cold and dropwise, cool at about 1 °C/min with a controlled-rate or passive container, transfer to vapour storage and record the address. Thaw one vial rapidly at 37 °C, dilute gradually, remove DMSO, recount and retain quarantine pending QC. Seeded post-thaw panels and penalties are synthetic.",
+  "guided_steps": [
+    "Record 2.00 × 10⁶ viable cells/mL, 95.0% viability and 5.00 mL suspension. The viable harvest is 1.00 × 10⁷ cells.",
+    "Prepare 4.00 mL final medium: 0.400 mL DMSO + 3.60 mL base at 4 °C. Add DMSO by cold_dropwise with mixing in no more than 5 min.",
+    "Aliquot four vials, each 1.00 mL with 2.50 × 10⁶ viable cells. The batch concentration is 2.50 × 10⁶ viable cells/mL.",
+    "Use controlled_rate or passive_container, nominal 1.0 °C/min (accepted numerical range 0.8–1.2), −80 °C for 16 h. Uncontrolled freezer placement is a mistake.",
+    "Transfer to vapour at a displayed −150 °C and record dewar CRYO-A, rack R-02, box B-07, position D4, working_stock. Liquid immersion is a separate safety mistake.",
+    "Thaw one vial at 37 °C for 45 s to small_ice_remains; do not exceed 60 s.",
+    "Add 9.00 mL complete medium gradually at 37 °C. This makes a tenfold dilution and 1.00% DMSO.",
+    "Collect at 200 × g for 5 min, remove supernatant and resuspend in 2.00 mL. The synthetic accounting assumes 95% DMSO-solute removal, leaving 0.250% v/v.",
+    "Read the synthetic recovery panel and enter viable cells recovered, viability and viable concentration. A 92% panel yields 2.421053 × 10⁶ viable cells and 1.210526 × 10⁶ cells/mL; 93% varies with the seed.",
+    "Select quarantine_pending_qc, sterility pending, identity reference_on_file, and lesson_8_bank_ledger. Finish for 15 formative checkpoints and the structured result. No future growth or QC release is inferred."
+  ],
+  "parameters": [
+    {
+      "name": "harvest_viable_concentration_cells_ml",
+      "value": 2000000.0,
+      "unit": "viable cells/mL",
+      "label": "Displayed pre-freeze viable concentration",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Fixed synthetic harvest panel; not a cell-line target."
+      }
+    },
+    {
+      "name": "harvest_viability_pct",
+      "value": 95,
+      "unit": "%",
+      "label": "Displayed pre-freeze dye-exclusion viability",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Membrane integrity at the synthetic count only."
+      }
+    },
+    {
+      "name": "harvest_volume_ml",
+      "value": 5.0,
+      "unit": "mL",
+      "label": "Harvest suspension volume",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "Chosen for exact worked arithmetic."
+      }
+    },
+    {
+      "name": "vial_count",
+      "value": 4,
+      "unit": "vials",
+      "label": "Number of cryovials",
+      "source": {
+        "kind": "simulation-model",
+        "note": "No-loss teaching batch."
+      }
+    },
+    {
+      "name": "viable_cells_per_vial",
+      "value": 2500000,
+      "unit": "viable cells/vial",
+      "label": "Target viable cells per cryovial",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Synthetic target, not a recommended banking density."
+      }
+    },
+    {
+      "name": "volume_per_vial_ml",
+      "value": 1.0,
+      "unit": "mL/vial",
+      "label": "Final suspension volume per cryovial",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "Equal aliquots in the no-loss model."
+      }
+    },
+    {
+      "name": "dmso_final_fraction",
+      "value": 0.1,
+      "unit": "v/v fraction",
+      "label": "DMSO fraction of final freeze medium",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-freezing-cells",
+        "location": "Medium for freezing cells: complete medium with 10% DMSO is one general option",
+        "note": "The exact formulation and every downstream outcome remain synthetic."
+      }
+    },
+    {
+      "name": "freeze_medium_temperature_c",
+      "value": 4,
+      "unit": "°C",
+      "label": "Cold freeze-medium handling temperature",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Conservative cold-handling choice informed by the general cold-medium instruction; not a quoted manufacturer dropwise protocol."
+      }
+    },
+    {
+      "name": "dmso_addition_max_min",
+      "value": 5,
+      "unit": "min",
+      "label": "Maximum synthetic DMSO addition interval",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Teaching bound only."
+      }
+    },
+    {
+      "name": "cooling_rate_c_per_min",
+      "value": 1.0,
+      "unit": "°C/min",
+      "label": "Nominal controlled cooling rate",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-freezing-cells",
+        "location": "How to freeze cells, step 10",
+        "note": "Cell-specific instructions take precedence."
+      }
+    },
+    {
+      "name": "cooling_rate_tolerance_c_per_min",
+      "value": 0.2,
+      "unit": "°C/min",
+      "label": "Cooling-rate numerical teaching tolerance",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Not an equipment specification or laboratory acceptance range."
+      }
+    },
+    {
+      "name": "passive_hold_temperature_c",
+      "value": -80,
+      "unit": "°C",
+      "label": "Initial freezing hold temperature",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-freezing-cells",
+        "location": "How to freeze cells, step 10"
+      }
+    },
+    {
+      "name": "passive_hold_hours",
+      "value": 16,
+      "unit": "h",
+      "label": "Synthetic overnight hold duration",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "A timestamp representing overnight; no cooling curve is calculated."
+      }
+    },
+    {
+      "name": "vapour_storage_temperature_c",
+      "value": -150,
+      "unit": "°C",
+      "label": "Displayed vapour-phase storage temperature",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "Chosen below the general source’s −135 °C vapour-storage boundary; not a dewar specification."
+      }
+    },
+    {
+      "name": "thaw_temperature_c",
+      "value": 37,
+      "unit": "°C",
+      "label": "Rapid-thaw bath temperature",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-thawing-cells",
+        "location": "Thawing cells protocol, steps 1–2"
+      }
+    },
+    {
+      "name": "thaw_max_seconds",
+      "value": 60,
+      "unit": "s",
+      "label": "Maximum synthetic rapid-thaw duration",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-thawing-cells",
+        "location": "Thawing cells protocol, step 2",
+        "note": "Converted to seconds for action validation; actual cell instructions govern."
+      }
+    },
+    {
+      "name": "post_thaw_medium_ml",
+      "value": 9.0,
+      "unit": "mL",
+      "label": "Complete medium for one-vial dilution",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Chosen to make a tenfold dilution; not a universal dilution ratio."
+      }
+    },
+    {
+      "name": "collection_rcf_g",
+      "value": 200,
+      "unit": "× g",
+      "label": "Post-thaw collection relative centrifugal force",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-thawing-cells",
+        "location": "Thawing cells protocol, step 5",
+        "note": "Cell-type dependence remains."
+      }
+    },
+    {
+      "name": "collection_minutes",
+      "value": 5,
+      "unit": "min",
+      "label": "Post-thaw collection time",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-thawing-cells",
+        "location": "Thawing cells protocol, step 5; source range 5–10 min"
+      }
+    },
+    {
+      "name": "dmso_solute_removal_fraction",
+      "value": 0.95,
+      "unit": "fraction",
+      "label": "Assumed DMSO removal with supernatant",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Accounting assumption only; not measured extraction efficiency."
+      }
+    },
+    {
+      "name": "recount_volume_ml",
+      "value": 2.0,
+      "unit": "mL",
+      "label": "Final resuspension volume",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Chosen for residual-DMSO and concentration arithmetic."
+      }
+    },
+    {
+      "name": "baseline_post_thaw_viability_choices_pct",
+      "value": [
+        92.0,
+        93.0
+      ],
+      "unit": "%",
+      "label": "Seeded baseline post-thaw viability choices",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Hidden synthetic count baseline, not biological data."
+      }
+    },
+    {
+      "name": "minimum_post_thaw_viability_pct",
+      "value": 80,
+      "unit": "%",
+      "label": "Minimum synthetic post-thaw viability",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Teaching threshold only; not a stock-release or laboratory acceptance criterion."
+      }
+    },
+    {
+      "name": "room_temperature_dmso_factor",
+      "value": 0.8,
+      "unit": "multiplier",
+      "label": "Penalty for warm or non-dropwise DMSO addition",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Deterministic synthetic tally transformation, not measured toxicity kinetics."
+      }
+    },
+    {
+      "name": "uncontrolled_cooling_factor",
+      "value": 0.6,
+      "unit": "multiplier",
+      "label": "Penalty for missing controlled cooling",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Represents intracellular-ice risk in a simplified outcome model."
+      }
+    },
+    {
+      "name": "slow_thaw_factor",
+      "value": 0.7,
+      "unit": "multiplier",
+      "label": "Penalty for slow thaw",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Deterministic synthetic outcome factor, not a warming-rate model."
+      }
+    },
+    {
+      "name": "no_dilution_factor",
+      "value": 0.8,
+      "unit": "multiplier",
+      "label": "Penalty for absent or abrupt post-thaw dilution",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Simplified DMSO/osmotic-handling penalty."
+      }
+    },
+    {
+      "name": "dmso_not_removed_factor",
+      "value": 0.85,
+      "unit": "multiplier",
+      "label": "Penalty for leaving DMSO-containing supernatant",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Synthetic post-thaw exposure penalty."
+      }
+    },
+    {
+      "name": "recount_relative_tolerance",
+      "value": 0.002,
+      "unit": "fraction",
+      "label": "Recount arithmetic rounding allowance",
+      "source": {
+        "kind": "simulation-model",
+        "note": "0.2% numerical grading allowance, not assay precision."
+      }
+    }
+  ],
+  "actions": [
+    {
+      "name": "harvest_and_count",
+      "label": "Record harvest viable count and suspension volume",
+      "params": [
+        {
+          "name": "viable_concentration_cells_ml",
+          "label": "Viable concentration",
+          "type": "number",
+          "min": 0,
+          "max": 100000000,
+          "unit": "cells/mL"
+        },
+        {
+          "name": "viability_pct",
+          "label": "Pre-freeze viability",
+          "type": "number",
+          "min": 0,
+          "max": 100,
+          "unit": "%"
+        },
+        {
+          "name": "suspension_volume_ml",
+          "label": "Suspension volume",
+          "type": "number",
+          "min": 0.1,
+          "max": 20,
+          "unit": "mL"
+        }
+      ]
+    },
+    {
+      "name": "prepare_freeze_medium",
+      "label": "Calculate cold freeze-medium components",
+      "params": [
+        {
+          "name": "final_volume_ml",
+          "label": "Final freeze-medium volume",
+          "type": "number",
+          "min": 0.1,
+          "max": 20,
+          "unit": "mL"
+        },
+        {
+          "name": "dmso_volume_ml",
+          "label": "DMSO volume",
+          "type": "number",
+          "min": 0,
+          "max": 10,
+          "unit": "mL"
+        },
+        {
+          "name": "base_volume_ml",
+          "label": "Base-medium volume",
+          "type": "number",
+          "min": 0,
+          "max": 20,
+          "unit": "mL"
+        },
+        {
+          "name": "temperature_c",
+          "label": "Medium temperature",
+          "type": "number",
+          "min": 0,
+          "max": 30,
+          "unit": "°C"
+        }
+      ]
+    },
+    {
+      "name": "add_dmso",
+      "label": "Add DMSO cold and dropwise with mixing",
+      "params": [
+        {
+          "name": "temperature_c",
+          "label": "Addition temperature",
+          "type": "number",
+          "min": 0,
+          "max": 30,
+          "unit": "°C"
+        },
+        {
+          "name": "addition_method",
+          "label": "Addition method",
+          "type": "choice",
+          "options": [
+            {
+              "value": "cold_dropwise",
+              "label": "Cold, dropwise with mixing"
+            },
+            {
+              "value": "rapid_single_bolus",
+              "label": "Rapid single bolus"
+            }
+          ]
+        },
+        {
+          "name": "elapsed_minutes",
+          "label": "Addition interval",
+          "type": "number",
+          "min": 0.1,
+          "max": 30,
+          "unit": "min"
+        }
+      ]
+    },
+    {
+      "name": "aliquot_vials",
+      "label": "Aliquot equal viable-cell targets into cryovials",
+      "params": [
+        {
+          "name": "vial_count",
+          "label": "Cryovials",
+          "type": "integer",
+          "min": 1,
+          "max": 12,
+          "unit": "vials"
+        },
+        {
+          "name": "volume_per_vial_ml",
+          "label": "Final volume per vial",
+          "type": "number",
+          "min": 0.1,
+          "max": 2,
+          "unit": "mL"
+        },
+        {
+          "name": "viable_cells_per_vial",
+          "label": "Viable cells per vial",
+          "type": "integer",
+          "min": 10000,
+          "max": 10000000,
+          "unit": "viable cells"
+        }
+      ]
+    },
+    {
+      "name": "cool_vials",
+      "label": "Cool vials under a controlled history",
+      "params": [
+        {
+          "name": "method",
+          "label": "Cooling method",
+          "type": "choice",
+          "options": [
+            {
+              "value": "controlled_rate",
+              "label": "Controlled-rate freezer"
+            },
+            {
+              "value": "passive_container",
+              "label": "Passive freezing container at −80 °C"
+            },
+            {
+              "value": "uncontrolled_freezer",
+              "label": "Uncovered vials directly in freezer"
+            }
+          ]
+        },
+        {
+          "name": "rate_c_per_min",
+          "label": "Nominal cooling rate",
+          "type": "number",
+          "min": 0.1,
+          "max": 20,
+          "unit": "°C/min"
+        },
+        {
+          "name": "hold_temperature_c",
+          "label": "Initial hold temperature",
+          "type": "number",
+          "min": -90,
+          "max": -70,
+          "unit": "°C"
+        },
+        {
+          "name": "hold_hours",
+          "label": "Initial hold duration",
+          "type": "number",
+          "min": 1,
+          "max": 48,
+          "unit": "h"
+        }
+      ]
+    },
+    {
+      "name": "store_vials",
+      "label": "Transfer vials to nitrogen storage",
+      "params": [
+        {
+          "name": "phase",
+          "label": "Nitrogen storage phase",
+          "type": "choice",
+          "options": [
+            {
+              "value": "vapour",
+              "label": "Vapour phase above liquid nitrogen"
+            },
+            {
+              "value": "liquid",
+              "label": "Liquid-phase immersion"
+            }
+          ]
+        },
+        {
+          "name": "temperature_c",
+          "label": "Displayed storage temperature",
+          "type": "number",
+          "min": -196,
+          "max": -130,
+          "unit": "°C"
+        }
+      ]
+    },
+    {
+      "name": "record_location",
+      "label": "Record storage address and bank tier",
+      "params": [
+        {
+          "name": "dewar_id",
+          "label": "Dewar identifier",
+          "type": "identifier"
+        },
+        {
+          "name": "rack_id",
+          "label": "Rack identifier",
+          "type": "identifier"
+        },
+        {
+          "name": "box_id",
+          "label": "Box identifier",
+          "type": "identifier"
+        },
+        {
+          "name": "position_id",
+          "label": "Vial position identifier",
+          "type": "identifier"
+        },
+        {
+          "name": "bank_tier",
+          "label": "Bank tier",
+          "type": "choice",
+          "options": [
+            {
+              "value": "working_stock",
+              "label": "Working stock"
+            },
+            {
+              "value": "master_seed_stock",
+              "label": "Master/seed stock"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "thaw_vial",
+      "label": "Thaw one vial rapidly at 37 °C",
+      "params": [
+        {
+          "name": "temperature_c",
+          "label": "Thaw temperature",
+          "type": "number",
+          "min": 20,
+          "max": 45,
+          "unit": "°C"
+        },
+        {
+          "name": "duration_seconds",
+          "label": "Thaw duration",
+          "type": "integer",
+          "min": 1,
+          "max": 1800,
+          "unit": "s"
+        },
+        {
+          "name": "endpoint",
+          "label": "Thaw endpoint",
+          "type": "choice",
+          "options": [
+            {
+              "value": "small_ice_remains",
+              "label": "Only a small ice remnant remains"
+            },
+            {
+              "value": "fully_melted_extended",
+              "label": "Continue warming after fully melted"
+            },
+            {
+              "value": "room_temperature_equilibrated",
+              "label": "Equilibrate slowly at room temperature"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dilute_post_thaw",
+      "label": "Dilute thawed cells gradually with complete medium",
+      "params": [
+        {
+          "name": "medium_ml",
+          "label": "Complete-medium volume",
+          "type": "number",
+          "min": 0,
+          "max": 50,
+          "unit": "mL"
+        },
+        {
+          "name": "addition_method",
+          "label": "Medium addition method",
+          "type": "choice",
+          "options": [
+            {
+              "value": "gradual_with_mixing",
+              "label": "Gradual addition with gentle mixing"
+            },
+            {
+              "value": "rapid_single_bolus",
+              "label": "Rapid single addition"
+            }
+          ]
+        },
+        {
+          "name": "medium_temperature_c",
+          "label": "Complete-medium temperature",
+          "type": "number",
+          "min": 20,
+          "max": 40,
+          "unit": "°C"
+        }
+      ]
+    },
+    {
+      "name": "remove_dmso",
+      "label": "Collect cells, remove supernatant and resuspend",
+      "params": [
+        {
+          "name": "rcf_g",
+          "label": "Relative centrifugal force",
+          "type": "number",
+          "min": 0,
+          "max": 1000,
+          "unit": "× g"
+        },
+        {
+          "name": "minutes",
+          "label": "Collection time",
+          "type": "number",
+          "min": 0,
+          "max": 30,
+          "unit": "min"
+        },
+        {
+          "name": "supernatant_removed",
+          "label": "Remove DMSO-containing supernatant",
+          "type": "boolean"
+        },
+        {
+          "name": "final_volume_ml",
+          "label": "Resuspension volume",
+          "type": "number",
+          "min": 0.1,
+          "max": 20,
+          "unit": "mL"
+        }
+      ]
+    },
+    {
+      "name": "recount_post_thaw",
+      "label": "Record post-thaw viable recovery and concentration",
+      "params": [
+        {
+          "name": "viable_cells_recovered",
+          "label": "Viable cells recovered",
+          "type": "number",
+          "min": 0,
+          "max": 10000000,
+          "unit": "viable cells"
+        },
+        {
+          "name": "viability_pct",
+          "label": "Post-thaw viability",
+          "type": "number",
+          "min": 0,
+          "max": 100,
+          "unit": "%"
+        },
+        {
+          "name": "viable_concentration_cells_ml",
+          "label": "Viable concentration",
+          "type": "number",
+          "min": 0,
+          "max": 100000000,
+          "unit": "cells/mL"
+        }
+      ]
+    },
+    {
+      "name": "quarantine_stock",
+      "label": "Quarantine stock pending QC and preserve bank link",
+      "params": [
+        {
+          "name": "disposition",
+          "label": "Stock disposition",
+          "type": "choice",
+          "options": [
+            {
+              "value": "quarantine_pending_qc",
+              "label": "Quarantine pending required QC"
+            },
+            {
+              "value": "release_to_routine_use",
+              "label": "Release to routine use"
+            }
+          ]
+        },
+        {
+          "name": "sterility_status",
+          "label": "Sterility QC status",
+          "type": "choice",
+          "options": [
+            {
+              "value": "pending",
+              "label": "Pending"
+            },
+            {
+              "value": "clear",
+              "label": "Documented clear"
+            },
+            {
+              "value": "not_tested",
+              "label": "Not tested"
+            }
+          ]
+        },
+        {
+          "name": "identity_status",
+          "label": "Identity evidence status",
+          "type": "choice",
+          "options": [
+            {
+              "value": "reference_on_file",
+              "label": "Authenticated reference on file; current review pending"
+            },
+            {
+              "value": "pending",
+              "label": "Identity review pending"
+            },
+            {
+              "value": "mismatch",
+              "label": "Identity mismatch"
+            }
+          ]
+        },
+        {
+          "name": "forward_record",
+          "label": "Bank-tier forward record",
+          "type": "choice",
+          "options": [
+            {
+              "value": "lesson_8_bank_ledger",
+              "label": "Carry tier and provenance to lesson-8 bank ledger"
+            },
+            {
+              "value": "none",
+              "label": "No bank-tier forward record"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "finish",
+      "label": "Finish with a structured synthetic result",
+      "params": []
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "harvest-and-count",
+      "severity": "major",
+      "description": "Record the displayed 2.00 × 10⁶ viable cells/mL, 95.0% viability and 5.00 mL harvest.",
+      "rationale": "The freeze batch depends on an explicit viable count and volume; membrane integrity is not a complete QC panel.",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-freezing-cells",
+        "location": "How to freeze cells, steps 1 and 5; exact panel is synthetic"
+      }
+    },
+    {
+      "id": "freeze-medium-composition",
+      "severity": "critical",
+      "description": "Prepare 4.00 mL final medium with 0.400 mL DMSO and 3.60 mL base at 4 °C.",
+      "rationale": "Volume fractions refer to final volume, and component volumes must sum without silently exceeding the batch.",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-freezing-cells",
+        "location": "Medium for freezing cells; exact batch and cold implementation are simulation choices"
+      }
+    },
+    {
+      "id": "cold-dropwise-dmso",
+      "severity": "critical",
+      "description": "Add DMSO cold and dropwise with mixing within five minutes.",
+      "rationale": "The teaching rule limits warm exposure and abrupt local DMSO concentration; it is not a universal validated addition protocol.",
+      "source": {
+        "kind": "simulation-model",
+        "note": "4 °C and dropwise implementation are synthetic conservative choices."
+      }
+    },
+    {
+      "id": "aliquot-conservation",
+      "severity": "major",
+      "description": "Aliquot four 1.00 mL vials with 2.50 × 10⁶ viable cells each.",
+      "rationale": "The no-loss plan must conserve viable cells and final volume across four equal vials.",
+      "source": {
+        "kind": "simulation-model"
+      }
+    },
+    {
+      "id": "controlled-cooling",
+      "severity": "critical",
+      "description": "Use a controlled-rate device or passive container at approximately 1 °C/min and record the −80 °C overnight hold.",
+      "rationale": "Competing solution and intracellular-ice injury require a controlled intermediate history; an uncontrolled freezer placement does not document one.",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-freezing-cells",
+        "location": "How to freeze cells, step 10; rate tolerance and hold are simulation choices"
+      }
+    },
+    {
+      "id": "vapour-phase-storage",
+      "severity": "critical",
+      "description": "Store in nitrogen vapour rather than liquid immersion.",
+      "rationale": "Vapour storage addresses nitrogen-entry and explosion concerns that a temperature-only comparison misses.",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-freezing-cells",
+        "location": "How to freeze cells, step 11 and safety note"
+      }
+    },
+    {
+      "id": "location-record",
+      "severity": "major",
+      "description": "Record dewar CRYO-A, rack R-02, box B-07, position D4 and working-stock tier.",
+      "rationale": "A bank entry must be retrievable and linked to a tier/provenance record.",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-freezing-cells",
+        "location": "Why freeze your cells: seed and working stocks; exact IDs are synthetic"
+      }
+    },
+    {
+      "id": "fast-thaw",
+      "severity": "critical",
+      "description": "Thaw at 37 °C for no more than 60 s with only a small ice remnant.",
+      "rationale": "Rapid warming limits time in damaging thawing conditions; slow warming is not assumed to be gentler.",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-thawing-cells",
+        "location": "Thawing cells protocol, steps 1–2"
+      }
+    },
+    {
+      "id": "post-thaw-dilution",
+      "severity": "major",
+      "description": "Add 9.00 mL complete medium gradually at 37 °C.",
+      "rationale": "Gradual dilution after rapid thaw limits abrupt osmotic change and reduces DMSO concentration.",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-thawing-cells",
+        "location": "Thawing cells protocol, step 4 and troubleshooting; exact volume is synthetic"
+      }
+    },
+    {
+      "id": "dmso-removal",
+      "severity": "major",
+      "description": "Collect at 200 × g for 5 min, remove supernatant and resuspend in 2.00 mL.",
+      "rationale": "The supernatant-removal step separates cells from most DMSO; it does not destroy DMSO or prove zero residual.",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-thawing-cells",
+        "location": "Thawing cells protocol, steps 5–7; removal efficiency and final volume are synthetic"
+      }
+    },
+    {
+      "id": "recount-arithmetic",
+      "severity": "major",
+      "description": "Enter the observed viable recovery, viability and concentration consistently after resuspension.",
+      "rationale": "Viable recovery and concentration must use the same viability and final volume; 0.2% is only a numerical rounding allowance.",
+      "source": {
+        "kind": "simulation-model"
+      }
+    },
+    {
+      "id": "post-thaw-viability",
+      "severity": "major",
+      "description": "Reach at least 80% synthetic post-thaw dye-exclusion viability.",
+      "rationale": "Mishandling penalties alter the count panel; this threshold is not a stock-release specification.",
+      "source": {
+        "kind": "simulation-model"
+      }
+    },
+    {
+      "id": "quarantine-pending-qc",
+      "severity": "critical",
+      "description": "Keep the new stock quarantined with sterility QC pending and identity reference_on_file documented.",
+      "rationale": "Post-thaw viability cannot substitute for sterility or identity evidence. Pending identity does not satisfy the required reference_on_file documentation checkpoint, and the stock remains quarantined.",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-freezing-cells",
+        "location": "How to freeze cells, step 1; quarantine implementation is synthetic"
+      }
+    },
+    {
+      "id": "bank-tier-forward-link",
+      "severity": "minor",
+      "description": "Carry working-stock tier and provenance into the lesson-8 bank-ledger record.",
+      "rationale": "Bank tiers require traceable provenance rather than a vial label alone.",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-freezing-cells",
+        "location": "Why freeze your cells: seed and working stocks"
+      }
+    },
+    {
+      "id": "structured-result",
+      "severity": "minor",
+      "description": "Finish with a structured result and no future-growth or release claim.",
+      "rationale": "The final object supports formative feedback while keeping its synthetic limits explicit.",
+      "source": {
+        "kind": "simulation-model"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "thermo-gibco-freezing-cells",
+      "use": "General pre-freeze characterization/counting, cold freeze medium, approximate controlled cooling and passive-container alternatives, vapour storage and seed/working-stock context; link-only, original wording."
+    },
+    {
+      "source_id": "thermo-gibco-thawing-cells",
+      "use": "General prompt 37 °C thaw, gradual post-thaw dilution, collection, supernatant removal and resuspension; link-only, no protocol text copied."
+    },
+    {
+      "source_id": "mazur-1970-cryobiology-freezing-systems",
+      "use": "Primary classic citation for freezing responses and the conceptual two-factor framework in the lesson; corrected Science 168:939–949 DOI 10.1126/science.168.3934.939; link-only."
+    },
+    {
+      "source_id": "lovelock-bishop-1959-dmso",
+      "use": "Classic DMSO permeating-cryoprotectant evidence and electrolyte-concentration context; Nature 183:1394–1395 DOI 10.1038/1831394a0; link-only."
+    },
+    {
+      "source_id": "murray-gibson-2022-chemical-cryopreservation",
+      "use": "Permeating/non-permeating cryoprotectant contrast, two-factor injury and thaw/osmotic cautions; full text read on PMC, but reuse restricted to link-only reference."
+    }
+  ],
+  "limitations": [
+    "All cells, counts, locations and outcomes are synthetic and non-human. The model rehearses decisions and arithmetic only.",
+    "The simulator establishes no competency, aseptic or cryogenic hand skill, institutional authorisation, stock-release decision or physical validation.",
+    "The exact formulation, densities, temperatures, timing bounds, IDs, hidden baseline and penalties, 95% solute removal, viability threshold and numerical tolerances are simulation choices, not laboratory acceptance criteria.",
+    "The viability factors are deterministic tally transformations, not validated DMSO-toxicity, osmotic, heat-transfer, ice-nucleation, recrystallisation or cell-survival models.",
+    "Vapour-phase selection is a conceptual safety decision only. Vial design, nitrogen handling, personal protection, dewar operation and local biohazard rules are not simulated.",
+    "Dye-exclusion viability represents membrane integrity at one count. Total-cell conservation and recovery calculations are assumptions; no attachment, growth, phenotype, genomic stability, identity, sterility or future viability is predicted.",
+    "The protocol covers one DMSO slow-freeze pathway only. Non-permeating agents are conceptual in the reading; vitrification, controlled nucleation, cell-specific optimisation, mycoplasma methods and full bank release/audit procedures are outside scope."
+  ]
+}
