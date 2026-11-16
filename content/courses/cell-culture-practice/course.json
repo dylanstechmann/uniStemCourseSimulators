@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
   "id": "cell-culture-practice",
-  "title": "Cell Culture Practice (partial: Aseptic Technique and Counting Cells)",
-  "description": "A two-lesson partial package of the planned cell-culture layer of the wet-lab practice track: perform an aseptic medium change and interpret hidden contamination evidence, then estimate viable-cell concentration and trypan-blue viability from hemocytometer counts. Lessons 1 and 4 of the eight outlined topics are written; the other six are deferred.",
+  "title": "Cell Culture Practice (partial: Aseptic Technique, Media, Passaging and Counting Cells)",
+  "description": "A four-lesson partial package of the planned cell-culture layer of the wet-lab practice track: perform an aseptic medium change, prepare and filter a supplemented medium with QC evidence, plan an adherent passage to a target density, and interpret hemocytometer counts and trypan-blue viability. Outline lessons 1–4 of the eight outlined topics are written; lessons 5–8 are deferred.",
   "domain": "Life sciences laboratory",
   "level": "Year 2",
   "maturity": "partial",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "CC-BY-4.0",
   "content_origin": {
     "kind": "original",
@@ -15,7 +15,9 @@
     "migration_version": null,
     "modifications": [
       "Original reading, worked examples, practice, cards and a self-check case developed with substantial AI assistance on 2026-10-31 as a one-lesson pilot of layer 2 of the wet-lab practice track (docs/WET_LAB_LAYER_OUTLINES.md).",
-      "Original lesson 1 reading, practice, cards and a self-check case developed with substantial AI assistance on 2026-11-15, extending the layer-2 pilot from lesson 4 to lessons 1 and 4 and adding the aseptic medium-change bench simulation."
+      "Original lesson 1 reading, practice, cards and a self-check case developed with substantial AI assistance on 2026-11-15, extending the layer-2 pilot from lesson 4 to lessons 1 and 4 and adding the aseptic medium-change bench simulation.",
+      "Original lesson 2 reading, practice, cards and a self-check case developed with substantial AI assistance on 2026-11-15, adding media and supplement arithmetic, filter sterilization and QC to the layer-2 partial package.",
+      "Original lesson 3 reading, practice, cards, self-check case and adherent target-density bench simulation developed with substantial AI assistance on 2026-11-15; suspension passaging is conceptual only."
     ]
   },
   "prerequisites": {
@@ -52,6 +54,16 @@
       "id": "cell-culture-practice-outcome-4",
       "description": "Interpret contamination evidence from visible appearance, sterility incubation, filtration and dedicated mycoplasma testing, and evaluate containment and antibiotic decisions.",
       "bloom": "evaluate"
+    },
+    {
+      "id": "cell-culture-practice-outcome-5",
+      "description": "Prepare a traceable supplemented-medium batch by calculating stock volumes, evaluating medium formulation, component suitability and QC evidence, and specifying filtration, filter-integrity checks, sterility incubation, dedicated mollicute testing, labelling, storage and release records.",
+      "bloom": "apply"
+    },
+    {
+      "id": "cell-culture-practice-outcome-6",
+      "description": "Plan and document an adherent passage to a specified viable-cell target density, contrast it with suspension passaging by dilution, and interpret split ratios and population doubling level.",
+      "bloom": "apply"
     }
   ],
   "lesson_objectives": [
@@ -134,11 +146,91 @@
       "course_outcome_ids": [
         "cell-culture-practice-outcome-2"
       ]
+    },
+    {
+      "id": "cell-culture-practice-2-objective-1",
+      "description": "Explain the roles of basal-medium nutrients, osmolality, pH, bicarbonate/CO₂ buffering and phenol red, and distinguish serum-containing, serum-free and chemically defined systems.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-5"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-2-objective-2",
+      "description": "Calculate supplement-stock and basal-medium volumes from stock and target concentrations using the finished batch volume.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-5"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-2-objective-3",
+      "description": "Evaluate supplement handling, including L-glutamine instability, frozen single-use aliquots, serum heat-inactivation and media dedicated to one cell line.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-5"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-2-objective-4",
+      "description": "Plan a 0.22 µm filter-sterilization and integrity-check workflow and distinguish filtration, visible clarity and dedicated mollicute evidence.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-5"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-2-objective-5",
+      "description": "Specify QC, sterility-control incubation, traceable labels, aliquot accounting, expiry, light-protected 2–8 °C storage and quarantine for a supplemented-medium batch.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-5"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-3-objective-1",
+      "description": "Evaluate confluence or suspension density, morphology and viability evidence to decide whether a synthetic culture should be passaged, held for investigation or discarded under the scenario's rule.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-6"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-3-objective-2",
+      "description": "Explain adherent detachment, washing, dissociation-reagent neutralization and resuspension, and contrast them with suspension passaging by direct dilution or transfer of a culture portion.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-6"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-3-objective-3",
+      "description": "Calculate viable-cell concentration, required cell-suspension volume and fresh-medium volume for a specified viable-cell target and final culture volume.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-6"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-3-objective-4",
+      "description": "Distinguish split ratio from target-density seeding, and calculate population doubling level and cumulative population doubling level from starting and harvested cell numbers.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-6"
+      ]
+    },
+    {
+      "id": "cell-culture-practice-3-objective-5",
+      "description": "Evaluate passage records and the risks of repeated subculture, including the need for later authentication and the limits of numerical or simulated evidence.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "cell-culture-practice-outcome-6"
+      ]
     }
   ],
   "duration": {
-    "instructional_weeks": 2,
-    "equivalent_structure": "A proposed two-week partial block: week 1 aseptic technique with a reading, two worked examples, one practice set, four retrieval cards, a self-check case and the aseptic medium-change simulation; week 2 counting cells and viability with its existing reading, practice, cards, case and hemocytometer simulation. It covers two lessons of a planned eight-lesson cell-culture package and has not been measured or reviewed.",
+    "instructional_weeks": 4,
+    "equivalent_structure": "A proposed four-week partial block: week 1 aseptic technique; week 2 counting cells and viability; week 3 media, supplements and reagent preparation; week 4 passaging adherent and suspension cells. Each week has an original reading, 12 public formative practice items, four retrieval cards, a zero-point self-check case and a linked bench simulation. The package covers outline lessons 1–4 of eight and has not been measured or reviewed.",
     "weeks": [
       {
         "week": 1,
@@ -158,6 +250,26 @@
         ],
         "assessment_ids": [
           "cell-culture-practice-4-practice"
+        ]
+      },
+      {
+        "week": 3,
+        "title": "Media, supplements and reagent preparation (outline lesson 2); bench practice: filter-sterilize and QC a supplemented medium",
+        "lesson_ids": [
+          "cell-culture-practice-2"
+        ],
+        "assessment_ids": [
+          "cell-culture-practice-2-practice"
+        ]
+      },
+      {
+        "week": 4,
+        "title": "Passaging adherent and suspension cells (outline lesson 3); bench practice: passage an adherent line to a target density",
+        "lesson_ids": [
+          "cell-culture-practice-3"
+        ],
+        "assessment_ids": [
+          "cell-culture-practice-3-practice"
         ]
       }
     ]
@@ -259,6 +371,99 @@
           ]
         }
       ]
+    },
+    {
+      "id": "cell-culture-practice-module-2",
+      "title": "Media, supplements and reagent preparation",
+      "source_ids": [
+        "eagle-1955-medium-nutrition",
+        "thermo-fisher-media-preparation-powder-concentrates",
+        "thermo-fisher-cell-culture-environment",
+        "thermo-fisher-serum-heat-inactivation-faq",
+        "geraghty-2014-cell-line-guidelines",
+        "fda-aseptic-processing-2004",
+        "mit-ocw-20-109-spring-2010"
+      ],
+      "lessons": [
+        {
+          "id": "cell-culture-practice-2",
+          "title": "Media, supplements and reagent preparation with filtration and QC",
+          "reading": "modules/02-media-supplements-and-reagent-preparation.md",
+          "objectives": [
+            "cell-culture-practice-2-objective-1",
+            "cell-culture-practice-2-objective-2",
+            "cell-culture-practice-2-objective-3",
+            "cell-culture-practice-2-objective-4",
+            "cell-culture-practice-2-objective-5"
+          ],
+          "worked_example": "For the synthetic 500 mL final batch, serum = 0.10 × 500 = 50 mL, 100× glutamine stock = 500/100 = 5 mL (equivalently 2 × 500/200), and basal medium = 500 − 50 − 5 = 445 mL; the explicitly approximate osmolality estimate is (445 × 290 + 50 × 300 + 5 × 400)/500 = 292.1 mOsm/kg, reported to three significant figures as 292 mOsm/kg.",
+          "question_ids": [
+            "cell-culture-practice-2:serum-stock-volume",
+            "cell-culture-practice-2:glutamine-stock-volume",
+            "cell-culture-practice-2:basal-volume",
+            "cell-culture-practice-2:osmolality-estimate",
+            "cell-culture-practice-2:basal-and-buffer",
+            "cell-culture-practice-2:serum-free-choice",
+            "cell-culture-practice-2:final-volume-rule",
+            "cell-culture-practice-2:glutamine-handling",
+            "cell-culture-practice-2:heat-inactivation",
+            "cell-culture-practice-2:filter-and-integrity",
+            "cell-culture-practice-2:filtrate-evidence",
+            "cell-culture-practice-2:label-storage-release"
+          ],
+          "card_ids": [
+            "cell-culture-practice-2-card-1",
+            "cell-culture-practice-2-card-2",
+            "cell-culture-practice-2-card-3",
+            "cell-culture-practice-2-card-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cell-culture-practice-module-3",
+      "title": "Passaging adherent and suspension cells",
+      "source_ids": [
+        "thermo-gibco-adherent-subculture",
+        "thermo-gibco-suspension-subculture",
+        "thermo-gibco-maintaining-cultured-cells",
+        "mit-ocw-20-109-spring-2010"
+      ],
+      "lessons": [
+        {
+          "id": "cell-culture-practice-3",
+          "title": "Passaging adherent and suspension cells",
+          "reading": "modules/03-passaging-adherent-and-suspension-cells.md",
+          "objectives": [
+            "cell-culture-practice-3-objective-1",
+            "cell-culture-practice-3-objective-2",
+            "cell-culture-practice-3-objective-3",
+            "cell-culture-practice-3-objective-4",
+            "cell-culture-practice-3-objective-5"
+          ],
+          "worked_example": "A 10 µL + 10 µL count gives 58 + 63 = 121 unstained and 5 + 4 = 9 stained cells across two 10⁻⁴ mL squares: viable concentration = (121/2) × 10,000 × 2 = 1.21 × 10⁶ cells/mL and viability = 121/130 × 100 = 93.1%. Each of two T-75 flasks targeting 5.00 × 10⁵ viable cells in 12.0 mL needs 0.413223 mL suspension plus 11.586777 mL fresh medium. The 7.26 × 10⁶ viable harvest from N0 = 1.815 × 10⁶ adds log₂4 = 2 PDL, taking cumulative PDL 18 to 20.",
+          "question_ids": [
+            "cell-culture-practice-3:culture-readiness",
+            "cell-culture-practice-3:adherent-dissociation",
+            "cell-culture-practice-3:suspension-dilution",
+            "cell-culture-practice-3:seed-volume",
+            "cell-culture-practice-3:fresh-medium-volume",
+            "cell-culture-practice-3:three-flask-total-inoculum",
+            "cell-culture-practice-3:split-denominator",
+            "cell-culture-practice-3:pdl-increment",
+            "cell-culture-practice-3:cumulative-pdl",
+            "cell-culture-practice-3:overconfluent-disposition",
+            "cell-culture-practice-3:total-versus-viable-target",
+            "cell-culture-practice-3:passage-record-and-drift"
+          ],
+          "card_ids": [
+            "cell-culture-practice-3-card-1",
+            "cell-culture-practice-3-card-2",
+            "cell-culture-practice-3-card-3",
+            "cell-culture-practice-3-card-4"
+          ]
+        }
+      ]
     }
   ],
   "assessments": [
@@ -323,6 +528,66 @@
         "cell-culture-practice-4:trypan-interpretation"
       ],
       "points": 14
+    },
+    {
+      "id": "cell-culture-practice-2-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Practice: media, supplements and reagent preparation",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "cell-culture-practice-2-objective-1",
+        "cell-culture-practice-2-objective-2",
+        "cell-culture-practice-2-objective-3",
+        "cell-culture-practice-2-objective-4",
+        "cell-culture-practice-2-objective-5",
+        "cell-culture-practice-outcome-5"
+      ],
+      "question_ids": [
+        "cell-culture-practice-2:serum-stock-volume",
+        "cell-culture-practice-2:glutamine-stock-volume",
+        "cell-culture-practice-2:basal-volume",
+        "cell-culture-practice-2:osmolality-estimate",
+        "cell-culture-practice-2:basal-and-buffer",
+        "cell-culture-practice-2:serum-free-choice",
+        "cell-culture-practice-2:final-volume-rule",
+        "cell-culture-practice-2:glutamine-handling",
+        "cell-culture-practice-2:heat-inactivation",
+        "cell-culture-practice-2:filter-and-integrity",
+        "cell-culture-practice-2:filtrate-evidence",
+        "cell-culture-practice-2:label-storage-release"
+      ],
+      "points": 16
+    },
+    {
+      "id": "cell-culture-practice-3-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Practice: passaging and target-density planning",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "cell-culture-practice-3-objective-1",
+        "cell-culture-practice-3-objective-2",
+        "cell-culture-practice-3-objective-3",
+        "cell-culture-practice-3-objective-4",
+        "cell-culture-practice-3-objective-5",
+        "cell-culture-practice-outcome-6"
+      ],
+      "question_ids": [
+        "cell-culture-practice-3:culture-readiness",
+        "cell-culture-practice-3:adherent-dissociation",
+        "cell-culture-practice-3:suspension-dilution",
+        "cell-culture-practice-3:seed-volume",
+        "cell-culture-practice-3:fresh-medium-volume",
+        "cell-culture-practice-3:three-flask-total-inoculum",
+        "cell-culture-practice-3:split-denominator",
+        "cell-culture-practice-3:pdl-increment",
+        "cell-culture-practice-3:cumulative-pdl",
+        "cell-culture-practice-3:overconfluent-disposition",
+        "cell-culture-practice-3:total-versus-viable-target",
+        "cell-culture-practice-3:passage-record-and-drift"
+      ],
+      "points": 14
     }
   ],
   "grading_policy": {
@@ -346,7 +611,7 @@
     "language": "en",
     "reading_format": "markdown",
     "math_format": "unicode-text",
-    "diagram_policy": "The package contains no diagrams; aseptic layout and counting rules are given in text and tables. The aseptic simulation uses text panels and an event log; the hemocytometer simulation provides a text list of every synthetic cell alongside its drawn field.",
+    "diagram_policy": "The package contains no diagrams; aseptic layout, medium preparation, passaging and counting rules are given in text and tables. All four bench simulations use text panels and event logs; the hemocytometer simulation additionally provides a text list of every synthetic cell alongside its drawn field.",
     "known_issues": [
       "Unicode equations require structured mathematical alternatives and assistive-technology review.",
       "The bench simulations' panels, fields and text alternatives have not been reviewed with assistive-technology users."
@@ -363,20 +628,28 @@
       "version": "0.2.0",
       "date": "2026-11-15",
       "summary": "Added outline lesson 1, aseptic technique: an original reading on Class II cabinet airflow, clean-to-dirty layout, pre-work checks, sterile-to-sterile manipulation, sterility incubation, mollicute detection, antibiotic limits, containment and waste; two worked examples; 12 practice items; four retrieval cards; one self-check case; and the aseptic-medium-change bench simulation. The package is now a two-lesson partial covering outline lessons 1 and 4. Sources: FDA aseptic-processing guidance (adapted), Geraghty et al. 2014 (link-only reference), current BMBL Appendix H (adapted) and MIT OCW 20.109 as a link-only comparator. Partial, unreviewed and formative-only."
+    },
+    {
+      "version": "0.3.0",
+      "date": "2026-11-16",
+      "summary": "Added outline lessons 2 and 3 in Phase A: original media-preparation and passaging readings; 24 public formative practice items (16 and 14 points respectively); eight retrieval cards; two zero-point self-check cases; the 14-checkpoint supplemented-medium filtration/QC simulation; and the 16-checkpoint adherent target-density passage simulation. Suspension passaging is conceptual only. Eagle (1955) is a metadata-only link-only bibliographic citation; its article body was neither retrieved nor read and no methods, results or historical-role claim is based on it. Geraghty et al. (2014), six Thermo Fisher pages and MIT OCW 20.109 are link-only references/comparators; FDA sterility-incubation guidance remains an attributed US-federal-work adaptation. Partial, unreviewed and formative-only; no competency or physical-validation claim."
     }
   ],
   "limitations": [
-    "A two-lesson partial package, not a cell-culture course: outline lessons 1 and 4 exist. Media preparation, passaging, cryopreservation, full contamination management and authentication, pluripotent stem cells and records are absent; see the scope crosswalk.",
-    "Practice items and simulations test decisions, calculations and contamination reasoning, not hand skill. Real aseptic manipulation, focusing, recognising cells and debris, pipetting and loading a chamber need supervised bench work.",
-    "Of the 9 numerical answers, 0 require units, 5 check significant figures and 0 check dimensions.",
+    "A four-lesson partial package, not a cell-culture course: outline lessons 1–4 exist. Cryopreservation, full contamination management and authentication, pluripotent stem cells and records are absent; see the scope crosswalk.",
+    "Practice items and simulations test decisions, calculations and contamination reasoning, not hand skill. Real aseptic manipulation, medium preparation, passaging, focusing, recognising cells and debris, pipetting and loading a chamber need supervised bench work.",
+    "Of the 19 numerical answers, 0 require units, 9 check significant figures and 0 check dimensions.",
     "Lesson 4's top/left boundary convention, loading steps and simulation ranges are teaching choices; the manufacturer documents read do not prescribe them. Real counting procedures, density ranges and acceptance limits come from the device instructions and each laboratory's procedures.",
     "Lesson 1's T-75 working volume, clean-to-dirty zones, one-bottle rule, expired-label scenario, hidden-event probabilities, visible-growth threshold and simplified mycoplasma assay are teaching choices, not laboratory acceptance criteria or a validated sterility method.",
-    "All cells, labels, counts and contamination events are synthetic. Nothing here establishes competency, qualification or authorisation to handle human or other primate cells."
+    "Lesson 2's synthetic 500 mL formulation, QC windows, volume-weighted osmolality approximation, 98% recovery, control volume, dates, 14-day expiry, hidden events and simplified assays are simulation choices, not laboratory acceptance criteria or physical validation.",
+    "Lesson 3 teaches suspension passaging conceptually but simulates only an adherent T-75 target-density workflow; it does not model suspension vessels, shaking, growth or centrifugation choices.",
+    "Lesson 3 confluence thresholds, exact T-75 volumes, dissociation-time bound, viability penalties, target density, PDL convention and numerical tolerances are simulation choices, not laboratory acceptance criteria or physical validation.",
+    "All cells, labels, counts, media batches and contamination events are synthetic. Nothing here establishes competency, qualification or authorisation to handle human or other primate cells."
   ],
   "intentionally_omitted": [
     "Graded assessments, a project, measured workload and review by a qualified person.",
-    "Outline lessons 2–3 and 5–8 of the cell-culture layer, which remain deferred.",
-    "Full contamination management, identification of specific organisms and cell-line authentication beyond lesson 1's introduction to mollicute risk and dedicated testing.",
+    "Outline lessons 5–8 of the cell-culture layer, which remain deferred.",
+    "Full contamination management, identification of specific organisms and cell-line authentication beyond lessons 1–3's introductions to prevention, mollicute evidence and repeated-subculture risk.",
     "Automated cell counters, flow-cytometric and fluorescent viability assays, which are named but not taught.",
     "ISSCR standards and human pluripotent stem-cell practice, reserved for the planned stem-cell lesson; they are not used to support these synthetic exercises."
   ],

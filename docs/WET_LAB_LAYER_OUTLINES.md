@@ -1,6 +1,6 @@
 # Wet-lab practice track: layer outlines
 
-Drafted with AI assistance on 2026-10-30 as a planning record for the [wet-lab practice plan](WET_LAB_PRACTICE_PLAN.md). These are outlines, not instruction: no lesson below exists yet unless marked as drafted, and nothing here has been reviewed by a laboratory professional, a biosafety officer or a certifying body. Scope sources are named for each layer; public-domain US federal works may be adapted with attribution, and everything else is link-only.
+Drafted with AI assistance on 2026-10-30 as a planning record for the [wet-lab practice plan](WET_LAB_PRACTICE_PLAN.md). These are outlines, not instruction: no lesson below exists yet unless marked as drafted or built, and nothing here has been reviewed by a laboratory professional, a biosafety officer or a certifying body. Scope sources are named for each layer; public-domain US federal works may be adapted with attribution, and everything else is link-only.
 
 ## Layer 0: `lab-measurement` (built, 0.1.0)
 
@@ -21,16 +21,16 @@ Scope: BMBL 6th edition (Sections II–IV, Appendices A, B, C, H), OSHA 29 CFR 1
 
 Built with 64 practice items, 26 cards, a case, an optional iPSC biosafety plan project and a crosswalk against the ABSA CBSP examination outline. Still planned: an SDS and label protocol.
 
-## Layer 2: `cell-culture-practice` (two-lesson partial, 0.2.0; six lessons outline only)
+## Layer 2: `cell-culture-practice` (four-lesson partial, 0.3.0; lessons 5–8 outline only)
 
 Scope: BMBL Appendix H (human and primate cells); FDA aseptic-processing guidance; Geraghty et al. cell-line guidelines (link only); ISSCR *Standards for Human Stem Cell Use in Research* (2023, link only, reserved for lesson 7); manufacturer-neutral practice. Candidate open protocols are to be checked one by one for license and parameters.
 
-| Lesson | Topics | Bench protocol (planned) |
+| Lesson | Topics | Bench protocol |
 | --- | --- | --- |
-| 1. Aseptic technique (**drafted**) | working order in the cabinet, what breaks sterility, media and reagent handling, contamination routes | Aseptic medium change with hidden contamination events (built) |
-| 2. Media, supplements and reagent preparation | osmolality and pH of media, serum and serum-free systems, filter sterilization, storage and expiry | Filter-sterilize and QC a supplemented medium |
-| 3. Passaging adherent and suspension cells | confluence, dissociation agents, split ratios, seeding density arithmetic, population doublings | Passage an adherent line to a target density |
-| 4. Counting cells and viability (**drafted**) | hemocytometer geometry, trypan blue, counting rules, Poisson error; automated counters named only | Hemocytometer count with sampling error (built) |
+| 1. Aseptic technique (**built**) | working order in the cabinet, what breaks sterility, media and reagent handling, contamination routes | Aseptic medium change with hidden contamination events (built) |
+| 2. Media, supplements and reagent preparation (**built**) | osmolality and pH of media, serum and serum-free systems, filter sterilization, storage and expiry | Filter-sterilize and QC a supplemented medium (built) |
+| 3. Passaging adherent and suspension cells (**built**) | confluence, dissociation agents, split ratios, seeding density arithmetic, population doublings | Passage an adherent line to a target density (built) |
+| 4. Counting cells and viability (**built**) | hemocytometer geometry, trypan blue, counting rules, Poisson error; automated counters named only | Hemocytometer count with sampling error (built) |
 | 5. Cryopreservation and thawing | cryoprotectants, cooling rate, storage in liquid nitrogen vapour, thaw and recovery | Freeze and thaw with viability outcomes |
 | 6. Contamination: bacteria, fungi, mycoplasma and cross-contamination | recognition, mycoplasma testing methods, quarantine, authentication by STR profiling | Diagnose a contaminated culture from clues |
 | 7. Human pluripotent stem cells | feeder-free culture on matrix, colony morphology and differentiation, passaging as clumps, karyotype and pluripotency checks (link-only ISSCR reporting standards) | Maintain an hPSC culture without spontaneous differentiation |
@@ -38,13 +38,17 @@ Scope: BMBL Appendix H (human and primate cells); FDA aseptic-processing guidanc
 
 The aseptic protocol is built with synthetic labels and hidden events: an expired medium lot, a dirty cabinet interior, a visibly culturable medium contaminant and a mollicute-contaminated lot that can pass 0.22 µm filtration. It checks pre-work inspection, clean-to-dirty layout, one-cell-line rules, sterile-to-sterile manipulation, containment, waste decontamination, sterility-control incubation and a dedicated mycoplasma test. Its T-75 volume, zone labels, one-bottle rule, probabilities, visible-growth threshold and simplified assay are declared simulation values, not laboratory acceptance criteria. Lesson 1 cites FDA aseptic-processing guidance, Geraghty et al. (2014) and current BMBL Appendix H.
 
-The hemocytometer protocol is built with synthetic non-human fields, interactive top/left versus bottom/right boundary decisions, stain classification, two-chamber tallies and calculations for viable-cell concentration, viability and Poisson counting uncertainty. Its geometry, dilution and acceptance ranges are declared simulation values, not a reproduced manufacturer protocol. Lesson 4 cites Marienfeld counting-chamber documents for geometry, Student (1907) for Poisson counting error, Strober (2015) for trypan blue and BMBL Appendix H pp. 466–468. Protocol 0.1.1 narrows the generated concentration to 0.5–1.5 × 10⁶ cells/mL so that a correctly mixed twofold field stays inside the 20–80-cell range; under 0.1.0 most runs exceeded it, and the density checkpoint could not be met without failing the dilution checkpoint. The package `cell-culture-practice` 0.2.0 now contains lessons 1 and 4, 24 practice items, eight cards, two self-check cases and a source crosswalk; lessons 2–3 and 5–8 remain outlines, and the package has no project. No protocol or lesson here establishes human-cell handling competency.
+The supplemented-medium protocol is built with 14 actions and 14 checkpoints for supply inspection, stock-volume and pre-filtration QC decisions, filter selection/priming/assembly, integrity testing, inventory and lot traceability, sterility incubation, dedicated mollicute testing, storage and release quarantine. Its 500 mL formulation, QC windows, 98% recovery, dates, hidden events and simplified assays are simulation choices, not laboratory acceptance criteria or physical validation. Lesson 2 uses Eagle (1955), three Thermo Fisher pages and Geraghty et al. as link-only references, with the FDA incubation schedule adapted with attribution.
+
+The adherent-passage protocol is built with 15 actions and 16 checkpoints for inspection/disposition, wash and dissociation, detachment, neutralization, collection, learner-entered counts, target-density seeding and PDL records. Suspension passaging is conceptual only. Confluence thresholds, exact T-75 volumes, tally transformations, viability penalties, target density, PDL convention and tolerances are simulation choices. Incubation records conditions without predicting attachment or growth. Lesson 3 uses three Thermo Fisher Gibco pages as link-only references.
+
+The hemocytometer protocol is built with synthetic non-human fields, interactive top/left versus bottom/right boundary decisions, stain classification, two-chamber tallies and calculations for viable-cell concentration, viability and Poisson counting uncertainty. Its geometry, dilution and acceptance ranges are declared simulation values, not a reproduced manufacturer protocol. Lesson 4 cites Marienfeld counting-chamber documents for geometry, Student (1907) for Poisson counting error, Strober (2015) for trypan blue and BMBL Appendix H pp. 466–468. Protocol 0.1.1 narrows the generated concentration to 0.5–1.5 × 10⁶ cells/mL so that a correctly mixed twofold field stays inside the 20–80-cell range; under 0.1.0 most runs exceeded it, and the density checkpoint could not be met without failing the dilution checkpoint. The package `cell-culture-practice` 0.3.0 now contains lessons 1–4, 48 practice items, 16 cards, four self-check cases and a source crosswalk; lessons 5–8 remain outlines, and the package has no project. No protocol or lesson here establishes human-cell handling competency.
 
 ## Layer 3: `molecular-lab-practice` (outline only)
 
 Scope: ASCP BOC MB(ASCP) examination content guideline, molecular techniques and laboratory operations sections (link only; the March 2023 revision was read from an archived copy, and the current revision must be compared before authoring).
 
-| Lesson | Topics | Bench protocol (planned) |
+| Lesson | Topics | Bench protocol |
 | --- | --- | --- |
 | 1. Nucleic acid isolation | manual and automated methods, lysis chemistry, column and bead binding | Extract DNA and RNA with yield outcomes |
 | 2. Quantity and quality of nucleic acid | A260 conversions, A260/A280 and A260/A230 ratios, fluorometry, integrity numbers | Read a spectrum and decide whether to proceed |

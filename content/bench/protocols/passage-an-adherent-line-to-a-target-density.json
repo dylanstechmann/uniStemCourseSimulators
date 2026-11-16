@@ -1,0 +1,895 @@
+{
+  "schema_version": "1.0",
+  "id": "passage-an-adherent-line-to-a-target-density",
+  "version": "0.1.0",
+  "title": "Passage an adherent line to a target density",
+  "layer": 2,
+  "summary": "Inspect and harvest a synthetic adherent culture, verify a two-chamber viable count, plan two T-75 flasks by target viable-cell number, and complete passage and PDL records.",
+  "scenario": "A generic synthetic non-human adherent mammalian culture is ready for a target-density passage exercise. Routine runs begin at 72–84% confluence; some seeded runs reveal 95% confluence and must be refused rather than passaged under the scenario rule. Use a calcium/magnesium-free wash, enzyme-based dissociation, observed detachment and complete-medium neutralization. Count two synthetic chambers, then seed two T-75 flasks with 500,000 viable cells each in 12.0 mL final volume per flask.",
+  "guided_steps": [
+    "Inspect the monolayer and enter its displayed confluence. The routine teaching window is 70–85%; a displayed 95% culture must use the over-confluent disposition rather than routine passaging.",
+    "For a routine culture, remove the spent medium and wash with 15 mL calcium/magnesium-free balanced salt solution.",
+    "Add 3.75 mL enzyme-based dissociation reagent and incubate for 2 min. The model's teaching bound is 1–5 min, not a cell-line acceptance limit.",
+    "Inspect detachment and enter the displayed percentage. At least 90% must be detached before neutralization.",
+    "Neutralize with 7.5 mL complete medium, then collect at 200 × g for 5 min and resuspend in 6.0 mL.",
+    "Prepare 10 µL suspension plus 10 µL trypan blue. Record the displayed included tallies for chambers A and B.",
+    "Viable cells/mL = mean included unstained cells per chamber × 10,000 × dilution factor; viability = unstained/all included cells × 100.",
+    "Plan two flasks with 500,000 viable cells per flask and 12.0 mL final volume per flask. V_cells = N_target/C_viable; V_fresh = V_final − V_cells.",
+    "Seed according to the recorded plan, increment passage 12 to 13, and compute PDL increment log₂(Nf/N0) from viable yield and N0 = 1,815,000. Add that increment to previous cumulative PDL 18.",
+    "Record 37 °C, 5% CO₂ and 24 h for the synthetic incubation and submit for a formative debrief. No growth outcome is predicted."
+  ],
+  "parameters": [
+    {
+      "name": "culture_area_cm2",
+      "value": 75,
+      "unit": "cm²",
+      "label": "Synthetic T-75 growth area",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "A common flask area used to scale the exercise; not a specification for every T-75 vessel."
+      }
+    },
+    {
+      "name": "routine_confluence_pct",
+      "value": [
+        70,
+        85
+      ],
+      "unit": "%",
+      "label": "Routine-passage confluence window",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Teaching window only; not a laboratory acceptance criterion."
+      }
+    },
+    {
+      "name": "overconfluent_pct",
+      "value": 95,
+      "unit": "%",
+      "label": "Confluence assigned to the refusal scenario",
+      "source": {
+        "kind": "simulation-model",
+        "note": "A deliberate teaching scenario, not a universal discard threshold."
+      }
+    },
+    {
+      "name": "overconfluent_probability",
+      "value": 0.2,
+      "unit": "probability",
+      "label": "Probability of the over-confluent scenario",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Hidden scenario draw; all other seeded runs use 72–84% confluence."
+      }
+    },
+    {
+      "name": "base_detachment_range_pct",
+      "value": [
+        91,
+        96
+      ],
+      "unit": "%",
+      "label": "Detachment after the recommended exposure",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Seeded synthetic microscopy panel, not measured detachment kinetics."
+      }
+    },
+    {
+      "name": "wash_volume_ml",
+      "value": 15,
+      "unit": "mL",
+      "label": "Calcium/magnesium-free wash volume for the T-75",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-adherent-subculture",
+        "location": "Protocol for passaging adherent cells, step 3; 2 mL per 10 cm² scaled to 75 cm²",
+        "note": "The exact 15 mL T-75 choice is derived for this simulation."
+      }
+    },
+    {
+      "name": "dissociation_volume_ml",
+      "value": 3.75,
+      "unit": "mL",
+      "label": "Enzyme-based dissociation-reagent volume",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-adherent-subculture",
+        "location": "Protocol step 5; 0.5 mL per 10 cm² scaled to 75 cm²",
+        "note": "The exact 3.75 mL T-75 choice is derived for this simulation."
+      }
+    },
+    {
+      "name": "recommended_dissociation_min",
+      "value": 2,
+      "unit": "min",
+      "label": "Initial dissociation incubation",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-adherent-subculture",
+        "location": "Protocol step 6",
+        "note": "The source states that actual time varies by cell line."
+      }
+    },
+    {
+      "name": "dissociation_max_min",
+      "value": 5,
+      "unit": "min",
+      "label": "Upper teaching bound for dissociation",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Exposure beyond this bound lowers synthetic viability; not a cell-line acceptance criterion."
+      }
+    },
+    {
+      "name": "minimum_detachment_pct",
+      "value": 90,
+      "unit": "%",
+      "label": "Minimum observed detachment before neutralization",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-adherent-subculture",
+        "location": "Protocol steps 7–8"
+      }
+    },
+    {
+      "name": "neutralization_volume_ml",
+      "value": 7.5,
+      "unit": "mL",
+      "label": "Complete-medium neutralization volume",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-adherent-subculture",
+        "location": "Protocol step 8; two times the dissociation-reagent volume"
+      }
+    },
+    {
+      "name": "centrifuge_rcf_g",
+      "value": 200,
+      "unit": "× g",
+      "label": "Collection relative centrifugal force",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-adherent-subculture",
+        "location": "Protocol step 9",
+        "note": "Cell-type dependence remains; no rotor-radius conversion is modelled."
+      }
+    },
+    {
+      "name": "centrifuge_min",
+      "value": 5,
+      "unit": "min",
+      "label": "Collection time",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-adherent-subculture",
+        "location": "Protocol step 9; source range 5–10 min"
+      }
+    },
+    {
+      "name": "resuspension_volume_ml",
+      "value": 6.0,
+      "unit": "mL",
+      "label": "Final harvested-suspension volume",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "Chosen to make the worked viable yield explicit; not a required resuspension volume."
+      }
+    },
+    {
+      "name": "chamber_volume_ml",
+      "value": 0.0001,
+      "unit": "mL",
+      "label": "Volume per displayed large square",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "The lesson-4 Improved-Neubauer geometry convention: 1 mm × 1 mm × 0.1 mm."
+      }
+    },
+    {
+      "name": "target_dilution",
+      "value": 2,
+      "unit": "fold",
+      "label": "Target sample-plus-trypan-blue dilution",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "Equal-volume teaching dilution, not a universal ratio."
+      }
+    },
+    {
+      "name": "target_flasks",
+      "value": 2,
+      "unit": "flasks",
+      "label": "Number of destination T-75 flasks",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Fixed target-density planning exercise."
+      }
+    },
+    {
+      "name": "target_viable_cells_per_flask",
+      "value": 500000,
+      "unit": "viable cells/flask",
+      "label": "Target viable seed per flask",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Synthetic target, not a recommended density for any real cell line."
+      }
+    },
+    {
+      "name": "target_final_volume_ml",
+      "value": 12.0,
+      "unit": "mL/flask",
+      "label": "Final culture volume per flask",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "Within the package's declared T-75 teaching range; fresh medium is final volume minus inoculum."
+      }
+    },
+    {
+      "name": "previous_seeded_viable_cells",
+      "value": 1815000,
+      "unit": "viable cells",
+      "label": "N0 for the synthetic PDL interval",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Chosen so the correct viable harvest of 7,260,000 is exactly fourfold."
+      }
+    },
+    {
+      "name": "previous_passage_number",
+      "value": 12,
+      "unit": "passage",
+      "label": "Previous passage number",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Increment exactly once to 13."
+      }
+    },
+    {
+      "name": "previous_cumulative_pdl",
+      "value": 18.0,
+      "unit": "PDL",
+      "label": "Previous cumulative population doubling level",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Add the current interval increment rather than replacing it."
+      }
+    },
+    {
+      "name": "minimum_harvest_viability_pct",
+      "value": 90,
+      "unit": "%",
+      "label": "Minimum synthetic harvest viability",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-adherent-subculture",
+        "location": "Protocol step 1",
+        "note": "Applied here to the post-harvest dye-exclusion count as a teaching rule."
+      }
+    },
+    {
+      "name": "seed_volume_tolerance_pct",
+      "value": 0.5,
+      "unit": "%",
+      "label": "Seed-volume numerical tolerance",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Rounding allowance only; not pipetting accuracy or a laboratory acceptance limit."
+      }
+    },
+    {
+      "name": "pdl_tolerance",
+      "value": 0.01,
+      "unit": "PDL",
+      "label": "PDL numerical tolerance",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Rounding allowance for log₂(Nf/N0)."
+      }
+    },
+    {
+      "name": "overexposure_penalty_per_min",
+      "value": 0.04,
+      "unit": "fraction/min above 5 min",
+      "label": "Synthetic viability penalty for excess dissociation",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Multiplicative penalty on the unstained tallies; not a physical damage model."
+      }
+    },
+    {
+      "name": "neutralization_viability_factor",
+      "value": 0.85,
+      "unit": "fraction",
+      "label": "Synthetic viability factor when neutralization is inadequate",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Applied when complete-medium volume is below the required two-volume ratio."
+      }
+    },
+    {
+      "name": "incubation_temperature_c",
+      "value": 37,
+      "unit": "°C",
+      "label": "Recorded synthetic incubation temperature",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-maintaining-cultured-cells",
+        "location": "Cell seeding protocol, step 7",
+        "note": "Usual condition named by the general source; actual cell-line instructions govern."
+      }
+    },
+    {
+      "name": "incubation_co2_pct",
+      "value": 5,
+      "unit": "%",
+      "label": "Recorded synthetic incubator CO₂",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-maintaining-cultured-cells",
+        "location": "Cell seeding protocol, step 7"
+      }
+    },
+    {
+      "name": "incubation_hours",
+      "value": 24,
+      "unit": "h",
+      "label": "Recorded synthetic incubation interval",
+      "source": {
+        "kind": "simulation-model",
+        "note": "A timestamp for the record only; the model makes no attachment or growth prediction."
+      }
+    }
+  ],
+  "actions": [
+    {
+      "name": "inspect_culture",
+      "label": "Inspect confluence and morphology",
+      "params": [
+        {
+          "name": "confluence_pct",
+          "label": "Observed confluence",
+          "type": "integer",
+          "min": 0,
+          "max": 100,
+          "unit": "%"
+        }
+      ]
+    },
+    {
+      "name": "decide_culture",
+      "label": "Choose the culture disposition",
+      "params": [
+        {
+          "name": "disposition",
+          "label": "Disposition",
+          "type": "choice",
+          "options": [
+            {
+              "value": "proceed",
+              "label": "Proceed with routine passage"
+            },
+            {
+              "value": "discard_overconfluent",
+              "label": "Refuse routine passage and discard/investigate for over-confluence"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "remove_medium",
+      "label": "Remove spent medium",
+      "params": []
+    },
+    {
+      "name": "wash_cells",
+      "label": "Wash the monolayer",
+      "params": [
+        {
+          "name": "solution",
+          "label": "Wash solution",
+          "type": "choice",
+          "options": [
+            {
+              "value": "calcium_magnesium_free_bss",
+              "label": "Calcium/magnesium-free balanced salt solution"
+            },
+            {
+              "value": "complete_medium",
+              "label": "Complete growth medium"
+            },
+            {
+              "value": "water",
+              "label": "Water"
+            }
+          ]
+        },
+        {
+          "name": "volume_ml",
+          "label": "Wash volume",
+          "type": "number",
+          "min": 0,
+          "max": 30,
+          "unit": "mL"
+        }
+      ]
+    },
+    {
+      "name": "add_dissociation_reagent",
+      "label": "Add dissociation reagent",
+      "params": [
+        {
+          "name": "reagent",
+          "label": "Reagent",
+          "type": "choice",
+          "options": [
+            {
+              "value": "enzyme_based",
+              "label": "Generic enzyme-based dissociation reagent"
+            },
+            {
+              "value": "enzyme_free",
+              "label": "Enzyme-free dissociation buffer"
+            },
+            {
+              "value": "none",
+              "label": "No dissociation reagent"
+            }
+          ]
+        },
+        {
+          "name": "volume_ml",
+          "label": "Reagent volume",
+          "type": "number",
+          "min": 0,
+          "max": 10,
+          "unit": "mL"
+        }
+      ]
+    },
+    {
+      "name": "incubate_dissociation",
+      "label": "Incubate the dissociation reaction",
+      "params": [
+        {
+          "name": "minutes",
+          "label": "Incubation time",
+          "type": "number",
+          "min": 0,
+          "max": 30,
+          "unit": "min"
+        }
+      ]
+    },
+    {
+      "name": "check_detachment",
+      "label": "Inspect and record detachment",
+      "params": [
+        {
+          "name": "detached_pct",
+          "label": "Observed detached cells",
+          "type": "integer",
+          "min": 0,
+          "max": 100,
+          "unit": "%"
+        }
+      ]
+    },
+    {
+      "name": "neutralize",
+      "label": "Neutralize with complete growth medium",
+      "params": [
+        {
+          "name": "volume_ml",
+          "label": "Complete-medium volume",
+          "type": "number",
+          "min": 0,
+          "max": 30,
+          "unit": "mL"
+        }
+      ]
+    },
+    {
+      "name": "centrifuge_and_resuspend",
+      "label": "Collect and resuspend the cells",
+      "params": [
+        {
+          "name": "rcf_g",
+          "label": "Relative centrifugal force",
+          "type": "number",
+          "min": 0,
+          "max": 1000,
+          "unit": "× g"
+        },
+        {
+          "name": "minutes",
+          "label": "Collection time",
+          "type": "number",
+          "min": 0,
+          "max": 30,
+          "unit": "min"
+        },
+        {
+          "name": "final_volume_ml",
+          "label": "Resuspension volume",
+          "type": "number",
+          "min": 0.1,
+          "max": 20,
+          "unit": "mL"
+        }
+      ]
+    },
+    {
+      "name": "prepare_count",
+      "label": "Prepare the trypan-blue counting mixture",
+      "params": [
+        {
+          "name": "sample_ul",
+          "label": "Cell suspension",
+          "type": "number",
+          "min": 5,
+          "max": 100,
+          "unit": "µL"
+        },
+        {
+          "name": "dye_ul",
+          "label": "Trypan blue",
+          "type": "number",
+          "min": 5,
+          "max": 100,
+          "unit": "µL"
+        }
+      ]
+    },
+    {
+      "name": "record_count",
+      "label": "Record two-chamber included tallies",
+      "params": [
+        {
+          "name": "chamber_a_unstained",
+          "label": "Chamber A unstained",
+          "type": "integer",
+          "min": 0,
+          "max": 500,
+          "unit": "cells"
+        },
+        {
+          "name": "chamber_a_stained",
+          "label": "Chamber A stained",
+          "type": "integer",
+          "min": 0,
+          "max": 500,
+          "unit": "cells"
+        },
+        {
+          "name": "chamber_b_unstained",
+          "label": "Chamber B unstained",
+          "type": "integer",
+          "min": 0,
+          "max": 500,
+          "unit": "cells"
+        },
+        {
+          "name": "chamber_b_stained",
+          "label": "Chamber B stained",
+          "type": "integer",
+          "min": 0,
+          "max": 500,
+          "unit": "cells"
+        },
+        {
+          "name": "viable_concentration_cells_ml",
+          "label": "Calculated viable-cell concentration",
+          "type": "number",
+          "min": 0,
+          "max": 1000000000,
+          "unit": "cells/mL"
+        },
+        {
+          "name": "viability_pct",
+          "label": "Calculated viability",
+          "type": "number",
+          "min": 0,
+          "max": 100,
+          "unit": "%"
+        }
+      ]
+    },
+    {
+      "name": "calculate_seed_volume",
+      "label": "Calculate and record the seeding plan",
+      "params": [
+        {
+          "name": "flask_count",
+          "label": "Destination flasks",
+          "type": "integer",
+          "min": 1,
+          "max": 6,
+          "unit": "flasks"
+        },
+        {
+          "name": "target_viable_cells_per_flask",
+          "label": "Target viable cells per flask",
+          "type": "integer",
+          "min": 10000,
+          "max": 5000000,
+          "unit": "cells"
+        },
+        {
+          "name": "final_volume_ml_per_flask",
+          "label": "Final volume per flask",
+          "type": "number",
+          "min": 1,
+          "max": 30,
+          "unit": "mL"
+        },
+        {
+          "name": "seed_volume_ml_per_flask",
+          "label": "Calculated cell-suspension volume per flask",
+          "type": "number",
+          "min": 0,
+          "max": 30,
+          "unit": "mL"
+        }
+      ]
+    },
+    {
+      "name": "seed_flasks",
+      "label": "Seed the destination flasks according to the plan",
+      "params": []
+    },
+    {
+      "name": "label_flasks",
+      "label": "Record passage number and population doubling level",
+      "params": [
+        {
+          "name": "previous_passage_number",
+          "label": "Previous passage number",
+          "type": "integer",
+          "min": 0,
+          "max": 200,
+          "unit": "passage"
+        },
+        {
+          "name": "previous_cumulative_pdl",
+          "label": "Previous cumulative PDL",
+          "type": "number",
+          "min": 0,
+          "max": 500,
+          "unit": "PDL"
+        },
+        {
+          "name": "pdl_increment",
+          "label": "Current PDL increment",
+          "type": "number",
+          "min": -20,
+          "max": 20,
+          "unit": "PDL"
+        }
+      ]
+    },
+    {
+      "name": "incubate_and_finish",
+      "label": "Record incubation and finish the run",
+      "params": [
+        {
+          "name": "temperature_c",
+          "label": "Incubation temperature",
+          "type": "number",
+          "min": 20,
+          "max": 45,
+          "unit": "°C"
+        },
+        {
+          "name": "co2_pct",
+          "label": "Incubator CO₂",
+          "type": "number",
+          "min": 0,
+          "max": 15,
+          "unit": "%"
+        },
+        {
+          "name": "hours",
+          "label": "Recorded incubation interval",
+          "type": "number",
+          "min": 0.1,
+          "max": 168,
+          "unit": "h"
+        }
+      ]
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "culture-inspected",
+      "severity": "major",
+      "description": "Inspect and accurately record confluence before choosing a disposition.",
+      "rationale": "Growth state is assessed before harvest; an entered value must match the displayed synthetic panel.",
+      "source": {
+        "kind": "simulation-typical"
+      }
+    },
+    {
+      "id": "confluence-window",
+      "severity": "major",
+      "description": "Use routine passaging only inside the declared 70–85% confluence window.",
+      "rationale": "The exercise distinguishes routine log-phase maintenance from an out-of-window culture.",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Teaching window, not a real cell-line criterion."
+      }
+    },
+    {
+      "id": "overconfluent-refused",
+      "severity": "critical",
+      "description": "Refuse routine passaging when the synthetic panel shows 95% confluence.",
+      "rationale": "The over-confluent scenario tests disposition rather than arithmetic or longer dissociation.",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Not applicable to routine-confluence runs."
+      }
+    },
+    {
+      "id": "spent-medium-removed",
+      "severity": "minor",
+      "description": "Remove spent medium before washing and dissociation.",
+      "rationale": "Spent medium and serum carry-over can interfere with the subsequent harvest workflow.",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-adherent-subculture",
+        "location": "Protocol step 2"
+      }
+    },
+    {
+      "id": "wash-removes-inhibitors",
+      "severity": "major",
+      "description": "Use 15 mL calcium/magnesium-free balanced salt solution for the wash.",
+      "rationale": "Serum, calcium and magnesium carry-over can inhibit dissociation; complete medium or water is not the selected wash.",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-adherent-subculture",
+        "location": "Protocol step 3; T-75 scaling is a simulation choice"
+      }
+    },
+    {
+      "id": "dissociation-reagent-volume",
+      "severity": "minor",
+      "description": "Cover the monolayer with 3.75 mL generic enzyme-based dissociation reagent.",
+      "rationale": "The declared reagent and coverage support reproducible synthetic detachment.",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-adherent-subculture",
+        "location": "Protocol step 5; T-75 scaling is a simulation choice"
+      }
+    },
+    {
+      "id": "dissociation-time-bounded",
+      "severity": "major",
+      "description": "Keep dissociation exposure within the 1–5 min teaching bound.",
+      "rationale": "Excess exposure lowers viability in the synthetic model; longer is not automatically better.",
+      "source": {
+        "kind": "simulation-model"
+      }
+    },
+    {
+      "id": "detachment-confirmed",
+      "severity": "major",
+      "description": "Observe at least 90% detachment before neutralization.",
+      "rationale": "Neutralizing too early leaves an unrepresentative attached fraction; extended exposure is not a substitute for observation.",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-adherent-subculture",
+        "location": "Protocol steps 7–8"
+      }
+    },
+    {
+      "id": "neutralized-before-count",
+      "severity": "critical",
+      "description": "Add 7.5 mL complete medium before collection and counting.",
+      "rationale": "The complete-medium step limits continued dissociation activity before viable counting and seeding.",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-adherent-subculture",
+        "location": "Protocol step 8"
+      }
+    },
+    {
+      "id": "centrifuge-and-resuspension",
+      "severity": "minor",
+      "description": "Collect at 200 × g for 5 min and resuspend in the declared 6.0 mL.",
+      "rationale": "A defined collection and final volume make the viable-yield calculation auditable.",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-adherent-subculture",
+        "location": "Protocol steps 9–10; exact 6.0 mL is synthetic"
+      }
+    },
+    {
+      "id": "count-dilution-and-tallies",
+      "severity": "major",
+      "description": "Use a twofold dilution and faithfully record both displayed chamber tallies.",
+      "rationale": "The original concentration depends on the total/sample dilution and the included unstained counts from both chambers.",
+      "source": {
+        "kind": "simulation-typical"
+      }
+    },
+    {
+      "id": "count-concentration-and-viability",
+      "severity": "major",
+      "description": "Calculate viable concentration and dye-exclusion viability from the recorded tallies.",
+      "rationale": "Concentration uses mean unstained count × 10,000 × dilution; viability uses unstained over all included cells.",
+      "source": {
+        "kind": "simulation-model"
+      }
+    },
+    {
+      "id": "harvest-viability",
+      "severity": "major",
+      "description": "Reach at least 90% synthetic post-harvest viability.",
+      "rationale": "Excess dissociation or inadequate neutralization can lower the viable fraction and change the seeding plan.",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-adherent-subculture",
+        "location": "Protocol step 1; applied to this synthetic post-harvest count"
+      }
+    },
+    {
+      "id": "seed-volume-correct",
+      "severity": "critical",
+      "description": "Plan the declared flask count, viable target, final volume and per-flask inoculum by N_target/C_viable.",
+      "rationale": "The target is viable cells per flask; fresh medium brings the inoculum to final volume rather than adding another full final volume.",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-maintaining-cultured-cells",
+        "location": "Cell seeding protocol steps 4–6"
+      }
+    },
+    {
+      "id": "passage-and-pdl-record",
+      "severity": "major",
+      "description": "Increment passage 12 to 13 and compute the current and cumulative PDL correctly.",
+      "rationale": "Passage events and population doublings are different quantities; cumulative PDL adds log₂(Nf/N0).",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-maintaining-cultured-cells",
+        "location": "Subculturing schedule; PDL arithmetic itself is the simulation model"
+      }
+    },
+    {
+      "id": "incubation-and-result",
+      "severity": "minor",
+      "description": "Record 37 °C, 5% CO₂ and 24 h, and submit the structured result.",
+      "rationale": "The record captures conditions without predicting attachment, growth, phenotype or sterility.",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-gibco-maintaining-cultured-cells",
+        "location": "Cell seeding protocol step 7; 24 h is a simulation timestamp"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "thermo-gibco-adherent-subculture",
+      "use": "General adherent harvest workflow, wash and reagent scaling, detachment observation, neutralization, collection and cell-line-specific cautions; link-only reference, no text copied."
+    },
+    {
+      "source_id": "thermo-gibco-suspension-subculture",
+      "use": "Conceptual contrast in the lesson only: suspension cells are sampled and diluted without substrate detachment. The simulator does not model suspension passaging."
+    },
+    {
+      "source_id": "thermo-gibco-maintaining-cultured-cells",
+      "use": "Target cell-number/final-volume seeding relationship, routine growth-phase and recordkeeping context, and repeated-subculture limitations; link-only reference."
+    }
+  ],
+  "limitations": [
+    "All cells, microscopy panels, tallies and results are synthetic and non-human. The model rehearses decisions and arithmetic only.",
+    "The simulator does not establish competency, aseptic hand skill, microscopy skill, institutional authorisation or physical validation of a passage protocol.",
+    "Confluence thresholds, exact T-75 volumes, exposure bound, viability penalties, target density, PDL convention and numerical tolerances are teaching choices, not laboratory acceptance criteria.",
+    "The viability penalties are deterministic tally transformations, not validated dissociation kinetics, membrane biology or growth predictions.",
+    "Dye exclusion represents membrane integrity at the count only; it does not establish future growth, identity, phenotype, genomic stability or sterility.",
+    "Suspension passaging is explained in the linked lesson but is outside this simulator. Shaking, spinner vessels, direct-versus-pellet dilution choices and suspension growth are not modelled.",
+    "The 24 h incubation is a record field only. No attachment, proliferation, phenotype, contamination or future-viability outcome is inferred."
+  ]
+}

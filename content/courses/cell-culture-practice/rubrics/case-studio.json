@@ -95,6 +95,100 @@
       "limitations": [
         "A zero-point self-check on a synthetic record; it is not a grade or a competency record, and your laboratory's procedures govern real counts."
       ]
+    },
+    {
+      "id": "cell-culture-practice-2:case",
+      "prompt": "A synthetic preparation record states: “500 mL final complete medium: 500 mL basal + 50 mL serum + 5 mL glutamine; glutamine aliquot had been at room temperature overnight; pH acceptable because colour red, osmolality not measured; serum heat-inactivated to make it defined and sterile; 0.45 µm filter, visual inspection only; filtrate collected in an unlabelled bottle; 50 mL aliquots promised from 400 mL recovered; label says complete medium; stored at 22 °C in light and released immediately; no sterility or mycoplasma controls.” Write a corrected batch plan and evidence review. Recalculate every addition and the basal volume; distinguish formulation and physicochemical issues; evaluate supplement and heat-inactivation decisions; specify filtration, integrity, control and dedicated-test evidence; and repair aliquot, label, storage, expiry and release decisions. State which values would come from the actual product and cell-line procedure rather than from this synthetic scenario.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "cell-culture-practice-2-objective-1",
+        "cell-culture-practice-2-objective-2",
+        "cell-culture-practice-2-objective-3",
+        "cell-culture-practice-2-objective-4",
+        "cell-culture-practice-2-objective-5"
+      ],
+      "rubric": [
+        {
+          "id": "cell-culture-practice-2-case-criterion-1",
+          "criterion": "Explains basal nutrient roles, why red colour does not replace pH or osmolality measurement, the bicarbonate/CO₂ relationship, and why serum-free, heat-inactivated and chemically defined are different descriptions",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-2-case-criterion-2",
+          "criterion": "Recomputes the intended final batch as 50 mL serum + 5 mL 100× glutamine + 445 mL basal = 500 mL, and identifies the record’s erroneous 555 mL total",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-2-case-criterion-3",
+          "criterion": "Rejects the room-temperature glutamine history and universal heat-inactivation rationale; requires lot/storage/thaw traceability, limited freeze–thaw exposure and dedicated reagents for one cell line",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-2-case-criterion-4",
+          "criterion": "Specifies an aseptic 0.22 µm protein-compatible filter with a supported integrity test, valid 14-day lower-then-higher-temperature sterility controls and dedicated mycoplasma testing, without treating clarity as proof",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-2-case-criterion-5",
+          "criterion": "Rejects over-allocation and immediate release; requires complete formulation/date/expiry/batch/component-lot labelling, feasible aliquot accounting, light-protected 2–8 °C storage and quarantine pending acceptable QC",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "A zero-point self-check on a synthetic record; it is not a grade, a competency record or physical validation, and actual product instructions, cell-line requirements and institutional procedures govern real media preparation."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-3:case",
+      "prompt": "A synthetic passage record states: “95% confluent; routine passage mandatory because viability will be high. Washed with complete medium; enzyme-based dissociation for 10 min; no neutralization before collection. Resuspended in 6.0 mL; 10 µL cells + 10 µL trypan blue; A 58 unstained + 5 stained, B 63 + 4. Two T-75 flasks, each target 5.00 × 10⁵ viable cells in 12.0 mL final volume. Add 0.826 mL cell suspension plus 12 mL fresh medium to each flask. Label both passage 12, unchanged PDL; no need to consider previous passage 12, cumulative PDL 18, or N0 = 1.815 × 10⁶. Repeated passage cannot affect identity.” Write a zero-point self-review: evaluate the disposition and harvest decisions; independently recompute concentration, viability, viable yield and per-flask inoculum/fresh medium; correct the passage and PDL record; and identify which claims still require separate evidence.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "cell-culture-practice-3-objective-1",
+        "cell-culture-practice-3-objective-2",
+        "cell-culture-practice-3-objective-3",
+        "cell-culture-practice-3-objective-4",
+        "cell-culture-practice-3-objective-5"
+      ],
+      "rubric": [
+        {
+          "id": "cell-culture-practice-3-case-criterion-1",
+          "criterion": "Rejects routine passaging under the declared 95% scenario and identifies the complete-medium wash, 10-minute exposure and absent neutralization as departures from the lesson workflow",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-3-case-criterion-2",
+          "criterion": "Recomputes twofold dilution, mean unstained count (58 + 63)/2 = 60.5, viable concentration 1.21 × 10⁶ cells/mL, viability 121/130 × 100 = 93.1%, and viable yield 7.26 × 10⁶ in 6.0 mL",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-3-case-criterion-3",
+          "criterion": "Calculates 0.413223 mL cell suspension and 11.586777 mL fresh medium per flask, explaining why 0.826 mL per flask is the two-flask amount and why adding 12 mL overshoots the final volume",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-3-case-criterion-4",
+          "criterion": "Increments passage 12 to 13 and computes log₂(7.26/1.815) = 2, hence cumulative PDL 18 + 2 = 20, while distinguishing these from a split ratio",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "cell-culture-practice-3-case-criterion-5",
+          "criterion": "States that viability, PDL and simulation checkpoints do not establish identity, sterility, genomic stability, future growth or physical technique; repeated-subculture concerns require records and later authentication/quality review",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "A zero-point self-check on a synthetic record; it is not a grade or competency record, and cell-line instructions and institutional procedures govern real passaging."
+      ]
     }
   ]
 }

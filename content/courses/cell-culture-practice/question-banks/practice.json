@@ -833,6 +833,827 @@
         ],
         "partial_credit": "correct-minus-incorrect-clamped-v1"
       }
+    },
+    {
+      "id": "cell-culture-practice-2:serum-stock-volume",
+      "type": "numeric",
+      "prompt": "You prepare 250 mL final volume of a synthetic medium containing 8% (v/v) serum from an undiluted serum stock. What volume of serum, in mL, is required? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-2-objective-2"
+      ],
+      "feedback": {
+        "hint": "Use V₁ = target volume fraction × final batch volume; the stock is 100% serum.",
+        "solution": "C₁V₁ = C₂V₂ gives V₁ = (0.08 × 250 mL)/1.00 = 20 mL. The remaining 230 mL consists of basal medium and any other additions. Dividing 250 by 8 gives 31.25 and confuses a percentage with a dilution denominator; using 8 mL confuses percent with a 1:100 dilution.",
+        "lesson_ids": [
+          "cell-culture-practice-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original media-preparation practice developed with substantial AI assistance; synthetic scenario and values; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 20,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-2:glutamine-stock-volume",
+      "type": "numeric",
+      "prompt": "A 200 mM L-glutamine stock is used to prepare 400 mL final volume at 2 mM. What stock volume, in mL, is required? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-2-objective-2"
+      ],
+      "feedback": {
+        "hint": "Both concentrations are in mM, so V₁ = C₂V₂/C₁ needs no concentration-unit conversion.",
+        "solution": "V₁ = (2 mM × 400 mL)/(200 mM) = 4 mL. This is also 400/100 mL because the stock is 100×. Using 400/200 = 2 mL ignores the 2 mM target; using 0.04 mL mistakes the 100-fold dilution for a 10,000-fold dilution.",
+        "lesson_ids": [
+          "cell-culture-practice-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original media-preparation practice developed with substantial AI assistance; synthetic scenario and values; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 4,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-2:basal-volume",
+      "type": "numeric",
+      "prompt": "The simulation batch has a 500 mL final volume and contains 50 mL serum plus 5 mL of 100× glutamine stock. What basal-medium volume, in mL, makes the final total exactly 500 mL? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-2-objective-2"
+      ],
+      "feedback": {
+        "hint": "Subtract every supplement from the final batch volume, not from the starting basal volume.",
+        "solution": "V_basal = 500 − 50 − 5 = 445 mL. Choosing 450 mL accounts for serum but forgets glutamine; adding 50 + 5 mL to 500 mL gives 555 mL and changes both final concentrations.",
+        "lesson_ids": [
+          "cell-culture-practice-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original media-preparation practice developed with substantial AI assistance; synthetic scenario and values; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 445,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-2:osmolality-estimate",
+      "type": "numeric",
+      "prompt": "For the synthetic volume-weighted approximation only, 445 mL basal medium at 290 mOsm/kg is mixed with 50 mL serum at 300 mOsm/kg and 5 mL glutamine stock at 400 mOsm/kg. What is the estimated final osmolality in mOsm/kg? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-2-objective-1",
+        "cell-culture-practice-2-objective-2"
+      ],
+      "feedback": {
+        "hint": "Weight each component osmolality by its volume, sum the contributions, and divide by the 500 mL final volume.",
+        "solution": "The estimate is (445 × 290 + 50 × 300 + 5 × 400)/500 = (129,050 + 15,000 + 2,000)/500 = 146,050/500 = 292.1 mOsm/kg, which is 292 mOsm/kg to three significant figures. An unweighted mean gives 330 and is wrong; real measurements supersede this explicitly approximate mixing rule.",
+        "lesson_ids": [
+          "cell-culture-practice-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original media-preparation practice developed with substantial AI assistance; synthetic scenario and values; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 292,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-2:basal-and-buffer",
+      "type": "multiple_select",
+      "prompt": "Which statements correctly distinguish the roles of medium components and physical conditions? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-2-objective-1"
+      ],
+      "feedback": {
+        "hint": "Separate nutrients, buffer, indicator and solute concentration rather than treating them as one QC signal.",
+        "solution": "Balanced salts and formulation-specific nutrients support the cells; bicarbonate and CO₂ jointly buffer pH; phenol red indicates rather than controls pH. Osmolality is not the same as pH. Serum-free does not necessarily mean supplement-free or fully defined, and phenol red does not supply the carbohydrate or amino-acid nutrients.",
+        "lesson_ids": [
+          "cell-culture-practice-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original media-preparation practice developed with substantial AI assistance; synthetic scenario and values; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": [
+          0,
+          2,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "options": [
+        "Basal formulations supply salts and formulation-specific nutrients such as carbohydrate, amino acids and vitamins.",
+        "Phenol red is the principal bicarbonate buffer and therefore fixes pH independently of CO₂.",
+        "Bicarbonate buffering depends on both dissolved bicarbonate and the surrounding CO₂ tension.",
+        "A correct pH measurement proves that osmolality is also correct.",
+        "Phenol red can indicate a pH shift, but it does not measure osmolality or establish sterility."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-2:serum-free-choice",
+      "type": "single_choice",
+      "prompt": "An experiment is sensitive to variable, unidentified growth factors in serum. Which formulation strategy best addresses that specific problem while still requiring cell-line-specific evaluation?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-2-objective-1"
+      ],
+      "feedback": {
+        "hint": "Look for known composition rather than merely a different source of an undefined mixture.",
+        "solution": "A cell-line-appropriate chemically defined, serum-free formulation directly addresses unknown and variable serum components. Increasing serum does not remove them; “serum-free” alone does not prove fully defined; heat-inactivation changes selected serum activities but does not make the composition chemically defined.",
+        "lesson_ids": [
+          "cell-culture-practice-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original media-preparation practice developed with substantial AI assistance; synthetic scenario and values; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 2
+      },
+      "options": [
+        "Double the serum concentration so its unknown components remain constant relative to one another.",
+        "Use any product labelled serum-free, because every serum-free formulation is fully defined and supplement-free.",
+        "Evaluate a chemically defined, serum-free formulation for that cell line and experimental question.",
+        "Heat-inactivate the serum and assume all unidentified growth factors have been removed."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-2:final-volume-rule",
+      "type": "single_choice",
+      "prompt": "You add 10 mL of a 100× supplement to 990 mL basal medium. Why is the nominal supplement strength 1× rather than approximately 1×?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-2-objective-2"
+      ],
+      "feedback": {
+        "hint": "The dilution factor is final volume divided by stock volume.",
+        "solution": "The final volume is 990 + 10 = 1,000 mL, so 100× × 10/1,000 = 1× exactly. Using 10/990 treats the basal volume as the denominator and yields an approximation; ignoring the added 10 mL makes every concentrated-stock calculation systematically inconsistent.",
+        "lesson_ids": [
+          "cell-culture-practice-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original media-preparation practice developed with substantial AI assistance; synthetic scenario and values; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1
+      },
+      "options": [
+        "Because 100× divided by 100 mL of supplement gives 1×.",
+        "Because the stock volume is 1/100 of the final 1,000 mL: 100× × 10/1,000 = 1×.",
+        "Because a 100× stock always becomes 1× after adding any volume up to 100 mL.",
+        "Because only the basal-medium volume determines final concentration."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-2:glutamine-handling",
+      "type": "multiple_select",
+      "prompt": "Which handling decisions are appropriate for the lesson’s frozen concentrated L-glutamine supplement? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-2-objective-3"
+      ],
+      "feedback": {
+        "hint": "Preserve identity and lot history while limiting degradation and repeated freeze–thaw exposure.",
+        "solution": "Use a documented frozen/cold aliquot, record lot and thaw details, and avoid repeated freeze–thaw cycles. L-glutamine in solution is not stable indefinitely; a room-temperature history is a suitability concern. Stabilized dipeptides are separate formulation choices and cannot be silently substituted without checking their instructions.",
+        "lesson_ids": [
+          "cell-culture-practice-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original media-preparation practice developed with substantial AI assistance; synthetic scenario and values; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": [
+          0,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "options": [
+        "Select a single-use aliquot with a documented frozen/cold storage history and follow its thaw/mix instructions.",
+        "Keep the thawed stock at room temperature for convenience because cold glutamine never degrades.",
+        "Record the supplement lot and thaw details and avoid repeated freeze–thaw cycles.",
+        "Treat a stabilized glutamine-containing dipeptide as a distinct formulation choice rather than an undocumented substitution."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-2:heat-inactivation",
+      "type": "single_choice",
+      "prompt": "A colleague proposes heat-inactivating every serum lot “to make any complete medium safe and defined.” What is the best evaluation?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-2-objective-3"
+      ],
+      "feedback": {
+        "hint": "Ask what heat-inactivation is intended to change and which risks remain.",
+        "solution": "Heat-inactivation is application-dependent, often used to reduce complement activity in selected immunological contexts; it is not needed routinely for every cell type. It neither guarantees sterility nor makes serum chemically defined, and heating can alter other serum properties. Follow the experimental and product-specific procedure.",
+        "lesson_ids": [
+          "cell-culture-practice-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original media-preparation practice developed with substantial AI assistance; synthetic scenario and values; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1
+      },
+      "options": [
+        "Accept it: heat-inactivation makes any serum lot sterile, chemically defined and suitable for every cell line.",
+        "Reject the universal claim: use heat-inactivation only when the application calls for it, and retain aseptic handling, supplier controls and dedicated contamination testing.",
+        "Accept it only if the serum turns clear, because clarity demonstrates removal of mollicutes and viruses.",
+        "Reject all heat-inactivated serum because complement activity is required by every mammalian cell line."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-2:filter-and-integrity",
+      "type": "multiple_select",
+      "prompt": "Which actions belong in the simulation’s heat-labile complete-medium filtration workflow? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-2-objective-4"
+      ],
+      "feedback": {
+        "hint": "A sterilizing-grade pore label must be connected to compatible materials, aseptic assembly and an integrity result.",
+        "solution": "Use the 0.22 µm protein-compatible filter with aseptic assembly and priming, then perform the device-supported bubble-point or pressure-hold check. Autoclaving can damage heat-labile components. Visual clarity is not an integrity test, and 0.22 µm filtration does not prove absence of mollicutes.",
+        "lesson_ids": [
+          "cell-culture-practice-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original media-preparation practice developed with substantial AI assistance; synthetic scenario and values; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "options": [
+        "Select the 0.22 µm protein-compatible membrane and assemble the filter and sterile receiver aseptically.",
+        "Prime/pre-rinse according to the device procedure and perform a supported post-use integrity check.",
+        "Autoclave the complete serum- and glutamine-containing medium instead of filtering it.",
+        "Record filter identity/lot and the bubble-point or pressure-hold result with the batch."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-2:filtrate-evidence",
+      "type": "single_choice",
+      "prompt": "A 0.22 µm-filtered batch is clear, its filter-integrity check passes, and its standard sterility control has no visible growth after a valid schedule. What additional evidence is still needed for the mollicute risk?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-2-objective-4"
+      ],
+      "feedback": {
+        "hint": "Separate mechanical retention and culturable growth from a dedicated assay for organisms that may pass the filter.",
+        "solution": "Submit the dedicated mycoplasma lot test. Mollicutes may pass 0.22 µm filters and may not cause turbidity, so clarity, integrity and standard sterility incubation do not answer that specific question. A smaller nominal pore size would not replace the laboratory’s testing policy.",
+        "lesson_ids": [
+          "cell-culture-practice-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original media-preparation practice developed with substantial AI assistance; synthetic scenario and values; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 2
+      },
+      "options": [
+        "No further evidence: the integrity pass proves every biological contaminant was removed.",
+        "No further evidence if the batch also contains penicillin-streptomycin.",
+        "A dedicated mycoplasma test, because filtration and visible growth do not reliably detect or remove this risk.",
+        "Only another visual inspection, because mollicutes always produce turbidity within 24 hours."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-2:label-storage-release",
+      "type": "multiple_select",
+      "prompt": "Which decisions complete a traceable QC and storage workflow for the synthetic batch? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-2-objective-5"
+      ],
+      "feedback": {
+        "hint": "Release requires traceability, valid incubation and the independent assay; storage does not rescue missing evidence.",
+        "solution": "The label/record links formulation, cell line, dates, batch and component lots; aliquots are stored at 2–8 °C protected from light; the batch remains quarantined pending required QC. Clarity alone is not release evidence. Aliquot allocation cannot exceed recovered volume, and the 14-day expiry is a simulation choice rather than a universal shelf life.",
+        "lesson_ids": [
+          "cell-culture-practice-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original media-preparation practice developed with substantial AI assistance; synthetic scenario and values; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": [
+          0,
+          2,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      },
+      "options": [
+        "Label the formulation, intended cell line, preparation/expiry dates and batch ID, and link basal, serum, glutamine and filter lots.",
+        "Release immediately if the filtrate is clear, before the sterility schedule and mycoplasma result.",
+        "Store traceably labelled aliquots at 2–8 °C protected from light and keep the batch quarantined until required QC is acceptable.",
+        "Allocate any number of 50 mL aliquots because filtration creates additional volume.",
+        "Account for QC and aliquot volumes, and treat the printed 14-day expiry as a synthetic teaching convention."
+      ]
+    },
+    {
+      "id": "cell-culture-practice-3:culture-readiness",
+      "type": "single_choice",
+      "prompt": "A synthetic adherent culture is 78% confluent with expected morphology, clear medium and 93% dye-exclusion viability. Under this lesson's simulation rule, which disposition is appropriate?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-3-objective-1"
+      ],
+      "feedback": {
+        "hint": "Use the declared 70–85% teaching window, but keep the evidence domains separate.",
+        "solution": "The culture lies within the synthetic 70–85% routine window, so routine passaging is appropriate in the scenario. The 93% result describes membrane integrity at counting time; it does not prove identity or sterility, and 95% is the separate refusal scenario.",
+        "lesson_ids": [
+          "cell-culture-practice-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original passaging practice developed with substantial AI assistance; synthetic scenario and data; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Proceed with the routine passage workflow while continuing to monitor the culture.",
+        "Discard it solely because routine passaging is permitted only below 50% confluence.",
+        "Treat the viability result as proof of identity and sterility before passaging.",
+        "Delay passage until the culture reaches 95% confluence."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "cell-culture-practice-3:adherent-dissociation",
+      "type": "multiple_select",
+      "prompt": "Which actions support a representative, viable harvest in the lesson's adherent workflow? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-3-objective-2"
+      ],
+      "feedback": {
+        "hint": "Separate substrate detachment from mixing, and consider both reagent carry-over and exposure time.",
+        "solution": "The wash reduces inhibitors of dissociation; detachment is observed before neutralization; and resuspension makes the count representative. Longer exposure is not always better, suspension cells do not attach to the medium, and no substrate-detachment step is needed for them.",
+        "lesson_ids": [
+          "cell-culture-practice-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original passaging practice developed with substantial AI assistance; synthetic scenario and data; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Wash with calcium- and magnesium-free balanced salt solution before adding the dissociation reagent.",
+        "Observe detachment and stop or dilute dissociation activity with complete medium at the appropriate step.",
+        "Extend dissociation until every cell is rounded, regardless of elapsed time.",
+        "Resuspend to a representative single-cell suspension before sampling for the count.",
+        "Add the dissociation reagent to a suspension culture to detach it from the medium."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "cell-culture-practice-3:suspension-dilution",
+      "type": "single_choice",
+      "prompt": "A suspension culture contains 1.6 × 10⁶ viable cells/mL. It will be passaged to 0.4 × 10⁶ viable cells/mL in 20 mL. Which plan is conceptually and arithmetically correct?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-3-objective-2",
+        "cell-culture-practice-3-objective-3"
+      ],
+      "feedback": {
+        "hint": "Required cells are C₂V₂; fresh medium is final volume minus the culture inoculum, and no substrate detachment is needed.",
+        "solution": "Required viable cells = 0.4 × 10⁶ × 20 = 8.0 × 10⁶. Culture volume = (8.0 × 10⁶)/(1.6 × 10⁶) = 5.0 mL, so fresh medium = 20 − 5 = 15 mL. Suspension cells need no detachment reagent; 8 mL confuses a volume fraction with cell conservation.",
+        "lesson_ids": [
+          "cell-culture-practice-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original passaging practice developed with substantial AI assistance; synthetic scenario and data; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Use an enzyme to detach the cells, then add 20 mL medium to 5 mL culture.",
+        "Mix and count a representative sample, transfer 5 mL culture, and add 15 mL fresh medium.",
+        "Transfer 8 mL culture and add 12 mL medium because 8/20 = 0.4.",
+        "Transfer 0.5 mL culture and add 19.5 mL medium because 1.6/0.4 = 4 and 20/4 = 5."
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "cell-culture-practice-3:seed-volume",
+      "type": "numeric",
+      "prompt": "A harvested suspension contains 1.21 × 10⁶ viable cells/mL. How many millilitres are needed per flask to seed 5.00 × 10⁵ viable cells? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-3-objective-3"
+      ],
+      "feedback": {
+        "hint": "Use V = N_target/C₁; the final culture volume is not needed for this first step.",
+        "solution": "V = (5.00 × 10⁵ cells)/(1.21 × 10⁶ cells/mL) ≈ 0.413 mL = 4.13 × 10⁻¹ mL to three significant figures. Using total rather than viable cells would make the inoculum too small.",
+        "lesson_ids": [
+          "cell-culture-practice-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original passaging practice developed with substantial AI assistance; synthetic scenario and data; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.413,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-3:fresh-medium-volume",
+      "type": "numeric",
+      "prompt": "For the same harvest (1.21 × 10⁶ viable cells/mL), one flask must contain 5.00 × 10⁵ viable cells in a 12.0 mL final volume. How many millilitres of fresh medium must be added after the cell suspension? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-3-objective-3"
+      ],
+      "feedback": {
+        "hint": "Calculate the inoculum first, then subtract it from the final volume rather than adding a second 12 mL.",
+        "solution": "Cell suspension = 500000/1210000 ≈ 0.413 mL. Subtracting the unrounded inoculum from 12.0 mL gives 11.6 mL of fresh medium to three significant figures. Adding 12 mL to the inoculum would incorrectly produce 12.413 mL final volume.",
+        "lesson_ids": [
+          "cell-culture-practice-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original passaging practice developed with substantial AI assistance; synthetic scenario and data; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 11.6,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-3:three-flask-total-inoculum",
+      "type": "numeric",
+      "prompt": "Three identical flasks each require 4.00 × 10⁵ viable cells. The suspension contains 1.50 × 10⁶ viable cells/mL. What total volume of cell suspension, in millilitres, is needed across all three flasks? Keep full precision in intermediate calculations. Enter the number only, to three significant figures.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-3-objective-3"
+      ],
+      "feedback": {
+        "hint": "Either multiply the per-flask inoculum by three or divide the total required cells by concentration.",
+        "solution": "Per flask, V = 400000/1500000 ≈ 0.267 mL. For three flasks, V_total = 3 × (400000/1500000) = 0.800 mL. Equivalently, 1.20 × 10⁶ total cells/(1.50 × 10⁶ cells/mL) = 0.800 mL. The answer is not 0.267 mL, which is only one flask's inoculum.",
+        "lesson_ids": [
+          "cell-culture-practice-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original passaging practice developed with substantial AI assistance; synthetic scenario and data; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.8,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": 3,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-3:split-denominator",
+      "type": "numeric",
+      "prompt": "A harvest contains 8.0 × 10⁶ viable cells, of which 2.0 × 10⁶ are seeded in total. Using this lesson's explicit yield-based convention “1:D”, what number D should be recorded? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-3-objective-4"
+      ],
+      "feedback": {
+        "hint": "Under the stated convention, D is harvested viable cells divided by total viable cells seeded.",
+        "solution": "D = N_harvest/N_seeded = (8.0 × 10⁶)/(2.0 × 10⁶) = 4, so the record is 1:4 under the declared convention. This proportional description does not establish a viable seeding density without the count and volumes.",
+        "lesson_ids": [
+          "cell-culture-practice-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original passaging practice developed with substantial AI assistance; synthetic scenario and data; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 4,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-3:pdl-increment",
+      "type": "numeric",
+      "prompt": "At the start of a culture interval there are 1.815 × 10⁶ viable cells (N0); at harvest there are 7.26 × 10⁶ (Nf). What is the PDL increment, log₂(Nf/N0)? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-3-objective-4"
+      ],
+      "feedback": {
+        "hint": "Take the ratio first, then the base-two logarithm; passage number is not the same as PDL.",
+        "solution": "Nf/N0 = 7.26/1.815 = 4. PDL increment = log₂4 = log₁₀4/log₁₀2 = 2. Each of the two doublings multiplies cell number by two; this does not mean two separate passage events.",
+        "lesson_ids": [
+          "cell-culture-practice-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original passaging practice developed with substantial AI assistance; synthetic scenario and data; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 2,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-3:cumulative-pdl",
+      "type": "numeric",
+      "prompt": "A culture's previous cumulative PDL is 18.00. During the next interval, N0 = 1.25 × 10⁶ and Nf = 5.00 × 10⁶. What is the new cumulative PDL? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-3-objective-4"
+      ],
+      "feedback": {
+        "hint": "Add the interval's log₂(Nf/N0) increment to the previous cumulative value.",
+        "solution": "Nf/N0 = 5.00/1.25 = 4, so the increment is log₂4 = 2. New cumulative PDL = 18.00 + 2 = 20. Adding four instead of two confuses the fold increase with its base-two logarithm.",
+        "lesson_ids": [
+          "cell-culture-practice-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original passaging practice developed with substantial AI assistance; synthetic scenario and data; no external problem, dataset or figure imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 20,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "cell-culture-practice-3:overconfluent-disposition",
+      "type": "single_choice",
+      "prompt": "The simulation reveals 95% confluence. A colleague argues that a 94% trypan-blue viability makes routine passaging mandatory. What is the best response under the scenario rule?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-3-objective-1",
+        "cell-culture-practice-3-objective-5"
+      ],
+      "feedback": {
+        "hint": "Apply the declared 95% branch and distinguish membrane integrity from growth state and identity.",
+        "solution": "The scenario deliberately assigns 95% confluence to its refusal branch. A high dye-exclusion percentage does not reverse over-confluence or establish identity, sterility or future growth. Extending enzyme exposure adds a second error, and rewriting the observation destroys traceability.",
+        "lesson_ids": [
+          "cell-culture-practice-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original passaging practice developed with substantial AI assistance; synthetic scenario and data; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Proceed because dye exclusion overrides every other observation.",
+        "Proceed but double the dissociation time to compensate for the density.",
+        "Refuse the routine-passage branch and select the over-confluent discard/investigation disposition; viability does not cancel the growth-state rule.",
+        "Record the culture as 85% confluent so it fits the teaching window."
+      ],
+      "solution_spec": {
+        "answer": 2
+      }
+    },
+    {
+      "id": "cell-culture-practice-3:total-versus-viable-target",
+      "type": "single_choice",
+      "prompt": "A planner needs 5.0 × 10⁵ viable cells but divides that target by total-cell concentration rather than viable-cell concentration. Viability is below 100%, and all volumes are transferred as calculated. What is the effect?",
+      "points": 1,
+      "objective_ids": [
+        "cell-culture-practice-3-objective-3"
+      ],
+      "feedback": {
+        "hint": "Compare the denominator in N/C when total concentration exceeds viable concentration.",
+        "solution": "Total concentration = viable concentration/viability fraction, so it is larger when viability is below 100%. Dividing by the larger number gives a smaller inoculum and too few viable cells. The correct calculation uses viable-cell concentration and still accounts for the dilution.",
+        "lesson_ids": [
+          "cell-culture-practice-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original passaging practice developed with substantial AI assistance; synthetic scenario and data; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Too few viable cells are seeded because the total-cell concentration is larger than the viable-cell concentration.",
+        "Too many viable cells are seeded because the total-cell concentration is smaller than the viable-cell concentration.",
+        "There is no effect because stained and unstained cells have identical growth potential.",
+        "The final volume becomes correct only if the trypan-blue dilution is omitted."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "cell-culture-practice-3:passage-record-and-drift",
+      "type": "multiple_select",
+      "prompt": "Which entries or interpretations belong in a sound passage review? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "cell-culture-practice-3-objective-4",
+        "cell-culture-practice-3-objective-5"
+      ],
+      "feedback": {
+        "hint": "A traceable record preserves measurements and provenance; it does not turn indirect evidence into identity evidence.",
+        "solution": "Raw counts, dilution, yields, target/final volumes, dates, vessels and reagent lots make the calculation auditable. Passage events and PDL are distinct. Repeated subculture can change characteristics, but passage number alone does not prove drift and dye exclusion does not authenticate a line; later authentication review is required.",
+        "lesson_ids": [
+          "cell-culture-practice-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original passaging practice developed with substantial AI assistance; synthetic scenario and data; no external problem, dataset or figure imported."
+        ]
+      },
+      "options": [
+        "Record raw chamber tallies, dilution, viable concentration, yield, target seed number and final volume.",
+        "Increment passage number once per subculture event and calculate PDL separately from Nf/N0.",
+        "Treat a high passage number as proof of genetic drift and a high viability result as proof of identity.",
+        "Carry forward unusual morphology or growth for later authentication and quality review.",
+        "Record medium and dissociation-reagent lots, culture dates and vessel identifiers."
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
     }
   ]
 }

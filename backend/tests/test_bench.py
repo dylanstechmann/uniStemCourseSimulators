@@ -6,7 +6,7 @@ from pathlib import Path
 import pytest
 from fastapi.testclient import TestClient
 
-from courselab.bench import MODELS, BenchLibrary, ProtocolInvalid
+from courselab.bench import MODELS, BenchLibrary, ProtocolInvalid, public_protocol
 from courselab.bench.engine import ActionRejected, check_parameters, replay, run_state
 from courselab.bench.pipette import water_density, z_factor
 from courselab.bench.plate_count import bam_round
@@ -877,6 +877,723 @@ def test_aseptic_containment_waste_and_cleanup_rules(library):
     met = checkpoint_map(replay(model, seed, "practice",
                                 aseptic_run(model, seed, final_agent="water")).view())
     assert met["post-session-clean"] is False
+
+
+
+
+# filter-sterilize-and-qc-a-supplemented-medium -------------------------------
+
+MEDIA = "filter-sterilize-and-qc-a-supplemented-medium"
+
+
+def lot_id(model, component):
+    if component == "basal":
+        return model.parameters["basal_lot_id"]
+    if component == "filter":
+        return model.parameters["filter_lot_id"]
+    return model.parameters[f"{component}_id"]
+
+
+def used_component(hidden_state, component):
+    if component is None:
+        return False
+    if component == "basal":
+        return True
+    if component.startswith("serum_lot_"):
+        return component != hidden_state["expired_serum_lot"]
+    return component != hidden_state["warm_glutamine_aliquot"]
+
+
+def result_from(view):
+    return view["log"][-1]["events"][0]["data"]["batch_result"]
+
+
+def media_run(model, seed, *, inspect=True, serum_lot=None, serum_volume=50, glutamine_aliquot=None,
+              glutamine_volume=5, ph_method="calibrated_ph_meter", osmolality_method="osmometer",
+              pore=0.22, membrane="pvdf", collection_bottle=None, pre_rinsed=True, aseptic=True,
+              integrity="bubble_point", label=None, draw_control=True, control_volume=10, fresh_pipette=True,
+              incubations=((7, 22), (7, 32)), mycoplasma=True, temperature=4,
+              light_protected=True, release_status="quarantine_until_qc", aliquots=((4, 50),)):
+    state = hidden(model, seed)
+    serum_lot = serum_lot or next(lot for lot in ("serum_lot_a", "serum_lot_b") if lot != state["expired_serum_lot"])
+    glutamine_aliquot = glutamine_aliquot or next(
+        lot for lot in ("glutamine_aliquot_a", "glutamine_aliquot_b") if lot != state["warm_glutamine_aliquot"])
+    collection_bottle = collection_bottle or next(
+        bottle for bottle in ("bottle_a", "bottle_b") if bottle != state["unlabeled_bottle"])
+    complete_label = {
+        "medium_name": "MEM-serum-glutamine", "prepared_on": "2026-11-15",
+        "expires_on": "2026-11-29", "cell_line": "synthetic-line-1",
+        "basal_lot_id": lot_id(model, "basal"), "serum_lot_id": lot_id(model, serum_lot),
+        "glutamine_lot_id": lot_id(model, glutamine_aliquot), "filter_lot_id": lot_id(model, "filter"),
+        "component_lots_linked": True,
+    }
+    if label:
+        complete_label.update(label)
+    actions = []
+    if inspect:
+        actions.append(act("inspect_supplies"))
+    actions += [
+        act("add_serum", lot=serum_lot, volume_ml=serum_volume),
+        act("add_glutamine", aliquot=glutamine_aliquot, volume_ml=glutamine_volume),
+        act("measure_prefiltration_qc", ph_method=ph_method, osmolality_method=osmolality_method),
+        act("select_filter", pore_size_um=pore, membrane=membrane),
+        act("filter_medium", collection_bottle=collection_bottle, pre_rinsed=pre_rinsed, aseptic_assembly=aseptic),
+        act("test_filter_integrity", method=integrity),
+    ]
+    if draw_control:
+        actions.append(act("draw_sterility_control", volume_ml=control_volume, fresh_pipette=fresh_pipette))
+    for count, volume in aliquots:
+        actions.append(act("aliquot_medium", count=count, volume_each_ml=volume))
+    actions.append(act("label_bottle", **complete_label))
+    if draw_control:
+        for days, temperature_c in incubations:
+            actions.append(act("incubate_sterility_control", days=days, temperature_c=temperature_c))
+    if mycoplasma:
+        actions.append(act("submit_mycoplasma_lot_test"))
+    actions += [
+        act("store_medium", temperature_c=temperature, light_protected=light_protected, release_status=release_status),
+        act("finish_preparation"),
+    ]
+    return actions
+
+
+@pytest.mark.parametrize("seed", range(20))
+def test_media_correct_run_meets_every_checkpoint(library, seed):
+    model = library.get(MEDIA)
+    view = replay(model, seed, "practice", media_run(model, seed)).view()
+    assert all(checkpoint_map(view).values()), (seed, checkpoint_map(view))
+    assert view["debrief"]["all_critical_met"]
+    result = view["log"][-1]["events"][0]["data"]["batch_result"]
+    assert result["composition"] == {
+        "final_volume_ml": 500, "basal_volume_ml": 445, "serum_volume_ml": 50,
+        "serum_final_percent": 10, "glutamine_volume_ml": 5,
+        "glutamine_final_mm": 2, "glutamine_final_fold": 1,
+    }
+    assert result["prefiltration_qc"]["osmolality_mosm_kg"] == pytest.approx(292.1)
+    assert result["inventory"]["unallocated_volume_ml"] == pytest.approx(280)
+    assert result["filtration"]["filter"]["lot_id"] == lot_id(model, "filter")
+    selected_serum = next(entry for entry in view["log"] if entry["name"] == "add_serum")["params"]["lot"]
+    selected_glutamine = next(entry for entry in view["log"] if entry["name"] == "add_glutamine")["params"]["aliquot"]
+    assert result["label"]["basal_lot_id"] == lot_id(model, "basal")
+    assert result["label"]["serum_lot_id"] == lot_id(model, selected_serum)
+    assert result["label"]["glutamine_lot_id"] == lot_id(model, selected_glutamine)
+    assert result["label"]["filter_lot_id"] == lot_id(model, "filter")
+
+
+def test_media_replay_is_deterministic_seed_dependent_and_structured(library):
+    model = library.get(MEDIA)
+    actions = media_run(model, 8)
+    first = replay(model, 8, "practice", actions).view()
+    assert first == replay(model, 8, "practice", actions).view()
+    signatures = {(hidden(model, seed)["expired_serum_lot"], hidden(model, seed)["warm_glutamine_aliquot"],
+                   hidden(model, seed)["unlabeled_bottle"]) for seed in range(12)}
+    assert len(signatures) > 1
+    qc = result_from(first)["qc_outcome"]
+    assert qc["mycoplasma"]["result"] in {"positive", "negative"}
+    assert qc["mycoplasma_result"] == qc["mycoplasma"]["result"]
+    assert qc["sterility_control"]["status"] == "no_visible_growth"
+
+
+def test_media_expired_serum_is_rejected_by_checkpoint(library):
+    model = library.get(MEDIA)
+    seed = 4
+    lot = hidden(model, seed)["expired_serum_lot"]
+    view = replay(model, seed, "practice", media_run(model, seed, serum_lot=lot)).view()
+    assert checkpoint_map(view)["serum-in-date"] is False
+    assert any("Expired serum" in note for note in view["debrief"]["revealed"])
+
+
+def test_media_room_temperature_glutamine_is_flagged(library):
+    model = library.get(MEDIA)
+    seed = 3
+    aliquot = hidden(model, seed)["warm_glutamine_aliquot"]
+    view = replay(model, seed, "practice", media_run(model, seed, glutamine_aliquot=aliquot)).view()
+    assert checkpoint_map(view)["glutamine-aliquot-cold"] is False
+
+
+def test_media_wrong_stock_volumes_change_composition_and_checkpoint(library):
+    model = library.get(MEDIA)
+    view = replay(model, 2, "practice", media_run(model, 2, serum_volume=25, glutamine_volume=10)).view()
+    assert checkpoint_map(view)["supplement-volumes"] is False
+    result = view["log"][-1]["events"][0]["data"]["batch_result"]
+    assert result["composition"]["basal_volume_ml"] == 465
+    assert result["composition"]["glutamine_final_mm"] == 4
+
+
+def test_media_pH_and_osmolality_require_real_measurement_methods(library):
+    model = library.get(MEDIA)
+    view = replay(model, 2, "practice", media_run(model, 2, ph_method="phenol_red_colour", osmolality_method="visual_estimate")).view()
+    assert checkpoint_map(view)["prefiltration-qc"] is False
+    result = view["log"][-1]["events"][0]["data"]["batch_result"]
+    assert result["prefiltration_qc"] == {"ph": None, "osmolality_mosm_kg": None}
+
+
+def test_media_filter_selection_priming_and_assembly_are_checked(library):
+    model = library.get(MEDIA)
+    view = replay(model, 2, "practice", media_run(model, 2, pore=0.45, membrane="cellulose", pre_rinsed=False, aseptic=False)).view()
+    assert checkpoint_map(view)["correct-filter"] is False
+    assert checkpoint_map(view)["filter-integrity-verified"] is True
+
+
+def test_media_visual_inspection_is_not_an_integrity_test(library):
+    model = library.get(MEDIA)
+    view = replay(model, 2, "practice", media_run(model, 2, integrity="visual_only")).view()
+    assert checkpoint_map(view)["filter-integrity-verified"] is False
+
+
+def test_media_unlabelled_receiving_bottle_is_flagged(library):
+    model = library.get(MEDIA)
+    seed = 5
+    bottle = hidden(model, seed)["unlabeled_bottle"]
+    view = replay(model, seed, "practice", media_run(model, seed, collection_bottle=bottle)).view()
+    assert checkpoint_map(view)["labeled-collection-bottle"] is False
+
+
+def test_media_control_sample_and_incubation_rules_are_checked(library):
+    model = library.get(MEDIA)
+    view = replay(model, 2, "practice", media_run(model, 2, control_volume=5, fresh_pipette=False, incubations=((10, 22),))).view()
+    met = checkpoint_map(view)
+    assert met["sterility-samples-incubated"] is False and met["dual-temperature-incubation"] is False
+    view = replay(model, 2, "practice", media_run(model, 2, incubations=((7, 32), (7, 22)))).view()
+    assert checkpoint_map(view)["dual-temperature-incubation"] is False
+    view = replay(model, 2, "practice", media_run(model, 2, incubations=((7, 22), (7, 37)))).view()
+    assert checkpoint_map(view)["sterility-samples-incubated"] is False
+
+
+def test_media_mollicutes_pass_the_filter_and_need_the_dedicated_test(library):
+    model = library.get(MEDIA)
+    def used_hidden_lot(h):
+        lot = h["mollicute_lot"]
+        return (lot == "basal" or lot == next(x for x in ("serum_lot_a", "serum_lot_b") if x != h["expired_serum_lot"])
+                or lot == next(x for x in ("glutamine_aliquot_a", "glutamine_aliquot_b") if x != h["warm_glutamine_aliquot"]))
+    seed = seed_where(model, used_hidden_lot)
+    view = replay(model, seed, "practice", media_run(model, seed)).view()
+    assert checkpoint_map(view)["mycoplasma-test-requested"] is True
+    assert view["log"][-1]["events"][-1]["text"].endswith("mycoplasma result: positive.")
+    missed = replay(model, seed, "practice", media_run(model, seed, mycoplasma=False)).view()
+    assert checkpoint_map(missed)["mycoplasma-test-requested"] is False
+    assert missed["log"][-1]["events"][-1]["text"].endswith("mycoplasma result: not_submitted.")
+
+
+@pytest.mark.parametrize("mycoplasma_case", ["not_requested", "negative", "positive"])
+@pytest.mark.parametrize("control_case,expected_status,expected_growth", [
+    ("absent", "not_drawn", None),
+    ("insufficient", "insufficient_incubation", None),
+    ("valid_negative", "no_visible_growth", False),
+    ("valid_positive", "visible_growth", True),
+])
+def test_media_control_and_mycoplasma_result_matrix(library, control_case, expected_status, expected_growth, mycoplasma_case):
+    model = library.get(MEDIA)
+    if mycoplasma_case == "positive":
+        seed = seed_where(model, lambda h: used_component(h, h["mollicute_lot"]))
+    elif mycoplasma_case == "negative":
+        seed = seed_where(model, lambda h: not used_component(h, h["mollicute_lot"]))
+    else:
+        seed = 2
+    draw_control = control_case != "absent"
+    incubations = ((3, 22),) if control_case == "insufficient" else ((7, 22), (7, 32))
+    view = replay(model, seed, "practice", media_run(
+        model, seed, draw_control=draw_control, incubations=incubations,
+        aseptic=control_case != "valid_positive", mycoplasma=mycoplasma_case != "not_requested",
+    )).view()
+    qc = result_from(view)["qc_outcome"]
+    control = qc["sterility_control"]
+    mycoplasma = qc["mycoplasma"]
+    expected_mycoplasma = "not_submitted" if mycoplasma_case == "not_requested" else mycoplasma_case
+    assert control["status"] == expected_status
+    assert control["control_drawn"] is draw_control
+    assert control["visible_growth"] is expected_growth
+    assert control["schedule_complete"] is (control_case in {"valid_negative", "valid_positive"})
+    assert mycoplasma == {
+        "requested": mycoplasma_case != "not_requested",
+        "result": expected_mycoplasma,
+    }
+    assert qc["visible_growth"] is expected_growth
+    assert qc["mycoplasma_result"] == expected_mycoplasma
+    consequence = view["log"][-1]["events"][-1]["text"]
+    assert consequence.endswith(f"dedicated mycoplasma result: {expected_mycoplasma}.")
+    if control_case == "absent":
+        assert consequence.startswith("Sterility control: not drawn;")
+    elif control_case == "insufficient":
+        assert consequence.startswith("Sterility control: insufficient/incubation incomplete")
+        assert "no visible growth after" not in consequence
+    elif control_case == "valid_negative":
+        assert consequence.startswith("Sterility control: no visible growth after the complete dual-temperature schedule;")
+    else:
+        assert consequence.startswith("Sterility control: visible growth observed;")
+
+
+def test_media_requested_mycoplasma_outcome_is_private_until_finish(library):
+    model = library.get(MEDIA)
+    seed = seed_where(model, lambda h: used_component(h, h["mollicute_lot"]))
+    view = replay(model, seed, "practice", media_run(model, seed)[:-2]).view()
+    assert view["debrief"] is None
+    public_log = json.dumps(view["log"])
+    assert "mycoplasma result: positive" not in public_log
+    assert '"result": "positive"' not in public_log
+    finished = replay(model, seed, "practice", media_run(model, seed)).view()
+    assert result_from(finished)["qc_outcome"]["mycoplasma"]["result"] == "positive"
+
+
+def test_media_guided_receiver_coaching_requires_inspection(library):
+    model = library.get(MEDIA)
+    seed = 5
+    bottle = hidden(model, seed)["unlabeled_bottle"]
+    private = replay(model, seed, "guided", media_run(
+        model, seed, inspect=False, collection_bottle=bottle,
+    )).view()
+    filter_log = next(entry for entry in private["log"] if entry["name"] == "filter_medium")
+    warnings = [event["text"] for event in filter_log["events"] if event["kind"] == "warning"]
+    assert warnings == ["Inspect supply and receiving-bottle records before selecting a receiver."]
+    assert all("unlabelled" not in warning and "identity and history" not in warning for warning in warnings)
+
+    inspected = replay(model, seed, "guided", media_run(model, seed, collection_bottle=bottle)).view()
+    filter_log = next(entry for entry in inspected["log"] if entry["name"] == "filter_medium")
+    warnings = [event["text"] for event in filter_log["events"] if event["kind"] == "warning"]
+    assert "The selected receiving bottle is unlabelled; its identity and history are unknown." in warnings
+
+
+def test_media_inspection_and_filter_selection_supply_original_lot_id_evidence(library):
+    model = library.get(MEDIA)
+    view = replay(model, 2, "practice", media_run(model, 2)).view()
+    inspection = view["log"][0]["events"][0]
+    assert inspection["data"]["lot_ids"] == {
+        component: lot_id(model, component)
+        for component in ("basal", "serum_lot_a", "serum_lot_b", "glutamine_aliquot_a", "glutamine_aliquot_b")
+    }
+    assert inspection["data"]["filter_lot_id"] == lot_id(model, "filter")
+    selection = next(entry for entry in view["log"] if entry["name"] == "select_filter")
+    assert selection["events"][0]["data"] == {"lot_id": lot_id(model, "filter")}
+    label = result_from(view)["label"]
+    assert label["component_lots_linked"] is True
+    assert all(label[f"{field}_lot_id"] for field in ("basal", "serum", "glutamine", "filter"))
+
+
+@pytest.mark.parametrize("field", ["basal_lot_id", "serum_lot_id", "glutamine_lot_id", "filter_lot_id"])
+def test_media_wrong_lot_ids_fail_despite_self_attestation(library, field):
+    model = library.get(MEDIA)
+    view = replay(model, 2, "practice", media_run(model, 2, label={field: "wrong-lot"})).view()
+    assert checkpoint_map(view)["complete-label-and-lot-trace"] is False
+
+
+def test_media_missing_lot_ids_are_rejected(library):
+    model = library.get(MEDIA)
+    actions = media_run(model, 2)
+    label_action = next(action for action in actions if action["name"] == "label_bottle")
+    for field in ("basal_lot_id", "serum_lot_id", "glutamine_lot_id", "filter_lot_id"):
+        del label_action["params"][field]
+    with pytest.raises(ActionRejected, match="basal-medium lot id"):
+        replay(model, 2, "practice", actions)
+
+
+def test_media_nonaseptic_filtration_produces_visible_growth_only_after_incubation(library):
+    model = library.get(MEDIA)
+    early_actions = media_run(model, 2, aseptic=False)[:-5]
+    early = replay(model, 2, "practice", early_actions).view()
+    assert "turbid" not in json.dumps(early["panels"])
+    view = replay(model, 2, "practice", media_run(model, 2, aseptic=False)).view()
+    assert checkpoint_map(view)["correct-filter"] is False
+    assert view["log"][-1]["events"][-1]["text"].startswith("Sterility control: visible growth observed")
+
+
+def test_media_label_storage_and_release_are_independent_checkpoints(library):
+    model = library.get(MEDIA)
+    bad_label = {"medium_name": "medium", "prepared_on": "2026-11-15", "expires_on": "2026-11-15",
+                 "cell_line": "unknown", "component_lots_linked": False}
+    met = checkpoint_map(replay(model, 2, "practice", media_run(model, 2, label=bad_label)).view())
+    assert met["complete-label-and-lot-trace"] is False
+    met = checkpoint_map(replay(model, 2, "practice", media_run(model, 2, temperature=22, light_protected=False)).view())
+    assert met["cold-dark-storage"] is False
+    met = checkpoint_map(replay(model, 2, "practice", media_run(model, 2, release_status="release_immediately")).view())
+    assert met["release-pending-qc"] is False
+
+
+def test_media_late_inspection_is_not_accepted(library):
+    model = library.get(MEDIA)
+    actions = media_run(model, 2, inspect=False)
+    actions.insert(1, act("inspect_supplies"))
+    view = replay(model, 2, "practice", actions).view()
+    assert checkpoint_map(view)["supplies-inspected"] is False
+
+
+@pytest.mark.parametrize("name,params,message", [
+    ("add_serum", {"lot": "serum_lot_a"}, "needs a value"),
+    ("add_serum", {"lot": "unknown", "volume_ml": 50}, "listed options"),
+    ("add_serum", {"lot": "serum_lot_a", "volume_ml": True}, "must be a number"),
+    ("add_glutamine", {"aliquot": "glutamine_aliquot_a", "volume_ml": 0, "extra": 1}, "Unknown parameter"),
+    ("incubate_sterility_control", {"days": 7.5, "temperature_c": 22}, "whole number"),
+])
+def test_media_malformed_parameters_are_rejected(library, name, params, message):
+    model = library.get(MEDIA)
+    with pytest.raises(ActionRejected, match=message):
+        replay(model, 1, "practice", [act(name, **params)])
+
+
+def test_media_impossible_sequence_and_overallocation_are_rejected(library):
+    model = library.get(MEDIA)
+    with pytest.raises(ActionRejected, match="pre-filtration QC"):
+        replay(model, 1, "practice", [act("filter_medium", collection_bottle="bottle_a", pre_rinsed=True, aseptic_assembly=True)])
+    actions = media_run(model, 2, aliquots=((10, 100),))
+    with pytest.raises(ActionRejected, match="exceeds"):
+        replay(model, 2, "practice", actions)
+
+
+def test_media_hidden_lots_are_not_exposed_before_inspection_or_finish(library):
+    model = library.get(MEDIA)
+    public = public_protocol(model.definition)
+    assert "checkpoints" not in public and "parameters" not in public
+    view = replay(model, 1, "practice", []).view()
+    assert view["debrief"] is None and view["log"] == []
+    text = json.dumps(view["panels"])
+    for key in ("expired_serum_lot", "warm_glutamine_aliquot", "unlabeled_bottle", "mollicute_lot", "visible_contaminant_lot"):
+        assert key not in text
+    assert lot_id(model, "basal") not in text
+    inspected = replay(model, 1, "practice", [act("inspect_supplies")]).view()
+    assert "mollicute_lot" not in json.dumps(inspected)
+    assert inspected["debrief"] is None
+
+
+# passage-an-adherent-line-to-a-target-density --------------------------------
+
+PASSAGE = "passage-an-adherent-line-to-a-target-density"
+
+
+def passage_run(model, seed, *, disposition="proceed", entered_confluence=None,
+                wash_solution="calcium_magnesium_free_bss", wash_volume=15,
+                reagent_kind="enzyme_based", reagent_volume=3.75, minutes=2,
+                detachment_override=None, neutralization=7.5,
+                rcf=200, collection_minutes=5, resuspension_volume=6.0,
+                sample_ul=10, dye_ul=10, wrong_tallies=False, wrong_calculation=None,
+                flask_count=2, target_cells=500000, final_volume=12.0,
+                seed_volume_override=None, previous_passage=12, previous_pdl=18,
+                pdl_override=None, temperature=37, co2=5, hours=24):
+    h = hidden(model, seed)
+    actions = [
+        act("inspect_culture", confluence_pct=h["confluence_pct"] if entered_confluence is None else entered_confluence),
+        act("decide_culture", disposition=disposition),
+    ]
+    if disposition != "proceed":
+        return actions
+    actions += [
+        act("remove_medium"),
+        act("wash_cells", solution=wash_solution, volume_ml=wash_volume),
+        act("add_dissociation_reagent", reagent=reagent_kind, volume_ml=reagent_volume),
+        act("incubate_dissociation", minutes=minutes),
+    ]
+    state, _ = run_state(model, seed, "practice", actions)
+    detached = state["actual_detachment"] if detachment_override is None else detachment_override
+    actions += [
+        act("check_detachment", detached_pct=detached),
+        act("neutralize", volume_ml=neutralization),
+        act("centrifuge_and_resuspend", rcf_g=rcf, minutes=collection_minutes, final_volume_ml=resuspension_volume),
+        act("prepare_count", sample_ul=sample_ul, dye_ul=dye_ul),
+    ]
+    state, _ = run_state(model, seed, "practice", actions)
+    tallies = state["display_counts"]
+    if wrong_tallies:
+        tallies = {chamber: dict(values) for chamber, values in tallies.items()}
+        tallies["A"]["unstained"] += 1
+    viable = sum(tally["unstained"] for tally in tallies.values())
+    total = viable + sum(tally["stained"] for tally in tallies.values())
+    dilution = (sample_ul + dye_ul) / sample_ul
+    calculated_concentration = (viable / 2) / 0.0001 * dilution
+    calculated_viability = 100 * viable / total if total else 0
+    if wrong_calculation == "concentration":
+        calculated_concentration *= 1.1
+    elif wrong_calculation == "viability":
+        calculated_viability = max(0, calculated_viability - 10)
+    actions.append(act("record_count",
+                       chamber_a_unstained=tallies["A"]["unstained"], chamber_a_stained=tallies["A"]["stained"],
+                       chamber_b_unstained=tallies["B"]["unstained"], chamber_b_stained=tallies["B"]["stained"],
+                       viable_concentration_cells_ml=calculated_concentration, viability_pct=calculated_viability))
+    state, _ = run_state(model, seed, "practice", actions)
+    expected = model.expected(state)
+    required = target_cells / expected["concentration_cells_ml"]
+    seed_volume = required if seed_volume_override is None else seed_volume_override
+    actions += [
+        act("calculate_seed_volume", flask_count=flask_count,
+            target_viable_cells_per_flask=target_cells, final_volume_ml_per_flask=final_volume,
+            seed_volume_ml_per_flask=seed_volume),
+        act("seed_flasks"),
+    ]
+    state, _ = run_state(model, seed, "practice", actions)
+    pdl = model.expected(state)["pdl_increment"] if pdl_override is None else pdl_override
+    actions += [
+        act("label_flasks", previous_passage_number=previous_passage,
+            previous_cumulative_pdl=previous_pdl, pdl_increment=pdl),
+        act("incubate_and_finish", temperature_c=temperature, co2_pct=co2, hours=hours),
+    ]
+    return actions
+
+
+def normal_seed(model):
+    return seed_where(model, lambda h: not h["overconfluent"])
+
+
+def test_passage_correct_run_meets_every_applicable_checkpoint_and_returns_structure(library):
+    model = library.get(PASSAGE)
+    seed = normal_seed(model)
+    actions = passage_run(model, seed)
+    view = replay(model, seed, "practice", actions).view()
+    met = checkpoint_map(view)
+    assert all(value for value in met.values() if value is not None), met
+    assert met["overconfluent-refused"] is None
+    assert view["debrief"]["all_critical_met"]
+    result = view["log"][-1]["events"][0]["data"]["result"]
+    assert result["included_unstained_cells"] == 121
+    assert result["included_stained_cells"] == 9
+    assert result["concentration_cells_ml"] == pytest.approx(1.21e6)
+    assert result["viability_pct"] == pytest.approx(100 * 121 / 130)
+    assert result["resuspension_volume_ml"] == pytest.approx(6.0)
+    assert result["remaining_suspension_volume_ml"] == pytest.approx(5.99)
+    assert result["viable_harvest_cells"] == pytest.approx(7.26e6)
+    assert result["required_seed_volume_ml_per_flask"] == pytest.approx(500000 / 1210000)
+    assert result["fresh_medium_ml_per_flask"] == pytest.approx(12 - 500000 / 1210000)
+    assert result["viable_cells_seeded_per_flask"] == pytest.approx(500000)
+    assert result["total_viable_cells_seeded"] == pytest.approx(1e6)
+    assert result["pdl_increment"] == pytest.approx(2)
+    assert result["new_passage_number"] == 13 and result["new_cumulative_pdl"] == 20
+    assert result["incubation"] == {"temperature_c": 37.0, "co2_pct": 5.0, "hours": 24.0}
+    assert "predicted_growth" not in result and "attachment_outcome" not in result
+
+
+@pytest.mark.parametrize("seed", range(20))
+def test_passage_correct_routine_runs_are_seed_robust(library, seed):
+    model = library.get(PASSAGE)
+    if hidden(model, seed)["overconfluent"]:
+        pytest.skip("over-confluent branch tested separately")
+    met = checkpoint_map(replay(model, seed, "practice", passage_run(model, seed)).view())
+    assert all(value for value in met.values() if value is not None), (seed, met)
+
+
+def test_passage_overconfluent_culture_is_refused_and_downstream_not_applicable(library):
+    model = library.get(PASSAGE)
+    seed = seed_where(model, lambda h: h["overconfluent"])
+    actions = passage_run(model, seed, disposition="discard_overconfluent")
+    view = replay(model, seed, "practice", actions).view()
+    met = checkpoint_map(view)
+    assert view["finished"] and met["culture-inspected"] and met["overconfluent-refused"]
+    assert met["confluence-window"] is None
+    assert all(value is None for key, value in met.items() if key not in {
+        "culture-inspected", "confluence-window", "overconfluent-refused"})
+    view = replay(model, seed, "practice", passage_run(model, seed)).view()
+    assert checkpoint_map(view)["overconfluent-refused"] is False
+
+
+def test_passage_inspection_and_normal_disposition_errors(library):
+    model = library.get(PASSAGE)
+    seed = normal_seed(model)
+    met = checkpoint_map(replay(model, seed, "practice", passage_run(model, seed, entered_confluence=80 if hidden(model, seed)["confluence_pct"] != 80 else 79)).view())
+    assert met["culture-inspected"] is False
+    actions = passage_run(model, seed, disposition="discard_overconfluent")
+    met = checkpoint_map(replay(model, seed, "practice", actions).view())
+    assert met["confluence-window"] is False and met["overconfluent-refused"] is None
+
+
+def test_passage_wash_and_reagent_choices_are_flagged(library):
+    model = library.get(PASSAGE)
+    seed = normal_seed(model)
+    met = checkpoint_map(replay(model, seed, "practice", passage_run(model, seed, wash_solution="complete_medium")).view())
+    assert met["wash-removes-inhibitors"] is False
+    met = checkpoint_map(replay(model, seed, "practice", passage_run(model, seed, reagent_volume=2)).view())
+    assert met["dissociation-reagent-volume"] is False
+    met = checkpoint_map(replay(model, seed, "practice", passage_run(model, seed, reagent_kind="enzyme_free")).view())
+    assert met["dissociation-reagent-volume"] is False and met["detachment-confirmed"] is False
+
+
+def test_passage_overexposure_reduces_viability_and_changes_count_and_pdl(library):
+    model = library.get(PASSAGE)
+    seed = normal_seed(model)
+    good_state, _ = run_state(model, seed, "practice", passage_run(model, seed))
+    long_state, _ = run_state(model, seed, "practice", passage_run(model, seed, minutes=10))
+    view = replay(model, seed, "practice", passage_run(model, seed, minutes=10)).view()
+    met = checkpoint_map(view)
+    assert met["dissociation-time-bounded"] is False and met["harvest-viability"] is False
+    assert model.expected(long_state)["viability_pct"] < model.expected(good_state)["viability_pct"]
+    assert model.expected(long_state)["pdl_increment"] < model.expected(good_state)["pdl_increment"]
+    # Arithmetic remains self-consistent with the new displayed tallies.
+    assert met["count-dilution-and-tallies"] and met["count-concentration-and-viability"]
+    assert met["seed-volume-correct"] and met["passage-and-pdl-record"]
+
+
+def test_passage_neutralization_collection_and_detachment_errors(library):
+    model = library.get(PASSAGE)
+    seed = normal_seed(model)
+    met = checkpoint_map(replay(model, seed, "practice", passage_run(model, seed, neutralization=3.75)).view())
+    assert met["neutralized-before-count"] is False and met["harvest-viability"] is False
+    met = checkpoint_map(replay(model, seed, "practice", passage_run(model, seed, rcf=800)).view())
+    assert met["centrifuge-and-resuspension"] is False
+    met = checkpoint_map(replay(model, seed, "practice", passage_run(model, seed, detachment_override=90)).view())
+    assert met["detachment-confirmed"] is False
+
+
+def test_passage_count_transcription_dilution_and_calculation_rules(library):
+    model = library.get(PASSAGE)
+    seed = normal_seed(model)
+    met = checkpoint_map(replay(model, seed, "practice", passage_run(model, seed, wrong_tallies=True)).view())
+    assert met["count-dilution-and-tallies"] is False
+    assert met["count-concentration-and-viability"] is True
+    met = checkpoint_map(replay(model, seed, "practice", passage_run(model, seed, dye_ul=20)).view())
+    assert met["count-dilution-and-tallies"] is False
+    met = checkpoint_map(replay(model, seed, "practice", passage_run(model, seed, wrong_calculation="concentration")).view())
+    assert met["count-concentration-and-viability"] is False
+    met = checkpoint_map(replay(model, seed, "practice", passage_run(model, seed, wrong_calculation="viability")).view())
+    assert met["count-concentration-and-viability"] is False
+    state, _ = run_state(model, seed, "practice", passage_run(model, seed))
+    assert model.expected(state)["concentration_cells_ml"] == pytest.approx(1.21e6)
+
+
+def test_passage_seed_target_volume_and_pdl_mistakes_are_flagged(library):
+    model = library.get(PASSAGE)
+    seed = normal_seed(model)
+    met = checkpoint_map(replay(model, seed, "practice", passage_run(model, seed, seed_volume_override=0.45)).view())
+    assert met["seed-volume-correct"] is False and met["passage-and-pdl-record"] is True
+    met = checkpoint_map(replay(model, seed, "practice", passage_run(model, seed, target_cells=400000)).view())
+    assert met["seed-volume-correct"] is False
+    met = checkpoint_map(replay(model, seed, "practice", passage_run(model, seed, final_volume=10)).view())
+    assert met["seed-volume-correct"] is False
+    met = checkpoint_map(replay(model, seed, "practice", passage_run(model, seed, previous_passage=11)).view())
+    assert met["passage-and-pdl-record"] is False
+    met = checkpoint_map(replay(model, seed, "practice", passage_run(model, seed, pdl_override=3)).view())
+    assert met["passage-and-pdl-record"] is False
+
+
+def test_passage_low_yield_negative_pdl_passes_action_schema_and_updates_cumulative(library):
+    model = library.get(PASSAGE)
+    seed = normal_seed(model)
+    expected_pdl = -0.5849625007211562
+    assert expected_pdl == pytest.approx(math.log2(2 / 3), abs=1e-15)
+    actions = passage_run(model, seed, resuspension_volume=1.0, pdl_override=expected_pdl)
+    view = replay(model, seed, "practice", actions).view()
+    result = view["log"][-1]["events"][0]["data"]["result"]
+    assert 1210000 / 1815000 == pytest.approx(2 / 3)
+    assert expected_pdl < 0
+    assert result["resuspension_volume_ml"] == pytest.approx(1.0)
+    assert result["remaining_suspension_volume_ml"] == pytest.approx(0.99)
+    assert result["viable_harvest_cells"] == pytest.approx(1210000)
+    assert result["pdl_increment"] == pytest.approx(expected_pdl)
+    assert result["new_cumulative_pdl"] == pytest.approx(17.415037499278844, abs=1e-12)
+    assert 18 + expected_pdl == pytest.approx(17.415037499278844, abs=1e-12)
+    label = next(action for action in actions if action["name"] == "label_flasks")
+    assert label["params"]["pdl_increment"] == pytest.approx(expected_pdl)
+    assert checkpoint_map(view)["passage-and-pdl-record"] is True
+    with pytest.raises(ActionRejected, match="Current PDL increment must be between -20 and 20 PDL"):
+        replay(model, seed, "practice", passage_run(
+            model, seed, resuspension_volume=1.0, pdl_override=-20.001))
+
+
+def test_passage_incubation_record_is_checked_without_growth_claim(library):
+    model = library.get(PASSAGE)
+    seed = normal_seed(model)
+    view = replay(model, seed, "practice", passage_run(model, seed, temperature=35)).view()
+    assert checkpoint_map(view)["incubation-and-result"] is False
+    assert "no attachment or growth outcome is predicted" in view["log"][-1]["events"][0]["text"]
+
+
+def test_passage_action_order_and_physical_feasibility_are_rejected(library):
+    model = library.get(PASSAGE)
+    seed = normal_seed(model)
+    with pytest.raises(ActionRejected, match="Inspect the culture"):
+        replay(model, seed, "practice", [act("remove_medium")])
+    with pytest.raises(ActionRejected, match="before calculating"):
+        replay(model, seed, "practice", passage_run(model, seed)[:2] + [
+            act("calculate_seed_volume", flask_count=2, target_viable_cells_per_flask=500000,
+                final_volume_ml_per_flask=12, seed_volume_ml_per_flask=0.4)])
+    with pytest.raises(ActionRejected, match="enough viable cells"):
+        replay(model, seed, "practice", passage_run(model, seed, target_cells=5000000))
+    with pytest.raises(ActionRejected, match="cannot exceed"):
+        replay(model, seed, "practice", passage_run(model, seed, seed_volume_override=13))
+
+
+@pytest.mark.parametrize("plan_kind", ["required", "entered"])
+def test_passage_seed_plan_accepts_exact_post_count_remaining_volume(library, plan_kind):
+    model = library.get(PASSAGE)
+    seed = normal_seed(model)
+    sample_ul = 100
+    remaining = 6.0 - sample_ul / 1000
+    kwargs = {"sample_ul": sample_ul, "dye_ul": sample_ul}
+    if plan_kind == "required":
+        kwargs["target_cells"] = round(1210000 * remaining / 2)
+    else:
+        kwargs["seed_volume_override"] = remaining / 2
+    state, _ = run_state(model, seed, "practice", passage_run(model, seed, **kwargs))
+    result = model.expected(state)
+    assert state["remaining_suspension_volume_ml"] == pytest.approx(remaining)
+    assert result["remaining_suspension_volume_ml"] == pytest.approx(remaining)
+    assert result["resuspension_volume_ml"] == pytest.approx(6.0)
+    assert result["viable_harvest_cells"] == pytest.approx(7.26e6)
+    assert result["pdl_increment"] == pytest.approx(2)
+
+
+@pytest.mark.parametrize("plan_kind", ["required", "entered"])
+def test_passage_seed_plan_rejects_just_above_post_count_remaining_volume(library, plan_kind):
+    model = library.get(PASSAGE)
+    seed = normal_seed(model)
+    sample_ul = 100
+    remaining = 6.0 - sample_ul / 1000
+    kwargs = {"sample_ul": sample_ul, "dye_ul": sample_ul}
+    if plan_kind == "required":
+        kwargs["target_cells"] = round(1210000 * (remaining + 0.001) / 2)
+        message = "remaining after the counting sample does not contain enough viable cells"
+    else:
+        kwargs["seed_volume_override"] = (remaining + 0.001) / 2
+        message = "more suspension than remains after the counting sample"
+    with pytest.raises(ActionRejected, match=message):
+        replay(model, seed, "practice", passage_run(model, seed, **kwargs))
+
+
+def test_passage_prepare_count_deducts_nondefault_sample_exactly_once(library):
+    model = library.get(PASSAGE)
+    seed = normal_seed(model)
+    sample_ul = 25
+    actions = passage_run(model, seed, sample_ul=sample_ul, dye_ul=sample_ul)
+    prepare_index = next(index for index, action in enumerate(actions) if action["name"] == "prepare_count")
+    through_count = actions[:prepare_index + 1]
+    state, log = run_state(model, seed, "practice", through_count)
+    assert state["resuspension_volume"] == pytest.approx(6.0)
+    assert state["remaining_suspension_volume_ml"] == pytest.approx(5.975)
+    assert log[prepare_index]["events"][0]["data"] == {
+        "chambers": state["display_counts"],
+        "dilution": 2.0,
+        "count_sample_volume_ml": 0.025,
+        "remaining_suspension_volume_ml": 5.975,
+    }
+    with pytest.raises(ActionRejected, match="counting mixture has already been prepared"):
+        run_state(model, seed, "practice", through_count + [actions[prepare_index]])
+    final_state, _ = run_state(model, seed, "practice", actions)
+    assert final_state["remaining_suspension_volume_ml"] == pytest.approx(5.975)
+    assert model.expected(final_state)["remaining_suspension_volume_ml"] == pytest.approx(5.975)
+    assert model.expected(final_state)["pdl_increment"] == pytest.approx(2)
+
+
+def test_passage_schema_rejects_malformed_parameters(library):
+    model = library.get(PASSAGE)
+    with pytest.raises(ActionRejected, match="number"):
+        check_parameters(model.action_specs["inspect_culture"], {"confluence_pct": True})
+    with pytest.raises(ActionRejected, match="whole number"):
+        check_parameters(model.action_specs["inspect_culture"], {"confluence_pct": 80.5})
+    with pytest.raises(ActionRejected, match="Unknown parameter"):
+        check_parameters(model.action_specs["remove_medium"], {"volume_ml": 10})
+    with pytest.raises(ActionRejected, match="listed options"):
+        check_parameters(model.action_specs["decide_culture"], {"disposition": "maybe"})
+
+
+def test_passage_replay_determinism_seed_dependence_and_hidden_privacy(library):
+    model = library.get(PASSAGE)
+    seed = normal_seed(model)
+    actions = passage_run(model, seed)
+    assert replay(model, seed, "practice", actions).view() == replay(model, seed, "practice", actions).view()
+    confluences = {hidden(model, value)["confluence_pct"] for value in range(20)}
+    detachments = {hidden(model, value)["base_detachment_pct"] for value in range(20)}
+    assert len(confluences) > 1 and len(detachments) > 1
+    over_seed = seed_where(model, lambda h: h["overconfluent"])
+    state, _ = run_state(model, over_seed, "practice", [])
+    public_text = json.dumps(model.visible(state)) + json.dumps(public_protocol(model.definition))
+    assert "base_detachment" not in public_text and '"hidden"' not in public_text
+    assert "Displayed confluence" not in json.dumps(model.visible(state))
+    # The actual value becomes observable only through the inspection action.
+    inspected = replay(model, over_seed, "practice", [act("inspect_culture", confluence_pct=95)]).view()
+    assert inspected["panels"][0]["rows"][1] == ["Displayed confluence", "95%"]
 
 
 # API ------------------------------------------------------------------------------

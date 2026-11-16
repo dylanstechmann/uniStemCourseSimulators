@@ -1,0 +1,1023 @@
+{
+  "schema_version": "1.0",
+  "id": "filter-sterilize-and-qc-a-supplemented-medium",
+  "version": "0.2.0",
+  "title": "Filter-sterilize and QC a supplemented medium",
+  "layer": 2,
+  "summary": "Prepare a synthetic 500 mL serum- and glutamine-supplemented medium, verify stock arithmetic and physicochemical QC, filter through 0.22 µm, document integrity and sterility evidence, and store a traceable quarantined batch.",
+  "scenario": "Two serum lots, two glutamine aliquots and two receiving bottles are available. One serum lot is expired, one glutamine aliquot has a room-temperature history, and one receiving bottle is unlabelled; inspect the records to identify which. A component lot may also carry an invisible mollicute contamination or a visibly culturable contaminant. Prepare a generic 500 mL batch and preserve its QC and lot trail. All materials and outcomes are synthetic.",
+  "guided_steps": [
+    "Inspect all component, supplement, filter and receiving-bottle records before adding anything; reject the expired serum lot, room-temperature glutamine aliquot and unlabelled receiver.",
+    "Add 50 mL from the in-date, undiluted serum lot for a 10% final fraction.",
+    "Add 5 mL from the cold-history 100× glutamine aliquot (200 mM stock to 2 mM final); basal medium makes the final total 500 mL, so its volume is 445 mL.",
+    "Mix and measure pH and osmolality with a calibrated pH meter and osmometer; the synthetic windows are pH 7.10–7.30 and 280–310 mOsm/kg.",
+    "Select the 0.22 µm PVDF filter for the protein-containing medium.",
+    "Prime/pre-rinse according to the device procedure, assemble aseptically, and collect in the labelled sterile receiving bottle.",
+    "Perform and record a supported bubble-point or pressure-hold integrity test; visual clarity alone is not an integrity test.",
+    "Reserve the 10 mL QC control first: with 490 mL recovered from the 500 mL batch, aliquot count × volume per aliquot must not exceed 480 mL.",
+    "Label the formulation, dedicated cell line, preparation date 2026-11-15 and synthetic expiry 2026-11-29; copy the exact original synthetic basal, selected serum, selected glutamine and filter lot IDs from the supply/filter evidence.",
+    "Draw a 10 mL representative filtrate sterility control with a fresh sterile pipette.",
+    "Incubate at least 7 days at 20–25 °C followed by at least 7 days at 30–35 °C; practise lesson 1’s schedule rather than interpreting early clarity.",
+    "Submit a dedicated mycoplasma lot test because 0.22 µm filtration does not assure mollicute removal.",
+    "Store at 2–8 °C protected from light and quarantine until required QC is acceptable.",
+    "Finish to review the calculated batch result, hidden lots, QC outcomes and 14-checkpoint debrief."
+  ],
+  "parameters": [
+    {
+      "name": "basal_medium_role",
+      "value": "Salts, carbohydrate, amino acids, vitamins and formulation-specific precursors",
+      "unit": "description",
+      "label": "Basal-medium nutritional role",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "section 3.3; modern basal-medium formulation context"
+      }
+    },
+    {
+      "name": "bicarbonate_requires_co2",
+      "value": "yes",
+      "unit": "boolean-description",
+      "label": "Bicarbonate buffer requires its specified CO2 environment",
+      "source": {
+        "kind": "cited",
+        "source_id": "thermo-fisher-cell-culture-environment",
+        "location": "Cell Culture CO2 levels"
+      }
+    },
+    {
+      "name": "final_batch_volume_ml",
+      "value": 500,
+      "unit": "mL",
+      "label": "Final volume including every supplement",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "Synthetic teaching batch; not a cell-line-specific recipe."
+      }
+    },
+    {
+      "name": "serum_final_fraction",
+      "value": 0.1,
+      "unit": "volume fraction",
+      "label": "Final serum volume fraction",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "Synthetic serum-containing formulation."
+      }
+    },
+    {
+      "name": "serum_stock_fraction",
+      "value": 1.0,
+      "unit": "volume fraction",
+      "label": "Undiluted serum stock fraction",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Undiluted stock for exact arithmetic."
+      }
+    },
+    {
+      "name": "glutamine_stock_fold",
+      "value": 100,
+      "unit": "fold",
+      "label": "Glutamine stock concentration relative to 1×",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "Common stock description selected for teaching arithmetic."
+      }
+    },
+    {
+      "name": "glutamine_stock_mm",
+      "value": 200,
+      "unit": "mM",
+      "label": "Glutamine stock molar concentration",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "Synthetic stock corresponding to 100× in the model."
+      }
+    },
+    {
+      "name": "glutamine_final_mm",
+      "value": 2,
+      "unit": "mM",
+      "label": "Final glutamine concentration",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "Synthetic target corresponding to 1× in the model."
+      }
+    },
+    {
+      "name": "basal_volume_ml",
+      "value": 445,
+      "unit": "mL",
+      "label": "Required basal-medium volume",
+      "source": {
+        "kind": "simulation-model",
+        "note": "500 − 50 − 5 = 445 mL."
+      }
+    },
+    {
+      "name": "serum_volume_ml",
+      "value": 50,
+      "unit": "mL",
+      "label": "Required serum volume",
+      "source": {
+        "kind": "simulation-model",
+        "note": "0.10 × 500 = 50 mL."
+      }
+    },
+    {
+      "name": "glutamine_volume_ml",
+      "value": 5,
+      "unit": "mL",
+      "label": "Required 100× glutamine stock volume",
+      "source": {
+        "kind": "simulation-model",
+        "note": "500/100 = 2 × 500/200 = 5 mL."
+      }
+    },
+    {
+      "name": "filter_pore_um",
+      "value": 0.22,
+      "unit": "µm",
+      "label": "Sterilizing-filter pore size used in this exercise",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "section 3.3.2"
+      }
+    },
+    {
+      "name": "filter_membrane",
+      "value": "pvdf",
+      "unit": "material",
+      "label": "Protein-compatible membrane used in this exercise",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "section 3.3.2 discusses PVDF when protein is present"
+      }
+    },
+    {
+      "name": "ph_range",
+      "value": [
+        7.1,
+        7.3
+      ],
+      "unit": "pH",
+      "label": "Pre-filtration pH QC window",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "Synthetic window, not a universal medium acceptance range."
+      }
+    },
+    {
+      "name": "osmolality_range_mosm_kg",
+      "value": [
+        280,
+        310
+      ],
+      "unit": "mOsm/kg",
+      "label": "Pre-filtration osmolality QC window",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "Synthetic window, not a universal cell-culture acceptance range."
+      }
+    },
+    {
+      "name": "basal_osmolality_mosm_kg",
+      "value": 290,
+      "unit": "mOsm/kg",
+      "label": "Synthetic basal-medium osmolality",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Input to the volume-weighted teaching approximation."
+      }
+    },
+    {
+      "name": "serum_osmolality_mosm_kg",
+      "value": 300,
+      "unit": "mOsm/kg",
+      "label": "Synthetic serum osmolality",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Input to the volume-weighted teaching approximation."
+      }
+    },
+    {
+      "name": "glutamine_osmolality_mosm_kg",
+      "value": 400,
+      "unit": "mOsm/kg",
+      "label": "Synthetic glutamine-stock osmolality",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Input to the volume-weighted teaching approximation."
+      }
+    },
+    {
+      "name": "filter_recovery_fraction",
+      "value": 0.98,
+      "unit": "fraction",
+      "label": "Filtrate volume recovered",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Fixed accounting choice, not a measured membrane recovery or fluid model."
+      }
+    },
+    {
+      "name": "sterility_control_volume_ml",
+      "value": 10,
+      "unit": "mL",
+      "label": "Representative filtrate control volume",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "Synthetic sample volume."
+      }
+    },
+    {
+      "name": "storage_temperature_c",
+      "value": [
+        2,
+        8
+      ],
+      "unit": "°C",
+      "label": "Refrigerated supplemented-medium storage",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "section 3.3.2; actual product instructions govern"
+      }
+    },
+    {
+      "name": "preparation_date",
+      "value": "2026-11-15",
+      "unit": "ISO-date",
+      "label": "Synthetic batch preparation date",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Fixed scenario date for deterministic labels."
+      }
+    },
+    {
+      "name": "base_ph_range",
+      "value": [
+        7.16,
+        7.24
+      ],
+      "unit": "pH",
+      "label": "Seeded pre-filtration base pH range",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Narrow synthetic readout variation; correct complete batches remain within the synthetic QC window."
+      }
+    },
+    {
+      "name": "expiry_date",
+      "value": "2026-11-29",
+      "unit": "ISO-date",
+      "label": "Synthetic supplemented-medium expiry date",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Preparation date plus the 14-day synthetic expiry convention."
+      }
+    },
+    {
+      "name": "batch_id",
+      "value": "MED-2026-11-15-01",
+      "unit": "identifier",
+      "label": "Synthetic batch identifier",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Fixed teaching record identifier."
+      }
+    },
+    {
+      "name": "medium_name",
+      "value": "MEM-serum-glutamine",
+      "unit": "identifier",
+      "label": "Synthetic formulation label",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "Generic label, not a reproduced manufacturer recipe."
+      }
+    },
+    {
+      "name": "cell_line_id",
+      "value": "synthetic-line-1",
+      "unit": "identifier",
+      "label": "Dedicated synthetic cell-line label",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Fixed teaching record identifier."
+      }
+    },
+    {
+      "name": "basal_lot_id",
+      "value": "BASAL-2026-11-01",
+      "unit": "identifier",
+      "label": "Original synthetic basal-medium lot identifier",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Original synthetic identifier used only for traceability evidence in this exercise."
+      }
+    },
+    {
+      "name": "serum_lot_a_id",
+      "value": "SERUM-A-2026-11-01",
+      "unit": "identifier",
+      "label": "Original synthetic serum lot A identifier",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Original synthetic identifier used only for traceability evidence in this exercise."
+      }
+    },
+    {
+      "name": "serum_lot_b_id",
+      "value": "SERUM-B-2026-11-01",
+      "unit": "identifier",
+      "label": "Original synthetic serum lot B identifier",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Original synthetic identifier used only for traceability evidence in this exercise."
+      }
+    },
+    {
+      "name": "glutamine_aliquot_a_id",
+      "value": "GLUTAMINE-A-2026-11-01",
+      "unit": "identifier",
+      "label": "Original synthetic glutamine aliquot A identifier",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Original synthetic identifier used only for traceability evidence in this exercise."
+      }
+    },
+    {
+      "name": "glutamine_aliquot_b_id",
+      "value": "GLUTAMINE-B-2026-11-01",
+      "unit": "identifier",
+      "label": "Original synthetic glutamine aliquot B identifier",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Original synthetic identifier used only for traceability evidence in this exercise."
+      }
+    },
+    {
+      "name": "filter_lot_id",
+      "value": "FILTER-PVDF-022-01",
+      "unit": "identifier",
+      "label": "Original synthetic filter lot identifier",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Original synthetic identifier used only for traceability evidence in this exercise."
+      }
+    },
+    {
+      "name": "expired_serum_on",
+      "value": "2026-11-01",
+      "unit": "ISO-date",
+      "label": "Expired serum label date",
+      "source": {
+        "kind": "simulation-model",
+        "note": "One hidden serum lot carries this expired label."
+      }
+    },
+    {
+      "name": "valid_serum_expiry",
+      "value": "2026-12-15",
+      "unit": "ISO-date",
+      "label": "In-date serum label expiry",
+      "source": {
+        "kind": "simulation-model",
+        "note": "The alternative serum lot carries this in-date label."
+      }
+    },
+    {
+      "name": "mollicute_retention_pore_um",
+      "value": 0.1,
+      "unit": "µm",
+      "label": "Nominal mollicute-retention threshold in the model",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "section 3.3.2"
+      }
+    },
+    {
+      "name": "supplemented_expiry_days",
+      "value": 14,
+      "unit": "d",
+      "label": "Time from preparation to synthetic expiry",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "Synthetic expiry convention, not a shelf-life claim."
+      }
+    },
+    {
+      "name": "sterility_min_days",
+      "value": 14,
+      "unit": "d",
+      "label": "Minimum total sterility-control incubation",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-aseptic-processing-2004",
+        "location": "printed p. 25"
+      }
+    },
+    {
+      "name": "dual_temp_min_days_each",
+      "value": 7,
+      "unit": "d",
+      "label": "Minimum days at each temperature",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-aseptic-processing-2004",
+        "location": "printed p. 25"
+      }
+    },
+    {
+      "name": "low_incubation_c",
+      "value": [
+        20,
+        25
+      ],
+      "unit": "°C",
+      "label": "Lower sterility-control incubation range",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-aseptic-processing-2004",
+        "location": "printed p. 35"
+      }
+    },
+    {
+      "name": "high_incubation_c",
+      "value": [
+        30,
+        35
+      ],
+      "unit": "°C",
+      "label": "Higher sterility-control incubation range",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-aseptic-processing-2004",
+        "location": "printed p. 35"
+      }
+    },
+    {
+      "name": "visible_growth_min_days",
+      "value": 3,
+      "unit": "d",
+      "label": "Earliest visible-growth reporting threshold",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Simplified teaching threshold, not microbial growth kinetics."
+      }
+    },
+    {
+      "name": "mollicute_lot_probability",
+      "value": 0.3,
+      "unit": "probability",
+      "label": "Chance of a hidden mollicute-carrying component lot",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Hidden synthetic event; a 0.22 µm filter does not remove this risk in the model."
+      }
+    },
+    {
+      "name": "visible_contaminant_lot_probability",
+      "value": 0.25,
+      "unit": "probability",
+      "label": "Chance of a hidden visibly culturable component contaminant",
+      "source": {
+        "kind": "simulation-model",
+        "note": "Hidden synthetic event detectable after valid incubation."
+      }
+    }
+  ],
+  "actions": [
+    {
+      "name": "inspect_supplies",
+      "label": "Inspect component, aliquot, filter and receiving-bottle records",
+      "params": []
+    },
+    {
+      "name": "add_serum",
+      "label": "Add the serum stock",
+      "params": [
+        {
+          "name": "lot",
+          "label": "Serum lot",
+          "type": "choice",
+          "options": [
+            {
+              "value": "serum_lot_a",
+              "label": "Serum lot A"
+            },
+            {
+              "value": "serum_lot_b",
+              "label": "Serum lot B"
+            }
+          ]
+        },
+        {
+          "name": "volume_ml",
+          "label": "Serum volume",
+          "type": "number",
+          "min": 0,
+          "max": 100,
+          "unit": "mL"
+        }
+      ]
+    },
+    {
+      "name": "add_glutamine",
+      "label": "Add the 100× glutamine stock",
+      "params": [
+        {
+          "name": "aliquot",
+          "label": "Glutamine aliquot",
+          "type": "choice",
+          "options": [
+            {
+              "value": "glutamine_aliquot_a",
+              "label": "Glutamine aliquot A"
+            },
+            {
+              "value": "glutamine_aliquot_b",
+              "label": "Glutamine aliquot B"
+            }
+          ]
+        },
+        {
+          "name": "volume_ml",
+          "label": "Glutamine stock volume",
+          "type": "number",
+          "min": 0,
+          "max": 50,
+          "unit": "mL"
+        }
+      ]
+    },
+    {
+      "name": "measure_prefiltration_qc",
+      "label": "Measure pH and osmolality after mixing",
+      "params": [
+        {
+          "name": "ph_method",
+          "label": "pH method",
+          "type": "choice",
+          "options": [
+            {
+              "value": "calibrated_ph_meter",
+              "label": "Calibrated pH meter"
+            },
+            {
+              "value": "phenol_red_colour",
+              "label": "Phenol-red colour only"
+            }
+          ]
+        },
+        {
+          "name": "osmolality_method",
+          "label": "Osmolality method",
+          "type": "choice",
+          "options": [
+            {
+              "value": "osmometer",
+              "label": "Osmometer"
+            },
+            {
+              "value": "visual_estimate",
+              "label": "Visual estimate only"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "select_filter",
+      "label": "Select the filter",
+      "params": [
+        {
+          "name": "pore_size_um",
+          "label": "Nominal pore size",
+          "type": "number",
+          "min": 0.05,
+          "max": 1,
+          "unit": "µm"
+        },
+        {
+          "name": "membrane",
+          "label": "Membrane material",
+          "type": "choice",
+          "options": [
+            {
+              "value": "pvdf",
+              "label": "PVDF"
+            },
+            {
+              "value": "cellulose",
+              "label": "Cellulose"
+            },
+            {
+              "value": "mixed_cellulose_ester",
+              "label": "Mixed cellulose ester"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "filter_medium",
+      "label": "Filter into a receiving bottle",
+      "params": [
+        {
+          "name": "collection_bottle",
+          "label": "Receiving bottle",
+          "type": "choice",
+          "options": [
+            {
+              "value": "bottle_a",
+              "label": "Receiving bottle A"
+            },
+            {
+              "value": "bottle_b",
+              "label": "Receiving bottle B"
+            }
+          ]
+        },
+        {
+          "name": "pre_rinsed",
+          "label": "Primed/pre-rinsed by the device procedure",
+          "type": "boolean"
+        },
+        {
+          "name": "aseptic_assembly",
+          "label": "Aseptic sterile-receiver assembly",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "test_filter_integrity",
+      "label": "Test and record filter integrity",
+      "params": [
+        {
+          "name": "method",
+          "label": "Integrity method",
+          "type": "choice",
+          "options": [
+            {
+              "value": "bubble_point",
+              "label": "Bubble-point test"
+            },
+            {
+              "value": "pressure_hold",
+              "label": "Pressure-hold test"
+            },
+            {
+              "value": "visual_only",
+              "label": "Visual inspection only"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "aliquot_medium",
+      "label": "Aliquot the filtered medium",
+      "params": [
+        {
+          "name": "count",
+          "label": "Number of aliquots",
+          "type": "integer",
+          "min": 1,
+          "max": 10
+        },
+        {
+          "name": "volume_each_ml",
+          "label": "Volume per aliquot",
+          "type": "number",
+          "min": 10,
+          "max": 100,
+          "unit": "mL"
+        }
+      ]
+    },
+    {
+      "name": "label_bottle",
+      "label": "Label and link the batch record",
+      "params": [
+        {
+          "name": "medium_name",
+          "label": "Medium/formulation identifier",
+          "type": "identifier"
+        },
+        {
+          "name": "prepared_on",
+          "label": "Preparation date (YYYY-MM-DD)",
+          "type": "identifier"
+        },
+        {
+          "name": "expires_on",
+          "label": "Expiry date (YYYY-MM-DD)",
+          "type": "identifier"
+        },
+        {
+          "name": "cell_line",
+          "label": "Dedicated cell-line identifier",
+          "type": "identifier"
+        },
+        {
+          "name": "basal_lot_id",
+          "label": "Basal-medium lot ID from inspected supply evidence",
+          "type": "identifier"
+        },
+        {
+          "name": "serum_lot_id",
+          "label": "Selected serum lot ID from inspected supply evidence",
+          "type": "identifier"
+        },
+        {
+          "name": "glutamine_lot_id",
+          "label": "Selected glutamine lot ID from inspected supply evidence",
+          "type": "identifier"
+        },
+        {
+          "name": "filter_lot_id",
+          "label": "Filter lot ID from selected-filter evidence",
+          "type": "identifier"
+        },
+        {
+          "name": "component_lots_linked",
+          "label": "Basal, supplement and filter lots linked in the record",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "draw_sterility_control",
+      "label": "Draw a representative filtrate sterility control",
+      "params": [
+        {
+          "name": "volume_ml",
+          "label": "Control volume",
+          "type": "number",
+          "min": 1,
+          "max": 20,
+          "unit": "mL"
+        },
+        {
+          "name": "fresh_pipette",
+          "label": "Fresh sterile pipette",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "incubate_sterility_control",
+      "label": "Incubate the sterility control",
+      "params": [
+        {
+          "name": "days",
+          "label": "Days",
+          "type": "integer",
+          "min": 1,
+          "max": 30,
+          "unit": "d"
+        },
+        {
+          "name": "temperature_c",
+          "label": "Temperature",
+          "type": "number",
+          "min": 20,
+          "max": 37,
+          "unit": "°C"
+        }
+      ]
+    },
+    {
+      "name": "submit_mycoplasma_lot_test",
+      "label": "Submit a dedicated mycoplasma lot test",
+      "params": []
+    },
+    {
+      "name": "store_medium",
+      "label": "Store and set the release status",
+      "params": [
+        {
+          "name": "temperature_c",
+          "label": "Storage temperature",
+          "type": "number",
+          "min": -5,
+          "max": 25,
+          "unit": "°C"
+        },
+        {
+          "name": "light_protected",
+          "label": "Protected from light",
+          "type": "boolean"
+        },
+        {
+          "name": "release_status",
+          "label": "Release decision",
+          "type": "choice",
+          "options": [
+            {
+              "value": "quarantine_until_qc",
+              "label": "Quarantine until required QC is acceptable"
+            },
+            {
+              "value": "release_immediately",
+              "label": "Release immediately"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "finish_preparation",
+      "label": "Finish and open the batch debrief",
+      "params": []
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "supplies-inspected",
+      "severity": "major",
+      "description": "Inspect all component, supplement, filter and receiving-bottle records before preparation.",
+      "rationale": "Early inspection identifies expired, poorly stored or unidentified materials before they enter the batch.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "sections 3.3 and 3.5.1"
+      }
+    },
+    {
+      "id": "serum-in-date",
+      "severity": "critical",
+      "description": "Use an in-date serum lot.",
+      "rationale": "An expired supplement has an unknown handling and suitability history and is not rescued by clarity.",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "Synthetic label decision; actual expiry comes from the product label."
+      }
+    },
+    {
+      "id": "glutamine-aliquot-cold",
+      "severity": "major",
+      "description": "Use the glutamine aliquot with a documented frozen/cold history.",
+      "rationale": "Glutamine degradation depends on storage history; repeated warming and thawing can change the supplement.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "section 3.3.2"
+      }
+    },
+    {
+      "id": "supplement-volumes",
+      "severity": "major",
+      "description": "Use 50 mL serum and 5 mL 100× glutamine for a 500 mL final batch.",
+      "rationale": "The stock calculations use final volume, and basal medium is the remaining 445 mL.",
+      "source": {
+        "kind": "simulation-model",
+        "note": "C1V1 = C2V2; exact synthetic values."
+      }
+    },
+    {
+      "id": "prefiltration-qc",
+      "severity": "major",
+      "description": "Measure pH 7.10–7.30 and osmolality 280–310 mOsm/kg with appropriate methods.",
+      "rationale": "Colour cannot replace pH or osmolality measurement; both evaluate different preparation properties.",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "Synthetic QC window and instrument model, not universal acceptance criteria."
+      }
+    },
+    {
+      "id": "correct-filter",
+      "severity": "critical",
+      "description": "Use an aseptically assembled, primed 0.22 µm PVDF filter.",
+      "rationale": "Heat-labile supplemented medium is filtered; membrane compatibility, assembly and priming matter in addition to nominal pore size.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "section 3.3.2"
+      }
+    },
+    {
+      "id": "filter-integrity-verified",
+      "severity": "major",
+      "description": "Record a supported bubble-point or pressure-hold integrity result.",
+      "rationale": "A nominal pore-size label and visual clarity do not demonstrate membrane integrity or exclude bypass.",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "Simplified integrity-test model; use the actual filter device instructions."
+      }
+    },
+    {
+      "id": "labeled-collection-bottle",
+      "severity": "critical",
+      "description": "Collect filtrate in the receiving bottle with a complete pre-existing identity label.",
+      "rationale": "An unlabelled receiver has unknown history and cannot be made traceable retrospectively.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "sections 1.5.1 and 3.5.1"
+      }
+    },
+    {
+      "id": "sterility-samples-incubated",
+      "severity": "major",
+      "description": "Draw a 10 mL filtrate control with a fresh pipette and incubate for at least 14 valid days.",
+      "rationale": "A representative sample and sufficient incubation are required before no visible growth can be interpreted.",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-aseptic-processing-2004",
+        "location": "printed pp. 21 and 25"
+      }
+    },
+    {
+      "id": "dual-temperature-incubation",
+      "severity": "major",
+      "description": "Incubate at least 7 days at 20–25 °C followed by at least 7 days at 30–35 °C.",
+      "rationale": "The teaching schedule starts at the lower temperature and then supports recovery at the higher temperature.",
+      "source": {
+        "kind": "cited",
+        "source_id": "fda-aseptic-processing-2004",
+        "location": "printed pp. 25 and 35"
+      }
+    },
+    {
+      "id": "mycoplasma-test-requested",
+      "severity": "critical",
+      "description": "Submit a dedicated mycoplasma test for the filtered batch.",
+      "rationale": "Mollicutes can pass 0.22 µm filters and remain invisible to ordinary turbidity checks.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "sections 3.3.2, 4.2 and 4.2.4"
+      }
+    },
+    {
+      "id": "complete-label-and-lot-trace",
+      "severity": "major",
+      "description": "Record formulation, dedicated cell line, preparation/expiry dates and the exact basal, selected serum, selected glutamine and filter lot IDs from supply/filter evidence.",
+      "rationale": "Exact linked lot identifiers support traceability and later investigation; a lot-linkage attestation without those IDs is insufficient.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "sections 1.5.1 and 3.5.1"
+      }
+    },
+    {
+      "id": "cold-dark-storage",
+      "severity": "major",
+      "description": "Store the supplemented medium at 2–8 °C protected from light.",
+      "rationale": "Cold, dark storage limits degradation while product-specific storage instructions remain controlling.",
+      "source": {
+        "kind": "cited",
+        "source_id": "geraghty-2014-cell-line-guidelines",
+        "location": "section 3.3.2"
+      }
+    },
+    {
+      "id": "release-pending-qc",
+      "severity": "critical",
+      "description": "Keep the batch quarantined until required QC evidence is acceptable.",
+      "rationale": "Immediate clarity and filtration are insufficient release evidence for this teaching workflow.",
+      "source": {
+        "kind": "simulation-typical",
+        "note": "Simplified quarantine decision, not a validated product-release specification."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "eagle-1955-medium-nutrition",
+      "use": "Bibliographic citation only from retrieved Crossref metadata; article body neither retrieved nor read, with no scientific or historical-role claim based on it."
+    },
+    {
+      "source_id": "thermo-fisher-cell-culture-environment",
+      "use": "Bicarbonate/CO2 buffering and cell-line-specific environment; link-only manufacturer overview."
+    },
+    {
+      "source_id": "thermo-fisher-media-preparation-powder-concentrates",
+      "use": "General distinction between heat-labile medium filtration and autoclaving; link-only manufacturer protocol context, with no protocol text or catalog recipe reproduced."
+    },
+    {
+      "source_id": "geraghty-2014-cell-line-guidelines",
+      "use": "Modern basal-medium formulation context, glutamine handling, protein-compatible 0.22 µm filtration, cold dark storage, labelling and dedicated mollicute testing; link-only scientific reference."
+    },
+    {
+      "source_id": "fda-aseptic-processing-2004",
+      "use": "Sterility-control incubation duration, temperature ranges and lower-first dual-temperature schedule adapted with printed page references."
+    }
+  ],
+  "limitations": [
+    "All formulations, lots, readings, containers, labels and events are synthetic; the model does not validate a physical preparation, filter or product.",
+    "The 500 mL recipe, pH 7.10–7.30 and 280–310 mOsm/kg windows, volume-weighted osmolality approximation, 98% recovery, 10 mL control, 14-day expiry and hidden-event probabilities are simulation choices, not laboratory acceptance criteria.",
+    "The volume-weighted osmolality calculation is an accounting approximation, not a thermodynamic mixing model; measured complete-medium QC and product-specific limits govern real work.",
+    "The integrity, sterility and mycoplasma assays are simplified deterministic outcomes and do not model device-specific integrity limits, specimen quality, assay sensitivity, false results or viral clearance.",
+    "FDA CGMP process-simulation incubation is adapted for teaching and does not establish regulatory compliance or a validated compendial sterility test.",
+    "Aseptic hand technique, cabinet operation and waste handling are practised in lesson 1; this model assesses connected decisions and records, not psychomotor skill or laboratory competency."
+  ]
+}

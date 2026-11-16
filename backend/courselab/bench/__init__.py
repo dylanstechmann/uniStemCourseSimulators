@@ -14,6 +14,8 @@ from .bsc import BiosafetyCabinetSession
 from .cell_count import HemocytometerCount
 from .engine import ActionRejected, ProtocolInvalid, ProtocolModel, replay
 from .exposure import ExposureResponse
+from .media_prep import SupplementedMediumPreparation
+from .passaging import AdherentPassage
 from .pipette import PipetteVerification
 from .plate_count import AerobicPlateCount
 
@@ -21,6 +23,7 @@ MODELS: dict[str, type[ProtocolModel]] = {
     model.protocol_id: model for model in (
         PipetteVerification, AerobicPlateCount, BiosafetyCabinetSession,
         AutoclaveValidation, ExposureResponse, HemocytometerCount, AsepticMediumChange,
+        SupplementedMediumPreparation, AdherentPassage,
     )
 }
 
