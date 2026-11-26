@@ -37,13 +37,23 @@ export function NotebookView({
       api
         .notebook(query, courseId || undefined, offset)
         .then((result) => {
-          if (active) setPage(result);
+          if (!active) return;
+          if (offset > 0 && result.items.length === 0) {
+            // Notes may have changed since the learner opened the previous page.
+            const lastPage = Math.max(
+              0,
+              Math.ceil(result.total / pageSize) - 1,
+            );
+            setOffset(Math.min(lastPage * pageSize, offset - pageSize));
+            return;
+          }
+          setPage(result);
+          setLoading(false);
         })
         .catch((requestError) => {
-          if (active) setError(errorMessage(requestError));
-        })
-        .finally(() => {
-          if (active) setLoading(false);
+          if (!active) return;
+          setError(errorMessage(requestError));
+          setLoading(false);
         });
     }, 200);
 

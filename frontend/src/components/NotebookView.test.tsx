@@ -76,4 +76,34 @@ describe("cross-course notebook", () => {
     ).toHaveAttribute("href", "#/account");
     expect(request).not.toHaveBeenCalled();
   });
+
+  it("returns to the last available page when notes disappear during pagination", async () => {
+    const user = userEvent.setup();
+    const firstPage = {
+      ...page,
+      items: Array.from({ length: page.limit }, (_, index) => ({
+        ...page.items[0],
+        lesson_id: `note-${index + 1}`,
+        lesson_title: `Lesson ${index + 1}`,
+      })),
+    };
+    const request = vi
+      .spyOn(api, "notebook")
+      .mockResolvedValueOnce({ ...firstPage, total: 51 })
+      .mockResolvedValueOnce({ ...page, items: [], total: 50, offset: 50 })
+      .mockResolvedValueOnce({ ...firstPage, total: 50 });
+    render(
+      <NotebookView hasSession courses={[course]} needsVersionReview={false} />,
+    );
+
+    await user.click(await screen.findByRole("button", { name: "More notes" }));
+
+    expect(await screen.findByText("50 saved notes")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Lesson 50" })).toBeInTheDocument();
+    expect(request.mock.calls).toEqual([
+      ["", undefined, 0],
+      ["", undefined, 50],
+      ["", undefined, 0],
+    ]);
+  });
 });
