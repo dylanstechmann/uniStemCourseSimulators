@@ -99,7 +99,12 @@ function ProtocolRunner({ id }: { id: string }) {
     setBusy(true);
     setError("");
     try {
-      const result = await api.benchReplay(id, request.seed, request.mode, next);
+      const result = await api.benchReplay(
+        id,
+        request.seed,
+        request.mode,
+        next,
+      );
       setSession((previous) => ({
         run: result,
         actions: next,
