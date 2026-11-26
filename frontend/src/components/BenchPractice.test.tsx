@@ -159,4 +159,69 @@ describe("bench practice", () => {
     );
     expect(screen.queryByRole("heading", { name: "Debrief" })).toBeNull();
   });
+
+  it("keeps the active run and draft when a restart fails", async () => {
+    const user = userEvent.setup();
+    const random = vi.spyOn(Math, "random").mockReturnValue(0.25);
+    vi.spyOn(api, "benchProtocols").mockResolvedValue([protocol]);
+    vi.spyOn(api, "benchProtocol").mockResolvedValue(protocol);
+    const replay = vi
+      .spyOn(api, "benchReplay")
+      .mockResolvedValueOnce(run({ seed: 500_000_000 }))
+      .mockResolvedValueOnce(run({ seed: 500_000_000, clock_minutes: 1 }))
+      .mockRejectedValueOnce(new ApiError("Bench unavailable", 503))
+      .mockResolvedValueOnce(run({ seed: 500_000_000, clock_minutes: 2 }))
+      .mockResolvedValueOnce(run({ seed: 500_000_000 }));
+    render(<BenchPractice />);
+
+    await user.click(await screen.findByRole("button", { name: "Start run" }));
+    await user.click(await screen.findByRole("button", { name: "Do it" }));
+    await screen.findByText("(clock 1.0 min)");
+    await user.selectOptions(
+      screen.getByRole("combobox", { name: "Action" }),
+      "set_volume",
+    );
+    await user.type(
+      screen.getByRole("spinbutton", { name: "Volume (µL)" }),
+      "450",
+    );
+
+    random.mockReturnValue(0.75);
+    await user.click(screen.getByRole("button", { name: "Start a new run" }));
+    expect(await screen.findByRole("alert")).toHaveTextContent(
+      "Bench unavailable",
+    );
+    expect(screen.getByText("(clock 1.0 min)")).toBeInTheDocument();
+    expect(screen.getByRole("spinbutton", { name: "Volume (µL)" })).toHaveValue(
+      450,
+    );
+    expect(replay).toHaveBeenNthCalledWith(
+      3,
+      protocol.id,
+      1_500_000_000,
+      "guided",
+      [],
+    );
+
+    await user.click(screen.getByRole("button", { name: "Do it" }));
+    await screen.findByText("(clock 2.0 min)");
+    expect(replay).toHaveBeenNthCalledWith(
+      4,
+      protocol.id,
+      500_000_000,
+      "guided",
+      [
+        { name: "fit_tip", params: {} },
+        { name: "set_volume", params: { volume_ul: 450 } },
+      ],
+    );
+
+    random.mockReturnValue(0.25);
+    await user.click(screen.getByRole("button", { name: "Start a new run" }));
+    await screen.findByText("(clock 0.0 min)");
+    expect(screen.getByRole("combobox", { name: "Action" })).toHaveValue(
+      "fit_tip",
+    );
+    expect(screen.queryByRole("spinbutton")).toBeNull();
+  });
 });

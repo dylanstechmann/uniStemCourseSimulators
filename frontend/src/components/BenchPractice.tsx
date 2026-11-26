@@ -73,11 +73,15 @@ export function BenchPractice({ protocolId }: { protocolId?: string }) {
 function ProtocolRunner({ id }: { id: string }) {
   const [protocol, setProtocol] = useState<BenchProtocol | null>(null);
   const [mode, setMode] = useState<Mode>("guided");
-  const [seed, setSeed] = useState<number | null>(null);
-  const [actions, setActions] = useState<BenchAction[]>([]);
-  const [run, setRun] = useState<BenchRun | null>(null);
+  const [session, setSession] = useState<{
+    actions: BenchAction[];
+    run: BenchRun;
+    generation: number;
+  } | null>(null);
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
+  const run = session?.run ?? null;
+  const actions = session?.actions ?? [];
 
   useEffect(() => {
     api
@@ -86,14 +90,21 @@ function ProtocolRunner({ id }: { id: string }) {
       .catch((reason) => setError(errorMessage(reason)));
   }, [id]);
 
-  async function submit(next: BenchAction[], runSeed = seed, runMode = mode) {
-    if (runSeed === null) return;
+  async function submit(
+    next: BenchAction[],
+    restart?: { seed: number; mode: Mode },
+  ) {
+    const request = restart ?? run;
+    if (!request) return;
     setBusy(true);
     setError("");
     try {
-      const result = await api.benchReplay(id, runSeed, runMode, next);
-      setActions(next);
-      setRun(result);
+      const result = await api.benchReplay(id, request.seed, request.mode, next);
+      setSession((previous) => ({
+        run: result,
+        actions: next,
+        generation: (previous?.generation ?? 0) + (restart ? 1 : 0),
+      }));
     } catch (reason) {
       setError(errorMessage(reason));
     } finally {
@@ -102,9 +113,7 @@ function ProtocolRunner({ id }: { id: string }) {
   }
 
   function start() {
-    const fresh = newSeed();
-    setSeed(fresh);
-    void submit([], fresh, mode);
+    void submit([], { seed: newSeed(), mode });
   }
 
   if (!protocol) {
@@ -130,7 +139,7 @@ function ProtocolRunner({ id }: { id: string }) {
             Mode{" "}
             <select
               value={mode}
-              disabled={run !== null && !run.finished}
+              disabled={busy || (run !== null && !run.finished)}
               onChange={(event) => setMode(event.target.value as Mode)}
             >
               <option value="guided">
@@ -191,6 +200,7 @@ function ProtocolRunner({ id }: { id: string }) {
           <div>
             {!run.finished ? (
               <ActionForm
+                key={session?.generation}
                 specs={protocol.actions}
                 busy={busy}
                 onAct={(action) => void submit([...actions, action])}
@@ -198,7 +208,7 @@ function ProtocolRunner({ id }: { id: string }) {
             ) : (
               <Debrief run={run} />
             )}
-            {mode === "guided" && actions.length > 0 && !run.finished && (
+            {run.mode === "guided" && actions.length > 0 && !run.finished && (
               <button
                 onClick={() => void submit(actions.slice(0, -1))}
                 disabled={busy}
