@@ -56,7 +56,12 @@ export function StudyTools({
 
 function Calculator({ tool }: { tool: StudyTool }) {
   const defaults = () =>
-    Object.fromEntries(tool.fields.map((field) => [field.id, field.initial]));
+    Object.fromEntries(
+      [...tool.fields, ...(tool.controls ?? [])].map((field) => [
+        field.id,
+        field.initial,
+      ]),
+    );
   const [input, setInput] = useState(defaults);
   const [result, setResult] = useState<StudyToolResult | null>(null);
   const [error, setError] = useState("");
@@ -94,6 +99,7 @@ function Calculator({ tool }: { tool: StudyTool }) {
                 type="number"
                 step="any"
                 min={field.minimum}
+                max={field.maximum}
                 required
                 value={input[field.id]}
                 onChange={(event) => {
@@ -105,6 +111,29 @@ function Calculator({ tool }: { tool: StudyTool }) {
                   setError("");
                 }}
               />
+            </label>
+          ))}
+          {tool.controls?.map((control) => (
+            <label key={control.id} htmlFor={`${tool.id}-${control.id}`}>
+              {control.label}
+              <select
+                id={`${tool.id}-${control.id}`}
+                value={input[control.id]}
+                onChange={(event) => {
+                  setInput((previous) => ({
+                    ...previous,
+                    [control.id]: event.target.value,
+                  }));
+                  setResult(null);
+                  setError("");
+                }}
+              >
+                {control.options.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
             </label>
           ))}
         </div>
@@ -142,6 +171,15 @@ function Calculator({ tool }: { tool: StudyTool }) {
               ))}
             </dl>
           )}
+          {result &&
+            tool.controls?.map((control) => {
+              const option = control.options.find(
+                (item) => item.value === input[control.id],
+              );
+              return option ? (
+                <p key={control.id}>{option.resultNote}</p>
+              ) : null;
+            })}
         </div>
       </form>
       <h3>Model assumptions</h3>

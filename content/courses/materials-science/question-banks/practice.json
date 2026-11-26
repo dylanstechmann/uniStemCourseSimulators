@@ -1,0 +1,1622 @@
+{
+  "schema_version": "1.0",
+  "course_id": "materials-science",
+  "license": "CC-BY-4.0",
+  "questions": [
+    {
+      "id": "materials-science-1:fictional-density",
+      "type": "numeric",
+      "prompt": "A fictional material has mass 54 g and occupies 20 cm³ in a synthetic ledger. What is its density in g/cm³? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-1-objective-3"
+      ],
+      "feedback": {
+        "hint": "Divide mass by occupied volume, not volume by mass.",
+        "solution": "Density = mass/volume = 54/20 = 2.7 g/cm³. This fictional value does not identify a real alloy.",
+        "lesson_ids": [
+          "materials-science-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 2.7,
+        "unit": "",
+        "tolerance": 2.7e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "materials-science-1:thermal-resistance",
+      "type": "numeric",
+      "prompt": "For a fictional one-dimensional layer, thickness is 0.020 m, thermal conductivity is 200 W/(m·K), and area is 0.005 m². What is R = L/(kA) in K/W? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-1-objective-3"
+      ],
+      "feedback": {
+        "hint": "Keep thickness in the numerator and both conductivity and area in the denominator.",
+        "solution": "R = 0.020/(200 × 0.005) = 0.020 K/W under the stated steady one-dimensional model.",
+        "lesson_ids": [
+          "materials-science-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.02,
+        "unit": "",
+        "tolerance": 1e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "materials-science-1:resistivity-change",
+      "type": "numeric",
+      "prompt": "A fictional treatment changes resistivity from 2.0 to 8.0 arbitrary units. What is the percentage increase relative to the initial value? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-1-objective-3"
+      ],
+      "feedback": {
+        "hint": "Use the initial value as denominator and distinguish percent increase from percent of initial.",
+        "solution": "Percentage increase = (8 − 2)/2 × 100 = 300%; the final value is 400% of the initial value.",
+        "lesson_ids": [
+          "materials-science-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 300.0,
+        "unit": "",
+        "tolerance": 3.0000000000000004e-07,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "materials-science-1:bond-label-limit",
+      "type": "single_choice",
+      "prompt": "A fictional solid has predominantly metallic bonding. Which conclusion is best supported without additional evidence?",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-1-objective-1",
+        "materials-science-1-objective-2"
+      ],
+      "feedback": {
+        "hint": "Separate a bonding-level expectation from an exact material or component outcome.",
+        "solution": "Bonding supplies a useful model, not a complete processing–structure–property prediction.",
+        "lesson_ids": [
+          "materials-science-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Every component made from it will fail by fatigue.",
+        "Its bonding model motivates hypotheses about conductivity and ductility, but structure and processing still matter.",
+        "It must be a composite.",
+        "Its exact yield strength is known from bonding alone."
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "materials-science-1:material-class",
+      "type": "single_choice",
+      "prompt": "A fictional part combines a continuous polymer phase with aligned ceramic fibers. Which material-class description is most precise?",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-1-objective-2"
+      ],
+      "feedback": {
+        "hint": "Look for the continuous phase, dispersed phase and their arrangement.",
+        "solution": "Multiple intentionally combined phases make a composite; orientation and interfaces are part of its description.",
+        "lesson_ids": [
+          "materials-science-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "A composite whose response depends on constituents, interface and orientation",
+        "A pure elemental metal",
+        "An amorphous single-phase ceramic",
+        "A monolithic thermoplastic with no second phase"
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "materials-science-1:functional-property-evidence",
+      "type": "multiple_select",
+      "prompt": "Which records support a bounded functional-property comparison between two fictional materials? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "materials-science-1-objective-1",
+        "materials-science-1-objective-2",
+        "materials-science-1-objective-3"
+      ],
+      "feedback": {
+        "hint": "Choose evidence that defines both the measured property and its context.",
+        "solution": "Geometry, units, uncertainty, processing and structure make measurements interpretable; a name alone is insufficient.",
+        "lesson_ids": [
+          "materials-science-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Measured thermal response with specimen geometry and model boundary stated",
+        "Electrical measurements with units and uncertainty information",
+        "A material name alone treated as proof of every property",
+        "Processing and microstructure records relevant to the comparison"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "materials-science-2:cubic-d100",
+      "type": "numeric",
+      "prompt": "A fictional cubic crystal has lattice parameter a = 0.400 nm. What is d(100) in nm? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-2-objective-2"
+      ],
+      "feedback": {
+        "hint": "Evaluate the index sum before dividing the lattice parameter.",
+        "solution": "For cubic crystals d(hkl) = a/√(h²+k²+l²), so d(100) = 0.400 nm.",
+        "lesson_ids": [
+          "materials-science-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.4,
+        "unit": "",
+        "tolerance": 1e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "materials-science-2:cubic-d210",
+      "type": "numeric",
+      "prompt": "A fictional cubic crystal has a = 0.400 nm. What is d(210) in nm? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-2-objective-2"
+      ],
+      "feedback": {
+        "hint": "The squared indices are 4, 1 and 0; their sum is 5.",
+        "solution": "d(210) = 0.400/√(2²+1²+0²) = 0.400/√5 = 0.178885… nm.",
+        "lesson_ids": [
+          "materials-science-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.17888543819998318,
+        "unit": "",
+        "tolerance": 1e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "materials-science-2:bragg-two-theta",
+      "type": "numeric",
+      "prompt": "A synthetic first-order reflection uses wavelength 0.154 nm and spacing 0.200 nm. What is the scattering angle 2θ in degrees from nλ = 2d sinθ? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-2-objective-3"
+      ],
+      "feedback": {
+        "hint": "Solve for θ first, then double it; use the same length units.",
+        "solution": "θ = asin(0.154/0.400) and 2θ = 45.28748…°. This is geometric analysis of a supplied synthetic reflection, not an operating procedure.",
+        "lesson_ids": [
+          "materials-science-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 45.2874805257702,
+        "unit": "",
+        "tolerance": 1e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "materials-science-2:miller-negative-intercept",
+      "type": "single_choice",
+      "prompt": "A plane intersects the cubic x, y and z axes at +a, −a and ∞ respectively. After taking reciprocals, which Miller notation is correct?",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-2-objective-1"
+      ],
+      "feedback": {
+        "hint": "Take reciprocals before reducing and distinguish plane notation from direction notation.",
+        "solution": "Reciprocals are 1, −1 and 0. Parentheses identify a plane; the bar convention denotes the negative index.",
+        "lesson_ids": [
+          "materials-science-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "(1 1 0)",
+        "(1 −1 0) with the negative sign placed over the 1 in conventional notation",
+        "[1 −1 0] as a direction",
+        "{1 −1 0} as one specific plane only"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "materials-science-2:xrd-unknown",
+      "type": "single_choice",
+      "prompt": "A synthetic pattern contains one peak whose position matches a cubic geometric model. What remains unknown without more evidence?",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-2-objective-3"
+      ],
+      "feedback": {
+        "hint": "Distinguish what one geometric observation constrains from what it leaves open.",
+        "solution": "Peak position constrains spacing; it does not by itself identify every structural and chemical attribute.",
+        "lesson_ids": [
+          "materials-science-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "The calculated Bragg angle from the stipulated spacing and wavelength",
+        "The arithmetic index sum for a supplied plane",
+        "The complete phase identity, texture, defect state and composition",
+        "The meaning of 2θ in the stated convention"
+      ],
+      "solution_spec": {
+        "answer": 2
+      }
+    },
+    {
+      "id": "materials-science-2:crystallography-checks",
+      "type": "multiple_select",
+      "prompt": "Which checks belong in an original synthetic cubic-XRD calculation? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "materials-science-2-objective-1",
+        "materials-science-2-objective-2",
+        "materials-science-2-objective-3"
+      ],
+      "feedback": {
+        "hint": "Select mathematical and evidential checks, not an unsupported chemical inference.",
+        "solution": "Notation, angle convention and domain checks are reproducible; absence of a peak does not establish elemental absence.",
+        "lesson_ids": [
+          "materials-science-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Reduce plane indices consistently before computing the index-square sum",
+        "Use nλ = 2d sinθ and report whether the result is θ or 2θ",
+        "Treat a missing reflection as proof that an element is absent",
+        "Check that asin receives a dimensionless ratio within its domain"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "materials-science-3:arrhenius-diffusivity",
+      "type": "numeric",
+      "prompt": "For a fictional diffusion model, D₀ = 1.0×10⁻⁵ m²/s, Q = 80,000 J/mol, R = 8.314 J/(mol·K), and T = 1000 K. What is D = D₀exp(−Q/RT) in m²/s? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-3-objective-2"
+      ],
+      "feedback": {
+        "hint": "Make the exponent dimensionless and retain its negative sign.",
+        "solution": "D = 10⁻⁵ exp[−80000/(8.314 × 1000)] = 6.62335…×10⁻¹⁰ m²/s under this stipulated Arrhenius model.",
+        "lesson_ids": [
+          "materials-science-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 6.623352579966793e-10,
+        "unit": "",
+        "tolerance": 1e-15,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "materials-science-3:steady-diffusion-flux",
+      "type": "numeric",
+      "prompt": "A fictional steady one-dimensional model has D = 1.0×10⁻¹⁰ m²/s, concentration difference 0.80 mol/m³, and thickness 0.0020 m. What is the flux magnitude DΔC/Δx in mol/(m²·s)? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-3-objective-2"
+      ],
+      "feedback": {
+        "hint": "Multiply diffusivity by the concentration gradient magnitude.",
+        "solution": "Flux magnitude = 10⁻¹⁰ × 0.80/0.0020 = 4.0×10⁻⁸ mol/(m²·s). The sign depends on the chosen coordinate.",
+        "lesson_ids": [
+          "materials-science-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 4e-08,
+        "unit": "",
+        "tolerance": 1e-14,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "materials-science-3:hall-petch",
+      "type": "numeric",
+      "prompt": "In a fictional Hall–Petch model, σ = σ₀ + k/√d with σ₀ = 100 MPa, k = 0.50 MPa·m^1/2, and d = 4.0×10⁻⁶ m. What is σ in MPa? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-3-objective-2"
+      ],
+      "feedback": {
+        "hint": "Take the square root of grain size before dividing k by it.",
+        "solution": "√d = 0.002 m^1/2, so σ = 100 + 0.50/0.002 = 350 MPa in this fictional model.",
+        "lesson_ids": [
+          "materials-science-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 350.0,
+        "unit": "",
+        "tolerance": 3.5000000000000004e-07,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "materials-science-3:defect-slip-link",
+      "type": "single_choice",
+      "prompt": "Which statement best connects a dislocation to plastic deformation in the idealized course model?",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-3-objective-1"
+      ],
+      "feedback": {
+        "hint": "Identify the defect dimensionality and the mechanism of permanent shape change.",
+        "solution": "Dislocations are line defects and their motion enables slip; diffusion and slip remain distinct mechanisms.",
+        "lesson_ids": [
+          "materials-science-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "A dislocation is a line defect whose motion can accommodate slip without moving every atom across a plane simultaneously.",
+        "A dislocation is a chemical element added only to increase density.",
+        "A vacancy is always a grain boundary.",
+        "Slip proves that diffusion is unnecessary at every temperature."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "materials-science-3:strengthening-tradeoff",
+      "type": "single_choice",
+      "prompt": "A fictional alloy becomes stronger after grain refinement but its measured ductility falls. What is the most defensible interpretation?",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-3-objective-3"
+      ],
+      "feedback": {
+        "hint": "Keep the measured observations and the limits on causal inference.",
+        "solution": "Properties can trade off, and one observation does not establish a universal law or exclusive cause.",
+        "lesson_ids": [
+          "materials-science-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Strength and ductility must always increase together.",
+        "The observations support a strength–ductility trade-off for that condition; causation requires controlled comparison.",
+        "The result proves every grain-refined material has identical behavior.",
+        "The lower ductility can be deleted because strength increased."
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "materials-science-3:diffusion-strengthening-evidence",
+      "type": "multiple_select",
+      "prompt": "Which statements are valid within idealized defect and strengthening models? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "materials-science-3-objective-1",
+        "materials-science-3-objective-2",
+        "materials-science-3-objective-3"
+      ],
+      "feedback": {
+        "hint": "Choose statements that connect models to structure without claiming unique identification.",
+        "solution": "Temperature dependence, distinct mechanisms and model limits are central. Flux arithmetic alone does not identify species.",
+        "lesson_ids": [
+          "materials-science-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Diffusion coefficients can vary strongly with temperature in an Arrhenius model",
+        "Solid-solution, dislocation and grain-boundary mechanisms can have different microstructural origins",
+        "A calculated flux identifies the exact defect species without additional evidence",
+        "A strengthening model needs units, assumptions and independent property evidence"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "materials-science-4:lever-liquid",
+      "type": "numeric",
+      "prompt": "At a fictional binary tie-line state, C₀ = 40, Cα = 20 and CL = 60 in consistent composition units. What percentage of the total is liquid? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-4-objective-1"
+      ],
+      "feedback": {
+        "hint": "Use the tie-line arm opposite the liquid phase.",
+        "solution": "Liquid fraction = (C₀ − Cα)/(CL − Cα) = 20/40 = 0.50, or 50%.",
+        "lesson_ids": [
+          "materials-science-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 50.0,
+        "unit": "",
+        "tolerance": 5.0000000000000004e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "materials-science-4:lever-alpha",
+      "type": "numeric",
+      "prompt": "At the same fictional tie-line state, C₀ = 30, Cα = 20 and CL = 60. What percentage is the α phase? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-4-objective-1"
+      ],
+      "feedback": {
+        "hint": "Use the arm opposite α and verify that phase fractions sum to one.",
+        "solution": "α fraction = (CL − C₀)/(CL − Cα) = 30/40 = 0.75, or 75%.",
+        "lesson_ids": [
+          "materials-science-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 75.0,
+        "unit": "",
+        "tolerance": 7.500000000000001e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "materials-science-4:avrami-fraction",
+      "type": "numeric",
+      "prompt": "A fictional isothermal transformation model uses X = 1 − exp(−ktⁿ), k = 0.020, t = 10 and n = 2 in consistent synthetic units. What is X as a percentage? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-4-objective-2"
+      ],
+      "feedback": {
+        "hint": "Evaluate ktⁿ before applying the exponential; do not confuse X with the untransformed fraction.",
+        "solution": "ktⁿ = 0.020 × 10² = 2, so X = 1 − e⁻² = 86.4665…% for this model only.",
+        "lesson_ids": [
+          "materials-science-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 86.46647167633873,
+        "unit": "",
+        "tolerance": 1e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "materials-science-4:phase-microconstituent",
+      "type": "single_choice",
+      "prompt": "A synthetic micrograph shows alternating regions inside a two-phase field. Which distinction is correct?",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-4-objective-1",
+        "materials-science-4-objective-2"
+      ],
+      "feedback": {
+        "hint": "Separate what phases are present from how they are arranged.",
+        "solution": "Thermodynamic phase fractions and microconstituent morphology require separate descriptions and evidence.",
+        "lesson_ids": [
+          "materials-science-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Phase identity and microconstituent morphology are interchangeable terms.",
+        "A phase is a structurally/compositionally defined constituent; a microconstituent describes an organized microstructural region that may contain multiple phases.",
+        "Every dark region must be liquid.",
+        "The lever rule measures feature area directly in every image."
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "materials-science-4:process-microstructure-limit",
+      "type": "single_choice",
+      "prompt": "Two fictional specimens have the same nominal composition but different transformation histories. What can differ even if equilibrium end phases are similar?",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-4-objective-3"
+      ],
+      "feedback": {
+        "hint": "Think about the path and microstructure, not only the final equilibrium phase names.",
+        "solution": "Processing history can alter kinetics and microstructure even at fixed nominal composition; properties must still be measured.",
+        "lesson_ids": [
+          "materials-science-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Nothing can differ if composition matches",
+        "Only color can differ",
+        "Microconstituent scale, defect state, transformation fractions and therefore properties can differ",
+        "Their atomic numbers must become negative"
+      ],
+      "solution_spec": {
+        "answer": 2
+      }
+    },
+    {
+      "id": "materials-science-4:phase-diagram-evidence",
+      "type": "multiple_select",
+      "prompt": "Which practices support a bounded binary-phase interpretation? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "materials-science-4-objective-1",
+        "materials-science-4-objective-2",
+        "materials-science-4-objective-3"
+      ],
+      "feedback": {
+        "hint": "Choose practices that respect both mass balance and the diagram’s limits.",
+        "solution": "Tie-line arithmetic requires consistent composition conventions; equilibrium phase amounts do not supply time-dependent kinetics.",
+        "lesson_ids": [
+          "materials-science-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Use a tie line within the stated two-phase field",
+        "Check overall composition against the phase-fraction mass balance",
+        "Infer transformation time from an equilibrium diagram alone",
+        "Record whether compositions are atomic or weight based and treat kinetic evidence separately"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "materials-science-5:toughness-area",
+      "type": "numeric",
+      "prompt": "A fictional stress–strain curve is modeled as a triangle rising to 200 MPa at strain 0.010, followed by a rectangle of height 200 MPa from strain 0.010 to 0.030. What is the total area in MJ/m³? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-5-objective-1"
+      ],
+      "feedback": {
+        "hint": "Add the two stress–strain areas; MPa times strain gives MJ/m³.",
+        "solution": "Triangle = 1 MJ/m³ and rectangle = 4 MJ/m³, so the synthetic toughness proxy is 5 MJ/m³.",
+        "lesson_ids": [
+          "materials-science-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 5.0,
+        "unit": "",
+        "tolerance": 5e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "materials-science-5:miner-fatigue",
+      "type": "numeric",
+      "prompt": "A fictional component experiences 20,000 cycles at a level with modeled life 100,000 cycles and 300,000 cycles at a level with modeled life 1,000,000 cycles. What is the Miner sum n₁/N₁ + n₂/N₂? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-5-objective-2"
+      ],
+      "feedback": {
+        "hint": "Divide cycles applied by modeled cycles to failure at each level, then add.",
+        "solution": "D = 0.20 + 0.30 = 0.50. This idealized linear-damage index is not a remaining-life guarantee.",
+        "lesson_ids": [
+          "materials-science-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.5,
+        "unit": "",
+        "tolerance": 1e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "materials-science-5:stress-intensity",
+      "type": "numeric",
+      "prompt": "For a fictional fracture model K = Yσ√(πa), Y = 1.12, σ = 150 MPa and a = 0.0020 m. What is K in MPa√m? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-5-objective-2"
+      ],
+      "feedback": {
+        "hint": "Use crack length in metres and take the square root of πa.",
+        "solution": "K = 1.12 × 150 × √(π × 0.0020) = 13.317… MPa√m under the stipulated geometry model.",
+        "lesson_ids": [
+          "materials-science-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 13.3167797199562,
+        "unit": "",
+        "tolerance": 1e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "materials-science-5:creep-fatigue-distinction",
+      "type": "single_choice",
+      "prompt": "Which observation most directly distinguishes creep from cycle-count fatigue in a fictional test record?",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-5-objective-2"
+      ],
+      "feedback": {
+        "hint": "Compare the loading history and the measured evolution of strain or damage.",
+        "solution": "Creep emphasizes time-dependent deformation; fatigue concerns cyclic damage. Real records may require combined analysis.",
+        "lesson_ids": [
+          "materials-science-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Any eventual fracture proves creep only",
+        "Time-dependent strain accumulation under sustained conditions versus damage associated with repeated loading cycles",
+        "Hardness alone identifies both mechanisms",
+        "A single elastic modulus measurement gives both lives exactly"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "materials-science-5:localized-corrosion",
+      "type": "single_choice",
+      "prompt": "A fictional passive surface develops intense attack inside a shielded deposit region while adjacent exposed areas remain comparatively unaffected. Which mechanism should be investigated first?",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-5-objective-3"
+      ],
+      "feedback": {
+        "hint": "Use geometry and local environment to select a corrosion hypothesis.",
+        "solution": "Shielding and local chemistry make crevice corrosion a relevant hypothesis, not a diagnosis without further evidence.",
+        "lesson_ids": [
+          "materials-science-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Crevice corrosion associated with the shielded local chemistry",
+        "Uniform thermal expansion only",
+        "Fatigue striations as proof of chemical composition",
+        "An increase in polymer molecular weight"
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "materials-science-5:corrosion-evidence",
+      "type": "multiple_select",
+      "prompt": "Which evidence belongs in a fictional galvanic/passivation/pitting assessment? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "materials-science-5-objective-3"
+      ],
+      "feedback": {
+        "hint": "Select coupled environmental and geometric evidence, not blanket immunity.",
+        "solution": "Galvanic and localized corrosion depend on coupled material–environment–geometry conditions; passivity is conditional.",
+        "lesson_ids": [
+          "materials-science-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Electrical and electrolytic contact conditions and relative areas",
+        "Evidence about passive-film stability and local breaks",
+        "A claim that passivation means immunity in every environment",
+        "Geometry that could support crevices, plus local observations rather than a universal compatibility label"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "materials-science-6:polymer-mn",
+      "type": "numeric",
+      "prompt": "A fictional polymer sample has 10 chains of 20 kg/mol, 20 chains of 40 kg/mol and 10 chains of 80 kg/mol. What is Mn = ΣNiMi/ΣNi in kg/mol? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-6-objective-1"
+      ],
+      "feedback": {
+        "hint": "Weight each molar mass by chain count, then divide by total chains.",
+        "solution": "Mn = (10×20 + 20×40 + 10×80)/40 = 45 kg/mol.",
+        "lesson_ids": [
+          "materials-science-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 45.0,
+        "unit": "",
+        "tolerance": 4.5000000000000006e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "materials-science-6:polymer-mw",
+      "type": "numeric",
+      "prompt": "For the same fictional chain population, what is Mw = ΣNiMi²/ΣNiMi in kg/mol? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-6-objective-1"
+      ],
+      "feedback": {
+        "hint": "Square each molar mass in the numerator but use the first-moment mass total in the denominator.",
+        "solution": "Mw = (10×20² + 20×40² + 10×80²)/(10×20 + 20×40 + 10×80) = 55.5555… kg/mol.",
+        "lesson_ids": [
+          "materials-science-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 55.55555555555556,
+        "unit": "",
+        "tolerance": 1e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "materials-science-6:polymer-pdi",
+      "type": "numeric",
+      "prompt": "Using Mn = 45 kg/mol and Mw = 55.555555… kg/mol for the fictional population, what is PDI = Mw/Mn? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-6-objective-1"
+      ],
+      "feedback": {
+        "hint": "Divide the weight-average by the number-average molar mass.",
+        "solution": "PDI = (1000/18)/45 = 100/81 = 1.234567…; it is dimensionless.",
+        "lesson_ids": [
+          "materials-science-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1.2345679012345678,
+        "unit": "",
+        "tolerance": 1e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "materials-science-6:tg-tm-crystallinity",
+      "type": "single_choice",
+      "prompt": "Which statement correctly distinguishes polymer thermal transitions?",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-6-objective-2"
+      ],
+      "feedback": {
+        "hint": "Separate amorphous mobility from crystalline melting.",
+        "solution": "Glass transition and melting describe different structural changes; semicrystalline polymers can show both.",
+        "lesson_ids": [
+          "materials-science-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Tg and Tm are identical for every polymer",
+        "Tg concerns amorphous-segment mobility while Tm concerns melting of crystalline order; crystallinity affects whether a melting contribution is present",
+        "Tg proves a sample is fully crystalline",
+        "Tm is simply the reciprocal of PDI"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "materials-science-6:voigt-reuss-meaning",
+      "type": "single_choice",
+      "prompt": "For an idealized two-phase composite with E₁ = 200 GPa, E₂ = 20 GPa and V₁ = 0.60, which statement about bounds is correct?",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-6-objective-3"
+      ],
+      "feedback": {
+        "hint": "Use an arithmetic mean for Voigt and a harmonic mean for Reuss.",
+        "solution": "The arithmetic and harmonic mixtures give 128 and approximately 43.478 GPa under their respective idealizations; neither determines interface strength.",
+        "lesson_ids": [
+          "materials-science-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Voigt gives V₁E₁ + V₂E₂ = 128 GPa; Reuss gives (V₁/E₁ + V₂/E₂)⁻¹ = 43.478… GPa",
+        "Both bounds equal 200 GPa",
+        "Reuss is always greater than Voigt",
+        "The bounds determine exact interface strength"
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "materials-science-6:ceramic-composite-boundaries",
+      "type": "multiple_select",
+      "prompt": "Which statements correctly bound ceramic and composite interpretation? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "materials-science-6-objective-2",
+        "materials-science-6-objective-3"
+      ],
+      "feedback": {
+        "hint": "Choose structure-sensitive statements rather than universal predictions.",
+        "solution": "Microstructure, orientation and interfaces matter; simple mixture bounds do not eliminate evidence needs.",
+        "lesson_ids": [
+          "materials-science-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Ceramic properties depend on bonding, porosity, grains and flaws rather than class name alone",
+        "Aligned-fiber composite response can depend strongly on loading orientation",
+        "Voigt–Reuss bounds replace all measurements and interface analysis",
+        "Porosity and interfaces can matter to stiffness, strength and failure"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "materials-science-7:c02-bragg-spacing",
+      "type": "numeric",
+      "prompt": "In synthetic lab row C02, 2θ = 40.0° and λ = 0.154 nm. Using first-order Bragg geometry, what is d in nm? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-7-objective-1"
+      ],
+      "feedback": {
+        "hint": "Use θ = 2θ/2 inside the sine, then solve nλ = 2d sinθ for d.",
+        "solution": "d = 0.154/[2 sin(20.0°)] = 0.225133… nm. The plane-family interpretation remains tied to the stipulated record.",
+        "lesson_ids": [
+          "materials-science-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.22513293881255772,
+        "unit": "",
+        "tolerance": 1e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "materials-science-7:c03-mass-loss",
+      "type": "numeric",
+      "prompt": "In synthetic lab row C03, mass changes from 100.0 mg to 96.5 mg. What is the mass-loss percentage relative to initial mass? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-7-objective-1"
+      ],
+      "feedback": {
+        "hint": "Divide the mass decrease by the initial mass, then multiply by 100.",
+        "solution": "Mass loss = (100.0 − 96.5)/100.0 × 100 = 3.5%. It does not identify the lost species.",
+        "lesson_ids": [
+          "materials-science-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 3.5000000000000004,
+        "unit": "",
+        "tolerance": 3.5000000000000007e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "materials-science-7:c04-cubic-lattice",
+      "type": "numeric",
+      "prompt": "Synthetic row C04 is stipulated cubic with (111), 2θ = 44.0° and λ = 0.154 nm. What lattice parameter a in nm follows from Bragg spacing and cubic geometry? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-7-objective-1"
+      ],
+      "feedback": {
+        "hint": "Compute d from Bragg geometry, then multiply by √(1²+1²+1²).",
+        "solution": "d = 0.154/[2 sin(22.0°)] and a = d√3 = 0.356021… nm for this fictional cubic assignment.",
+        "lesson_ids": [
+          "materials-science-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.35602126211038154,
+        "unit": "",
+        "tolerance": 1e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "materials-science-7:technique-triangulation",
+      "type": "single_choice",
+      "prompt": "A fictional sample has a cubic-consistent diffraction row and a separate thermal event. Which conclusion is strongest?",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-7-objective-2"
+      ],
+      "feedback": {
+        "hint": "List what each channel measures before combining their implications.",
+        "solution": "Different techniques constrain different models and can complement one another without creating certainty or automatic identification.",
+        "lesson_ids": [
+          "materials-science-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "The thermal event alone proves the complete crystal structure",
+        "The records constrain different observations; joint interpretation requires calibration, provenance and alternative explanations",
+        "The mass-loss row identifies the chemical species automatically",
+        "Two techniques eliminate every uncertainty"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "materials-science-7:unknown-thermal-event",
+      "type": "single_choice",
+      "prompt": "Row C05 has a blank thermal-event field and status thermal-event-unknown. How should it be analyzed?",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-7-objective-3"
+      ],
+      "feedback": {
+        "hint": "Preserve provenance and distinguish missing from measured zero.",
+        "solution": "Missing evidence stays unknown; blank is not zero and borrowing another row would fabricate a measurement.",
+        "lesson_ids": [
+          "materials-science-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Replace the blank with 0 °C",
+        "Copy another sample’s event",
+        "Retain the event as unknown and exclude it from thermal-event calculations while reporting the gap",
+        "Delete the entire synthetic record silently"
+      ],
+      "solution_spec": {
+        "answer": 2
+      }
+    },
+    {
+      "id": "materials-science-7:lab-evidence-package",
+      "type": "multiple_select",
+      "prompt": "Which items belong in the synthetic multi-technique handoff? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "materials-science-7-objective-1",
+        "materials-science-7-objective-2",
+        "materials-science-7-objective-3"
+      ],
+      "feedback": {
+        "hint": "Select reproducible analysis and provenance records, not instrument operation.",
+        "solution": "A complete analysis includes every arithmetic relationship and all evidence limits, not an acquisition protocol.",
+        "lesson_ids": [
+          "materials-science-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Bragg d and cubic a recomputed for every row",
+        "Mass-loss percentages with initial-mass denominators",
+        "A real instrument operating sequence for acquiring replacement data",
+        "Explicit unknowns, fictional labels and alternative explanations for cross-technique claims"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "materials-science-8:r02-specific-stiffness",
+      "type": "numeric",
+      "prompt": "For synthetic candidate R02, E = 120 GPa and density = 2700 kg/m³. What is E/ρ in m²/s²? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-8-objective-2"
+      ],
+      "feedback": {
+        "hint": "Convert GPa to Pa before dividing by kg/m³.",
+        "solution": "E/ρ = 120×10⁹/2700 = 44,444,444.444… m²/s². It is one criterion, not a complete selection.",
+        "lesson_ids": [
+          "materials-science-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 44444444.44444445,
+        "unit": "",
+        "tolerance": 0.01,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "materials-science-8:r03-mass",
+      "type": "numeric",
+      "prompt": "For synthetic candidate R03, density = 7800 kg/m³ and fixed volume = 0.0015 m³. What is mass in kg? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-8-objective-2"
+      ],
+      "feedback": {
+        "hint": "Multiply density by the candidate volume.",
+        "solution": "Mass = ρV = 7800 × 0.0015 = 11.7 kg for the stipulated fixed-volume comparison.",
+        "lesson_ids": [
+          "materials-science-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 11.700000000000001,
+        "unit": "",
+        "tolerance": 1.1700000000000002e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "materials-science-8:r04-embodied-energy",
+      "type": "numeric",
+      "prompt": "For synthetic candidate R04, mass = 2.9 kg and embodied-energy intensity = 20 MJ/kg. What is the modeled embodied energy in MJ? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-8-objective-2"
+      ],
+      "feedback": {
+        "hint": "Compute mass first if needed, then multiply by energy per unit mass.",
+        "solution": "Embodied energy = 2.9 × 20 = 58 MJ within the fictional inventory boundary.",
+        "lesson_ids": [
+          "materials-science-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 58.0,
+        "unit": "",
+        "tolerance": 5.8e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "materials-science-8:hard-constraints-first",
+      "type": "single_choice",
+      "prompt": "A fictional candidate has the lowest cost but fails the stated minimum corrosion-evidence score. What is the correct constraints-first action?",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-8-objective-1"
+      ],
+      "feedback": {
+        "hint": "Separate mandatory requirements from desirable performance criteria.",
+        "solution": "Hard constraints screen eligibility before trade-off ranking; neither outcome grants material approval.",
+        "lesson_ids": [
+          "materials-science-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Rank it first because low cost dominates every requirement",
+        "Mark it ineligible under the declared hard constraint, then compare eligible candidates on documented trade-offs",
+        "Change the corrosion score to zero evidence",
+        "Approve it for service because the data are synthetic"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "materials-science-8:selection-unknown-evidence",
+      "type": "single_choice",
+      "prompt": "Two fictional candidates pass the arithmetic constraints, but fatigue and joining evidence are absent. What should the handoff conclude?",
+      "points": 1,
+      "objective_ids": [
+        "materials-science-8-objective-3"
+      ],
+      "feedback": {
+        "hint": "Name what the model screened and what it did not test.",
+        "solution": "Eligibility in a fictional screen is not fitness for service; missing evidence remains an open gate.",
+        "lesson_ids": [
+          "materials-science-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "The cheaper candidate is approved for every application",
+        "Both are conditionally eligible in the model, while fatigue, joining and application-specific review remain unknown",
+        "Missing fatigue data means infinite life",
+        "Arithmetic converts the synthetic ordinal scores into certified measurements"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "materials-science-8:selection-handoff-contents",
+      "type": "multiple_select",
+      "prompt": "Which elements make the fictional material-selection project reproducible and bounded? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "materials-science-8-objective-1",
+        "materials-science-8-objective-2",
+        "materials-science-8-objective-3"
+      ],
+      "feedback": {
+        "hint": "Choose reproducible selection evidence and honest limitations.",
+        "solution": "Transparent constraints, calculations, sensitivity and unresolved evidence are required; no certificate or approval may be fabricated.",
+        "lesson_ids": [
+          "materials-science-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Hard constraints and units fixed before ranking",
+        "Specific stiffness, mass and energy recomputed for every row with sensitivity notes",
+        "A standard-specific compliance certificate invented from the synthetic scores",
+        "Trade-offs among eligible candidates plus missing-evidence and non-approval statements"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    }
+  ]
+}

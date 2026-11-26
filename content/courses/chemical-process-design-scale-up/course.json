@@ -1,0 +1,890 @@
+{
+  "schema_version": "1.0",
+  "id": "chemical-process-design-scale-up",
+  "title": "Chemical Process Design & Scale-Up",
+  "description": "An explicitly partial advanced university/industry survey of chemical process design and scale-up: eight routes in six thematic modules spanning design basis/economics, equipment evidence, dynamic operability/quality, inherently safer design, similarity/scale-down/transfer, G0–G7 governance, a synthetic evidence lab and an integrated industry design-review capstone. Readiness is a review objective, never an achieved claim. It is original, unreviewed and formative-only.",
+  "domain": "Chemical process engineering",
+  "level": "Year 4 / industry design review",
+  "maturity": "partial",
+  "version": "0.1.0",
+  "license": "CC-BY-4.0",
+  "content_origin": {
+    "kind": "original",
+    "source_path": null,
+    "source_sha256": null,
+    "migration_version": null,
+    "modifications": [
+      "Original readings, generic-species/equipment scenarios, synthetic datasets, worked examples, practice and variants, retrieval cards and zero-point cases developed with substantial AI assistance on 2026-11-26. All third-party and owner-repository sources are used link-only in this package; no source content, code, figure, table, problem or data imported."
+    ]
+  },
+  "prerequisites": {
+    "course_ids": [
+      "chemical-engineering-foundations",
+      "signals-control"
+    ],
+    "recommended_course_ids": [
+      "materials-engineering-fabrication",
+      "statistics",
+      "lab-biosafety"
+    ],
+    "concurrent_course_ids": [],
+    "knowledge": [
+      "Material/energy balances, transport, ideal reaction/separation models and flowsheet audits",
+      "Dynamic models, feedback, saturation, sensors and control-system evidence",
+      "Descriptive statistics, experimental units, uncertainty and laboratory-safety evidence"
+    ],
+    "statement": "Chemical Engineering Foundations and Signals, Systems & Feedback Control are required. Materials Engineering for Fabrication, Probability, Biostatistics & Experimental Design, and Laboratory Safety and Biosafety are recommended where the graph permits. These project-planned acyclic relationships establish no university equivalency."
+  },
+  "outcomes": [
+    {
+      "id": "chemical-process-design-scale-up-outcome-1",
+      "description": "Formulate a traceable design basis and compare flowsheet, integration, economic and lifecycle alternatives under explicit uncertainty.",
+      "bloom": "apply"
+    },
+    {
+      "id": "chemical-process-design-scale-up-outcome-2",
+      "description": "Audit equipment, all-wetted compatibility, fabrication, inspection and change evidence without producing mechanical designs or approvals.",
+      "bloom": "evaluate"
+    },
+    {
+      "id": "chemical-process-design-scale-up-outcome-3",
+      "description": "Evaluate dynamic operability, control/protection separation and operations-quality records with correct dependence and evidence boundaries.",
+      "bloom": "evaluate"
+    },
+    {
+      "id": "chemical-process-design-scale-up-outcome-4",
+      "description": "Apply inherently safer design and provenance-linked hazard/barrier review without SIL, tolerable-risk or IPL approval claims.",
+      "bloom": "evaluate"
+    },
+    {
+      "id": "chemical-process-design-scale-up-outcome-5",
+      "description": "Analyze selective similarity, scale-down, DOE, uncertainty and technology-transfer evidence without asserting physical equivalence.",
+      "bloom": "analyze"
+    },
+    {
+      "id": "chemical-process-design-scale-up-outcome-6",
+      "description": "Apply G0–G7 design-transfer governance with responsible human roles and fail-closed HOLD decisions.",
+      "bloom": "evaluate"
+    },
+    {
+      "id": "chemical-process-design-scale-up-outcome-7",
+      "description": "Recompute and interpret original synthetic process-design, safety and equipment evidence with descriptive correlated records.",
+      "bloom": "analyze"
+    },
+    {
+      "id": "chemical-process-design-scale-up-outcome-8",
+      "description": "Create an integrated industry design-review handoff that preserves all operational, safety, validation and release boundaries.",
+      "bloom": "create"
+    }
+  ],
+  "lesson_objectives": [
+    {
+      "id": "chemical-process-design-scale-up-1-objective-1",
+      "description": "Translate requirements, roles and lifecycle boundaries into a controlled design basis, BFD/PFD and stream-table evidence chain.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "chemical-process-design-scale-up-outcome-1"
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-1-objective-2",
+      "description": "Recompute bounded heat-recovery, NPV and lifecycle scenarios while distinguishing convergence from validation and rating.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "chemical-process-design-scale-up-outcome-1"
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-1-objective-3",
+      "description": "Compare multiobjective alternatives using hard constraints, uncertainty and explicit trade-offs without hiding unresolved evidence.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "chemical-process-design-scale-up-outcome-1"
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-2-objective-1",
+      "description": "Structure equipment datasheets and conceptual pressure-load paths without wall design, duty ratings or code-compliance claims.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "chemical-process-design-scale-up-outcome-2"
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-2-objective-2",
+      "description": "Recompute compatibility, fatigue and traceability examples while including every wetted component and degradation mechanism.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "chemical-process-design-scale-up-outcome-2"
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-2-objective-3",
+      "description": "Interpret traveler, joint, inspection/NDE, nonconformance and repair/rerating/MOC records with HOLD for missing evidence.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "chemical-process-design-scale-up-outcome-2"
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-3-objective-1",
+      "description": "Estimate local FOPDT gain and evaluate saturated PID arithmetic within declared synthetic model limits.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "chemical-process-design-scale-up-outcome-3"
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-3-objective-2",
+      "description": "Distinguish ratio, feedforward, override, alarm, control and interlock claims, including shared-cause dependencies.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "chemical-process-design-scale-up-outcome-3"
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-3-objective-3",
+      "description": "Evaluate SPC, autocorrelation, PAT, deviation/OOS/OOT, CAPA and continued verification without independent-replication errors.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "chemical-process-design-scale-up-outcome-3"
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-4-objective-1",
+      "description": "Apply inherently safer design and hierarchy reasoning to a fictional PFD before adding barriers.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "chemical-process-design-scale-up-outcome-4"
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-4-objective-2",
+      "description": "Construct provenance-linked what-if, FMEA, HAZOP and bow-tie evidence with human-factors and independence checks.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "chemical-process-design-scale-up-outcome-4"
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-4-objective-3",
+      "description": "Recompute RPN, bow-tie and LOPA arithmetic while prohibiting SIL, tolerable-risk, IPL and operational approvals.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "chemical-process-design-scale-up-outcome-4"
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-5-objective-1",
+      "description": "Recompute dimensionless power/volume, area/volume and Damköhler comparisons while stating unmatched regimes.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "chemical-process-design-scale-up-outcome-5"
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-5-objective-2",
+      "description": "Analyze mixing, heat-removal, reaction/transport, selectivity, separation and fouling scale effects and scale-down hypotheses.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "chemical-process-design-scale-up-outcome-5"
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-5-objective-3",
+      "description": "Plan DOE, uncertainty, pilot and transfer evidence with true experimental units and unresolved-state discipline.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "chemical-process-design-scale-up-outcome-5"
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-6-objective-1",
+      "description": "Map G0–G7 gates to design basis, models, scale, equipment, safety/MOC, measurement/control, pilot and transfer evidence.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "chemical-process-design-scale-up-outcome-6"
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-6-objective-2",
+      "description": "Distinguish model verification from validation and recompute residual evidence without inventing acceptance criteria.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "chemical-process-design-scale-up-outcome-6"
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-6-objective-3",
+      "description": "Enforce responsible human roles and HOLD for every missing, open or unauthorized gate, CAPA or continued-verification item.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "chemical-process-design-scale-up-outcome-6"
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-7-objective-1",
+      "description": "Recompute heat recovery, NPV and scale ratios for every row of the public synthetic evidence CSV.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "chemical-process-design-scale-up-outcome-7"
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-7-objective-2",
+      "description": "Recompute lag-one autocorrelation while preserving repeated-instrument and reused-scenario dependence.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "chemical-process-design-scale-up-outcome-7"
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-7-objective-3",
+      "description": "Assign evidence states from all-wetted, inspection, safety and acceptance fields with missing evidence always unresolved and HOLD.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "chemical-process-design-scale-up-outcome-7"
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-8-objective-1",
+      "description": "Assemble a five-milestone integrated review spanning G0–G7, alternatives, equipment, operability, safety, scale and transfer.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "chemical-process-design-scale-up-outcome-8"
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-8-objective-2",
+      "description": "Recompute rehearsal NPV, lifecycle and CAPA relationships without allowing arithmetic to override evidence gaps.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "chemical-process-design-scale-up-outcome-8"
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-8-objective-3",
+      "description": "Deliver a zero-point self-assessed handoff with source/case/resource links, no operational claims and no release authority.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "chemical-process-design-scale-up-outcome-8"
+      ]
+    }
+  ],
+  "duration": {
+    "instructional_weeks": 8,
+    "equivalent_structure": "A proposed, unmeasured eight-period sequence of eight lesson routes grouped into six thematic modules. The synthetic evidence lab and optional capstone sit with the sixth integrative module. This is an explicitly partial advanced university/industry survey, not a reviewed or complete course.",
+    "weeks": [
+      {
+        "week": 1,
+        "title": "Design basis, flowsheets, integration and decision economics",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-1"
+        ],
+        "assessment_ids": [
+          "chemical-process-design-scale-up-1-practice"
+        ]
+      },
+      {
+        "week": 2,
+        "title": "Equipment datasheets, containment and fabrication evidence",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-2"
+        ],
+        "assessment_ids": [
+          "chemical-process-design-scale-up-2-practice"
+        ]
+      },
+      {
+        "week": 3,
+        "title": "Dynamic operability, control separation and operations quality",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-3"
+        ],
+        "assessment_ids": [
+          "chemical-process-design-scale-up-3-practice"
+        ]
+      },
+      {
+        "week": 4,
+        "title": "Inherently safer design, hazard evidence and barrier learning",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-4"
+        ],
+        "assessment_ids": [
+          "chemical-process-design-scale-up-4-practice"
+        ]
+      },
+      {
+        "week": 5,
+        "title": "Similarity, scale effects and technology-transfer evidence",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-5"
+        ],
+        "assessment_ids": [
+          "chemical-process-design-scale-up-5-practice"
+        ]
+      },
+      {
+        "week": 6,
+        "title": "G0–G7 design-transfer and evidence governance",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-6"
+        ],
+        "assessment_ids": [
+          "chemical-process-design-scale-up-6-practice"
+        ]
+      },
+      {
+        "week": 7,
+        "title": "Original synthetic process-design, safety and equipment evidence lab",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-7"
+        ],
+        "assessment_ids": [
+          "chemical-process-design-scale-up-7-practice"
+        ]
+      },
+      {
+        "week": 8,
+        "title": "Integrated industry design-review capstone project guide",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-project-guide"
+        ],
+        "assessment_ids": [
+          "chemical-process-design-scale-up-project-rehearsal-practice",
+          "chemical-process-design-scale-up-integrated-design-review-project"
+        ]
+      }
+    ]
+  },
+  "workload": {
+    "estimated_total_hours": null,
+    "estimated_hours_per_week": null,
+    "basis": "Not measured; no workload, semester-equivalence or industry-training-duration claim is made."
+  },
+  "modules": [
+    {
+      "id": "chemical-process-design-scale-up-module-1",
+      "title": "Design basis, flowsheets, integration and decision economics",
+      "source_ids": [
+        "mit-ocw-10-490-fall-2006-syllabus",
+        "mit-ocw-10-491-spring-2006-syllabus",
+        "statistics",
+        "owner-habitat-resource-sandbox",
+        "owner-rural-florida-agriculture"
+      ],
+      "lessons": [
+        {
+          "id": "chemical-process-design-scale-up-1",
+          "title": "Design basis, flowsheets, integration and decision economics",
+          "reading": "modules/01-design-basis-flowsheet-economics.md",
+          "objectives": [
+            "chemical-process-design-scale-up-1-objective-1",
+            "chemical-process-design-scale-up-1-objective-2",
+            "chemical-process-design-scale-up-1-objective-3"
+          ],
+          "worked_example": "A fictional heat-integration bound is min(120×4,90×5)=450 kW. A separate NPV is −1000+300[1−1.08^−4]/0.08=−6.36194799 cost units. Both are declared scenario arithmetic, not equipment or investment approval. Independent recomputation supports formative review only; missing evidence remains unresolved and every affected design-transfer gate stays on HOLD.",
+          "question_ids": [
+            "chemical-process-design-scale-up-1:heat-recovery",
+            "chemical-process-design-scale-up-1:scenario-npv",
+            "chemical-process-design-scale-up-1:lifecycle-emissions",
+            "chemical-process-design-scale-up-1:design-basis-gap",
+            "chemical-process-design-scale-up-1:convergence-boundary",
+            "chemical-process-design-scale-up-1:multiobjective-audit"
+          ],
+          "card_ids": [
+            "chemical-process-design-scale-up-1-card-1",
+            "chemical-process-design-scale-up-1-card-2",
+            "chemical-process-design-scale-up-1-card-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-module-2",
+      "title": "Equipment datasheets, containment and fabrication evidence",
+      "source_ids": [
+        "mit-ocw-10-491-spring-2006-syllabus",
+        "asme-bpvc-viii-1-public-catalog",
+        "mit-ocw-3-032-fall-2007-syllabus",
+        "mechanics"
+      ],
+      "lessons": [
+        {
+          "id": "chemical-process-design-scale-up-2",
+          "title": "Equipment datasheets, containment and fabrication evidence",
+          "reading": "modules/02-equipment-containment-fabrication-evidence.md",
+          "objectives": [
+            "chemical-process-design-scale-up-2-objective-1",
+            "chemical-process-design-scale-up-2-objective-2",
+            "chemical-process-design-scale-up-2-objective-3"
+          ],
+          "worked_example": "Nine of twelve wetted-component evidence records gives 75% descriptive coverage, yet the three missing records require HOLD. The synthetic fatigue sum 2000/10000+500/2500=0.40 is not remaining life or acceptance. Independent recomputation supports formative review only; missing evidence remains unresolved and every affected design-transfer gate stays on HOLD.",
+          "question_ids": [
+            "chemical-process-design-scale-up-2:wetted-coverage",
+            "chemical-process-design-scale-up-2:fatigue-sum",
+            "chemical-process-design-scale-up-2:inspection-closure",
+            "chemical-process-design-scale-up-2:all-wetted-scope",
+            "chemical-process-design-scale-up-2:inspection-missing",
+            "chemical-process-design-scale-up-2:traveler-traceability"
+          ],
+          "card_ids": [
+            "chemical-process-design-scale-up-2-card-1",
+            "chemical-process-design-scale-up-2-card-2",
+            "chemical-process-design-scale-up-2-card-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-module-3",
+      "title": "Dynamic operability, control separation and operations quality",
+      "source_ids": [
+        "mit-ocw-10-491-spring-2006-syllabus",
+        "nist-sematech-process-monitoring-control",
+        "control",
+        "statistics",
+        "fda-2011-process-validation",
+        "owner-open-perfusion-rig",
+        "owner-perfusion-calibration-lab"
+      ],
+      "lessons": [
+        {
+          "id": "chemical-process-design-scale-up-3",
+          "title": "Dynamic operability, control separation and operations quality",
+          "reading": "modules/03-dynamic-operability-quality-monitoring.md",
+          "objectives": [
+            "chemical-process-design-scale-up-3-objective-1",
+            "chemical-process-design-scale-up-3-objective-2",
+            "chemical-process-design-scale-up-3-objective-3"
+          ],
+          "worked_example": "FOPDT gain is (18−12)/(8−5)=2 under a local model. Residuals [1,−1,1,−1] have lag-one autocorrelation −0.75; these repeated records are correlated and descriptive, not independent replicates. Independent recomputation supports formative review only; missing evidence remains unresolved and every affected design-transfer gate stays on HOLD.",
+          "question_ids": [
+            "chemical-process-design-scale-up-3:fopdt-gain",
+            "chemical-process-design-scale-up-3:lag-one-autocorrelation",
+            "chemical-process-design-scale-up-3:saturated-command",
+            "chemical-process-design-scale-up-3:alarm-interlock-separation",
+            "chemical-process-design-scale-up-3:spc-repeated-records",
+            "chemical-process-design-scale-up-3:quality-evidence"
+          ],
+          "card_ids": [
+            "chemical-process-design-scale-up-3-card-1",
+            "chemical-process-design-scale-up-3-card-2",
+            "chemical-process-design-scale-up-3-card-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-module-4",
+      "title": "Inherently safer design, hazard evidence and barrier learning",
+      "source_ids": [
+        "mit-ocw-10-490-fall-2006-syllabus",
+        "mit-ocw-10-491-spring-2006-syllabus",
+        "osha-29cfr1910-119-public",
+        "osha-29cfr1910-1450-laboratory-standard"
+      ],
+      "lessons": [
+        {
+          "id": "chemical-process-design-scale-up-4",
+          "title": "Inherently safer design, hazard evidence and barrier learning",
+          "reading": "modules/04-inherently-safer-hazard-barrier-learning.md",
+          "objectives": [
+            "chemical-process-design-scale-up-4-objective-1",
+            "chemical-process-design-scale-up-4-objective-2",
+            "chemical-process-design-scale-up-4-objective-3"
+          ],
+          "worked_example": "The fictional LOPA product 0.20×0.10×0.05=0.001 per year cannot assign SIL, tolerable risk or approve an IPL. RPN 6×4×3=72 is ordinal bookkeeping, not probability. Independent recomputation supports formative review only; missing evidence remains unresolved and every affected design-transfer gate stays on HOLD.",
+          "question_ids": [
+            "chemical-process-design-scale-up-4:bowtie-at-least-one-fails",
+            "chemical-process-design-scale-up-4:lopa-product",
+            "chemical-process-design-scale-up-4:rpn",
+            "chemical-process-design-scale-up-4:lopa-limits",
+            "chemical-process-design-scale-up-4:barrier-independence",
+            "chemical-process-design-scale-up-4:inherently-safer-learning"
+          ],
+          "card_ids": [
+            "chemical-process-design-scale-up-4-card-1",
+            "chemical-process-design-scale-up-4-card-2",
+            "chemical-process-design-scale-up-4-card-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-module-5",
+      "title": "Similarity, scale effects and technology-transfer evidence",
+      "source_ids": [
+        "mit-ocw-10-490-fall-2006-syllabus",
+        "mit-ocw-10-491-spring-2006-syllabus",
+        "mit-ocw-10-302-fall-2004-syllabus",
+        "statistics",
+        "fda-2011-process-validation",
+        "owner-open-perfusion-rig",
+        "owner-perfusion-calibration-lab"
+      ],
+      "lessons": [
+        {
+          "id": "chemical-process-design-scale-up-5",
+          "title": "Similarity, scale effects and technology-transfer evidence",
+          "reading": "modules/05-similarity-scale-down-transfer-evidence.md",
+          "objectives": [
+            "chemical-process-design-scale-up-5-objective-1",
+            "chemical-process-design-scale-up-5-objective-2",
+            "chemical-process-design-scale-up-5-objective-3"
+          ],
+          "worked_example": "Under declared geometric turbulent scaling, diameter ratio 3 gives P/V ratio 9; area/volume ratio is 1/3. Da=0.3×8=2.4. None supplies equipment duty, physical similarity or a pilot setting. Independent recomputation supports formative review only; missing evidence remains unresolved and every affected design-transfer gate stays on HOLD.",
+          "question_ids": [
+            "chemical-process-design-scale-up-5:scale-power-ratio",
+            "chemical-process-design-scale-up-5:area-volume-ratio",
+            "chemical-process-design-scale-up-5:damkohler",
+            "chemical-process-design-scale-up-5:similarity-limit",
+            "chemical-process-design-scale-up-5:scale-down-independence",
+            "chemical-process-design-scale-up-5:pilot-transfer-evidence"
+          ],
+          "card_ids": [
+            "chemical-process-design-scale-up-5-card-1",
+            "chemical-process-design-scale-up-5-card-2",
+            "chemical-process-design-scale-up-5-card-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chemical-process-design-scale-up-module-6",
+      "title": "G0–G7 governance, synthetic evidence lab and integrated design-review capstone",
+      "source_ids": [
+        "mit-ocw-10-491-spring-2006-syllabus",
+        "osha-29cfr1910-119-public",
+        "nist-sematech-process-monitoring-control",
+        "asme-bpvc-viii-1-public-catalog",
+        "fda-2011-process-validation",
+        "statistics",
+        "owner-habitat-resource-sandbox"
+      ],
+      "lessons": [
+        {
+          "id": "chemical-process-design-scale-up-6",
+          "title": "G0–G7 design-transfer and evidence governance",
+          "reading": "modules/06-staged-design-transfer-governance.md",
+          "objectives": [
+            "chemical-process-design-scale-up-6-objective-1",
+            "chemical-process-design-scale-up-6-objective-2",
+            "chemical-process-design-scale-up-6-objective-3"
+          ],
+          "worked_example": "Six of eight gate packages gives 75% descriptive coverage but two unresolved gates force HOLD. RMS residuals for [0.2,−0.1,0.1] are 0.14142136; this is verification arithmetic, not validation. Independent recomputation supports formative review only; missing evidence remains unresolved and every affected design-transfer gate stays on HOLD.",
+          "question_ids": [
+            "chemical-process-design-scale-up-6:gate-coverage",
+            "chemical-process-design-scale-up-6:residual-rms",
+            "chemical-process-design-scale-up-6:verified-capa",
+            "chemical-process-design-scale-up-6:gate-hold",
+            "chemical-process-design-scale-up-6:verification-validation",
+            "chemical-process-design-scale-up-6:governance-roles"
+          ],
+          "card_ids": [
+            "chemical-process-design-scale-up-6-card-1",
+            "chemical-process-design-scale-up-6-card-2",
+            "chemical-process-design-scale-up-6-card-3"
+          ]
+        },
+        {
+          "id": "chemical-process-design-scale-up-7",
+          "title": "Original synthetic process-design, safety and equipment evidence lab",
+          "reading": "labs/process-design-evidence-lab.md",
+          "objectives": [
+            "chemical-process-design-scale-up-7-objective-1",
+            "chemical-process-design-scale-up-7-objective-2",
+            "chemical-process-design-scale-up-7-objective-3"
+          ],
+          "worked_example": "L02 NPV is −800+250[1−1.1^−4]/0.10=−7.5336384 cost units. L04 r₁=0.25 and L06 P/V ratio=4. Every evidence gap still produces HOLD. Independent recomputation supports formative review only; missing evidence remains unresolved and every affected design-transfer gate stays on HOLD.",
+          "question_ids": [
+            "chemical-process-design-scale-up-7:l02-npv",
+            "chemical-process-design-scale-up-7:l04-autocorrelation",
+            "chemical-process-design-scale-up-7:l06-scale-power",
+            "chemical-process-design-scale-up-7:lab-evidence-hold",
+            "chemical-process-design-scale-up-7:lab-correlated-records",
+            "chemical-process-design-scale-up-7:lab-memo-boundaries"
+          ],
+          "card_ids": [
+            "chemical-process-design-scale-up-7-card-1",
+            "chemical-process-design-scale-up-7-card-2",
+            "chemical-process-design-scale-up-7-card-3"
+          ]
+        },
+        {
+          "id": "chemical-process-design-scale-up-project-guide",
+          "title": "Integrated industry design-review capstone project guide",
+          "reading": "assignments/industry-design-review-capstone-guide.md",
+          "objectives": [
+            "chemical-process-design-scale-up-8-objective-1",
+            "chemical-process-design-scale-up-8-objective-2",
+            "chemical-process-design-scale-up-8-objective-3"
+          ],
+          "worked_example": "R02 NPV is −600+200[1−1.1^−3]/0.10=−102.6296018; R05 lifecycle inventory is 990 emission units. R06 CAPA verification is 80%, but unresolved actions remain open. Independent recomputation supports formative review only; missing evidence remains unresolved and every affected design-transfer gate stays on HOLD.",
+          "question_ids": [
+            "chemical-process-design-scale-up-8:r02-npv",
+            "chemical-process-design-scale-up-8:r05-lifecycle",
+            "chemical-process-design-scale-up-8:r06-verified-capa",
+            "chemical-process-design-scale-up-8:gate-order",
+            "chemical-process-design-scale-up-8:rehearsal-missing-evidence",
+            "chemical-process-design-scale-up-8:capstone-handoff"
+          ],
+          "card_ids": [
+            "chemical-process-design-scale-up-8-card-1",
+            "chemical-process-design-scale-up-8-card-2",
+            "chemical-process-design-scale-up-8-card-3"
+          ]
+        }
+      ]
+    }
+  ],
+  "assessments": [
+    {
+      "id": "chemical-process-design-scale-up-1-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Formative practice: Design basis, flowsheets, integration and decision economics",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "chemical-process-design-scale-up-1-objective-1",
+        "chemical-process-design-scale-up-1-objective-2",
+        "chemical-process-design-scale-up-1-objective-3",
+        "chemical-process-design-scale-up-outcome-1"
+      ],
+      "question_ids": [
+        "chemical-process-design-scale-up-1:heat-recovery",
+        "chemical-process-design-scale-up-1:scenario-npv",
+        "chemical-process-design-scale-up-1:lifecycle-emissions",
+        "chemical-process-design-scale-up-1:design-basis-gap",
+        "chemical-process-design-scale-up-1:convergence-boundary",
+        "chemical-process-design-scale-up-1:multiobjective-audit"
+      ],
+      "points": 7
+    },
+    {
+      "id": "chemical-process-design-scale-up-2-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Formative practice: Equipment datasheets, containment and fabrication evidence",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "chemical-process-design-scale-up-2-objective-1",
+        "chemical-process-design-scale-up-2-objective-2",
+        "chemical-process-design-scale-up-2-objective-3",
+        "chemical-process-design-scale-up-outcome-2"
+      ],
+      "question_ids": [
+        "chemical-process-design-scale-up-2:wetted-coverage",
+        "chemical-process-design-scale-up-2:fatigue-sum",
+        "chemical-process-design-scale-up-2:inspection-closure",
+        "chemical-process-design-scale-up-2:all-wetted-scope",
+        "chemical-process-design-scale-up-2:inspection-missing",
+        "chemical-process-design-scale-up-2:traveler-traceability"
+      ],
+      "points": 7
+    },
+    {
+      "id": "chemical-process-design-scale-up-3-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Formative practice: Dynamic operability, control separation and operations quality",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "chemical-process-design-scale-up-3-objective-1",
+        "chemical-process-design-scale-up-3-objective-2",
+        "chemical-process-design-scale-up-3-objective-3",
+        "chemical-process-design-scale-up-outcome-3"
+      ],
+      "question_ids": [
+        "chemical-process-design-scale-up-3:fopdt-gain",
+        "chemical-process-design-scale-up-3:lag-one-autocorrelation",
+        "chemical-process-design-scale-up-3:saturated-command",
+        "chemical-process-design-scale-up-3:alarm-interlock-separation",
+        "chemical-process-design-scale-up-3:spc-repeated-records",
+        "chemical-process-design-scale-up-3:quality-evidence"
+      ],
+      "points": 7
+    },
+    {
+      "id": "chemical-process-design-scale-up-4-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Formative practice: Inherently safer design, hazard evidence and barrier learning",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "chemical-process-design-scale-up-4-objective-1",
+        "chemical-process-design-scale-up-4-objective-2",
+        "chemical-process-design-scale-up-4-objective-3",
+        "chemical-process-design-scale-up-outcome-4"
+      ],
+      "question_ids": [
+        "chemical-process-design-scale-up-4:bowtie-at-least-one-fails",
+        "chemical-process-design-scale-up-4:lopa-product",
+        "chemical-process-design-scale-up-4:rpn",
+        "chemical-process-design-scale-up-4:lopa-limits",
+        "chemical-process-design-scale-up-4:barrier-independence",
+        "chemical-process-design-scale-up-4:inherently-safer-learning"
+      ],
+      "points": 7
+    },
+    {
+      "id": "chemical-process-design-scale-up-5-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Formative practice: Similarity, scale effects and technology-transfer evidence",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "chemical-process-design-scale-up-5-objective-1",
+        "chemical-process-design-scale-up-5-objective-2",
+        "chemical-process-design-scale-up-5-objective-3",
+        "chemical-process-design-scale-up-outcome-5"
+      ],
+      "question_ids": [
+        "chemical-process-design-scale-up-5:scale-power-ratio",
+        "chemical-process-design-scale-up-5:area-volume-ratio",
+        "chemical-process-design-scale-up-5:damkohler",
+        "chemical-process-design-scale-up-5:similarity-limit",
+        "chemical-process-design-scale-up-5:scale-down-independence",
+        "chemical-process-design-scale-up-5:pilot-transfer-evidence"
+      ],
+      "points": 7
+    },
+    {
+      "id": "chemical-process-design-scale-up-6-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Formative practice: G0–G7 design-transfer and evidence governance",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "chemical-process-design-scale-up-6-objective-1",
+        "chemical-process-design-scale-up-6-objective-2",
+        "chemical-process-design-scale-up-6-objective-3",
+        "chemical-process-design-scale-up-outcome-6"
+      ],
+      "question_ids": [
+        "chemical-process-design-scale-up-6:gate-coverage",
+        "chemical-process-design-scale-up-6:residual-rms",
+        "chemical-process-design-scale-up-6:verified-capa",
+        "chemical-process-design-scale-up-6:gate-hold",
+        "chemical-process-design-scale-up-6:verification-validation",
+        "chemical-process-design-scale-up-6:governance-roles"
+      ],
+      "points": 7
+    },
+    {
+      "id": "chemical-process-design-scale-up-7-practice",
+      "type": "lab",
+      "mode": "practice",
+      "title": "Formative practice: Original synthetic process-design, safety and equipment evidence lab",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "chemical-process-design-scale-up-7-objective-1",
+        "chemical-process-design-scale-up-7-objective-2",
+        "chemical-process-design-scale-up-7-objective-3",
+        "chemical-process-design-scale-up-outcome-7"
+      ],
+      "question_ids": [
+        "chemical-process-design-scale-up-7:l02-npv",
+        "chemical-process-design-scale-up-7:l04-autocorrelation",
+        "chemical-process-design-scale-up-7:l06-scale-power",
+        "chemical-process-design-scale-up-7:lab-evidence-hold",
+        "chemical-process-design-scale-up-7:lab-correlated-records",
+        "chemical-process-design-scale-up-7:lab-memo-boundaries"
+      ],
+      "points": 7
+    },
+    {
+      "id": "chemical-process-design-scale-up-project-rehearsal-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Formative practice: Integrated industry design-review capstone project guide",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "chemical-process-design-scale-up-8-objective-1",
+        "chemical-process-design-scale-up-8-objective-2",
+        "chemical-process-design-scale-up-8-objective-3",
+        "chemical-process-design-scale-up-outcome-8"
+      ],
+      "question_ids": [
+        "chemical-process-design-scale-up-8:r02-npv",
+        "chemical-process-design-scale-up-8:r05-lifecycle",
+        "chemical-process-design-scale-up-8:r06-verified-capa",
+        "chemical-process-design-scale-up-8:gate-order",
+        "chemical-process-design-scale-up-8:rehearsal-missing-evidence",
+        "chemical-process-design-scale-up-8:capstone-handoff"
+      ],
+      "points": 7
+    },
+    {
+      "id": "chemical-process-design-scale-up-integrated-design-review-project",
+      "type": "project",
+      "mode": "self-assessment",
+      "title": "Optional integrated industry design-review capstone: five zero-point milestones",
+      "path": "rubrics/case-studio.json",
+      "objective_ids": [],
+      "question_ids": [],
+      "points": 0
+    }
+  ],
+  "grading_policy": {
+    "mode": "formative-only",
+    "categories": [],
+    "attempt_policy": "Unlimited formative retries; no summative grade is awarded.",
+    "solution_release": "Public practice solutions may be shown after an attempt; case checklists are zero-point self-assessments.",
+    "late_policy": "No deadlines or late penalties exist in this partial package.",
+    "appeals": "No instructor review workflow is implemented; report ambiguous items as content issues."
+  },
+  "retrieval_cards": "question-banks/retrieval-cards.json",
+  "practice_question_bank": "question-banks/practice.json",
+  "case_rubrics": "rubrics/case-studio.json",
+  "source_map": "source-map.json",
+  "syllabus": "syllabus.md",
+  "learner_resources": [
+    "labs/process-design-evidence.csv",
+    "assignments/industry-design-review-rehearsal.csv"
+  ],
+  "review": {
+    "status": "unreviewed",
+    "reviewed_version": null,
+    "reviewers": []
+  },
+  "accessibility": {
+    "language": "en",
+    "reading_format": "markdown",
+    "math_format": "unicode-text",
+    "diagram_policy": "No copied figures, standards symbols or embedded PFDs are included; flowsheet, barrier and evidence relationships are expressed in prose, equations and original tables.",
+    "known_issues": [
+      "Unicode subscripts, superscripts, Greek letters and equations require structured alternatives and assistive-technology review.",
+      "CSV tables and text-based PFD/barrier/evidence descriptions have not undergone accessibility or usability review."
+    ],
+    "review_status": "unreviewed"
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "date": "2026-11-26",
+      "summary": "New explicitly partial advanced university/industry survey: eight routes in six modules, eight original substantive readings, 48 public practice items worth 56 points with 24 base numeric items and 24 authored variants, 24 retrieval cards, two original synthetic CSVs, one zero-point integrative case and five zero-point capstone milestones. No operational design, equipment rating, safety approval, process validation or release is supplied."
+    }
+  ],
+  "limitations": [
+    "This eight-route, six-module package is an explicitly partial advanced university/industry survey, not a complete or measured course. It is unreviewed and formative-only; no competency, credit, professional qualification, process validation or institutional authorization is established.",
+    "Readiness is the review objective, never an achieved claim. Real readiness requires named qualified process/mechanical/materials/control/safety/inspection/quality/regulatory reviewers and current authoritative standards; automated checks and synthetic templates grant no approval.",
+    "All species, equipment, scenarios, frequencies, probabilities, risks, records and CSV rows are original synthetic fictional teaching constructions. Arithmetic closure is not proof of safe or feasible operation, experimental validation, compatibility or engineering approval.",
+    "No real chemical identifier, recipe, concentration, startup/shutdown, bypass/isolation, emergency or waste-transport instruction is supplied. No wall thickness, weld parameters, WPS/PQR, pressure-test or NDE instructions, relief sizing, dispersion/explosion design or equipment duty rating is supplied.",
+    "No controller download, pilot run sheet, production setpoint, regulated batch disposition, process validation or commercial release is supplied. LOPA arithmetic cannot assign SIL, tolerable risk or approve an IPL; RPN is not probability.",
+    "Missing compatibility, inspection, safety or acceptance evidence is always unresolved, never zero or pass, and produces HOLD. R01–R08 remain evidence_gaps_remain; R09 is only synthetic_review_complete, never production_approved.",
+    "Reused scenario rows and repeated instrument records are correlated and descriptive, not independent replication. They must not support pooled independence, Wilson intervals or inflated experimental-unit counts; missing values remain unknown.",
+    "Of the 24 base numerical answers and 24 authored variant numerical answers, 0 require units, 0 check significant figures and 0 check dimensions. Every base and variant key has an authored absolute tolerance and independent arithmetic/misconception/domain tests; learners must still show units and derivations.",
+    "Every numeric item has one authored randomization variant in version 0.1.0; all 48 numeric forms and both public CSV closure/evidence/G0–G7 relationships are independently recomputed by package tests.",
+    "Official MIT, OSHA, NIST, ASME and FDA records, reused control/statistics/materials/safety records and owner application repositories are link-only in this package. ASME is proprietary catalog-only; no standard clause, source prose, figure, table, problem, dataset, code or validation artifact is imported.",
+    "The requested MIT 10.490 Fall 2005 URL returned HTTP 404. The verified official comparator is 10.490 Integrated Chemical Engineering I, Fall 2006; 10.491 Integrated Chemical Engineering II is Spring 2006. Topic alignment establishes no equivalence or endorsement."
+  ],
+  "intentionally_omitted": [
+    "Real chemicals, recipes, concentrations, operating/startup/shutdown/emergency procedures, bypass/isolation and waste-transport instructions.",
+    "Wall thickness, weld/WPS/PQR/pressure-test/NDE instructions, relief sizing, dispersion/explosion design, equipment duty ratings and procurement approval.",
+    "Controller downloads, pilot run sheets, production setpoints, regulated batch disposition, process validation, commercial release and achieved readiness.",
+    "SIL assignment, tolerable-risk determination, IPL approval, quantitative consequence modeling and standard-specific compliance checklists.",
+    "Physical experiments, independent replication, real plant data, measured workload, graded assessment and qualified scientific/engineering/safety/statistical/inspection/quality/regulatory/accessibility review."
+  ]
+}

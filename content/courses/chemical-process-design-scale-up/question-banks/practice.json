@@ -1,0 +1,2261 @@
+{
+  "schema_version": "1.0",
+  "course_id": "chemical-process-design-scale-up",
+  "license": "CC-BY-4.0",
+  "questions": [
+    {
+      "id": "chemical-process-design-scale-up-1:heat-recovery",
+      "type": "numeric",
+      "prompt": "A fictional heat-integration model has hot terms 120 and 4 and cold terms 90 and 5. What is min(120×4,90×5) in kW? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-1-objective-2"
+      ],
+      "feedback": {
+        "hint": "Recompute from the declared synthetic inputs and preserve the model and evidence boundary.",
+        "solution": "min(120×4,90×5)=min(480,450)=450 kW; this is not exchanger feasibility or rating.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 450,
+        "unit": "",
+        "tolerance": 4.5e-06,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "Alternate hot terms are 150 and 3 and cold terms are 80 and 6. What is the bounded heat recovery in kW? Enter the number only.",
+            "solution_spec": {
+              "answer": 450,
+              "unit": "",
+              "tolerance": 4.5e-06,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate inputs independently; do not reuse the base answer or infer approval.",
+              "solution": "min(150×3,80×6)=min(450,480)=450 kW under the alternate synthetic bound.",
+              "lesson_ids": [
+                "chemical-process-design-scale-up-1"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-1:scenario-npv",
+      "type": "numeric",
+      "prompt": "A synthetic scenario has investment 1000, annual net cash 300, rate 0.08 and 4 years. What is NPV in cost units? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-1-objective-2"
+      ],
+      "feedback": {
+        "hint": "Recompute from the declared synthetic inputs and preserve the model and evidence boundary.",
+        "solution": "NPV=−1000+300[1−1.08^−4]/0.08=−6.36194799 cost units; it is not an investment recommendation.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": -6.3619479866998745,
+        "unit": "",
+        "tolerance": 6.361947986699874e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "The alternate has investment 1200, annual net cash 360, rate 0.10 and 5 years. What is NPV? Enter the number only.",
+            "solution_spec": {
+              "answer": 164.6832369870424,
+              "unit": "",
+              "tolerance": 1.646832369870424e-06,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate inputs independently; do not reuse the base answer or infer approval.",
+              "solution": "NPV=−1200+360[1−1.10^−5]/0.10=164.68323699 cost units under the declared scenario.",
+              "lesson_ids": [
+                "chemical-process-design-scale-up-1"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-1:lifecycle-emissions",
+      "type": "numeric",
+      "prompt": "A synthetic inventory has 120 upstream units at 8, 300 use units at 0.5 and a −40 credit. What are total emission units? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-1-objective-2"
+      ],
+      "feedback": {
+        "hint": "Recompute from the declared synthetic inputs and preserve the model and evidence boundary.",
+        "solution": "Total=120×8+300×0.5−40=1070 emission units under the declared lifecycle boundary.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1070.0,
+        "unit": "",
+        "tolerance": 1.0700000000000001e-05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "An alternate has 150 upstream units at 6, 400 use units at 0.25 and a −60 credit. What are total emission units? Enter the number only.",
+            "solution_spec": {
+              "answer": 940.0,
+              "unit": "",
+              "tolerance": 9.4e-06,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate inputs independently; do not reuse the base answer or infer approval.",
+              "solution": "Alternate total=150×6+400×0.25−60=940 emission units; the credit is stipulated, not measured recovery.",
+              "lesson_ids": [
+                "chemical-process-design-scale-up-1"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-1:design-basis-gap",
+      "type": "single_choice",
+      "prompt": "A fictional alternative has favorable NPV but no named safety reviewer or lifecycle boundary. What is the correct review state?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-1-objective-1"
+      ],
+      "feedback": {
+        "hint": "Separate declared evidence, model limitations and qualified human decisions from assumptions or preferences.",
+        "solution": "Requirements and named review evidence are gates; favorable economics cannot waive them.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Approve because NPV is favorable",
+        "Record unresolved evidence and HOLD",
+        "Set missing emissions to zero",
+        "Average the gap into cost"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-1:convergence-boundary",
+      "type": "single_choice",
+      "prompt": "A flowsheet converges and closes balances but a heat-integration value has no temperature-feasibility evidence. What follows?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-1-objective-2"
+      ],
+      "feedback": {
+        "hint": "Separate declared evidence, model limitations and qualified human decisions from assumptions or preferences.",
+        "solution": "Numerical convergence and closure do not validate physics or establish equipment feasibility.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "It is an approved exchanger rating",
+        "It proves physical validation",
+        "It remains a model result with feasibility unresolved",
+        "It establishes safe operation"
+      ],
+      "solution_spec": {
+        "answer": 2
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-1:multiobjective-audit",
+      "type": "multiple_select",
+      "prompt": "Which practices belong in a constraints-first multiobjective design review? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "chemical-process-design-scale-up-1-objective-1",
+        "chemical-process-design-scale-up-1-objective-2",
+        "chemical-process-design-scale-up-1-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate declared evidence, model limitations and qualified human decisions from assumptions or preferences.",
+        "solution": "A defensible comparison screens constraints, declares boundaries and tests preference sensitivity without erasing gaps.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Screen hard requirements before preferences",
+        "Declare lifecycle boundaries and uncertainty",
+        "Treat missing compatibility as zero impact",
+        "Report sensitive weights and trade-offs",
+        "Use NPV to waive safety evidence"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-2:wetted-coverage",
+      "type": "numeric",
+      "prompt": "A fictional equipment register has 9 complete compatibility records among 12 required all-wetted components. What is descriptive coverage percent? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-2-objective-2"
+      ],
+      "feedback": {
+        "hint": "Recompute from the declared synthetic inputs and preserve the model and evidence boundary.",
+        "solution": "Coverage=9/12×100=75%; the three missing components still require HOLD.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 75.0,
+        "unit": "",
+        "tolerance": 7.5e-07,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "An alternate register has 14 complete records among 16 required components. What is descriptive coverage percent? Enter the number only.",
+            "solution_spec": {
+              "answer": 87.5,
+              "unit": "",
+              "tolerance": 8.75e-07,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate inputs independently; do not reuse the base answer or infer approval.",
+              "solution": "Coverage=14/16×100=87.5%; two unresolved components still prevent completion.",
+              "lesson_ids": [
+                "chemical-process-design-scale-up-2"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-2:fatigue-sum",
+      "type": "numeric",
+      "prompt": "Under a declared Miner-style illustration, two cycle blocks are 2000/10000 and 500/2500. What is their sum? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-2-objective-2"
+      ],
+      "feedback": {
+        "hint": "Recompute from the declared synthetic inputs and preserve the model and evidence boundary.",
+        "solution": "The sum=0.20+0.20=0.40; this is not remaining life or inspection acceptance.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.4,
+        "unit": "",
+        "tolerance": 1e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "Alternate blocks are 1200/8000 and 900/3000. What is the declared sum? Enter the number only.",
+            "solution_spec": {
+              "answer": 0.44999999999999996,
+              "unit": "",
+              "tolerance": 1e-08,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate inputs independently; do not reuse the base answer or infer approval.",
+              "solution": "Alternate sum=0.15+0.30=0.45; environmental and joint evidence remain unresolved.",
+              "lesson_ids": [
+                "chemical-process-design-scale-up-2"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-2:inspection-closure",
+      "type": "numeric",
+      "prompt": "Six of ten required fictional inspection/nonconformance packages are closed with verification. What is verified closure percent? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-2-objective-2"
+      ],
+      "feedback": {
+        "hint": "Recompute from the declared synthetic inputs and preserve the model and evidence boundary.",
+        "solution": "Verified closure=6/10×100=60%; the other four packages remain unresolved and HOLD.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 60.0,
+        "unit": "",
+        "tolerance": 6e-07,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "Eight of sixteen required packages are closed with verification in the alternate. What is verified closure percent? Enter the number only.",
+            "solution_spec": {
+              "answer": 50.0,
+              "unit": "",
+              "tolerance": 5e-07,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate inputs independently; do not reuse the base answer or infer approval.",
+              "solution": "Alternate verified closure=8/16×100=50%; closure percentage is not acceptance.",
+              "lesson_ids": [
+                "chemical-process-design-scale-up-2"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-2:all-wetted-scope",
+      "type": "single_choice",
+      "prompt": "The shell has a compatibility record, but seals, gasket and instrument diaphragm records are absent. What is the equipment evidence state?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-2-objective-1"
+      ],
+      "feedback": {
+        "hint": "Separate declared evidence, model limitations and qualified human decisions from assumptions or preferences.",
+        "solution": "Compatibility applies to every wetted component; missing seals and diaphragms cannot be assumed acceptable.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Compatible overall",
+        "75% approved",
+        "Unresolved and HOLD",
+        "Accept by analogy"
+      ],
+      "solution_spec": {
+        "answer": 2
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-2:inspection-missing",
+      "type": "single_choice",
+      "prompt": "An NDE report omits equipment identity and coverage and has no qualified reviewer. What is the correct interpretation?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-2-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate declared evidence, model limitations and qualified human decisions from assumptions or preferences.",
+        "solution": "Missing identity, coverage and review do not establish zero indication or acceptance.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Zero indications",
+        "Full coverage accepted",
+        "Evidence unresolved and HOLD",
+        "Repair approved without MOC"
+      ],
+      "solution_spec": {
+        "answer": 2
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-2:traveler-traceability",
+      "type": "multiple_select",
+      "prompt": "Which links belong in a fictional fabrication/joint evidence audit? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "chemical-process-design-scale-up-2-objective-1",
+        "chemical-process-design-scale-up-2-objective-2",
+        "chemical-process-design-scale-up-2-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate declared evidence, model limitations and qualified human decisions from assumptions or preferences.",
+        "solution": "Traceability connects joint, qualifications, inspection and change evidence without supplying fabrication parameters.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Joint ID to drawing/location",
+        "Procedure and personnel qualification references",
+        "Inspection identity/coverage and disposition",
+        "Weld parameters copied from a generic table",
+        "Nonconformance and MOC links"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-3:fopdt-gain",
+      "type": "numeric",
+      "prompt": "A local synthetic FOPDT endpoint changes output from 12 to 18 while input changes from 5 to 8. What is process gain K? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-3-objective-1"
+      ],
+      "feedback": {
+        "hint": "Recompute from the declared synthetic inputs and preserve the model and evidence boundary.",
+        "solution": "K=(18−12)/(8−5)=2 under the declared local endpoint model; this supplies no tuning.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 2.0,
+        "unit": "",
+        "tolerance": 2e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "The alternate output changes from 19 to 25 while input changes from 7 to 10. What is K? Enter the number only.",
+            "solution_spec": {
+              "answer": 2.0,
+              "unit": "",
+              "tolerance": 2e-08,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate inputs independently; do not reuse the base answer or infer approval.",
+              "solution": "Alternate K=(25−19)/(10−7)=2 under its local endpoint model.",
+              "lesson_ids": [
+                "chemical-process-design-scale-up-3"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-3:lag-one-autocorrelation",
+      "type": "numeric",
+      "prompt": "Mean-zero repeated residuals are [1,−1,1,−1]. What is lag-one autocorrelation using all four squared terms in the denominator? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-3-objective-3"
+      ],
+      "feedback": {
+        "hint": "Recompute from the declared synthetic inputs and preserve the model and evidence boundary.",
+        "solution": "r₁=(−1−1−1)/(1+1+1+1)=−0.75; this is descriptive and not an independence claim.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": -0.75,
+        "unit": "",
+        "tolerance": 1e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "Alternate mean-zero residuals are [2,0,−2,0]. What is lag-one autocorrelation with the analogous denominator? Enter the number only.",
+            "solution_spec": {
+              "answer": 0,
+              "unit": "",
+              "tolerance": 1e-08,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate inputs independently; do not reuse the base answer or infer approval.",
+              "solution": "Alternate numerator is 0 and denominator is 8, so r₁=0; zero does not prove independence.",
+              "lesson_ids": [
+                "chemical-process-design-scale-up-3"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-3:saturated-command",
+      "type": "numeric",
+      "prompt": "A fictional controller requests 20+3(9−4), with model command limits 0 to 40. What is the applied command after saturation? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-3-objective-1"
+      ],
+      "feedback": {
+        "hint": "Recompute from the declared synthetic inputs and preserve the model and evidence boundary.",
+        "solution": "Request=35, inside 0 to 40, so applied command=35; this is not a controller download or production setting.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 35,
+        "unit": "",
+        "tolerance": 3.5e-07,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "An alternate requests 25+4(12−5), with limits 0 to 50. What is the applied command? Enter the number only.",
+            "solution_spec": {
+              "answer": 50,
+              "unit": "",
+              "tolerance": 5e-07,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate inputs independently; do not reuse the base answer or infer approval.",
+              "solution": "Request=53, clipped to the upper model limit, so applied command=50; anti-windup evidence remains separate.",
+              "lesson_ids": [
+                "chemical-process-design-scale-up-3"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-3:alarm-interlock-separation",
+      "type": "single_choice",
+      "prompt": "A control-loop alarm shares its sensor and logic with a claimed independent protective function. What is the review conclusion?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-3-objective-2"
+      ],
+      "feedback": {
+        "hint": "Separate declared evidence, model limitations and qualified human decisions from assumptions or preferences.",
+        "solution": "Shared sensor/logic can defeat independence; an alarm is not automatically an IPL.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Credit two independent layers",
+        "Investigate common-cause dependence and do not credit independence",
+        "Ignore the shared sensor",
+        "Download a new controller"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-3:spc-repeated-records",
+      "type": "single_choice",
+      "prompt": "Repeated instrument readings within one scenario are pooled to claim many independent process units. What is the correction?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-3-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate declared evidence, model limitations and qualified human decisions from assumptions or preferences.",
+        "solution": "Repeated readings describe the scenario and do not create independent experimental units.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Use descriptive correlated records within that scenario",
+        "Treat every reading as a new independent run",
+        "Replace missing residuals with zero",
+        "Call control limits specifications"
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-3:quality-evidence",
+      "type": "multiple_select",
+      "prompt": "Which operations-quality practices preserve evidence boundaries? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "chemical-process-design-scale-up-3-objective-1",
+        "chemical-process-design-scale-up-3-objective-2",
+        "chemical-process-design-scale-up-3-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate declared evidence, model limitations and qualified human decisions from assumptions or preferences.",
+        "solution": "Quality review distinguishes event types, verifies actions and preserves temporal and PAT model evidence.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Distinguish deviation, OOS and OOT",
+        "Verify CAPA effectiveness",
+        "Treat PAT inference as direct identity without calibration",
+        "Preserve time order and autocorrelation",
+        "Continue verification after transfer"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-4:bowtie-at-least-one-fails",
+      "type": "numeric",
+      "prompt": "Two fictional barrier failure probabilities are 0.10 and 0.20 with independence declared only for arithmetic. What is probability at least one fails? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-4-objective-3"
+      ],
+      "feedback": {
+        "hint": "Recompute from the declared synthetic inputs and preserve the model and evidence boundary.",
+        "solution": "P(at least one fails)=1−0.90×0.80=0.28; no barrier is thereby IPL-approved.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.2799999999999999,
+        "unit": "",
+        "tolerance": 1e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "Alternate independent-for-arithmetic failure probabilities are 0.10 and 0.25. What is probability at least one fails? Enter the number only.",
+            "solution_spec": {
+              "answer": 0.32499999999999996,
+              "unit": "",
+              "tolerance": 1e-08,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate inputs independently; do not reuse the base answer or infer approval.",
+              "solution": "Alternate probability=1−0.90×0.75=0.325; independence remains an unverified stipulation.",
+              "lesson_ids": [
+                "chemical-process-design-scale-up-4"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-4:lopa-product",
+      "type": "numeric",
+      "prompt": "A fictional LOPA arithmetic example uses initiating frequency 0.20 and two conditional failure probabilities 0.10 and 0.05. What is their product per year? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-4-objective-3"
+      ],
+      "feedback": {
+        "hint": "Recompute from the declared synthetic inputs and preserve the model and evidence boundary.",
+        "solution": "Product=0.20×0.10×0.05=0.001 per year; it cannot assign SIL, tolerable risk or approve IPL.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.0010000000000000002,
+        "unit": "",
+        "tolerance": 1e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "The alternate uses 0.25, 0.10 and 0.02. What is the product per year? Enter the number only.",
+            "solution_spec": {
+              "answer": 0.0005,
+              "unit": "",
+              "tolerance": 1e-08,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate inputs independently; do not reuse the base answer or infer approval.",
+              "solution": "Alternate product=0.25×0.10×0.02=0.0005 per year; provenance and independence are unestablished.",
+              "lesson_ids": [
+                "chemical-process-design-scale-up-4"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-4:rpn",
+      "type": "numeric",
+      "prompt": "A fictional FMEA uses ordinal severity 6, occurrence 4 and detection 3. What is the RPN product? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-4-objective-2"
+      ],
+      "feedback": {
+        "hint": "Recompute from the declared synthetic inputs and preserve the model and evidence boundary.",
+        "solution": "RPN=6×4×3=72; it is ordinal bookkeeping, not a failure probability.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 72,
+        "unit": "",
+        "tolerance": 7.2e-07,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "The alternate uses ordinal rankings 8, 3 and 5. What is the RPN? Enter the number only.",
+            "solution_spec": {
+              "answer": 120,
+              "unit": "",
+              "tolerance": 1.2e-06,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate inputs independently; do not reuse the base answer or infer approval.",
+              "solution": "Alternate RPN=8×3×5=120; equal or higher products still require mechanism-specific review.",
+              "lesson_ids": [
+                "chemical-process-design-scale-up-4"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-4:lopa-limits",
+      "type": "single_choice",
+      "prompt": "A fictional LOPA product is below an invented target. What may the reviewer conclude?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-4-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate declared evidence, model limitations and qualified human decisions from assumptions or preferences.",
+        "solution": "LOPA arithmetic alone cannot assign SIL, tolerable risk, IPL credit or operating approval.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Assign SIL 2",
+        "Approve both IPLs and tolerable risk",
+        "Report only the arithmetic and unresolved provenance/independence",
+        "Authorize operation"
+      ],
+      "solution_spec": {
+        "answer": 2
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-4:barrier-independence",
+      "type": "single_choice",
+      "prompt": "Two bow-tie barriers share a sensor, utility and human response. What is required?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-4-objective-2"
+      ],
+      "feedback": {
+        "hint": "Separate declared evidence, model limitations and qualified human decisions from assumptions or preferences.",
+        "solution": "Shared components and responses create dependencies that must be evaluated before credit.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Automatic independence",
+        "Common-cause review and no unverified independence credit",
+        "Double their risk reduction",
+        "Call both passive"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-4:inherently-safer-learning",
+      "type": "multiple_select",
+      "prompt": "Which actions support inherently safer and learning-oriented review? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "chemical-process-design-scale-up-4-objective-1",
+        "chemical-process-design-scale-up-4-objective-2",
+        "chemical-process-design-scale-up-4-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate declared evidence, model limitations and qualified human decisions from assumptions or preferences.",
+        "solution": "Inherent reduction, controlled change and verified learning are stronger than ceremonial checklists.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Consider minimization and simplification before added protection",
+        "Link MOC to downstream evidence",
+        "Treat PSSR as a paperwork signature",
+        "Investigate organizational contributors to incidents",
+        "Verify action effectiveness"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-5:scale-power-ratio",
+      "type": "numeric",
+      "prompt": "In a declared geometric turbulent power-per-volume approximation, diameter ratio is 3. What is the modeled P/V ratio? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-5-objective-1"
+      ],
+      "feedback": {
+        "hint": "Recompute from the declared synthetic inputs and preserve the model and evidence boundary.",
+        "solution": "P/V ratio=3²=9; this is not agitator duty or blend-time evidence.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 9,
+        "unit": "",
+        "tolerance": 9e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "The alternate diameter ratio is 2.5. What is the modeled P/V ratio? Enter the number only.",
+            "solution_spec": {
+              "answer": 6.25,
+              "unit": "",
+              "tolerance": 6.25e-08,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate inputs independently; do not reuse the base answer or infer approval.",
+              "solution": "Alternate P/V ratio=2.5²=6.25 under the same limited approximation.",
+              "lesson_ids": [
+                "chemical-process-design-scale-up-5"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-5:area-volume-ratio",
+      "type": "numeric",
+      "prompt": "For geometric similarity, what is relative area/volume when length scale increases by a factor of 4? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-5-objective-1"
+      ],
+      "feedback": {
+        "hint": "Recompute from the declared synthetic inputs and preserve the model and evidence boundary.",
+        "solution": "Relative area/volume=1/4=0.25; this supplies no heat-transfer coefficient or exchanger design.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.25,
+        "unit": "",
+        "tolerance": 1e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "What is relative area/volume for an alternate length-scale factor of 2? Enter the number only.",
+            "solution_spec": {
+              "answer": 0.5,
+              "unit": "",
+              "tolerance": 1e-08,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate inputs independently; do not reuse the base answer or infer approval.",
+              "solution": "Alternate relative area/volume=1/2=0.5 under geometric similarity.",
+              "lesson_ids": [
+                "chemical-process-design-scale-up-5"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-5:damkohler",
+      "type": "numeric",
+      "prompt": "A synthetic Damköhler relation Da=kτ uses k=0.3 and τ=8 in consistent inverse-time/time units. What is Da? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-5-objective-2"
+      ],
+      "feedback": {
+        "hint": "Recompute from the declared synthetic inputs and preserve the model and evidence boundary.",
+        "solution": "Da=0.3×8=2.4; this does not identify conversion or a real kinetic model.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 2.4,
+        "unit": "",
+        "tolerance": 2.4e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "The alternate uses k=0.25 and τ=12. What is Da? Enter the number only.",
+            "solution_spec": {
+              "answer": 3.0,
+              "unit": "",
+              "tolerance": 3.0000000000000004e-08,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate inputs independently; do not reuse the base answer or infer approval.",
+              "solution": "Alternate Da=0.25×12=3.0 under the declared dimensionless relation.",
+              "lesson_ids": [
+                "chemical-process-design-scale-up-5"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-5:similarity-limit",
+      "type": "single_choice",
+      "prompt": "A scale comparison matches Reynolds number but leaves heat-removal and micromixing groups unmatched. What is supported?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-5-objective-1"
+      ],
+      "feedback": {
+        "hint": "Separate declared evidence, model limitations and qualified human decisions from assumptions or preferences.",
+        "solution": "Similarity is selective; unmatched mechanisms remain scale-up uncertainties.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Full plant equivalence",
+        "A selective similarity hypothesis with unresolved scale effects",
+        "An agitator duty rating",
+        "A production setpoint"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-5:scale-down-independence",
+      "type": "single_choice",
+      "prompt": "Ten repeated probes in one pilot run are treated as ten independent runs. What is the correction?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-5-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate declared evidence, model limitations and qualified human decisions from assumptions or preferences.",
+        "solution": "Repeated probes do not create independent runs; experimental-unit structure governs replication.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "They are independent if precise",
+        "Use one run-level experimental unit with repeated descriptive measurements",
+        "Add nine new scenarios",
+        "Replace missing runs with zeros"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-5:pilot-transfer-evidence",
+      "type": "multiple_select",
+      "prompt": "Which items belong in a synthetic pilot/technology-transfer evidence plan? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "chemical-process-design-scale-up-5-objective-1",
+        "chemical-process-design-scale-up-5-objective-2",
+        "chemical-process-design-scale-up-5-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate declared evidence, model limitations and qualified human decisions from assumptions or preferences.",
+        "solution": "Scale evidence documents regimes, true runs, provenance, receiving differences and continued ownership without setpoints.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Dimensionless groups and unmatched features",
+        "Independent run definitions and uncertainty",
+        "Production setpoints for the receiving site",
+        "Model/data provenance and receiving differences",
+        "Continued-verification ownership"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-6:gate-coverage",
+      "type": "numeric",
+      "prompt": "Six of eight fictional G0–G7 evidence packages are complete. What is descriptive coverage percent? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-6-objective-3"
+      ],
+      "feedback": {
+        "hint": "Recompute from the declared synthetic inputs and preserve the model and evidence boundary.",
+        "solution": "Coverage=6/8×100=75%; the two unresolved gates still force HOLD.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 75.0,
+        "unit": "",
+        "tolerance": 7.5e-07,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "Seven of eight gate packages are complete in the alternate. What is descriptive coverage percent? Enter the number only.",
+            "solution_spec": {
+              "answer": 87.5,
+              "unit": "",
+              "tolerance": 8.75e-07,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate inputs independently; do not reuse the base answer or infer approval.",
+              "solution": "Coverage=7/8×100=87.5%; even one unresolved gate prevents synthetic completion.",
+              "lesson_ids": [
+                "chemical-process-design-scale-up-6"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-6:residual-rms",
+      "type": "numeric",
+      "prompt": "Synthetic verification residuals are [0.2,−0.1,0.1]. What is their RMS? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-6-objective-2"
+      ],
+      "feedback": {
+        "hint": "Recompute from the declared synthetic inputs and preserve the model and evidence boundary.",
+        "solution": "RMS=sqrt((0.2²+(−0.1)²+0.1²)/3)=0.14142136; this is not an acceptance threshold.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.14142135623730953,
+        "unit": "",
+        "tolerance": 1e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "Alternate residuals are [0.3,−0.2,0.1,0]. What is their RMS? Enter the number only.",
+            "solution_spec": {
+              "answer": 0.18708286933869708,
+              "unit": "",
+              "tolerance": 1e-08,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate inputs independently; do not reuse the base answer or infer approval.",
+              "solution": "Alternate RMS=sqrt((0.3²+(−0.2)²+0.1²+0²)/4)=0.18708287 model units.",
+              "lesson_ids": [
+                "chemical-process-design-scale-up-6"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-6:verified-capa",
+      "type": "numeric",
+      "prompt": "Eight of ten fictional CAPA actions are verified effective. What is verified percent? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-6-objective-3"
+      ],
+      "feedback": {
+        "hint": "Recompute from the declared synthetic inputs and preserve the model and evidence boundary.",
+        "solution": "Verified CAPA=8/10×100=80%; the two unverified actions remain open.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 80.0,
+        "unit": "",
+        "tolerance": 8e-07,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "Nine of fifteen alternate CAPA actions are verified effective. What is verified percent? Enter the number only.",
+            "solution_spec": {
+              "answer": 60.0,
+              "unit": "",
+              "tolerance": 6e-07,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate inputs independently; do not reuse the base answer or infer approval.",
+              "solution": "Alternate verified CAPA=9/15×100=60%; unverified work cannot be counted closed.",
+              "lesson_ids": [
+                "chemical-process-design-scale-up-6"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-6:gate-hold",
+      "type": "single_choice",
+      "prompt": "Seven of eight G0–G7 packages are complete and pilot readiness is missing. What is the disposition?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-6-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate declared evidence, model limitations and qualified human decisions from assumptions or preferences.",
+        "solution": "Any missing required gate produces HOLD; percentages do not waive evidence.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "87.5% approved",
+        "Conditional release",
+        "HOLD with evidence_gaps_remain",
+        "Zero pilot risk"
+      ],
+      "solution_spec": {
+        "answer": 2
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-6:verification-validation",
+      "type": "single_choice",
+      "prompt": "Small equation residuals and converged balances are available, but no physical comparison exists. What is supported?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-6-objective-2"
+      ],
+      "feedback": {
+        "hint": "Separate declared evidence, model limitations and qualified human decisions from assumptions or preferences.",
+        "solution": "Verification checks the declared implementation; it does not validate physical representation.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Physical validation",
+        "Numerical verification evidence only",
+        "Commercial release",
+        "Scale equivalence"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-6:governance-roles",
+      "type": "multiple_select",
+      "prompt": "Which governance elements are required for a bounded design-transfer review? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "chemical-process-design-scale-up-6-objective-1",
+        "chemical-process-design-scale-up-6-objective-2",
+        "chemical-process-design-scale-up-6-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate declared evidence, model limitations and qualified human decisions from assumptions or preferences.",
+        "solution": "Real review requires qualified named roles, change propagation and verified ongoing evidence.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Named qualified engineering and safety reviewers",
+        "Authorized inspection and quality/regulatory roles as applicable",
+        "Unnamed generic sign-off",
+        "CAPA effectiveness and continued verification",
+        "MOC propagation to dependent artifacts"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-7:l02-npv",
+      "type": "numeric",
+      "prompt": "Lab row L02 has investment 800, annual net cash 250, rate 0.10 and 4 years. What is NPV? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-7-objective-1"
+      ],
+      "feedback": {
+        "hint": "Recompute from the declared synthetic inputs and preserve the model and evidence boundary.",
+        "solution": "L02 NPV=−800+250[1−1.1^−4]/0.10=−7.53363841 cost units.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": -7.533638412676282,
+        "unit": "",
+        "tolerance": 7.533638412676282e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "Lab row L05 has investment 900, annual net cash 300, rate 0.08 and 4 years. What is NPV? Enter the number only.",
+            "solution_spec": {
+              "answer": 93.63805201330013,
+              "unit": "",
+              "tolerance": 9.363805201330012e-07,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate inputs independently; do not reuse the base answer or infer approval.",
+              "solution": "L05 NPV=−900+300[1−1.08^−4]/0.08=93.63805201 cost units; evidence gaps still apply.",
+              "lesson_ids": [
+                "chemical-process-design-scale-up-7"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-7:l04-autocorrelation",
+      "type": "numeric",
+      "prompt": "Lab row L04 residuals are [1,1,−1,−1]. What is lag-one autocorrelation using the mean-centered denominator? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-7-objective-2"
+      ],
+      "feedback": {
+        "hint": "Recompute from the declared synthetic inputs and preserve the model and evidence boundary.",
+        "solution": "Mean=0; numerator=1−1+1=1 and denominator=4, so r₁=0.25. Repeated records remain correlated.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.25,
+        "unit": "",
+        "tolerance": 1e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "Lab row L07 residuals are [2,−2,2,−2]. What is lag-one autocorrelation? Enter the number only.",
+            "solution_spec": {
+              "answer": -0.75,
+              "unit": "",
+              "tolerance": 1e-08,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate inputs independently; do not reuse the base answer or infer approval.",
+              "solution": "L07 mean=0; numerator=−4−4−4=−12 and denominator=16, so r₁=−0.75.",
+              "lesson_ids": [
+                "chemical-process-design-scale-up-7"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-7:l06-scale-power",
+      "type": "numeric",
+      "prompt": "Lab row L06 has diameter ratio 2 under the declared P/V approximation. What is its modeled P/V ratio? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-7-objective-1"
+      ],
+      "feedback": {
+        "hint": "Recompute from the declared synthetic inputs and preserve the model and evidence boundary.",
+        "solution": "L06 P/V ratio=2²=4; no equipment rating is implied.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 4,
+        "unit": "",
+        "tolerance": 4e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "Lab row L08 has diameter ratio 1.5. What is its modeled P/V ratio? Enter the number only.",
+            "solution_spec": {
+              "answer": 2.25,
+              "unit": "",
+              "tolerance": 2.25e-08,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate inputs independently; do not reuse the base answer or infer approval.",
+              "solution": "L08 P/V ratio=1.5²=2.25 under the declared synthetic approximation.",
+              "lesson_ids": [
+                "chemical-process-design-scale-up-7"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-7:lab-evidence-hold",
+      "type": "single_choice",
+      "prompt": "A lab row has correct NPV and scale arithmetic but missing seal compatibility and inspection coverage. What is its state?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-7-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate declared evidence, model limitations and qualified human decisions from assumptions or preferences.",
+        "solution": "Missing compatibility or inspection evidence always produces HOLD regardless of arithmetic.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "synthetic_review_complete",
+        "HOLD with evidence_gaps_remain",
+        "Zero compatibility risk",
+        "Treat it as complete"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-7:lab-correlated-records",
+      "type": "single_choice",
+      "prompt": "Why must the lab residuals not be pooled as independent replication?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-7-objective-2"
+      ],
+      "feedback": {
+        "hint": "Separate declared evidence, model limitations and qualified human decisions from assumptions or preferences.",
+        "solution": "Record origin and shared scenario structure determine dependence, not rounding or visibility.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "They are rounded",
+        "They are repeated records within reused scenarios and remain correlated/descriptive",
+        "They have no units",
+        "They are public"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-7:lab-memo-boundaries",
+      "type": "multiple_select",
+      "prompt": "Which elements belong in the synthetic lab memo? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "chemical-process-design-scale-up-7-objective-1",
+        "chemical-process-design-scale-up-7-objective-2",
+        "chemical-process-design-scale-up-7-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate declared evidence, model limitations and qualified human decisions from assumptions or preferences.",
+        "solution": "The memo reports calculations, gaps and correlation without operational instructions or equipment ratings.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Formula and substitution for every scenario",
+        "Evidence-state rationale and qualified reviewer needs",
+        "Startup and isolation instructions",
+        "Correlation and missing-evidence disclosures",
+        "Equipment duty ratings"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-8:r02-npv",
+      "type": "numeric",
+      "prompt": "Rehearsal R02 has investment 600, annual net cash 200, rate 0.10 and 3 years. What is NPV? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-8-objective-2"
+      ],
+      "feedback": {
+        "hint": "Recompute from the declared synthetic inputs and preserve the model and evidence boundary.",
+        "solution": "R02 NPV=−600+200[1−1.1^−3]/0.10=−102.62960180 cost units.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": -102.62960180315514,
+        "unit": "",
+        "tolerance": 1.0262960180315513e-06,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "Rehearsal R04 has investment 750, annual net cash 250, rate 0.08 and 4 years. What is NPV? Enter the number only.",
+            "solution_spec": {
+              "answer": 78.03171001108353,
+              "unit": "",
+              "tolerance": 7.803171001108354e-07,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate inputs independently; do not reuse the base answer or infer approval.",
+              "solution": "R04 NPV=−750+250[1−1.08^−4]/0.08=78.03171001 cost units.",
+              "lesson_ids": [
+                "chemical-process-design-scale-up-project-guide"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-8:r05-lifecycle",
+      "type": "numeric",
+      "prompt": "Rehearsal R05 has 200 upstream units at 5, 100 use units at 0.2 and a −30 credit. What are total emission units? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-8-objective-2"
+      ],
+      "feedback": {
+        "hint": "Recompute from the declared synthetic inputs and preserve the model and evidence boundary.",
+        "solution": "R05 total=200×5+100×0.2−30=990 emission units under its declared boundary.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 990.0,
+        "unit": "",
+        "tolerance": 9.9e-06,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "Rehearsal R07 has 240 upstream units at 4, 80 use units at 0.25 and a −20 credit. What are total emission units? Enter the number only.",
+            "solution_spec": {
+              "answer": 960.0,
+              "unit": "",
+              "tolerance": 9.6e-06,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate inputs independently; do not reuse the base answer or infer approval.",
+              "solution": "R07 total=240×4+80×0.25−20=960 emission units; no measured footprint is claimed.",
+              "lesson_ids": [
+                "chemical-process-design-scale-up-project-guide"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-8:r06-verified-capa",
+      "type": "numeric",
+      "prompt": "Rehearsal R06 has 8 verified effective CAPA actions among 10. What is verified percent? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-8-objective-2"
+      ],
+      "feedback": {
+        "hint": "Recompute from the declared synthetic inputs and preserve the model and evidence boundary.",
+        "solution": "R06 verified CAPA=8/10×100=80%; unresolved work remains open.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 80.0,
+        "unit": "",
+        "tolerance": 8e-07,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "Rehearsal R08 has 9 verified effective CAPA actions among 15. What is verified percent? Enter the number only.",
+            "solution_spec": {
+              "answer": 60.0,
+              "unit": "",
+              "tolerance": 6e-07,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate inputs independently; do not reuse the base answer or infer approval.",
+              "solution": "R08 verified CAPA=9/15×100=60%; G7 remains HOLD.",
+              "lesson_ids": [
+                "chemical-process-design-scale-up-project-guide"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-8:gate-order",
+      "type": "single_choice",
+      "prompt": "A receiving-site transfer package is complete but the original design basis and model domain evidence are unresolved. What is correct?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-8-objective-1"
+      ],
+      "feedback": {
+        "hint": "Separate declared evidence, model limitations and qualified human decisions from assumptions or preferences.",
+        "solution": "Later documents cannot erase earlier unresolved evidence; dependent gates must be re-reviewed.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "G7 erases G0/G1 gaps",
+        "Reopen and hold dependent gates until basis/model evidence is resolved",
+        "Release because transfer is complete",
+        "Set model uncertainty to zero"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-8:rehearsal-missing-evidence",
+      "type": "single_choice",
+      "prompt": "R02 has a reproducible NPV but G1 model verification is open. What is the expected state?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-process-design-scale-up-8-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate declared evidence, model limitations and qualified human decisions from assumptions or preferences.",
+        "solution": "R02 remains HOLD because open G1 evidence cannot be overridden by NPV arithmetic.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "synthetic_review_complete",
+        "production_approved",
+        "HOLD with evidence_gaps_remain",
+        "Zero model risk"
+      ],
+      "solution_spec": {
+        "answer": 2
+      }
+    },
+    {
+      "id": "chemical-process-design-scale-up-8:capstone-handoff",
+      "type": "multiple_select",
+      "prompt": "Which elements belong in the zero-point capstone handoff? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "chemical-process-design-scale-up-8-objective-1",
+        "chemical-process-design-scale-up-8-objective-2",
+        "chemical-process-design-scale-up-8-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate declared evidence, model limitations and qualified human decisions from assumptions or preferences.",
+        "solution": "The handoff is traceable and bounded, with unresolved roles/actions and no commercial or operational recommendation.",
+        "lesson_ids": [
+          "chemical-process-design-scale-up-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Versioned G0–G7 evidence table",
+        "Unresolved actions and real reviewer roster",
+        "Commercial release recommendation",
+        "Source/CSV/case traceability and correlation disclosures",
+        "No operational or release claims"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    }
+  ]
+}

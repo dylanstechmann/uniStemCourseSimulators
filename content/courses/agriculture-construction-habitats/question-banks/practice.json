@@ -1,0 +1,1624 @@
+{
+  "schema_version": "1.0",
+  "course_id": "agriculture-construction-habitats",
+  "license": "CC-BY-4.0",
+  "questions": [
+    {
+      "id": "agriculture-construction-habitats-1:reclaimed-share",
+      "type": "numeric",
+      "prompt": "A synthetic site ledger records 18 L rainfall capture, 32 L reclaimed input and 50 L municipal input. What percentage of the combined input is reclaimed? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-1-objective-2"
+      ],
+      "feedback": {
+        "hint": "Add all three sources before calculating the fraction.",
+        "solution": "Combined input = 18 + 32 + 50 = 100 L; reclaimed share = 32/100 × 100 = 32%.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 32,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-1:production-area",
+      "type": "numeric",
+      "prompt": "A synthetic plan has production zones of 120 m² and 80 m², with 30 m² of shared paths excluded from the production boundary. What production area remains in m²? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-1-objective-1"
+      ],
+      "feedback": {
+        "hint": "Include both zones, then subtract only the excluded paths.",
+        "solution": "Production area = 120 + 80 − 30 = 170 m²; shared paths remain in the site but outside the production boundary.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 170,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-1:closing-water-stock",
+      "type": "numeric",
+      "prompt": "A synthetic support reservoir starts at 240 L, receives 60 L and records 180 L used. What closing stock in L does the ledger give? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-1-objective-2"
+      ],
+      "feedback": {
+        "hint": "Use initial stock plus inputs minus outputs.",
+        "solution": "Closing stock = 240 + 60 − 180 = 120 L. This is an inventory result, not a water-safety judgement.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 120,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-1:boundary-not-impact",
+      "type": "single_choice",
+      "prompt": "A synthetic farm reports higher output while external energy use and waste export also rise. What does the production increase alone establish?",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-1-objective-2"
+      ],
+      "feedback": {
+        "hint": "Check which flows sit inside the declared assessment boundary.",
+        "solution": "Output is one boundary quantity. Energy, wastes and other dependencies remain in the assessment, so sustainability or compliance cannot follow from output alone.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Proof of improved whole-system sustainability",
+        "Higher reported output only; the external flows still require evaluation",
+        "Proof that the external flows are irrelevant",
+        "Automatic compliance with local conservation requirements"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-1:local-permission-gate",
+      "type": "single_choice",
+      "prompt": "A synthetic site concept has attractive resource balances but no documented local land-use or safety review. What is the appropriate project decision?",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-1-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate model feasibility from authority to implement.",
+        "solution": "Arithmetic cannot replace land-use, safety, environmental or community review. The concept remains paused until responsible local reviewers address the missing gates.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Begin physical work because the balances close",
+        "Hold implementation for the responsible local review and permission process",
+        "Treat the synthetic ledger as a permit",
+        "Move the boundary so review becomes unnecessary"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-1:site-evidence-set",
+      "type": "multiple_select",
+      "prompt": "Which records belong in a bounded synthetic agricultural-site evidence package? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "agriculture-construction-habitats-1-objective-1",
+        "agriculture-construction-habitats-1-objective-3"
+      ],
+      "feedback": {
+        "hint": "Include physical boundaries and human governance boundaries.",
+        "solution": "Zone definitions, resource flows and explicit local review questions make the concept auditable. A balance does not erase site-specific obligations or uncertainties.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Production and support-zone definitions",
+        "Water-source, waste-route and external-energy inventories",
+        "Documented local review questions and unresolved permissions",
+        "A claim that a favourable balance eliminates the need for site-specific review"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-2:dli-from-ppfd",
+      "type": "numeric",
+      "prompt": "A synthetic canopy measurement is PPFD 200 µmol m⁻² s⁻¹ for 14 h. What is the DLI in mol m⁻² d⁻¹? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-2-objective-1"
+      ],
+      "feedback": {
+        "hint": "Convert seconds to hours and micromoles to moles.",
+        "solution": "DLI = PPFD × hours × 3600/10⁶ = 200 × 14 × 3600/10⁶ = 10.08 mol m⁻² d⁻¹.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 10.08,
+        "unit": "",
+        "tolerance": 1e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-2:ppfd-from-dli",
+      "type": "numeric",
+      "prompt": "A synthetic target ledger contains DLI 12 mol m⁻² d⁻¹ spread uniformly over 16 h. What mean PPFD in µmol m⁻² s⁻¹ reproduces that DLI? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-2-objective-1"
+      ],
+      "feedback": {
+        "hint": "Invert the DLI formula rather than dividing by 16 alone.",
+        "solution": "PPFD = DLI × 10⁶/(hours × 3600) = 12 × 10⁶/(16 × 3600) = 208.333333… µmol m⁻² s⁻¹.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 208.333333,
+        "unit": "",
+        "tolerance": 1e-05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-2:fixture-energy",
+      "type": "numeric",
+      "prompt": "Four synthetic fixtures each draw 0.12 kW for 14 h. What is their total electrical energy use in kWh? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-2-objective-2"
+      ],
+      "feedback": {
+        "hint": "Power is kW; multiply by hours to obtain kWh.",
+        "solution": "Energy = count × power × time = 4 × 0.12 × 14 = 6.72 kWh.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 6.72,
+        "unit": "",
+        "tolerance": 1e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-2:timer-overlap",
+      "type": "single_choice",
+      "prompt": "Two synthetic timer channels command the same fixture for 08:00–20:00 and 18:00–22:00. From 08:00–22:00, what does an event log prove about fixture-on time if both commands are verified?",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-2-objective-2"
+      ],
+      "feedback": {
+        "hint": "Take the union of on-intervals, not the sum of schedule durations.",
+        "solution": "The union of the two intervals is 08:00–22:00 = 14 h. The two-hour overlap is not additional elapsed time, and no plant response follows from the event log.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "18 h because the schedules add",
+        "14 h because the fixture is continuously on from 08:00–22:00; overlapping commands do not add",
+        "16 h because only the first channel counts",
+        "The log proves plant photoperiod response"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-2:ppfd-dli-distinction",
+      "type": "single_choice",
+      "prompt": "Which statement correctly distinguishes PPFD from DLI in a synthetic lighting record?",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-2-objective-1",
+        "agriculture-construction-habitats-2-objective-3"
+      ],
+      "feedback": {
+        "hint": "Look for the time integral and the photon units.",
+        "solution": "PPFD is a rate per area at a moment and location; DLI accumulates that rate over time. Neither is electrical energy, climate measurement or a universal yield prediction.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "PPFD is an instantaneous photon flux density; DLI integrates photon delivery over a day",
+        "PPFD is electrical energy and DLI is fixture power",
+        "DLI measures local temperature while PPFD measures humidity",
+        "Equal DLI proves equal crop yield under every condition"
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-2:lighting-audit-evidence",
+      "type": "multiple_select",
+      "prompt": "Which evidence strengthens a synthetic lighting-energy and photoperiod audit? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "agriculture-construction-habitats-2-objective-2",
+        "agriculture-construction-habitats-2-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate optical, electrical, temporal and biological evidence.",
+        "solution": "Spatial photon measurements, verified switching and measured energy address different links in the argument. A label alone establishes neither operating time nor biological response.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Spatial PPFD measurements at declared canopy locations",
+        "Timer-event logs and an independent check of actual on/off state",
+        "Measured fixture power integrated over verified operating time",
+        "A manufacturer label treated as proof of plant response and actual daily energy"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-3:tank-closing-stock",
+      "type": "numeric",
+      "prompt": "A synthetic tank starts at 180 L, receives 40 L new input and 30 L recovered water, and records 70 L consumed. What is the closing stock in L? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-3-objective-1"
+      ],
+      "feedback": {
+        "hint": "Include both inputs before subtracting consumption.",
+        "solution": "Closing stock = 180 + 40 + 30 − 70 = 180 L.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 180,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-3:material-inventory",
+      "type": "numeric",
+      "prompt": "For inventory accounting only, a synthetic material ledger starts with 12 mmol, transfers out 3 mmol and assigns 4 mmol to estimated uptake. What unallocated amount remains in mmol? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-3-objective-1"
+      ],
+      "feedback": {
+        "hint": "Subtract both outbound ledger entries from the initial stock.",
+        "solution": "Unallocated inventory = 12 − 3 − 4 = 5 mmol. This is not a nutrient formulation or dosing recommendation.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 5,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-3:sensor-mean",
+      "type": "numeric",
+      "prompt": "Three synthetic co-located temperature readings are 22 °C, 24 °C and 23 °C. What is their arithmetic mean in °C? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-3-objective-2"
+      ],
+      "feedback": {
+        "hint": "Sum the readings and divide by three.",
+        "solution": "Mean = (22 + 24 + 23)/3 = 69/3 = 23 °C. A mean does not establish spatial uniformity or calibration.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 23,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-3:missing-sensor-not-zero",
+      "type": "single_choice",
+      "prompt": "A synthetic climate log has no humidity value for one interval. How should the audit represent it?",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-3-objective-2"
+      ],
+      "feedback": {
+        "hint": "Distinguish absence of evidence from a measured value.",
+        "solution": "A missing observation is not zero, a carried-forward measurement or proof of a particular fault. Preserve the gap and state which conclusions become unavailable.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Humidity was exactly zero",
+        "The value is missing; exclude it from calculations that require it and flag the evidence gap",
+        "Use the previous value without recording an assumption",
+        "Treat the interval as proof of actuator failure"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-3:control-fallback",
+      "type": "single_choice",
+      "prompt": "A synthetic controller oscillates while its actuator-status channel is unavailable. What is the strongest response in the evidence plan?",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-3-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate commanded state, observed state and safe human intervention.",
+        "solution": "Commands are not actuator outcomes. Oscillation plus missing status requires bounded fallback and human diagnosis rather than hidden data deletion or stronger commands.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Increase the setpoint until the oscillation stops",
+        "Hold automated claims, use the declared safe fallback and require human review of sensor and actuator evidence",
+        "Delete the oscillating samples",
+        "Declare the actuator healthy because commands were issued"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-3:sensor-control-records",
+      "type": "multiple_select",
+      "prompt": "Which records support a synthetic climate-sensor and control audit? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "agriculture-construction-habitats-3-objective-2",
+        "agriculture-construction-habitats-3-objective-3"
+      ],
+      "feedback": {
+        "hint": "Ask what evidence would show measurement validity and actual response.",
+        "solution": "Calibration, spatial observations and event histories test distinct assumptions. A setpoint records intent, not the actual environment or actuator result.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Calibration or comparison evidence with timestamps",
+        "Spatially separate observations where gradients matter",
+        "Command, feedback and fallback-event logs",
+        "A single setpoint value treated as proof of measured conditions"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-4:molecular-outcome-percent",
+      "type": "numeric",
+      "prompt": "In a synthetic plant-evidence table, 18 of 72 assessed plants show the declared molecular outcome. What percentage is that? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-4-objective-1"
+      ],
+      "feedback": {
+        "hint": "Divide the outcome count by the assessed count, then multiply by 100.",
+        "solution": "Percentage = 18/72 × 100 = 25%. This describes the synthetic molecular endpoint only.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 25,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-4:phenotype-percentage-points",
+      "type": "numeric",
+      "prompt": "A synthetic treated group shows a phenotype in 14/60 plants and its comparator in 6/60. What is the treated-minus-comparator difference in percentage points? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-4-objective-1"
+      ],
+      "feedback": {
+        "hint": "Subtract proportions before converting to percentage points.",
+        "solution": "Difference = (14/60 − 6/60) × 100 = 8/60 × 100 = 13.333333… percentage points.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 13.333333,
+        "unit": "",
+        "tolerance": 1e-05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-4:excess-variant-count",
+      "type": "numeric",
+      "prompt": "A synthetic sequencing summary calls 10 variants in a treated lineage and 4 background variants in its matched control. What is the treated-minus-control excess count? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-4-objective-2"
+      ],
+      "feedback": {
+        "hint": "Subtract the matched background count from the treated count.",
+        "solution": "Excess count = 10 − 4 = 6 variants. The count alone does not establish their cause or functional importance.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 6,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-4:comparator-purpose",
+      "type": "single_choice",
+      "prompt": "Why is a matched process comparator essential in a synthetic plant base-editing evidence exercise?",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-4-objective-1",
+        "agriculture-construction-habitats-4-objective-2"
+      ],
+      "feedback": {
+        "hint": "Ask which alternative explanations the comparison can and cannot remove.",
+        "solution": "A comparator can isolate some handling and background differences, but it cannot guarantee causation, replace independent lineages or validate agronomic performance.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "It guarantees that every observed variant was intended",
+        "It helps distinguish treatment-associated outcomes from handling, background variation and assay effects",
+        "It replaces independent biological lineages",
+        "It converts a molecular endpoint directly into field performance"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-4:correction-and-provenance",
+      "type": "single_choice",
+      "prompt": "How should a learner use the 2025 correction to Zong et al. (2017) in an evidence review?",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-4-objective-3"
+      ],
+      "feedback": {
+        "hint": "Track the article and its correction as connected but distinct records.",
+        "solution": "The correction is part of the publication record, not a new replication or a blanket validation. It must be linked and considered with the original evidence.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Ignore it because corrections never affect provenance",
+        "Cite the correction alongside the article and use the corrected scholarly record when evaluating the report",
+        "Treat it as a new independent replication study",
+        "Assume it validates every agronomic claim"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-4:evidence-boundaries",
+      "type": "multiple_select",
+      "prompt": "Which conclusions are justified in a high-level plant base-editing evidence review? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "agriculture-construction-habitats-4-objective-1",
+        "agriculture-construction-habitats-4-objective-2",
+        "agriculture-construction-habitats-4-objective-3"
+      ],
+      "feedback": {
+        "hint": "Keep molecular, organismal and system-level claims separate.",
+        "solution": "The first three statements preserve endpoint, comparator and provenance boundaries. A molecular result does not establish resource savings, environmental performance or field outcomes.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Molecular and phenotypic endpoints need separate evidence",
+        "Unintended-variant assessment needs suitable comparators and assay limitations stated",
+        "Zong and its correction should be read together, and Jin motivates scrutiny of unintended variants",
+        "A positive molecular outcome proves resource savings and whole-system performance"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-5:equal-support-reaction",
+      "type": "numeric",
+      "prompt": "A conceptual synthetic statics model carries 12 kN through two identical idealized supports sharing equally. What vertical reaction does each carry in kN? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-5-objective-1"
+      ],
+      "feedback": {
+        "hint": "Use the explicitly stated equal split and force balance.",
+        "solution": "By vertical equilibrium and the stated equal sharing, each reaction = 12/2 = 6 kN. No member capacity is established.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 6,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-5:parallel-then-review",
+      "type": "numeric",
+      "prompt": "A synthetic schedule has parallel 3-day and 4-day tasks, both required before a 2-day review. What is the earliest finish in days? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-5-objective-2"
+      ],
+      "feedback": {
+        "hint": "The successor waits for the longer parallel predecessor.",
+        "solution": "Both predecessors finish at max(3, 4) = day 4; the review finishes at 4 + 2 = day 6.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 6,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-5:critical-path-duration",
+      "type": "numeric",
+      "prompt": "A synthetic dependency network has paths of durations 2 + 5 + 3 days and 2 + 4 + 3 days. What is the longest path duration in days? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-5-objective-2"
+      ],
+      "feedback": {
+        "hint": "Sum each complete path, then choose the maximum.",
+        "solution": "Path totals are 2 + 5 + 3 = 10 days and 2 + 4 + 3 = 9 days; the controlling duration is max(10, 9) = 10 days.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 10,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-5:load-path-boundary",
+      "type": "single_choice",
+      "prompt": "What does a complete conceptual load-path sketch show in this survey?",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-5-objective-1"
+      ],
+      "feedback": {
+        "hint": "Follow forces to the boundary and then state what remains unverified.",
+        "solution": "The sketch communicates force routing and assumptions. It does not size members, prove capacity or replace investigation and qualified design.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "A route from demand through members and supports to the foundation boundary, with assumptions and review needs",
+        "Enough information to fabricate structural members safely",
+        "Automatic proof of foundation capacity",
+        "A substitute for site investigation and qualified design"
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-5:change-control-gate",
+      "type": "single_choice",
+      "prompt": "A synthetic project changes a support concept after review has started. What should the work plan require?",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-5-objective-3"
+      ],
+      "feedback": {
+        "hint": "Connect technical change to both dependencies and authority.",
+        "solution": "A design change can alter loads, predecessors and permissions. It needs documented impact assessment and renewed human review, not automatic approval.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Hide the change to preserve the schedule",
+        "Record the change and return affected structural, dependency and permission decisions to the responsible human gates",
+        "Treat the earlier review as covering every possible change",
+        "Let the schedule software approve the change automatically"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-5:wbs-and-gates",
+      "type": "multiple_select",
+      "prompt": "Which elements belong in a synthetic construction work-breakdown and dependency plan? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "agriculture-construction-habitats-5-objective-2",
+        "agriculture-construction-habitats-5-objective-3"
+      ],
+      "feedback": {
+        "hint": "Include both the work logic and the decisions software cannot make.",
+        "solution": "Unique work items, dependencies and human gates make the plan reviewable. A computed duration does not make physical steps safe, specified or authorized.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Deliverables and activities with unique identifiers",
+        "Explicit predecessor relationships and responsible reviewers",
+        "Design, permission, inspection and change-control gates",
+        "Unspecified physical steps presented as safe because software calculated a duration"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-6:outage-critical-energy",
+      "type": "numeric",
+      "prompt": "A synthetic outage model must supply a 0.35 kW critical load for 8 h. What energy is required in kWh before reserves or conversion losses? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-6-objective-1"
+      ],
+      "feedback": {
+        "hint": "Multiply the declared critical load by outage duration.",
+        "solution": "Energy = power × time = 0.35 × 8 = 2.8 kWh, before any additional allowances.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 2.8,
+        "unit": "",
+        "tolerance": 1e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-6:outage-water-stock",
+      "type": "numeric",
+      "prompt": "A synthetic habitat tank starts at 150 L; during an outage it receives no new input, recovers 12 L and records 30 L consumed. What closing stock in L results? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-6-objective-2"
+      ],
+      "feedback": {
+        "hint": "Include recovery as an input and subtract consumption.",
+        "solution": "Closing stock = 150 + 0 + 12 − 30 = 132 L.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 132,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-6:recovery-share",
+      "type": "numeric",
+      "prompt": "A synthetic interval uses 36 L recovered water and 24 L new input. What percentage of the combined supply is recovered? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-6-objective-2"
+      ],
+      "feedback": {
+        "hint": "Divide recovered volume by recovered plus new input.",
+        "solution": "Recovered share = 36/(36 + 24) × 100 = 60%. This ratio does not establish water quality or habitat autonomy.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 60,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-6:power-energy-distinction",
+      "type": "single_choice",
+      "prompt": "A backup device is labelled 1 kW in a synthetic concept. What additional information is needed for an 8 h energy balance?",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-6-objective-1",
+        "agriculture-construction-habitats-6-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate instantaneous power from energy over time.",
+        "solution": "Power rating is not stored or delivered energy. The load profile, duration, losses and reserves determine whether an energy balance closes.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Only its colour",
+        "The actual critical-load power profile, operating limits and time-dependent losses or reserves",
+        "Nothing; 1 kW is already 8 kWh",
+        "A claim that rated power guarantees water recovery"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-6:nonzero-residual",
+      "type": "single_choice",
+      "prompt": "A synthetic water ledger has a nonzero residual after all declared terms are included. What is the best interpretation?",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-6-objective-1",
+        "agriculture-construction-habitats-6-objective-2"
+      ],
+      "feedback": {
+        "hint": "Treat imbalance as evidence to investigate, not noise to erase.",
+        "solution": "A residual is an audit finding. It can reveal omitted flows, measurement disagreement or arithmetic errors and blocks a claim of closure.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Delete the residual",
+        "Investigate missing flows, metering or arithmetic; the residual prevents a closed-balance claim",
+        "Call the system perfectly closed",
+        "Assign the residual to safe human consumption without evidence"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-6:habitat-claim-boundary",
+      "type": "multiple_select",
+      "prompt": "Which statements respect the boundaries of a synthetic habitat balance? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "agriculture-construction-habitats-6-objective-1",
+        "agriculture-construction-habitats-6-objective-2",
+        "agriculture-construction-habitats-6-objective-3"
+      ],
+      "feedback": {
+        "hint": "Check what the balance omits as well as what it includes.",
+        "solution": "The first three statements keep accounting and assumptions visible. Spreadsheet closure alone cannot establish habitability or life-support performance.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Energy and water residuals should be reported explicitly",
+        "Outage conclusions depend on critical-load and duration assumptions",
+        "Recovery ratios do not establish water quality, reliability or human safety",
+        "Closing a spreadsheet balance proves habitability and life-support performance"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-7:a03-energy-residual",
+      "type": "numeric",
+      "prompt": "In synthetic audit row A03, 30 kWh is supplied and lighting, climate and pumps/controls use 14.4, 9.6 and 4.8 kWh. What is the supply-minus-load residual in kWh? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-7-objective-1"
+      ],
+      "feedback": {
+        "hint": "Subtract the sum of all three load categories from supply.",
+        "solution": "Residual = 30 − (14.4 + 9.6 + 4.8) = 30 − 28.8 = 1.2 kWh.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1.2,
+        "unit": "",
+        "tolerance": 1e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-7:a03-water-residual",
+      "type": "numeric",
+      "prompt": "In synthetic audit row A03, start 138 L, new input 30 L, recovered 40 L, consumed 50 L and end 156 L. What is start + input + recovered − consumed − end in L? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-7-objective-1"
+      ],
+      "feedback": {
+        "hint": "Use the signed balance in the order stated.",
+        "solution": "Water residual = 138 + 30 + 40 − 50 − 156 = 2 L.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 2,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-7:outage-backup-total",
+      "type": "numeric",
+      "prompt": "Synthetic outage rows A02 and A05 record 3.6 kWh and 2.4 kWh of backup supply. What is their descriptive per-row total in kWh? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-7-objective-1"
+      ],
+      "feedback": {
+        "hint": "Add the two recorded backup-energy values.",
+        "solution": "Descriptive total = 3.6 + 2.4 = 6.0 kWh. This sum does not create independent replication.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 6,
+        "unit": "",
+        "tolerance": 1e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-7:missing-audit-sensor",
+      "type": "single_choice",
+      "prompt": "Audit row A04 has temperature_status = missing. What does that justify?",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-7-objective-2"
+      ],
+      "feedback": {
+        "hint": "Preserve the distinction between measured, absent and inferred values.",
+        "solution": "The row remains auditable for its present fields, but temperature conclusions are unavailable. Missing is not zero, and borrowing another row would hide the gap.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Temperature was zero and requires no note",
+        "Flag the temperature evidence gap and do not infer either a climate excursion or a safe condition from the missing field",
+        "Replace it with the value from A01 as an independent measurement",
+        "Declare the whole CSV invalid without reviewing other fields"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-7:audit-independence",
+      "type": "single_choice",
+      "prompt": "Rows A01 and A06 reuse the same synthetic scenario template with different timestamps. How should their agreement be reported?",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-7-objective-3"
+      ],
+      "feedback": {
+        "hint": "Check provenance and shared assumptions before counting replicates.",
+        "solution": "Reused scenario structure can correlate errors and assumptions. Agreement is descriptive only and supplies no independent real-world reliability estimate.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "As two independent experimental replicates with a confidence interval",
+        "As descriptive agreement between two synthetic rows, not independent biological or engineering replication",
+        "As proof of real habitat reliability",
+        "As evidence that no further audit is needed"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-7:audit-handoff",
+      "type": "multiple_select",
+      "prompt": "Which findings belong in the synthetic audit handoff? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "agriculture-construction-habitats-7-objective-1",
+        "agriculture-construction-habitats-7-objective-2",
+        "agriculture-construction-habitats-7-objective-3"
+      ],
+      "feedback": {
+        "hint": "Include discrepancies, limitations and the exact evidence population.",
+        "solution": "A good handoff preserves arithmetic, missing evidence and provenance. Pooling synthetic correlated rows into a real-world reliability claim would be unjustified.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "The nonzero A03 energy and water residuals with recomputation shown",
+        "The A04 missing-temperature evidence gap and A02/A05 outage intervals",
+        "A statement that all rows are synthetic and per-scenario results are descriptive",
+        "A pooled reliability claim treating every row as independent and real"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-8:r02-rehearsal-dli",
+      "type": "numeric",
+      "prompt": "Project rehearsal row R02 is synthetic: PPFD 220 µmol m⁻² s⁻¹ for 14 h. What DLI in mol m⁻² d⁻¹ follows? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-8-objective-1"
+      ],
+      "feedback": {
+        "hint": "Use the same photon and time-unit conversions as lesson 2.",
+        "solution": "DLI = 220 × 14 × 3600/10⁶ = 11.088 mol m⁻² d⁻¹.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 11.088,
+        "unit": "",
+        "tolerance": 1e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-8:r03-closing-water",
+      "type": "numeric",
+      "prompt": "Project rehearsal row R03 is synthetic: start 90 L, new input 20 L, recovered 28 L and consumption 46 L. What closing stock in L follows? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-8-objective-1"
+      ],
+      "feedback": {
+        "hint": "Add both inputs and subtract consumption.",
+        "solution": "Closing stock = 90 + 20 + 28 − 46 = 92 L.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 92,
+        "unit": "",
+        "tolerance": 0,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-8:r04-outage-energy",
+      "type": "numeric",
+      "prompt": "Project rehearsal row R04 is synthetic: critical load 0.30 kW for 6 h. What energy in kWh is required before reserves or losses? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-8-objective-3"
+      ],
+      "feedback": {
+        "hint": "Multiply critical power by outage hours.",
+        "solution": "Required energy = 0.30 × 6 = 1.8 kWh before additional allowances.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1.8,
+        "unit": "",
+        "tolerance": 1e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-8:evidence-package-correction",
+      "type": "single_choice",
+      "prompt": "The optional project cites Zong et al. (2017) but omits its 2025 correction. Which revision is required?",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-8-objective-2"
+      ],
+      "feedback": {
+        "hint": "Check each primary record for linked updates and distinct roles.",
+        "solution": "The correction belongs beside the original article; Jin is a separate off-target study, not the correction. The project should retain bounded evidence rather than erase it.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Remove all molecular-evidence discussion",
+        "Add the correction as a linked part of the evidence record and bound the molecular and system-level claims",
+        "Cite Jin as the correction to Zong",
+        "Treat the omission as irrelevant to provenance"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-8:milestone-human-gate",
+      "type": "single_choice",
+      "prompt": "A project milestone closes every arithmetic balance but leaves structural and local permission reviews unresolved. What status should the handoff show?",
+      "points": 1,
+      "objective_ids": [
+        "agriculture-construction-habitats-8-objective-2",
+        "agriculture-construction-habitats-8-objective-3"
+      ],
+      "feedback": {
+        "hint": "Distinguish completed calculations from completed authorization.",
+        "solution": "Balances are only one project layer. The handoff must expose unresolved engineering, permission and evidence gates and cannot authorize implementation.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Ready for physical implementation",
+        "Arithmetic complete; implementation remains blocked pending named human reviews and unresolved evidence",
+        "Self-approved by the learner",
+        "Operationally safe because the project is synthetic"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "agriculture-construction-habitats-8:final-handoff-contents",
+      "type": "multiple_select",
+      "prompt": "Which elements belong in the optional project handoff? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "agriculture-construction-habitats-8-objective-1",
+        "agriculture-construction-habitats-8-objective-2",
+        "agriculture-construction-habitats-8-objective-3"
+      ],
+      "feedback": {
+        "hint": "Preserve evidence, limitations and decision authority together.",
+        "solution": "The handoff should be traceable, bounded and honest about its formative status. Rehearsal success cannot remove the wider evidence and review requirements.",
+        "lesson_ids": [
+          "agriculture-construction-habitats-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Five milestone records with source and synthetic-data provenance",
+        "Explicit assumptions, residuals, unresolved questions and named human gates",
+        "A statement that the work is ungraded, non-operational and not a life-support or construction design",
+        "A claim that successful rehearsal calculations remove all scientific and engineering uncertainty"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    }
+  ]
+}

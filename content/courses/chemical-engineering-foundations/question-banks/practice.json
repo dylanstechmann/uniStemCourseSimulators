@@ -1,0 +1,1639 @@
+{
+  "schema_version": "1.0",
+  "course_id": "chemical-engineering-foundations",
+  "license": "CC-BY-4.0",
+  "questions": [
+    {
+      "id": "chemical-engineering-foundations-1:unit-scale",
+      "type": "numeric",
+      "prompt": "A synthetic stream has flow 2.5 kg/s. What is the identical flow in kg/h? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-1-objective-1"
+      ],
+      "feedback": {
+        "hint": "Multiply by 3600 s/h: 2.",
+        "solution": "Multiply by 3600 s/h: 2.5 × 3600 = 9000 kg/h. This unit conversion does not change the stream.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 9000.0,
+        "unit": "",
+        "tolerance": 9e-06,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-1:outlet-total",
+      "type": "numeric",
+      "prompt": "A synthetic steady mixer has inlet flows 40 and 60 kg/h and no other streams. What is its outlet total flow in kg/h? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-1-objective-2"
+      ],
+      "feedback": {
+        "hint": "At steady state with no accumulation, outlet = 40 + 60 = 100 kg/h.",
+        "solution": "At steady state with no accumulation, outlet = 40 + 60 = 100 kg/h.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 100.0,
+        "unit": "",
+        "tolerance": 1.0000000000000001e-07,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-1:degrees-of-freedom",
+      "type": "numeric",
+      "prompt": "A bounded synthetic balance model has three unknown stream variables and two independent material-balance equations. How many degrees of freedom remain before one more independent specification? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-1-objective-3"
+      ],
+      "feedback": {
+        "hint": "Degrees of freedom = independent unknowns − independent equations = 3 − 2 = 1.",
+        "solution": "Degrees of freedom = independent unknowns − independent equations = 3 − 2 = 1.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1.0,
+        "unit": "",
+        "tolerance": 1e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-1:bfd-pfd-purpose",
+      "type": "single_choice",
+      "prompt": "Which statement best distinguishes a BFD from a PFD in this synthetic survey?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-1-objective-1",
+        "chemical-engineering-foundations-1-objective-2"
+      ],
+      "feedback": {
+        "hint": "Identify the declared boundary, denominator or evidence role before choosing.",
+        "solution": "Block and process flow diagrams communicate different levels of process structure; neither is an equipment design or safety approval.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "A BFD shows every detailed connection and rating, while a PFD shows only a process title.",
+        "A BFD communicates major process blocks and flows; a PFD adds defined streams and unit relationships without becoming a fabrication drawing.",
+        "Both documents certify safe operation.",
+        "A PFD replaces all stream tables and balances."
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-1:balance-boundary",
+      "type": "single_choice",
+      "prompt": "A steady synthetic total balance closes, but its A component balance does not. What is the strongest conclusion?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-1-objective-2",
+        "chemical-engineering-foundations-1-objective-3"
+      ],
+      "feedback": {
+        "hint": "Identify the declared boundary, denominator or evidence role before choosing.",
+        "solution": "Total and component balances are independent checks here. Closure of one cannot erase a component residual.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "The process is feasible because total mass closes.",
+        "The A balance can be discarded.",
+        "The records or model contain an inconsistency that must be investigated; total closure alone is insufficient.",
+        "The missing A amount is automatically zero."
+      ],
+      "solution_spec": {
+        "answer": 2
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-1:stream-table-audit",
+      "type": "multiple_select",
+      "prompt": "Which entries belong in a reproducible synthetic stream-table audit? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "chemical-engineering-foundations-1-objective-1",
+        "chemical-engineering-foundations-1-objective-2",
+        "chemical-engineering-foundations-1-objective-3"
+      ],
+      "feedback": {
+        "hint": "Select every statement supported by the declared model and reject shortcuts that erase evidence limits.",
+        "solution": "Identifiers, units, conventions, boundaries and status make the table auditable; missing values remain unknown.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Stable stream identifiers and consistent units",
+        "Declared total and component-flow conventions",
+        "Blank unknowns silently converted to zero",
+        "Boundary, steady-state assumption and reconciliation status"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-2:conversion",
+      "type": "numeric",
+      "prompt": "A synthetic reactor receives 80 kg/h A and leaves 20 kg/h A unreacted. What is A conversion in percent? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-2-objective-1"
+      ],
+      "feedback": {
+        "hint": "Conversion = (80 − 20)/80 × 100 = 75%.",
+        "solution": "Conversion = (80 − 20)/80 × 100 = 75%; the unreacted fraction is 25%.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 75.0,
+        "unit": "",
+        "tolerance": 7.500000000000001e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-2:selectivity",
+      "type": "numeric",
+      "prompt": "In a synthetic one-to-one accounting model, 60 kg/h A reacts to form 36 kg/h B and 24 kg/h S. What is selectivity to B in percent of A reacted? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-2-objective-2"
+      ],
+      "feedback": {
+        "hint": "B selectivity = 36/(36+24) × 100 = 60%.",
+        "solution": "B selectivity = 36/(36+24) × 100 = 60%; the denominator is A reacted, not A fed.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 60.0,
+        "unit": "",
+        "tolerance": 6.000000000000001e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-2:overall-yield",
+      "type": "numeric",
+      "prompt": "For the same synthetic model, 80 kg/h A is fed and 36 kg/h B is formed. What is B yield on A fed in percent? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-2-objective-3"
+      ],
+      "feedback": {
+        "hint": "Yield on feed = 36/80 × 100 = 45%.",
+        "solution": "Yield on feed = 36/80 × 100 = 45%. This differs from the 60% selectivity on A reacted.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 45.0,
+        "unit": "",
+        "tolerance": 4.5000000000000006e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-2:recycle-purpose",
+      "type": "single_choice",
+      "prompt": "Why can a synthetic flowsheet include recycle of unreacted A?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-2-objective-1",
+        "chemical-engineering-foundations-2-objective-2"
+      ],
+      "feedback": {
+        "hint": "Identify the declared boundary, denominator or evidence role before choosing.",
+        "solution": "Recycle changes the flowsheet boundary and coupled unknowns; it does not repeal conservation or guarantee purity.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "To guarantee 100% conversion in one pass",
+        "To return recoverable A to a declared upstream boundary while requiring additional recycle balances",
+        "To eliminate the need for component balances",
+        "To make every product pure without a separator"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-2:purge-bypass",
+      "type": "single_choice",
+      "prompt": "Which conceptual statement about purge and bypass is correct in a generic synthetic flowsheet?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-2-objective-2",
+        "chemical-engineering-foundations-2-objective-3"
+      ],
+      "feedback": {
+        "hint": "Identify the declared boundary, denominator or evidence role before choosing.",
+        "solution": "Purge and bypass have different topology and purposes. Their effects require new balances, not universal performance claims.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "A purge can provide an outlet for species that would otherwise accumulate; a bypass routes part of a stream around a unit.",
+        "A purge always increases desired-product purity to 100%.",
+        "A bypass and a purge are identical in every balance.",
+        "Neither changes the required system boundary."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-2:reconciliation-evidence",
+      "type": "multiple_select",
+      "prompt": "Which practices support an honest deterministic reconciliation of synthetic process records? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "chemical-engineering-foundations-2-objective-1",
+        "chemical-engineering-foundations-2-objective-2",
+        "chemical-engineering-foundations-2-objective-3"
+      ],
+      "feedback": {
+        "hint": "Select every statement supported by the declared model and reject shortcuts that erase evidence limits.",
+        "solution": "Reconciliation documents closure and residuals; scenario-shared rows are correlated and missing measurements are not zero.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Keep measured and reconciled fields separate",
+        "Recompute total and component closure within each scenario",
+        "Treat repeated rows from one scenario as independent experimental replicates",
+        "Report residuals and retain unknown measurements as blank"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-3:energy-duty",
+      "type": "numeric",
+      "prompt": "A synthetic steady stream has mass flow 5 kg/s and constant cp = 2 kJ/(kg·K); its model temperature rises from 8 to 20 arbitrary declared units on the Celsius scale. What is the sensible-energy term in kW? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-3-objective-1"
+      ],
+      "feedback": {
+        "hint": "Q sensible = ṁcp(Tout − Tin) = 5 × 2 × (20 − 8) = 120 kW under the declared constant-cp model.",
+        "solution": "Q sensible = ṁcp(Tout − Tin) = 5 × 2 × (20 − 8) = 120 kW under the declared constant-cp model.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 120.0,
+        "unit": "",
+        "tolerance": 1.2000000000000002e-07,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-3:flash-vapor-fraction",
+      "type": "numeric",
+      "prompt": "A synthetic binary flash uses K_A = 2.5, K_B = 0.4 and z_A = 0.6. Using Σ z_i(K_i−1)/(1+V(K_i−1)) = 0, what vapor fraction V is obtained? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-3-objective-2"
+      ],
+      "feedback": {
+        "hint": "Rachford–Rice gives 0.",
+        "solution": "Rachford–Rice gives 0.9/(1+1.5V) − 0.24/(1−0.6V) = 0, hence V = 0.66/0.90 = 0.7333333.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.7333333333333333,
+        "unit": "",
+        "tolerance": 1e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-3:flash-vapor-composition",
+      "type": "numeric",
+      "prompt": "For the same synthetic flash with V = 11/15, x_A = z_A/(1+V(K_A−1)) and y_A = K_Ax_A. What is y_A? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-3-objective-3"
+      ],
+      "feedback": {
+        "hint": "Compute the liquid composition first, then multiply it by the declared K_A value.",
+        "solution": "x_A = 0.6/(1+(11/15)(1.5)) = 2/7; therefore y_A = 2.5 × 2/7 = 5/7 = 0.7142857.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.7142857142857143,
+        "unit": "",
+        "tolerance": 1e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-3:state-path-second-law",
+      "type": "single_choice",
+      "prompt": "Which statement correctly distinguishes thermodynamic concepts in a bounded synthetic model?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-3-objective-1",
+        "chemical-engineering-foundations-3-objective-2"
+      ],
+      "feedback": {
+        "hint": "Identify the declared boundary, denominator or evidence role before choosing.",
+        "solution": "State and path quantities are distinct. First-law energy conservation and second-law entropy accounting answer different questions.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Heat and work are state properties independent of path.",
+        "Internal energy is a state property, while heat and work depend on the process path; entropy accounting also constrains feasible directions.",
+        "The first law proves every proposed process is spontaneous.",
+        "The second law replaces the energy balance."
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-3:flash-domain",
+      "type": "single_choice",
+      "prompt": "A synthetic binary calculation declares K_A = 0.7 and K_B = 0.5 with z_A = 0.6. Which action is valid before using a two-phase flash root?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-3-objective-2",
+        "chemical-engineering-foundations-3-objective-3"
+      ],
+      "feedback": {
+        "hint": "Identify the declared boundary, denominator or evidence role before choosing.",
+        "solution": "A two-phase flash root must satisfy 0<V<1 and the declared equilibrium equations. Both K<1 does not define that branch.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Force V = 0.5 because every binary mixture flashes.",
+        "Recognize that both K values are below one, so the stipulated two-phase equation has no admissible root 0<V<1; classify the state as outside that model branch.",
+        "Set any missing phase composition to zero and continue.",
+        "Use the answer to approve a real separation."
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-3:energy-model-boundary",
+      "type": "multiple_select",
+      "prompt": "Which changes would require revisiting a simple steady constant-cp energy model? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "chemical-engineering-foundations-3-objective-1",
+        "chemical-engineering-foundations-3-objective-2",
+        "chemical-engineering-foundations-3-objective-3"
+      ],
+      "feedback": {
+        "hint": "Select every statement supported by the declared model and reject shortcuts that erase evidence limits.",
+        "solution": "Phase change, property variation and omitted energy terms can invalidate the reduced model; an assumption that remains valid does not.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "A phase change within the control volume",
+        "Large temperature-dependent property variation",
+        "An explicitly negligible reaction-energy term remaining negligible",
+        "Significant reaction, shaft-work or accumulation terms omitted from the original model"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-4:continuity-speed",
+      "type": "numeric",
+      "prompt": "A synthetic incompressible stream has volumetric flow 0.020 m³/s through a model area 0.005 m². What is its average speed in m/s? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-4-objective-1"
+      ],
+      "feedback": {
+        "hint": "Continuity gives v = Q/A = 0.",
+        "solution": "Continuity gives v = Q/A = 0.020/0.005 = 4 m/s for the declared uniform-average model.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 4.0,
+        "unit": "",
+        "tolerance": 4e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-4:friction-head",
+      "type": "numeric",
+      "prompt": "A synthetic Darcy-friction model uses f = 0.020, L/D = 100, v = 2 m/s and g = 10 m/s². What is h_f = f(L/D)v²/(2g) in metres? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-4-objective-2"
+      ],
+      "feedback": {
+        "hint": "Keep the factor 2g in the denominator and evaluate the velocity squared.",
+        "solution": "h_f = 0.020 × 100 × 2²/(2 × 10) = 0.4 m. This is a stipulated model term, not a line calculation.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.4,
+        "unit": "",
+        "tolerance": 1e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-4:lmtd",
+      "type": "numeric",
+      "prompt": "A synthetic countercurrent exchanger model has terminal temperature differences 40 and 20 K. What is its LMTD in K? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-4-objective-3"
+      ],
+      "feedback": {
+        "hint": "LMTD = (40 − 20)/ln(40/20) = 20/ln(2) = 28.",
+        "solution": "LMTD = (40 − 20)/ln(40/20) = 20/ln(2) = 28.8539008 K; the arithmetic mean 30 K is not the logarithmic mean.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 28.85390081777927,
+        "unit": "",
+        "tolerance": 2.885390081777927e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-4:pump-system-concept",
+      "type": "single_choice",
+      "prompt": "What does the intersection of idealized pump and system curves represent conceptually?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-4-objective-1",
+        "chemical-engineering-foundations-4-objective-2"
+      ],
+      "feedback": {
+        "hint": "Identify the declared boundary, denominator or evidence role before choosing.",
+        "solution": "Curve intersection is a model concept. It does not establish equipment rating, hydraulics adequacy, operability or safety.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "A model-predicted operating intersection for the stipulated curves, not a pump selection or line design",
+        "A certified plant operating target",
+        "Proof that cavitation and all transients are absent",
+        "A relief-sizing calculation"
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-4:resistance-ntu",
+      "type": "single_choice",
+      "prompt": "Why are LMTD and NTU both useful in an introductory synthetic exchanger comparison?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-4-objective-2",
+        "chemical-engineering-foundations-4-objective-3"
+      ],
+      "feedback": {
+        "hint": "Identify the declared boundary, denominator or evidence role before choosing.",
+        "solution": "LMTD and effectiveness–NTU formulations organize the same idealized heat-transfer problem differently; balances and applicability checks remain.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "They are interchangeable temperature units.",
+        "LMTD summarizes a terminal-driving-force mean, while NTU relates an idealized conductance-to-capacity ratio and effectiveness relation.",
+        "Both eliminate the need for energy balances.",
+        "Either one supplies a complete equipment rating."
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-4:correlation-applicability",
+      "type": "multiple_select",
+      "prompt": "Which conditions must be checked before applying a heat- or mass-transfer correlation to a synthetic case? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "chemical-engineering-foundations-4-objective-1",
+        "chemical-engineering-foundations-4-objective-2",
+        "chemical-engineering-foundations-4-objective-3"
+      ],
+      "feedback": {
+        "hint": "Select every statement supported by the declared model and reject shortcuts that erase evidence limits.",
+        "solution": "A correlation carries geometry, regime, property and range restrictions. Algebra alone does not make it applicable.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Geometry and boundary conditions",
+        "Flow regime and dimensionless-parameter range",
+        "The availability of any algebraic formula, with no other checks",
+        "Property basis, phase assumptions and uncertainty/domain limits"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-5:batch-conversion",
+      "type": "numeric",
+      "prompt": "A synthetic isothermal constant-volume batch model has first-order k = 0.2 min⁻¹ and t = 10 min. What is conversion X = 1−exp(−kt)? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-5-objective-1"
+      ],
+      "feedback": {
+        "hint": "X = 1 − exp(−0.",
+        "solution": "X = 1 − exp(−0.2×10) = 1 − exp(−2) = 0.8646647. The remaining fraction is exp(−2).",
+        "lesson_ids": [
+          "chemical-engineering-foundations-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.8646647167633873,
+        "unit": "",
+        "tolerance": 1e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-5:cstr-conversion",
+      "type": "numeric",
+      "prompt": "A synthetic steady isothermal CSTR has first-order k = 0.2 min⁻¹ and space time τ = 5 min. What is X = kτ/(1+kτ)? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-5-objective-2"
+      ],
+      "feedback": {
+        "hint": "For the stated CSTR, kτ = 1 and X = 1/(1+1) = 0.",
+        "solution": "For the stated CSTR, kτ = 1 and X = 1/(1+1) = 0.5. Do not substitute the PFR expression.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.5,
+        "unit": "",
+        "tolerance": 1e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-5:pfr-conversion",
+      "type": "numeric",
+      "prompt": "A synthetic steady isothermal PFR has first-order k = 0.2 min⁻¹ and space time τ = 5 min. What is X = 1−exp(−kτ)? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-5-objective-3"
+      ],
+      "feedback": {
+        "hint": "For the stated PFR, X = 1 − exp(−0.",
+        "solution": "For the stated PFR, X = 1 − exp(−0.2×5) = 1 − exp(−1) = 0.6321206.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.6321205588285577,
+        "unit": "",
+        "tolerance": 1e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-5:rate-law-selectivity",
+      "type": "single_choice",
+      "prompt": "For parallel synthetic reactions A→B and A→S with rates r_B = k_B C_A and r_S = k_S C_A², which conceptual conclusion follows?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-5-objective-1",
+        "chemical-engineering-foundations-5-objective-2"
+      ],
+      "feedback": {
+        "hint": "Identify the declared boundary, denominator or evidence role before choosing.",
+        "solution": "Different reaction orders make relative rates concentration-dependent. Selectivity and conversion remain distinct.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Higher C_A always favors B because both rates increase.",
+        "The ratio r_B/r_S = k_B/(k_S C_A), so concentration affects desired selectivity; no universal reactor ranking follows without parameters.",
+        "The two rates must always be equal.",
+        "Selectivity equals conversion at all times."
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-5:rtd-evidence",
+      "type": "single_choice",
+      "prompt": "What does a measured residence-time distribution contribute to a synthetic reactor model audit?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-5-objective-2",
+        "chemical-engineering-foundations-5-objective-3"
+      ],
+      "feedback": {
+        "hint": "Identify the declared boundary, denominator or evidence role before choosing.",
+        "solution": "RTD is flow/mixing evidence, not a substitute for kinetics, energy balances or equilibrium data.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "It proves ideal plug flow regardless of its shape.",
+        "It characterizes the distribution of fluid ages and can reveal departures from ideal mixing assumptions.",
+        "It replaces all kinetic and energy balances.",
+        "It determines the equilibrium constant."
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-5:nonisothermal-boundary",
+      "type": "multiple_select",
+      "prompt": "Which additions are needed when an ideal reactor model becomes nonisothermal? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "chemical-engineering-foundations-5-objective-1",
+        "chemical-engineering-foundations-5-objective-2",
+        "chemical-engineering-foundations-5-objective-3"
+      ],
+      "feedback": {
+        "hint": "Select every statement supported by the declared model and reject shortcuts that erase evidence limits.",
+        "solution": "Nonisothermal analysis couples material and energy balances with temperature-dependent rates and additional validity checks.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "A coupled energy balance with declared heat/work terms",
+        "Temperature dependence of kinetic and equilibrium parameters",
+        "An assumption that conversion is independent of temperature under all conditions",
+        "Checks for transport limitations, multiple states and model validity"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-6:a-recovery",
+      "type": "numeric",
+      "prompt": "A synthetic separator receives 100 kg/h A, and 80 kg/h A reports to the desired product. What is A recovery to that product in percent? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-6-objective-1"
+      ],
+      "feedback": {
+        "hint": "Recovery = A in desired product/A in feed × 100 = 80/100 × 100 = 80%.",
+        "solution": "Recovery = A in desired product/A in feed × 100 = 80/100 × 100 = 80%.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 80.0,
+        "unit": "",
+        "tolerance": 8e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-6:product-purity",
+      "type": "numeric",
+      "prompt": "A synthetic desired product contains 80 kg/h A, 15 kg/h B and 5 kg/h S. What is its A purity in mass percent? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-6-objective-2"
+      ],
+      "feedback": {
+        "hint": "A purity = 80/(80+15+5) × 100 = 80%.",
+        "solution": "A purity = 80/(80+15+5) × 100 = 80%; S belongs in the total-flow denominator.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 80.0,
+        "unit": "",
+        "tolerance": 8e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-6:extraction-fraction",
+      "type": "numeric",
+      "prompt": "A synthetic single-stage ideal extraction uses K = C_organic/C_aqueous = 3 and phase-flow ratio organic/aqueous = 2. What percent of solute is extracted, K R/(1+KR) × 100? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-6-objective-3"
+      ],
+      "feedback": {
+        "hint": "KR = 6, so extracted fraction = 6/(1+6) × 100 = 85.",
+        "solution": "KR = 6, so extracted fraction = 6/(1+6) × 100 = 85.7142857%; the unextracted fraction is 1/7.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 85.71428571428571,
+        "unit": "",
+        "tolerance": 8.571428571428572e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-6:stage-rate-distinction",
+      "type": "single_choice",
+      "prompt": "Which statement best contrasts equilibrium-stage and rate-based separation models?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-6-objective-1",
+        "chemical-engineering-foundations-6-objective-2"
+      ],
+      "feedback": {
+        "hint": "Identify the declared boundary, denominator or evidence role before choosing.",
+        "solution": "The models idealize contacting differently and require different parameters; neither is an equipment approval.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "An equilibrium-stage model assumes declared phase-contact equilibrium on a stage; a rate-based model resolves finite transfer rates and driving forces.",
+        "Both models always predict identical purity.",
+        "A rate-based model needs no phase equilibrium information.",
+        "An equilibrium-stage model is an equipment certification."
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-6:separation-mechanisms",
+      "type": "single_choice",
+      "prompt": "Which mapping between generic synthetic separations and their principal concept is most accurate?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-6-objective-2",
+        "chemical-engineering-foundations-6-objective-3"
+      ],
+      "feedback": {
+        "hint": "Identify the declared boundary, denominator or evidence role before choosing.",
+        "solution": "Distillation, absorption and extraction use different phase/contact descriptions. Membranes and adsorption add selective transport or uptake mechanisms.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Distillation—volatility/phase equilibrium; absorption—transfer into a solvent; extraction—distribution between phases",
+        "Membranes—only reaction conversion; adsorption—only mechanical compression",
+        "Absorption—no mass transfer; extraction—no phase distribution",
+        "Every separation uses the same driving force and correlation"
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-6:recovery-purity-energy",
+      "type": "multiple_select",
+      "prompt": "Which statements honestly describe synthetic recovery–purity–energy trade-offs? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "chemical-engineering-foundations-6-objective-1",
+        "chemical-engineering-foundations-6-objective-2",
+        "chemical-engineering-foundations-6-objective-3"
+      ],
+      "feedback": {
+        "hint": "Select every statement supported by the declared model and reject shortcuts that erase evidence limits.",
+        "solution": "Recovery, purity and energy are distinct objectives. Their relationship is model- and flowsheet-dependent.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Higher recovery can coincide with lower product purity depending on cut and separation behavior",
+        "Additional separation stages or transfer area can change energy or resource demands",
+        "Maximum recovery always minimizes energy and maximizes purity",
+        "Trade-offs require declared objectives and constraints, not a universal operating target"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-7:lab01-product-a",
+      "type": "numeric",
+      "prompt": "In LAB-01 of the public reconciliation CSV, feed A flows are 20 and 18 kg/h. What is the reconciled product A flow in kg/h? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-7-objective-1"
+      ],
+      "feedback": {
+        "hint": "Steady component closure gives product A = 20 + 18 = 38 kg/h.",
+        "solution": "Steady component closure gives product A = 20 + 18 = 38 kg/h; the synthetic measured field 41 is not the reconciled value.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 38.0,
+        "unit": "",
+        "tolerance": 3.8e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-7:lab02-total-residual",
+      "type": "numeric",
+      "prompt": "In LAB-02, the synthetic measured product total is 102 kg/h and its reconciled total is 100 kg/h. What is measured-minus-reconciled residual in kg/h? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-7-objective-2"
+      ],
+      "feedback": {
+        "hint": "Residual = measured − reconciled = 102 − 100 = 2 kg/h.",
+        "solution": "Residual = measured − reconciled = 102 − 100 = 2 kg/h. The residual is not itself a flow measurement.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 2.0,
+        "unit": "",
+        "tolerance": 2e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-7:lab03-product-b",
+      "type": "numeric",
+      "prompt": "In LAB-03, feed B flows are 12 and 35 kg/h and the measured product B field is blank. What is reconciled product B in kg/h from component closure? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-7-objective-3"
+      ],
+      "feedback": {
+        "hint": "Reconciled product B = 12 + 35 = 47 kg/h.",
+        "solution": "Reconciled product B = 12 + 35 = 47 kg/h. The blank measurement remains unknown; the balance-derived value is separately labelled.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 47.0,
+        "unit": "",
+        "tolerance": 4.7000000000000004e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-7:measured-reconciled",
+      "type": "single_choice",
+      "prompt": "A synthetic product total is measured as 102 kg/h and reconciled to 100 kg/h. What should a learner report?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-7-objective-1",
+        "chemical-engineering-foundations-7-objective-2"
+      ],
+      "feedback": {
+        "hint": "Identify the declared boundary, denominator or evidence role before choosing.",
+        "solution": "Keeping measurement and reconciliation separate preserves the residual and prevents invented replication.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Only 102, deleting the balance result",
+        "Both values with their roles and a +2 kg/h measured-minus-reconciled residual",
+        "Their average as a new independent measurement",
+        "Zero discrepancy because the values are similar"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-7:unknown-measurement",
+      "type": "single_choice",
+      "prompt": "LAB-03 has a blank measured product-B field but sufficient declared feed balances. Which treatment is correct?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-7-objective-2",
+        "chemical-engineering-foundations-7-objective-3"
+      ],
+      "feedback": {
+        "hint": "Identify the declared boundary, denominator or evidence role before choosing.",
+        "solution": "A balance-derived reconciled value can coexist with an unknown measurement; the two evidence roles must remain separate.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Enter measured B as zero.",
+        "Leave measured B unknown and report the separately derived reconciled B = 47 kg/h.",
+        "Delete every LAB-03 row.",
+        "Claim a physical B measurement was performed."
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-7:correlated-scenario-records",
+      "type": "multiple_select",
+      "prompt": "Which statements correctly describe the public lab CSV? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "chemical-engineering-foundations-7-objective-1",
+        "chemical-engineering-foundations-7-objective-2",
+        "chemical-engineering-foundations-7-objective-3"
+      ],
+      "feedback": {
+        "hint": "Select every statement supported by the declared model and reject shortcuts that erase evidence limits.",
+        "solution": "Scenario rows are not independent replicates. Descriptive closure and unknown preservation are required.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Feed and product rows within one scenario share constructed constraints and are correlated records",
+        "Nine rows establish nine independent physical replicates",
+        "Scenario-level closure should be reported without pooled independent-replicate intervals",
+        "Blank measured fields remain unknown even when reconciled fields are available"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-8:r01-recovered-b",
+      "type": "numeric",
+      "prompt": "In rehearsal R01, 42 kg/h B is formed and the declared B recovery fraction is 0.90. What is recovered B in kg/h? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-8-objective-1"
+      ],
+      "feedback": {
+        "hint": "Recovered B = 42 × 0.",
+        "solution": "Recovered B = 42 × 0.90 = 37.8 kg/h; the unrecovered amount is 4.2 kg/h.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 37.8,
+        "unit": "",
+        "tolerance": 3.78e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-8:r02-selectivity",
+      "type": "numeric",
+      "prompt": "In rehearsal R02, B formation is 48 kg/h and S formation is 24 kg/h. What is B selectivity in percent on the declared one-to-one reacted-A basis? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-8-objective-2"
+      ],
+      "feedback": {
+        "hint": "B selectivity = 48/(48+24) × 100 = 66.",
+        "solution": "B selectivity = 48/(48+24) × 100 = 66.6666667%; 48/120 would instead be a feed-based formation percentage.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 66.66666666666667,
+        "unit": "",
+        "tolerance": 6.666666666666668e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-8:r03-overall-yield",
+      "type": "numeric",
+      "prompt": "In rehearsal R03, feed A is 90 kg/h and recovered B is 24 kg/h. What is recovered-B overall yield on feed A in percent? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-8-objective-3"
+      ],
+      "feedback": {
+        "hint": "Overall recovered-B yield = 24/90 × 100 = 26.",
+        "solution": "Overall recovered-B yield = 24/90 × 100 = 26.6666667%; using B formed rather than recovered would give a different quantity.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 numeric practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 26.666666666666668,
+        "unit": "",
+        "tolerance": 2.666666666666667e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-8:flowsheet-audit-order",
+      "type": "single_choice",
+      "prompt": "Which sequence gives the most defensible conceptual flowsheet/model audit?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-8-objective-1",
+        "chemical-engineering-foundations-8-objective-2"
+      ],
+      "feedback": {
+        "hint": "Identify the declared boundary, denominator or evidence role before choosing.",
+        "solution": "Boundary, balance and domain checks precede interpretation. Arithmetic closure alone cannot justify approval.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Choose an operating target, then erase inconsistent streams",
+        "Define boundaries and streams, close balances, test model domains, evaluate trade-offs, then record unknowns and review gates",
+        "Start with equipment ratings and add balances only if time permits",
+        "Approve the process once total mass closes"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-8:r04-unknown-recovery",
+      "type": "single_choice",
+      "prompt": "R04 has B formed but blank recovery fraction, recovered B and purity. What is the correct audit conclusion?",
+      "points": 1,
+      "objective_ids": [
+        "chemical-engineering-foundations-8-objective-2",
+        "chemical-engineering-foundations-8-objective-3"
+      ],
+      "feedback": {
+        "hint": "Identify the declared boundary, denominator or evidence role before choosing.",
+        "solution": "Known reactor balances remain checkable, but separator recovery and purity cannot be invented from other scenarios.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 decision practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Set all three blanks to zero.",
+        "Infer a recovery fraction from an unrelated scenario.",
+        "Keep those outputs unknown while still checking the known reactor-side conservation relations.",
+        "Use the arithmetic mean of R01–R03 as a measured R04 result."
+      ],
+      "solution_spec": {
+        "answer": 2
+      }
+    },
+    {
+      "id": "chemical-engineering-foundations-8:integrated-model-audit",
+      "type": "multiple_select",
+      "prompt": "Which elements belong in the final zero-point project handoff? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "chemical-engineering-foundations-8-objective-1",
+        "chemical-engineering-foundations-8-objective-2",
+        "chemical-engineering-foundations-8-objective-3"
+      ],
+      "feedback": {
+        "hint": "Select every statement supported by the declared model and reject shortcuts that erase evidence limits.",
+        "solution": "The handoff is an auditable conceptual model, not a design release. Unknowns, limits and review gates stay visible.",
+        "lesson_ids": [
+          "chemical-engineering-foundations-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "BFD/PFD narrative, stream table and independently recomputed balances",
+        "Model-domain, invalid-case, sensitivity and trade-off discussion",
+        "A statement that arithmetic closure constitutes safety and release approval",
+        "Unknowns, correlated-record disclosure, source links and unresolved human review"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    }
+  ]
+}

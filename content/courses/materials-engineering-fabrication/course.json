@@ -1,0 +1,879 @@
+{
+  "schema_version": "1.0",
+  "id": "materials-engineering-fabrication",
+  "title": "Materials Engineering for Fabrication",
+  "description": "An explicitly partial advanced university/industry design-review survey of materials engineering for fabrication: eight routes in six thematic modules spanning service-driven selection, process–structure–property/defects, comparative fabrication and joining, datums/GD&T/tolerance stacks, metrology/SPC/capability, drawing-to-release evidence, a synthetic evidence lab and a release-evidence gap-analysis project. Fabrication readiness is the review objective, never an achieved claim. It is original, unreviewed and formative-only.",
+  "domain": "Materials and manufacturing engineering",
+  "level": "Year 4 / industry design review",
+  "maturity": "partial",
+  "version": "0.1.0",
+  "license": "CC-BY-4.0",
+  "content_origin": {
+    "kind": "original",
+    "source_path": null,
+    "source_sha256": null,
+    "migration_version": null,
+    "modifications": [
+      "Original readings, fictional components and suppliers, synthetic datasets, worked examples, practice and variants, retrieval cards and zero-point cases developed with substantial AI assistance on 2026-11-26. All third-party and owner-repository sources are link-only; no source content, code, CAD, figure, table, problem or data imported."
+    ]
+  },
+  "prerequisites": {
+    "course_ids": [
+      "materials-science",
+      "statics-materials"
+    ],
+    "recommended_course_ids": [
+      "statistics",
+      "lab-measurement",
+      "chemical-engineering-foundations"
+    ],
+    "concurrent_course_ids": [],
+    "knowledge": [
+      "Materials structure, processing-sensitive properties, failure concepts and material-selection reasoning",
+      "Stress, strain, equilibrium, deformation and basic mechanics-of-materials models",
+      "Algebra, descriptive statistics, measurement uncertainty and careful technical record keeping"
+    ],
+    "statement": "Materials Science and Statics & Mechanics of Materials are required. Probability, Biostatistics & Experimental Design and Laboratory Measurement and Solution Preparation are recommended where the graph permits. Chemical Engineering Foundations is an optional acyclic cross-link for cure/process and monitoring context, not a required prerequisite. The Mechanical Design catalog node remains broader and unconsumed. These planning relations establish no university equivalency."
+  },
+  "outcomes": [
+    {
+      "id": "materials-engineering-fabrication-outcome-1",
+      "description": "Formulate service-driven material and process constraints, trade-offs and uncertainty for a fabrication design review.",
+      "bloom": "apply"
+    },
+    {
+      "id": "materials-engineering-fabrication-outcome-2",
+      "description": "Analyze process–structure–property–defect relationships and property scatter without operational fabrication recipes.",
+      "bloom": "analyze"
+    },
+    {
+      "id": "materials-engineering-fabrication-outcome-3",
+      "description": "Compare fabrication and joining routes and construct non-operational DFM/DFA process-plan logic.",
+      "bloom": "evaluate"
+    },
+    {
+      "id": "materials-engineering-fabrication-outcome-4",
+      "description": "Evaluate datums, fits, worst-case and independent RSS tolerance stacks and their assembly/inspection consequences.",
+      "bloom": "evaluate"
+    },
+    {
+      "id": "materials-engineering-fabrication-outcome-5",
+      "description": "Evaluate metrology, rational subgrouping, control charts, capability, yield and traceability with statistical boundaries.",
+      "bloom": "evaluate"
+    },
+    {
+      "id": "materials-engineering-fabrication-outcome-6",
+      "description": "Audit the drawing-to-release evidence chain and preserve change-control and authorized-human-release gates.",
+      "bloom": "evaluate"
+    },
+    {
+      "id": "materials-engineering-fabrication-outcome-7",
+      "description": "Recompute and interpret an original synthetic fabrication-evidence dataset without pooling or independence errors.",
+      "bloom": "analyze"
+    },
+    {
+      "id": "materials-engineering-fabrication-outcome-8",
+      "description": "Create a reproducible fabrication release-evidence gap analysis that concludes only with bounded synthetic dispositions.",
+      "bloom": "create"
+    }
+  ],
+  "lesson_objectives": [
+    {
+      "id": "materials-engineering-fabrication-1-objective-1",
+      "description": "Translate loads, temperature, media, wear and lifecycle context into explicit hard constraints and evidence needs before comparing candidates.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "materials-engineering-fabrication-outcome-1"
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-1-objective-2",
+      "description": "Compare cost, throughput and lifecycle trade-offs with reproducible synthetic arithmetic without allowing a score to erase a failed constraint.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "materials-engineering-fabrication-outcome-1"
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-1-objective-3",
+      "description": "Document evidence uncertainty, sensitivity and unresolved engineering/safety review in a constraints-based selection record.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "materials-engineering-fabrication-outcome-1"
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-2-objective-1",
+      "description": "Connect heat treatment, forming, residual stress, porosity, cure and fiber orientation to conditional structure–property hypotheses without process recipes.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "materials-engineering-fabrication-outcome-2"
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-2-objective-2",
+      "description": "Recompute property-change, residual-stress and porosity-model examples while retaining their idealized assumptions.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "materials-engineering-fabrication-outcome-2"
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-2-objective-3",
+      "description": "Explain property scatter, defects and sampling consequences without treating a nominal datasheet value as a qualified lot distribution.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "materials-engineering-fabrication-outcome-2"
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-3-objective-1",
+      "description": "Compare machining, casting, forming, molding, additive, powder-sintering, welding and adhesive joining using shape, material, volume and evidence constraints.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "materials-engineering-fabrication-outcome-3"
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-3-objective-2",
+      "description": "Construct a non-operational DFM/DFA process-plan logic chain with yields and crossover cost arithmetic but no machine settings.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "materials-engineering-fabrication-outcome-3"
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-3-objective-3",
+      "description": "Identify inspection, joining, distortion, accessibility and qualification evidence that a fabrication route must supply.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "materials-engineering-fabrication-outcome-3"
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-4-objective-1",
+      "description": "Explain datum reference frames, GD&T concepts and clearance/interference fits as functional communication rather than drawing decoration.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "materials-engineering-fabrication-outcome-4"
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-4-objective-2",
+      "description": "Calculate worst-case stacks and independent RSS stacks separately, declaring independence and checking physical boundary conditions.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "materials-engineering-fabrication-outcome-4"
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-4-objective-3",
+      "description": "Relate tolerance choices to assembly, inspection planning and measurement consequences without declaring a design conforming or released.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "materials-engineering-fabrication-outcome-4"
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-5-objective-1",
+      "description": "Distinguish resolution, bias, repeatability, reproducibility and gauge R&R concepts, including why repeated readings are not independent parts.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "materials-engineering-fabrication-outcome-5"
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-5-objective-2",
+      "description": "Apply rational subgrouping, control-chart, Cp/Cpk and yield arithmetic only under stated stability and pooling conditions.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "materials-engineering-fabrication-outcome-5"
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-5-objective-3",
+      "description": "Assemble traceable inspection evidence with calibration, subgroup and lot context while preserving unknown or unstable cases.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "materials-engineering-fabrication-outcome-5"
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-6-objective-1",
+      "description": "Audit drawing/BOM revisions, risk analysis, supplier-lot evidence, control plans, first-article evidence, nonconformance and change control.",
+      "bloom": "understand",
+      "course_outcome_ids": [
+        "materials-engineering-fabrication-outcome-6"
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-6-objective-2",
+      "description": "Distinguish evidence completeness from production readiness and identify the named authorized human release role required outside this course.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "materials-engineering-fabrication-outcome-6"
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-6-objective-3",
+      "description": "Assign only synthetic_review_complete or evidence_gaps_remain dispositions, with missing evidence producing a hold.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "materials-engineering-fabrication-outcome-6"
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-7-objective-1",
+      "description": "Recompute clearance, capability and yield relationships for every relevant row of the original synthetic fabrication-evidence CSV.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "materials-engineering-fabrication-outcome-7"
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-7-objective-2",
+      "description": "Separate independent parts within a lot from repeated gauge readings and prevent improper cross-lot pooling or unstable Cp/Cpk interpretation.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "materials-engineering-fabrication-outcome-7"
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-7-objective-3",
+      "description": "Trace drawing, lot, calibration, qualification, first-article and nonconformance fields to a bounded evidence disposition.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "materials-engineering-fabrication-outcome-7"
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-8-objective-1",
+      "description": "Build a five-milestone fabrication release-evidence gap analysis around a fictional component dossier.",
+      "bloom": "apply",
+      "course_outcome_ids": [
+        "materials-engineering-fabrication-outcome-8"
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-8-objective-2",
+      "description": "Recompute rehearsal stack, RSS and accepted-lot yield values and test each evidence gate against the rehearsal CSV.",
+      "bloom": "analyze",
+      "course_outcome_ids": [
+        "materials-engineering-fabrication-outcome-8"
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-8-objective-3",
+      "description": "Deliver a reproducible review handoff ending only in synthetic_review_complete or evidence_gaps_remain, never production release.",
+      "bloom": "evaluate",
+      "course_outcome_ids": [
+        "materials-engineering-fabrication-outcome-8"
+      ]
+    }
+  ],
+  "duration": {
+    "instructional_weeks": 8,
+    "equivalent_structure": "A proposed, unmeasured eight-period sequence of eight lesson routes grouped into six thematic modules. The synthetic evidence lab and optional project sit with the sixth integrative module. This is an explicitly partial advanced university/industry design-review survey, not a reviewed or complete course.",
+    "weeks": [
+      {
+        "week": 1,
+        "title": "Service requirements and constraints-based material/process selection",
+        "lesson_ids": [
+          "materials-engineering-fabrication-1"
+        ],
+        "assessment_ids": [
+          "materials-engineering-fabrication-1-practice"
+        ]
+      },
+      {
+        "week": 2,
+        "title": "Process–structure–property relationships, defects and property scatter",
+        "lesson_ids": [
+          "materials-engineering-fabrication-2"
+        ],
+        "assessment_ids": [
+          "materials-engineering-fabrication-2-practice"
+        ]
+      },
+      {
+        "week": 3,
+        "title": "Comparative fabrication routes, joining and DFM/DFA process-plan logic",
+        "lesson_ids": [
+          "materials-engineering-fabrication-3"
+        ],
+        "assessment_ids": [
+          "materials-engineering-fabrication-3-practice"
+        ]
+      },
+      {
+        "week": 4,
+        "title": "Datums, GD&T concepts, fits and tolerance-stack evidence",
+        "lesson_ids": [
+          "materials-engineering-fabrication-4"
+        ],
+        "assessment_ids": [
+          "materials-engineering-fabrication-4-practice"
+        ]
+      },
+      {
+        "week": 5,
+        "title": "Metrology, measurement systems, monitoring, capability and yield",
+        "lesson_ids": [
+          "materials-engineering-fabrication-5"
+        ],
+        "assessment_ids": [
+          "materials-engineering-fabrication-5-practice"
+        ]
+      },
+      {
+        "week": 6,
+        "title": "Drawings, BOM revision, risk and release-evidence governance",
+        "lesson_ids": [
+          "materials-engineering-fabrication-6"
+        ],
+        "assessment_ids": [
+          "materials-engineering-fabrication-6-practice"
+        ]
+      },
+      {
+        "week": 7,
+        "title": "Original synthetic fabrication-evidence laboratory",
+        "lesson_ids": [
+          "materials-engineering-fabrication-7"
+        ],
+        "assessment_ids": [
+          "materials-engineering-fabrication-7-practice"
+        ]
+      },
+      {
+        "week": 8,
+        "title": "Fabrication release-evidence gap-analysis project guide",
+        "lesson_ids": [
+          "materials-engineering-fabrication-project-guide"
+        ],
+        "assessment_ids": [
+          "materials-engineering-fabrication-project-rehearsal-practice",
+          "materials-engineering-fabrication-release-gap-project"
+        ]
+      }
+    ]
+  },
+  "workload": {
+    "estimated_total_hours": null,
+    "estimated_hours_per_week": null,
+    "basis": "Not measured; no workload, semester-equivalence or industry-training-duration claim is made."
+  },
+  "modules": [
+    {
+      "id": "materials-engineering-fabrication-module-1",
+      "title": "Service requirements and constraints-based material/process selection",
+      "source_ids": [
+        "mit-ocw-2-008-spring-2025-calendar",
+        "mit-ocw-3-032-fall-2007-syllabus",
+        "mechanics",
+        "owner-open-construction-equipment"
+      ],
+      "lessons": [
+        {
+          "id": "materials-engineering-fabrication-1",
+          "title": "Service requirements and constraints-based material/process selection",
+          "reading": "modules/01-service-requirements-selection.md",
+          "objectives": [
+            "materials-engineering-fabrication-1-objective-1",
+            "materials-engineering-fabrication-1-objective-2",
+            "materials-engineering-fabrication-1-objective-3"
+          ],
+          "worked_example": "A synthetic annual model gives 12,000 + 4,000×3 = 24,000 cost units; bottleneck-limited good throughput is 60×0.95 = 57 units/day. These are declared accounting models, not supplier quotes, capacity commitments or production approval.",
+          "question_ids": [
+            "materials-engineering-fabrication-1:annual-cost",
+            "materials-engineering-fabrication-1:good-throughput",
+            "materials-engineering-fabrication-1:lifecycle-energy",
+            "materials-engineering-fabrication-1:hard-constraints",
+            "materials-engineering-fabrication-1:evidence-uncertainty",
+            "materials-engineering-fabrication-1:selection-audit"
+          ],
+          "card_ids": [
+            "materials-engineering-fabrication-1-card-1",
+            "materials-engineering-fabrication-1-card-2",
+            "materials-engineering-fabrication-1-card-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-module-2",
+      "title": "Process–structure–property relationships, defects and property scatter",
+      "source_ids": [
+        "mit-ocw-3-032-fall-2007-syllabus",
+        "mit-ocw-3-091sc-fall-2010-syllabus",
+        "mit-ocw-3-012-fall-2005-calendar",
+        "mechanics",
+        "mit-ocw-2-830j-spring-2008-calendar"
+      ],
+      "lessons": [
+        {
+          "id": "materials-engineering-fabrication-2",
+          "title": "Process–structure–property relationships, defects and property scatter",
+          "reading": "modules/02-process-structure-property-defects.md",
+          "objectives": [
+            "materials-engineering-fabrication-2-objective-1",
+            "materials-engineering-fabrication-2-objective-2",
+            "materials-engineering-fabrication-2-objective-3"
+          ],
+          "worked_example": "Applied 120 MPa plus residual −45 MPa gives 75 MPa under simple signed superposition. A separate fictional square-law porosity model gives 250(1−0.04)² = 230.4 MPa. Neither model qualifies a real material or process.",
+          "question_ids": [
+            "materials-engineering-fabrication-2:property-change",
+            "materials-engineering-fabrication-2:residual-stress",
+            "materials-engineering-fabrication-2:porosity-strength",
+            "materials-engineering-fabrication-2:process-structure-links",
+            "materials-engineering-fabrication-2:scatter-evidence",
+            "materials-engineering-fabrication-2:defect-audit"
+          ],
+          "card_ids": [
+            "materials-engineering-fabrication-2-card-1",
+            "materials-engineering-fabrication-2-card-2",
+            "materials-engineering-fabrication-2-card-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-module-3",
+      "title": "Comparative fabrication routes, joining and DFM/DFA process-plan logic",
+      "source_ids": [
+        "mit-ocw-2-008-spring-2025-calendar",
+        "owner-open-construction-equipment"
+      ],
+      "lessons": [
+        {
+          "id": "materials-engineering-fabrication-3",
+          "title": "Comparative fabrication routes, joining and DFM/DFA process-plan logic",
+          "reading": "modules/03-process-comparison-dfm-dfa.md",
+          "objectives": [
+            "materials-engineering-fabrication-3-objective-1",
+            "materials-engineering-fabrication-3-objective-2",
+            "materials-engineering-fabrication-3-objective-3"
+          ],
+          "worked_example": "A three-step synthetic route yield is 0.98×0.95×0.90 = 0.8379, or 83.79%. A separate fixed/variable cost crossover is (15,000−5,000)/(8−5) = 3,333.333… parts. No machine settings are supplied.",
+          "question_ids": [
+            "materials-engineering-fabrication-3:route-yield",
+            "materials-engineering-fabrication-3:powder-input",
+            "materials-engineering-fabrication-3:cost-crossover",
+            "materials-engineering-fabrication-3:route-selection",
+            "materials-engineering-fabrication-3:joining-evidence",
+            "materials-engineering-fabrication-3:process-plan-audit"
+          ],
+          "card_ids": [
+            "materials-engineering-fabrication-3-card-1",
+            "materials-engineering-fabrication-3-card-2",
+            "materials-engineering-fabrication-3-card-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-module-4",
+      "title": "Datums, GD&T concepts, fits and tolerance-stack evidence",
+      "source_ids": [
+        "mit-ocw-2-008-spring-2025-calendar",
+        "statistics"
+      ],
+      "lessons": [
+        {
+          "id": "materials-engineering-fabrication-4",
+          "title": "Datums, GD&T concepts, fits and tolerance-stack evidence",
+          "reading": "modules/04-datums-gdt-fits-tolerance-stacks.md",
+          "objectives": [
+            "materials-engineering-fabrication-4-objective-1",
+            "materials-engineering-fabrication-4-objective-2",
+            "materials-engineering-fabrication-4-objective-3"
+          ],
+          "worked_example": "Worst-case minimum clearance is 10.20−10.10 = 0.10 mm. With declared independent stack terms 0.02, 0.03 and 0.04 mm, RSS is √0.0029 = 0.05385165… mm while the worst-case sum is 0.09 mm; the methods answer different questions.",
+          "question_ids": [
+            "materials-engineering-fabrication-4:wc-clearance",
+            "materials-engineering-fabrication-4:wc-interference",
+            "materials-engineering-fabrication-4:wc-rss-difference",
+            "materials-engineering-fabrication-4:datum-gdt",
+            "materials-engineering-fabrication-4:rss-independence",
+            "materials-engineering-fabrication-4:stack-inspection"
+          ],
+          "card_ids": [
+            "materials-engineering-fabrication-4-card-1",
+            "materials-engineering-fabrication-4-card-2",
+            "materials-engineering-fabrication-4-card-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-module-5",
+      "title": "Metrology, measurement systems, monitoring, capability and yield",
+      "source_ids": [
+        "mit-ocw-2-830j-spring-2008-calendar",
+        "nist-sematech-process-monitoring-control",
+        "statistics"
+      ],
+      "lessons": [
+        {
+          "id": "materials-engineering-fabrication-5",
+          "title": "Metrology, measurement systems, monitoring, capability and yield",
+          "reading": "modules/05-metrology-spc-capability-yield.md",
+          "objectives": [
+            "materials-engineering-fabrication-5-objective-1",
+            "materials-engineering-fabrication-5-objective-2",
+            "materials-engineering-fabrication-5-objective-3"
+          ],
+          "worked_example": "Cp = (10.2−9.8)/(6×0.05) = 1.333333… under a declared stable, appropriately pooled model. Cpk = min[(10.2−10.1)/(3×0.04), (10.1−9.8)/(3×0.04)] = 0.833333…. Neither rescues an unstable process.",
+          "question_ids": [
+            "materials-engineering-fabrication-5:tolerance-resolution",
+            "materials-engineering-fabrication-5:cp",
+            "materials-engineering-fabrication-5:cpk",
+            "materials-engineering-fabrication-5:gauge-rr",
+            "materials-engineering-fabrication-5:control-capability",
+            "materials-engineering-fabrication-5:traceability-audit"
+          ],
+          "card_ids": [
+            "materials-engineering-fabrication-5-card-1",
+            "materials-engineering-fabrication-5-card-2",
+            "materials-engineering-fabrication-5-card-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "materials-engineering-fabrication-module-6",
+      "title": "Release governance, synthetic evidence lab and gap-analysis project",
+      "source_ids": [
+        "mit-ocw-2-008-spring-2025-calendar",
+        "mit-ocw-2-830j-spring-2008-calendar",
+        "nist-sematech-process-monitoring-control",
+        "statistics",
+        "owner-open-construction-equipment",
+        "owner-machine-cad-agent",
+        "owner-diaper-changing-machines"
+      ],
+      "lessons": [
+        {
+          "id": "materials-engineering-fabrication-6",
+          "title": "Drawings, BOM revision, risk and release-evidence governance",
+          "reading": "modules/06-release-evidence-governance.md",
+          "objectives": [
+            "materials-engineering-fabrication-6-objective-1",
+            "materials-engineering-fabrication-6-objective-2",
+            "materials-engineering-fabrication-6-objective-3"
+          ],
+          "worked_example": "A synthetic ordinal risk-priority product is 8×4×5 = 160, not a failure probability. Verified nonconformance closure is 6/12×100 = 50%; opened and closed-but-unverified items are not silently counted as verified.",
+          "question_ids": [
+            "materials-engineering-fabrication-6:risk-priority",
+            "materials-engineering-fabrication-6:first-articles",
+            "materials-engineering-fabrication-6:verified-closure",
+            "materials-engineering-fabrication-6:revision-control",
+            "materials-engineering-fabrication-6:evidence-hold",
+            "materials-engineering-fabrication-6:release-roles"
+          ],
+          "card_ids": [
+            "materials-engineering-fabrication-6-card-1",
+            "materials-engineering-fabrication-6-card-2",
+            "materials-engineering-fabrication-6-card-3"
+          ]
+        },
+        {
+          "id": "materials-engineering-fabrication-7",
+          "title": "Original synthetic fabrication-evidence laboratory",
+          "reading": "labs/fabrication-evidence-lab.md",
+          "objectives": [
+            "materials-engineering-fabrication-7-objective-1",
+            "materials-engineering-fabrication-7-objective-2",
+            "materials-engineering-fabrication-7-objective-3"
+          ],
+          "worked_example": "P03 clearance is 10.06−9.98 = 0.08 mm. L02 Cpk is min[(10.10−10.01)/(3×0.02), (10.01−9.90)/(3×0.02)] = 1.5 under its declared stable arithmetic model. L01 accepted yield is 4/4 = 100%; repeated readings do not add parts.",
+          "question_ids": [
+            "materials-engineering-fabrication-7:p03-clearance",
+            "materials-engineering-fabrication-7:l02-cpk",
+            "materials-engineering-fabrication-7:l01-yield",
+            "materials-engineering-fabrication-7:independent-parts",
+            "materials-engineering-fabrication-7:capability-boundary",
+            "materials-engineering-fabrication-7:lab-disposition"
+          ],
+          "card_ids": [
+            "materials-engineering-fabrication-7-card-1",
+            "materials-engineering-fabrication-7-card-2",
+            "materials-engineering-fabrication-7-card-3"
+          ]
+        },
+        {
+          "id": "materials-engineering-fabrication-project-guide",
+          "title": "Fabrication release-evidence gap-analysis project guide",
+          "reading": "assignments/release-gap-analysis-project-guide.md",
+          "objectives": [
+            "materials-engineering-fabrication-8-objective-1",
+            "materials-engineering-fabrication-8-objective-2",
+            "materials-engineering-fabrication-8-objective-3"
+          ],
+          "worked_example": "R02 worst-case clearance is 10.04−10.00 = 0.04 mm. R04 independent RSS is √(0.01²+0.02²+0.02²) = 0.03 mm. R05 accepted-lot yield is 18/20×100 = 90%, while its missing evidence still requires evidence_gaps_remain.",
+          "question_ids": [
+            "materials-engineering-fabrication-8:r02-wc-clearance",
+            "materials-engineering-fabrication-8:r04-rss",
+            "materials-engineering-fabrication-8:r05-lot-yield",
+            "materials-engineering-fabrication-8:evidence-gate-order",
+            "materials-engineering-fabrication-8:missing-evidence-hold",
+            "materials-engineering-fabrication-8:project-handoff"
+          ],
+          "card_ids": [
+            "materials-engineering-fabrication-8-card-1",
+            "materials-engineering-fabrication-8-card-2",
+            "materials-engineering-fabrication-8-card-3"
+          ]
+        }
+      ]
+    }
+  ],
+  "assessments": [
+    {
+      "id": "materials-engineering-fabrication-1-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Formative practice: Service requirements and constraints-based material/process selection",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "materials-engineering-fabrication-1-objective-1",
+        "materials-engineering-fabrication-1-objective-2",
+        "materials-engineering-fabrication-1-objective-3",
+        "materials-engineering-fabrication-outcome-1"
+      ],
+      "question_ids": [
+        "materials-engineering-fabrication-1:annual-cost",
+        "materials-engineering-fabrication-1:good-throughput",
+        "materials-engineering-fabrication-1:lifecycle-energy",
+        "materials-engineering-fabrication-1:hard-constraints",
+        "materials-engineering-fabrication-1:evidence-uncertainty",
+        "materials-engineering-fabrication-1:selection-audit"
+      ],
+      "points": 7
+    },
+    {
+      "id": "materials-engineering-fabrication-2-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Formative practice: Process–structure–property relationships, defects and property scatter",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "materials-engineering-fabrication-2-objective-1",
+        "materials-engineering-fabrication-2-objective-2",
+        "materials-engineering-fabrication-2-objective-3",
+        "materials-engineering-fabrication-outcome-2"
+      ],
+      "question_ids": [
+        "materials-engineering-fabrication-2:property-change",
+        "materials-engineering-fabrication-2:residual-stress",
+        "materials-engineering-fabrication-2:porosity-strength",
+        "materials-engineering-fabrication-2:process-structure-links",
+        "materials-engineering-fabrication-2:scatter-evidence",
+        "materials-engineering-fabrication-2:defect-audit"
+      ],
+      "points": 7
+    },
+    {
+      "id": "materials-engineering-fabrication-3-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Formative practice: Comparative fabrication routes, joining and DFM/DFA process-plan logic",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "materials-engineering-fabrication-3-objective-1",
+        "materials-engineering-fabrication-3-objective-2",
+        "materials-engineering-fabrication-3-objective-3",
+        "materials-engineering-fabrication-outcome-3"
+      ],
+      "question_ids": [
+        "materials-engineering-fabrication-3:route-yield",
+        "materials-engineering-fabrication-3:powder-input",
+        "materials-engineering-fabrication-3:cost-crossover",
+        "materials-engineering-fabrication-3:route-selection",
+        "materials-engineering-fabrication-3:joining-evidence",
+        "materials-engineering-fabrication-3:process-plan-audit"
+      ],
+      "points": 7
+    },
+    {
+      "id": "materials-engineering-fabrication-4-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Formative practice: Datums, GD&T concepts, fits and tolerance-stack evidence",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "materials-engineering-fabrication-4-objective-1",
+        "materials-engineering-fabrication-4-objective-2",
+        "materials-engineering-fabrication-4-objective-3",
+        "materials-engineering-fabrication-outcome-4"
+      ],
+      "question_ids": [
+        "materials-engineering-fabrication-4:wc-clearance",
+        "materials-engineering-fabrication-4:wc-interference",
+        "materials-engineering-fabrication-4:wc-rss-difference",
+        "materials-engineering-fabrication-4:datum-gdt",
+        "materials-engineering-fabrication-4:rss-independence",
+        "materials-engineering-fabrication-4:stack-inspection"
+      ],
+      "points": 7
+    },
+    {
+      "id": "materials-engineering-fabrication-5-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Formative practice: Metrology, measurement systems, monitoring, capability and yield",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "materials-engineering-fabrication-5-objective-1",
+        "materials-engineering-fabrication-5-objective-2",
+        "materials-engineering-fabrication-5-objective-3",
+        "materials-engineering-fabrication-outcome-5"
+      ],
+      "question_ids": [
+        "materials-engineering-fabrication-5:tolerance-resolution",
+        "materials-engineering-fabrication-5:cp",
+        "materials-engineering-fabrication-5:cpk",
+        "materials-engineering-fabrication-5:gauge-rr",
+        "materials-engineering-fabrication-5:control-capability",
+        "materials-engineering-fabrication-5:traceability-audit"
+      ],
+      "points": 7
+    },
+    {
+      "id": "materials-engineering-fabrication-6-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Formative practice: Drawings, BOM revision, risk and release-evidence governance",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "materials-engineering-fabrication-6-objective-1",
+        "materials-engineering-fabrication-6-objective-2",
+        "materials-engineering-fabrication-6-objective-3",
+        "materials-engineering-fabrication-outcome-6"
+      ],
+      "question_ids": [
+        "materials-engineering-fabrication-6:risk-priority",
+        "materials-engineering-fabrication-6:first-articles",
+        "materials-engineering-fabrication-6:verified-closure",
+        "materials-engineering-fabrication-6:revision-control",
+        "materials-engineering-fabrication-6:evidence-hold",
+        "materials-engineering-fabrication-6:release-roles"
+      ],
+      "points": 7
+    },
+    {
+      "id": "materials-engineering-fabrication-7-practice",
+      "type": "lab",
+      "mode": "practice",
+      "title": "Formative practice: Original synthetic fabrication-evidence laboratory",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "materials-engineering-fabrication-7-objective-1",
+        "materials-engineering-fabrication-7-objective-2",
+        "materials-engineering-fabrication-7-objective-3",
+        "materials-engineering-fabrication-outcome-7"
+      ],
+      "question_ids": [
+        "materials-engineering-fabrication-7:p03-clearance",
+        "materials-engineering-fabrication-7:l02-cpk",
+        "materials-engineering-fabrication-7:l01-yield",
+        "materials-engineering-fabrication-7:independent-parts",
+        "materials-engineering-fabrication-7:capability-boundary",
+        "materials-engineering-fabrication-7:lab-disposition"
+      ],
+      "points": 7
+    },
+    {
+      "id": "materials-engineering-fabrication-project-rehearsal-practice",
+      "type": "practice",
+      "mode": "practice",
+      "title": "Formative practice: Fabrication release-evidence gap-analysis project guide",
+      "path": "question-banks/practice.json",
+      "objective_ids": [
+        "materials-engineering-fabrication-8-objective-1",
+        "materials-engineering-fabrication-8-objective-2",
+        "materials-engineering-fabrication-8-objective-3",
+        "materials-engineering-fabrication-outcome-8"
+      ],
+      "question_ids": [
+        "materials-engineering-fabrication-8:r02-wc-clearance",
+        "materials-engineering-fabrication-8:r04-rss",
+        "materials-engineering-fabrication-8:r05-lot-yield",
+        "materials-engineering-fabrication-8:evidence-gate-order",
+        "materials-engineering-fabrication-8:missing-evidence-hold",
+        "materials-engineering-fabrication-8:project-handoff"
+      ],
+      "points": 7
+    },
+    {
+      "id": "materials-engineering-fabrication-release-gap-project",
+      "type": "project",
+      "mode": "self-assessment",
+      "title": "Optional fabrication release-evidence gap-analysis project: five zero-point milestones",
+      "path": "rubrics/case-studio.json",
+      "objective_ids": [],
+      "question_ids": [],
+      "points": 0
+    }
+  ],
+  "grading_policy": {
+    "mode": "formative-only",
+    "categories": [],
+    "attempt_policy": "Unlimited formative retries; no summative grade is awarded.",
+    "solution_release": "Public practice solutions may be shown after an attempt; case checklists are zero-point self-assessments.",
+    "late_policy": "No deadlines or late penalties exist in this partial package.",
+    "appeals": "No instructor review workflow is implemented; report ambiguous items as content issues."
+  },
+  "retrieval_cards": "question-banks/retrieval-cards.json",
+  "practice_question_bank": "question-banks/practice.json",
+  "case_rubrics": "rubrics/case-studio.json",
+  "source_map": "source-map.json",
+  "syllabus": "syllabus.md",
+  "learner_resources": [
+    "labs/fabrication-evidence.csv",
+    "assignments/release-gap-rehearsal.csv"
+  ],
+  "review": {
+    "status": "unreviewed",
+    "reviewed_version": null,
+    "reviewers": []
+  },
+  "accessibility": {
+    "language": "en",
+    "reading_format": "markdown",
+    "math_format": "unicode-text",
+    "diagram_policy": "No copied figures, standards symbols or embedded CAD are included; datum, process and evidence relationships are expressed in prose, equations and original tables.",
+    "known_issues": [
+      "Unicode subscripts, superscripts, Greek letters and equations require structured alternatives and assistive-technology review.",
+      "CSV tables and text-based datum/evidence descriptions have not undergone accessibility or usability review."
+    ],
+    "review_status": "unreviewed"
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "date": "2026-11-26",
+      "summary": "New explicitly partial advanced university/industry design-review survey: eight routes in six modules, eight original substantive readings, 48 public practice items worth 56 points with 24 base numeric items and 24 authored numeric variants, 24 retrieval cards, two original synthetic CSVs, one zero-point integrative case and five zero-point project milestones. Fabrication readiness is a review objective only; no machine settings, standard-specific compliance checklist, supplier approval or production release is supplied."
+    }
+  ],
+  "limitations": [
+    "This eight-route, six-module package is an explicitly partial advanced university/industry design-review survey, not a complete or measured course. It is unreviewed and formative-only; no competency, credit, professional qualification, supplier approval or institutional authorization is established.",
+    "Fabrication readiness is the review objective, never an achieved claim. Real readiness requires approved drawings/BOM, qualified engineering and safety review, material and process qualification, calibrated inspection and measurement-system analysis, lot traceability, nonconformance closure and named authorized human release, none of which this synthetic package grants.",
+    "All components, materials, suppliers, lots, measurements, properties, risks and CSV rows are original synthetic fictional teaching constructions. Arithmetic consistency is not physical validation, process capability evidence, engineering approval or production release.",
+    "No feeds/speeds, CNC toolpaths, weld parameters, cure schedules, machine setups, detailed process recipes, standard-specific compliance checklists, supplier approval, purchasing instruction or production release is supplied. Heat-treatment and cure discussion is conceptual only.",
+    "Worst-case and RSS tolerance stacks are distinct. RSS is used only where statistical independence is explicitly declared; no independence is inferred from repeated measurements, common lots, shared setups or correlated dimensions.",
+    "Cp/Cpk values are arithmetic exercises only for declared stable and appropriately pooled processes. They are withheld or rejected for unstable or improperly pooled records. Repeated gauge measurements are not independent parts and do not increase the part count.",
+    "Synthetic cases may conclude only synthetic_review_complete when every declared teaching gate has evidence, or evidence_gaps_remain with a hold whenever evidence is missing, unstable, open or unauthorized. Neither outcome means production_approved.",
+    "Of the 24 base numerical answers and 24 authored variant numerical answers, 0 require units, 0 check significant figures and 0 check dimensions. Every base and variant key has an authored absolute tolerance and independent arithmetic/misconception/boundary tests; learners must still show units and derivations.",
+    "Every numeric item has one authored randomization variant in version 0.1.0; all 48 numeric forms and both public CSV stack/capability/yield/lot relationships are independently recomputed by package tests.",
+    "Mechanical Design remains a broader catalog-only planning node. This package is a related/recommended advanced fabrication review survey and does not consume or complete that node. Chemical Engineering Foundations is an optional acyclic process/monitoring cross-link only.",
+    "Official MIT/NIST and reused materials, mechanics and statistics records plus owner application repositories are link-only. No third-party prose, standard, figure, table, problem, dataset, CAD or code is imported, and no endorsement or qualified review is implied."
+  ],
+  "intentionally_omitted": [
+    "Feeds/speeds, CNC toolpaths, weld parameters, cure schedules, machine setups, operating instructions and detailed fabrication recipes.",
+    "Standard-specific compliance checklists, supplier approval, procurement decisions, production release, certification and claims of achieved fabrication readiness.",
+    "Physical fabrication, instrument operation, real gauge R&R execution, independent replication, production data and measured process capability.",
+    "Full mechanical design, detailed constitutive/fracture/life design, advanced GD&T standards interpretation, designed experiments, multivariate SPC and full quality-system regulation.",
+    "Graded assessment, measured workload, qualified scientific/engineering/safety/statistical/standards/accessibility review and authorized human release."
+  ]
+}

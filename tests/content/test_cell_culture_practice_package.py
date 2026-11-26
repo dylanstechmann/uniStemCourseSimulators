@@ -1011,4 +1011,4 @@ def test_phase_c_curriculum_relation_note_preserves_catalog_and_pathways():
         "formative-only. This catalog-only node does not claim broader stem-cell laboratory coverage, deeper quality "
         "systems, measured workload, review or competency from that package."
     )
-    assert len(CURRICULUM["pathways"]) == 8
+    assert len(CURRICULUM["pathways"]) == 10

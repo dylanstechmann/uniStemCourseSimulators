@@ -8,6 +8,7 @@ No course or candidate is activated by this command. `--check` detects report dr
 
 | Package | Version | Maturity | Declared review | Grading | Inactive drafts |
 | --- | --- | --- | --- | --- | ---: |
+| agriculture-construction-habitats | 0.1.0 | partial | unreviewed | formative-only | 0 |
 | biochemistry | 0.7.0 | partial | unreviewed | formative-only | 11 |
 | biomaterials | 0.5.0 | partial | unreviewed | formative-only | 0 |
 | bioreactors | 0.6.0 | partial | unreviewed | formative-only | 0 |
@@ -17,6 +18,8 @@ No course or candidate is activated by this command. `--check` detects report dr
 | cell-biology | 0.62.1 | partial | unreviewed | formative-only | 15 |
 | cell-culture-practice | 0.5.0 | partial | unreviewed | formative-only | 0 |
 | cellular-biomechanics | 0.5.0 | partial | unreviewed | formative-only | 0 |
+| chemical-engineering-foundations | 0.1.0 | partial | unreviewed | formative-only | 0 |
+| chemical-process-design-scale-up | 0.1.0 | partial | unreviewed | formative-only | 0 |
 | circuits | 0.8.0 | partial | unreviewed | formative-only | 0 |
 | differential-equations | 0.7.0 | partial | unreviewed | formative-only | 0 |
 | general-chemistry-1 | 0.7.0 | partial | unreviewed | formative-only | 0 |
@@ -26,6 +29,8 @@ No course or candidate is activated by this command. `--check` detects report dr
 | lab-biosafety | 0.1.0 | partial | unreviewed | formative-only | 0 |
 | lab-measurement | 0.1.0 | partial | unreviewed | formative-only | 0 |
 | linear-algebra | 0.5.0 | partial | unreviewed | formative-only | 0 |
+| materials-engineering-fabrication | 0.1.0 | partial | unreviewed | formative-only | 0 |
+| materials-science | 0.1.0 | partial | unreviewed | formative-only | 0 |
 | organic-chemistry | 0.7.0 | partial | unreviewed | formative-only | 0 |
 | physics-em | 0.7.0 | partial | unreviewed | formative-only | 0 |
 | physics-mechanics | 0.7.0 | partial | unreviewed | formative-only | 0 |

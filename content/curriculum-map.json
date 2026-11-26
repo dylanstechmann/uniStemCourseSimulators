@@ -181,27 +181,6 @@
       "relation_note": "This partial prototype package groups related topics; this catalog entry does not split or claim full-course coverage from that package."
     },
     {
-      "id": "materials-science",
-      "title": "Materials Science for Engineers",
-      "domain": "Materials science",
-      "level": "Year 2",
-      "maturity": "catalog-only",
-      "description": "Connect atomic structure and processing to mechanical, electrical, thermal, degradation, and biological-interface properties of engineering materials.",
-      "prerequisites": {
-        "course_ids": [
-          "general-chemistry-2"
-        ],
-        "recommended_course_ids": [
-          "physics-mechanics"
-        ],
-        "concurrent_course_ids": [],
-        "knowledge": [],
-        "statement": "Recommended sequence: General Chemistry II; Classical Mechanics (recommended). These project-planned dependencies do not establish any university's admission or course-equivalency rules."
-      },
-      "related_package_ids": [],
-      "relation_note": null
-    },
-    {
       "id": "circuits-1",
       "title": "Electrical Circuits I",
       "domain": "Electrical engineering",
@@ -396,16 +375,18 @@
           "mechanics-of-materials"
         ],
         "recommended_course_ids": [
-          "materials-science"
+          "materials-science",
+          "materials-engineering-fabrication"
         ],
         "concurrent_course_ids": [],
         "knowledge": [],
         "statement": "Recommended sequence: Engineering Statics; Mechanics of Materials; Materials Science for Engineers (recommended). These project-planned dependencies do not establish any university's admission or course-equivalency rules."
       },
       "related_package_ids": [
-        "robotics"
+        "robotics",
+        "materials-engineering-fabrication"
       ],
-      "relation_note": "This partial prototype package groups related topics; this catalog entry does not split or claim full-course coverage from that package."
+      "relation_note": "The related partial Robotics & Mechatronics prototype and Materials Engineering for Fabrication survey each support selected planning topics. The fabrication survey adds advanced material/process and release-evidence review links without consuming or completing this broader Mechanical Design node."
     },
     {
       "id": "robotics-mechatronics",
@@ -861,7 +842,8 @@
         "biochemistry",
         "physics-mechanics",
         "physics-em",
-        "cell-biology"
+        "cell-biology",
+        "materials-science"
       ],
       "source_ids": [],
       "sequence_note": "Project-authored study sequence for exploration. Follow the node prerequisite links; local university requirements may differ."
@@ -910,11 +892,12 @@
         "signals-and-systems",
         "feedback-control",
         "mechanical-design",
+        "materials-engineering-fabrication",
         "robotics-mechatronics",
         "engineering-design-experimental-methods"
       ],
       "source_ids": [],
-      "sequence_note": "Project-authored study sequence for exploration. Follow the node prerequisite links; local university requirements may differ."
+      "sequence_note": "Project-authored study sequence for exploration. Materials Engineering for Fabrication is a related advanced partial survey; Mechanical Design remains a broader catalog-only node. Follow node prerequisite links and local requirements."
     },
     {
       "id": "biomedical-engineering",
@@ -1040,6 +1023,40 @@
         "jhu-rsct-degree-courses"
       ],
       "sequence_note": "Project-authored study sequence for exploration. Follow the node prerequisite links; local university requirements may differ."
+    },
+    {
+      "id": "agriculture-construction-habitat-systems",
+      "title": "Agriculture, Construction and Habitat Systems",
+      "description": "Connect genetic and biochemical evidence, classical mechanics, transport and measurement to bounded agricultural, construction and closed-loop habitat system audits.",
+      "course_ids": [
+        "genetics",
+        "biochemistry",
+        "physics-mechanics",
+        "statics-materials",
+        "transport",
+        "lab-measurement",
+        "agriculture-construction-habitats"
+      ],
+      "source_ids": [],
+      "sequence_note": "Project-authored study sequence for exploration. The new survey is partial, unreviewed and formative-only; follow prerequisite links and local requirements."
+    },
+    {
+      "id": "chemical-process-engineering",
+      "title": "Chemical Process Engineering",
+      "description": "Build chemistry, calculus, statistics, transport, measurement and control foundations before bounded surveys of process balances/models and advanced process design, scale-up and design-transfer evidence.",
+      "course_ids": [
+        "calculus-1",
+        "calculus-2",
+        "general-chemistry-1",
+        "general-chemistry-2",
+        "statistics",
+        "transport",
+        "lab-measurement",
+        "chemical-engineering-foundations",
+        "chemical-process-design-scale-up"
+      ],
+      "source_ids": [],
+      "sequence_note": "Project-authored study sequence. Chemical Process Design & Scale-Up is appended after Chemical Engineering Foundations and also requires Signals & Control from the graph; Materials Engineering for Fabrication, Statistics and Laboratory Safety and Biosafety are recommended where the graph permits. All packages remain partial, unreviewed and formative-only; catalog-only deeper nodes are not promoted."
     }
   ],
   "alignment_maps": [

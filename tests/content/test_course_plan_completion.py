@@ -14,7 +14,7 @@ PARTIAL_WITHOUT_PROJECT = {"cell-culture-practice"}
 @pytest.mark.parametrize("path", MANIFESTS, ids=lambda path: path.parent.name)
 def test_existing_plan_has_usable_project_and_current_index(path):
     manifest = json.loads(path.read_text(encoding="utf-8"))
-    assert len(MANIFESTS) == 28
+    assert len(MANIFESTS) == 33
     assert manifest["maturity"] == "partial"
     assert manifest["review"]["status"] == "unreviewed"
     assert manifest["grading_policy"]["mode"] == "formative-only"

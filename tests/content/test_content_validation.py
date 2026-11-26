@@ -174,8 +174,8 @@ def test_preserved_inventory_is_honest_partial(repository):
     # has a learner route: Cell Biology, Biochemistry, Genetics, Calculus I, Physics I, Statics,
     # General Chemistry II, Programming, Biomaterials, Bioreactors, Cellular Biomechanics, Transport, Calculus II and
     # Calculus III, Differential Equations, Linear Algebra and the final eight project routes,
-    # plus six E&M milestones and the eight-lesson cell-culture partial's eight cases.
-    assert result.inventory["courses"] == 28 and result.inventory["cases"] == 171
+    # plus six E&M milestones, the eight-lesson cell-culture partial's eight cases and the agriculture, materials and chemical-engineering surveys' six cases each and the fabrication and advanced process-design surveys' six cases each.
+    assert result.inventory["courses"] == 33 and result.inventory["cases"] == 201
     assert sum(warning["code"] == "legacy-depth" for warning in result.warnings) == 0
     # Assessments list the course outcomes their items assess, so no package has an unmapped outcome.
     assert not [warning for warning in result.warnings if warning["code"] == "objective-coverage"]
@@ -352,11 +352,11 @@ def test_syllabi_list_every_lesson_and_drop_the_prototype_unit_description(repos
         assert "Each unit includes one public formative check and two retrieval cards" not in text
 
 
-def test_curriculum_map_has_eight_pathways_and_separated_engineering_subjects(repository):
+def test_curriculum_map_has_ten_pathways_and_separated_engineering_subjects(repository):
     result = validate_repository(repository)
     assert result.ok, result.errors
     curriculum = read(repository / "content/curriculum-map.json")
-    assert len(curriculum["pathways"]) == 8
+    assert len(curriculum["pathways"]) == 10
     by_id = {item["id"]: item for item in curriculum["catalog_only"]}
     for node_id in (
         "numerical-methods",
@@ -366,7 +366,6 @@ def test_curriculum_map_has_eight_pathways_and_separated_engineering_subjects(re
         "thermodynamics",
         "fluid-mechanics",
         "heat-mass-transfer",
-        "materials-science",
         "circuits-1",
         "circuits-2",
         "analog-electronics",

@@ -1,0 +1,234 @@
+{
+  "schema_version": "1.0",
+  "course_id": "chemical-engineering-foundations",
+  "license": "CC-BY-4.0",
+  "cases": [
+    {
+      "id": "chemical-engineering-foundations:case",
+      "prompt": "A synthetic flowsheet dossier claims approval because total mass closes, forces a two-phase flash when both K values are below one, treats nine scenario rows as independent replicates, enters a blank measurement as zero, and chooses maximum recovery without checking purity or energy. Write an integrative review that repairs the balances and model audit while restoring every non-operational boundary.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "chemical-engineering-foundations-1-objective-3",
+        "chemical-engineering-foundations-2-objective-3",
+        "chemical-engineering-foundations-3-objective-3",
+        "chemical-engineering-foundations-4-objective-3",
+        "chemical-engineering-foundations-5-objective-3",
+        "chemical-engineering-foundations-6-objective-3",
+        "chemical-engineering-foundations-7-objective-3",
+        "chemical-engineering-foundations-8-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "case-criterion-1",
+          "criterion": "Separates BFD/PFD communication, stream-table and total/component-balance roles and identifies the unsupported approval claim",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "case-criterion-2",
+          "criterion": "Recomputes conversion, selectivity, yield, energy, flash, transfer, reactor and separation quantities only under their declared models",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "case-criterion-3",
+          "criterion": "Rejects the invalid flash branch and identifies missing energy, property, correlation, RTD and nonisothermal evidence",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "case-criterion-4",
+          "criterion": "Distinguishes recovery, purity and energy trade-offs without setting operating targets or equipment ratings",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "case-criterion-5",
+          "criterion": "Repairs reconciliation residuals, preserves unknowns and treats scenario rows as correlated rather than independent",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "case-criterion-6",
+          "criterion": "Ends with a zero-point, fictional, formative, non-operational review containing no recipe, design, controller, relief or safety/release approval",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "A zero-point self-check on entirely synthetic generic-species evidence; it is not a grade, qualified engineering review, process design, operability assessment or safety/release approval."
+      ]
+    },
+    {
+      "id": "chemical-engineering-foundations:project-m1-boundaries-streams",
+      "prompt": "Milestone 1: define the conceptual flowsheet. Write the BFD/PFD narrative, boundaries, stream identifiers, A/B/S table conventions, units and assumptions before calculating performance.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "chemical-engineering-foundations-1-objective-3",
+        "chemical-engineering-foundations-2-objective-3",
+        "chemical-engineering-foundations-8-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m1-boundaries-streams-criterion-1",
+          "criterion": "Defines major blocks, feeds, reactor, separator, recycle/bypass/purge choices and stream identifiers without equipment detail",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-boundaries-streams-criterion-2",
+          "criterion": "Supplies consistent total/component units and distinguishes BFD/PFD communication from design documentation",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m1-boundaries-streams-criterion-3",
+          "criterion": "States steady/unsteady, reaction and separation assumptions plus missing evidence without converting unknowns to zero",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "A zero-point self-check on entirely synthetic generic-species evidence; it is not a grade, qualified engineering review, process design, operability assessment or safety/release approval."
+      ]
+    },
+    {
+      "id": "chemical-engineering-foundations:project-m2-balances-reconciliation",
+      "prompt": "Milestone 2: close material balances and reconcile evidence. Recompute every lab scenario and all known rehearsal reactor-side relationships with residuals and denominator definitions.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "chemical-engineering-foundations-1-objective-3",
+        "chemical-engineering-foundations-2-objective-3",
+        "chemical-engineering-foundations-7-objective-3",
+        "chemical-engineering-foundations-8-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m2-balances-reconciliation-criterion-1",
+          "criterion": "Checks total and A/B/S closure for every lab scenario and reports the LAB-01 and LAB-02 discrepancies with their evidence roles",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-balances-reconciliation-criterion-2",
+          "criterion": "Checks feed A = converted + unreacted and converted = B + S for all four rehearsal scenarios",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m2-balances-reconciliation-criterion-3",
+          "criterion": "Defines conversion, selectivity, recovery, purity and yield denominators while retaining correlated-record and unknown disclosures",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "A zero-point self-check on entirely synthetic generic-species evidence; it is not a grade, qualified engineering review, process design, operability assessment or safety/release approval."
+      ]
+    },
+    {
+      "id": "chemical-engineering-foundations:project-m3-model-domains",
+      "prompt": "Milestone 3: audit thermodynamic, transfer and reactor model domains. Include the valid synthetic flash, an invalid flash branch, correlation checks, ideal-reactor comparisons and nonisothermal/RTD limits.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "chemical-engineering-foundations-3-objective-3",
+        "chemical-engineering-foundations-4-objective-3",
+        "chemical-engineering-foundations-5-objective-3",
+        "chemical-engineering-foundations-8-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m3-model-domains-criterion-1",
+          "criterion": "Recomputes energy and flash results, tests 0<V<1 and composition closure, and rejects both-K-below-one as a two-phase branch",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-model-domains-criterion-2",
+          "criterion": "Explains continuity/mechanical-energy, LMTD/NTU and resistance concepts with geometry/regime/property applicability checks and no sizing",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m3-model-domains-criterion-3",
+          "criterion": "Distinguishes batch/CSTR/PFR and selectivity while identifying RTD, temperature-dependent and transport terms omitted from reduced models",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "A zero-point self-check on entirely synthetic generic-species evidence; it is not a grade, qualified engineering review, process design, operability assessment or safety/release approval."
+      ]
+    },
+    {
+      "id": "chemical-engineering-foundations:project-m4-separations-tradeoffs",
+      "prompt": "Milestone 4: compare conceptual separations and trade-offs. Recompute R01–R03 recovered-B and selectivity/yield values and preserve all R04 unknowns.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "chemical-engineering-foundations-2-objective-3",
+        "chemical-engineering-foundations-6-objective-3",
+        "chemical-engineering-foundations-7-objective-3",
+        "chemical-engineering-foundations-8-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m4-separations-tradeoffs-criterion-1",
+          "criterion": "Contrasts equilibrium-stage and rate-based models across all five named separation families without claiming detailed coverage",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-separations-tradeoffs-criterion-2",
+          "criterion": "Independently verifies recovery, purity, extraction and rehearsal performance calculations with consistent component/total denominators",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m4-separations-tradeoffs-criterion-3",
+          "criterion": "Evaluates recovery–purity–energy trade-offs and sensitivity without inventing R04 recovery or a plant operating target",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "A zero-point self-check on entirely synthetic generic-species evidence; it is not a grade, qualified engineering review, process design, operability assessment or safety/release approval."
+      ]
+    },
+    {
+      "id": "chemical-engineering-foundations:project-m5-handoff",
+      "prompt": "Milestone 5: assemble the bounded model-audit handoff. Index all five milestones to readings, practice, CSV evidence and link-only comparators, then record alternatives and unresolved review gates.",
+      "mode": "self-assessment",
+      "objective_ids": [
+        "chemical-engineering-foundations-3-objective-3",
+        "chemical-engineering-foundations-4-objective-3",
+        "chemical-engineering-foundations-5-objective-3",
+        "chemical-engineering-foundations-6-objective-3",
+        "chemical-engineering-foundations-7-objective-3",
+        "chemical-engineering-foundations-8-objective-3"
+      ],
+      "rubric": [
+        {
+          "id": "project-m5-handoff-criterion-1",
+          "criterion": "Indexes requirements, calculations, invalid cases and evidence to the correct lesson routes, public CSV rows and original source map",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-handoff-criterion-2",
+          "criterion": "Documents alternatives, sensitivity, unknowns, correlated records and the limits of deterministic closure and synthetic K values",
+          "points": 0,
+          "levels": []
+        },
+        {
+          "id": "project-m5-handoff-criterion-3",
+          "criterion": "Declares the project optional, zero-point, partial, unreviewed and formative-only with no operational recipe, equipment design or safety/release approval",
+          "points": 0,
+          "levels": []
+        }
+      ],
+      "limitations": [
+        "A zero-point self-check on entirely synthetic generic-species evidence; it is not a grade, qualified engineering review, process design, operability assessment or safety/release approval."
+      ]
+    }
+  ]
+}

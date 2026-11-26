@@ -1,0 +1,30 @@
+# Chemical Engineering Foundations scope crosswalk
+
+## Method and status
+
+The official MIT OpenCourseWare pages below were retrieved and inspected on 2026-11-26. They are **link-only comparators**. No source prose, figure, table, lecture, assignment, examination, problem, dataset or code was imported or adapted. The local package is an original, explicitly partial eight-route university-level survey, unreviewed and formative-only. Counts and shared topic names establish neither comparable depth nor university equivalence.
+
+The initially requested 10.40 Spring 2012 and 10.32 Fall 2005 URLs returned HTTP 404. Official MIT search and course pages instead verify **10.40 Fall 2003** and **10.32 Spring 2005**. This crosswalk uses the verified editions and preserves the discrepancy explicitly rather than creating false source records.
+
+## Coverage legend
+
+- **Covered:** an original reading and executable formative practice develop the named foundation at introductory depth.
+- **Shallow:** the route introduces the concept or one reduced example but not the comparator's full analytical treatment.
+- **Absent/deferred:** deliberately outside this bounded survey; deeper catalog-only nodes remain unpromoted and future distinct packages are required.
+
+| Official comparator | Local covered foundation | Shallow | Absent/deferred and boundary |
+| --- | --- | --- | --- |
+| [MIT 10.302 Transport Processes, Fall 2004 — syllabus](https://ocw.mit.edu/courses/10-302-transport-processes-fall-2004/pages/syllabus/) and [calendar](https://ocw.mit.edu/courses/10-302-transport-processes-fall-2004/pages/calendar/) | Continuity, average speed, a stipulated Darcy-friction term, pump/system-curve meaning, series resistance, LMTD and NTU concepts; heat/mass-transfer analogy and correlation checklist. | One-dimensional reduced balances and ideal terminal-driving-force calculations only. | Multidimensional/transient conduction, radiation, boundary-layer and convection-correlation analysis, detailed exchanger methods, diffusion–reaction and interphase transfer, physical conduction/exchanger laboratories and assessed problem/exam depth. No line/pump sizing or equipment rating. |
+| [MIT 10.40 Chemical Engineering Thermodynamics, Fall 2003 — syllabus](https://ocw.mit.edu/courses/10-40-chemical-engineering-thermodynamics-fall-2003/pages/syllabus/) and [calendar](https://ocw.mit.edu/courses/10-40-chemical-engineering-thermodynamics-fall-2003/pages/calendar/) | State versus path quantities, first-/second-law distinctions, steady sensible-energy accounting and a declared synthetic binary K-value flash with invalid-domain checks. | Greatly reduced macroscopic examples; no real property data or general flash algorithm. | The comparator's graduate classical/statistical bridge, broad postulates/property methods, molecular-level treatment, advanced equilibrium, full thermodynamic problem sequence and examinations. Catalog-only thermodynamics is not promoted. |
+| [MIT 10.37 Chemical and Biological Reaction Engineering, Spring 2007 — syllabus/calendar](https://ocw.mit.edu/courses/10-37-chemical-and-biological-reaction-engineering-spring-2007/pages/syllabus/) | Conversion/selectivity/yield denominators, first-order ideal batch/CSTR/PFR balances, parallel-rate selectivity, RTD meaning and nonisothermal model-boundary identification. | Simple constant-parameter models and conceptual coupling only. | Mechanism derivation, enzyme/cell kinetics, heterogeneous catalysis, diffusion–reaction effectiveness, multiphase biological reactors, detailed nonisothermal stability, experimental parameter discrimination and full assignments/exams. No production recipe or reactor design. |
+| [MIT 10.32 Separation Processes, Spring 2005 — syllabus](https://ocw.mit.edu/courses/10-32-separation-processes-spring-2005/pages/syllabus/) and [calendar](https://ocw.mit.edu/courses/10-32-separation-processes-spring-2005/pages/calendar/) | Equilibrium-stage versus rate-based concepts across distillation, absorption, extraction, membranes and adsorption; recovery, purity, single-stage ideal extraction and energy/resource trade-offs. | Introductory mechanism mapping and one reduced extraction balance; synthetic flash only. | Full cascades/stage methods, phase-equilibrium design, chromatography, detailed membrane/adsorption models, diffusion treatment, physical data, complete problem sets and exams. No separation design or operating target. |
+
+## Reused prerequisite/concept mappings
+
+Existing `chemistry`, `transport`, `statistics` and `control` records are appended to relevant local modules without deleting their older mappings. Chemistry supports stoichiometry/equilibrium foundations; transport supports reduced energy/transport boundaries; statistics supports correlated-record and reconciliation limits; control supports the distinction between a steady conceptual model audit and dynamic feedback analysis. No controller settings are introduced. Laboratory Measurement is a recommended course node, not a newly invented source record.
+
+## Integration and assessment evidence
+
+The original synthetic reconciliation CSV checks three total and nine component closures per scenario, separated measured/reconciled fields, signed residuals and blank unknowns. The rehearsal CSV checks two reactor-side conservation relations for four scenarios and separator calculations only where recovery is declared. Feed/product rows reused within a scenario are correlated records, not independent replicates. Derived columns within a rehearsal scenario are likewise correlated. Missing values remain unknown, never zero.
+
+The 24 numeric base items and all CSV relationships have independent package-test recomputation and misconception responses. Version 0.1.0 has no numeric authored randomization variants. The six zero-point cases assess self-review only. Arithmetic closure is not proof of safe or feasible operation; the package supplies no real chemical identifier, hazardous condition, production recipe, plant target, controller setting, line/pump sizing, equipment rating, relief sizing or safety/release approval.

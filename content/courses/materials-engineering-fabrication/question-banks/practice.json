@@ -1,0 +1,2249 @@
+{
+  "schema_version": "1.0",
+  "course_id": "materials-engineering-fabrication",
+  "license": "CC-BY-4.0",
+  "questions": [
+    {
+      "id": "materials-engineering-fabrication-1:annual-cost",
+      "type": "numeric",
+      "prompt": "A fictional annual route model has fixed allocation 12,000 cost units, 4,000 parts and variable cost 3 per part. What is annual cost in cost units? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-1-objective-3"
+      ],
+      "feedback": {
+        "hint": "Use the declared synthetic equation, keep units consistent and preserve the stated model boundary.",
+        "solution": "Annual cost = 12,000 + 4,000×3 = 24,000 cost units under the declared synthetic accounting boundary.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 24000,
+        "unit": "",
+        "tolerance": 0.00024,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "The alternate annual model has fixed allocation 18,000, 6,000 parts and variable cost 2.5 per part. What is annual cost? Enter the number only.",
+            "solution_spec": {
+              "answer": 33000,
+              "unit": "",
+              "tolerance": 0.00033,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate synthetic inputs independently and do not reuse the base answer.",
+              "solution": "Annual cost = 18,000 + 6,000×2.5 = 33,000 cost units; this is not a supplier quote.",
+              "lesson_ids": [
+                "materials-engineering-fabrication-1"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-1:good-throughput",
+      "type": "numeric",
+      "prompt": "Three fictional route capacities are 80, 60 and 100 units/day and declared route yield is 0.95. What is good throughput in units/day? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-1-objective-2"
+      ],
+      "feedback": {
+        "hint": "Use the declared synthetic equation, keep units consistent and preserve the stated model boundary.",
+        "solution": "The bottleneck is 60 units/day and good throughput = 60×0.95 = 57 units/day.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 57,
+        "unit": "",
+        "tolerance": 5.7e-07,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "Alternate capacities are 90, 72 and 110 units/day with declared yield 0.90. What is good throughput in units/day? Enter the number only.",
+            "solution_spec": {
+              "answer": 64.8,
+              "unit": "",
+              "tolerance": 6.48e-07,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate synthetic inputs independently and do not reuse the base answer.",
+              "solution": "The alternate bottleneck is 72 and good throughput = 72×0.90 = 64.8 units/day.",
+              "lesson_ids": [
+                "materials-engineering-fabrication-1"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-1:lifecycle-energy",
+      "type": "numeric",
+      "prompt": "A fictional batch has 500 good parts with material, use-phase and end-of-life terms 40, 12 and −4 MJ per part. What is lifecycle energy in MJ? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-1-objective-2"
+      ],
+      "feedback": {
+        "hint": "Use the declared synthetic equation, keep units consistent and preserve the stated model boundary.",
+        "solution": "Lifecycle energy = 500×(40+12−4) = 24,000 MJ under the declared synthetic boundary.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 24000,
+        "unit": "",
+        "tolerance": 0.00024,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "An alternate batch has 750 good parts with material, use-phase and end-of-life terms 35, 15 and −5 MJ per part. What is lifecycle energy in MJ? Enter the number only.",
+            "solution_spec": {
+              "answer": 33750,
+              "unit": "",
+              "tolerance": 0.0003375,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate synthetic inputs independently and do not reuse the base answer.",
+              "solution": "Alternate lifecycle energy = 750×(35+15−5) = 33,750 MJ; the credit is stipulated, not measured recovery.",
+              "lesson_ids": [
+                "materials-engineering-fabrication-1"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-1:hard-constraints",
+      "type": "single_choice",
+      "prompt": "A fictional candidate has the lowest cost but fails a mandatory wear-evidence constraint. What is the correct selection action?",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-1-objective-1"
+      ],
+      "feedback": {
+        "hint": "Separate the declared evidence from assumptions, preferences and operational or release claims.",
+        "solution": "Hard constraints screen eligibility before preferences; a low cost cannot erase missing mandatory wear evidence.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Rank it first because cost is a preference",
+        "Remove it from the eligible set and record the failed constraint",
+        "Average the failure into a weighted score",
+        "Approve it conditionally without evidence"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-1:evidence-uncertainty",
+      "type": "single_choice",
+      "prompt": "A fictional datasheet omits the actual media exposure and joint condition needed for selection. What belongs in the review?",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-1-objective-2"
+      ],
+      "feedback": {
+        "hint": "Separate the declared evidence from assumptions, preferences and operational or release claims.",
+        "solution": "Unmeasured media and joint conditions remain unknown; the selection cannot proceed to approval by assumption.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Assume generic compatibility",
+        "Copy a value from another joint",
+        "Record the evidence as unknown and require application-specific review",
+        "Convert the gap to a zero risk score"
+      ],
+      "solution_spec": {
+        "answer": 2
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-1:selection-audit",
+      "type": "multiple_select",
+      "prompt": "Which elements belong in a constraints-first fictional selection audit? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "materials-engineering-fabrication-1-objective-1",
+        "materials-engineering-fabrication-1-objective-2",
+        "materials-engineering-fabrication-1-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate the declared evidence from assumptions, preferences and operational or release claims.",
+        "solution": "A defensible audit preserves service context, model boundaries, uncertainty and gates; weights do not waive constraints.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-1"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-1 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Load, temperature, media and wear narratives with units",
+        "Lifecycle boundary and throughput/yield definitions",
+        "A weighted score used to waive failed hard constraints",
+        "Evidence uncertainty, sensitivity and unresolved review gates"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-2:property-change",
+      "type": "numeric",
+      "prompt": "A fictional processed-property mean changes from 200 to 230 arbitrary units. What is the percentage increase relative to the initial mean? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-2-objective-2"
+      ],
+      "feedback": {
+        "hint": "Use the declared synthetic equation, keep units consistent and preserve the stated model boundary.",
+        "solution": "Percentage increase = (230−200)/200×100 = 15%; the final mean is 115% of the initial mean.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 15,
+        "unit": "",
+        "tolerance": 1.5e-07,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "An alternate fictional mean changes from 180 to 207 arbitrary units. What is its percentage increase? Enter the number only.",
+            "solution_spec": {
+              "answer": 15,
+              "unit": "",
+              "tolerance": 1.5e-07,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate synthetic inputs independently and do not reuse the base answer.",
+              "solution": "Alternate increase = (207−180)/180×100 = 15%; percent increase is not final/initial×100.",
+              "lesson_ids": [
+                "materials-engineering-fabrication-2"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-2:residual-stress",
+      "type": "numeric",
+      "prompt": "At one fictional location and direction, applied stress is +120 MPa and residual stress is −45 MPa. What is their signed superposition in MPa? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-2-objective-2"
+      ],
+      "feedback": {
+        "hint": "Use the declared synthetic equation, keep units consistent and preserve the stated model boundary.",
+        "solution": "Signed superposition = 120 + (−45) = 75 MPa under the bounded uniaxial model.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 75,
+        "unit": "",
+        "tolerance": 7.5e-07,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "At an alternate fictional location, applied stress is +150 MPa and residual stress is −60 MPa. What is their signed sum in MPa? Enter the number only.",
+            "solution_spec": {
+              "answer": 90,
+              "unit": "",
+              "tolerance": 9.000000000000001e-07,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate synthetic inputs independently and do not reuse the base answer.",
+              "solution": "Alternate signed superposition = 150−60 = 90 MPa; this predicts no fatigue life.",
+              "lesson_ids": [
+                "materials-engineering-fabrication-2"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-2:porosity-strength",
+      "type": "numeric",
+      "prompt": "A deliberately simple fictional model gives strength = nominal×(1−p)². Nominal strength is 250 MPa and porosity p = 0.04. What is modeled strength in MPa? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-2-objective-2"
+      ],
+      "feedback": {
+        "hint": "Use the declared synthetic equation, keep units consistent and preserve the stated model boundary.",
+        "solution": "Modeled strength = 250×0.96² = 230.4 MPa. This square law is not an acceptance criterion.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 230.4,
+        "unit": "",
+        "tolerance": 2.3040000000000003e-06,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "The alternate square-law model has nominal strength 300 MPa and p = 0.03. What is modeled strength in MPa? Enter the number only.",
+            "solution_spec": {
+              "answer": 282.27,
+              "unit": "",
+              "tolerance": 2.8226999999999997e-06,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate synthetic inputs independently and do not reuse the base answer.",
+              "solution": "Alternate modeled strength = 300×0.97² = 282.27 MPa under the stipulated model only.",
+              "lesson_ids": [
+                "materials-engineering-fabrication-2"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-2:process-structure-links",
+      "type": "single_choice",
+      "prompt": "Which statement best connects processing to a fictional property review?",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-2-objective-1"
+      ],
+      "feedback": {
+        "hint": "Separate the declared evidence from assumptions, preferences and operational or release claims.",
+        "solution": "Processing creates structural evidence needs, not universal recipes or exact property predictions.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Heat treatment, forming and cure can alter structure and defects, but exact property claims need qualified evidence",
+        "An equilibrium diagram supplies a complete thermal recipe",
+        "Fiber orientation has no effect after drawing release",
+        "Porosity always changes strength by one universal law"
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-2:scatter-evidence",
+      "type": "single_choice",
+      "prompt": "Ten repeated gauge readings are taken on one fictional part. What do they represent?",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-2-objective-2"
+      ],
+      "feedback": {
+        "hint": "Separate the declared evidence from assumptions, preferences and operational or release claims.",
+        "solution": "Repeated gauge measurements do not create independent parts or a qualified lot distribution.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Ten independent parts for property scatter",
+        "Repeated measurement evidence for one part, not ten independent parts",
+        "A qualified lot distribution",
+        "Independent proof of process stability"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-2:defect-audit",
+      "type": "multiple_select",
+      "prompt": "Which records strengthen a fictional defect/property-scatter review? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "materials-engineering-fabrication-2-objective-1",
+        "materials-engineering-fabrication-2-objective-2",
+        "materials-engineering-fabrication-2-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate the declared evidence from assumptions, preferences and operational or release claims.",
+        "solution": "Defect morphology, detection limits, independent sampling and model context matter; a nominal mean is insufficient.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-2"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-2 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Defect type, location, orientation and detection limit",
+        "One nominal datasheet mean treated as a guaranteed minimum",
+        "Independent part/lot identifiers and sampling rationale",
+        "Residual-stress sign/location and declared model assumptions"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-3:route-yield",
+      "type": "numeric",
+      "prompt": "A fictional three-step route has step yields 0.98, 0.95 and 0.90 under the declared multiplicative model. What is overall yield as a percentage? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-3-objective-2"
+      ],
+      "feedback": {
+        "hint": "Use the declared synthetic equation, keep units consistent and preserve the stated model boundary.",
+        "solution": "Overall yield = 0.98×0.95×0.90×100 = 83.79%; stage percentages are not averaged.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 83.79,
+        "unit": "",
+        "tolerance": 8.379000000000001e-07,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "An alternate route has yields 0.97, 0.96 and 0.92. What is overall yield as a percentage? Enter the number only.",
+            "solution_spec": {
+              "answer": 85.6704,
+              "unit": "",
+              "tolerance": 8.56704e-07,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate synthetic inputs independently and do not reuse the base answer.",
+              "solution": "Alternate yield = 0.97×0.96×0.92×100 = 85.6704% under the multiplicative model.",
+              "lesson_ids": [
+                "materials-engineering-fabrication-3"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-3:powder-input",
+      "type": "numeric",
+      "prompt": "A fictional final batch must contain 100 kg after a declared yield of 0.92. What input mass in kg is required by the simple yield model? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-3-objective-2"
+      ],
+      "feedback": {
+        "hint": "Use the declared synthetic equation, keep units consistent and preserve the stated model boundary.",
+        "solution": "Input = output/yield = 100/0.92 = 108.695652… kg; multiplying by yield would go the wrong way.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 108.69565217391303,
+        "unit": "",
+        "tolerance": 1.0869565217391303e-06,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "An alternate final batch must contain 80 kg after declared yield 0.94. What input mass in kg is required? Enter the number only.",
+            "solution_spec": {
+              "answer": 85.1063829787234,
+              "unit": "",
+              "tolerance": 8.510638297872341e-07,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate synthetic inputs independently and do not reuse the base answer.",
+              "solution": "Alternate input = 80/0.94 = 85.106383… kg under the simple accounting model.",
+              "lesson_ids": [
+                "materials-engineering-fabrication-3"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-3:cost-crossover",
+      "type": "numeric",
+      "prompt": "Fictional route A costs 15,000 fixed + 5 per part and route B costs 5,000 fixed + 8 per part. At what part quantity do their modeled costs cross? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-3-objective-2"
+      ],
+      "feedback": {
+        "hint": "Use the declared synthetic equation, keep units consistent and preserve the stated model boundary.",
+        "solution": "Set 15,000+5Q = 5,000+8Q, so Q = 10,000/3 = 3,333.333… parts. This is not a procurement threshold.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 3333.3333333333335,
+        "unit": "",
+        "tolerance": 3.3333333333333335e-05,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "Alternate route A costs 18,000 fixed + 6 per part and route B costs 6,000 fixed + 9 per part. At what part quantity do costs cross? Enter the number only.",
+            "solution_spec": {
+              "answer": 4000,
+              "unit": "",
+              "tolerance": 4e-05,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate synthetic inputs independently and do not reuse the base answer.",
+              "solution": "Set 18,000+6Q = 6,000+9Q, so Q = 12,000/3 = 4,000 parts in the alternate model.",
+              "lesson_ids": [
+                "materials-engineering-fabrication-3"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-3:route-selection",
+      "type": "single_choice",
+      "prompt": "Which route review is most defensible for a fictional complex internal geometry?",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-3-objective-2"
+      ],
+      "feedback": {
+        "hint": "Separate the declared evidence from assumptions, preferences and operational or release claims.",
+        "solution": "No process label wins universally; geometry, material, defects, volume and evidence must be compared.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Additive is always cheapest and requires no inspection",
+        "Casting always eliminates porosity concerns",
+        "Compare additive and alternatives using access, anisotropy, defects, volume, secondary steps and evidence",
+        "Choose machining without checking tool access"
+      ],
+      "solution_spec": {
+        "answer": 2
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-3:joining-evidence",
+      "type": "single_choice",
+      "prompt": "Which issue belongs specifically in an adhesive-joining evidence review?",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-3-objective-2"
+      ],
+      "feedback": {
+        "hint": "Separate the declared evidence from assumptions, preferences and operational or release claims.",
+        "solution": "Adhesive joints require interface, aging, cure and inspection evidence beyond dimensional conformance.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Only the nominal metal cutting force",
+        "Bondline, surface condition, environmental aging, cure state and inspection evidence",
+        "A guarantee that dissimilar materials never degrade",
+        "No need for process qualification if dimensions pass"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-3:process-plan-audit",
+      "type": "multiple_select",
+      "prompt": "Which entries belong in a non-operational DFM/DFA process-plan audit? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "materials-engineering-fabrication-3-objective-1",
+        "materials-engineering-fabrication-3-objective-2",
+        "materials-engineering-fabrication-3-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate the declared evidence from assumptions, preferences and operational or release claims.",
+        "solution": "Process-plan logic covers dependencies, yield, access, distortion, joining and evidence, not machine instructions.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-3"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-3 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Operation dependencies and inspection access",
+        "Stage-yield model and evidence handoffs",
+        "Detailed CNC toolpaths and weld settings",
+        "Distortion, joining, qualification and nonconformance evidence"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-4:wc-clearance",
+      "type": "numeric",
+      "prompt": "A fictional hole has minimum diameter 10.20 mm and its shaft has maximum diameter 10.10 mm. What is worst-case minimum clearance in mm? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-4-objective-2"
+      ],
+      "feedback": {
+        "hint": "Use the declared synthetic equation, keep units consistent and preserve the stated model boundary.",
+        "solution": "Worst-case minimum clearance = hole minimum − shaft maximum = 10.20−10.10 = 0.10 mm.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.1,
+        "unit": "",
+        "tolerance": 1e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "An alternate hole minimum is 12.30 mm and shaft maximum is 12.12 mm. What is worst-case minimum clearance in mm? Enter the number only.",
+            "solution_spec": {
+              "answer": 0.18,
+              "unit": "",
+              "tolerance": 1.8e-09,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate synthetic inputs independently and do not reuse the base answer.",
+              "solution": "Alternate minimum clearance = 12.30−12.12 = 0.18 mm.",
+              "lesson_ids": [
+                "materials-engineering-fabrication-4"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-4:wc-interference",
+      "type": "numeric",
+      "prompt": "A fictional shaft has maximum diameter 10.16 mm and its hole has minimum diameter 10.00 mm. What is maximum interference in mm? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-4-objective-2"
+      ],
+      "feedback": {
+        "hint": "Use the declared synthetic equation, keep units consistent and preserve the stated model boundary.",
+        "solution": "Maximum interference = shaft maximum − hole minimum = 10.16−10.00 = 0.16 mm.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.16,
+        "unit": "",
+        "tolerance": 1.6e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "An alternate shaft maximum is 20.20 mm and hole minimum is 20.02 mm. What is maximum interference in mm? Enter the number only.",
+            "solution_spec": {
+              "answer": 0.18,
+              "unit": "",
+              "tolerance": 1.8e-09,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate synthetic inputs independently and do not reuse the base answer.",
+              "solution": "Alternate maximum interference = 20.20−20.02 = 0.18 mm.",
+              "lesson_ids": [
+                "materials-engineering-fabrication-4"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-4:wc-rss-difference",
+      "type": "numeric",
+      "prompt": "Three stack magnitudes are 0.02, 0.03 and 0.04 mm. With independence declared for RSS, by how many mm does their worst-case sum exceed their RSS? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-4-objective-2"
+      ],
+      "feedback": {
+        "hint": "Use the declared synthetic equation, keep units consistent and preserve the stated model boundary.",
+        "solution": "Worst case = 0.09 mm; RSS = √0.0029 = 0.05385165… mm; difference = 0.03614835… mm. The methods are not interchangeable.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.03614835192865496,
+        "unit": "",
+        "tolerance": 1e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "Alternate stack magnitudes are 0.025, 0.03 and 0.045 mm, with independence declared. By how many mm does the worst-case sum exceed RSS? Enter the number only.",
+            "solution_spec": {
+              "answer": 0.040418123560935076,
+              "unit": "",
+              "tolerance": 1e-09,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate synthetic inputs independently and do not reuse the base answer.",
+              "solution": "Alternate worst case = 0.10 mm and RSS = √0.00325 = 0.059459… mm; difference = 0.040541… mm.",
+              "lesson_ids": [
+                "materials-engineering-fabrication-4"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-4:datum-gdt",
+      "type": "single_choice",
+      "prompt": "A fictional hole meets its diameter limits but its axis is misplaced for assembly. What does this show?",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-4-objective-1"
+      ],
+      "feedback": {
+        "hint": "Separate the declared evidence from assumptions, preferences and operational or release claims.",
+        "solution": "Diameter and location are different geometric evidence channels tied to functional datum references.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Size conformance alone does not establish every functional geometric requirement",
+        "The part is automatically assembly-ready",
+        "Datums are arbitrary labels with no measurement role",
+        "RSS will correct the axis location"
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-4:rss-independence",
+      "type": "single_choice",
+      "prompt": "Two fictional dimensions share an unquantified fixture-induced shift. Which stack claim is supportable?",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-4-objective-2"
+      ],
+      "feedback": {
+        "hint": "Separate the declared evidence from assumptions, preferences and operational or release claims.",
+        "solution": "Shared fixture effects can correlate dimensions; independent RSS requires declared and justified independence.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Their covariance is automatically zero",
+        "RSS is mandatory and gives a guaranteed limit",
+        "Independence is not established, so independent-only RSS cannot be assumed",
+        "Repeated readings prove independence"
+      ],
+      "solution_spec": {
+        "answer": 2
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-4:stack-inspection",
+      "type": "multiple_select",
+      "prompt": "Which practices correctly distinguish tolerance-stack and inspection reasoning? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "materials-engineering-fabrication-4-objective-1",
+        "materials-engineering-fabrication-4-objective-2",
+        "materials-engineering-fabrication-4-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate the declared evidence from assumptions, preferences and operational or release claims.",
+        "solution": "Worst-case limits, independent RSS and inspection evidence answer different questions and must remain distinct.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-4"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-4 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Use limiting hole/shaft dimensions for worst-case fits",
+        "Treat RSS and worst-case as the same guaranteed bound",
+        "Declare independence and compatible variance terms before RSS",
+        "Connect geometric characteristics to suitable measurement evidence"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-5:tolerance-resolution",
+      "type": "numeric",
+      "prompt": "A fictional tolerance band is 0.20 mm and displayed gauge resolution is 0.01 mm. What is their ratio? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-5-objective-1"
+      ],
+      "feedback": {
+        "hint": "Use the declared synthetic equation, keep units consistent and preserve the stated model boundary.",
+        "solution": "Tolerance/resolution = 0.20/0.01 = 20. This ratio alone does not establish gauge adequacy.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 20,
+        "unit": "",
+        "tolerance": 2e-07,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "An alternate tolerance band is 0.30 mm and displayed resolution is 0.02 mm. What is their ratio? Enter the number only.",
+            "solution_spec": {
+              "answer": 15,
+              "unit": "",
+              "tolerance": 1.5e-07,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate synthetic inputs independently and do not reuse the base answer.",
+              "solution": "Alternate tolerance/resolution = 0.30/0.02 = 15; bias and repeatability still need evidence.",
+              "lesson_ids": [
+                "materials-engineering-fabrication-5"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-5:cp",
+      "type": "numeric",
+      "prompt": "For a declared stable, appropriately pooled fictional model, LSL = 9.8, USL = 10.2 and sigma = 0.05. What is Cp = (USL−LSL)/(6sigma)? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-5-objective-2"
+      ],
+      "feedback": {
+        "hint": "Use the declared synthetic equation, keep units consistent and preserve the stated model boundary.",
+        "solution": "Cp = 0.4/(6×0.05) = 1.333333…. Stability and pooling are preconditions, not consequences of this value.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1.3333333333333333,
+        "unit": "",
+        "tolerance": 1.3333333333333334e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "An alternate declared stable model has LSL = 19.8, USL = 20.3 and sigma = 0.06. What is Cp? Enter the number only.",
+            "solution_spec": {
+              "answer": 1.3888888888888888,
+              "unit": "",
+              "tolerance": 1.3888888888888889e-08,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate synthetic inputs independently and do not reuse the base answer.",
+              "solution": "Alternate Cp = 0.5/(6×0.06) = 1.388888… under the declared arithmetic model.",
+              "lesson_ids": [
+                "materials-engineering-fabrication-5"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-5:cpk",
+      "type": "numeric",
+      "prompt": "For a declared stable fictional model, LSL = 9.8, USL = 10.2, mean = 10.1 and sigma = 0.04. What is Cpk using the closer specification side? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-5-objective-2"
+      ],
+      "feedback": {
+        "hint": "Use the declared synthetic equation, keep units consistent and preserve the stated model boundary.",
+        "solution": "Cpk = min(0.1/0.12, 0.3/0.12) = 0.833333…; Cpk accounts for centering but not instability.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.8333333333333304,
+        "unit": "",
+        "tolerance": 8.333333333333304e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "An alternate stable model has LSL = 19.8, USL = 20.2, mean = 20.12 and sigma = 0.05. What is Cpk? Enter the number only.",
+            "solution_spec": {
+              "answer": 0.5333333333333219,
+              "unit": "",
+              "tolerance": 5.333333333333219e-09,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate synthetic inputs independently and do not reuse the base answer.",
+              "solution": "Alternate Cpk = min(0.08/0.15, 0.32/0.15) = 0.533333… under the declared model.",
+              "lesson_ids": [
+                "materials-engineering-fabrication-5"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-5:gauge-rr",
+      "type": "single_choice",
+      "prompt": "Which design best distinguishes part variation from repeat-reading variation in a fictional measurement study?",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-5-objective-1"
+      ],
+      "feedback": {
+        "hint": "Separate the declared evidence from assumptions, preferences and operational or release claims.",
+        "solution": "Multiple parts and repeated readings under a declared design separate evidence channels; repeated readings are not independent parts.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Read one part repeatedly and call each reading a new part",
+        "Measure multiple identified parts with repeated readings under a declared gauge-R&R design",
+        "Pool all lots before assigning part IDs",
+        "Use display resolution as the only adequacy measure"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-5:control-capability",
+      "type": "single_choice",
+      "prompt": "A fictional lot shows a special-cause shift. What is the correct capability action?",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-5-objective-2"
+      ],
+      "feedback": {
+        "hint": "Separate the declared evidence from assumptions, preferences and operational or release claims.",
+        "solution": "Cp/Cpk is not interpreted for an unstable or improperly pooled process; investigate the special cause.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Pool it with stable lots to enlarge sigma",
+        "Report Cpk as proof of stability",
+        "Withhold Cp/Cpk interpretation and investigate the signal",
+        "Replace control limits with specification limits"
+      ],
+      "solution_spec": {
+        "answer": 2
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-5:traceability-audit",
+      "type": "multiple_select",
+      "prompt": "Which fields support traceable fictional inspection evidence? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "materials-engineering-fabrication-5-objective-1",
+        "materials-engineering-fabrication-5-objective-2",
+        "materials-engineering-fabrication-5-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate the declared evidence from assumptions, preferences and operational or release claims.",
+        "solution": "Traceability requires identifiers, measurement context and disposition evidence, not an anonymous grand average.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-5"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-5 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Part/lot and drawing/BOM revision identifiers",
+        "Gauge identity, calibration state and subgroup context",
+        "Only the grand average with all lot labels removed",
+        "Nonconformance, disposition and first-article evidence links"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-6:risk-priority",
+      "type": "numeric",
+      "prompt": "A fictional ordinal risk matrix assigns severity 8, occurrence 4 and detection 5. What is their ordinal risk-priority product? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-6-objective-1"
+      ],
+      "feedback": {
+        "hint": "Use the declared synthetic equation, keep units consistent and preserve the stated model boundary.",
+        "solution": "The ordinal product = 8×4×5 = 160. It is not a probability or universal acceptance threshold.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 160,
+        "unit": "",
+        "tolerance": 1.6e-06,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "An alternate fictional ordinal matrix assigns severity 9, occurrence 3 and detection 6. What is the ordinal product? Enter the number only.",
+            "solution_spec": {
+              "answer": 162,
+              "unit": "",
+              "tolerance": 1.62e-06,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate synthetic inputs independently and do not reuse the base answer.",
+              "solution": "Alternate ordinal product = 9×3×6 = 162; it is not a failure probability.",
+              "lesson_ids": [
+                "materials-engineering-fabrication-6"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-6:first-articles",
+      "type": "numeric",
+      "prompt": "A fictional first-article record verifies 18 of 24 required characteristics. What is verified coverage as a percentage? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-6-objective-2"
+      ],
+      "feedback": {
+        "hint": "Use the declared synthetic equation, keep units consistent and preserve the stated model boundary.",
+        "solution": "Verified coverage = 18/24×100 = 75%; the six unverified characteristics remain open.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 75,
+        "unit": "",
+        "tolerance": 7.5e-07,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "An alternate first-article record verifies 21 of 28 required characteristics. What is verified coverage as a percentage? Enter the number only.",
+            "solution_spec": {
+              "answer": 75,
+              "unit": "",
+              "tolerance": 7.5e-07,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate synthetic inputs independently and do not reuse the base answer.",
+              "solution": "Alternate verified coverage = 21/28×100 = 75%; incomplete coverage cannot be waived by the percentage.",
+              "lesson_ids": [
+                "materials-engineering-fabrication-6"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-6:verified-closure",
+      "type": "numeric",
+      "prompt": "A fictional log has 12 opened nonconformances and 6 with verified closure. What is verified closure as a percentage of opened items? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-6-objective-2"
+      ],
+      "feedback": {
+        "hint": "Use the declared synthetic equation, keep units consistent and preserve the stated model boundary.",
+        "solution": "Verified closure = 6/12×100 = 50%; unverified or open items are excluded from the numerator.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 50,
+        "unit": "",
+        "tolerance": 5e-07,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "An alternate log has 16 opened nonconformances and 8 with verified closure. What is verified closure as a percentage? Enter the number only.",
+            "solution_spec": {
+              "answer": 50,
+              "unit": "",
+              "tolerance": 5e-07,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate synthetic inputs independently and do not reuse the base answer.",
+              "solution": "Alternate verified closure = 8/16×100 = 50%; opened remains the denominator.",
+              "lesson_ids": [
+                "materials-engineering-fabrication-6"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-6:revision-control",
+      "type": "single_choice",
+      "prompt": "A fictional supplier change alters material and inspection evidence but leaves geometry unchanged. What is required?",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-6-objective-1"
+      ],
+      "feedback": {
+        "hint": "Separate the declared evidence from assumptions, preferences and operational or release claims.",
+        "solution": "Non-geometric changes can invalidate material, process and inspection evidence and require controlled review.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Change-control and affected qualification/inspection review before any readiness conclusion",
+        "No review because geometry is unchanged",
+        "Delete the previous lot records",
+        "Automatic supplier approval"
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-6:evidence-hold",
+      "type": "single_choice",
+      "prompt": "A synthetic dossier has complete arithmetic but one open nonconformance. Which disposition is allowed?",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-6-objective-2"
+      ],
+      "feedback": {
+        "hint": "Separate the declared evidence from assumptions, preferences and operational or release claims.",
+        "solution": "Any open required evidence produces evidence_gaps_remain; production approval is never an available course outcome.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "production_approved",
+        "evidence_gaps_remain with a hold",
+        "synthetic_review_complete because arithmetic passed",
+        "supplier_approved"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-6:release-roles",
+      "type": "multiple_select",
+      "prompt": "Which elements are required for real fabrication readiness, outside this synthetic course? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "materials-engineering-fabrication-6-objective-1",
+        "materials-engineering-fabrication-6-objective-2",
+        "materials-engineering-fabrication-6-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate the declared evidence from assumptions, preferences and operational or release claims.",
+        "solution": "Real readiness needs all these evidence and authority elements; the synthetic course supplies none of them.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-6"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-6 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Approved drawings/BOM and qualified engineering/safety review",
+        "Material/process qualification and calibrated inspection/MSA",
+        "Lot traceability and nonconformance closure",
+        "Named authorized human release",
+        "A learner’s unilateral production release substituted for the authorized role"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-7:p03-clearance",
+      "type": "numeric",
+      "prompt": "In the public lab CSV, fictional P03 has hole actual 10.06 mm and shaft actual 9.98 mm. What is actual clearance in mm? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-7-objective-1"
+      ],
+      "feedback": {
+        "hint": "Use the declared synthetic equation, keep units consistent and preserve the stated model boundary.",
+        "solution": "P03 actual clearance = 10.06−9.98 = 0.08 mm; this actual-pair value is not worst-case clearance.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.08,
+        "unit": "",
+        "tolerance": 1e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "In the same synthetic CSV, P07 has hole actual 10.10 mm and shaft actual 10.01 mm. What is actual clearance in mm? Enter the number only.",
+            "solution_spec": {
+              "answer": 0.09,
+              "unit": "",
+              "tolerance": 1e-09,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate synthetic inputs independently and do not reuse the base answer.",
+              "solution": "P07 actual clearance = 10.10−10.01 = 0.09 mm under the actual-pair arithmetic.",
+              "lesson_ids": [
+                "materials-engineering-fabrication-7"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-7:l02-cpk",
+      "type": "numeric",
+      "prompt": "The public lab CSV declares stable L02 mean 10.01 mm, within sigma 0.02 mm, LSL 9.90 and USL 10.10 mm. What is Cpk? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-7-objective-2"
+      ],
+      "feedback": {
+        "hint": "Use the declared synthetic equation, keep units consistent and preserve the stated model boundary.",
+        "solution": "L02 Cpk = min(0.09/0.06, 0.11/0.06) = 1.5 under the declared stable arithmetic model.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 1.5,
+        "unit": "",
+        "tolerance": 1.5000000000000002e-08,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "The alternate public L03 row declares stable mean 10.04 mm, within sigma 0.025 mm, LSL 9.90 and USL 10.10 mm. What is Cpk? Enter the number only.",
+            "solution_spec": {
+              "answer": 0.8,
+              "unit": "",
+              "tolerance": 8e-09,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate synthetic inputs independently and do not reuse the base answer.",
+              "solution": "L03 Cpk = min(0.06/0.075, 0.14/0.075) = 0.8; L04 remains withheld because it is unstable.",
+              "lesson_ids": [
+                "materials-engineering-fabrication-7"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-7:l01-yield",
+      "type": "numeric",
+      "prompt": "The public lab CSV has four inspected L01 parts with actual dimensions 9.99, 10.01, 10.00 and 10.03 mm, all inside 9.90–10.10 mm. What is observed accepted yield as a percentage? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-7-objective-3"
+      ],
+      "feedback": {
+        "hint": "Use the declared synthetic equation, keep units consistent and preserve the stated model boundary.",
+        "solution": "L01 accepted yield = 4/4×100 = 100%; repeated gauge readings add no parts and this is not a future guarantee.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 100,
+        "unit": "",
+        "tolerance": 1e-06,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "The alternate public L04 actual dimensions are 9.98, 10.02, 10.06 and 10.12 mm against 9.90–10.10 mm. What is observed accepted yield as a percentage? Enter the number only.",
+            "solution_spec": {
+              "answer": 75,
+              "unit": "",
+              "tolerance": 7.5e-07,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate synthetic inputs independently and do not reuse the base answer.",
+              "solution": "L04 accepted yield = 3/4×100 = 75%; P16 is outside USL and capability remains withheld for instability.",
+              "lesson_ids": [
+                "materials-engineering-fabrication-7"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-7:independent-parts",
+      "type": "single_choice",
+      "prompt": "The lab CSV has 16 actual part rows plus a repeated reading for each. How many independent actual parts are represented?",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-7-objective-1"
+      ],
+      "feedback": {
+        "hint": "Separate the declared evidence from assumptions, preferences and operational or release claims.",
+        "solution": "There are 16 actual parts across four lots; the repeated column is measurement-repeat evidence only.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "32 independent parts",
+        "16 actual parts; repeated readings are not additional independent parts",
+        "Four parts total because lots remove part identity",
+        "64 independent parts"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-7:capability-boundary",
+      "type": "single_choice",
+      "prompt": "What is the correct treatment of L04 in the lab CSV?",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-7-objective-2"
+      ],
+      "feedback": {
+        "hint": "Separate the declared evidence from assumptions, preferences and operational or release claims.",
+        "solution": "L04 is unstable for the exercise, so capability is withheld and observed yield still counts P16 as not accepted.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Compute Cpk after pooling with L01",
+        "Withhold Cp/Cpk because a special-cause signal is declared; P16 remains outside USL",
+        "Call it stable because three parts pass",
+        "Use repeated readings to reduce sigma"
+      ],
+      "solution_spec": {
+        "answer": 2
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-7:lab-disposition",
+      "type": "multiple_select",
+      "prompt": "Which checks belong in the synthetic lab handoff? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "materials-engineering-fabrication-7-objective-1",
+        "materials-engineering-fabrication-7-objective-2",
+        "materials-engineering-fabrication-7-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate the declared evidence from assumptions, preferences and operational or release claims.",
+        "solution": "The handoff recomputes all allowed values, withholds unstable capability and preserves evidence links.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-7"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-7 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Every actual-pair clearance and per-lot accepted yield",
+        "Cp/Cpk for every lot regardless of stability",
+        "L02/L03 capability with declared conditions and L04 withheld",
+        "Part/lot/gauge/revision/nonconformance evidence links"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          2,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-8:r02-wc-clearance",
+      "type": "numeric",
+      "prompt": "The rehearsal CSV gives R02 hole lower limit 10.04 mm and shaft upper limit 10.00 mm. What is worst-case minimum clearance in mm? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-8-objective-1"
+      ],
+      "feedback": {
+        "hint": "Use the declared synthetic equation, keep units consistent and preserve the stated model boundary.",
+        "solution": "R02 worst-case minimum clearance = 10.04−10.00 = 0.04 mm; missing MSA still causes a hold.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.04,
+        "unit": "",
+        "tolerance": 1e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "The alternate R03 row gives hole lower limit 10.15 mm and shaft upper limit 10.00 mm. What is worst-case minimum clearance in mm? Enter the number only.",
+            "solution_spec": {
+              "answer": 0.15,
+              "unit": "",
+              "tolerance": 1.5e-09,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate synthetic inputs independently and do not reuse the base answer.",
+              "solution": "R03 worst-case minimum clearance = 10.15−10.00 = 0.15 mm; its open nonconformance still requires hold.",
+              "lesson_ids": [
+                "materials-engineering-fabrication-project-guide"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-8:r04-rss",
+      "type": "numeric",
+      "prompt": "The rehearsal CSV declares independent R04 terms 0.01, 0.02 and 0.02 mm. What is their RSS in mm? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-8-objective-2"
+      ],
+      "feedback": {
+        "hint": "Use the declared synthetic equation, keep units consistent and preserve the stated model boundary.",
+        "solution": "R04 RSS = √(0.01²+0.02²+0.02²) = √0.0009 = 0.03 mm, not the 0.05 mm worst-case sum.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 0.03,
+        "unit": "",
+        "tolerance": 1e-09,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "The alternate R05 row declares independent terms 0.02, 0.02 and 0.03 mm. What is their RSS in mm? Enter the number only.",
+            "solution_spec": {
+              "answer": 0.04123105625617661,
+              "unit": "",
+              "tolerance": 1e-09,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate synthetic inputs independently and do not reuse the base answer.",
+              "solution": "R05 RSS = √(0.02²+0.02²+0.03²) = √0.0017 = 0.041231… mm under declared independence.",
+              "lesson_ids": [
+                "materials-engineering-fabrication-project-guide"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-8:r05-lot-yield",
+      "type": "numeric",
+      "prompt": "The rehearsal CSV gives R05 20 inspected and 18 accepted fictional parts. What is observed accepted-lot yield as a percentage? Enter the number only.",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-8-objective-3"
+      ],
+      "feedback": {
+        "hint": "Use the declared synthetic equation, keep units consistent and preserve the stated model boundary.",
+        "solution": "R05 observed accepted-lot yield = 18/20×100 = 90%; missing process qualification still leaves evidence_gaps_remain.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 numeric practice and authored variant developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "solution_spec": {
+        "answer": 90,
+        "unit": "",
+        "tolerance": 9.000000000000001e-07,
+        "unit_required": false,
+        "significant_figures": null,
+        "dimensions": null
+      },
+      "randomization": {
+        "seeded": true,
+        "generator_id": "authored-variants-v1",
+        "variants": [
+          {
+            "id": "alternate-1",
+            "prompt": "The alternate R03 row gives 25 inspected and 22 accepted fictional parts. What is observed accepted-lot yield as a percentage? Enter the number only.",
+            "solution_spec": {
+              "answer": 88,
+              "unit": "",
+              "tolerance": 8.8e-07,
+              "unit_required": false,
+              "significant_figures": null,
+              "dimensions": null
+            },
+            "feedback": {
+              "hint": "Recompute the alternate synthetic inputs independently and do not reuse the base answer.",
+              "solution": "R03 observed accepted-lot yield = 22/25×100 = 88%; its open nonconformance still requires a hold.",
+              "lesson_ids": [
+                "materials-engineering-fabrication-project-guide"
+              ],
+              "misconception_ids": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-8:evidence-gate-order",
+      "type": "single_choice",
+      "prompt": "When may a rehearsal row receive synthetic_review_complete?",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-8-objective-1"
+      ],
+      "feedback": {
+        "hint": "Separate the declared evidence from assumptions, preferences and operational or release claims.",
+        "solution": "synthetic_review_complete requires all fictional gates and never grants production release.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "Only when every declared fictional evidence gate is satisfied; it still grants no production approval",
+        "Whenever observed yield exceeds 50 percent",
+        "Whenever worst-case clearance is positive",
+        "Whenever a learner chooses an authorized-sounding role name"
+      ],
+      "solution_spec": {
+        "answer": 0
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-8:missing-evidence-hold",
+      "type": "single_choice",
+      "prompt": "R02 has correct clearance arithmetic but missing calibrated inspection/MSA evidence. What disposition follows?",
+      "points": 1,
+      "objective_ids": [
+        "materials-engineering-fabrication-8-objective-2"
+      ],
+      "feedback": {
+        "hint": "Separate the declared evidence from assumptions, preferences and operational or release claims.",
+        "solution": "Missing MSA is a required evidence gap, so R02 remains on hold despite correct arithmetic.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "synthetic_review_complete",
+        "evidence_gaps_remain with a hold",
+        "production_approved",
+        "supplier_approved"
+      ],
+      "solution_spec": {
+        "answer": 1
+      }
+    },
+    {
+      "id": "materials-engineering-fabrication-8:project-handoff",
+      "type": "multiple_select",
+      "prompt": "Which contents make the zero-point project handoff reproducible and bounded? Select all that apply.",
+      "points": 2,
+      "objective_ids": [
+        "materials-engineering-fabrication-8-objective-1",
+        "materials-engineering-fabrication-8-objective-2",
+        "materials-engineering-fabrication-8-objective-3"
+      ],
+      "feedback": {
+        "hint": "Separate the declared evidence from assumptions, preferences and operational or release claims.",
+        "solution": "The handoff includes calculations, gaps, roles and bounded dispositions, never a learner production-release signature.",
+        "lesson_ids": [
+          "materials-engineering-fabrication-project-guide"
+        ],
+        "misconception_ids": []
+      },
+      "visibility": "public-practice-authoring",
+      "provenance": {
+        "kind": "original",
+        "modifications": [
+          "Original lesson-8 evidence practice developed with substantial AI assistance on 2026-11-26; all scenarios and values are synthetic; no external problem, code or dataset imported."
+        ]
+      },
+      "options": [
+        "All WC/RSS/yield calculations with assumptions",
+        "Scenario-by-scenario evidence gaps and required real-world roles",
+        "A production-release signature supplied by the learner",
+        "Only synthetic_review_complete or evidence_gaps_remain dispositions"
+      ],
+      "solution_spec": {
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "partial_credit": "correct-minus-incorrect-clamped-v1"
+      }
+    }
+  ]
+}

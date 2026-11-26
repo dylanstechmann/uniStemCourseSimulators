@@ -6,6 +6,7 @@ comprehensive coverage. Every package is still `partial` and unreviewed.
 
 | Package | Maturity | Lessons | Objectives | Practice items | Cards | Objectives with no assessment mapping | Objectives with no practice item | Objectives linked to no outcome | Course outcomes | Outcomes no lesson objective links to | Outcomes no assessment lists |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| agriculture-construction-habitats | partial | 8 | 24 | 48 | 24 | 0 | 0 | 0 | 8 | 0 | 0 |
 | biochemistry | partial | 45 | 97 | 290 | 170 | 0 | 0 | 0 | 6 | 0 | 0 |
 | biomaterials | partial | 22 | 58 | 122 | 73 | 0 | 0 | 0 | 4 | 0 | 0 |
 | bioreactors | partial | 24 | 65 | 132 | 82 | 0 | 0 | 0 | 4 | 0 | 0 |
@@ -15,6 +16,8 @@ comprehensive coverage. Every package is still `partial` and unreviewed.
 | cell-biology | partial | 45 | 69 | 183 | 96 | 0 | 0 | 0 | 4 | 0 | 0 |
 | cell-culture-practice | partial | 8 | 40 | 96 | 32 | 0 | 0 | 0 | 10 | 0 | 0 |
 | cellular-biomechanics | partial | 24 | 64 | 131 | 79 | 0 | 0 | 0 | 7 | 0 | 0 |
+| chemical-engineering-foundations | partial | 8 | 24 | 48 | 24 | 0 | 0 | 0 | 8 | 0 | 0 |
+| chemical-process-design-scale-up | partial | 8 | 24 | 48 | 24 | 0 | 0 | 0 | 8 | 0 | 0 |
 | circuits | partial | 29 | 84 | 158 | 99 | 0 | 0 | 0 | 5 | 0 | 0 |
 | differential-equations | partial | 25 | 68 | 152 | 86 | 0 | 0 | 0 | 4 | 0 | 0 |
 | general-chemistry-1 | partial | 24 | 69 | 160 | 87 | 0 | 0 | 0 | 4 | 0 | 0 |
@@ -24,6 +27,8 @@ comprehensive coverage. Every package is still `partial` and unreviewed.
 | lab-biosafety | partial | 7 | 24 | 64 | 26 | 0 | 0 | 0 | 4 | 0 | 0 |
 | lab-measurement | partial | 7 | 24 | 64 | 26 | 0 | 0 | 0 | 4 | 0 | 0 |
 | linear-algebra | partial | 22 | 62 | 133 | 79 | 0 | 0 | 0 | 5 | 0 | 0 |
+| materials-engineering-fabrication | partial | 8 | 24 | 48 | 24 | 0 | 0 | 0 | 8 | 0 | 0 |
+| materials-science | partial | 8 | 24 | 48 | 24 | 0 | 0 | 0 | 8 | 0 | 0 |
 | organic-chemistry | partial | 23 | 68 | 155 | 84 | 0 | 0 | 0 | 4 | 0 | 0 |
 | physics-em | partial | 27 | 72 | 165 | 91 | 0 | 0 | 0 | 6 | 0 | 0 |
 | physics-mechanics | partial | 24 | 63 | 143 | 79 | 0 | 0 | 0 | 4 | 0 | 0 |
@@ -35,7 +40,7 @@ comprehensive coverage. Every package is still `partial` and unreviewed.
 | statistics | partial | 29 | 86 | 155 | 100 | 0 | 1 | 0 | 12 | 0 | 0 |
 | transport | partial | 25 | 68 | 150 | 85 | 0 | 0 | 0 | 7 | 0 | 0 |
 
-Totals: 28 packages, 687 lessons, 1863 objectives, 4055 practice items, 0 lesson objectives with no assessment mapping, 1 with no practice item, 0 linked to no course outcome; 0 of 148 course outcomes that no lesson objective links to, 0 that no assessment lists.
+Totals: 33 packages, 727 lessons, 1983 objectives, 4295 practice items, 0 lesson objectives with no assessment mapping, 1 with no practice item, 0 linked to no course outcome; 0 of 188 course outcomes that no lesson objective links to, 0 that no assessment lists.
 
 Each assessment with items lists the course outcomes its own items assess (item, then its tagged lesson objective,
 then that objective's outcome links), and `tools/validate_content.py` rejects an outcome that none of the
