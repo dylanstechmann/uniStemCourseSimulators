@@ -118,13 +118,31 @@ describe("study tools", () => {
     expect(
       screen.getByRole("spinbutton", { name: "Resistance (kΩ)" }),
     ).toHaveValue(100);
-    expect(screen.getByRole("link", { name: "RC charging" })).toHaveAttribute(
-      "aria-current",
-      "page",
-    );
+    expect(
+      screen.getByRole("link", { name: "RC charging and discharging" }),
+    ).toHaveAttribute("aria-current", "page");
     await user.click(screen.getByRole("button", { name: "Calculate" }));
     expect(screen.getByText("1 s")).toBeInTheDocument();
     expect(screen.getByText("63.2121 %")).toBeInTheDocument();
+
+    const time = screen.getByRole("spinbutton", { name: "Time (s)" });
+    await user.clear(time);
+    await user.type(time, "0.693147");
+    await user.click(screen.getByRole("button", { name: "Calculate" }));
+    expect(
+      screen.getByRole("heading", {
+        name: "RC charging and discharging",
+        exact: true,
+      }),
+    ).toBeVisible();
+    expect(
+      screen.getByText("Initial voltage remaining during discharge")
+        .nextElementSibling,
+    ).toHaveTextContent("50 %");
+    expect(
+      screen.getByText("Initial energy remaining during discharge")
+        .nextElementSibling,
+    ).toHaveTextContent("25 %");
   });
 });
 

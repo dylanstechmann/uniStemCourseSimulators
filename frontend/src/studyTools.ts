@@ -129,12 +129,12 @@ export const studyTools: StudyTool[] = [
   },
   {
     id: "rc",
-    title: "RC charging",
+    title: "RC charging and discharging",
     description:
-      "Find the time constant and fraction of an ideal voltage step reached.",
-    equation: "τ = RC; fraction charged = 1 − exp(−t/τ)",
+      "Compare voltage during charging with voltage and stored energy during discharge through the same resistor.",
+    equation: "τ = RC; charging V/Vstep = 1 − exp(−t/τ); discharge V/V₀ = exp(−t/τ); E/E₀ = (V/V₀)²",
     assumptions:
-      "Assumes an ideal series RC circuit, an initially uncharged capacitor, and a constant voltage step. Resistance is entered in kΩ and capacitance in μF.",
+      "One ideal capacitor starts at zero volts and charges toward a constant source voltage. A second, initially charged capacitor discharges through the same resistance with the source removed. With 100 kΩ and 10 μF, enter 0.693147 s. The discharging capacitor then retains about 50% of its initial voltage and 25% of its initial energy because stored energy is proportional to voltage squared.",
     fields: [
       {
         id: "resistance",
@@ -510,11 +510,23 @@ export function calculateStudyTool(
         throw new Error(
           "These inputs exceed the calculator’s numeric range. Use smaller or larger values.",
         );
+      const elapsed = values.time / tau;
+      const remaining = Math.exp(-elapsed);
       result = [
         { label: "Time constant", value: tau, unit: "s" },
         {
           label: "Voltage step reached",
-          value: -Math.expm1(-values.time / tau) * 100,
+          value: -Math.expm1(-elapsed) * 100,
+          unit: "%",
+        },
+        {
+          label: "Initial voltage remaining during discharge",
+          value: remaining * 100,
+          unit: "%",
+        },
+        {
+          label: "Initial energy remaining during discharge",
+          value: remaining ** 2 * 100,
           unit: "%",
         },
       ];
