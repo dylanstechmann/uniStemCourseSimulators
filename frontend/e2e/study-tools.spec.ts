@@ -65,7 +65,10 @@ test("calculator navigation and results fit a narrow screen", async ({
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/#/tools/rc");
   await expect(
-    page.getByRole("heading", { name: "RC charging and discharging", exact: true }),
+    page.getByRole("heading", {
+      name: "RC charging and discharging",
+      exact: true,
+    }),
   ).toBeVisible();
   await page.getByRole("spinbutton", { name: "Time (s)" }).fill("0.693147");
   await page.getByRole("button", { name: "Calculate", exact: true }).click();

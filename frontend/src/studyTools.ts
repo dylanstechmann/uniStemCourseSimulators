@@ -109,7 +109,8 @@ export const studyTools: StudyTool[] = [
     title: "RC charging and discharging",
     description:
       "Compare voltage during charging with voltage and stored energy during discharge through the same resistor.",
-    equation: "τ = RC; charging V/Vstep = 1 − exp(−t/τ); discharge V/V₀ = exp(−t/τ); E/E₀ = (V/V₀)²",
+    equation:
+      "τ = RC; charging V/Vstep = 1 − exp(−t/τ); discharge V/V₀ = exp(−t/τ); E/E₀ = (V/V₀)²",
     assumptions:
       "One ideal capacitor starts at zero volts and charges toward a constant source voltage. A second, initially charged capacitor discharges through the same resistance with the source removed. With 100 kΩ and 10 μF, enter 0.693147 s. The discharging capacitor then retains about half its initial voltage and one quarter of its initial energy because stored energy is proportional to voltage squared.",
     fields: [
