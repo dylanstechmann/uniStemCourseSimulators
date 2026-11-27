@@ -87,7 +87,7 @@ Single-choice, multiple-select, numeric, bounded symbolic-expression, narrow dat
 
 ## Preserved local study tools
 
-The React reader now includes six scientific calculators under **Study tools**, available without enrollment: dilution, buffer pH, enzyme kinetics, RC charging, diffusion timescale, and Ohm's law. Each shows units and model assumptions and links to related courses. Calculator scratch work is ungraded.
+The React reader now includes six scientific calculators under **Study tools**, available without enrollment: dilution, buffer pH, enzyme kinetics, RC charging and discharging, diffusion timescale, and Ohm's law. Each shows units and model assumptions and links to related courses. Calculator scratch work is ungraded.
 
 **Bench practice** replays simulations of real bench procedures (micropipette gravimetric verification, decimal dilutions with the FDA BAM aerobic plate count, a Class II biosafety cabinet session with a spill, validating an autoclave waste cycle with biological indicators, and the first response to a needlestick, cut or eye splash) from the learner's own choices of action, with a checkpoint debrief at the end. Runs are formative, unrecorded and cannot train hand skill; see the [wet-lab practice plan](docs/WET_LAB_PRACTICE_PLAN.md).
 

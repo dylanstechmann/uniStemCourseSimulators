@@ -40,10 +40,9 @@ describe("study tools", () => {
     expect(
       screen.getByRole("spinbutton", { name: "Resistance (kΩ)" }),
     ).toHaveValue(100);
-    expect(screen.getByRole("link", { name: "RC charging" })).toHaveAttribute(
-      "aria-current",
-      "page",
-    );
+    expect(
+      screen.getByRole("link", { name: "RC charging and discharging" }),
+    ).toHaveAttribute("aria-current", "page");
     await user.click(screen.getByRole("button", { name: "Calculate" }));
     expect(screen.getByText("1 s")).toBeInTheDocument();
     expect(screen.getByText("63.2121 %")).toBeInTheDocument();

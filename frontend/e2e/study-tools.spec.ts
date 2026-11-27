@@ -23,7 +23,7 @@ test("public scientific calculators work with keyboard input and accessible resu
     { name: "Dilution", result: "0.5 mL" },
     { name: "Buffer pH", result: "8.2" },
     { name: "Enzyme kinetics", result: "66.6667 μM/min" },
-    { name: "RC charging", result: "1 s" },
+    { name: "RC charging and discharging", result: "1 s" },
     { name: "Diffusion timescale", result: "10 s" },
     { name: "Ohm’s law", result: "0.5 mA" },
   ];
@@ -65,10 +65,23 @@ test("calculator navigation and results fit a narrow screen", async ({
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/#/tools/rc");
   await expect(
-    page.getByRole("heading", { name: "RC charging", exact: true }),
+    page.getByRole("heading", { name: "RC charging and discharging", exact: true }),
   ).toBeVisible();
+  await page.getByRole("spinbutton", { name: "Time (s)" }).fill("0.693147");
   await page.getByRole("button", { name: "Calculate", exact: true }).click();
-  await expect(page.getByText("63.2121 %", { exact: true })).toBeVisible();
+  const results = page.getByRole("status");
+  await expect(
+    results
+      .locator("dl > div")
+      .filter({ hasText: "Initial voltage remaining during discharge" })
+      .locator("dd"),
+  ).toHaveText("50 %");
+  await expect(
+    results
+      .locator("dl > div")
+      .filter({ hasText: "Initial energy remaining during discharge" })
+      .locator("dd"),
+  ).toHaveText("25 %");
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= window.innerWidth,

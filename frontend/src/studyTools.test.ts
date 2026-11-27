@@ -63,6 +63,20 @@ describe("scientific study calculations", () => {
     expect(calculate("rc", { time: "0" })[1].value).toBe(0);
   });
 
+  it("compares normalized voltage and energy during source-free RC discharge", () => {
+    const results = (time: string) =>
+      calculate("rc", { time }).map((item) => item.value);
+    expect(results("0")).toEqual([1, 0, 100, 100]);
+    const [, charged, voltage, energy] = results("1");
+    expect(charged + voltage).toBeCloseTo(100);
+    expect(voltage).toBeCloseTo(36.787944);
+    expect(energy).toBeCloseTo(13.533528);
+    const [, , halfVoltage, quarterEnergy] = results(String(Math.log(2)));
+    expect(halfVoltage).toBeCloseTo(50);
+    expect(quarterEnergy).toBeCloseTo(25);
+    expect(results("50")[2]).toBeGreaterThan(0);
+  });
+
   it("converts micrometres and preserves the square-distance diffusion scaling", () => {
     const baseline = calculate("diffusion")[0];
     expect(baseline.unit).toBe("s");
