@@ -126,9 +126,9 @@ for (const plan of plans) {
         .getByRole("navigation", { name: "Lessons", exact: true })
         .getByRole("link", { name: plan.title, exact: true })
         .click();
-      await expect(
-        page.getByRole("heading", { name: plan.title, exact: true }),
-      ).toBeVisible();
+      const lessonTitle = page.locator("article.lesson-reader > h2");
+      await expect(lessonTitle).toHaveText(plan.title);
+      await expect(lessonTitle).toBeVisible();
       await expect(
         page.getByRole("heading", {
           name: "Worked example: a separate case",
