@@ -136,8 +136,8 @@ export const studyTools: StudyTool[] = [
     id: "diffusion",
     title: "Diffusion timescale",
     description:
-      "Estimate how diffusion time scales with distance and diffusivity.",
-    equation: "t ≈ L²/D",
+      "Compare a characteristic diffusion time with the time for a cloud to spread along a line or across a plane.",
+    equation: "tscale = L²/D; ⟨r²⟩ = 2dDt",
     assumptions:
       "This is a characteristic timescale. Geometry, boundary conditions, advection, and reactions determine a full transport solution.",
     fields: [
@@ -276,15 +276,23 @@ export function calculateStudyTool(
       ];
       break;
     }
-    case "diffusion":
+    case "diffusion": {
+      const scale = (values.length * 1e-6) ** 2 / values.diffusivity;
       result = [
+        { label: "Characteristic diffusion time", value: scale, unit: "s" },
         {
-          label: "Characteristic diffusion time",
-          value: (values.length * 1e-6) ** 2 / values.diffusivity,
+          label: "Time to RMS distance on a line",
+          value: scale / 2,
+          unit: "s",
+        },
+        {
+          label: "Time to RMS distance in a plane",
+          value: scale / 4,
           unit: "s",
         },
       ];
       break;
+    }
     case "ohm": {
       const current = values.voltage / values.resistance;
       result = [

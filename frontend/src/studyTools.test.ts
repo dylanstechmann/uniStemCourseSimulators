@@ -87,6 +87,16 @@ describe("scientific study calculations", () => {
     ).toBeCloseTo(20);
   });
 
+  it("distinguishes the characteristic timescale from 1D and 2D RMS spreading times", () => {
+    const times = (length: string) =>
+      calculate("diffusion", { length, diffusivity: "1e-12" }).map(
+        (item) => item.value,
+      );
+    expect(times("2")).toEqual([4, 2, 1]);
+    expect(times("4")).toEqual([16, 8, 4]);
+    expect(times("0")).toEqual([0, 0, 0]);
+  });
+
   it("uses mA and mW and preserves current direction while power remains positive", () => {
     const result = calculate("ohm", { voltage: "-5", resistance: "2" });
     expect(result[0]).toEqual({ label: "Current", value: -2.5, unit: "mA" });
