@@ -73,6 +73,7 @@ export function NotebookView({
     setOffset(0);
   }
 
+  const hasFilters = Boolean(query || courseId);
   const items: NotebookNote[] = page?.items ?? [];
   const total = page?.total ?? 0;
 
@@ -122,6 +123,18 @@ export function NotebookView({
                 </option>
               ))}
             </select>
+            {hasFilters ? (
+              <button
+                type="button"
+                onClick={() => {
+                  setQuery("");
+                  setCourseId("");
+                  setOffset(0);
+                }}
+              >
+                Clear filters
+              </button>
+            ) : null}
           </section>
           {loading ? <p role="status">Searching notes…</p> : null}
           {error ? (
@@ -167,8 +180,8 @@ export function NotebookView({
                 </div>
               ) : total === 0 ? (
                 <p className="notice">
-                  {query.trim()
-                    ? "No notes match that search. Try another term or clear the course filter."
+                  {hasFilters
+                    ? "No notes match the current filters. Clear filters to view all saved notes."
                     : courses.length
                       ? "No saved lesson notes yet. Open a lesson in My learning and add a private note."
                       : "Enroll in a course to start saving lesson notes."}
