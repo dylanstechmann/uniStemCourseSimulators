@@ -17,7 +17,7 @@ The React **Case studio** exposes the existing self-assessed design tasks in all
 - **Retrieval cards:** cards appear with developed lessons; learners can use them for self-assessment. After revealing an answer, an enrolled learner can self-rate recall (again/hard/good/easy). The server stores each rating append-only with the card's text digest and schedules the next review with the documented `retrieval-schedule-v1` SM-2-style rule (10-minute relearn, then 1 day, 6 days, and interval × ease, capped at 365 days). A course **Review queue** lists due, not-yet-reviewed and later cards. Editing a card's text restarts its schedule. Ratings never change practice scores, objective evidence or grades; they are a study aid, not mastery evidence.
 - **Notes and bookmarks:** server-backed learner notes and course bookmarks can be exported or deleted with account data.
 - **Progress:** marked reading state is stored separately from quiz scores and does not certify mastery.
-- **Scientific calculators:** the React **Study tools** page offers dilution, buffer pH, enzyme kinetics, RC charging, diffusion timescale, and Ohm's law. The main navigation and current course views link to it; each calculator has a direct `#/tools/<tool-id>` route, labeled units, model assumptions, related course links, input validation, and keyboard-accessible results. Calculations are local scratch work and do not submit answers or affect grades. The legacy implementations remain preserved.
+- **Scientific calculators:** the React **Study tools** page offers dilution, buffer pH, enzyme kinetics, RC charging and discharging, diffusion timescale, and Ohm's law. The main navigation and current course views link to it; each calculator has a direct `#/tools/<tool-id>` route, labeled units, model assumptions, related course links, input validation, and keyboard-accessible results. Calculations are local scratch work and do not submit answers or affect grades. The legacy implementations remain preserved.
 
 ## Authoring and validation checklist
 
@@ -29,6 +29,14 @@ When adding a course or changing a problem:
 4. Make the hint point to a method and the explanation show the reasoning, not only the answer.
 5. For biology or engineering cases, ask learners to distinguish a measurable result from a causal, functional, or translational conclusion.
 6. Cite public comparators and write original notes and questions rather than importing restricted course text or answer keys.
+
+## RC comparison exercise
+
+Open the RC charging and discharging calculator. With the default 100 kΩ and 10 μF, the time constant is 1 s. At 0.693147 s, predict the voltage remaining on an initially charged capacitor discharging through the resistor. It retains about half its initial voltage and one quarter of its initial energy because stored energy is proportional to voltage squared. Double the resistor and find the new time to half voltage (about 1.38629 s). The capacitor charging from zero in the separate step-response example reaches half the step at that same time. The exercise connects the local circuit readings on filter recovery and stored energy with the first-order circuit topics in sessions L13–L14. [MIT OCW 6.002, Spring 2007 calendar](https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/pages/calendar/)
+
+## Diffusion comparison exercise
+
+Open the Diffusion timescale calculator and enter a distance of 2 μm and a diffusivity of 1 × 10⁻¹² m²/s. The characteristic scale is 4 s. Along a line, an initially localized cloud reaches a root-mean-square displacement of 2 μm in 2 s. Across a plane it reaches the same radial RMS displacement in 1 s because each of the two independent coordinates contributes to the squared distance. Predict what happens at 4 μm, then check the calculator. All three times increase fourfold. These times describe ensemble spreading in free space. Arrival at a target requires specifying its geometry and boundary conditions. [MIT OpenCourseWare 18.366, Fall 2006, lecture 1](https://ocw.mit.edu/courses/18-366-random-walks-and-diffusion-fall-2006/aef0a2690183294e59ea8cb29f8dd448_lec01.pdf)
 
 ## Current limitations
 

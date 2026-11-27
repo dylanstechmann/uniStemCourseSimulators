@@ -62,6 +62,35 @@ describe("cross-course notebook", () => {
     );
   });
 
+  it("recovers from an empty course filter and clears both filters together", async () => {
+    const user = userEvent.setup();
+    const request = vi
+      .spyOn(api, "notebook")
+      .mockImplementation(async (query, courseId) =>
+        query || courseId ? { ...page, items: [], total: 0 } : page,
+      );
+    render(
+      <NotebookView hasSession courses={[course]} needsVersionReview={false} />,
+    );
+    await screen.findByText("1 saved note");
+    const courseFilter = screen.getByRole("combobox", { name: "Course" });
+    const search = screen.getByRole("searchbox");
+    await user.selectOptions(courseFilter, course.id);
+    expect(
+      await screen.findByText(/No notes match the current filters/),
+    ).toBeInTheDocument();
+    await user.type(search, "missing");
+    await waitFor(() =>
+      expect(request).toHaveBeenLastCalledWith("missing", course.id, 0),
+    );
+    await user.click(screen.getByRole("button", { name: "Clear filters" }));
+    expect(await screen.findByText("1 saved note")).toBeInTheDocument();
+    expect(search).toHaveValue("");
+    expect(courseFilter).toHaveValue("");
+    expect(request).toHaveBeenLastCalledWith("", undefined, 0);
+    expect(screen.queryByRole("button", { name: "Clear filters" })).toBeNull();
+  });
+
   it("asks public readers to start a private session without requesting notes", () => {
     const request = vi.spyOn(api, "notebook");
     render(

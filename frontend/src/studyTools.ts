@@ -106,12 +106,13 @@ export const studyTools: StudyTool[] = [
   },
   {
     id: "rc",
-    title: "RC charging",
+    title: "RC charging and discharging",
     description:
-      "Find the time constant and fraction of an ideal voltage step reached.",
-    equation: "τ = RC; fraction charged = 1 − exp(−t/τ)",
+      "Compare voltage during charging with voltage and stored energy during discharge through the same resistor.",
+    equation:
+      "τ = RC; charging V/Vstep = 1 − exp(−t/τ); discharge V/V₀ = exp(−t/τ); E/E₀ = (V/V₀)²",
     assumptions:
-      "Assumes an ideal series RC circuit, an initially uncharged capacitor, and a constant voltage step. Resistance is entered in kΩ and capacitance in μF.",
+      "One ideal capacitor starts at zero volts and charges toward a constant source voltage. A second, initially charged capacitor discharges through the same resistance with the source removed. With 100 kΩ and 10 μF, enter 0.693147 s. The discharging capacitor then retains about half its initial voltage and one quarter of its initial energy because stored energy is proportional to voltage squared.",
     fields: [
       {
         id: "resistance",
@@ -135,8 +136,8 @@ export const studyTools: StudyTool[] = [
     id: "diffusion",
     title: "Diffusion timescale",
     description:
-      "Estimate how diffusion time scales with distance and diffusivity.",
-    equation: "t ≈ L²/D",
+      "Compare a characteristic diffusion time with the time for a cloud to spread along a line or across a plane.",
+    equation: "tscale = L²/D; ⟨r²⟩ = 2dDt",
     assumptions:
       "This is a characteristic timescale. Geometry, boundary conditions, advection, and reactions determine a full transport solution.",
     fields: [
@@ -253,25 +254,45 @@ export function calculateStudyTool(
         throw new Error(
           "These inputs exceed the calculator’s numeric range. Use smaller or larger values.",
         );
+      const elapsed = values.time / tau;
+      const remaining = Math.exp(-elapsed);
       result = [
         { label: "Time constant", value: tau, unit: "s" },
         {
           label: "Voltage step reached",
-          value: -Math.expm1(-values.time / tau) * 100,
+          value: -Math.expm1(-elapsed) * 100,
+          unit: "%",
+        },
+        {
+          label: "Initial voltage remaining during discharge",
+          value: remaining * 100,
+          unit: "%",
+        },
+        {
+          label: "Initial energy remaining during discharge",
+          value: remaining ** 2 * 100,
           unit: "%",
         },
       ];
       break;
     }
-    case "diffusion":
+    case "diffusion": {
+      const scale = (values.length * 1e-6) ** 2 / values.diffusivity;
       result = [
+        { label: "Characteristic diffusion time", value: scale, unit: "s" },
         {
-          label: "Characteristic diffusion time",
-          value: (values.length * 1e-6) ** 2 / values.diffusivity,
+          label: "Time to RMS distance on a line",
+          value: scale / 2,
+          unit: "s",
+        },
+        {
+          label: "Time to RMS distance in a plane",
+          value: scale / 4,
           unit: "s",
         },
       ];
       break;
+    }
     case "ohm": {
       const current = values.voltage / values.resistance;
       result = [
